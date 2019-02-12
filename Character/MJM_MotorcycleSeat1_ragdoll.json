@@ -1,0 +1,418 @@
+{
+	"male" : {
+		"ragdoll" : [
+			{  
+				"name": "root_jnt",
+				"parent": null,
+				"offset": { "x": 0.0, "y": 0.8, "z": 1.3 },
+				"rotation": { "x": 0.0, "y": 0.0, "z": 0.0, "w": 1.0 },
+				"bone": "root_jnt",
+				"shape": { "sphere": { "radius": 0.3 } },
+				"mass": 80.0,
+				"joint": null
+			},
+			{  
+				"name": "jnt_hips",
+				"parent": "root_jnt",
+				"offset": { "x": 0.0, "y": 0.0, "z": 0.0 },
+				"bone": "jnt_hips",
+				"shape": { "sphere": { "radius": 0.3 } },
+				"mass": 10.0,
+				"joint": {
+					"coneTwist": { 
+						"swing1": 0.0, "swing2": 0.0, "twist": 0.0, 
+						"boneDir": { "x": 0.0, "y": 0.0, "z": 1.0 },
+						"frontDir": { "x": 0.0, "y": 1.0, "z": 0.0 },
+						"centerDir": { "x": 0.0, "y": 1.0, "z": 0.3 }
+					}
+				}
+			},
+			{  
+				"name": "Spine",
+				"parent": "jnt_hips",
+				"offset": { "x": 0.7, "y": 0.0, "z": 2.7 },
+				"bone": "Spine",
+				"shape": { "sphere": { "radius": 0.3 } },
+				"mass": 10.0,
+				"joint": {
+					"coneTwist": { 
+						"swing1": 5.0, "swing2": 5.0, "twist": 0.3, 
+						"boneDir": { "x": 0.0, "y": 0.2, "z": 1.0 },
+						"frontDir": { "x": 0.0, "y": 1.0, "z": 0.0 },
+						"centerDir": { "x": 0.0, "y": 0.0, "z": 1.0 }
+					}
+				}
+			},
+			{  
+				"name": "Shoulders",
+				"parent": "Spine",
+				"offset": { "x": 0.0, "y": 0.0, "z": 3.6 },
+				"bone": "Spine2",
+				"shape": { "sphere": { "radius": 0.3 } },
+				"mass": 5.0,
+				"joint": {
+					"coneTwist": {
+						"swing1": 5.0, "swing2": 5.0, "twist": 0.3, 
+						"boneDir": { "x": 0.0, "y": 0.0, "z": 1.0 },
+						"frontDir": { "x": 0.0, "y": 1.0, "z": 0.0 },
+						"centerDir": { "x": 0.0, "y": -0.2, "z": 1.0 }
+					}
+				}
+			},
+			{  
+				"name": "Head",
+				"parent": "Shoulders",
+				"offset": { "x": 0.0, "y": 0.0, "z": 4.9 },
+				"bone": "Neck",
+				"shape": { "sphere": { "radius": 0.5 } },
+				"mass": 2.0,
+				"joint": {
+					"coneTwist": {
+						"swing1": 10.0, "swing2": 10.0, "twist": 10.0, 
+						"softness": 0.25,
+						"boneDir": { "x": 0.0, "y": 0.0, "z": 1.0 },
+						"frontDir": { "x": 0.0, "y": 1.0, "z": 0.0 },
+						"centerDir": { "x": 0.0, "y": -0.9, "z": 1.0 }
+					}
+				}
+			},
+			{  
+				"name": "LeftUpLeg",
+				"parent": "Hips",
+				"offset": { "x": -0.7, "y": 0.0, "z": 1.3 },
+				"bone": "LeftUpLeg",
+				"shape": { "sphere": { "radius": 0.4 } },
+				"mass": 10.0,
+				"joint": {
+					"coneTwist": {
+						"swing1": 3.0, "swing2": 3.0, "twist": 5.0, 
+						"boneDir": { "x": 0.0, "y": -0.2, "z": -1.0 },
+						"frontDir": { "x": 0.0, "y": 1.0, "z": 0.0 },
+						"centerDir": { "x": 0.0, "y": -1.0, "z": -0.5 }
+					}
+				}
+			},
+			{  
+				"name": "LeftLeg",
+				"parent": "LeftUpLeg",
+				"offset": { "x": -0.8, "y": 0.0, "z": 0.3 },
+				"bone": "LeftLeg",
+				"shape": { "sphere": { "radius": 0.3 } },
+				"mass": 5.0,
+				"joint": {
+					"coneTwist": {
+						"swing1": 0.3, "swing2": 0.3, "twist": 0.3, 
+						"boneDir": { "x": 0.0, "y": 0.0, "z": -1.0 },
+						"frontDir": { "x": 0.0, "y": 1.0, "z": 0.0 },
+						"centerDir": { "x": 0.0, "y": -0.5, "z": -1.0 }
+					}
+				}
+			},
+			{  
+				"name": "RightUpLeg",
+				"parent": "Hips",
+				"offset": { "x": 0.7, "y": 0.0, "z": 1.3 },
+				"bone": "RightUpLeg",
+				"shape": { "sphere": { "radius": 0.4 } },
+				"mass": 10.0,
+				"joint": {
+					"coneTwist": {
+						"swing1": 3.0, "swing2": 3.0, "twist": 5.0, 
+						"boneDir": { "x": 0.0, "y": -0.2, "z": -1.0 },
+						"frontDir": { "x": 0.0, "y": 1.0, "z": 0.0 },
+						"centerDir": { "x": 0.0, "y": -1.0, "z": -0.5 }
+					}
+				}
+			},
+			{  
+				"name": "RightLeg",
+				"parent": "RightUpLeg",
+				"offset": { "x": 0.8, "y": 0.0, "z": 0.3 },
+				"bone": "RightLeg",
+				"shape": { "sphere": { "radius": 0.3 } },
+				"mass": 5.0,
+				"joint": {
+					"coneTwist": {
+						"swing1": 0.3, "swing2": 0.3, "twist": 0.3, 
+						"boneDir": { "x": 0.0, "y": 0.0, "z": -1.0 },
+						"frontDir": { "x": 0.0, "y": 1.0, "z": 0.0 },
+						"centerDir": { "x": 0.0, "y": -0.5, "z": -1.0 }
+					}
+				}
+			},
+			{  
+				"name": "LeftArm",
+				"parent": "Shoulders",
+				"offset": { "x": -1.6, "y": 0.0, "z": 3.75 },
+				"rotation": { "x": 0.0, "y": 0.0, "z": 0.0, "w": 1.0 },
+				"bone": "LeftArm",
+				"shape": { "sphere": { "radius": 0.4 } },
+				"mass": 2.0,
+				"joint": {
+					"coneTwist": {
+						"swing1": 45.0, "swing2": 70.0, "twist": 22.5, 
+						"boneDir": { "x": -1.0, "y": 0.0, "z": 0.0 },
+						"frontDir": { "x": 0.0, "y": 0.0, "z": -1.0 },
+						"centerDir": { "x": -0.5, "y": 0.1, "z": -1.0 }
+					}
+				}
+			},
+			{  
+				"name": "LeftForeArm",
+				"parent": "LeftArm",
+				"offset": { "x": -3.0, "y": -0.15, "z": 3.65 },
+				"bone": "LeftForeArm",
+				"shape": { "sphere": { "radius": 0.3 } },
+				"mass": 10.0,
+				"joint": {
+					"coneTwist": {
+						"swing1": 45.0, "swing2": 45.0, "twist": 0.0, 
+						"boneDir": { "x": -1.0, "y": 0.0, "z": 0.0 },
+						"frontDir": { "x": 0.0, "y": 1.0, "z": 0.0 },
+						"centerDir": { "x": -1.0, "y": 2.0, "z": 0.6 }
+					}
+				}
+			},
+			{  
+				"name": "RightArm",
+				"parent": "Shoulders",
+				"offset": { "x": 1.6, "y": 0.0, "z": 3.75 },
+				"bone": "RightArm",
+				"shape": { "sphere": { "radius": 0.4 } },
+				"mass": 2.0,
+				"joint": {
+					"coneTwist": {
+						"swing1": 45.0, "swing2": 70.0, "twist": 22.5, 
+						"boneDir": { "x": 1.0, "y": 0.0, "z": 0.0 },
+						"frontDir": { "x": 0.0, "y": 0.0, "z": 1.0 },
+						"centerDir": { "x": 0.5, "y": 0.1, "z": -1.0 }
+					}
+				}
+			},
+			{  
+				"name": "RightForeArm",
+				"parent": "RightArm",
+				"offset": { "x": 3.0, "y": -0.15, "z": 3.65 },
+				"bone": "RightForeArm",
+				"shape": { "sphere": { "radius": 0.3 } },
+				"mass": 10.0,
+				"joint": {
+					"coneTwist": {
+						"swing1": 45.0, "swing2": 45.0, "twist": 0.0, 
+						"boneDir": { "x": 1.0, "y": 0.0, "z": 0.0 },
+						"frontDir": { "x": 0.0, "y": 1.0, "z": 0.0 },
+						"centerDir": { "x": 1.0, "y": 2.0, "z": 0.6 }
+					}
+				}
+			}
+		]
+	},
+	"female" : {
+		"ragdoll" : [
+			{  
+				"name": "root_jnt",
+				"parent": null,
+				"offset": { "x": 0.0, "y": 0.8, "z": 1.3 },
+				"rotation": { "x": 0.0, "y": 0.0, "z": 0.0, "w": 1.0 },
+				"bone": "root_jnt",
+				"shape": { "sphere": { "radius": 0.3 } },
+				"mass": 80.0,
+				"joint": null
+			},
+			{  
+				"name": "jnt_hips",
+				"parent": "root_jnt",
+				"offset": { "x": 0.0, "y": 0.0, "z": 0.0 },
+				"bone": "jnt_hips",
+				"shape": { "sphere": { "radius": 0.3 } },
+				"mass": 10.0,
+				"joint": {
+					"coneTwist": { 
+						"swing1": 0.0, "swing2": 0.0, "twist": 0.0, 
+						"boneDir": { "x": 0.0, "y": 0.0, "z": 1.0 },
+						"frontDir": { "x": 0.0, "y": 1.0, "z": 0.0 },
+						"centerDir": { "x": 0.0, "y": 1.0, "z": 0.3 }
+					}
+				}
+			},
+			{  
+				"name": "Spine",
+				"parent": "jnt_hips",
+				"offset": { "x": 0.7, "y": 0.0, "z": 2.7 },
+				"bone": "Spine",
+				"shape": { "sphere": { "radius": 0.3 } },
+				"mass": 10.0,
+				"joint": {
+					"coneTwist": { 
+						"swing1": 5.0, "swing2": 5.0, "twist": 0.3, 
+						"boneDir": { "x": 0.0, "y": 0.2, "z": 1.0 },
+						"frontDir": { "x": 0.0, "y": 1.0, "z": 0.0 },
+						"centerDir": { "x": 0.0, "y": 0.0, "z": 1.0 }
+					}
+				}
+			},
+			{  
+				"name": "Shoulders",
+				"parent": "Spine",
+				"offset": { "x": 0.0, "y": 0.0, "z": 3.65 },
+				"bone": "Spine2",
+				"shape": { "sphere": { "radius": 0.3 } },
+				"mass": 5.0,
+				"joint": {
+					"coneTwist": {
+						"swing1": 5.0, "swing2": 5.0, "twist": 0.3, 
+						"boneDir": { "x": 0.0, "y": 0.0, "z": 1.0 },
+						"frontDir": { "x": 0.0, "y": 1.0, "z": 0.0 },
+						"centerDir": { "x": 0.0, "y": -0.2, "z": 1.0 }
+					}
+				}
+			},
+			{  
+				"name": "Head",
+				"parent": "Shoulders",
+				"offset": { "x": 0.0, "y": 0.0, "z": 4.9 },
+				"bone": "Neck",
+				"shape": { "sphere": { "radius": 0.5 } },
+				"mass": 2.0,
+				"joint": {
+					"coneTwist": {
+						"swing1": 10.0, "swing2": 10.0, "twist": 10.0, 
+						"softness": 0.25,
+						"boneDir": { "x": 0.0, "y": 0.0, "z": 1.0 },
+						"frontDir": { "x": 0.0, "y": 1.0, "z": 0.0 },
+						"centerDir": { "x": 0.0, "y": -0.9, "z": 1.0 }
+					}
+				}
+			},
+			{  
+				"name": "LeftUpLeg",
+				"parent": "Hips",
+				"offset": { "x": -0.7, "y": 0.0, "z": 1.3 },
+				"bone": "LeftUpLeg",
+				"shape": { "sphere": { "radius": 0.4 } },
+				"mass": 10.0,
+				"joint": {
+					"coneTwist": {
+						"swing1": 3.0, "swing2": 3.0, "twist": 5.0, 
+						"boneDir": { "x": 0.0, "y": -0.2, "z": -1.0 },
+						"frontDir": { "x": 0.0, "y": 1.0, "z": 0.0 },
+						"centerDir": { "x": 0.0, "y": -1.0, "z": -0.5 }
+					}
+				}
+			},
+			{  
+				"name": "LeftLeg",
+				"parent": "LeftUpLeg",
+				"offset": { "x": -0.8, "y": 0.0, "z": 0.3 },
+				"bone": "LeftLeg",
+				"shape": { "sphere": { "radius": 0.3 } },
+				"mass": 5.0,
+				"joint": {
+					"coneTwist": {
+						"swing1": 0.3, "swing2": 0.3, "twist": 0.3, 
+						"boneDir": { "x": 0.0, "y": 0.0, "z": -1.0 },
+						"frontDir": { "x": 0.0, "y": 1.0, "z": 0.0 },
+						"centerDir": { "x": 0.0, "y": -0.5, "z": -1.0 }
+					}
+				}
+			},
+			{  
+				"name": "RightUpLeg",
+				"parent": "Hips",
+				"offset": { "x": 0.7, "y": 0.0, "z": 1.3 },
+				"bone": "RightUpLeg",
+				"shape": { "sphere": { "radius": 0.4 } },
+				"mass": 10.0,
+				"joint": {
+					"coneTwist": {
+						"swing1": 3.0, "swing2": 3.0, "twist": 5.0, 
+						"boneDir": { "x": 0.0, "y": -0.2, "z": -1.0 },
+						"frontDir": { "x": 0.0, "y": 1.0, "z": 0.0 },
+						"centerDir": { "x": 0.0, "y": -1.0, "z": -0.5 }
+					}
+				}
+			},
+			{  
+				"name": "RightLeg",
+				"parent": "RightUpLeg",
+				"offset": { "x": 0.8, "y": 0.0, "z": 0.3 },
+				"bone": "RightLeg",
+				"shape": { "sphere": { "radius": 0.3 } },
+				"mass": 5.0,
+				"joint": {
+					"coneTwist": {
+						"swing1": 0.3, "swing2": 0.3, "twist": 0.3, 
+						"boneDir": { "x": 0.0, "y": 0.0, "z": -1.0 },
+						"frontDir": { "x": 0.0, "y": 1.0, "z": 0.0 },
+						"centerDir": { "x": 0.0, "y": -0.5, "z": -1.0 }
+					}
+				}
+			},
+			{  
+				"name": "LeftArm",
+				"parent": "Shoulders",
+				"offset": { "x": -1.6, "y": 0.0, "z": 3.75 },
+				"rotation": { "x": 0.0, "y": 0.0, "z": 0.0, "w": 1.0 },
+				"bone": "LeftArm",
+				"shape": { "sphere": { "radius": 0.4 } },
+				"mass": 2.0,
+				"joint": {
+					"coneTwist": {
+						"swing1": 45.0, "swing2": 70.0, "twist": 22.5, 
+						"boneDir": { "x": -1.0, "y": 0.0, "z": 0.0 },
+						"frontDir": { "x": 0.0, "y": 0.0, "z": -1.0 },
+						"centerDir": { "x": -0.5, "y": 0.1, "z": -1.0 }
+					}
+				}
+			},
+			{  
+				"name": "LeftForeArm",
+				"parent": "LeftArm",
+				"offset": { "x": -3.0, "y": -0.15, "z": 3.65 },
+				"bone": "LeftForeArm",
+				"shape": { "sphere": { "radius": 0.3 } },
+				"mass": 10.0,
+				"joint": {
+					"coneTwist": {
+						"swing1": 45.0, "swing2": 45.0, "twist": 0.0, 
+						"boneDir": { "x": -1.0, "y": 0.0, "z": 0.0 },
+						"frontDir": { "x": 0.0, "y": 1.0, "z": 0.0 },
+						"centerDir": { "x": -1.0, "y": 2.0, "z": 0.6 }
+					}
+				}
+			},
+			{  
+				"name": "RightArm",
+				"parent": "Shoulders",
+				"offset": { "x": 1.6, "y": 0.0, "z": 3.75 },
+				"bone": "RightArm",
+				"shape": { "sphere": { "radius": 0.4 } },
+				"mass": 2.0,
+				"joint": {
+					"coneTwist": {
+						"swing1": 45.0, "swing2": 70.0, "twist": 22.5, 
+						"boneDir": { "x": 1.0, "y": 0.0, "z": 0.0 },
+						"frontDir": { "x": 0.0, "y": 0.0, "z": 1.0 },
+						"centerDir": { "x": 0.5, "y": 0.1, "z": -1.0 }
+					}
+				}
+			},
+			{  
+				"name": "RightForeArm",
+				"parent": "RightArm",
+				"offset": { "x": 3.0, "y": -0.15, "z": 3.65 },
+				"bone": "RightForeArm",
+				"shape": { "sphere": { "radius": 0.3 } },
+				"mass": 10.0,
+				"joint": {
+					"coneTwist": {
+						"swing1": 45.0, "swing2": 45.0, "twist": 0.0, 
+						"boneDir": { "x": 1.0, "y": 0.0, "z": 0.0 },
+						"frontDir": { "x": 0.0, "y": 1.0, "z": 0.0 },
+						"centerDir": { "x": 1.0, "y": 2.0, "z": 0.6 }
+					}
+				}
+			}
+		]
+	}
+}

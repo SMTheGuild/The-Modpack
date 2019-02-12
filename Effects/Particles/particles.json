@@ -1,0 +1,8 @@
+{
+	"particleSystemList":
+	[
+		"reverse_construct_afterburner.json",
+		"reverse_construct_afterburner_BurstThrust_01.json",
+		"reverse_construct_afterburner_startup.json"
+	]
+}

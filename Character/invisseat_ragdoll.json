@@ -1,0 +1,30 @@
+{
+	"male" : {
+		"ragdoll" : [
+			{  
+				"name": "Hips",
+				"parent": null,
+				"offset": { "x": 0.0, "y": 0.0, "z": 0.0 },
+				"rotation": { "x": 0.0, "y": 0.0, "z": 0.0, "w": 1.0 },
+				"bone": "Hips",
+				"shape": { "sphere": { "radius": 0.3 } },
+				"mass": 0.0001,
+				"joint": null
+			}
+		]
+	},
+	"female" : {
+		"ragdoll" : [
+			{  
+				"name": "Hips",
+				"parent": null,
+				"offset": { "x": 0.0, "y": 0.0, "z": 0.0 },
+				"rotation": { "x": 0.0, "y": 0.0, "z": 0.0, "w": 1.0 },
+				"bone": "Hips",
+				"shape": { "sphere": { "radius": 0.3 } },
+				"mass": 0.0001,
+				"joint": null
+			}
+		]
+	}
+}

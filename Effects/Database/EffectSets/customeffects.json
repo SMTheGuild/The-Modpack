@@ -1,0 +1,107 @@
+{
+	"ReverseThruster":
+	{
+		"parameterList":
+		{
+			"velocity": 0.0,
+			"power": 0.0,
+			"color": "007fff",
+			"radius": 1.5,
+			"intensity": 0.01
+		},
+		"effectList":
+		[
+			{
+				"type": "audio",
+				"name": "Thruster",
+				"offset": { "x": 0.0, "y": 0.0, "z": -0.5 },
+				"parameters":
+				[
+					"velocity",
+					"power"
+				],
+				"delay": 0.0
+			},
+			{
+				"type": "light",
+				"name": "Point", //No proper light definitions atm, this is just a temporary WIP solution
+				"offset": { "x": 0.0, "y": 0.0, "z": -0.875 },
+				"parameters":
+				[
+					"color",
+					"radius",
+					"intensity"
+				],
+				"delay": 0.0
+			},
+			{
+				"type": "particle",
+				"name": "reverse_construct_afterburner_BurstThrust_01",
+				"offset": { "x": 0.0, "y": 0.0, "z": -0.6125 },
+				"delay": 0.0
+			},
+			{
+				"type": "particle",
+				"name": "reverse_construct_afterburner_startup",
+				"offset": { "x": 0.0, "y": 0.0, "z": -0.5 },
+				"delay": 0.25
+			},
+			{
+				"type": "particle",
+				"name": "reverse_construct_afterburner", 
+				"offset": { "x": 0.0, "y": 0.0, "z": -0.5 },
+				"delay": 0.425
+			}
+		]
+	},
+	"ModHeadLight":
+	{
+		"parameterList":
+		{
+			"color": "ffff66",
+			"coneAngle": 25.0,
+			"coneFade": 0.5,
+			"luminance": 0.5
+		},
+		"effectList":
+		[
+			{
+				"type": "light",
+				"name": "SpotLight",
+				"direction": { "x": 0, "y": 0, "z": 1 },
+				"parameters":
+				[
+					"color",
+					"coneAngle",
+					"coneFade",
+					"luminance"
+				],
+				"delay": 0.0
+			}
+		]
+	},
+	"ModLightCube":
+	{
+		"parameterList":
+		{
+			"color": "ffff66",
+			"radius": 20,
+			"intensity": 0.5
+		},
+		"effectList":
+		[
+			{
+				"type": "light",
+				"name": "Point",
+				"offset": { "x": 0.0, "y": 0.0, "z": 0.0 },
+				"parameters":
+				[
+					"color",
+					"radius",
+					"intensity"
+				],
+				"delay": 0.0
+			}
+		]
+	}
+}
