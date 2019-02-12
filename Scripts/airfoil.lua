@@ -3,7 +3,7 @@ Made by DasEtwas
 All rights reserved
 Donated to The Modpack Team! Thanks DasEtwas!
 ]]--
-
+-- TEST
 airDensity = 2.75
 maxAcceleration = 180 -- m/(s^2) max acceleration
 movementSleep = 10 -- how many ticks it takes for previously completely still wings to activate when velocity:length() > sleepVel
