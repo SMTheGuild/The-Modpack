@@ -3,21 +3,13 @@ Made by DasEtwas
 All rights reserved
 Donated to The Modpack Team! Thanks DasEtwas!
 ]]--
--- TEST VM TEST 2 host machine test
+
 airDensity = 2.75
 maxAcceleration = 180 -- m/(s^2) max acceleration
 movementSleep = 10 -- how many ticks it takes for previously completely still wings to activate when velocity:length() > sleepVel
 sleepVel = 0.3 -- m/s
 sleepTime = 5 -- how long it takes for a wing to fall asleep
-
-function vecString(vec)
-	if not vec then return "[nil vector]" end
-	return "["..tostring(math.floor((sm.vec3.getX(vec) * 1000) + 0.5) / 1000)..",".. tostring(math.floor((sm.vec3.getY(vec) * 1000) + 0.5) / 1000)..",".. tostring(math.floor((sm.vec3.getZ(vec) * 1000) + 0.5) / 1000).."]"
-end
-
-function form(num)
-	return math.floor((num * 100000) + 0.5) / 100000
-end
+debugMode = false
 
 function sign(num)
 	if num < 0 then
@@ -29,136 +21,88 @@ function sign(num)
 	end
 end
 
-function equals(vec1, vec2)
-	return sm.vec3.getX(vec1) == sm.vec3.getX(vec2) and sm.vec3.getY(vec1) == sm.vec3.getY(vec2) and sm.vec3.getZ(vec1) == sm.vec3.getZ(vec2)
-end
-
 function doAirfoilStuff( self, timeStep )
-	if form(timeStep) ~= 0.025 then
-		print("[Wings] irregular timestep! " .. tostring(timeStep))
-	end
-	
 	if self.sleepTimer == nil then self.sleepTimer = 0 end
-	
-	if self.lastPosition then
-		local currentPos = sm.shape.getWorldPosition(self.shape)
+	if self.acceleration == nil then self.acceleration = 0 end
+    if self.sleep == nil then self.sleep = movementSleep end
+    
+    
+    self.globalVel = self.shape.velocity
+	local globalVelL = self.globalVel:length()
+    
+    if globalVelL < sleepVel then
+		if self.sleepTimer < sleepTime then
+			self.sleepTimer = self.sleepTimer + 1
+		end
+	else
+		self.sleepTimer = 0
+	end
 
-		local globalVel = (currentPos - self.lastPosition) / timeStep
-		local globalVelL = globalVel:length()
-		
-		if globalVelL < sleepVel then
-			if self.sleepTimer < sleepTime then
-				self.sleepTimer = self.sleepTimer + 1
-			end
-		else
-			self.sleepTimer = 0
-		end
+	if self.sleepTimer >= sleepTime then -- fall asleep
+		self.sleep = movementSleep
+	elseif self.sleep > 0 then
+		self.sleep = self.sleep - 1
+	end
 
-		if self.parentBodyMass ~= sm.body.getMass(self.shape:getBody()) then
-			self.sleepTimer = sleepTime
+    if self.sleepTimer == 0 then
+		self.acceleration = globalVelL
+		
+		if self.lastVelocity then
+			self.acceleration = (globalVelL - self.lastVelocity) / timeStep
 		end
 		
-		if self.sleepTimer >= sleepTime then -- fall asleep
-			self.sleep = movementSleep
-		elseif self.sleep > 0 then
-			self.sleep = self.sleep - 1
-		end
-		
-		if self.sleepTimer == 0 then
-			self.acceleration = globalVelL
-			
-			if self.lastVelocity then
-				self.acceleration = (globalVelL - self.lastVelocity) / timeStep
-			end
-			
-			self.lastVelocity = globalVelL
-		end
-	
-		if self.sleep == 0 then
-			if math.abs(self.acceleration) < maxAcceleration then
-				local localX = sm.shape.getRight(self.shape)
-				local localY = sm.shape.getUp(self.shape)
-				local localZ = localX:cross(localY) -- normal vector
-				local aSin = -math.sin(math.rad(self.angle))
-				local aCos = math.cos(math.rad(self.angle))
-				local localUp = localZ * aCos + localX * aSin
-				
-				self.normalVel = globalVel:dot(localUp)
-				self.lift = airDensity * self.normalVel * self.normalVel * 0.5 * self.area * sign(self.normalVel)
-				
-				if globalVelL < 50 then
-					sm.physics.applyImpulse(self.shape, sm.vec3.new(-self.lift * timeStep * 40 * aSin, self.lift * timeStep * 40 * aCos, 0))
-				end
-			end
-		end
-		
+		self.lastVelocity = globalVelL
 	end
 	
-	self.lastPosition = sm.shape.getWorldPosition(self.shape)
-	self.parentBodyMass = sm.body.getMass(self.shape:getBody())
+	if self.sleep == 0 or debugMode then
+		if math.abs(self.acceleration) < maxAcceleration and globalVelL < 600 then
+            for _,surface in pairs(self.data.surfaces) do
+                applyAirfoilImpulse(
+                    self,
+                    timeStep,
+                    surface.area,
+                    self.angle * surface.angleModifier + surface.angleOffset,
+                    surface.offset +
+                        surface.offsetModifierSin * -math.sin(math.rad(self.angle)) +
+                        surface.offsetModifierCos * math.cos(math.rad(self.angle)) +
+                        surface.offsetModifierTan * math.tan(math.rad(self.angle))
+                )
+            end
+        end
+	end
+    
+    if self.shape.body:hasChanged(sm.game.getCurrentTick() - 1) then
+		self.sleepTimer = sleepTime
+	end
 end
 
-DefaultBig = class( nil )
-DefaultBig.area = 1
-DefaultBig.sleep = movementSleep
-DefaultBig.angle = 0
-
-function DefaultBig.server_onFixedUpdate( self, timeStep )
-	doAirfoilStuff(self, timeStep)
+function applyAirfoilImpulse( self, timeStep, area, angle, offset )
+    --[[
+        dunno if this is even right but I'll keep it here
+        
+        Flappywing:
+            Front = -self.shape.up
+            Side  = self.shape.right
+        Wings:
+            Front = self.shape.right
+            Side  = self.shape.up
+    ]]
+    
+    local localX = self.shape.up --Front up
+	local localY = self.shape.right --Side right
+	local localZ = -self.shape.at --Top/Bottom --localX:cross(localY)
+	local aSin = -math.sin(math.rad(angle))
+	local aCos = math.cos(math.rad(angle))
+	local localUp = localZ * aCos + localX * aSin
+	
+	local normalVel = self.globalVel:dot(localUp)
+	local lift = airDensity * normalVel * normalVel * 0.5 * area * sign(normalVel)
+    
+    local toImpulse = sm.vec3.new(0, lift * timeStep * 40 * aCos, -lift * timeStep * 40 * aSin)
+	if debugMode then
+        self.network:sendToClients("client_createParticle", self.shape.worldPosition + self.shape.worldRotation * offset)
+    end
+	sm.physics.applyImpulse(self.shape, toImpulse, false, offset)
 end
 
-DefaultSmall = class( nil )
-DefaultSmall.area = 0.25
-DefaultSmall.sleep = movementSleep
-DefaultSmall.angle = 0
-
-function DefaultSmall.server_onFixedUpdate( self, timeStep )
-	doAirfoilStuff(self, timeStep)
-end
-
-SmallAngled00 = class( nil )
-SmallAngled00.area = 0.0625
-SmallAngled00.sleep = movementSleep
-SmallAngled00.angle = 0
-
-function SmallAngled00.server_onFixedUpdate( self, timeStep )
-	doAirfoilStuff(self, timeStep)
-end
---[[
-SmallAngled15 = class( nil )
-SmallAngled15.area = 0.0625
-SmallAngled15.sleep = movementSleep
-SmallAngled15.angle = 15
-
-function SmallAngled15.server_onFixedUpdate( self, timeStep )
-	doAirfoilStuff(self, timeStep)
-end
-
-SmallAngled30 = class( nil )
-SmallAngled30.area = 0.0625
-SmallAngled30.sleep = movementSleep
-SmallAngled30.angle = 30
-
-function SmallAngled30.server_onFixedUpdate( self, timeStep )
-	doAirfoilStuff(self, timeStep)
-end
-
-SmallAngled45 = class( nil )
-SmallAngled45.area = 0.0625
-SmallAngled45.sleep = movementSleep
-SmallAngled45.angle = 45
-
-function SmallAngled45.server_onFixedUpdate( self, timeStep )
-	doAirfoilStuff(self, timeStep)
-end
-
-DefaultBigConnector = class( nil )
-DefaultBigConnector.area = 2.3
-DefaultBigConnector.sleep = movementSleep
-DefaultBigConnector.angle = 0
-
-function DefaultBigConnector.server_onFixedUpdate( self, timeStep )
-	doAirfoilStuff(self, timeStep)
-end
-]]--
 -- end of file --
