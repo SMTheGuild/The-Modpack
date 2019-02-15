@@ -754,7 +754,6 @@ function ascii.server_onRefresh( self )
 end
 
 function ascii.server_init( self ) 
-
 	self.power = 0
 	self.buttonwasactive = false
 	self.bin = {
@@ -1289,6 +1288,7 @@ function colorblock.server_onFixedUpdate( self, dt )
 					end
 				end
 				if color and newcolor then
+					print(color)
 					for k, prevcolor in pairs(self.prevcolor) do
 						if prevcolor == color then
 							parents[k]:getShape().color = sm.color.new(newcolor)
