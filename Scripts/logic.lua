@@ -754,6 +754,7 @@ function ascii.server_onRefresh( self )
 end
 
 function ascii.server_init( self ) 
+
 	self.power = 0
 	self.buttonwasactive = false
 	self.bin = {

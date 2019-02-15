@@ -513,7 +513,7 @@
 			},
 			"density": 250.0,
 			"physicsMaterial": "Plastic",
-			"sticky": "-Y+X-X+Z-x",			
+			"sticky": "-Y+X-X+Z-X",			
 			"rotationSet": "PropY",
 			"qualityLevel": 2
 		},
