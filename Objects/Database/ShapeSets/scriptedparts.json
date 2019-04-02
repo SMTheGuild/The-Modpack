@@ -1017,14 +1017,7 @@
                             {
                                 "textureList": [
                                     "$GAME_DATA/Textures/transparent.tga",
-                                    "$GAME_DATA/Textures/transparent.tga",
-                                    "$GAME_DATA/Textures/nonor_nor.png"
-                                ],
-                                "material": "DifAsgNor"
-								/*
-                                "textureList": [
-                                    "$MOD_DATA/Objects/Textures/colorblock_dif.png",
-                                    "$GAME_DATA/Textures/transparent.tga",
+                                    "$MOD_DATA/Objects/Textures/colorblock_asg.png",
                                     "$GAME_DATA/Textures/nonor_nor.png"
                                 ],
                                 "material": "UVAnimDifAsgNor",
@@ -1032,7 +1025,6 @@
                                 {
                                     "uv0": { "u": 0.00390625, "v": 0.00390625 }
                                 }
-                                */                                
                             }
                         ],
 						"mesh": "$MOD_DATA/Objects/Mesh/color_block_16.obj"
@@ -1585,7 +1577,71 @@
                 "filename": "$MOD_DATA/Scripts/dynamite.lua",
                 "classname": "dynamite"
             }
-        }
+        },
+		{
+			"uuid": "f73fd8c7-61eb-416f-8374-9a4c26e6db8f",
+			"renderable": {
+				"lodList": [
+					{
+                        "subMeshList": [
+                            {
+                                "textureList": [
+                                    "$CHALLENGE_DATA/Objects/Textures/interactive/obj_interactive_soundcube_dif.tga",
+                                    "$CHALLENGE_DATA/Objects/Textures/interactive/obj_interactive_soundcube_asg.tga",
+                                    "$CHALLENGE_DATA/Objects/Textures/interactive/obj_interactive_soundcube_nor.tga"
+                                ],
+                                "material": "PoseAnimDifAsgNor"
+                            }
+                        ],
+                        "mesh": "$CHALLENGE_DATA/Objects/Mesh/interactive/obj_interactive_soundcube_off.fbx",
+                        "pose0": "$CHALLENGE_DATA/Objects/Mesh/interactive/obj_interactive_soundcube_on.fbx"
+                    }
+				]
+			},
+			"rotationSet": "PropYZ",
+			"color": "df7f00",
+			"box": { "x": 1, "y": 1, "z": 1 },
+			"density": 250.0,
+			"physicsMaterial": "Metal",
+            "scripted" : 
+			{
+				"filename": "$MOD_DATA/Scripts/tonegenerator.lua",
+				"classname": "tonegenerator"
+			},
+			"qualityLevel": 1
+		},
+		{
+			"uuid": "1d5d997e-efa9-478c-98ee-e452f5ff0dd2",
+			"renderable": {
+				"lodList": [
+					{
+                        "subMeshList": [
+                            {
+                                "textureList": [
+                                    "$CHALLENGE_DATA/Objects/Textures/interactive/obj_interactive_soundcube_dif.tga",
+                                    "$CHALLENGE_DATA/Objects/Textures/interactive/obj_interactive_soundcube_asg.tga",
+                                    "$CHALLENGE_DATA/Objects/Textures/interactive/obj_interactive_soundcube_nor.tga"
+                                ],
+                                "material": "PoseAnimDifAsgNor"
+                            }
+                        ],
+                        "mesh": "$CHALLENGE_DATA/Objects/Mesh/interactive/obj_interactive_soundcube_off.fbx",
+                        "pose0": "$CHALLENGE_DATA/Objects/Mesh/interactive/obj_interactive_soundcube_on.fbx"
+                    }
+				]
+			},
+			"rotationSet": "PropYZ",
+			"color": "df7f00",
+			"box": { "x": 1, "y": 1, "z": 1 },
+			"density": 250.0,
+			"physicsMaterial": "Metal",
+            "scripted" : 
+			{
+				"filename": "$MOD_DATA/Scripts/tonegenerator.lua",
+				"classname": "totegenerator"
+			},
+			"qualityLevel": 1
+		}
 
 
 

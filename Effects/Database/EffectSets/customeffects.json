@@ -103,5 +103,285 @@
 				"delay": 0.0
 			}
 		]
+	},
+	"tone0":
+	{
+		"parameterList":
+		{
+			"frequency": 0.0,
+			"power": 30.0
+		},
+		"effectList":
+		[
+			{
+				"type": "audio",
+				"name": "tonea",
+				"offset": { "x": 0.0, "y": 0.0, "z": 0.0 },
+				"parameters":
+				[
+					"frequency",
+					"power"
+				]
+			}
+		]
+	},
+	"tone1":
+	{
+		"parameterList":
+		{
+			"frequency": 0.0,
+			"power": 30.0
+		},
+		"effectList":
+		[
+			{
+				"type": "audio",
+				"name": "toneb",
+				"offset": { "x": 0.0, "y": 0.0, "z": 0.0 },
+				"parameters":
+				[
+					"frequency",
+					"power"
+				]
+			}
+		]
+	},
+	"tone2":
+	{
+		"parameterList":
+		{
+			"frequency": 0.0,
+			"power": 30.0
+		},
+		"effectList":
+		[
+			{
+				"type": "audio",
+				"name": "toned",
+				"offset": { "x": 0.0, "y": 0.0, "z": 0.0 },
+				"parameters":
+				[
+					"frequency",
+					"power"
+				]
+			}
+		]
+	},
+	"tone3":
+	{
+		"parameterList":
+		{
+			"frequency": 0.0,
+			"power": 30.0
+		},
+		"effectList":
+		[
+			{
+				"type": "audio",
+				"name": "tonec",
+				"offset": { "x": 0.0, "y": 0.0, "z": 0.0 },
+				"parameters":
+				[
+					"frequency",
+					"power"
+				]
+			}
+		]
+	},
+	"tote1":
+	{
+		"parameterList":
+		{
+			"pitch": 0.0,
+			"Intensity": 30.0
+		},
+		"effectList":
+		[
+			{
+				"type": "audio",
+				"name": "Retrobass",
+				"offset": { "x": 0.0, "y": 0.0, "z": 0.0 },
+				"parameters":
+				[
+					"pitch"
+				]
+			}
+		]
+	},
+	"tote2":
+	{
+		"parameterList":
+		{
+			"pitch": 0.0,
+			"Intensity": 30.0
+		},
+		"effectList":
+		[
+			{
+				"type": "audio",
+				"name": "Retrodrum",
+				"offset": { "x": 0.0, "y": 0.0, "z": 0.0 },
+				"parameters":
+				[
+					"pitch"
+				]
+			}
+		]
+	},
+	"tote3":
+	{
+		"parameterList":
+		{
+			"pitch": 0.0,
+			"Intensity": 30.0
+		},
+		"effectList":
+		[
+			{
+				"type": "audio",
+				"name": "Retrovoice",
+				"offset": { "x": 0.0, "y": 0.0, "z": 0.0 },
+				"parameters":
+				[
+					"pitch"
+				]
+			}
+		]
+	},
+	"tote4":
+	{
+		"parameterList":
+		{
+			"pitch": 0.0,
+			"Intensity": 30.0
+		},
+		"effectList":
+		[
+			{
+				"type": "audio",
+				"name": "Retrofmblip",
+				"offset": { "x": 0.0, "y": 0.0, "z": 0.0 },
+				"parameters":
+				[
+					"pitch"
+				]
+			}
+		]
+	},
+	"tote5":
+	{
+		"parameterList":
+		{
+			"pitch": 0.0,
+			"Intensity": 30.0
+		},
+		"effectList":
+		[
+			{
+				"type": "audio",
+				"name": "Dancebass",
+				"offset": { "x": 0.0, "y": 0.0, "z": 0.0 },
+				"parameters":
+				[
+					"pitch"
+				]
+			}
+		]
+	},
+	"tote6":
+	{
+		"parameterList":
+		{
+			"pitch": 0.0,
+			"Intensity": 30.0
+		},
+		"effectList":
+		[
+			{
+				"type": "audio",
+				"name": "Dancedrum",
+				"offset": { "x": 0.0, "y": 0.0, "z": 0.0 },
+				"parameters":
+				[
+					"pitch"
+				]
+			}
+		]
+	},
+	"tote7":
+	{
+		"parameterList":
+		{
+			"pitch": 0.0,
+			"Intensity": 30.0
+		},
+		"effectList":
+		[
+			{
+				"type": "audio",
+				"name": "Dancepad",
+				"offset": { "x": 0.0, "y": 0.0, "z": 0.0 },
+				"parameters":
+				[
+					"pitch"
+				]
+			}
+		]
+	},
+	"tote8":
+	{
+		"parameterList":
+		{
+			"pitch": 0.0,
+			"Intensity": 30.0
+		},
+		"effectList":
+		[
+			{
+				"type": "audio",
+				"name": "Dancevoice",
+				"offset": { "x": 0.0, "y": 0.0, "z": 0.0 },
+				"parameters":
+				[
+					"pitch"
+				]
+			}
+		]
+	},
+	"tote9":
+	{
+		"parameterList":
+		{
+			"pitch": 0.0,
+			"Intensity": 30.0
+		},
+		"effectList":
+		[
+			{
+				"type": "audio",
+				"name": "Retrowildblip",
+				"offset": { "x": 0.0, "y": 0.0, "z": 0.0 },
+				"parameters":
+				[
+					"pitch"
+				]
+			}
+		]
+	},
+	"tote10":
+	{
+		"parameterList":
+		{
+			"velocity": 0.0,
+			"Intensity": 30.0
+		},
+		"effectList":
+		[
+			{
+				"type": "audio",
+				"name": "event:/props/challengeball_rolling",
+				"parameters": [ "velocity" ]
+			}
+		]
 	}
 }

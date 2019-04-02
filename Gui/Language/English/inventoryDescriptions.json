@@ -861,6 +861,14 @@
         "title": "Timed Explosive - Dynamite",
         "description": "Press E to activate! Detonates 10 seconds after activation.\n\nActivate immediately with a button/switch/sensor/logic/timer\n\nUse to detonate larger explosives"
     },
+    "f73fd8c7-61eb-416f-8374-9a4c26e6db8f": {
+        "title": "Tonegenerator",
+        "description": ""
+    },
+    "1d5d997e-efa9-478c-98ee-e452f5ff0dd2": {
+        "title": "Totegenerator",
+        "description": ""
+    },
 
 
 

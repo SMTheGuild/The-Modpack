@@ -427,8 +427,9 @@ function AI.server_onFixedUpdate( self, dt )
 	local damping = nil
 	local lead = nil
 	local numberinputs = 0
-	local isON = true
-	for k,v in pairs(parents) do 
+	local isON = nil
+	local occupied = nil
+	for k,v in pairs(parents) do
 		if tostring(sm.shape.getColor(v:getShape())) == "eeeeeeff" and v:getType() == "scripted" and tostring(v:getShape():getShapeUuid()) ~= "6f2dd83e-bc0d-43f3-8ba5-d5209eb03d07" then
 			if whiteinput == nil then whiteinput = 0 end
 			whiteinput = whiteinput + v.power
@@ -454,6 +455,10 @@ function AI.server_onFixedUpdate( self, dt )
 			if math.abs(v.power)/4 > maxrange then maxrange = math.abs(v.power)/4 end	
 			numberinputs = numberinputs + 1
 			
+		elseif v:getType() == "seat" or v:getType() == "steering" then
+			--seat
+			occupied = ( (occupied == nil or occupied) and v.active)
+			
 		elseif tostring(sm.shape.getColor(v:getShape())) == "eeeeeeff" and (v:getType() ~= "scripted" or tostring(v:getShape():getShapeUuid()) == "6f2dd83e-bc0d-43f3-8ba5-d5209eb03d07") then
 			-- exceptionlist input 
 			if v:isActive() then
@@ -469,14 +474,27 @@ function AI.server_onFixedUpdate( self, dt )
 			else
 				self.pressed = false
 			end
+			
 		elseif v:getType() ~= "scripted" then
 			-- logic input
 			if not (tostring(v:getShape():getShapeUuid()) == "add3acc6-a6fd-44e8-a384-a7a16ce13c81" or tostring(v:getShape():getShapeUuid()) == "4081ca6f-6b80-4c39-9e79-e1f747039bec") then
 				-- do not turn on/off when sensor input, sensor input can be used as new 'eye'
-				isON = (isON and v.power ~= 0)
+				isON = ( (isON == nil or isON) and v.power ~= 0)
 			end
 		end
 	end
+	if isON == nil then -- no logic, only active when no unoccupied seat
+		isON = (occupied ~= false)
+	end
+	
+	if occupied == nil then
+		isON = (isON ~= false)
+	elseif occupied == true then
+		isON = occupied and (isON ~= false)
+	elseif occupied == false then
+		isON = (isON ~= false)
+	end
+	
 	self.damping = (damping or 80)  -- default damping
 	self.lead = (lead or 100)  -- default lead
 	

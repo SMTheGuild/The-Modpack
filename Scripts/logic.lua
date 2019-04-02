@@ -1219,12 +1219,12 @@ function colorblock.server_onFixedUpdate( self, dt )
 				elseif tostring(v:getShape().color) == "7f7f7fff" and not hasgrey then -- reflection
 					hasgrey = true
 					validcolored[v.id] = true
-				elseif tostring(v:getShape().color) == "4a4a4aff" and not hasblack then -- specular
+				elseif tostring(v:getShape().color) == "222222ff" and not hasblack then -- specular
 					hasblack = true
 					validcolored[v.id] = true
 				end
 			end
-			local white, grey, black = sm.color.new("eeeeeeff"), sm.color.new("7f7f7fff"), sm.color.new("4a4a4aff")
+			local white, grey, black = sm.color.new("eeeeeeff"), sm.color.new("7f7f7fff"), sm.color.new("222222ff")
 			for k, v in pairs(parents) do
 				if not validcolored[v.id] then
 					local color = v:getShape().color
@@ -1264,8 +1264,8 @@ function colorblock.server_onFixedUpdate( self, dt )
 					
 				if r==b and r==g then
 					-- ignore this color, don't "opti-color" it
-					if "222222ff" == tostring(color) then
-						v:getShape().color = sm.color.new("4a4a4aff")
+					if "4a4a4aff" == tostring(color) then  -- change grey to lighter grey
+						v:getShape().color = sm.color.new("7f7f7fff")
 					end
 				elseif g>r-9 and g>b then
 					sm.shape.setColor(v:getShape(),sm.color.new(0, 1, 0, 1))
@@ -1288,30 +1288,13 @@ function colorblock.server_onFixedUpdate( self, dt )
 					end
 				end
 				if color and newcolor then
-					print(color)
 					for k, prevcolor in pairs(self.prevcolor) do
-						if prevcolor == color then
+						if prevcolor == color and parents[k] then
 							parents[k]:getShape().color = sm.color.new(newcolor)
 						end
 					end
 				end
 			end
-			
-			if self.prevcolor and false then
-				if parents[1]:getShape().color == parents[2]:getShape().color then
-					parents[1]:getShape().color = self.prevcolor[2]
-					parents[2]:getShape().color = self.prevcolor[1]
-				end
-				if parents[2]:getShape().color == parents[3]:getShape().color then
-					parents[3]:getShape().color = self.prevcolor[2]
-					parents[2]:getShape().color = self.prevcolor[3]
-				end
-				if parents[1]:getShape().color == parents[3]:getShape().color then
-					parents[1]:getShape().color = self.prevcolor[3]
-					parents[3]:getShape().color = self.prevcolor[1]
-				end
-			end
-			
 			
 			
 		end
@@ -1350,19 +1333,31 @@ function colorblock.server_onFixedUpdate( self, dt )
 	self.interactable:setPower(self.power)
 end
 
+function colorblock.client_onCreate(self)
+	self.interactable:setGlowMultiplier(0)
+end
+
 function colorblock.client_onFixedUpdate( self, dt )
 	local uv = 0
+	local parentrgb = nil
 	local parents = self.interactable:getParents()
+	self.interactable:setGlowMultiplier(0)
 	for k, v in pairs(parents) do
-		if tostring(v:getShape().color) == "eeeeeeff" then -- glow
-			self.interactable:setGlowMultiplier(math.max(1,math.min(0,v.power)))
+		if tostring(v.shape:getShapeUuid()) == "921a2ace-b543-4ca3-8a9b-6f3dd3132fa9" --[[rgb block]] then
+			self.interactable:setUvFrameIndex(v:getUvFrameIndex())
+			self.interactable:setGlowMultiplier(v:getGlowMultiplier())
+			parentrgb = true
+		elseif tostring(v:getShape().color) == "eeeeeeff" then -- glow
+			self.interactable:setGlowMultiplier(math.max(0,math.min(1,v.power)))
 		elseif tostring(v:getShape().color) == "7f7f7fff" then -- reflection
 			uv = uv + math.max(0,math.min(255,v.power))
-		elseif tostring(v:getShape().color) == "4a4a4aff" then -- specular
+		elseif tostring(v:getShape().color) == "222222ff" then -- specular
 			uv = uv + math.max(0,math.min(255,v.power))*256
 		end
 	end
-	self.interactable:setUvFrameIndex(uv)	
+	if not parentrgb then
+		self.interactable:setUvFrameIndex(uv)
+	end
 end
 function round(x)
   if x%2 ~= 0.5 then
