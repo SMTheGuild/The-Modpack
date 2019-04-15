@@ -1,4 +1,6 @@
 
+dofile('functions.lua')
+
 -- mathblock.lua --
 mathblock = class( nil )
 mathblock.maxParentCount = -1
@@ -74,12 +76,6 @@ function mathblock.server_init( self )
 	else
 		self.storage:save( {mode = self.modetable[self.mode].value, power = self.power})
 	end
-	if not Gnumbers then Gnumbers = {} end
-	self.id = self.shape.id
-	Gnumbers[self.shape.id] = self.power
-end
-function mathblock.server_onDestroy(self)
-	Gnumbers[self.id] = nil
 end
 
 function mathblock.client_onCreate(self)
@@ -129,6 +125,7 @@ function mathblock.client_playsound(self, sound)
 end
 
 function mathblock.server_onFixedUpdate( self, dt )
+	
 	if self.doprint then
 		if self.forceprint then print('\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n') end --clear error from screen
 		print('mode:', self.modetable[self.mode].name)
@@ -138,6 +135,7 @@ function mathblock.server_onFixedUpdate( self, dt )
 	local mode = self.modetable[self.mode].value
 	
 	local parents = self.interactable:getParents()
+	
 	self.seatconnected = false
 	--if parents then
 		if not(mode == 29 or mode == 30 or mode == 31) then
@@ -160,22 +158,18 @@ function mathblock.server_onFixedUpdate( self, dt )
 		if mode == 0 then -- add
 			self.power = 0
 			for k,v in pairs(parents) do
-				self.power = self.power + (Gnumbers[v:getShape().id] ~= nil and Gnumbers[v:getShape().id] or v.power)
-			--print(Gnumbers[v:getShape().id], v:getShape().id)
+				self.power = self.power + (sm.interactable.getValue(v) or v.power)
 			end
+			
 		elseif mode == 1 then -- subtr
 			self.power = 0
-			--while(#parents > 2) do
-				--sm.interactable.disconnect(parents[1], self.interactable)
-				parents = self.interactable:getParents()
-			--end
 			if #parents == 1 then
-				self.power = 0 - (Gnumbers[parents[1]:getShape().id] ~= nil and Gnumbers[parents[1]:getShape().id] or sm.interactable.getPower(parents[1]))
+				self.power = 0 - (sm.interactable.getValue(parents[1]) or parents[1].power)
 			elseif #parents == 2 then
 				if tostring(sm.shape.getColor(parents[1]:getShape())) == "222222ff" or tostring(sm.shape.getColor(parents[2]:getShape())) == "eeeeeeff" then
-					self.power = (Gnumbers[parents[2]:getShape().id] ~= nil and Gnumbers[parents[2]:getShape().id] or sm.interactable.getPower(parents[2])) - (Gnumbers[parents[1]:getShape().id] ~= nil and Gnumbers[parents[1]:getShape().id] or sm.interactable.getPower(parents[1]))
+					self.power = (sm.interactable.getValue(parents[2]) or parents[2].power) - (sm.interactable.getValue(parents[1]) or parents[1].power)
 				else
-					self.power = (Gnumbers[parents[1]:getShape().id] ~= nil and Gnumbers[parents[1]:getShape().id] or sm.interactable.getPower(parents[1])) - (Gnumbers[parents[2]:getShape().id] ~= nil and Gnumbers[parents[2]:getShape().id] or sm.interactable.getPower(parents[2]))
+					self.power = (sm.interactable.getValue(parents[1]) or parents[1].power) - (sm.interactable.getValue(parents[2]) or parents[2].power)
 				end
 			elseif #parents > 2 then
 				local whiteinput = 0
@@ -184,10 +178,10 @@ function mathblock.server_onFixedUpdate( self, dt )
 				local hasnonwhite = false
 				for k, v in pairs(parents) do
 					if tostring(sm.shape.getColor(v:getShape())) == "eeeeeeff" then
-						whiteinput = whiteinput + (Gnumbers[v:getShape().id] ~= nil and Gnumbers[v:getShape().id] or v.power)
+						whiteinput = whiteinput + (sm.interactable.getValue(v) or v.power)
 						haswhite = true
 					else
-						nonwhiteinput = nonwhiteinput + (Gnumbers[v:getShape().id] ~= nil and Gnumbers[v:getShape().id] or v.power)
+						nonwhiteinput = nonwhiteinput + (sm.interactable.getValue(v) or v.power)
 						hasnonwhite = true
 					end
 				end
@@ -203,7 +197,7 @@ function mathblock.server_onFixedUpdate( self, dt )
 			--print('----')
 			for k,v in pairs(parents) do
 				--print(sm.interactable.getPower(v))
-				self.power = self.power * (Gnumbers[v:getShape().id] ~= nil and Gnumbers[v:getShape().id] or v.power)
+				self.power = self.power * (sm.interactable.getValue(v) or v.power)
 			end
 		elseif mode == 3 then  -- divide
 			self.power = 1
@@ -213,19 +207,19 @@ function mathblock.server_onFixedUpdate( self, dt )
 			--end
 			if #parents == 2 then
 				if tostring(sm.shape.getColor(parents[1]:getShape())) == "222222ff" or tostring(sm.shape.getColor(parents[2]:getShape())) == "eeeeeeff" then
-					self.power = (Gnumbers[parents[2]:getShape().id] ~= nil and Gnumbers[parents[2]:getShape().id] or sm.interactable.getPower(parents[2])) / (Gnumbers[parents[1]:getShape().id] ~= nil and Gnumbers[parents[1]:getShape().id] or sm.interactable.getPower(parents[1]))
+					self.power = (sm.interactable.getValue(parents[2]) or parents[2].power) / (sm.interactable.getValue(parents[1]) or parents[1].power)
 				else
-					self.power = (Gnumbers[parents[1]:getShape().id] ~= nil and Gnumbers[parents[1]:getShape().id] or sm.interactable.getPower(parents[1])) / (Gnumbers[parents[2]:getShape().id] ~= nil and Gnumbers[parents[2]:getShape().id] or sm.interactable.getPower(parents[2]))
+					self.power = (sm.interactable.getValue(parents[1]) or parents[1].power) / (sm.interactable.getValue(parents[2]) or parents[2].power)
 				end
-				if ((Gnumbers[parents[1]:getShape().id] ~= nil and Gnumbers[parents[1]:getShape().id] or sm.interactable.getPower(parents[1])) == 0 and (Gnumbers[parents[2]:getShape().id] ~= nil and Gnumbers[parents[2]:getShape().id] or sm.interactable.getPower(parents[2])) == 0) then self.power = 1 end
+				if ((sm.interactable.getValue(parents[1]) or parents[1].power) == 0 and (sm.interactable.getValue(parents[2]) or parents[2].power) == 0) then self.power = 1 end
 			elseif #parents> 2 then
 				local whitevalue = 0
 				local othervalue = 0
 				for k,v in pairs(parents) do
 					if tostring(sm.shape.getColor(v:getShape())) == "eeeeeeff" then
-						whitevalue = whitevalue + (Gnumbers[v:getShape().id] ~= nil and Gnumbers[v:getShape().id] or v.power)
+						whitevalue = whitevalue + (sm.interactable.getValue(v) or v.power)
 					else
-						othervalue = othervalue + (Gnumbers[v:getShape().id] ~= nil and Gnumbers[v:getShape().id] or v.power)
+						othervalue = othervalue + (sm.interactable.getValue(v) or v.power)
 					end
 				end
 				self.power = whitevalue/othervalue
@@ -238,8 +232,8 @@ function mathblock.server_onFixedUpdate( self, dt )
 				parents = self.interactable:getParents()
 			--end
 			if #parents == 2 then
-				local pow1 = (Gnumbers[parents[1]:getShape().id] ~= nil and Gnumbers[parents[1]:getShape().id] or parents[1].power)
-				local pow2 = (Gnumbers[parents[2]:getShape().id] ~= nil and Gnumbers[parents[2]:getShape().id] or parents[2].power)
+				local pow1 = (sm.interactable.getValue(parents[1]) or parents[1].power)
+				local pow2 = (sm.interactable.getValue(parents[2]) or parents[2].power)
 				if tostring(sm.shape.getColor(parents[2]:getShape())) == "222222ff" or tostring(sm.shape.getColor(parents[1]:getShape())) == "eeeeeeff" then
 					self.power = pow1%pow2
 				else
@@ -251,9 +245,9 @@ function mathblock.server_onFixedUpdate( self, dt )
 				local othervalue = 0
 				for k,v in pairs(parents) do
 					if tostring(sm.shape.getColor(v:getShape())) == "eeeeeeff" then
-						whitevalue = whitevalue + (Gnumbers[v:getShape().id] ~= nil and Gnumbers[v:getShape().id] or v.power)
+						whitevalue = whitevalue + (sm.interactable.getValue(v) or v.power)
 					else
-						othervalue = othervalue + (Gnumbers[v:getShape().id] ~= nil and Gnumbers[v:getShape().id] or v.power)
+						othervalue = othervalue + (sm.interactable.getValue(v) or v.power)
 					end
 				end
 				self.power = whitevalue%othervalue
@@ -266,10 +260,10 @@ function mathblock.server_onFixedUpdate( self, dt )
 				parents = self.interactable:getParents()
 			--end
 			if #parents == 1 then 
-				self.power = (Gnumbers[parents[1]:getShape().id] ~= nil and Gnumbers[parents[1]:getShape().id] or parents[1].power) ^ 2
+				self.power = (sm.interactable.getValue(parents[1]) or parents[1].power) ^ 2
 			elseif #parents == 2 then 
-				local pow1 = (Gnumbers[parents[1]:getShape().id] ~= nil and Gnumbers[parents[1]:getShape().id] or parents[1].power)
-				local pow2 = (Gnumbers[parents[2]:getShape().id] ~= nil and Gnumbers[parents[2]:getShape().id] or parents[2].power)
+				local pow1 = (sm.interactable.getValue(parents[1]) or parents[1].power)
+				local pow2 = (sm.interactable.getValue(parents[2]) or parents[2].power)
 				if tostring(sm.shape.getColor(parents[1]:getShape())) == "222222ff" or tostring(sm.shape.getColor(parents[2]:getShape())) == "eeeeeeff" then
 					-- switch p1 p2
 					self.power = pow2 ^ pow1
@@ -281,9 +275,9 @@ function mathblock.server_onFixedUpdate( self, dt )
 				local othervalue = 0
 				for k,v in pairs(parents) do
 					if tostring(sm.shape.getColor(v:getShape())) == "eeeeeeff" then
-						whitevalue = whitevalue + (Gnumbers[v:getShape().id] ~= nil and Gnumbers[v:getShape().id] or v.power)
+						whitevalue = whitevalue + (sm.interactable.getValue(v) or v.power)
 					else
-						othervalue = othervalue + (Gnumbers[v:getShape().id] ~= nil and Gnumbers[v:getShape().id] or v.power)
+						othervalue = othervalue + (sm.interactable.getValue(v) or v.power)
 					end
 				end
 				self.power = whitevalue^othervalue
@@ -296,10 +290,10 @@ function mathblock.server_onFixedUpdate( self, dt )
 				parents = self.interactable:getParents()
 			--end
 			if #parents == 1 then 
-				self.power = (Gnumbers[parents[1]:getShape().id] ~= nil and Gnumbers[parents[1]:getShape().id] or parents[1].power) ^ (1/2)
+				self.power = (sm.interactable.getValue(parents[1]) or parents[1].power) ^ (1/2)
 			elseif #parents == 2 then 
-				local pow1 = (Gnumbers[parents[1]:getShape().id] ~= nil and Gnumbers[parents[1]:getShape().id] or parents[1].power)
-				local pow2 = (Gnumbers[parents[2]:getShape().id] ~= nil and Gnumbers[parents[2]:getShape().id] or parents[2].power)
+				local pow1 = (sm.interactable.getValue(parents[1]) or parents[1].power)
+				local pow2 = (sm.interactable.getValue(parents[2]) or parents[2].power)
 				if tostring(sm.shape.getColor(parents[1]:getShape())) == "222222ff" or tostring(sm.shape.getColor(parents[2]:getShape())) == "eeeeeeff" then
 					-- switch p1 p2
 					self.power = pow2 ^ (1/pow1)
@@ -311,9 +305,9 @@ function mathblock.server_onFixedUpdate( self, dt )
 				local othervalue = 0
 				for k,v in pairs(parents) do
 					if tostring(sm.shape.getColor(v:getShape())) == "eeeeeeff" then
-						whitevalue = whitevalue + (Gnumbers[v:getShape().id] ~= nil and Gnumbers[v:getShape().id] or v.power)
+						whitevalue = whitevalue + (sm.interactable.getValue(v) or v.power)
 					else
-						othervalue = othervalue + (Gnumbers[v:getShape().id] ~= nil and Gnumbers[v:getShape().id] or v.power)
+						othervalue = othervalue + (sm.interactable.getValue(v) or v.power)
 					end
 				end
 				self.power = whitevalue ^ (1/othervalue)
@@ -326,8 +320,8 @@ function mathblock.server_onFixedUpdate( self, dt )
 			--end
 			self.power = 0
 			if #parents == 2 then 
-				local pow1 = (Gnumbers[parents[1]:getShape().id] ~= nil and Gnumbers[parents[1]:getShape().id] or parents[1].power)
-				local pow2 = (Gnumbers[parents[2]:getShape().id] ~= nil and Gnumbers[parents[2]:getShape().id] or parents[2].power)
+				local pow1 = (sm.interactable.getValue(parents[1]) or parents[1].power)
+				local pow2 = (sm.interactable.getValue(parents[2]) or parents[2].power)
 				if tostring(sm.shape.getColor(parents[1]:getShape())) == "222222ff" or tostring(sm.shape.getColor(parents[2]:getShape())) == "eeeeeeff" then
 					-- parent 1 = black
 					if pow2 > pow1 then self.power = 1 end
@@ -339,9 +333,9 @@ function mathblock.server_onFixedUpdate( self, dt )
 				local othervalue = 0
 				for k,v in pairs(parents) do
 					if tostring(sm.shape.getColor(v:getShape())) == "eeeeeeff" then
-						whitevalue = whitevalue + (Gnumbers[v:getShape().id] ~= nil and Gnumbers[v:getShape().id] or v.power)
+						whitevalue = whitevalue + (sm.interactable.getValue(v) or v.power)
 					else
-						othervalue = othervalue + (Gnumbers[v:getShape().id] ~= nil and Gnumbers[v:getShape().id] or v.power)
+						othervalue = othervalue + (sm.interactable.getValue(v) or v.power)
 					end
 				end
 				self.power = (whitevalue>othervalue and 1 or 0)
@@ -354,8 +348,8 @@ function mathblock.server_onFixedUpdate( self, dt )
 			--end
 			self.power = 0
 			if #parents == 2 then 
-				local pow1 = (Gnumbers[parents[1]:getShape().id] ~= nil and Gnumbers[parents[1]:getShape().id] or parents[1].power)
-				local pow2 = (Gnumbers[parents[2]:getShape().id] ~= nil and Gnumbers[parents[2]:getShape().id] or parents[2].power)
+				local pow1 = (sm.interactable.getValue(parents[1]) or parents[1].power)
+				local pow2 = (sm.interactable.getValue(parents[2]) or parents[2].power)
 				if tostring(sm.shape.getColor(parents[1]:getShape())) == "222222ff" or tostring(sm.shape.getColor(parents[2]:getShape())) == "eeeeeeff" then
 					-- parent 1 = black
 					if pow2 < pow1 then self.power = 1 end
@@ -367,9 +361,9 @@ function mathblock.server_onFixedUpdate( self, dt )
 				local othervalue = 0
 				for k,v in pairs(parents) do
 					if tostring(sm.shape.getColor(v:getShape())) == "eeeeeeff" then
-						whitevalue = whitevalue + (Gnumbers[v:getShape().id] ~= nil and Gnumbers[v:getShape().id] or v.power)
+						whitevalue = whitevalue + (sm.interactable.getValue(v) or v.power)
 					else
-						othervalue = othervalue + (Gnumbers[v:getShape().id] ~= nil and Gnumbers[v:getShape().id] or v.power)
+						othervalue = othervalue + (sm.interactable.getValue(v) or v.power)
 					end
 				end
 				self.power = (whitevalue<othervalue and 1 or 0)
@@ -379,8 +373,8 @@ function mathblock.server_onFixedUpdate( self, dt )
 			self.power = 1
 			local amount = nil
 			for k,v in pairs(parents) do
-				if amount == nil then amount = (Gnumbers[v:getShape().id] ~= nil and Gnumbers[v:getShape().id] or v.power) end
-				if (Gnumbers[v:getShape().id] ~= nil and Gnumbers[v:getShape().id] or v.power) ~= amount then
+				if amount == nil then amount = (sm.interactable.getValue(v) or v.power) end
+				if (sm.interactable.getValue(v) or v.power) ~= amount then
 					self.power = 0
 				end
 			end
@@ -392,8 +386,8 @@ function mathblock.server_onFixedUpdate( self, dt )
 			--end
 			self.power = 0
 			if #parents == 2 then 
-				local pow1 = (Gnumbers[parents[1]:getShape().id] ~= nil and Gnumbers[parents[1]:getShape().id] or parents[1].power)
-				local pow2 = (Gnumbers[parents[2]:getShape().id] ~= nil and Gnumbers[parents[2]:getShape().id] or parents[2].power)
+				local pow1 = (sm.interactable.getValue(parents[1]) or parents[1].power)
+				local pow2 = (sm.interactable.getValue(parents[2]) or parents[2].power)
 				if tostring(sm.shape.getColor(parents[1]:getShape())) == "222222ff" or tostring(sm.shape.getColor(parents[2]:getShape())) == "eeeeeeff" then
 					-- parent 1 = black
 					if pow2 >= pow1 then self.power = 1 end
@@ -405,9 +399,9 @@ function mathblock.server_onFixedUpdate( self, dt )
 				local othervalue = 0
 				for k,v in pairs(parents) do
 					if tostring(sm.shape.getColor(v:getShape())) == "eeeeeeff" then
-						whitevalue = whitevalue + (Gnumbers[v:getShape().id] ~= nil and Gnumbers[v:getShape().id] or v.power)
+						whitevalue = whitevalue + (sm.interactable.getValue(v) or v.power)
 					else
-						othervalue = othervalue + (Gnumbers[v:getShape().id] ~= nil and Gnumbers[v:getShape().id] or v.power)
+						othervalue = othervalue + (sm.interactable.getValue(v) or v.power)
 					end
 				end
 				self.power = (whitevalue>=othervalue and 1 or 0)
@@ -419,8 +413,8 @@ function mathblock.server_onFixedUpdate( self, dt )
 			--end
 			self.power = 0
 			if #parents == 2 then 
-				local pow1 = (Gnumbers[parents[1]:getShape().id] ~= nil and Gnumbers[parents[1]:getShape().id] or parents[1].power)
-				local pow2 = (Gnumbers[parents[2]:getShape().id] ~= nil and Gnumbers[parents[2]:getShape().id] or parents[2].power)
+				local pow1 = (sm.interactable.getValue(parents[1]) or parents[1].power)
+				local pow2 = (sm.interactable.getValue(parents[2]) or parents[2].power)
 				if tostring(sm.shape.getColor(parents[1]:getShape())) == "222222ff" or tostring(sm.shape.getColor(parents[2]:getShape())) == "eeeeeeff" then
 					-- parent 1 = black
 					if pow2 <= pow1 then self.power = 1 end
@@ -432,9 +426,9 @@ function mathblock.server_onFixedUpdate( self, dt )
 				local othervalue = 0
 				for k,v in pairs(parents) do
 					if tostring(sm.shape.getColor(v:getShape())) == "eeeeeeff" then
-						whitevalue = whitevalue + (Gnumbers[v:getShape().id] ~= nil and Gnumbers[v:getShape().id] or v.power)
+						whitevalue = whitevalue + (sm.interactable.getValue(v) or v.power)
 					else
-						othervalue = othervalue + (Gnumbers[v:getShape().id] ~= nil and Gnumbers[v:getShape().id] or v.power)
+						othervalue = othervalue + (sm.interactable.getValue(v) or v.power)
 					end
 				end
 				self.power = (whitevalue<=othervalue and 1 or 0)
@@ -448,7 +442,7 @@ function mathblock.server_onFixedUpdate( self, dt )
 			self.power = 0
 			if #parents > 0 then 
 				for k, v in pairs(parents) do
-					self.power = self.power + (Gnumbers[v:getShape().id] ~= nil and Gnumbers[v:getShape().id] or v.power)
+					self.power = self.power + (sm.interactable.getValue(v) or v.power)
 				end
 				self.power = math.sin(math.rad(self.power))
 			end
@@ -460,7 +454,7 @@ function mathblock.server_onFixedUpdate( self, dt )
 			self.power = 0
 			if #parents >0 then 
 				for k, v in pairs(parents) do
-					self.power = self.power + (Gnumbers[v:getShape().id] ~= nil and Gnumbers[v:getShape().id] or v.power)
+					self.power = self.power + (sm.interactable.getValue(v) or v.power)
 				end
 				self.power = math.cos(math.rad(self.power))
 			end
@@ -472,7 +466,7 @@ function mathblock.server_onFixedUpdate( self, dt )
 			self.power = 0
 			if #parents >0 then 
 				for k, v in pairs(parents) do
-					self.power = self.power + (Gnumbers[v:getShape().id] ~= nil and Gnumbers[v:getShape().id] or v.power)
+					self.power = self.power + (sm.interactable.getValue(v) or v.power)
 				end
 				self.power = math.tan(math.rad(self.power))
 			end
@@ -482,7 +476,7 @@ function mathblock.server_onFixedUpdate( self, dt )
 			end
 			self.power = #parents>0 and 0 or 1
 			for k, v in pairs(parents) do
-				self.power = self.power + (Gnumbers[v:getShape().id] ~= nil and Gnumbers[v:getShape().id] or v.power)
+				self.power = self.power + (sm.interactable.getValue(v) or v.power)
 			end
 			self.power = self.power * math.pi
 			
@@ -496,7 +490,7 @@ function mathblock.server_onFixedUpdate( self, dt )
 				self.power = math.random() -- generate new number upon cycling to this and no parents connected
 			end
 			if #parents == 1 then
-				local pow1 = (Gnumbers[parents[1]:getShape().id] ~= nil and Gnumbers[parents[1]:getShape().id] or parents[1].power)
+				local pow1 = (sm.interactable.getValue(parents[1]) or parents[1].power)
 				if parents[1]:getType() == "scripted" and tostring(parents[1]:getShape():getShapeUuid()) ~= "6f2dd83e-bc0d-43f3-8ba5-d5209eb03d07" then
 					if (self.lastparentvalue == nil or self.lastparentvalue ~= pow1) then
 						self.power = math.random(pow1)
@@ -510,9 +504,9 @@ function mathblock.server_onFixedUpdate( self, dt )
 				local generate = false
 				for k,v in pairs(parents) do
 					if v:getType() == "scripted" and tostring(v:getShape():getShapeUuid()) ~= "6f2dd83e-bc0d-43f3-8ba5-d5209eb03d07" then
-						table.insert(inputvalues, (Gnumbers[v:getShape().id] ~= nil and Gnumbers[v:getShape().id] or v.power) )
+						table.insert(inputvalues, (sm.interactable.getValue(v) or v.power) )
 					else
-						generate = generate or ((Gnumbers[v:getShape().id] ~= nil and Gnumbers[v:getShape().id] or v.power) ~= 0)
+						generate = generate or ((sm.interactable.getValue(v) or v.power) ~= 0)
 					end
 				end
 				if generate or (self.lastparentvalues == nil or not tablevaluesequal(self.lastparentvalues, inputvalues)) then
@@ -534,12 +528,12 @@ function mathblock.server_onFixedUpdate( self, dt )
 				local generate = false
 				for k,v in pairs(parents) do
 					if v:getType() == "scripted" and tostring(v:getShape():getShapeUuid()) ~= "6f2dd83e-bc0d-43f3-8ba5-d5209eb03d07" then
-						table.insert(inputvalues, (Gnumbers[v:getShape().id] ~= nil and Gnumbers[v:getShape().id] or v.power) )
+						table.insert(inputvalues, (sm.interactable.getValue(v) or v.power) )
 						if #inputvalues > 2 then 
 							--sm.interactable.disconnect(v, self.interactable)
 						end
 					else
-						generate = generate or ((Gnumbers[v:getShape().id] ~= nil and Gnumbers[v:getShape().id] or v.power) ~= 0)
+						generate = generate or ((sm.interactable.getValue(v) or v.power) ~= 0)
 					end
 				end
 				if generate or (self.lastparentvalues == nil or  not tablevaluesequal(self.lastparentvalues, inputvalues)) then
@@ -564,11 +558,11 @@ function mathblock.server_onFixedUpdate( self, dt )
 				--parents = self.interactable:getParents()
 			--end
 			if #parents == 1 then 
-				self.power = math.abs((Gnumbers[parents[1]:getShape().id] ~= nil and Gnumbers[parents[1]:getShape().id] or parents[1].power))
+				self.power = math.abs((sm.interactable.getValue(parents[1]) or parents[1].power))
 			elseif #parents > 1 then
 				self.power = 0 
 				for k, v in pairs(parents) do
-					self.power = self.power + math.abs((Gnumbers[v:getShape().id] ~= nil and Gnumbers[v:getShape().id] or v.power))
+					self.power = self.power + math.abs((sm.interactable.getValue(v) or v.power))
 				end
 			end
 			
@@ -582,9 +576,9 @@ function mathblock.server_onFixedUpdate( self, dt )
 				local floorby = 0
 				for k,v in pairs(parents) do
 					if tostring(sm.shape.getColor(v:getShape())) == "eeeeeeff" then
-						floorby = floorby + (Gnumbers[v:getShape().id] ~= nil and Gnumbers[v:getShape().id] or v.power)
+						floorby = floorby + (sm.interactable.getValue(v) or v.power)
 					else
-						self.power = self.power + (Gnumbers[v:getShape().id] ~= nil and Gnumbers[v:getShape().id] or v.power)
+						self.power = self.power + (sm.interactable.getValue(v) or v.power)
 					end
 				end
 				if not floorby or floorby == 0 then floorby = 1 end
@@ -602,9 +596,9 @@ function mathblock.server_onFixedUpdate( self, dt )
 				local roundby = 0
 				for k,v in pairs(parents) do
 					if tostring(sm.shape.getColor(v:getShape())) == "eeeeeeff" then
-						roundby = roundby + (Gnumbers[v:getShape().id] ~= nil and Gnumbers[v:getShape().id] or v.power)
+						roundby = roundby + (sm.interactable.getValue(v) or v.power)
 					else
-						self.power = self.power + (Gnumbers[v:getShape().id] ~= nil and Gnumbers[v:getShape().id] or v.power)
+						self.power = self.power + (sm.interactable.getValue(v) or v.power)
 					end
 				end
 				if not roundby or roundby == 0 then roundby = 1 end
@@ -621,9 +615,9 @@ function mathblock.server_onFixedUpdate( self, dt )
 				local roundby = 0
 				for k,v in pairs(parents) do
 					if tostring(sm.shape.getColor(v:getShape())) == "eeeeeeff" then
-						roundby = roundby + (Gnumbers[v:getShape().id] ~= nil and Gnumbers[v:getShape().id] or v.power)
+						roundby = roundby + (sm.interactable.getValue(v) or v.power)
 					else
-						self.power = self.power + (Gnumbers[v:getShape().id] ~= nil and Gnumbers[v:getShape().id] or v.power)
+						self.power = self.power + (sm.interactable.getValue(v) or v.power)
 					end
 				end
 				if not roundby or roundby == 0 then roundby = 1 end
@@ -633,14 +627,14 @@ function mathblock.server_onFixedUpdate( self, dt )
 		elseif mode == 21 then  -- min
 			self.power = math.huge
 			for k, v in pairs(parents) do
-				if v.power < self.power then self.power = (Gnumbers[v:getShape().id] ~= nil and Gnumbers[v:getShape().id] or v.power) end
+				if v.power < self.power then self.power = (sm.interactable.getValue(v) or v.power) end
 			end
 			if self.power == math.huge then self.power = 0 end
 			
 		elseif mode == 22 then  -- max
 			self.power = 0-math.huge
 			for k, v in pairs(parents) do
-				if v.power > self.power then self.power = (Gnumbers[v:getShape().id] ~= nil and Gnumbers[v:getShape().id] or v.power) end
+				if v.power > self.power then self.power = (sm.interactable.getValue(v) or v.power) end
 			end
 			if self.power == 0-math.huge then self.power = 0 end
 			
@@ -651,10 +645,10 @@ function mathblock.server_onFixedUpdate( self, dt )
 				parents = self.interactable:getParents()
 			--end
 			if #parents == 1 then 
-				self.power = math.log((Gnumbers[parents[1]:getShape().id] ~= nil and Gnumbers[parents[1]:getShape().id] or parents[1].power))
+				self.power = math.log((sm.interactable.getValue(parents[1]) or parents[1].power))
 			elseif #parents == 2 then 
-				local pow1 = (Gnumbers[parents[1]:getShape().id] ~= nil and Gnumbers[parents[1]:getShape().id] or parents[1].power)
-				local pow2 = (Gnumbers[parents[2]:getShape().id] ~= nil and Gnumbers[parents[2]:getShape().id] or parents[2].power)
+				local pow1 = (sm.interactable.getValue(parents[1]) or parents[1].power)
+				local pow2 = (sm.interactable.getValue(parents[2]) or parents[2].power)
 				if tostring(sm.shape.getColor(parents[1]:getShape())) == "222222ff" or tostring(sm.shape.getColor(parents[2]:getShape())) == "eeeeeeff" then
 					-- parent 2 = white
 					self.power = math.log(pow1)/ math.log(pow2)
@@ -672,7 +666,7 @@ function mathblock.server_onFixedUpdate( self, dt )
 			if #parents > 0 then 
 				self.power = 0
 				for k,v in pairs(parents) do
-					self.power = self.power + math.exp((Gnumbers[v:getShape().id] ~= nil and Gnumbers[v:getShape().id] or v.power))
+					self.power = self.power + math.exp((sm.interactable.getValue(v) or v.power))
 				end
 			end
 			
@@ -684,7 +678,7 @@ function mathblock.server_onFixedUpdate( self, dt )
 			self.power = 0
 			if #parents >0 then 
 				for k, v in pairs(parents) do
-					self.power = self.power + (Gnumbers[v:getShape().id] ~= nil and Gnumbers[v:getShape().id] or v.power)
+					self.power = self.power + (sm.interactable.getValue(v) or v.power)
 				end
 				self.power = math.asin(self.power)/math.pi*180.0
 			end
@@ -696,7 +690,7 @@ function mathblock.server_onFixedUpdate( self, dt )
 			self.power = 0
 			if #parents >0 then
 				for k, v in pairs(parents) do
-					self.power = self.power + (Gnumbers[v:getShape().id] ~= nil and Gnumbers[v:getShape().id] or v.power)
+					self.power = self.power + (sm.interactable.getValue(v) or v.power)
 				end
 				self.power = math.acos(self.power)/math.pi*180.0
 			end
@@ -708,7 +702,7 @@ function mathblock.server_onFixedUpdate( self, dt )
 			self.power = 0
 			if #parents >0 then 
 				for k, v in pairs(parents) do
-					self.power = self.power + (Gnumbers[v:getShape().id] ~= nil and Gnumbers[v:getShape().id] or v.power)
+					self.power = self.power + (sm.interactable.getValue(v) or v.power)
 				end
 				self.power = math.atan(self.power)/math.pi*180.0
 			end
@@ -719,7 +713,7 @@ function mathblock.server_onFixedUpdate( self, dt )
 			--end
 			self.power = 0
 			for k, v in pairs(parents) do
-				self.power = self.power + math.pow((Gnumbers[v:getShape().id] ~= nil and Gnumbers[v:getShape().id] or v.power),2)
+				self.power = self.power + math.pow((sm.interactable.getValue(v) or v.power),2)
 			end
 			if #parents > 0 then
 				self.power = math.pow(self.power, 1/2)
@@ -881,11 +875,11 @@ function mathblock.server_onFixedUpdate( self, dt )
 				local otherinput = nil
 				for k, v in pairs(parents) do
 					if tostring(sm.shape.getColor(v:getShape())) == "eeeeeeff" then --white
-						whiteinput = (whiteinput and whiteinput or 0) + (Gnumbers[v:getShape().id] ~= nil and Gnumbers[v:getShape().id] or v.power)
+						whiteinput = (whiteinput and whiteinput or 0) + (sm.interactable.getValue(v) or v.power)
 					elseif tostring(sm.shape.getColor(v:getShape())) == "222222ff" then --black
-						blackinput = (blackinput and blackinput or 0) + (Gnumbers[v:getShape().id] ~= nil and Gnumbers[v:getShape().id] or v.power)
+						blackinput = (blackinput and blackinput or 0) + (sm.interactable.getValue(v) or v.power)
 					else
-						otherinput = (otherinput and otherinput or 0) + (Gnumbers[v:getShape().id] ~= nil and Gnumbers[v:getShape().id] or v.power)
+						otherinput = (otherinput and otherinput or 0) + (sm.interactable.getValue(v) or v.power)
 					end
 					if not whiteinput then
 						whiteinput = otherinput
@@ -899,9 +893,8 @@ function mathblock.server_onFixedUpdate( self, dt )
 					self.power = 0
 				end
 			elseif #parents == 1 then
-				local parentid = parents[1]:getShape().id
 				local quadrant24 = (tostring(sm.shape.getColor(parents[1]:getShape())) == "222222ff")
-				self.power = math.atan((Gnumbers[parentid] ~= nil and Gnumbers[parentid] or parents[1].power))/math.pi*180.0 + (quadrant24 and 90 or 0)
+				self.power = math.atan((sm.interactable.getValue(parents[1]) or parents[1].power))/math.pi*180.0 + (quadrant24 and 90 or 0)
 			else
 				self.power = 0
 			end
@@ -912,11 +905,11 @@ function mathblock.server_onFixedUpdate( self, dt )
 	if math.abs(self.power) >= 3.3*10^38 then 
 		if self.power < 0 then self.power = -3.3*10^38 else self.power = 3.3*10^38 end  
 	end
-	if self.power ~= self.interactable.power or self.power ~= (Gnumbers[self.shape.id] ~= nil and Gnumbers[self.shape.id] or self.power) then
+	
+	if self.power ~= self.interactable.power or self.power ~= (sm.interactable.getValue(self.interactable) or self.interactable.power) then
 		self.interactable:setPower(self.power)
 		self.interactable:setActive(self.power > 0)
-		Gnumbers[self.shape.id] = self.power
-		self.id = self.shape.id
+		sm.interactable.setValue(self.interactable, self.power)
 	end
 	if mode ~= self.lastmode then --or self.power ~= self.interactable.power then
 		self.network:sendToClients("client_setMode", mode)

@@ -1,5 +1,5 @@
 
-
+dofile('functions.lua')
 -- sender.lua --
 sender = class( nil )
 sender.maxParentCount = 2
@@ -25,13 +25,9 @@ function sender.server_init( self )
 		self.sender = (stored==1)
 	end
 	self.storage:save(self.sender and 1 or 2)
-	if not Gnumbers then Gnumbers = {} end
-	self.id = self.shape.id
-	Gnumbers[self.id] = 0
 end
 
 function sender.server_onDestroy(self)
-	Gnumbers[self.id] = nil
 	wirelessdata[self.lastfrequency] = nil
 end
 
@@ -52,9 +48,9 @@ function sender.server_onFixedUpdate( self, dt )
 	for k, v in pairs(parents) do
 		if tostring(sm.shape.getColor(v:getShape())) == "eeeeeeff" and v:getType() == "scripted" and tostring(v:getShape():getShapeUuid()) ~= "6f2dd83e-bc0d-43f3-8ba5-d5209eb03d07" then
 			--number input, frequency
-			frequency = frequency + (Gnumbers[v:getShape().id] ~= nil and Gnumbers[v:getShape().id] or v.power)
+			frequency = frequency + (sm.interactable.getValue(v) or v.power)
 		else
-			power = power + (Gnumbers[v:getShape().id] ~= nil and Gnumbers[v:getShape().id] or v.power)
+			power = power + (sm.interactable.getValue(v) or v.power)
 			sendsstuff = true
 			usableinputs = usableinputs + 1
 		end
@@ -106,10 +102,10 @@ function sender.server_onFixedUpdate( self, dt )
 				end
 				wirelessdata[frequency] = data
 			end
-			if self.interactable.power ~= 0 or (Gnumbers[self.shape.id] ~= nil and Gnumbers[self.shape.id] or self.interactable.power) ~= 0 then
+			if self.interactable.power ~= 0 or (sm.interactable.getValue(self.interactable) or self.interactable.power) ~= 0 then
 				self.interactable:setActive(false)
 				self.interactable:setPower(0)
-	Gnumbers[self.shape.id] = 0
+	sm.interactable.setValue(self.interactable, 0)
 				self.network:sendToClients("client_setPose", {pose0 = 0.5, pose1 = 0})
 			end
 		else --receiving
@@ -131,10 +127,10 @@ function sender.server_onFixedUpdate( self, dt )
 					end
 				end
 			end
-		if self.power ~= self.interactable.power or self.power ~= (Gnumbers[self.shape.id] ~= nil and Gnumbers[self.shape.id] or self.power) then
+		if self.power ~= self.interactable.power or self.power ~= (sm.interactable.getValue(self.interactable) or self.power) then
 				self.interactable:setActive(power>0)
 				self.interactable:setPower(power)
-	Gnumbers[self.shape.id] = power
+	sm.interactable.setValue(self.interactable,  power)
 			end
 			self.network:sendToClients("client_setPose", {pose0 = pose, pose1 = 1})
 		end

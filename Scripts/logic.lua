@@ -1,4 +1,6 @@
 -- LOGIC.LUA : many awesome logic gate expansions
+dofile('functions.lua')
+
 
 -- analogsensor.lua --
 analogsensor = class( nil )
@@ -36,12 +38,6 @@ function analogsensor.server_init( self )
 	else
 		self.storage:save(self.mode)
 	end
-	if not Gnumbers then Gnumbers = {} end
-	self.id = self.shape.id
-	Gnumbers[self.id] = 0
-end
-function analogsensor.server_onDestroy(self)
-	Gnumbers[self.id] = nil
 end
 
 function analogsensor.server_onRefresh( self )
@@ -147,8 +143,7 @@ function analogsensor.server_onFixedUpdate( self, dt )
 	if power ~= self.interactable.power then
 		self.interactable:setActive(true)
 		self.interactable:setPower(power)
-		self.id = self.shape.id
-		Gnumbers[self.id] = power
+		sm.interactable.setValue(self.interactable, power)
 	end
 	if self.pose ~= self.lastpose then
 		self.network:sendToClients("client_setposeweight", self.pose)
@@ -157,7 +152,7 @@ function analogsensor.server_onFixedUpdate( self, dt )
 	
 	if EMP and EMP.active and (self.shape.worldPosition - EMP.position):length() < 60/4 then
 		self.interactable:setPower(self.interactable.power*math.random(80, 120)/100)
-		Gnumbers[self.id] = self.interactable.power
+		sm.interactable.setValue(self.interactable, self.interactable.power)
 	end
 end
 
@@ -265,12 +260,6 @@ function potentiometer.server_init( self )
 		data[-1] = "memory"
 		self.storage:save(data) 
 	end
-	if not Gnumbers then Gnumbers = {} end
-	self.id = self.shape.id
-	Gnumbers[self.id] = self.power
-end
-function potentiometer.server_onDestroy(self)
-	Gnumbers[self.id] = nil
 end
 
 function potentiometer.server_onRefresh( self )
@@ -293,11 +282,11 @@ function potentiometer.server_onFixedUpdate( self, dt )
 	for k,v in pairs(parents) do
 		local x = self.digs[tostring(sm.shape.getColor(v:getShape()))]
 		if tostring(sm.shape.getColor(v:getShape())) == "eeeeeeff" and v:isActive() then reset = true end
-		if x ~= nil and (Gnumbers[v:getShape().id] ~= nil and Gnumbers[v:getShape().id] or v.power) ~= 0 then
+		if x ~= nil and (sm.interactable.getValue(v) or v.power) ~= 0 then
 			if lastx ~= nil and lastx == x and #parents == 2 then -- if 2 inputs are same color , one of them will do negative of color
-				self.power = self.power - x * (Gnumbers[v:getShape().id] ~= nil and Gnumbers[v:getShape().id] or v.power)
+				self.power = self.power - x * (sm.interactable.getValue(v) or v.power)
 			else
-				self.power = self.power + x * (Gnumbers[v:getShape().id] ~= nil and Gnumbers[v:getShape().id] or v.power)
+				self.power = self.power + x * (sm.interactable.getValue(v) or v.power)
 			end
 		end
 		lastx = x
@@ -305,7 +294,7 @@ function potentiometer.server_onFixedUpdate( self, dt )
 	if reset then self.power = 0 end
 	
 	
-	self.needssave = self.needssave or (self.power ~= (Gnumbers[self.shape.id] ~= nil and Gnumbers[self.shape.id] or self.power))
+	self.needssave = self.needssave or (self.power ~= (sm.interactable.getValue(self.interactable) or self.power))
 	--print(self.needssave, os.time()%5)
 	if self.needssave and os.time()%5 == 0 and self.risingedge then
 		--print("saved!", os.time())
@@ -317,7 +306,7 @@ function potentiometer.server_onFixedUpdate( self, dt )
 	end
 	self.risingedge = os.time()%5 ~= 0
 	
-	if (self.power ~= self.interactable.power or (self.power ~= (Gnumbers[self.shape.id] ~= nil and Gnumbers[self.shape.id] or self.power)))
+	if (self.power ~= self.interactable.power or (self.power ~= (sm.interactable.getValue(self.interactable) or self.power)))
 	and not (EMP and EMP.active and (self.shape.worldPosition - EMP.position):length() < 60/4)	then
 		if self.power ~= self.power then self.power = 0 end
 		if math.abs(self.power) >= 3.3*10^38 then 
@@ -325,13 +314,12 @@ function potentiometer.server_onFixedUpdate( self, dt )
 		end
 		self.interactable:setPower(self.power)
 		self.interactable:setActive(self.power>0)
-		self.id = self.shape.id
-		Gnumbers[self.id] = self.power
+		sm.interactable.setValue(self.interactable, self.power)
 	end
 	
 	if EMP and EMP.active and (self.shape.worldPosition - EMP.position):length() < 60/4 then
 		self.interactable:setPower(self.interactable.power*math.random(80, 120)/100)
-		Gnumbers[self.id] = self.interactable.power
+		sm.interactable.setValue(self.interactable, self.interactable.power)
 	end
 end
 
@@ -439,13 +427,8 @@ function BCD.server_init( self )
 		["68ff88ff"] = 1/128,
 		["cbf66fff"] = 1/256
 	}
-	if not Gnumbers then Gnumbers = {} end
-	self.id = self.shape.id
-	Gnumbers[self.id] = self.power
 end
-function BCD.server_onDestroy(self)
-	Gnumbers[self.id] = nil
-end
+
 
 function BCD.server_onRefresh( self )
 	self:server_init()
@@ -461,7 +444,7 @@ function BCD.server_onFixedUpdate( self, dt )   -- 'decimal'
 				-- number input
 				local dec = self.dec[tostring(sm.shape.getColor(v:getShape()))]
 				if dec == nil or #parents == 1 then dec = 1 end
-				self.power = self.power + dec * (Gnumbers[v:getShape().id] ~= nil and Gnumbers[v:getShape().id] or v.power)
+				self.power = self.power + dec * (sm.interactable.getValue(v) or v.power)
 			else
 				-- logic input
 				local bit = self.bin[tostring(sm.shape.getColor(v:getShape()))]
@@ -483,7 +466,7 @@ function BCD.server_onFixedUpdate( self, dt )   -- 'decimal'
 	if self.power == 0 and not (EMP and EMP.active and (self.shape.worldPosition - EMP.position):length() < 60/4) then
 		self.interactable:setActive(false)
 		self.interactable:setPower(0)
-		Gnumbers[self.shape.id] = 0
+		sm.interactable.setValue(self.interactable, 0)
 	elseif not (EMP and EMP.active and (self.shape.worldPosition - EMP.position):length() < 60/4) then -- if self.power ~= self.lastpower or true
 		if parents[1]:getType() == "scripted" and tostring(parents[1]:getShape():getShapeUuid()) ~= "6f2dd83e-bc0d-43f3-8ba5-d5209eb03d07" --[[tickbutton]] then  -- power input, show correct decimal
 			if #parents == 1 then
@@ -494,11 +477,11 @@ function BCD.server_onFixedUpdate( self, dt )   -- 'decimal'
 						--local b = bit.band(self.power,s)
 						self.interactable:setActive(b>=s)
 						self.interactable:setPower((b>=s and 1 or 0))
-	Gnumbers[self.shape.id] = (b>=s and 1 or 0)
+	sm.interactable.setValue(self.interactable, (b>=s and 1 or 0))
 					else
 						self.interactable:setActive(false)
 						self.interactable:setPower(0)
-	Gnumbers[self.shape.id] = 0
+	sm.interactable.setValue(self.interactable, 0)
 					end
 				else
 					local s = self.dec[tostring(sm.shape.getColor(self.shape))] -- gets correct decimal location in parent based on own color   -- BCD number
@@ -509,11 +492,11 @@ function BCD.server_onFixedUpdate( self, dt )   -- 'decimal'
 						--if self.power < 0 and self.power > -10 then show = show*-1 end --'experiment'
 						self.interactable:setActive(show>0)
 						self.interactable:setPower(show)
-	Gnumbers[self.shape.id] = show
+	sm.interactable.setValue(self.interactable, show)
 					else
 						self.interactable:setActive(self.power>0)   -- full binary number
 						self.interactable:setPower(self.power)
-	Gnumbers[self.shape.id] = self.power
+	sm.interactable.setValue(self.interactable, self.power)
 						-- any other color carry full value
 						if (tostring(sm.shape.getColor(self.shape)) == "f5f071ff") then
 							local show = (self.power > 0) and self.power or 0-self.power
@@ -521,7 +504,7 @@ function BCD.server_onFixedUpdate( self, dt )   -- 'decimal'
 							local show = (tonumber(tostring((show/s))))%1
 							self.interactable:setActive(show>0)
 							self.interactable:setPower(show)
-	Gnumbers[self.shape.id] = show
+	sm.interactable.setValue(self.interactable, show)
 						end
 					end	
 				end
@@ -529,18 +512,18 @@ function BCD.server_onFixedUpdate( self, dt )   -- 'decimal'
 				-- more than one input, they get combined based on color
 				self.interactable:setActive(self.power>0)   -- full binary number
 				self.interactable:setPower(self.power)
-	Gnumbers[self.shape.id] = self.power
+	sm.interactable.setValue(self.interactable, self.power)
 			end
 		else -- logic input , show ~ and set power
 			self.interactable:setActive(self.power>0)
 			self.interactable:setPower(self.power)
-	Gnumbers[self.shape.id] = self.power
+	sm.interactable.setValue(self.interactable, self.power)
 		end
 	end
 	
 	if EMP and EMP.active and (self.shape.worldPosition - EMP.position):length() < 60/4 then
 		self.interactable:setPower(self.interactable.power*math.random(80, 120)/100)
-		Gnumbers[self.id] = self.interactable.power
+		sm.interactable.setValue(self.interactable, self.interactable.power)
 	end
 end
 
@@ -754,7 +737,7 @@ function ascii.server_onRefresh( self )
 end
 
 function ascii.server_init( self ) 
-	self.power = 0
+	self.power = 1
 	self.buttonwasactive = false
 	self.bin = {
 		["375000ff"] = bit.lshift(1,15),
@@ -1038,10 +1021,20 @@ function ascii.server_init( self )
 	   savemodes[v.uv]=k
 	end
 	local stored = self.storage:load()
-	if stored and type(stored) == "number" then
-		self.power = savemodes[stored]
+	if stored then
+		if type(stored) == "number" then
+			print('loading old version')
+			self.power = savemodes[stored]
+			for k, v in pairs(ascii001) do
+				self[k] = v
+			end
+		elseif type(stored) == "table" then
+			self.power = stored[1]
+			--version = stored[2]
+		end
 	end
 end
+dofile "versions/ascii001.lua"
 function ascii.client_onCreate(self)
 	self.network:sendToServer("server_senduvtoclient")
 end
@@ -1050,7 +1043,7 @@ function ascii.server_senduvtoclient(self)
 end
 function ascii.server_changemode(self, crouch)
 	self.power = (self.power + (crouch and -1 or 1))%(#self.icons)
-	if self.power ~= 0 then self.storage:save(self.icons[self.power].uv) else self.storage:save(false) end
+	self.storage:save({self.power ~= 0 and self.icons[self.power].uv or false, 2})
 	self.network:sendToClients("client_playsound", "GUI Inventory highlight")
 end
 function ascii.client_onInteract(self)
@@ -1069,7 +1062,7 @@ function ascii.server_onFixedUpdate( self, dt )
 	local logicpower = 0
 	
 	for k, v in pairs(parents) do --reset power if there is any input that gives an absolute value
-		if v:getType() ~= "button" and tostring(v:getShape():getShapeUuid()) ~= "6f2dd83e-bc0d-43f3-8ba5-d5209eb03d07" then self.power = 0 end
+		if v:getType() ~= "button" and tostring(v:getShape():getShapeUuid()) ~= "6f2dd83e-bc0d-43f3-8ba5-d5209eb03d07" then self.power = 1 end
 	end
 	
 	for k, v in pairs(parents) do
@@ -1109,12 +1102,12 @@ function ascii.server_onFixedUpdate( self, dt )
 			self.interactable:setActive(0)
 			self.interactable:setPower(0)
 			self.network:sendToClients("client_setUvframeIndex",0)
-			self.storage:save(false)
+			self.storage:save({false, 1})
 		else
 			self.interactable:setActive(self.icons[self.power].uv>0)
 			self.interactable:setPower(self.icons[self.power].uv)
 			self.network:sendToClients("client_setUvframeIndex",self.icons[self.power].uv)
-			self.storage:save(self.icons[self.power].uv)
+			self.storage:save({self.icons[self.power].uv, 1})
 		end
 	end
 	
@@ -1335,20 +1328,21 @@ end
 
 function colorblock.client_onCreate(self)
 	self.interactable:setGlowMultiplier(0)
+	sm.interactable.ccsetValue(self.interactable, 0)
 end
 
 function colorblock.client_onFixedUpdate( self, dt )
 	local uv = 0
 	local parentrgb = nil
 	local parents = self.interactable:getParents()
-	self.interactable:setGlowMultiplier(0)
+	sm.interactable.ccsetValue(self.interactable, 0)
 	for k, v in pairs(parents) do
 		if tostring(v.shape:getShapeUuid()) == "921a2ace-b543-4ca3-8a9b-6f3dd3132fa9" --[[rgb block]] then
 			self.interactable:setUvFrameIndex(v:getUvFrameIndex())
-			self.interactable:setGlowMultiplier(v:getGlowMultiplier())
+			sm.interactable.ccsetValue(self.interactable, sm.interactable.ccgetValue(v))
 			parentrgb = true
 		elseif tostring(v:getShape().color) == "eeeeeeff" then -- glow
-			self.interactable:setGlowMultiplier(math.max(0,math.min(1,v.power)))
+			sm.interactable.ccsetValue(self.interactable, math.max(0,math.min(1,v.power)))
 		elseif tostring(v:getShape().color) == "7f7f7fff" then -- reflection
 			uv = uv + math.max(0,math.min(255,v.power))
 		elseif tostring(v:getShape().color) == "222222ff" then -- specular
@@ -1358,6 +1352,7 @@ function colorblock.client_onFixedUpdate( self, dt )
 	if not parentrgb then
 		self.interactable:setUvFrameIndex(uv)
 	end
+	self.interactable:setGlowMultiplier(sm.interactable.ccgetValue(self.interactable) or 0)
 end
 function round(x)
   if x%2 ~= 0.5 then
@@ -1365,6 +1360,11 @@ function round(x)
   end
   return x-0.5
 end
+
+if not sm.interactable.ccvalues then sm.interactable.ccvalues = {} end -- stores ccvalues --[[{{tick, value}, lastvalue}]]
+
+function sm.interactable.ccsetValue(interactable, value)  local currenttick = sm.game.getCurrentTick() sm.interactable.ccvalues[interactable.id] = {{tick = currenttick, value = value}, sm.interactable.ccvalues[interactable.id] and (sm.interactable.ccvalues[interactable.id][1] ~= nil and (sm.interactable.ccvalues[interactable.id][1].tick < currenttick) and sm.interactable.ccvalues[interactable.id][1].value or sm.interactable.ccvalues[interactable.id][2]) or nil} end
+function sm.interactable.ccgetValue(interactable) 		return (sm.exists(interactable) and (sm.interactable.ccvalues[interactable.id] and (sm.interactable.ccvalues[interactable.id][1] and sm.interactable.ccvalues[interactable.id][1].tick < sm.game.getCurrentTick() and sm.interactable.ccvalues[interactable.id][1].value or sm.interactable.ccvalues[interactable.id][2])) or nil) end
 
 
 

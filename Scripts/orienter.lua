@@ -429,6 +429,7 @@ function AI.server_onFixedUpdate( self, dt )
 	local numberinputs = 0
 	local isON = nil
 	local occupied = nil
+	--print(os.clock())
 	for k,v in pairs(parents) do
 		if tostring(sm.shape.getColor(v:getShape())) == "eeeeeeff" and v:getType() == "scripted" and tostring(v:getShape():getShapeUuid()) ~= "6f2dd83e-bc0d-43f3-8ba5-d5209eb03d07" then
 			if whiteinput == nil then whiteinput = 0 end

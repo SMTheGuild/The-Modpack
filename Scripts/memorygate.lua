@@ -9,6 +9,7 @@ memoryblock.colorNormal = sm.color.new( 0x7F567Dff )
 memoryblock.colorHighlight = sm.color.new( 0x9f7fa5ff )
 memoryblock.poseWeightCount = 1
 
+dofile('functions.lua')
 
 function memoryblock.server_onCreate( self ) 
 	self:server_init()
@@ -36,12 +37,6 @@ function memoryblock.server_init( self )
 	else
 		self.storage:save(self.data)
 	end
-	if not Gnumbers then Gnumbers = {} end
-	self.id = self.shape.id
-	Gnumbers[self.id] = self.power
-end
-function memoryblock.server_onDestroy(self)
-	Gnumbers[self.id] = nil
 end
 
 function memoryblock.server_onRefresh( self )
@@ -62,16 +57,16 @@ function memoryblock.server_onFixedUpdate( self, dt )
 			-- number input
 			if tostring(sm.shape.getColor(v:getShape())) == "eeeeeeff" then
 				-- address
-				address = address + (Gnumbers[v:getShape().id] ~= nil and Gnumbers[v:getShape().id] or v.power)
+				address = address + (sm.interactable.getValue(v) or v.power)
 			else
 				-- value
-				value = value + (Gnumbers[v:getShape().id] ~= nil and Gnumbers[v:getShape().id] or v.power)
+				value = value + (sm.interactable.getValue(v) or v.power)
 				hasvalueparent = true
 			end
 		else
 			-- logic input
-			if (Gnumbers[v:getShape().id] ~= nil and Gnumbers[v:getShape().id] or v.power) > 0 then writevalue = true end
-			if tostring(sm.shape.getColor(v:getShape())) == "222222ff" and (Gnumbers[v:getShape().id] ~= nil and Gnumbers[v:getShape().id] or v.power) ~= 0 then
+			if (sm.interactable.getValue(v) or v.power) > 0 then writevalue = true end
+			if tostring(sm.shape.getColor(v:getShape())) == "222222ff" and (sm.interactable.getValue(v) or v.power) ~= 0 then
 				reset = true
 			end
 		end
@@ -93,14 +88,14 @@ function memoryblock.server_onFixedUpdate( self, dt )
 		address = 0
 	end
 	if self.power == nil then self.power = 0 end
-	if self.power ~= self.interactable.power or self.power ~= (Gnumbers[self.shape.id] ~= nil and Gnumbers[self.shape.id] or self.power) then
+	if self.power ~= self.interactable.power or self.power ~= (sm.interactable.getValue(self.interactable) or self.interactable.power) then
 		self.time = 20
 		self.mode = 2
 	end
 	if self.interactable.power ~= self.power and type(self.power) == "number" and math.abs(self.power) >= 0 then
 		self.interactable:setActive(self.power>0)
 		self.interactable:setPower(self.power)
-		Gnumbers[self.id] = self.power
+		sm.interactable.setValue(self.interactable, self.power)
 	end
 	if saves then 
 		self.time = 20
