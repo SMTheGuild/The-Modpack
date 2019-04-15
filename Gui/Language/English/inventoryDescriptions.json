@@ -820,7 +820,7 @@
 
     "fe8978ec-5798-4b24-bdb2-8375387f171b": {
         "title": "Smart Engine Controller",
-        "description": "This device can control bearings and pistons with number logic!\n\nColored numbers:\nWhite = Speed\nBlack = Power\nOther = Target Angle / Length\n\nDefaults without inputs:\n0 speed\n10,000 power\nNo target angle / 0 length"
+        "description": "This device can control bearings and pistons with number logic!\nWhite = Speed\nBlack = Power\nGrey = Stiffness\nOther = Target Angle / Length\n\nDefaults without inputs:\n0 speed\n10,000 power\n100 stiffness\nNo target angle / 0 length"
     },
     "cec7c353-34ab-43a4-ade5-411df02eaa2a": {
         "title": "WASD Thruster",
@@ -861,37 +861,30 @@
         "title": "Timed Explosive - Dynamite",
         "description": "Press E to activate! Detonates 10 seconds after activation.\n\nActivate immediately with a button/switch/sensor/logic/timer\n\nUse to detonate larger explosives"
     },
+
+
+
+    "e2cc7014-85f3-4bb8-a7ca-b70b6502d91e": {
+        "title": "Large Wing",
+        "description": "A large wing to create flying vehicles!\n\nUse number inputs to change the angle of the flap!"
+    },
+    "b5222776-1702-4c22-a8c5-ca26cc0290e7": {
+        "title": "Small Wing / Propeller",
+        "description": "A small wing that can be used for precise control, propellers, helicopter blades, tail fins, etc\n\nUse number inputs to change the angle of this part without the need for bearings!"
+    },
+    "99540e2a-7727-422c-8725-d38cc8d34126": {
+        "title": "Part Spawner",
+        "description": "A hacked ball-spawner from challenge mode that allows you to spawn any part! Use number logic to define which part to spawn, and how to spawn it. Optionally, connect a sensor to copy a part in front of the sensor (any part). Use /console for more instructions"
+    },
+
+
     "f73fd8c7-61eb-416f-8374-9a4c26e6db8f": {
-        "title": "Tonegenerator",
-        "description": ""
+    	"title": "Tone Generator",
+    	"description": "Use number logic to create sound!\n\nInputs:\nLogic = on/off\nWhite Number = note to play\nGrey Number = Frequency to play\nBlack Number = Wave type\nAny Color Number = Volume\n\nWave Types:\nSine, Square, Triangle, Sawtooth"
     },
     "1d5d997e-efa9-478c-98ee-e452f5ff0dd2": {
-        "title": "Totegenerator",
-        "description": ""
-    },
-
-
-
-	"8e3e3ef6-5fc0-4e8a-b07e-398d3d6a200a":
-    {
-        "title": "Drogue Chute",
-        "description": "Wings\n#FF4E0228.0#FFFFFFm x #FF4E027.0#FFFFFFm\n#2B7CFFx0.073#FFFFFF\nUsed to brake vehicles or drop expensive stuff that shouldn't slam into the ground at ludicrous speeds.\nRepack: [Use]"
-    },
-    "8e3e3ef6-5fc0-4e8a-b07e-398d3d6a100a": {
-        "title": "Large Wing",
-        "description": "Can create lift or drag, but it depends on how you use it. Use it for the heavy lifting work.\n\nThanks to DasEtwas for contributing this part to the Modpack"
-    },
-    "8e3e3ef6-5fc0-4e8a-b07e-398d3d6a104a": {
-        "title": "Small Wing / Propeller",
-        "description": "Used to fine tune the length of your flaps.\n\nThanks to DasEtwas for contributing this part to the Modpack"
-    },
-    "8e3e3ef6-5fc0-4e8a-b07e-398d3d6a102a": {
-        "title": "Cardboard Wing",
-        "description": "Keep away from potatoes. Let the dogfights begin.\n\nThanks to DasEtwas for contributing this part to the Modpack"
-    },
-    "8e3e3ef6-5fc0-4e8a-b07e-398d3d6a110a": {
-        "title": "Cardboard Propeller",
-        "description": "Used to fine tune the length of your cardboard pieces.\n\nThanks to DasEtwas for contributing this part to the Modpack"
+    	"title": "Smart Totebot",
+    	"description": "Inputs:\nLogic = on/off\nWhite Number = note to play\nGrey Number = Frequency to play\nBlack Number = Totebot type\nAny Color Number = Volume\n\nTotebots:\nBass 1, Percussion 1, Synth 1, Blip 1, Bass 2, Percussion 2, Synth 2, Blip 2, Glitch, Challenge Ball"
     }
 
 

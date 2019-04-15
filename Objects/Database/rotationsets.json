@@ -586,7 +586,22 @@
 				{ "south": "-Z", "east": "-X" },
 				{ "south": "-Z", "east": "Y" }
 			]
+		},
+		{
+			"name": "ScrapWing",
+			"prop": true,
+			"rotation": [
+				{ "south": "-Y", "east": "Z" },
+				{ "south": "-X", "east": "Z" },
+				{ "south": "Y", "east": "Z" },
+				{ "south": "X", "east": "Z" },
+				{ "south": "-Y", "east": "-Z" },
+				{ "south": "-X", "east": "-Z" },
+				{ "south": "Y", "east": "-Z" },
+				{ "south": "X", "east": "-Z" }
+			]
 		}
+
 
 	]
 }

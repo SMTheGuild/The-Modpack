@@ -864,26 +864,27 @@
 
 
 
-	"8e3e3ef6-5fc0-4e8a-b07e-398d3d6a200a":
-    {
-        "title": "Fallschirm",
-        "description": "Genutzt um dinge in der Luft abzubremsen. Aktiviert mit Knopf usw.\nWiederverwendbar mit (E)\nDanke an  DasEtwas, dass wir es in unserem Modpack verwenden dürfen."
+	"e2cc7014-85f3-4bb8-a7ca-b70b6502d91e": {
+        "title": "Großer Flügel",
+        "description": "Ein großer Flügel um fliegende Kreationen zu bauen!\n\nÄndere den Winkel der Flaps mit Nummern!"
     },
-    "8e3e3ef6-5fc0-4e8a-b07e-398d3d6a100a": {
-        "title": "Grosser Flügel",
-        "description": "Kann Auftrieb oder Luftwiederstand verursachen wenn man ihn richtig verwendet.\n\nDanke an  DasEtwas, dass wir es in unserem Modpack verwenden dürfen"
-    },
-    "8e3e3ef6-5fc0-4e8a-b07e-398d3d6a104a": {
+    "b5222776-1702-4c22-a8c5-ca26cc0290e7": {
         "title": "Kleiner Flügel / Propeller",
-        "description": "Genutzt zum anpassen der länge deiner Tragflächen.\n\nDanke an  DasEtwas, dass wir es in unserem Modpack verwenden dürfen"
+        "description": "Ein kleiner Flügel der für präzise Steuerung , als Propeller, Helikopterpropeller usw gut ist!\n\nBenutze Nummern um den Winkel des Teils einzustellen ohne dass man ein Lager benutzen muss!"
     },
-    "8e3e3ef6-5fc0-4e8a-b07e-398d3d6a102a": {
-        "title": "Karton Flügel",
-        "description": "Halte ihn fern von den Kartoffeln. Lasst die Luftkriege beginnen.\n\nDanke an  DasEtwas, dass wir es in unserem Modpack verwenden dürfen"
+    "99540e2a-7727-422c-8725-d38cc8d34126": {
+        "title": "Teil-Spawner",
+        "description": "Ein gehackter Ball Spawner vom Challenge Modus der es dir erlaubt, egal welches Tel zu Spawnen!\nBenutze Nummern und einzustellen welches Teil und wie es gespawnt werden soll.\nDu kannst auch einen Schlauen Sensor verbinden um ein Teil zu erfassen, und es dann zu Spawnen.\nSchreibe /console in den Chat um mehr informationen zu erhalten!"
     },
-    "8e3e3ef6-5fc0-4e8a-b07e-398d3d6a110a": {
-        "title": "Karton Propeller",
-        "description": "Genutzt zum anpassen der länge deiner Karton Tragflächen.\n\nDanke an  DasEtwas, dass wir es in unserem Modpack verwenden dürfen"
+
+
+    "f73fd8c7-61eb-416f-8374-9a4c26e6db8f": {
+    	"title": "Ton Generator",
+    	"description": "Benutze Nummern um einen Ton zu Generieren!\n\nInputs:\nLogic = An/Aus\nWeiße Nummer = Ton der gespelt werden soll\nGraue Nummer = Frequenz\nSchwarze Nummer = Wellenart\nEgal welche gefärbte Nummer = Lautstärke\n\nWellenart:\nSinus, Quadrat, Dreieck, Sägeblatt"
+    },
+    "1d5d997e-efa9-478c-98ee-e452f5ff0dd2": {
+    	"title": "Schlauer Totebot",
+    	"description": "Inputs:\nLogic = An/Aus\nWeiße Nummer = Ton der gespelt werden soll\nGraue Nummer = Frequenz\nSchwarze Nummer = Totebot Art\nEgal welche gefärbte Nummer = Lautstärke\n\nTotebots:\nBass 1, Percussion 1, Synth 1, Blip 1, Bass 2, Percussion 2, Synth 2, Blip 2, Glitch, Challenge Ball"
     }
 
 

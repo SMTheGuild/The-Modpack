@@ -194,7 +194,7 @@ function BlockSpawner.server_onFixedUpdate( self, timeStep )
                     if lookedupId then
                         numericId = lookedupId
                     end
-                    print(shapeDatabaseLookup, lookedupId, numericId)
+                    --print(shapeDatabaseLookup, lookedupId, numericId)
                 end
             end
             
@@ -206,13 +206,13 @@ function BlockSpawner.server_onFixedUpdate( self, timeStep )
         -- Try spawn
         if uuid ~= sm.uuid.getNil() then
             -- Calculate rotation
-            rotation = sm.quat.lookRotation(-self.shape.at, self.shape.right)
+            rotation = self.shape.worldRotation * sm.quat.new(0, 0.70710678118, 0.70710678118, 0)   --sm.quat.lookRotation(-self.shape.up, self.shape.at)
             
             -- Spawn block
             local succes, spawnedShape = pcall(sm.shape.createBlock,
                 uuid,
                 sm.vec3.new(sizeX, sizeY, sizeZ),
-                self.shape:getWorldPosition() + rotation * sm.vec3.new(offsetX-0, offsetY-0.5, offsetZ-0.5) * 0.25,
+                self.shape:getWorldPosition() + rotation * sm.vec3.new(offsetX-0.5, offsetY-1, offsetZ-0.5) * 0.25,
                 rotation,
                 dynamic,
                 forceSpawn
@@ -231,7 +231,7 @@ function BlockSpawner.server_onFixedUpdate( self, timeStep )
             
             if succes and color then -- Set the color of the spawned shape
                 spawnedShape.color = color
-                print(self.shape:getBoundingBox(), self.shape:getWorldPosition(), spawnedShape:getWorldPosition(), self.shape:getWorldPosition()-spawnedShape:getWorldPosition())
+                --print(self.shape:getBoundingBox(), self.shape:getWorldPosition(), spawnedShape:getWorldPosition(), self.shape:getWorldPosition()-spawnedShape:getWorldPosition())
             end
             
             self.lastSpawnedShape = succes and spawnedShape or nil

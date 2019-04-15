@@ -104,6 +104,8 @@
 			}
 		]
 	},
+
+//sound effects
 	"tone0":
 	{
 		"parameterList":
@@ -383,5 +385,5 @@
 				"parameters": [ "velocity" ]
 			}
 		]
-	}
+	}	
 }

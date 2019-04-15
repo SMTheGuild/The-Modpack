@@ -1613,9 +1613,9 @@
                         "subMeshList": [
                             {
                                 "textureList": [
-                                    "$GAME_DATA/Textures/transparent.tga",
-                                    "$GAME_DATA/Textures/transparent.tga",
-                                    "$GAME_DATA/Textures/nonor_nor.png"
+                                    "$MOD_DATA/Objects/Textures/mod_decor_cone_dif.png",
+                                    "$MOD_DATA/Objects/Textures/mod_decor_cone_asg.png",
+                                    "$MOD_DATA/Objects/Textures/mod_decor_cone_nor.png"
                                 ],
                                 "material": "PoseAnimDifAsgNor"
                             }
@@ -1642,19 +1642,19 @@
 					}
 				]
 			},
- /*
+// *
 			"spotlight": {
 				"effect": "ModLightCube"
 			},
 
- */ 
-
+// */ 
+/*
             "scripted" : 
 			{
 				"filename": "$MOD_DATA/Scripts/smartlight.lua",
 				"classname": "lightblock"
 			},
- 
+ */
 			"color": "ffff66",
 			"box": {
 				"x": 1, "y": 1, "z": 1
