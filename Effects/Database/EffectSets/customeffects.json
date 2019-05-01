@@ -54,6 +54,531 @@
 			}
 		]
 	},
+	"RadarDot":
+	{
+		"effectList":
+		[
+			{
+				"type": "particle",
+				"name": "radar_dot",
+				"offset": { "x": 0.0, "y": 0.0, "z": 0 },
+				"delay": 0.0
+			}
+		]
+	},
+	"RadarDot1":
+	{
+		"effectList":
+		[
+			{
+				"type": "particle",
+				"name": "radar_dot1",
+				"offset": { "x": 0.0, "y": 0.0, "z": 0 },
+				"delay": 0.0
+			}
+		]
+	},
+	"RadarDot2":
+	{
+		"effectList":
+		[
+			{
+				"type": "particle",
+				"name": "radar_dot2",
+				"offset": { "x": 0.0, "y": 0.0, "z": 0 },
+				"delay": 0.0
+			}
+		]
+	},
+	"RadarDot3":
+	{
+		"effectList":
+		[
+			{
+				"type": "particle",
+				"name": "radar_dot3",
+				"offset": { "x": 0.0, "y": 0.0, "z": 0 },
+				"delay": 0.0
+			}
+		]
+	},
+	"RadarDot4":
+	{
+		"effectList":
+		[
+			{
+				"type": "particle",
+				"name": "radar_dot4",
+				"offset": { "x": 0.0, "y": 0.0, "z": 0 },
+				"delay": 0.0
+			}
+		]
+	},
+	"RadarDot5":
+	{
+		"effectList":
+		[
+			{
+				"type": "particle",
+				"name": "radar_dot5",
+				"offset": { "x": 0.0, "y": 0.0, "z": 0 },
+				"delay": 0.0
+			}
+		]
+	},
+	"RadarDot6":
+	{
+		"effectList":
+		[
+			{
+				"type": "particle",
+				"name": "radar_dot6",
+				"offset": { "x": 0.0, "y": 0.0, "z": 0 },
+				"delay": 0.0
+			}
+		]
+	},
+	"RadarDot7":
+	{
+		"effectList":
+		[
+			{
+				"type": "particle",
+				"name": "radar_dot7",
+				"offset": { "x": 0.0, "y": 0.0, "z": 0 },
+				"delay": 0.0
+			}
+		]
+	},
+	"RadarDot8":
+	{
+		"effectList":
+		[
+			{
+				"type": "particle",
+				"name": "radar_dot8",
+				"offset": { "x": 0.0, "y": 0.0, "z": 0 },
+				"delay": 0.0
+			}
+		]
+	},
+	"RadarDot9":
+	{
+		"effectList":
+		[
+			{
+				"type": "particle",
+				"name": "radar_dot9",
+				"offset": { "x": 0.0, "y": 0.0, "z": 0 },
+				"delay": 0.0
+			}
+		]
+	},
+	"RadarDot10":
+	{
+		"effectList":
+		[
+			{
+				"type": "particle",
+				"name": "radar_dot10",
+				"offset": { "x": 0.0, "y": 0.0, "z": 0 },
+				"delay": 0.0
+			}
+		]
+	},
+	"RadarDot11":
+	{
+		"effectList":
+		[
+			{
+				"type": "particle",
+				"name": "radar_dot11",
+				"offset": { "x": 0.0, "y": 0.0, "z": 0 },
+				"delay": 0.0
+			}
+		]
+	},
+	"RadarDot12":
+	{
+		"effectList":
+		[
+			{
+				"type": "particle",
+				"name": "radar_dot12",
+				"offset": { "x": 0.0, "y": 0.0, "z": 0 },
+				"delay": 0.0
+			}
+		]
+	},
+	"RadarDot13":
+	{
+		"effectList":
+		[
+			{
+				"type": "particle",
+				"name": "radar_dot13",
+				"offset": { "x": 0.0, "y": 0.0, "z": 0 },
+				"delay": 0.0
+			}
+		]
+	},
+	"RadarDot14":
+	{
+		"effectList":
+		[
+			{
+				"type": "particle",
+				"name": "radar_dot14",
+				"offset": { "x": 0.0, "y": 0.0, "z": 0 },
+				"delay": 0.0
+			}
+		]
+	},
+	"RadarDot15":
+	{
+		"effectList":
+		[
+			{
+				"type": "particle",
+				"name": "radar_dot15",
+				"offset": { "x": 0.0, "y": 0.0, "z": 0 },
+				"delay": 0.0
+			}
+		]
+	},
+	"RadarDot16":
+	{
+		"effectList":
+		[
+			{
+				"type": "particle",
+				"name": "radar_dot16",
+				"offset": { "x": 0.0, "y": 0.0, "z": 0 },
+				"delay": 0.0
+			}
+		]
+	},
+	"RadarDot17":
+	{
+		"effectList":
+		[
+			{
+				"type": "particle",
+				"name": "radar_dot17",
+				"offset": { "x": 0.0, "y": 0.0, "z": 0 },
+				"delay": 0.0
+			}
+		]
+	},
+	"RadarDot18":
+	{
+		"effectList":
+		[
+			{
+				"type": "particle",
+				"name": "radar_dot18",
+				"offset": { "x": 0.0, "y": 0.0, "z": 0 },
+				"delay": 0.0
+			}
+		]
+	},
+	"RadarDot19":
+	{
+		"effectList":
+		[
+			{
+				"type": "particle",
+				"name": "radar_dot19",
+				"offset": { "x": 0.0, "y": 0.0, "z": 0 },
+				"delay": 0.0
+			}
+		]
+	},
+	"RadarDot20":
+	{
+		"effectList":
+		[
+			{
+				"type": "particle",
+				"name": "radar_dot20",
+				"offset": { "x": 0.0, "y": 0.0, "z": 0 },
+				"delay": 0.0
+			}
+		]
+	},
+	"RadarDot21":
+	{
+		"effectList":
+		[
+			{
+				"type": "particle",
+				"name": "radar_dot21",
+				"offset": { "x": 0.0, "y": 0.0, "z": 0 },
+				"delay": 0.0
+			}
+		]
+	},
+	"RadarDot22":
+	{
+		"effectList":
+		[
+			{
+				"type": "particle",
+				"name": "radar_dot22",
+				"offset": { "x": 0.0, "y": 0.0, "z": 0 },
+				"delay": 0.0
+			}
+		]
+	},
+	"RadarDot23":
+	{
+		"effectList":
+		[
+			{
+				"type": "particle",
+				"name": "radar_dot23",
+				"offset": { "x": 0.0, "y": 0.0, "z": 0 },
+				"delay": 0.0
+			}
+		]
+	},
+	"RadarDot24":
+	{
+		"effectList":
+		[
+			{
+				"type": "particle",
+				"name": "radar_dot24",
+				"offset": { "x": 0.0, "y": 0.0, "z": 0 },
+				"delay": 0.0
+			}
+		]
+	},
+	"RadarDot25":
+	{
+		"effectList":
+		[
+			{
+				"type": "particle",
+				"name": "radar_dot25",
+				"offset": { "x": 0.0, "y": 0.0, "z": 0 },
+				"delay": 0.0
+			}
+		]
+	},
+	"RadarDot26":
+	{
+		"effectList":
+		[
+			{
+				"type": "particle",
+				"name": "radar_dot26",
+				"offset": { "x": 0.0, "y": 0.0, "z": 0 },
+				"delay": 0.0
+			}
+		]
+	},
+	"RadarDot27":
+	{
+		"effectList":
+		[
+			{
+				"type": "particle",
+				"name": "radar_dot27",
+				"offset": { "x": 0.0, "y": 0.0, "z": 0 },
+				"delay": 0.0
+			}
+		]
+	},
+	"RadarDot28":
+	{
+		"effectList":
+		[
+			{
+				"type": "particle",
+				"name": "radar_dot28",
+				"offset": { "x": 0.0, "y": 0.0, "z": 0 },
+				"delay": 0.0
+			}
+		]
+	},
+	"RadarDot29":
+	{
+		"effectList":
+		[
+			{
+				"type": "particle",
+				"name": "radar_dot29",
+				"offset": { "x": 0.0, "y": 0.0, "z": 0 },
+				"delay": 0.0
+			}
+		]
+	},
+	"RadarDot30":
+	{
+		"effectList":
+		[
+			{
+				"type": "particle",
+				"name": "radar_dot30",
+				"offset": { "x": 0.0, "y": 0.0, "z": 0 },
+				"delay": 0.0
+			}
+		]
+	},
+	"RadarDot31":
+	{
+		"effectList":
+		[
+			{
+				"type": "particle",
+				"name": "radar_dot31",
+				"offset": { "x": 0.0, "y": 0.0, "z": 0 },
+				"delay": 0.0
+			}
+		]
+	},
+	"RadarDot32":
+	{
+		"effectList":
+		[
+			{
+				"type": "particle",
+				"name": "radar_dot32",
+				"offset": { "x": 0.0, "y": 0.0, "z": 0 },
+				"delay": 0.0
+			}
+		]
+	},
+	"RadarDot33":
+	{
+		"effectList":
+		[
+			{
+				"type": "particle",
+				"name": "radar_dot33",
+				"offset": { "x": 0.0, "y": 0.0, "z": 0 },
+				"delay": 0.0
+			}
+		]
+	},
+	"RadarDot34":
+	{
+		"effectList":
+		[
+			{
+				"type": "particle",
+				"name": "radar_dot34",
+				"offset": { "x": 0.0, "y": 0.0, "z": 0 },
+				"delay": 0.0
+			}
+		]
+	},
+	"RadarDot35":
+	{
+		"effectList":
+		[
+			{
+				"type": "particle",
+				"name": "radar_dot35",
+				"offset": { "x": 0.0, "y": 0.0, "z": 0 },
+				"delay": 0.0
+			}
+		]
+	},
+	"RadarDot36":
+	{
+		"effectList":
+		[
+			{
+				"type": "particle",
+				"name": "radar_dot36",
+				"offset": { "x": 0.0, "y": 0.0, "z": 0 },
+				"delay": 0.0
+			}
+		]
+	},
+	"RadarDot37":
+	{
+		"effectList":
+		[
+			{
+				"type": "particle",
+				"name": "radar_dot37",
+				"offset": { "x": 0.0, "y": 0.0, "z": 0 },
+				"delay": 0.0
+			}
+		]
+	},
+	"RadarDot38":
+	{
+		"effectList":
+		[
+			{
+				"type": "particle",
+				"name": "radar_dot38",
+				"offset": { "x": 0.0, "y": 0.0, "z": 0 },
+				"delay": 0.0
+			}
+		]
+	},
+	"RadarDot39":
+	{
+		"effectList":
+		[
+			{
+				"type": "particle",
+				"name": "radar_dot39",
+				"offset": { "x": 0.0, "y": 0.0, "z": 0 },
+				"delay": 0.0
+			}
+		]
+	},
+	"RadarDot40":
+	{
+		"effectList":
+		[
+			{
+				"type": "particle",
+				"name": "radar_dot40",
+				"offset": { "x": 0.0, "y": 0.0, "z": 0 },
+				"delay": 0.0
+			}
+		]
+	},
+	"RadarDot41":
+	{
+		"effectList":
+		[
+			{
+				"type": "particle",
+				"name": "radar_dot40",
+				"offset": { "x": 0.0, "y": 0.0, "z": 0 },
+				"delay": 0.0
+			}
+		]
+	},
+	"Radar3dDot":
+	{
+		"parameterList":
+		{
+			"Size": 0.0, 
+			"velocity": 0.0,
+			"power": 0.0,
+			"color": "007fff",
+			"radius": 1.5,
+			"intensity": 0.01
+		},
+		"effectList":
+		[
+			{
+				"type": "particle",
+				"name": "radar3dplayer",
+				"offset": { "x": 0.0, "y": 0.0, "z": 0.0 },
+				"delay": 0.0
+			}
+		]
+	},
 	"ModHeadLight":
 	{
 		"parameterList":

@@ -1,0 +1,218 @@
+{
+   "system" : {
+      "emitters" : [
+         {
+            "ASG_map" : "",
+            "alpha" : false,
+            "angle_delta" : 0.0,
+            "angle_max" : 0.0,
+            "angle_min" : 0.0,
+            "angle_val" : 0.0,
+            "billboard_origin" : "center",
+            "billboard_type" : "world",
+            "bounce_delta" : 0.0,
+            "bounce_max" : 0.00,
+            "bounce_min" : 0.00,
+            "bounce_val" : 0.00,
+            "box_depth" : 2.0,
+            "box_height" : 2.0,
+            "box_width" : 2.0,
+            "category" : "",
+            "circle_angle" : 0.0,
+            "collision" : "none",
+            "color" : { // Main overide color, if RB and B are not all 1, then other colors wont affect it.
+               "a" : 1.0,
+               "b" : 0.0,
+               "g" : 0.0,
+               "r" : 1.0
+            },
+            "cone_angle" : 25.0,
+            "cone_radius" : 1.0,
+            "default_mesh_depth" : 1.0,
+            "default_mesh_height" : 1.0,
+            "default_mesh_width" : 1.0,
+            "default_particle_depth" : 2.0,
+            "default_particle_height" : 2.0,
+            "default_particle_width" : 2.0,
+            "delay" : 0.0,
+            "depth_delta" : 0.0,
+            "depth_max" : 1.0,
+            "depth_min" : 1.0,
+            "depth_val" : 1.0,
+            //"diffuse" : "",
+            "direction" : {
+               "x" : 0.0,
+               "y" : 0.0,
+               "z" : 1.0
+            },
+            "force_vector" : { // This is in what direction the mesh moves.
+               "x" : 0.0,
+               "y" : 0.0,
+               "z" : 0.0
+            },
+            "direction_type" : "constant",
+            "duration" : 0.0, // duration of this effect.
+            "editorColor" : {
+               "a" : 1.0,
+               "b" : 0.0,
+               "g" : 1.0,
+               "r" : 0.0
+            },
+            "effects" : [
+               {
+                  "control_point" : [ // This makes it glow RGB (from R To G To B) (just color/time)).
+                     {
+                        "color" : {
+                           "a" : 1.0,
+                           "b" : 0.0,
+                           "g" : 0.0,
+                           "r" : 1.0
+                        },
+                        "time" : 0.0
+                     },
+                     {
+                        "color" : {
+                           "a" : 1.0,
+                           "b" : 0.0,
+                           "g" : 1.0,
+                           "r" : 0.0
+                        },
+                        "time" : 0.2
+                     },
+                     {
+                        "color" : {
+                           "a" : 1.0,
+                           "b" : 1.0,
+                           "g" : 0.0,
+                           "r" : 0.0
+                        },
+                        "time" : 1.0
+                     }
+                  ],
+                  "guid" : 2,
+                  "name" : "Color",
+                  "toggle" : true
+               }
+            ],
+            "emission_mesh" : "",
+            "emission_mesh_scale" : {
+               "x" : 1.0,
+               "y" : 1.0,
+               "z" : 1.0
+            },
+            "emission_mode" : "default",
+            "emission_rate" : 255,
+            "force_vector" : { // This is in what direction the mesh moves.
+               "x" : 0.0,
+               "y" : 0.0,
+               "z" : 0.0
+            },
+            "friction_delta" : 0.0,
+            "friction_max" : 0.0,
+            "friction_min" : 0.0,
+            "friction_val" : 0.0,
+            "glow" : false,
+            "glow_exposure_delta" : 0.0,
+            "glow_exposure_max" : 0.2,
+            "glow_exposure_min" : 0.2,
+            "glow_exposure_val" : 0.2,
+            "glow_strength" : 1.0,
+            /*"gradient" : {
+               "control_point" : [
+                  {
+                     "color" : {
+                        "a" : 1.0,
+                        "b" : 0.0,
+                        "g" : 0.0,
+                        "r" : 1.0
+                     },
+                     "time" : 0.0
+                  },
+                  {
+                     "color" : {
+                        "a" : 1.0,
+                        "b" : 0.0,
+                        "g" : 1.0,
+                        "r" : 0.0
+                     },
+                     "time" : 0.5
+                  },
+                  {
+                     "color" : {
+                        "a" : 1.0,
+                        "b" : 1.0,
+                        "g" : 0.0,
+                        "r" : 0.0
+                     },
+                     "time" : 1.0
+                  }
+               ]
+            },*/
+            "guid" : 1,
+            "height_delta" : 0.0,
+            "height_max" : 1.0,
+            "height_min" : 1.0,
+            "height_val" : 1.0,
+            "hidden" : false,
+            "keep_local" : true,
+            "mesh" : "Mesh/melon.obj",
+            "mesh_diffuse" : "Textures/orange_dif.tga",
+            "name" : "player 1",
+            "normal_map" : "",
+            "particle" : "mesh",
+            "position" : {
+               "x" : 0.0,
+               "y" : 0.0,
+               "z" : 0.0
+            },
+            "radius" : 0.25,
+            "repeat_delay" : 0.0,
+            "rotationSpeed_delta" : 100.0,
+            "rotationSpeed_max" : 1000.0,
+            "rotationSpeed_min" : 100.0,
+            "rotationSpeed_val" : 500.0,
+            "rotation_axis" : {
+               "x" : 1.0,
+               "y" : -1.0,
+               "z" : 1.0
+            },
+            "rotation_delta" : 10.0,
+            "rotation_max" : 360.0,
+            "rotation_min" : 30.0,
+            "rotation_val" : 60.0,
+            "scene_blend" : "alpha_blend",
+            "shadows" : true,
+            "soft_particles_bias" : 1024,
+            "sort" : 0,
+            "sort_offset" : 0.0,
+            "sphere_radius" : 0.5,
+            "start_color" : "solid",
+            "surface" : false,
+            "texture_coords_columns" : 1,
+            "texture_coords_rows" : 1,
+            "time_to_live_delta" : 0.1,
+            "time_to_live_max" : 10.0,
+            "time_to_live_min" : 0.0,
+            "time_to_live_val" : 5.0,
+            "type" : "point",
+            "velocity_delta" : 0.0,
+            "velocity_max" : 0.0,
+            "velocity_min" : 0.0,
+            "velocity_val" : 0.0,
+            "visual_particle_quota" : 1,
+            "width_delta" : 0.0,
+            "width_max" : 1.0,
+            "width_min" : 1.0,
+            "width_val" : 1.0,
+            "wind_delta" : 0.0,
+            "wind_max" : 0.0,
+            "wind_min" : 0.0,
+            "wind_val" : 0.0
+         }
+      ],
+      "scale" : 0.5,
+      "scale_time" : 1.0,
+      "scale_velocity" : 1.0,
+      "system_type" : "stream"
+   }
+}

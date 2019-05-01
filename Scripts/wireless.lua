@@ -5,16 +5,16 @@ sender = class( nil )
 sender.maxParentCount = 2
 sender.maxChildCount = -1
 sender.connectionInput =  sm.interactable.connectionType.power + sm.interactable.connectionType.logic
-sender.connectionOutput = sm.interactable.connectionType.power + sm.interactable.connectionType.logic
+sender.connectionOutput = sm.interactable.connectionType.power + sm.interactable.connectionType.logic + sm.interactable.connectionType.bearing
 sender.colorNormal = sm.color.new( 0xaaaaaaff )
 sender.colorHighlight = sm.color.new( 0xaaaaaaff )
 sender.poseWeightCount = 3
 
-function sender.server_onCreate( self ) 
+function sender.server_onCreate( self )
 	self:server_init()
 end
 
-function sender.server_init( self ) 
+function sender.server_init( self )
 	self.sender = true
 	self.pose = 0.5
 	if not wirelessdata then
@@ -125,10 +125,13 @@ function sender.server_onFixedUpdate( self, dt )
 						power = data[color].value
 						pose = data[color].AD
 					end
+					for k, joint in pairs(sm.interactable.getBearings(self.interactable)) do
+						sm.joint.setTargetAngle(joint, math.rad(pose*27), 10, 1000)
+					end
 				end
 			end
 		if self.power ~= self.interactable.power or self.power ~= (sm.interactable.getValue(self.interactable) or self.power) then
-				self.interactable:setActive(power>0)
+				self.interactable:setActive(power~=0)
 				self.interactable:setPower(power)
 	sm.interactable.setValue(self.interactable,  power)
 			end
@@ -146,7 +149,7 @@ function sender.client_onFixedUpdate(self, dt)
 		if tostring(sm.shape.getColor(v:getShape())) == "eeeeeeff" and v:getType() == "scripted" and tostring(v:getShape():getShapeUuid()) ~= "6f2dd83e-bc0d-43f3-8ba5-d5209eb03d07" then
 			--number input, frequency
 		else
-			pose = pose + v:getPoseWeight(0)
+			pose = pose + (v:getPoseWeight(0)*2 -1)
 		end
 	end
 	self.pose = pose

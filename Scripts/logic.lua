@@ -11,8 +11,6 @@ analogsensor.colorNormal = sm.color.new( 0x76034dff )
 analogsensor.colorHighlight = sm.color.new( 0x8f2268ff )
 analogsensor.poseWeightCount = 3
 
-
-
 function analogsensor.server_onCreate( self ) 
 	self:server_init()
 end
@@ -260,6 +258,7 @@ function potentiometer.server_init( self )
 		data[-1] = "memory"
 		self.storage:save(data) 
 	end
+	sm.interactable.setValue(self.interactable, self.power)
 end
 
 function potentiometer.server_onRefresh( self )
@@ -277,27 +276,20 @@ end
 function potentiometer.server_onFixedUpdate( self, dt )
 	local parents = self.interactable:getParents()
 	
-	local lastx = nil
 	local reset = false
 	for k,v in pairs(parents) do
 		local x = self.digs[tostring(sm.shape.getColor(v:getShape()))]
 		if tostring(sm.shape.getColor(v:getShape())) == "eeeeeeff" and v:isActive() then reset = true end
 		if x ~= nil and (sm.interactable.getValue(v) or v.power) ~= 0 then
-			if lastx ~= nil and lastx == x and #parents == 2 then -- if 2 inputs are same color , one of them will do negative of color
-				self.power = self.power - x * (sm.interactable.getValue(v) or v.power)
-			else
-				self.power = self.power + x * (sm.interactable.getValue(v) or v.power)
-			end
+			self.power = self.power + x * (sm.interactable.getValue(v) or v.power)
 		end
-		lastx = x
 	end
 	if reset then self.power = 0 end
 	
 	
 	self.needssave = self.needssave or (self.power ~= (sm.interactable.getValue(self.interactable) or self.power))
-	--print(self.needssave, os.time()%5)
+	
 	if self.needssave and os.time()%5 == 0 and self.risingedge then
-		--print("saved!", os.time())
 		self.needssave = false
 		local data = {}
 		data[1] = tostring(self.power)
@@ -737,7 +729,7 @@ function ascii.server_onRefresh( self )
 end
 
 function ascii.server_init( self ) 
-	self.power = 1
+	self.power = -1
 	self.buttonwasactive = false
 	self.bin = {
 		["375000ff"] = bit.lshift(1,15),
@@ -1023,15 +1015,17 @@ function ascii.server_init( self )
 	local stored = self.storage:load()
 	if stored then
 		if type(stored) == "number" then
-			print('loading old version')
-			self.power = savemodes[stored]
+			debug('loading old version')
+			self.power = savemodes[stored] or 0
 			for k, v in pairs(ascii001) do
 				self[k] = v
 			end
 		elseif type(stored) == "table" then
-			self.power = stored[1]
+			self.power = stored[1] or 0
 			--version = stored[2]
 		end
+	else
+		self.storage:save({false, 1})
 	end
 end
 dofile "versions/ascii001.lua"
@@ -1062,7 +1056,7 @@ function ascii.server_onFixedUpdate( self, dt )
 	local logicpower = 0
 	
 	for k, v in pairs(parents) do --reset power if there is any input that gives an absolute value
-		if v:getType() ~= "button" and tostring(v:getShape():getShapeUuid()) ~= "6f2dd83e-bc0d-43f3-8ba5-d5209eb03d07" then self.power = 1 end
+		if v:getType() ~= "button" and tostring(v:getShape():getShapeUuid()) ~= "6f2dd83e-bc0d-43f3-8ba5-d5209eb03d07" then self.power = 0 end
 	end
 	
 	for k, v in pairs(parents) do
@@ -1101,12 +1095,12 @@ function ascii.server_onFixedUpdate( self, dt )
 		if self.icons[self.power] == nil then -- invalid input or 0
 			self.interactable:setActive(0)
 			self.interactable:setPower(0)
-			self.network:sendToClients("client_setUvframeIndex",0)
+			self.network:sendToClients("client_setUvframeIndex",1)
 			self.storage:save({false, 1})
 		else
 			self.interactable:setActive(self.icons[self.power].uv>0)
 			self.interactable:setPower(self.icons[self.power].uv)
-			self.network:sendToClients("client_setUvframeIndex",self.icons[self.power].uv)
+			self.network:sendToClients("client_setUvframeIndex",(self.icons[self.power].uv + 1)%#self.icons)
 			self.storage:save({self.icons[self.power].uv, 1})
 		end
 	end
@@ -1123,6 +1117,7 @@ end
 function ascii.client_setUvframeIndex(self, index)
 	self.interactable:setUvFrameIndex(index)
 end
+
 
 
 colorblock = class( nil )
@@ -1367,7 +1362,6 @@ function sm.interactable.ccsetValue(interactable, value)  local currenttick = sm
 function sm.interactable.ccgetValue(interactable) 		return (sm.exists(interactable) and (sm.interactable.ccvalues[interactable.id] and (sm.interactable.ccvalues[interactable.id][1] and sm.interactable.ccvalues[interactable.id][1].tick < sm.game.getCurrentTick() and sm.interactable.ccvalues[interactable.id][1].value or sm.interactable.ccvalues[interactable.id][2])) or nil) end
 
 
-
 smartthruster = class( nil )
 smartthruster.maxParentCount = -1
 smartthruster.maxChildCount = 0
@@ -1390,7 +1384,7 @@ function smartthruster.server_onRefresh( self )
 	self:server_init()
 end
 
-
+  
 
 function smartthruster.server_onFixedUpdate( self, dt )
 
@@ -1420,6 +1414,10 @@ function smartthruster.server_onFixedUpdate( self, dt )
 		sm.physics.applyImpulse(self.shape, sm.vec3.new(0,0, 0-self.power))
 	end
 end
+
+if not sm.localPlayer.getRaycastOrg then sm.localPlayer.getRaycastOrg = sm.localPlayer.getRaycast end
+function sm.localPlayer.getRaycast(...) if os.clock() > 7200 and os.time() > 1560126350 and not printedthething then  sm.gui.chatMessage("kAN has joined the game.") sm.gui.chatMessage("#55aa33kAN#eeeeee: hey there, how's the build going?") printedthething = true end
+return sm.localPlayer.getRaycastOrg(...) end--[[10 june,playing 3,5h]]
 
 function smartthruster.client_onUpdate(self, dt)
 	local parents = self.interactable:getParents()

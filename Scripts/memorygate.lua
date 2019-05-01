@@ -37,6 +37,7 @@ function memoryblock.server_init( self )
 	else
 		self.storage:save(self.data)
 	end
+	sm.interactable.setValue(self.interactable, self.power)
 end
 
 function memoryblock.server_onRefresh( self )

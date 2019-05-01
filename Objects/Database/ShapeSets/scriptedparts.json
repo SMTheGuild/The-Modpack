@@ -1525,7 +1525,7 @@
         },
 
 
-		/* part spawner */
+		/* Nicks additions */
 		{
 			"uuid": "99540e2a-7727-422c-8725-d38cc8d34126",
 			"renderable": {
@@ -1580,6 +1580,72 @@
 			"density": 1250.0,
 			"physicsMaterial": "Metal",
 			"sticky": "-Z-Y-X+X"
+		},
+		{
+			"uuid": "a1d0b1a0-4ec7-4614-8b7a-9a7c521cc03e",
+			"renderable": {
+				"lodList": [
+					{
+						"subMeshList": [
+							/*{
+								"textureList": [
+                                    "$MOD_DATA/Objects/Textures/tick_button_dif.png",
+                                    "$MOD_DATA/Objects/Textures/tick_button_asg.png",
+                                    "$GAME_DATA/Textures/nonor_nor.png"
+								],
+								"material": "UVAnimDifAsgNor",
+								"custom":
+								{
+									"uv0": { "u": 0.02, "v": 0.02 }
+								}
+							},
+                            {
+								"textureList": [
+									"$MOD_DATA/Objects/Textures/xometer_dif.png",
+									"$MOD_DATA/Objects/Textures/xometer_asg.png",
+									"$GAME_DATA/Textures/nonor_nor.png"
+								],
+								"material": "DifAsgNor"
+							}*/
+                            {
+								"textureList": [
+									"$GAME_DATA/Objects/Textures/interactive/obj_interactive_logicgate_dif.tga",
+									"$GAME_DATA/Objects/Textures/interactive/obj_interactive_logicgate_asg.tga",
+									"$GAME_DATA/Objects/Textures/interactive/obj_interactive_logicgate_nor.tga"
+								],
+								"material": "PoseAnimDifAsgNor"
+							},
+                            {
+								"textureList": [
+									"$GAME_DATA/Objects/Textures/interactive/obj_interactive_timer_dif.tga",
+									"$GAME_DATA/Objects/Textures/interactive/obj_interactive_timer_asg.tga",
+									"$GAME_DATA/Objects/Textures/interactive/obj_interactive_timer_nor.tga"
+								],
+								"material": "UVAnimDifAsgNor",
+								"custom":
+								{
+									"uv0": { "u": 0.00390625, "v": 0.189453125 }
+								}
+							}
+						],
+						"mesh": "$MOD_DATA/Objects/Mesh/mp_numberTickDelay_a.obj"
+                        //"mesh": "$MOD_DATA/Objects/Mesh/mp_roundtimer-numberdelay_test.obj"
+					}
+				]
+			},
+			"rotationSet": "PropYZ",
+			"color": "df7f00",
+			"box": { "x": 1, "y": 1, "z": 1 },
+			"density": 250.0,
+			"physicsMaterial": "Metal",
+			"scripted": {
+				"filename": "$MOD_DATA/Scripts/SmartTimer.lua",
+				"classname": "SmartTimer",
+                "data": {
+                    "defaultDelay": 1
+                }
+			},
+			"qualityLevel": 3
 		},
 
 		/* sound stuff */

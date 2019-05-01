@@ -49,14 +49,16 @@ function mathblock.server_init( self )
 		{value = 25, name = "arcsin"    ,description = "\noutputs the inverse sinus of the input in degrees, input between -1 and 1\nmultiple inputs: arcsinus(sum of inputs)"},
 		{value = 26, name = "arccos"    ,description = "\noutputs the inverse cosinus of the input in degrees, input between -1 and 1\nmultiple inputs: arccosinus(sum of inputs)"},
 		{value = 27, name = "arctan"    ,description = "\noutputs the inverse tangens of the input in degrees\nmultiple inputs: arctangens(sum of inputs)"},
-		{value = 35, name = "arctan2"    ,description = "\noutputs the inverse tangens of the inputs (white & black) in degrees\nmultiple inputs: arctangens2(whites, blacks)\narctan*2* because it works for all 4 quadrants -> 2 inputs!(black&white)"},
+		{value = 35, name = "arctan2"   ,description = "\noutputs the inverse tangens of the inputs (white & black) in degrees\nmultiple inputs: arctangens2(whites, blacks)\narctan*2* because it works for all 4 quadrants -> 2 inputs!(black&white)"},
 		{value = 15, name = "pi"        ,description = "\nno inputs, outputs PI \n(3.141592653589793238462643383279502884197169399375\n10582097494459230781640628620899862803482534211706\n79821480865132823066470938446095505822317253594081\n28481117450284102701938521105559644622948954930381\n9644288109756659334461284756482337867831652712019)"},
 		{value = 16, name = "random"    ,description = "\ninputs: logic, number\nno inputs: outputs random value between 0 and 1,\nlogic input will let it generate a new random number\nnumber input(s) define the range within to generate an integer value\n(input: 5 -> output 1/2/3/4/5, input: -2, 3 -> output: -2/-1/0/1/2/3)"},
+		{value = 36, name = "sign"      ,description = "\noutputs 1 if the inputs > 0\noutputs -1 if the inputs < 0\noutputs 0 if the inputs are 0"},
 		{value = 10, name = ">="        ,description = "\nbecomes active(1) when the white input is bigger or equal than the non-white input\nmore parents: active when sum of whites is bigger or equal sum of non-whites"},
 		{value = 11, name = "<="        ,description = "\nbecomes active(1) when the white input is smaller or equal than the non-white input\nmore parents: active when sum of whites is smaller or equal sum of non-whites"},
 		{value = 07, name = ">"         ,description = "\nbecomes active(1) when the white input is bigger than the non-white input\nmore parents: active when sum of whites is bigger than sum of non-whites"},
 		{value = 08, name = "<"         ,description = "\nbecomes active(1) when the white input is smaller than the non-white input\nmore parents: active when sum of whites is smaller than sum of non-whites"},
 		{value = 09, name = "="         ,description = "\nbecomes active(1) when all inputs are equal"},
+		{value = 37, name = "!="        ,description = "\nbecomes active(1) when inputs are not equal"},
 		{value = 29, name = "seated"    ,description = "\nbecomes active and outputs the value of input seats occupied"},
 		{value = 30, name = "A/D"       ,description = "\noutputs the A/D value, range: -1 to 1\nmultiple driverseat inputs: average of A/D output of inputs,\nexcellent for teamwork"},
 		{value = 31, name = "W/S"       ,description = "\noutputs the W/S value, range: -1 to 1\nmultiple driverseat inputs: average of W/S output of inputs,\nexcellent for teamwork"},
@@ -898,6 +900,25 @@ function mathblock.server_onFixedUpdate( self, dt )
 			else
 				self.power = 0
 			end
+			
+		elseif mode == 36 then  -- sign
+			
+			local sum = 0 
+			for k, parent in pairs(parents) do
+				sum = sum + (sm.interactable.getValue(parent) or parent.power)
+			end
+			self.power = (sum > 0 and 1) or (sum < 0 and -1) or 0
+			
+		elseif mode == 37 then  -- Neq
+			
+			self.power = 0
+			local firstvalue = (#parents > 0) and (sm.interactable.getValue(parents[1]) or parents[1].power)
+			for k, parent in pairs(parents) do
+				if (sm.interactable.getValue(parent) or parent.power) ~= firstvalue then
+					self.power = 1
+				end
+			end
+			
 		end
 	--end
 	
