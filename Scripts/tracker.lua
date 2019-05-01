@@ -6,11 +6,10 @@ tracker.connectionInput =  sm.interactable.connectionType.power
 tracker.connectionOutput = sm.interactable.connectionType.none
 tracker.colorNormal = sm.color.new( 0xaaaaaaff )
 tracker.colorHighlight = sm.color.new( 0xaaaaaaff )
+if not trackertrackers then trackertrackers = {} end
 
-if not tracker.trackers then tracker.trackers = {} end
-
-function tracker.client_onCreate( self ) 
-	table.insert(tracker.trackers, self)
+function tracker.client_onCreate( self )
+	table.insert(trackertrackers, self.shape)
 end
 function tracker.client_onRefresh( self )
 	self:client_onCreate()
@@ -34,14 +33,13 @@ jammer.connectionOutput = sm.interactable.connectionType.none
 jammer.colorNormal = sm.color.new( 0x470067ff )
 jammer.colorHighlight = sm.color.new( 0x601980ff )
 jammer.poseWeightCount = 1
-
-if not jammer.jammers then jammer.jammers = {} end
+jammerjammers = {}
 
 function jammer.client_onCreate( self )
 	self.uvindex = 0
 	self.isON = 1
 	self.interference = 0 -- time
-	table.insert(jammer.jammers, self.interactable)
+	table.insert(jammerjammers, self.interactable)
 	self.network:sendToServer("server_modeToClient")
 end
 function jammer.client_onRefresh( self )

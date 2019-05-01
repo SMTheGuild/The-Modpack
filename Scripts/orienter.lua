@@ -169,7 +169,7 @@ function AI.gettracker(self, data)  --self:gettracker({minrange = nil, maxrange 
 	local frequency = data.frequency
 	local ignorejammers = data.ignorejammers
 	 
-	if not tracker.trackers then return 0 end
+	if not trackertrackers then return 0 end
 	
 	
 	local validtrackers = {}
@@ -177,7 +177,7 @@ function AI.gettracker(self, data)  --self:gettracker({minrange = nil, maxrange 
 	local closestvaliddistance = nil
 	local closestvalididmatchingcolor = nil
 	local closestvaliddistancematchingcolor = nil
-	for key, tracker in pairs(tracker.trackers) do
+	for key, tracker in pairs(trackertrackers) do
 		if tracker and tracker.shape and sm.exists(tracker.shape) then 
 			local trackerpos = tracker.shape.worldPosition
 			local distance = (centerpos - trackerpos):length()
@@ -652,7 +652,7 @@ function AI.server_onFixedUpdate( self, dt )
 		end
 		
 		
-	elseif mode == 5 and tracker.trackers then  -- orient block
+	elseif mode == 5 and trackertrackers then  -- orient block
 		--direction = sm.shape.getUp(self.shape)
 		
 		local id = self:gettracker({minrange = minrange, maxrange = maxrange, frequency = whiteinput, offset = blackinput, ignorejammers = false})
@@ -667,12 +667,12 @@ function AI.server_onFixedUpdate( self, dt )
 					end
 				end
 			end
-			targetposition = tracker.trackers[id].shape.worldPosition
-			targetmass = tracker.trackers[id].shape.mass
+			targetposition = trackertrackers[id].shape.worldPosition
+			targetmass = trackertrackers[id].shape.mass
 			-- targetdir = ... -- needs to be implemented still, needs rework of the tracker
 			
-			local targetdirection = (tracker.trackers[id].shape.worldPosition - self.shape.worldPosition):normalize()
-			local distance = (tracker.trackers[id].shape.worldPosition - self.shape.worldPosition):length()
+			local targetdirection = (trackertrackers[id].shape.worldPosition - self.shape.worldPosition):normalize()
+			local distance = (trackertrackers[id].shape.worldPosition - self.shape.worldPosition):length()
 			local pitch, yaw = 0,0
 			if localmode then 
 				pitch, yaw = self:calcpitchandyawlocal({direction = eye, targetdirection = targetdirection}) 
@@ -686,7 +686,7 @@ function AI.server_onFixedUpdate( self, dt )
 		end
 		
 		
-	elseif mode == 6 and tracker.trackers then  -- orient block PREDICTIVE
+	elseif mode == 6 and trackertrackers then  -- orient block PREDICTIVE
 	
 		local id = self:gettracker({minrange = minrange, maxrange = maxrange, frequency = whiteinput, offset = blackinput, ignorejammers = false})
 		if id == 0 then
@@ -700,10 +700,10 @@ function AI.server_onFixedUpdate( self, dt )
 					end
 				end
 			end
-			targetposition = tracker.trackers[id].shape.worldPosition
-			targetmass = tracker.trackers[id].shape.mass
+			targetposition = trackertrackers[id].shape.worldPosition
+			targetmass = trackertrackers[id].shape.mass
 			
-			predictmove(self, self.shape.worldPosition, eye, tracker.trackers[id].shape.worldPosition, localmode)
+			predictmove(self, self.shape.worldPosition, eye, trackertrackers[id].shape.worldPosition, localmode)
 				
 		end
 		
@@ -760,8 +760,8 @@ function AI.server_onFixedUpdate( self, dt )
 		local closestmatchingtracker = self:gettracker({minrange = minrange, maxrange = maxrange, frequency = whiteinput, offset = blackinput, ignorejammers = false})
 	
 		local closestdistance_player = (closestplayer ~= 0) and (self.shape:getWorldPosition() - allplayers[closestplayer].character.worldPosition):length() or math.huge
-		local closestdistance_tracker = (closesttracker ~= 0) and  (self.shape:getWorldPosition() - tracker.trackers[closesttracker].shape.worldPosition):length() or math.huge
-		local closestdistance_matchingtracker = (closestmatchingtracker ~= 0) and  (self.shape:getWorldPosition() - tracker.trackers[closestmatchingtracker].shape.worldPosition):length() or math.huge
+		local closestdistance_tracker = (closesttracker ~= 0) and  (self.shape:getWorldPosition() - trackertrackers[closesttracker].shape.worldPosition):length() or math.huge
+		local closestdistance_matchingtracker = (closestmatchingtracker ~= 0) and  (self.shape:getWorldPosition() - trackertrackers[closestmatchingtracker].shape.worldPosition):length() or math.huge
 	
 	
 		local distance = 0
@@ -770,9 +770,9 @@ function AI.server_onFixedUpdate( self, dt )
 		
 		if ((closestplayer ~= 0) or (closesttracker ~= 0) or (closestmatchingtracker ~= 0)) and isON then
 			if closestmatchingtracker ~= 0 then
-				tracking = tracker.trackers[closestmatchingtracker].shape.worldPosition
+				tracking = trackertrackers[closestmatchingtracker].shape.worldPosition
 				distance = closestdistance_matchingtracker
-				targetmass = tracker.trackers[closestmatchingtracker].shape.mass
+				targetmass = trackertrackers[closestmatchingtracker].shape.mass
 				if closestplayer and closestdistance_player < closestdistance_matchingtracker then
 					tracking = allplayers[closestplayer].character.worldPosition
 					direction = allplayers[closestplayer].character.direction
@@ -780,8 +780,8 @@ function AI.server_onFixedUpdate( self, dt )
 					targetmass = allplayers[closestplayer].character.mass
 				end
 			elseif closesttracker ~= 0 and not closestmatchingtracker ~= 0 then
-				tracking = tracker.trackers[closesttracker].shape.worldPosition
-				targetmass = tracker.trackers[closesttracker].shape.mass
+				tracking = trackertrackers[closesttracker].shape.worldPosition
+				targetmass = trackertrackers[closesttracker].shape.mass
 				distance = closestdistance_tracker
 				if closestplayer ~= 0 and closestdistance_player < closestdistance_tracker then
 					tracking = allplayers[closestplayer].character.worldPosition
@@ -827,8 +827,8 @@ function AI.server_onFixedUpdate( self, dt )
 	 
 		--print(closestplayer, closesttracker, closestmatchingtracker)
 		local closestdistance_player = (closestplayer ~= 0) and (self.shape:getWorldPosition() - allplayers[closestplayer].character.worldPosition):length() or math.huge
-		local closestdistance_tracker = (closesttracker ~= 0) and  (self.shape:getWorldPosition() - tracker.trackers[closesttracker].shape.worldPosition):length() or math.huge
-		local closestdistance_matchingtracker = (closestmatchingtracker ~= 0) and  (self.shape:getWorldPosition() - tracker.trackers[closestmatchingtracker].shape.worldPosition):length() or math.huge
+		local closestdistance_tracker = (closesttracker ~= 0) and  (self.shape:getWorldPosition() - trackertrackers[closesttracker].shape.worldPosition):length() or math.huge
+		local closestdistance_matchingtracker = (closestmatchingtracker ~= 0) and  (self.shape:getWorldPosition() - trackertrackers[closestmatchingtracker].shape.worldPosition):length() or math.huge
 	
 	 
 		local distance = 0
@@ -837,9 +837,9 @@ function AI.server_onFixedUpdate( self, dt )
 		
 		if ((closestplayer ~= 0) or (closesttracker ~= 0) or (closestmatchingtracker ~= 0)) and isON then
 			if closestmatchingtracker ~= 0 then
-				tracking = tracker.trackers[closestmatchingtracker].shape.worldPosition
+				tracking = trackertrackers[closestmatchingtracker].shape.worldPosition
 				distance = closestdistance_matchingtracker
-				targetmass = tracker.trackers[closestmatchingtracker].shape.mass
+				targetmass = trackertrackers[closestmatchingtracker].shape.mass
 				if closestplayer and closestdistance_player < closestdistance_matchingtracker then
 					tracking = allplayers[closestplayer].character.worldPosition
 					direction = allplayers[closestplayer].character.direction
@@ -847,9 +847,9 @@ function AI.server_onFixedUpdate( self, dt )
 					targetmass = allplayers[closestplayer].character.mass
 				end
 			elseif closesttracker ~= 0 and not closestmatchingtracker ~= 0 then
-				tracking = tracker.trackers[closesttracker].shape.worldPosition
+				tracking = trackertrackers[closesttracker].shape.worldPosition
 				distance = closestdistance_tracker
-				targetmass = tracker.trackers[closesttracker].shape.mass
+				targetmass = trackertrackers[closesttracker].shape.mass
 				if closestplayer ~= 0 and closestdistance_player < closestdistance_tracker then
 					tracking = allplayers[closestplayer].character.worldPosition
 					direction = allplayers[closestplayer].character.direction
@@ -1164,7 +1164,7 @@ function AI.client_setPose(self, data)
 end
 
 function nojammercloseby(pos)
-	for k,v in pairs(jammer.jammers or {}) do
+	for k,v in pairs(jammerjammers or {}) do
 		if v and sm.exists(v) then
 			-- the following will do an error upon loading the world:
 			if v.active and sm.vec3.length(pos - v.shape.worldPosition) < 5 then --5 units = 20 blocks
@@ -1172,7 +1172,7 @@ function nojammercloseby(pos)
 				return false 
 			end
 		else
-			table.remove(jammer.jammers, k)
+			table.remove(jammerjammers, k)
 		end
 	end
 	return true

@@ -806,11 +806,6 @@
 			"physicsMaterial": "Metal",
 			"sticky": "+Y-Y+X-X+Z-Z",			
 			"rotationSet": "PropZ",
-            "scripted" : 
-			{
-				"filename": "$MOD_DATA/Scripts/RadarTest.lua",
-				"classname": "dwarf"
-			},
 			"qualityLevel": 3
 		},
 		{
@@ -1613,7 +1608,7 @@
 									"$GAME_DATA/Objects/Textures/interactive/obj_interactive_logicgate_asg.tga",
 									"$GAME_DATA/Objects/Textures/interactive/obj_interactive_logicgate_nor.tga"
 								],
-								"material": "PoseAnimDifAsgNor"
+								"material": "DifAsgNor"
 							},
                             {
 								"textureList": [

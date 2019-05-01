@@ -136,11 +136,10 @@ function radar.client_onFixedUpdate(self, dt)
 	local playeridsdrawn = {}
 	local trackeridsdrawn = {}
 	
-	for targetId , targets in pairs({sm.player.getAllPlayers(), tracker and tracker.trackers or {}}) do
+	for targetId , targets in pairs({sm.player.getAllPlayers(), tracker and trackertrackers or {}}) do
 		for k, target in pairs(targets) do
-			if target ~= nil and (targetId == 1 and sm.exists(target) or target.shape) then 
-			
-				local targetpos = (targetId == 1 and target.character.worldPosition or target.shape.worldPosition)
+			if target ~= nil and sm.exists(target) then
+				local targetpos = (targetId == 1 and target.character.worldPosition or target.worldPosition)
 				local dir = targetpos - pos
 				
 				local radarloc = sm.vec3.new(dir:dot(localX),dir:dot(localY),0)/ self.range
@@ -149,36 +148,38 @@ function radar.client_onFixedUpdate(self, dt)
 						if not self.playereffects[target.id] then
 							local effect = sm.effect.createEffect( "RadarDot", self.interactable)
 							effect:start()
-							self.playereffects[target.id] = effect
+							self.playereffects[target.id] = {effect, nil}
 						end
-						self.playereffects[target.id]:setOffsetPosition(radarloc/3.2)
+						self.playereffects[target.id][1]:setOffsetPosition(radarloc/3.2)
 						playeridsdrawn[target.id] = true
 					else
-						local dot = self.effectnames[tostring(target.shape.color)] or "RadarDot41"
-						if self.trackereffects[target.shape.id] and self.trackereffects[target.shape.id][2] ~= dot then
-							self.trackereffects[target.shape.id][1]:setOffsetPosition(sm.vec3.new(1000,1000,0))
-							self.trackereffects[target.shape.id][1]:stop()
-							self.trackereffects[target.shape.id] = nil
+						local dot = self.effectnames[tostring(target.color)]
+						dot = (dot and dot  or "RadarDot41")
+						
+						if self.trackereffects[target.id] and self.trackereffects[target.id][2] ~= dot then
+							self.trackereffects[target.id][1]:setOffsetPosition(sm.vec3.new(1000,1000,0))
+							self.trackereffects[target.id][1]:stop()
+							self.trackereffects[target.id] = nil
 						end
-						if not self.trackereffects[target.shape.id] then
+						if not self.trackereffects[target.id] then
 							local effect = sm.effect.createEffect( dot, self.interactable)
 							effect:start()
-							self.trackereffects[target.shape.id] = {effect, dot}
+							self.trackereffects[target.id] = {effect, dot}
 						end
-						self.trackereffects[target.shape.id][1]:setOffsetPosition(radarloc/3.2)
-						trackeridsdrawn[target.shape.id] = true
+						self.trackereffects[target.id][1]:setOffsetPosition(radarloc/3.2)
+						trackeridsdrawn[target.id] = true
 					end
 				end
 			elseif targetId == 2 then
-				table.remove(tracker.trackers, k)
+				table.remove(trackertrackers, k)
 			end
 		end
 	end
 	
 	for id, eff in pairs(self.playereffects) do
 		if not playeridsdrawn[id] then
-			self.playereffects[id]:setOffsetPosition(sm.vec3.new(1000,1000,0))
-			self.playereffects[id]:stop()
+			self.playereffects[id][1]:setOffsetPosition(sm.vec3.new(1000,1000,0))
+			self.playereffects[id][1]:stop()
 			self.playereffects[id] = nil
 		end
 	end
@@ -206,14 +207,14 @@ function radar.client_onDestroy(self)
 end
 
 function nojammercloseby(pos)
-	for k,v in pairs(jammer and jammer.jammers or {}) do
+	for k,v in pairs(jammer and jammerjammers or {}) do
 		if v and sm.exists(v) then
 			-- the following will do an error upon loading the world, 
 			if v.active and sm.vec3.length(pos - v.shape.worldPosition) < 5 then --5 units = 20 blocks
 				return false 
 			end
 		else
-			table.remove(jammer.jammers, k)
+			table.remove(jammerjammers, k)
 		end
 	end
 	return true
@@ -324,21 +325,17 @@ function radar3d.client_onFixedUpdate(self, dt)
 	end
 	
 	local i = 1
-	for targetId , targets in pairs({sm.player.getAllPlayers(), tracker and tracker.trackers or {}}) do
-		for k, target in pairs(targets) do
-			if target ~= nil and (targetId == 1 and sm.exists(target) or target.shape) then 
+	for k, target in pairs(sm.player.getAllPlayers()) do
+		if target ~= nil and sm.exists(target) then 
+		
+			local targetpos = target.character.worldPosition
+			local dir = targetpos - pos
 			
-				local targetpos = (targetId == 1 and target.character.worldPosition or target.shape.worldPosition)
-				local dir = targetpos - pos
-				
-				local radarloc = sm.vec3.new(dir:dot(localX),targetpos.z,-dir:dot(localY))/ self.range - sm.vec3.new(0,0.6,0)
-				if math.abs(radarloc.x) < 1 and math.abs(radarloc.y) < 1.4 and math.abs(radarloc.z) < 1 and nojammercloseby(targetpos) then
-					if #self.effects < i then self:client_addEffect() end
-					self.effects[i]:setOffsetPosition(radarloc/1.7)
-					i = i + 1
-				end
-			elseif targetId == 2 then
-				table.remove(tracker.trackers, k)
+			local radarloc = sm.vec3.new(dir:dot(localX),targetpos.z,-dir:dot(localY))/ self.range - sm.vec3.new(0,0.6,0)
+			if math.abs(radarloc.x) < 1 and math.abs(radarloc.y) < 1.4 and math.abs(radarloc.z) < 1 and nojammercloseby(targetpos) then
+				if #self.effects < i then self:client_addEffect() end
+				self.effects[i]:setOffsetPosition(radarloc/1.7)
+				i = i + 1
 			end
 		end
 	end
@@ -364,22 +361,3 @@ function size(tablename)
 	return i
 end
 
-
-
-
-
-
-
-dwarf = class( nil )
-dwarf.maxChildCount = 0 -- Amount of outputs
-dwarf.maxParentCount = 1 -- Amount of inputs
-dwarf.connectionInput = 512 -- Type of input
-dwarf.connectionOutput = sm.interactable.connectionType.none -- Type of output
-dwarf.colorNormal = sm.color.new( 0x470067ff ) -- Connection and dot color
-dwarf.colorHighlight = sm.color.new( 0x601980ff ) -- Connection and dot color when you highlight it
-dwarf.poseWeightCount = 3 
-
-
-function dwarf.client_onCreate( self )
-	sm.gui.displayAlertText("#ff2222DWARFKEY IS A DEPRECATED PART", 10)
-end

@@ -25,7 +25,11 @@ if not printO then
     printO = print
 end
 function print(...)
-    printO("[" .. sm.game.getCurrentTick() .. "]", sm.isServerMode() and "[Server]" or "[Client]", ...)
+	if debugmode() then
+		printO("[" .. sm.game.getCurrentTick() .. "]", sm.isServerMode() and "[Server]" or "[Client]", ...)
+	else
+		printO(...)
+	end
 end
 function sm.interactable.getValue(interactable, NOW)    
 	if sm.exists(interactable) and sm.interactable.values[interactable.id] then

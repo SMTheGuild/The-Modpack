@@ -112,7 +112,7 @@ end
 function SmartTimer.server_onFixedUpdate( self, timeStep )
     -- Sets the default values of the parameters
     local clear = false
-    local enabled = nil
+    local tick = nil
     local delay = nil
     local input = 0
     
@@ -132,14 +132,16 @@ function SmartTimer.server_onFixedUpdate( self, timeStep )
             --logic input
             if tostring(v:getShape():getColor()) == "eeeeeeff" then -- white 
                 clear = clear or v.active
-            else    
-                enabled = enabled or v.active
+            elseif tostring(v:getShape():getColor()) == "222222ff" then
+                tick = tick or v.active
+			--else
+			--	enabled = enabled or v.active
             end
         end
     end
     
-    if enabled == nil then
-        enabled = true
+    if tick == nil then
+        tick = true
     end
     
     if delay == nil then
@@ -157,12 +159,12 @@ function SmartTimer.server_onFixedUpdate( self, timeStep )
         self:server_clearTimer(delay)
     end
     
-    if enabled then
+    if tick then
         -- Updates the timer
         local output = self:server_updateTimer(input)
     end
     
-    --print(enabled)
+    --print(tick)
     --printUnsafeTable(self.states)
     
     -- Sets the outputs
@@ -251,7 +253,7 @@ end
 function SmartTimer.client_onFixedUpdate( self, timeStep )
     -- Sets the default values of the parameters
     local clear = false
-    local enabled = nil
+    local tick = nil
     local delay = nil
     local input = 0
     
@@ -271,14 +273,16 @@ function SmartTimer.client_onFixedUpdate( self, timeStep )
             --logic input
             if tostring(v:getShape():getColor()) == "eeeeeeff" then -- white 
                 clear = clear or v.active
-            else    
-                enabled = enabled or v.active
+            elseif tostring(v:getShape():getColor()) == "222222ff" then
+                tick = tick or v.active
+			--else
+			--	enabled = enabled or v.active
             end
         end
     end
     
-    if enabled == nil then
-        enabled = true
+    if tick == nil then
+        tick = true
     end
     
     if delay == nil then
@@ -296,7 +300,7 @@ function SmartTimer.client_onFixedUpdate( self, timeStep )
         self:client_clearTimer(delay)
     end
     
-    if enabled then
+    if tick then
 		-- update writing mode if value different from previous value
 		if input ~= self.lastinput and self.lastinput then self.writing = not self.writing end
         local output = self:client_updateTimer(self.writing)
