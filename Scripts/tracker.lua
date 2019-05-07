@@ -9,10 +9,19 @@ tracker.colorHighlight = sm.color.new( 0xaaaaaaff )
 if not trackertrackers then trackertrackers = {} end
 
 function tracker.client_onCreate( self )
-	table.insert(trackertrackers, self.shape)
+	self.id = self.shape.id
+	table.insert(trackertrackers, self)
 end
 function tracker.client_onRefresh( self )
 	self:client_onCreate()
+end
+function tracker.client_onDestroy(self)
+	for k, v in pairs(trackertrackers) do
+		if v.id == self.id then
+			table.remove(trackertrackers, k)
+			return
+		end
+	end
 end
 
 function tracker.getFrequency(self)
@@ -33,7 +42,7 @@ jammer.connectionOutput = sm.interactable.connectionType.none
 jammer.colorNormal = sm.color.new( 0x470067ff )
 jammer.colorHighlight = sm.color.new( 0x601980ff )
 jammer.poseWeightCount = 1
-jammerjammers = {}
+if not jammerjammers then jammerjammers = {} end
 
 function jammer.client_onCreate( self )
 	self.uvindex = 0

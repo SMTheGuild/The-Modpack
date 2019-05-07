@@ -558,7 +558,7 @@
 			}
 		]
 	},
-	"Radar3dDot":
+	"Radar3Dplayer":
 	{
 		"parameterList":
 		{
@@ -575,6 +575,49 @@
 				"type": "particle",
 				"name": "radar3dplayer",
 				"offset": { "x": 0.0, "y": 0.0, "z": 0.0 },
+				"delay": 0.0
+			}
+		]
+	},
+	"Radar3DDotneebs_gaming":
+	{
+		"parameterList":
+		{
+			"Size": 0.0, 
+			"velocity": 0.0,
+			"power": 0.0,
+			"color": "007fff",
+			"radius": 1.5,
+			"intensity": 0.01
+		},
+		"effectList":
+		[
+			{
+				"type": "particle",
+				"name": "radar3dplayer",
+				"offset": { "x": 0.0, "y": 0.0, "z": 0.0 },
+				"delay": 0.0
+			}
+		]
+	},
+	"LaserSight":
+	{
+		"parameterList":
+		{
+			"Scale": 10,
+			"depth_val": 20,
+			"default_particle_depth" : 5
+		},
+		"effectList":
+		[
+			{
+				"type": "particle",
+				"name": "lasersight",
+				"offset": { "x": 0.0, "y": 0.0, "z": 0.0 },
+				"parameters":
+				[
+					"Scale", "depth_val", "default_particle_depth"
+				],
 				"delay": 0.0
 			}
 		]

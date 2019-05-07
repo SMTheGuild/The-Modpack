@@ -1,0 +1,138 @@
+{
+   "system" : {
+      "emitters" : [
+         {
+            "ASG_map" : "Textures/glow_asg.tga",
+            "alpha" : false,
+            "billboard_origin" : "center",
+            "billboard_type" : "world",
+            "category" : "",
+            "collision" : "none",
+            "color" : { // Main overide color, if RB and B are not all 1, then other colors wont affect it.
+               "a" : 1.0,
+               "b" : 0.0,
+               "g" : 0.0,
+               "r" : 1.0
+            },
+            "default_mesh_depth" : 1,
+            "default_mesh_height" : 1,
+            "default_mesh_width" : 1,
+            "default_particle_depth" : 1.0,//CHANGING THIS CHANGES PARTICLE LENGTH
+            "default_particle_height" : 1.0,
+            "default_particle_width" : 1.0,
+            "delay" : 0.0,
+            "depth_delta" : 1,
+            "depth_max" : 1.0,
+            "depth_min" : 1.0,
+            "depth_val" : 1.0,
+            "force_vector" : { // This is in what direction the mesh moves.
+               "x" : 0.0,
+               "y" : 0.0,
+               "z" : 0.0
+            },
+            "effects" : [
+               {
+                  "axis" : "uniform-scale",
+                  "base_scale" : 0.0,
+                  "control_point" : [
+                     {
+                        "scale" : 0.0,
+                        "time" : 0.0
+                     },
+                     {
+                        "scale" : 31.89144706726074,
+                        "time" : 0.5074257254600525
+                     },
+                     {
+                        "scale" : 35.0,
+                        "time" : 0.7326732873916626
+                     },
+                     {
+                        "scale" : 35.0,
+                        "time" : 1.0
+                     }
+                  ],
+                  "guid" : 11,
+                  "max_scale" : 35.0,
+                  "name" : "Scale",
+                  "toggle" : true
+               }
+            ],
+            "direction_type" : "constant",
+            "duration" : 0.0, // duration of this effect.
+            "editorColor" : {
+               "a" : 1.0,
+               "b" : 0.0,
+               "g" : 1.0,
+               "r" : 0.0
+            },
+            "emission_mode" : "default",
+            "emission_rate" : 255,
+            "glow" : true,
+            "glow_exposure_delta" : 0.0,
+            "glow_exposure_max" : 100.0,
+            "glow_exposure_min" : 100.0,
+            "glow_exposure_val" : 100.0,
+            "glow_strength" : 100.0,
+            "guid" : 1,
+            "height_delta" : 0,
+            "height_max" : 1,
+            "height_min" : 1,
+            "height_val" : 1,
+            "hidden" : false,
+            "keep_local" : true,
+            "mesh" : "Mesh/laser_particle_01.obj",
+            "mesh_diffuse" : "Textures/red_dif.tga",
+            "name" : "player 1",
+            "normal_map" : "",
+            "particle" : "mesh",
+            "position" : {
+               "x" : -0.025,
+               "y" : 0.075,
+               "z" : 0.0
+            },
+            "repeat_delay" : 0.0,
+            "rotation_axis" : {
+               "x" : 1.0,
+               "y" : 0.0,
+               "z" : 0.0
+            },
+            "rotation_delta" : 0.0,
+            "rotation_max" : 0.0,
+            "rotation_min" : 0.0,
+            "rotation_val" : 0.0,
+            "scene_blend" : "alpha_blend",
+            "shadows" : true,
+            "soft_particles_bias" : 1024,
+            "sort" : 0,
+            "sort_offset" : 0.0,
+            "start_color" : "solid",
+            "surface" : false,
+            "texture_coords_columns" : 1,
+            "texture_coords_rows" : 1,
+            "time_to_live_delta" : 0.1,
+            "time_to_live_max" : 1000.0,
+            "time_to_live_min" : 0.0,
+            "time_to_live_val" : 1.0,
+            "type" : "point",
+            "velocity_delta" : 0.0,
+            "velocity_max" : 0.0,
+            "velocity_min" : 0.0,
+            "velocity_val" : 0.0,
+            "visual_particle_quota" : 1,
+            "width_delta" : 1,
+            "width_max" : 1,
+            "width_min" : 1,
+            "width_val" : 1,
+            "wind_delta" : 0.0,
+            "wind_max" : 0.0,
+            "wind_min" : 0.0,
+            "wind_val" : 0.0
+         }
+      ],
+      "scale" : 1.0,
+      "scale_time" : 1.0,
+      "scale_velocity" : 1.0,
+      "system_type" : "stream"
+   }
+}

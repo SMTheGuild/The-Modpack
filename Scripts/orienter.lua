@@ -9,7 +9,7 @@ AI.colorNormal = sm.color.new( 0x0000ffff )
 AI.colorHighlight = sm.color.new( 0x3333ffff )
 AI.poseWeightCount = 2
 
-
+dofile("functions.lua")
 
 function AI.server_onCreate( self ) 
 	self:server_init()
@@ -168,9 +168,8 @@ function AI.gettracker(self, data)  --self:gettracker({minrange = nil, maxrange 
 	local offset = data.offset or 0
 	local frequency = data.frequency
 	local ignorejammers = data.ignorejammers
-	 
-	if not trackertrackers then return 0 end
 	
+	if not trackertrackers then return 0 end
 	
 	local validtrackers = {}
 	local closestvalidid = nil

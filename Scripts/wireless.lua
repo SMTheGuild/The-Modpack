@@ -149,7 +149,8 @@ function sender.client_onFixedUpdate(self, dt)
 		if tostring(sm.shape.getColor(v:getShape())) == "eeeeeeff" and v:getType() == "scripted" and tostring(v:getShape():getShapeUuid()) ~= "6f2dd83e-bc0d-43f3-8ba5-d5209eb03d07" then
 			--number input, frequency
 		else
-			pose = pose + (v:getPoseWeight(0)*2 -1)
+			local success, result = pcall(sm.interactable.getPoseWeight, v, 0)
+			pose = pose + ((success and result or 0)*2 -1)
 		end
 	end
 	self.pose = pose

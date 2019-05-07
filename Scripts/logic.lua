@@ -20,14 +20,15 @@ function analogsensor.server_init( self )
 	self.mode = 0
 	self.pose = 0
 	self.raypoints = {
-		[1] = sm.vec3.new(0.118,0,0),
-		[2] = sm.vec3.new(-0.118,0,0),
-		[3] = sm.vec3.new(0.0839,0.0839,0),
-		[4] = sm.vec3.new(0.0839,-0.0839,0),
-		[5] = sm.vec3.new(-0.0839,0.0839,0),
-		[6] = sm.vec3.new(-0.0839,-0.0839,0),
-		[7] = sm.vec3.new(0,0.118,0),
-		[8] = sm.vec3.new(0,-0.118,0)
+		sm.vec3.new(0,0,0),
+		sm.vec3.new(0.118,0,0),
+		sm.vec3.new(-0.118,0,0),
+		sm.vec3.new(0.0839,0.0839,0),
+		sm.vec3.new(0.0839,-0.0839,0),
+		sm.vec3.new(-0.0839,0.0839,0),
+		sm.vec3.new(-0.0839,-0.0839,0),
+		sm.vec3.new(0,0.118,0),
+		sm.vec3.new(0,-0.118,0)
 	}
 	local stored = self.storage:load()
 	--print('ignore errors')
@@ -38,74 +39,80 @@ function analogsensor.server_init( self )
 	end
 end
 
+
+function analogsensor.getGlobal(self, vec)
+    return self.shape.right* vec.x + self.shape.at * vec.y + self.shape.up * vec.z
+end
+function analogsensor.getLocal(self, vec)
+    return sm.vec3.new(self.shape.right:dot(vec), self.shape.at:dot(vec), self.shape.up:dot(vec))
+end
+
+-- small , big , c small, c big, type
+
 function analogsensor.server_onRefresh( self )
 	self:server_init()
 end
 function analogsensor.server_onFixedUpdate( self, dt )
+	local src = self.shape.worldPosition
 	
-	local localX = sm.shape.getRight(self.shape)
-	local localY = sm.shape.getAt(self.shape)
-	local localZ = sm.shape.getUp(self.shape)
-	local dest = sm.shape.getWorldPosition(self.shape) + sm.shape.getUp(self.shape)*1000
-	local src = sm.shape.getWorldPosition(self.shape)
-	--local ray = nil
+	local colormode = (self.mode == 2) or (self.mode == 3)
+	local bigSize = (self.mode == 1) or (self.mode == 3)
 	
-	local distance = 100000
+	local distance = nil
 	local colors = {}
-	local resulttype = "invalid"
-	if self.mode%2 == 1 then
-		for k, raypoint in pairs(self.raypoints) do
-			local hit, result = sm.physics.raycast(src + sm.vec3.new(raypoint:dot(localX), raypoint:dot(localY), raypoint:dot(localZ)),sm.vec3.new(dest.x + raypoint:dot(localX), dest.y + raypoint:dot(localY), dest.z + raypoint:dot(localZ)))
-			if hit then 
+	
+	for k, raypoint in pairs( bigSize and self.raypoints or {sm.vec3.new(0,0,0)} ) do
+		if colormode then
+			local hit, result = sm.physics.raycast(src + self:getLocal(raypoint), src + self:getLocal(raypoint) + self.shape.up*5000)
+			if hit and result.type == "body" then
 				local d = sm.vec3.length(src-result.pointWorld)*4 - 0.5 -- math.floor
-				if d < distance then
-					distance = d
-					
+				if distance == nil or d < distance then
+					distance = d*4 - 0.5
 				end
-				if result.type == "body" then 
-					local c = result:getShape():getColor()
-					local cc = tostring(round(c.b*255) + round(c.g*255*256) + round(c.r*255*256*256))
-					if colors[cc] and colors[cc].distance == round(d) then
-						colors[cc].count = colors[cc].count + 1
-					elseif (not colors[cc] or colors[cc].distance > round(d)) then
-						colors[cc] = {distance = round(d), count = 1}
-					end
-				end
-			end
-		end
-		local hit2, result2 = sm.physics.raycast(src,dest)
-		if hit2 then 
-			local d2 = sm.vec3.length(src-result2.pointWorld)*4 - 0.5 -- math.floor
-			if d2 < distance then
-				distance = d2
-			end
-			if result2.type == "body" then 
-				local c = result2:getShape():getColor()
-				local cc = tostring(round(c.b*255) + round(c.g*255*256) + round(c.r*255*256*256))
-				if colors[cc] and colors[cc].distance == round(d2) then
-					colors[cc].count = colors[cc].count + 1
-				elseif (not colors[cc] or colors[cc].distance > round(d2)) then
-					colors[cc] = {distance = round(d2), count = 1}
-				end
-			end
-		end
-	else -- mode 0
-		local hit, result = sm.physics.raycast(src,dest)
-		if hit then 
-			local d = sm.vec3.length(src-result.pointWorld)*4 - 0.5 -- math.floor
-			if d < distance then
-				distance = d
-			end
-			resulttype = result.type
-			if result.type == "body" then 
-				local c = result:getShape():getColor()
+				local c = result:getShape().color
 				local cc = tostring(round(c.b*255) + round(c.g*255*256) + round(c.r*255*256*256))
 				if colors[cc] and colors[cc].distance == round(d) then
 					colors[cc].count = colors[cc].count + 1
 				elseif (not colors[cc] or colors[cc].distance > round(d)) then
-					colors[cc] = {distance = round(d), count = 1}
+					colors[cc] = {distance = round(d), count = 1} 
 				end
 			end
+		elseif self.mode ~= 4 then
+			-- distance mode
+			local hit, fraction = sm.physics.distanceRaycast(src + self:getLocal(raypoint), self.shape.up*5000)
+			if hit then
+				local d = fraction * 5000
+				if distance == nil or d < distance then
+					distance = d*4 - 0.5
+				end
+			end
+		else 
+			-- type mode
+			local hit, result = sm.physics.raycast(src + self:getLocal(raypoint), src + self:getLocal(raypoint) + self.shape.up*5000)
+			local resulttype = result.type
+			self.interactable.power = (resulttype == "terrainSurface" and 1 or 0) + (resulttype == "terrainAsset" and 2 or 0) + (resulttype == "lift" and 3 or 0) +
+					(resulttype == "body" and 4 or 0) + (resulttype == "character" and 5 or 0) + (resulttype == "joint" and 6 or 0) + (resulttype == "vision" and 7 or 0)
+		end
+	end
+	
+	
+	if self.mode ~= 4 then
+		if colormode then
+			local bestmatch = nil
+			local color = 0
+			for k, v in pairs(colors) do
+				if bestmatch == nil then 
+					bestmatch = v 
+					color = tonumber(k)
+				end
+				if (v.distance < bestmatch.distance) or (v.distance == bestmatch.distance and v.count > bestmatch.count) then
+					bestmatch = v
+					color = tonumber(k)
+				end
+			end
+			self.interactable.power = color
+		else
+			self.interactable.power = distance or 0
 		end
 	end
 	
@@ -116,33 +123,7 @@ function analogsensor.server_onFixedUpdate( self, dt )
 		self.pose = self.pose + 0.04
 	end
 	
-	local power = distance 
-	if self.mode > 1 then 
-		local bestmatch = nil
-		local color = 0
-		for k, v in pairs(colors) do
-			if bestmatch == nil then 
-				bestmatch = v 
-				color = tonumber(k)
-			end
-			if (v.distance < bestmatch.distance) or (v.distance == bestmatch.distance and v.count > bestmatch.count) then
-				bestmatch = v
-				color = tonumber(k)
-			end
-		end 
-		power = color
-	end
-	if self.mode == 4 then -- output type mode
-		power = (resulttype == "terrainSurface" and 1 or 0) + (resulttype == "terrainAsset" and 2 or 0) + (resulttype == "lift" and 3 or 0) +
-				(resulttype == "body" and 4 or 0) + (resulttype == "character" and 5 or 0) + (resulttype == "joint" and 6 or 0) + (resulttype == "vision" and 7 or 0)
-			
-	end
-	
-	if power ~= self.interactable.power then
-		self.interactable:setActive(true)
-		self.interactable:setPower(power)
-		sm.interactable.setValue(self.interactable, power)
-	end
+	self.interactable.active = self.interactable.power > 0
 	if self.pose ~= self.lastpose then
 		self.network:sendToClients("client_setposeweight", self.pose)
 	end
@@ -1521,16 +1502,16 @@ function tickbutton.server_onFixedUpdate( self, dt )
 	local logicactive = false
 	for k, v in pairs(parents) do
 		local typeparent = v:getType()
-		if v:getType() == "scripted" and tostring(v:getShape():getShapeUuid()) ~= "6f2dd83e-bc0d-43f3-8ba5-d5209eb03d07" then
+		if v:getType() == "scripted" and tostring(v:getShape():getShapeUuid()) ~= "6f2dd83e-bc0d-43f3-8ba5-d5209eb03d07" and tostring(v:getShape():getShapeUuid()) ~= "c7a99aa6-c5a4-43ad-84c9-c85f7d842a93" --[[laser]] then
 			-- number input
 			duration = duration + math.floor(v.power)
 		elseif v:getType() == "steering" or v:getType() == "seat" then
 			-- nothing, ignore
 		else
 			-- logic input 
-			if v.power == 1 then logicactive = true end
-			if not self.lastinput and v.power == 1 then
-				self.timeon = self.duration
+			if v.active then logicactive = true end
+			if not self.lastinput and v.active then
+				self.timeon = self.durationd
 				self.logicpress = true
 			end
 		end

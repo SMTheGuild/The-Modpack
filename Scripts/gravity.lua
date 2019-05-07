@@ -143,7 +143,7 @@ gravworld.on = false
 gravworld.playerfly = 1
 
 function gravworld.server_onDestroy(self)
-	sm.physics.setGravity( 10 )
+	--sm.physics.setGravity( 10 )
 	gravworld_playerspulsed = {}
 end
 
@@ -159,6 +159,7 @@ function gravworld.server_init( self )
 	gravworld_playerspulsed = {}
 	local grav = sm.physics.getGravity()
 	if grav == 10 then self.e = false else self.e = true end
+	if sm.player.getAllPlayers()[1].name == "disableGravMods" then sm.gui.displayAlertText("Gravity Modulators are now disabled") self.server_onFixedUpdate = function() end end
 end
 
 function gravworld.server_onFixedUpdate( self, dt )

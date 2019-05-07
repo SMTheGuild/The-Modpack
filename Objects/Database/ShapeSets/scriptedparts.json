@@ -1378,6 +1378,47 @@
                 "classname": "dynamite"
             }
         },
+        {
+            "uuid": "c7a99aa6-c5a4-43ad-84c9-c85f7d842a93",
+            "renderable": {
+                "lodList": [
+                    {
+                        "subMeshList": [
+                            {
+                                "textureList": [
+                                    "$MOD_DATA/Objects/Textures/mod_decor_cone_dif.png",
+                                    "$MOD_DATA/Objects/Textures/mod_decor_cone_asg.png",
+                                    "$MOD_DATA/Objects/Textures/mod_decor_cone_nor.png"
+                                ],
+                                "material": "PoseAnimDifAsgNor" 
+                            }
+                        ],
+                        "mesh": "$MOD_DATA/Objects/Mesh/LaserSight_off.obj",
+                        "pose0": "$MOD_DATA/Objects/Mesh/LaserSight_on.obj"
+                    }
+                ]
+            },
+            "rotationSet": "PropZ",
+            "color": "d02525",
+            "hull": { 
+                "x": 1, "y": 1, "z": 1,
+                "margin": 0.25,
+                "pointList": [
+                    { "x": 1.0, "y": 1.0, "z": -1.0 },
+                    { "x": 1.0, "y": -1.0, "z": -1.0 },
+                    { "x": -1.0, "y": -1.0, "z": -1.0 },
+                    { "x": -1.0, "y": 1.0, "z": -1.0 }
+                ]
+            },
+            "density": 250.0,
+            "physicsMaterial": "Metal",
+            "scripted" : 
+            {
+                "filename": "$MOD_DATA/Scripts/lasersight.lua",
+                "classname": "laser"
+            },
+            "qualityLevel": 2
+        },
 
 		/* wings */
 
