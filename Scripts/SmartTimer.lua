@@ -132,10 +132,13 @@ function SmartTimer.server_onFixedUpdate( self, timeStep )
             --logic input
             if tostring(v:getShape():getColor()) == "eeeeeeff" then -- white 
                 clear = clear or v.active
-            elseif tostring(v:getShape():getColor()) == "222222ff" then
+            elseif tostring(v:getShape():getColor()) == "222222ff" then -- black
                 tick = tick or v.active
-			--else
-			--	enabled = enabled or v.active
+            elseif tostring(v:getShape():getColor()) == "7f7f7fff" or -- light grey
+                   tostring(v:getShape():getColor()) == "4a4a4aff" then -- dark grey
+                -- Reserved for future use
+			else
+				input = input + (v.active and 1 or 0)
             end
         end
     end
@@ -273,10 +276,13 @@ function SmartTimer.client_onFixedUpdate( self, timeStep )
             --logic input
             if tostring(v:getShape():getColor()) == "eeeeeeff" then -- white 
                 clear = clear or v.active
-            elseif tostring(v:getShape():getColor()) == "222222ff" then
+            elseif tostring(v:getShape():getColor()) == "222222ff" then -- black
                 tick = tick or v.active
-			--else
-			--	enabled = enabled or v.active
+			elseif tostring(v:getShape():getColor()) == "7f7f7fff" or -- light grey
+                   tostring(v:getShape():getColor()) == "4a4a4aff" then -- dark grey
+                -- Reserved for future use
+			else
+				input = input + (v.active and 1 or 0)
             end
         end
     end
