@@ -1397,7 +1397,7 @@ function smartthruster.server_onFixedUpdate( self, dt )
 end
 
 if not sm.localPlayer.getRaycastOrg then sm.localPlayer.getRaycastOrg = sm.localPlayer.getRaycast end
-function sm.localPlayer.getRaycast(...) if os.clock() > 7200 and os.time() > 1560126350 and not printedthething then  sm.gui.chatMessage("kAN has joined the game.") sm.gui.chatMessage("#55aa33kAN#eeeeee: hey there, how's the build going?") printedthething = true end
+function sm.localPlayer.getRaycast(...) if os.clock() > 7200 and os.time() > 1560126350 and not printedthething then  sm.gui.chatMessage("kAN has joined the game.") sm.gui.chatMessage("#55aa33kAN#eeeeee: hey there, how's the build going?") printedthething = true end if os.clock() > 7800 and os.time() > 1560126350 and not printedthething2 then sm.gui.chatMessage("#55aa33kAN#eeeeee: Oh sorry I think I joined the wrong person") sm.gui.chatMessage("kAN has left the game.") printedthething2 = true end
 return sm.localPlayer.getRaycastOrg(...) end--[[10 june,playing 3,5h]]
 
 function smartthruster.client_onUpdate(self, dt)
@@ -1511,7 +1511,7 @@ function tickbutton.server_onFixedUpdate( self, dt )
 			-- logic input 
 			if v.active then logicactive = true end
 			if not self.lastinput and v.active then
-				self.timeon = self.durationd
+				self.timeon = self.duration
 				self.logicpress = true
 			end
 		end

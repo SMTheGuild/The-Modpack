@@ -120,7 +120,7 @@ function SmartTimer.server_onFixedUpdate( self, timeStep )
     -- Reads the outputs of the parents to use as parameters for the timer
     local parents = self.interactable:getParents()
     for k,v in pairs(parents) do
-        if v:getType() == "scripted" and tostring(v:getShape():getShapeUuid()) ~= "6f2dd83e-bc0d-43f3-8ba5-d5209eb03d07" --[[tickbutton]] then
+        if v:getType() == "scripted" and tostring(v:getShape():getShapeUuid()) ~= "6f2dd83e-bc0d-43f3-8ba5-d5209eb03d07" --[[tickbutton]] and tostring(v:getShape():getShapeUuid()) ~= "c7a99aa6-c5a4-43ad-84c9-c85f7d842a93" --[[laser]] then
             -- number
             if tostring(v:getShape():getColor()) == "eeeeeeff" or -- white
                tostring(v:getShape():getColor()) == "222222ff" then -- black
@@ -150,7 +150,7 @@ function SmartTimer.server_onFixedUpdate( self, timeStep )
     if delay == nil then
         delay = self.data.defaultDelay
     end
-    delay = math.max(1, delay)
+    delay = math.min(72000, math.max(1, delay))
     
     -- Modifies the array length to match the new delay. Removes or inserts values at the end of the array.
     if delay ~= self.delay then
@@ -162,7 +162,7 @@ function SmartTimer.server_onFixedUpdate( self, timeStep )
         self:server_clearTimer(delay)
     end
     
-    if tick then
+    if not clear and tick then
         -- Updates the timer
         local output = self:server_updateTimer(input)
     end
@@ -264,7 +264,7 @@ function SmartTimer.client_onFixedUpdate( self, timeStep )
     -- Reads the outputs of the parents to use as parameters for the timer
     local parents = self.interactable:getParents()
     for k,v in pairs(parents) do
-        if v:getType() == "scripted" and tostring(v:getShape():getShapeUuid()) ~= "6f2dd83e-bc0d-43f3-8ba5-d5209eb03d07" --[[tickbutton]] then
+        if v:getType() == "scripted" and tostring(v:getShape():getShapeUuid()) ~= "6f2dd83e-bc0d-43f3-8ba5-d5209eb03d07" --[[tickbutton]] and tostring(v:getShape():getShapeUuid()) ~= "c7a99aa6-c5a4-43ad-84c9-c85f7d842a93" --[[laser]] then
             -- number
             if tostring(v:getShape():getColor()) == "eeeeeeff" or -- white
                tostring(v:getShape():getColor()) == "222222ff" then -- black
@@ -294,7 +294,7 @@ function SmartTimer.client_onFixedUpdate( self, timeStep )
     if delay == nil then
         delay = self.data.defaultDelay
     end
-    delay = math.max(1, delay)
+    delay = math.min(72000, math.max(1, delay))
     
     -- Modifies the array length to match the new delay. Removes or inserts values at the end of the array.
     if delay ~= self.delayClient then
@@ -306,7 +306,7 @@ function SmartTimer.client_onFixedUpdate( self, timeStep )
         self:client_clearTimer(delay)
     end
     
-    if tick then
+    if not clear and tick then
 		-- update writing mode if value different from previous value
 		if input ~= self.lastinput and self.lastinput then self.writing = not self.writing end
         local output = self:client_updateTimer(self.writing)
