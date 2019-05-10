@@ -338,20 +338,20 @@ function radar3d.client_onCreate( self )
 		["472800ff"] = "RadarDot40"
 	}
 	self.playermodels = { -- [ name ] = effectname
-		["kAN"] = "Radar3DDotneebs_gaming",
-		["Moonbo"] = "Radar3DDotneebs_gaming",
-		["ScrapMan"] = "Radar3DDotneebs_gaming",
-		["CamodoGaming"] = "Radar3DDotneebs_gaming",
-		["S.M.L. Chief Engineer"] = "Radar3DDotneebs_gaming",
-		["Brent Batch"] = "Radar3DDotneebs_gaming",
-		["Adahop"] = "Radar3DDotneebs_gaming",
-		["Simon"] = "Radar3DDotneebs_gaming",
-		["JonnyEthco"] = "Radar3DDotneebs_gaming",
-		["neebs_gaming"] = "Radar3DDotneebs_gaming",
-		["doraleous5000"] = "Radar3DDotneebs_gaming",
-		["AnthonyCSN"] = "Radar3DDotneebs_gaming",
-		["Thick44"] = "Radar3DDotneebs_gaming",
-		["Durf"] = "Radar3DDotneebs_gaming"
+		["kAN"] = "Radar3dplayer_kAN",
+		["Moonbo"] = "Radar3dplayer_Moonbo",
+		["ScrapMan"] = "Radar3dplayer_ScrapMan",
+		["CamodoGaming"] = "Radar3dplayer_CamodoGaming",
+		["S.M.L. Chief Engineer"] = "Radar3dplayer_SML",
+		["Brent Batch"] = "Radar3dplayer_BB",
+		["Adahop"] = "Radar3dplayer_neebs_gaming",
+		["Simon"] = "Radar3dplayer_neebs_gaming",
+		["JonnyEthco"] = "Radar3dplayer_neebs_gaming",
+		["neebs_gaming"] = "Radar3dplayer_neebs_gaming",
+		["doraleous5000"] = "Radar3dplayer_neebs_gaming",
+		["AnthonyCSN"] = "Radar3dplayer_neebs_gaming",
+		["Thick44"] = "Radar3dplayer_neebs_gaming",
+		["Durf"] = "Radar3dplayer_Durf"
 	}
 end
 function radar3d.client_onRefresh(self)

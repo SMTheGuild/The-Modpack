@@ -579,34 +579,54 @@
 			}
 		]
 	},
-	"Radar3DDotneebs_gaming":
+
+	"Radar3dplayer_Durf":
 	{
-		"parameterList":
-		{
-			"Size": 0.0, 
-			"velocity": 0.0,
-			"power": 0.0,
-			"color": "007fff",
-			"radius": 1.5,
-			"intensity": 0.01
-		},
-		"effectList":
-		[
-			{
-				"type": "particle",
-				"name": "radar3dplayer",
-				"offset": { "x": 0.0, "y": 0.0, "z": 0.0 },
-				"delay": 0.0
-			}
-		]
+		"parameterList": { "Size": 0.0, "velocity": 0.0, "power": 0.0, "color": "007fff", "radius": 1.5, "intensity": 0.01 },
+		"effectList": [ { "type": "particle", "name": "radar3dplayer_Durf", "offset": { "x": 0.0, "y": 0.0, "z": 0.0 }, "delay": 0.0 } ]
 	},
+	"Radar3dplayer_Moonbo":
+	{
+		"parameterList": { "Size": 0.0, "velocity": 0.0, "power": 0.0, "color": "007fff", "radius": 1.5, "intensity": 0.01 },
+		"effectList": [ { "type": "particle", "name": "radar3dplayer", "offset": { "x": 0.0, "y": 0.0, "z": 0.0 }, "delay": 0.0 } ]
+	},
+	"Radar3dplayer_kAN":
+	{
+		"parameterList": { "Size": 0.0, "velocity": 0.0, "power": 0.0, "color": "007fff", "radius": 1.5, "intensity": 0.01 },
+		"effectList": [ { "type": "particle", "name": "radar3dplayer_kAN", "offset": { "x": 0.0, "y": 0.0, "z": 0.0 }, "delay": 0.0 } ]
+	},
+	"Radar3dplayer_ScrapMan":
+	{
+		"parameterList": { "Size": 0.0, "velocity": 0.0, "power": 0.0, "color": "007fff", "radius": 1.5, "intensity": 0.01 },
+		"effectList": [ { "type": "particle", "name": "radar3dplayer_ScrapMan", "offset": { "x": 0.0, "y": 0.0, "z": 0.0 }, "delay": 0.0 } ]
+	},
+	"Radar3dplayer_CamodoGaming":
+	{
+		"parameterList": { "Size": 0.0, "velocity": 0.0, "power": 0.0, "color": "007fff", "radius": 1.5, "intensity": 0.01 },
+		"effectList": [ { "type": "particle", "name": "radar3dplayer", "offset": { "x": 0.0, "y": 0.0, "z": 0.0 }, "delay": 0.0 } ]
+	},
+	"Radar3dplayer_SML":
+	{
+		"parameterList": { "Size": 0.0, "velocity": 0.0, "power": 0.0, "color": "007fff", "radius": 1.5, "intensity": 0.01 },
+		"effectList": [ { "type": "particle", "name": "radar3dplayer", "offset": { "x": 0.0, "y": 0.0, "z": 0.0 }, "delay": 0.0 } ]
+	},
+	"Radar3dplayer_BB":
+	{
+		"parameterList": { "Size": 0.0, "velocity": 0.0, "power": 0.0, "color": "007fff", "radius": 1.5, "intensity": 0.01 },
+		"effectList": [ { "type": "particle", "name": "radar3dplayer", "offset": { "x": 0.0, "y": 0.0, "z": 0.0 }, "delay": 0.0 } ]
+	},
+	"Radar3dplayer_neebs_gaming":
+	{
+		"parameterList": { "Size": 0.0, "velocity": 0.0, "power": 0.0, "color": "007fff", "radius": 1.5, "intensity": 0.01 },
+		"effectList": [ { "type": "particle", "name": "radar3dplayer_neebs_gaming", "offset": { "x": 0.0, "y": 0.0, "z": 0.0 }, "delay": 0.0 } ]
+	},
+
+
 	"LaserSight":
 	{
 		"parameterList":
 		{
-			"Scale": 10,
-			"depth_val": 20,
-			"default_particle_depth" : 5
+			"Scale": 10
 		},
 		"effectList":
 		[
@@ -616,7 +636,7 @@
 				"offset": { "x": 0.0, "y": 0.0, "z": 0.0 },
 				"parameters":
 				[
-					"Scale", "depth_val", "default_particle_depth"
+					"Scale"
 				],
 				"delay": 0.0
 			}

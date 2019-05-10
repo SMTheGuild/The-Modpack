@@ -322,6 +322,56 @@
 			"rotationSet": "PropY",
 			"qualityLevel": 2
 		},
+
+
+		{
+			"uuid": "a1d0b1a0-4ec7-4614-8b7a-9a7c521cc03e",
+			"renderable": {
+				"lodList": [
+					{
+						"subMeshList": [
+                            {
+								"textureList": [
+									"$GAME_DATA/Objects/Textures/interactive/obj_interactive_logicgate_dif.tga",
+									"$GAME_DATA/Objects/Textures/interactive/obj_interactive_logicgate_asg.tga",
+									"$GAME_DATA/Objects/Textures/interactive/obj_interactive_logicgate_nor.tga"
+								],
+								"material": "DifAsgNor"
+							},
+                            {
+								"textureList": [
+									"$GAME_DATA/Objects/Textures/interactive/obj_interactive_timer_dif.tga",
+									"$GAME_DATA/Objects/Textures/interactive/obj_interactive_timer_asg.tga",
+									"$GAME_DATA/Objects/Textures/interactive/obj_interactive_timer_nor.tga"
+								],
+								"material": "UVAnimDifAsgNor",
+								"custom":
+								{
+									"uv0": { "u": 0.00390625, "v": 0.189453125 }
+								}
+							}
+						],
+						"mesh": "$MOD_DATA/Objects/Mesh/mp_numberTickDelay_a.obj"
+					}
+				]
+			},
+			"rotationSet": "PropYZ",
+			"color": "df7f00",
+			"box": { "x": 1, "y": 1, "z": 1 },
+			"density": 250.0,
+			"physicsMaterial": "Metal",
+			"scripted": {
+				"filename": "$MOD_DATA/Scripts/SmartTimer.lua",
+				"classname": "SmartTimer",
+                "data": {
+                    "defaultDelay": 1
+                }
+			},
+			"qualityLevel": 3
+		},
+
+
+
 		{
 			"uuid": "6613bebe-be9f-435c-b415-42a0b45cc8e3",
 			"renderable": {
@@ -663,7 +713,7 @@
 									"$GAME_DATA/Textures/nonor_nor.png"
 								],
 								"material": "DifAsg"
-							},
+							}/*,
 							{
 								"textureList": [
 									"$GAME_DATA/Character/Textures/char_male/char_male_hair01_dif.tga",
@@ -711,7 +761,7 @@
 									"$GAME_DATA/Textures/nonor_nor.png"
 								],
 								"material": "3PoseAnimDifAsgNor"
-							}
+							}*/
 						],
 						"mesh": "$MOD_DATA/Objects/Mesh/5x5RadarSlots.obj",
 						"pose0": "$MOD_DATA/Objects/Mesh/5x5RadarSlotsX.obj",
@@ -731,83 +781,8 @@
 			"rotationSet": "PropY",
 			"qualityLevel": 4
 		},
-		{
-			"uuid": "6efd14be-96e9-42d1-80b5-718fc38377c0",
-			"renderable": {
-				"lodList": [ 
-					 {
-						"subMeshList": [
-							{
-								"textureList": [
-									"$MOD_DATA/Objects/Textures/UniTex_dif.png",
-									"$MOD_DATA/Objects/Textures/UniTex_asg.png",
-									"$GAME_DATA/Textures/nonor_nor.png"
-								],
-								"material": "DifAsg"
-							},
-							{
-								"textureList": [
-									"$GAME_DATA/Character/Textures/char_male/char_male_hair01_dif.tga",
-									"$GAME_DATA/Character/Textures/char_male/char_male_hair01_asg.tga",
-									"$GAME_DATA/Textures/nonor_nor.png"
-								],
-								"material": "3PoseAnimDifAsgNor"
-							},
-							{
-								"textureList": [
-									"$GAME_DATA/Character/Textures/char_male/char_male_hands01_dif.tga",
-									"$GAME_DATA/Character/Textures/char_male/char_male_hands01_asg.tga",
-									"$GAME_DATA/Textures/nonor_nor.png"
-								],
-								"material": "3PoseAnimDifAsgNor"
-							},
-							{
-								"textureList": [
-									"$GAME_DATA/Character/Textures/char_male/char_male_feet01_dif.tga",
-									"$GAME_DATA/Character/Textures/char_male/char_male_feet01_asg.tga",
-									"$GAME_DATA/Textures/nonor_nor.png"
-								],
-								"material": "3PoseAnimDifAsgNor"
-							},
-							{
-								"textureList": [
-									"$GAME_DATA/Character/Textures/char_male/char_male_legs01_dif.tga",
-									"$GAME_DATA/Character/Textures/char_male/char_male_legs01_asg.tga",
-									"$GAME_DATA/Textures/nonor_nor.png"
-								],
-								"material": "3PoseAnimDifAsgNor"
-							},
-							{
-								"textureList": [
-									"$GAME_DATA/Character/Textures/char_male/char_male_head01_dif.tga",
-									"$GAME_DATA/Character/Textures/char_male/char_male_head01_asg.tga",
-									"$GAME_DATA/Textures/nonor_nor.png"
-								],
-								"material": "3PoseAnimDifAsgNor"
-							},
-							{
-								"textureList": [
-									"$MOD_DATA/Objects/Textures/char_male_chest_paintable_dif.png",
-									"$GAME_DATA/Character/Textures/char_male/char_male_chest01_asg.tga",
-									"$GAME_DATA/Textures/nonor_nor.png"
-								],
-								"material": "3PoseAnimDifAsgNor"
-							}
-						],
-						"mesh": "$MOD_DATA/Objects/Mesh/DwarfKey.obj",
-						"pose0": "$MOD_DATA/Objects/Mesh/DwarfKeyX.obj",
-						"pose1": "$MOD_DATA/Objects/Mesh/DwarfKeyY.obj",
-						"pose2": "$MOD_DATA/Objects/Mesh/DwarfKeyZ.obj"
-					}
-				]
-			},
-            "color": "df7f00",
-			"box": { "x": 1, "y": 1, "z": 1 },
-			"physicsMaterial": "Metal",
-			"sticky": "+Y-Y+X-X+Z-Z",			
-			"rotationSet": "PropZ",
-			"qualityLevel": 3
-		},
+
+
 		{
 			"uuid": "921a2ace-b543-4ca3-8a9b-6f3dd3132fa9",
 			"renderable": {
@@ -1228,22 +1203,15 @@
 		{
 			"uuid": "f907144d-ae63-4e5e-bff9-f9ca413e2090",
 			"renderable": {"lodList": [{
-			"subMeshList": [
-				{"textureList": [
-				"$MOD_DATA/Objects/Textures/UniTex_dif.png",
-				"$MOD_DATA/Objects/Textures/UniTex_asg.png"],
-				"material": "DifAsg"}
-			],
-			"mesh": "$MOD_DATA/Objects/Mesh/decoupler.obj"
+				"subMeshList": [{
+					"textureList": ["$MOD_DATA/Objects/Textures/UniTex_dif.png","$MOD_DATA/Objects/Textures/UniTex_asg.png"],
+					"material": "DifAsg"
+				}],
+				"mesh": "$MOD_DATA/Objects/Mesh/decoupler.obj"
 			}]},
-			"scripted" : {
-				"filename": "$MOD_DATA/Scripts/decoupler.lua",
-				"classname": "decoupler" },
+			"scripted" : { "filename": "$MOD_DATA/Scripts/decoupler.lua", "classname": "decoupler" },
 			"rotationSet": "PropYNegY",
-			"color": "df7f00",
-			"density": 250.0,
-			"physicsMaterial": "Metal",
-			"sticky": "-Y+Y",
+			"color": "df7f00", "density": 250.0, "physicsMaterial": "Metal", "sticky": "-Y+Y",
 			"cylinder": { "diameter": 1, "depth": 1, "axis": "Y" },
 			"qualityLevel": 1
 		},
@@ -1377,47 +1345,6 @@
                 "filename": "$MOD_DATA/Scripts/dynamite.lua",
                 "classname": "dynamite"
             }
-        },
-        {
-            "uuid": "c7a99aa6-c5a4-43ad-84c9-c85f7d842a93",
-            "renderable": {
-                "lodList": [
-                    {
-                        "subMeshList": [
-                            {
-                                "textureList": [
-                                    "$MOD_DATA/Objects/Textures/mod_decor_cone_dif.png",
-                                    "$MOD_DATA/Objects/Textures/mod_decor_cone_asg.png",
-                                    "$MOD_DATA/Objects/Textures/mod_decor_cone_nor.png"
-                                ],
-                                "material": "PoseAnimDifAsgNor" 
-                            }
-                        ],
-                        "mesh": "$MOD_DATA/Objects/Mesh/LaserSight_off.obj",
-                        "pose0": "$MOD_DATA/Objects/Mesh/LaserSight_on.obj"
-                    }
-                ]
-            },
-            "rotationSet": "PropZ",
-            "color": "d02525",
-            "hull": { 
-                "x": 1, "y": 1, "z": 1,
-                "margin": 0.25,
-                "pointList": [
-                    { "x": 1.0, "y": 1.0, "z": -1.0 },
-                    { "x": 1.0, "y": -1.0, "z": -1.0 },
-                    { "x": -1.0, "y": -1.0, "z": -1.0 },
-                    { "x": -1.0, "y": 1.0, "z": -1.0 }
-                ]
-            },
-            "density": 250.0,
-            "physicsMaterial": "Metal",
-            "scripted" : 
-            {
-                "filename": "$MOD_DATA/Scripts/lasersight.lua",
-                "classname": "laser"
-            },
-            "qualityLevel": 2
         },
 
 		/* wings */
@@ -1616,72 +1543,6 @@
 			"density": 1250.0,
 			"physicsMaterial": "Metal",
 			"sticky": "-Z-Y-X+X"
-		},
-		{
-			"uuid": "a1d0b1a0-4ec7-4614-8b7a-9a7c521cc03e",
-			"renderable": {
-				"lodList": [
-					{
-						"subMeshList": [
-							/*{
-								"textureList": [
-                                    "$MOD_DATA/Objects/Textures/tick_button_dif.png",
-                                    "$MOD_DATA/Objects/Textures/tick_button_asg.png",
-                                    "$GAME_DATA/Textures/nonor_nor.png"
-								],
-								"material": "UVAnimDifAsgNor",
-								"custom":
-								{
-									"uv0": { "u": 0.02, "v": 0.02 }
-								}
-							},
-                            {
-								"textureList": [
-									"$MOD_DATA/Objects/Textures/xometer_dif.png",
-									"$MOD_DATA/Objects/Textures/xometer_asg.png",
-									"$GAME_DATA/Textures/nonor_nor.png"
-								],
-								"material": "DifAsgNor"
-							}*/
-                            {
-								"textureList": [
-									"$GAME_DATA/Objects/Textures/interactive/obj_interactive_logicgate_dif.tga",
-									"$GAME_DATA/Objects/Textures/interactive/obj_interactive_logicgate_asg.tga",
-									"$GAME_DATA/Objects/Textures/interactive/obj_interactive_logicgate_nor.tga"
-								],
-								"material": "DifAsgNor"
-							},
-                            {
-								"textureList": [
-									"$GAME_DATA/Objects/Textures/interactive/obj_interactive_timer_dif.tga",
-									"$GAME_DATA/Objects/Textures/interactive/obj_interactive_timer_asg.tga",
-									"$GAME_DATA/Objects/Textures/interactive/obj_interactive_timer_nor.tga"
-								],
-								"material": "UVAnimDifAsgNor",
-								"custom":
-								{
-									"uv0": { "u": 0.00390625, "v": 0.189453125 }
-								}
-							}
-						],
-						"mesh": "$MOD_DATA/Objects/Mesh/mp_numberTickDelay_a.obj"
-                        //"mesh": "$MOD_DATA/Objects/Mesh/mp_roundtimer-numberdelay_test.obj"
-					}
-				]
-			},
-			"rotationSet": "PropYZ",
-			"color": "df7f00",
-			"box": { "x": 1, "y": 1, "z": 1 },
-			"density": 250.0,
-			"physicsMaterial": "Metal",
-			"scripted": {
-				"filename": "$MOD_DATA/Scripts/SmartTimer.lua",
-				"classname": "SmartTimer",
-                "data": {
-                    "defaultDelay": 1
-                }
-			},
-			"qualityLevel": 3
 		},
 
 		/* sound stuff */

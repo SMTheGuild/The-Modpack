@@ -17,7 +17,7 @@
             "default_mesh_depth" : 1,
             "default_mesh_height" : 1,
             "default_mesh_width" : 1,
-            "default_particle_depth" : 1.0,//CHANGING THIS CHANGES PARTICLE LENGTH
+            //"default_particle_depth" : 1.0,
             "default_particle_height" : 1.0,
             "default_particle_width" : 1.0,
             "delay" : 0.0,

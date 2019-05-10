@@ -762,6 +762,11 @@
         "description": "Saves a number value at a memory address. Use a number input for the value and a switch/button/logic to save that value. Use a second, white painted number input to specify the memory address."
     },
 
+    "a1d0b1a0-4ec7-4614-8b7a-9a7c521cc03e": {
+    	"title": "Smart Timer",
+    	"description": "Number inputs:\nWhite: define how long to delay the signal\nOther: input number value, will output after the set delay\n\nLogic inputs:\nWhite = clear timer queue\nBlack = pause timer queue\nOther = input value of 1"
+    },
+
     "6613bebe-be9f-435c-b415-42a0b45cc8e3": {
         "title": "Time Block ",
         "description": "Outputs a number value for time\n\nModes:\n - time of day in seconds (GMT)\n - days since the year 2000"
@@ -802,11 +807,7 @@
     },
     "0954264c-4914-4848-b35a-4ae46cabc467": {
         "title": "3D Radar",
-        "description": "Display player positions in a 3D display! Use Dwarf Keys for better quality display when detecting many players. Does not detect trackers."
-    },
-    "6efd14be-96e9-42d1-80b5-718fc38377c0": {
-        "title": "Dwarf Key",
-        "description": "Use with the 3D Radar. This adds an additional dwarf to the display of the 3D radar to reduce the flickering effect. Place one Dwarf Key per additional player in the world for the best results. Connect with connect tool."
+        "description": "Display player positions in a 3D display! Does not detect trackers (yet?)."
     },
 
 	"e627986c-b7dd-4365-8fd8-a0f8707af63d": {
