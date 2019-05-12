@@ -182,7 +182,7 @@ function AI.gettracker(self, data)  --self:gettracker({minrange = nil, maxrange 
 			local distance = (centerpos - trackerpos):length()
 			if (nojammercloseby(trackerpos) or ignorejammers) and 
 			distance >= minrange and distance < maxrange and (tracker:getFrequency() == frequency or frequency == nil)  and (tracker.shape.color == color or not filtercolor) then
-				if tracker.shape.color == color and false then -- disabled
+				if tostring(tracker.shape.color) == color then
 					if not closestvalididmatchingcolor or closestvaliddistancematchingcolor > distance then
 						closestvalididmatchingcolor = key
 						closestvaliddistancematchingcolor = distance
@@ -202,7 +202,7 @@ function AI.gettracker(self, data)  --self:gettracker({minrange = nil, maxrange 
 	--for key, tracker in pairs(validtrackers) do print('validtracker',key, tracker) end
 	
 	if closestvalidid == nil then return 0 end -- nothing found in range with same frequency which is not jammed
-	--if closestvalididmatchingcolor and offset == 0 then return closestvalididmatchingcolor end -- if no offset defined, use closest matching color
+	if closestvalididmatchingcolor and offset == 0 then return closestvalididmatchingcolor end -- if no offset defined, use closest matching color
 	if offset == 1 or size(validtrackers) == 1 then return closestvalidid end
 	
 	
