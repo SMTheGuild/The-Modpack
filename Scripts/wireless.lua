@@ -135,7 +135,7 @@ function sender.server_onFixedUpdate( self, dt )
 				self.interactable:setPower(power)
 	sm.interactable.setValue(self.interactable,  power)
 			end
-			self.network:sendToClients("client_setPose", {pose0 = pose, pose1 = 1})
+			self.network:sendToClients("client_setPose", {pose0 = pose/2+0.5, pose1 = 1})
 		end
 	end
 	self.lastfrequency = frequency
