@@ -934,12 +934,6 @@ function mathblock.server_onFixedUpdate( self, dt )
 	end
 	if mode ~= self.lastmode then --or self.power ~= self.interactable.power then
 		self.network:sendToClients("client_setMode", mode)
-		--[[
-		if self.power > 0 then
-			self.network:sendToClients("client_setUvframeIndex", mode + 128)
-		else
-			self.network:sendToClients("client_setUvframeIndex", mode + 0)
-		end]]
 	end
 	self.lastmode = mode
 end
@@ -990,6 +984,7 @@ function mathblock.client_onFixedUpdate(self, dt)
 			if amountofparents>0 then
 				self.power = math.min(1,math.max(-1,self.power/amountofparents))
 			end
+			self.interactable:setPoseWeight(0,self.power/2+0.5)
 		end
 	end
 	if (self.interactable.power > 0 and not self.waspos) or (self.interactable.power <= 0 and self.waspos) then
