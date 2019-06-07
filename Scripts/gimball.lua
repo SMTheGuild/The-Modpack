@@ -304,8 +304,8 @@ function VecToEuler2( direction )
 end
 
 function getGlobal(shape, vec)
-    return sm.shape.getRight(shape)* vec.x + sm.shape.getAt(shape) * vec.y + sm.shape.getUp(shape) * vec.z
+    return shape.right* vec.x + shape.at * vec.y + shape.up * vec.z
 end
 function getLocal(shape, vec)
-    return sm.vec3.new(sm.shape.getRight(shape):dot(vec), sm.shape.getAt(shape):dot(vec), sm.shape.getUp(shape):dot(vec))
+    return sm.vec3.new(shape.right:dot(vec), shape.at:dot(vec), shape.up:dot(vec))
 end
