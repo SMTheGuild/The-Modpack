@@ -37,9 +37,9 @@ function mathblock.server_init( self )
 		{value = 24, name = "exp"       ,description = "\noutputs value of 'e' to the power of input(s)\nno inputs: output will be e^1 aka 'e'"},
 		{value = 33, name = "factorial" ,description = "\ntakes the factorial of the floored sum of the inputs\n('floor' in case there are inputs like 1.5)"},
 		{value = 32, name = "bitmem"    ,description = "\ninputs: white / non-white\nwhite input defines the action: 0=flip, 1=set, 2=reset, no white= flip\nwhen all non-white inputs are active(not 0 for numbers), the action will be taken,\nin case of flip it'll flip every tick all inputs are on, set will turn it on, reset will turn it off.\n\nnifty replacedment for selfwired xor/other memorory's"},
-		{value = 18, name = "floor"     ,description = "\nfloors the input(0.9999->0)\nmore than one input: floors inputs , then adds together"},
-		{value = 19, name = "round"     ,description = "\nrounds the input(0.499->0, 0.5->1)\nmore than one input: rounds inputs, then adds together"},
-		{value = 20, name = "ceil"      ,description = "\nrounds the inputs up(0.01->1)\nmore than one input: floors inputs up, then adds together"},
+		{value = 18, name = "floor"     ,description = "\nfloors the input(0.9999->0)\nmore than one input: floors inputs , then adds together\nwhite input: round by value"},
+		{value = 19, name = "round"     ,description = "\nrounds the input(0.499->0, 0.5->1)\nmore than one input: rounds inputs, then adds together\nwhite input: round by value"},
+		{value = 20, name = "ceil"      ,description = "\nrounds the inputs up(0.01->1)\nmore than one input: floors inputs up, then adds together\nwhite input: round by value"},
 		{value = 21, name = "min"       ,description = "\noutputs the lowest input value"},
 		{value = 22, name = "max"       ,description = "\noutputs the higest input value"},
 		{value = 34, name = "PID"       ,description = "proportional integral derivative \nblack: process value \nwhite: set value \norange: P multiplier\nred: I multiplier \npurple: D multiplier \n3rd row orange: limit output(default: 4096) \n3rd row red: i time(between 10-1200 ticks)(default value:400) \n3rd row purple: d time(between 1-20 ticks)"},
@@ -59,6 +59,7 @@ function mathblock.server_init( self )
 		{value = 08, name = "<"         ,description = "\nbecomes active(1) when the white input is smaller than the non-white input\nmore parents: active when sum of whites is smaller than sum of non-whites"},
 		{value = 09, name = "="         ,description = "\nbecomes active(1) when all inputs are equal"},
 		{value = 37, name = "!="        ,description = "\nbecomes active(1) when inputs are not equal"},
+		{value = 38, name = "X{Y}?"     ,description = "\nbecomes active(1) when any of the black inputs is equal any of the white inputs"},
 		{value = 29, name = "seated"    ,description = "\nbecomes active and outputs the value of input seats occupied"},
 		{value = 30, name = "A/D"       ,description = "\noutputs the A/D value, range: -1 to 1\nmultiple driverseat inputs: average of A/D output of inputs,\nexcellent for teamwork"},
 		{value = 31, name = "W/S"       ,description = "\noutputs the W/S value, range: -1 to 1\nmultiple driverseat inputs: average of W/S output of inputs,\nexcellent for teamwork"},
@@ -919,6 +920,25 @@ function mathblock.server_onFixedUpdate( self, dt )
 				end
 			end
 			
+		elseif mode == 38 then  -- if x{} has any of y{}
+			
+			self.power = 0
+			local whitevalues = {}
+			local blackvalues = {}
+			for k, parent in pairs(parents) do
+				if tostring(parent:getShape().color) == "eeeeeeff" then
+					table.insert(whitevalues, (sm.interactable.getValue(parent) or parent.power))
+				elseif tostring(parent:getShape().color) == "222222ff" then
+					table.insert(blackvalues, (sm.interactable.getValue(parent) or parent.power))
+				end
+			end
+			for k,v in pairs(whitevalues) do
+				for k2,v2 in pairs(blackvalues) do
+					if v == v2 then
+						self.power = 1
+					end
+				end
+			end
 		end
 	--end
 	
