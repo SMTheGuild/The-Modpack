@@ -1612,10 +1612,37 @@
 			"sticky": "+Y-Y-Z+X-X",
 			"qualityLevel": 4
 
-		}
-
-
-
+		},
+{
+	"uuid": "d3eda549-778f-432b-bf21-65a32ae53378",
+	"renderable": {"lodList": [{
+	"subMeshList": [
+		{"textureList": [
+		"$MOD_DATA/Objects/Textures/keypad.png"],
+		"material": "Dif"}
+	],
+	"mesh": "$MOD_DATA/Objects/Mesh/keypad.obj"
+	}]},
+	"scripted" : {
+		"filename": "$MOD_DATA/Scripts/Keypad.lua",
+		"classname": "Keypad" },
+	"rotationSet": "PropZ",
+	"color": "df7f00",
+	"density": 1,
+	"physicsMaterial": "Plastic",
+	"hull": { "x": 2, "y": 2, "z": 1,
+		"margin": 0, "pointList": [
+		{ "x": -1, "y": 1, "z": -1 },
+		{ "x": 1, "y": 1, "z": -1 },
+		{ "x": 1, "y": -1, "z": -1 },
+		{ "x": -1, "y": -1, "z": -1 },
+		{ "x": -1, "y": 1, "z": -0.8 },
+		{ "x": 1, "y": 1, "z": -0.8 },
+		{ "x": 1, "y": -1, "z": -0.8 },
+		{ "x": -1, "y": -1, "z": -0.8 }
+		]},
+	"qualityLevel": 3
+}
 
    ]
 }

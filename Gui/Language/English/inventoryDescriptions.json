@@ -886,6 +886,11 @@
     "1d5d997e-efa9-478c-98ee-e452f5ff0dd2": {
     	"title": "Smart Totebot",
     	"description": "Inputs:\nLogic = on/off\nWhite Number = note to play\nGrey Number = Frequency to play\nBlack Number = Totebot type\nAny Color Number = Volume\n\nTotebots:\nBass 1, Percussion 1, Synth 1, Blip 1, Bass 2, Percussion 2, Synth 2, Blip 2, Glitch, Challenge Ball"
+    },
+
+    "d3eda549-778f-432b-bf21-65a32ae53378": {
+        "title": "Keypad",
+        "description": "Keypad to enter values into a Memory Panel or other smart system. The value is output as you type it. Pressing Enter sends a single logic tick."
     }
 
 
