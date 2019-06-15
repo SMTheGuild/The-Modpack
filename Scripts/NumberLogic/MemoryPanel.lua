@@ -63,7 +63,11 @@ function MemoryPanel.server_onFixedUpdate( self, dt )
 	for k,v in pairs(parents) do
 		if v:isNumberType() then
 			-- number input
-			if tostring(v:getShape().color) == "eeeeeeff" then
+			if tostring(v:getShape().shapeUuid) == "d3eda549-778f-432b-bf21-65a32ae53378" then
+				writevalue = writevalue or v.active
+				value = value + (v:getValue() or v.power)
+				hasvalueparent = true
+			elseif tostring(v:getShape().color) == "eeeeeeff" then
 				-- address
 				address = address + (v:getValue() or v.power)
 			else
@@ -117,7 +121,10 @@ function MemoryPanel.client_onFixedUpdate(self, dt)
 	for k,v in pairs(parents) do
 		if v:isNumberType() then
 			-- number input
-			if tostring(v:getShape().color) == "eeeeeeff" then
+			if tostring(v:getShape().shapeUuid) == "d3eda549-778f-432b-bf21-65a32ae53378" then
+				writevalue = writevalue or v.active
+				hasvalueparent = true
+			elseif tostring(v:getShape().color) == "eeeeeeff" then
 				-- address
 				address = address + (v:getValue() or v.power)
 			else
