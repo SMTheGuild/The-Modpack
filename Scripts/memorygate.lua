@@ -54,7 +54,7 @@ function memoryblock.server_onFixedUpdate( self, dt )
 	local hasvalueparent = false
 	local reset = false
 	for k,v in pairs(parents) do
-		if v:getType() == "scripted" and tostring(v:getShape():getShapeUuid()) ~= "6f2dd83e-bc0d-43f3-8ba5-d5209eb03d07" then
+		if v:getType() == "scripted" and tostring(v:getShape().shapeUuid) ~= "6f2dd83e-bc0d-43f3-8ba5-d5209eb03d07" then
 			-- number input
 			if tostring(sm.shape.getColor(v:getShape())) == "eeeeeeff" then
 				-- address
@@ -64,9 +64,12 @@ function memoryblock.server_onFixedUpdate( self, dt )
 				value = value + (sm.interactable.getValue(v) or v.power)
 				hasvalueparent = true
 			end
+			if tostring(v:getShape().shapeUuid) == "d3eda549-778f-432b-bf21-65a32ae53378" and v.active then
+				writevalue = true
+			end
 		else
 			-- logic input
-			if (sm.interactable.getValue(v) or v.power) > 0 then writevalue = true end
+			if v.active then writevalue = true end
 			if tostring(sm.shape.getColor(v:getShape())) == "222222ff" and (sm.interactable.getValue(v) or v.power) ~= 0 then
 				reset = true
 			end
