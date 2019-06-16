@@ -17,7 +17,7 @@ print('Loading Debugger.lua') -- get's only loaded once! (these functions can't 
  
 
 function sm.isMPTeam()
-	if sm.game.getCurrentTick() > 1 then 
+	if sm.game.getCurrentTick() > 0 then 
 		local modders = {["Brent Batch"] = true, ["TechnologicNick"] = true, ["MJM"] = true} 
 		local name = sm.player.getAllPlayers()[1].name 
 		if modders[name] then 
