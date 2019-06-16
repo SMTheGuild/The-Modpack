@@ -1072,19 +1072,32 @@ function ascii.server_onFixedUpdate( self, dt )
 	end
 	self.buttonwasactive = buttonwasactive
 	self.power = (self.power + buttonpower)%(#self.icons)
-	if self.power ~= self.interactable.power and not (EMP and EMP.active and (self.shape.worldPosition - EMP.position):length() < 60/4) then
+	
+	
+	if self.power ~= self.interactable.power then
 		if self.icons[self.power] == nil then -- invalid input or 0
 			self.interactable:setActive(0)
 			self.interactable:setPower(0)
 			self.network:sendToClients("client_setUvframeIndex",1)
-			self.storage:save({false, 1})
 		else
 			self.interactable:setActive(self.icons[self.power].uv>0)
 			self.interactable:setPower(self.icons[self.power].uv)
 			self.network:sendToClients("client_setUvframeIndex",(self.icons[self.power].uv + 1)%#self.icons)
-			self.storage:save({self.icons[self.power].uv, 1})
 		end
 	end
+	
+	self.needssave = self.needssave or (self.power ~= self.interactable.power)
+	
+	if self.needssave and os.time()%5 == 0 and self.risingedge then
+		if self.icons[self.power] == nil then -- invalid input or 0
+			self.storage:save({false, 1})
+		else
+			self.storage:save({self.icons[self.power].uv, 1})
+		end
+		print(os.clock(),'SAVING ASCII')
+		self.needssave = false
+	end
+	self.risingedge = os.time()%5 ~= 0
 	
 	if EMP and EMP.active and (self.shape.worldPosition - EMP.position):length() < 60/4 then
 		self.interactable:setPower(self.interactable.power*math.random(80, 120)/100)
