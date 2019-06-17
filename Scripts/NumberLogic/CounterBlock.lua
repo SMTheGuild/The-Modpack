@@ -129,6 +129,7 @@ end
 
 function CounterBlock.client_onCreate(self, dt)
 	self.frameindex = 0
+	self.lastpower = 0
 end
 
 function CounterBlock.client_onFixedUpdate(self, dt)
