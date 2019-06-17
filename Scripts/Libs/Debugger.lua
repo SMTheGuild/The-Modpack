@@ -1,4 +1,4 @@
-debuggerLoads = (debuggerLoads or 0) + 1 -- has to be the first line of this file
+DebuggerLoads = (DebuggerLoads or 0) + 1 -- has to be the first line of this file
 
 -- NOTE: Reloading this file in '-dev' mode before sm.isDev is set to true will cause it to false negative. reload the world in this case.
  
@@ -9,9 +9,9 @@ __Debugger_Loaded = true
 function sm.checkDev(shape)   -- a '-dev' check by Brent Batch
 	if sm.isDev ~= nil then return sm.isDev end
 	if not worldStart then worldStart = os.clock() end
-	if (os.clock() - worldStart) < 1 then debuggerLoadsOnWorldStart = debuggerLoads return false end
+	if (os.clock() - worldStart) < 1 then DebuggerLoadsOnWorldStart = DebuggerLoads return false end
 	sm.shape.createPart( shape.shapeUuid, sm.vec3.new(705,0,0), sm.quat.identity( ), false, false )
-	sm.isDev = debuggerLoads == debuggerLoadsOnWorldStart
+	sm.isDev = DebuggerLoads == DebuggerLoadsOnWorldStart
 	print('set dev mode to: ', sm.isDev)
 	return sm.isDev
 end 
@@ -30,8 +30,14 @@ function sm.isMPTeam()  -- an 'is in ModpackTeam' check by Brent Batch
 	end
 end
 	
-function debug(...)  -- print that only works for the team.
+function mpPrint(...)  -- print that only works for the team.
 	if sm.isMPTeam() then 
+		print(...) 
+	end 
+end
+
+function devPrint(...)  -- print that only works in '-dev' mode  (requires a part to do 'sm.checkDev(shape)'
+	if sm.isDev then 
 		print(...) 
 	end 
 end
@@ -48,4 +54,4 @@ function print(...) -- fancy print by TechnologicNick
 end
 
 
-debug('Loading Libs/Debugger.lua')
+mpPrint('Loading Libs/Debugger.lua')

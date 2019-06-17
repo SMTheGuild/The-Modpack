@@ -1,8 +1,7 @@
-dofile "Debugger.lua"
-
 if __MoreMath_Loaded then return end
 __MoreMath_Loaded = true
-debug("loading Libs/MoreMath.lua")
+dofile "Debugger.lua"
+mpPrint("loading Libs/MoreMath.lua")
 
 
 function math.round(x)
@@ -15,4 +14,12 @@ end
 function math.roundby( x, by)
 	-- TODO
 
+end
+
+function table.size(tablename)
+	local i = 0
+	for k, v in pairs(tablename) do
+		i = i +1
+	end
+	return i
 end
