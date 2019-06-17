@@ -2091,8 +2091,8 @@
 			"physicsMaterial": "Metal",
             "scripted" : 
             {
-                "filename": "$MOD_DATA/Scripts/lasersight.lua",
-                "classname": "laser"
+                "filename": "$MOD_DATA/Scripts/NumberOut/LaserSight.lua",
+                "classname": "LaserSight"
             },
 			"qualityLevel": 2
 		},

@@ -1,24 +1,34 @@
+dofile "../Libs/Debugger.lua"
 
--- ascii001.lua --
-ascii001 = class( nil )
-ascii001.maxParentCount = -1
-ascii001.maxChildCount = -1
-ascii001.connectionInput =  sm.interactable.connectionType.power + sm.interactable.connectionType.logic
-ascii001.connectionOutput = sm.interactable.connectionType.power
-ascii001.colorNormal = sm.color.new( 0xD8D220ff )
-ascii001.colorHighlight = sm.color.new( 0xF2EC3Cff )
-ascii001.poseWeightCount = 1
+-- the following code prevents re-load of this file, except if in '-dev' mode.  -- fixes broken sh*t by devs.
+if AsciiBlock and not sm.isDev then -- increases performance for non '-dev' users.
+	return
+end 
+--dofile "../Libs/GameImprovements/interactable.lua"
+--dofile "../Libs/MoreMath.lua"
+
+dofile "../Versions_old/Ascii/AsciiBlock001.lua"
+
+mpPrint("loading AsciiBlock.lua")
 
 
-function ascii001.server_onCreate( self ) 
-	self:server_init()
+-- AsciiBlock.lua --
+AsciiBlock = class( nil )
+AsciiBlock.maxParentCount = -1
+AsciiBlock.maxChildCount = -1
+AsciiBlock.connectionInput =  sm.interactable.connectionType.power + sm.interactable.connectionType.logic
+AsciiBlock.connectionOutput = sm.interactable.connectionType.power
+AsciiBlock.colorNormal = sm.color.new( 0xD8D220ff )
+AsciiBlock.colorHighlight = sm.color.new( 0xF2EC3Cff )
+AsciiBlock.poseWeightCount = 1
+
+
+function AsciiBlock.server_onRefresh( self )
+	sm.isDev = true
+	self:server_onCreate()
 end
-function ascii001.server_onRefresh( self )
-	self:server_init()
-end
-
-function ascii001.server_init( self ) 
-	self.power = 0
+function AsciiBlock.server_onCreate( self ) 
+	self.power = -1
 	self.buttonwasactive = false
 	self.bin = {
 		["375000ff"] = bit.lshift(1,15),
@@ -302,30 +312,42 @@ function ascii001.server_init( self )
 	   savemodes[v.uv]=k
 	end
 	local stored = self.storage:load()
-	if stored and type(stored) == "number" then
-		self.power = savemodes[stored]
+	if stored then
+		if type(stored) == "number" then
+			mpPrint('loading old version')
+			self.power = savemodes[stored] or 0
+			for k, v in pairs(AsciiBlock001) do
+				self[k] = v
+			end
+		elseif type(stored) == "table" then
+			self.power = stored[1] or 0
+			--version = stored[2]
+		end
+	else
+		self.storage:save({false, 1})
 	end
 end
-function ascii001.client_onCreate(self)
+
+function AsciiBlock.client_onCreate(self)
 	self.network:sendToServer("server_senduvtoclient")
 end
-function ascii001.server_senduvtoclient(self)
+function AsciiBlock.server_senduvtoclient(self)
 	self.network:sendToClients("client_setUvframeIndex",self.power)
 end
-function ascii001.server_changemode(self, crouch)
+function AsciiBlock.server_changemode(self, crouch)
 	self.power = (self.power + (crouch and -1 or 1))%(#self.icons)
-	if self.power ~= 0 then self.storage:save(self.icons[self.power].uv) else self.storage:save(false) end
+	self.storage:save({self.power ~= 0 and self.icons[self.power].uv or false, 2})
 	self.network:sendToClients("client_playsound", "GUI Inventory highlight")
 end
-function ascii001.client_onInteract(self)
+function AsciiBlock.client_onInteract(self)
 	local crouching = sm.localPlayer.getPlayer().character:isCrouching()
 	self.network:sendToServer("server_changemode", crouching)
 end
-function ascii001.client_playsound(self, sound)
+function AsciiBlock.client_playsound(self, sound)
 	sm.audio.play(sound, self.shape:getWorldPosition())
 end
 
-function ascii001.server_onFixedUpdate( self, dt )
+function AsciiBlock.server_onFixedUpdate( self, dt )
 	local parents = self.interactable:getParents()
 	local buttonwasactive = false
 	local buttoncycle = -1
@@ -368,29 +390,42 @@ function ascii001.server_onFixedUpdate( self, dt )
 	end
 	self.buttonwasactive = buttonwasactive
 	self.power = (self.power + buttonpower)%(#self.icons)
-	if self.power ~= self.interactable.power and not (EMP and EMP.active and (self.shape.worldPosition - EMP.position):length() < 60/4) then
+	
+	
+	if self.power ~= self.interactable.power then
 		if self.icons[self.power] == nil then -- invalid input or 0
 			self.interactable:setActive(0)
 			self.interactable:setPower(0)
-			self.network:sendToClients("client_setUvframeIndex",0)
-			self.storage:save(false)
+			self.network:sendToClients("client_setUvframeIndex",1)
 		else
 			self.interactable:setActive(self.icons[self.power].uv>0)
 			self.interactable:setPower(self.icons[self.power].uv)
-			self.network:sendToClients("client_setUvframeIndex",self.icons[self.power].uv)
-			self.storage:save(self.icons[self.power].uv)
+			self.network:sendToClients("client_setUvframeIndex",(self.icons[self.power].uv + 1)%#self.icons)
 		end
 	end
+	
+	self.needssave = self.needssave or (self.power ~= self.interactable.power)
+	
+	if self.needssave and os.time()%5 == 0 and self.risingedge then
+		if self.icons[self.power] == nil then -- invalid input or 0
+			self.storage:save({false, 1})
+		else
+			self.storage:save({self.icons[self.power].uv, 1})
+		end
+		mpPrint(os.clock(),'SAVING AsciiBlock')
+		self.needssave = false
+	end
+	self.risingedge = os.time()%5 ~= 0
 	
 	if EMP and EMP.active and (self.shape.worldPosition - EMP.position):length() < 60/4 then
 		self.interactable:setPower(self.interactable.power*math.random(80, 120)/100)
 	end
 end
-function ascii001.client_onFixedUpdate(self, dt)
+function AsciiBlock.client_onFixedUpdate(self, dt)
 	if EMP and EMP.active and (self.shape.worldPosition - EMP.position):length() < 60/4 then
 		self.interactable:setUvFrameIndex(self.interactable:getUvFrameIndex()*math.random(80, 120)/100)
 	end
 end
-function ascii001.client_setUvframeIndex(self, index)
+function AsciiBlock.client_setUvframeIndex(self, index)
 	self.interactable:setUvFrameIndex(index)
 end

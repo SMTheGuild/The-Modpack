@@ -1,15 +1,24 @@
+dofile "../Libs/Debugger.lua"
 
-laser = class( nil )
-laser.maxChildCount = -1
-laser.maxParentCount = -1
-laser.connectionInput = sm.interactable.connectionType.logic
-laser.connectionOutput = sm.interactable.connectionType.power + sm.interactable.connectionType.logic
-laser.colorNormal = sm.color.new(0x222222ff)
-laser.colorHighlight = sm.color.new(0x333333ff)
-laser.poseWeightCount = 1
+-- the following code prevents re-load of this file, except if in '-dev' mode.  -- fixes broken sh*t by devs.
+if LaserSight and not sm.isDev then -- increases performance for non '-dev' users.
+	return
+end 
+
+mpPrint("loading LaserSight.lua")
 
 
-function laser.server_onFixedUpdate(self, dt)
+LaserSight = class( nil )
+LaserSight.maxChildCount = -1
+LaserSight.maxParentCount = -1
+LaserSight.connectionInput = sm.interactable.connectionType.logic
+LaserSight.connectionOutput = sm.interactable.connectionType.power + sm.interactable.connectionType.logic
+LaserSight.colorNormal = sm.color.new(0x222222ff)
+LaserSight.colorHighlight = sm.color.new(0x333333ff)
+LaserSight.poseWeightCount = 1
+
+
+function LaserSight.server_onFixedUpdate(self, dt)
 
 	local parents = self.interactable:getParents()
 	local active = false
@@ -31,7 +40,7 @@ function laser.server_onFixedUpdate(self, dt)
 end
 
 
-function laser.client_onFixedUpdate(self)
+function LaserSight.client_onFixedUpdate(self)
 	if not sm.exists(self.interactable) then return end
 	local parents = self.interactable:getParents()
 	local active = false

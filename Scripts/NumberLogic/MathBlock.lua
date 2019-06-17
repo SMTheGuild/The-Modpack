@@ -1,22 +1,33 @@
+dofile "../Libs/Debugger.lua"
 
-dofile('functions.lua')
+-- the following code prevents re-load of this file, except if in '-dev' mode.  -- fixes broken sh*t by devs.
+if MathBlock and not sm.isDev then -- increases performance for non '-dev' users.
+	return
+end 
+dofile "../Libs/GameImprovements/interactable.lua"
+dofile "../Libs/MoreMath.lua"
 
--- mathblock.lua --
-mathblock = class( nil )
-mathblock.maxParentCount = -1
-mathblock.maxChildCount = -1
-mathblock.connectionInput =  sm.interactable.connectionType.power + sm.interactable.connectionType.logic + sm.interactable.connectionType.seated
-mathblock.connectionOutput = sm.interactable.connectionType.power + sm.interactable.connectionType.logic
-mathblock.colorNormal = sm.color.new( 0x0E388Cff )
-mathblock.colorHighlight = sm.color.new( 0x214DA5ff )
-mathblock.poseWeightCount = 1
+mpPrint("loading MathBlock.lua")
 
 
-function mathblock.server_onCreate( self ) 
-	self:server_init()
+-- MathBlock.lua --
+MathBlock = class( nil )
+MathBlock.maxParentCount = -1
+MathBlock.maxChildCount = -1
+MathBlock.connectionInput =  sm.interactable.connectionType.power + sm.interactable.connectionType.logic + sm.interactable.connectionType.seated
+MathBlock.connectionOutput = sm.interactable.connectionType.power + sm.interactable.connectionType.logic
+MathBlock.colorNormal = sm.color.new( 0x0E388Cff )
+MathBlock.colorHighlight = sm.color.new( 0x214DA5ff )
+MathBlock.poseWeightCount = 1
+
+
+function MathBlock.server_onRefresh( self )
+	sm.isDev = true
+	self.clientmode = 0
+	self:server_onCreate()
 end
 
-function mathblock.server_init( self ) 
+function MathBlock.server_onCreate( self ) 
 	self.lastmode = 0
 	self.mode = 1
 	self.power = 0
@@ -81,31 +92,19 @@ function mathblock.server_init( self )
 	end
 end
 
-function mathblock.client_onCreate(self)
+function MathBlock.client_onCreate(self)
 	self.clientmode = 0
 	self.network:sendToServer("server_senduvtoclient")
 end
-function mathblock.server_senduvtoclient(self)
+function MathBlock.server_senduvtoclient(self)
 	self.network:sendToClients("client_setMode", self.modetable[self.mode].value)
-	--[[
-	if self.power == 0 then
-		self.network:sendToClients("client_setUvframeIndex", self.modetable[self.mode].value + 0)
-		self.interactable:setActive(false)
-	else
-		self.network:sendToClients("client_setUvframeIndex", self.modetable[self.mode].value + 128)
-		self.interactable:setActive(true)
-	end]]
 end
-function mathblock.server_onRefresh( self )
-	self.clientmode = 0
-	self:server_init()
-end
-function mathblock.client_onInteract(self)
+function MathBlock.client_onInteract(self)
 	local crouching = sm.localPlayer.getPlayer().character:isCrouching()
 	self.network:sendToServer("server_changemode", crouching)
 end
 
-function mathblock.server_changemode(self, crouch)
+function MathBlock.server_changemode(self, crouch)
 	local parents = self.interactable:getParents()
 	for k,v in pairs(parents) do
 		if (v:getType() == "seat" or v:getType() == "steering") and v:isActive() then
@@ -123,11 +122,11 @@ function mathblock.server_changemode(self, crouch)
 	self.doprint = true
 	if self.forceprint then dofile("C:/test") end--assert(false, "forcedprint") end
 end
-function mathblock.client_playsound(self, sound)
+function MathBlock.client_playsound(self, sound)
 	sm.audio.play(sound, self.shape:getWorldPosition())
 end
 
-function mathblock.server_onFixedUpdate( self, dt )
+function MathBlock.server_onFixedUpdate( self, dt )
 	
 	if self.doprint then
 		if self.forceprint then print('\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n') end --clear error from screen
@@ -958,7 +957,7 @@ function mathblock.server_onFixedUpdate( self, dt )
 	self.lastmode = mode
 end
 
-function mathblock.runningAverage(self, data)
+function MathBlock.runningAverage(self, data)
   local runningAverageCount = data.count
   if self.runningAverageBuffer == nil then self.runningAverageBuffer = {} end
   if self.nextRunningAverage == nil then self.nextRunningAverage = 0 end
@@ -978,7 +977,7 @@ function mathblock.runningAverage(self, data)
 end
 
 
-function mathblock.client_onFixedUpdate(self, dt)
+function MathBlock.client_onFixedUpdate(self, dt)
 	if sm.isHost then
 		local parents = self.interactable:getParents()
 		-- host only ('self.mode')
@@ -1013,7 +1012,7 @@ function mathblock.client_onFixedUpdate(self, dt)
 	end
 end
 
-function mathblock.client_setMode(self, mode)
+function MathBlock.client_setMode(self, mode)
 	self.clientmode = mode
 	self.interactable:setUvFrameIndex(mode)
 end

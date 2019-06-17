@@ -1,20 +1,28 @@
+dofile "../Libs/Debugger.lua"
 
-dofile('functions.lua')
--- sender.lua --
-sender = class( nil )
-sender.maxParentCount = 2
-sender.maxChildCount = -1
-sender.connectionInput =  sm.interactable.connectionType.power + sm.interactable.connectionType.logic
-sender.connectionOutput = sm.interactable.connectionType.power + sm.interactable.connectionType.logic + sm.interactable.connectionType.bearing
-sender.colorNormal = sm.color.new( 0xaaaaaaff )
-sender.colorHighlight = sm.color.new( 0xaaaaaaff )
-sender.poseWeightCount = 3
+-- the following code prevents re-load of this file, except if in '-dev' mode.  -- fixes broken sh*t by devs.
+if WirelessBlock and not sm.isDev then -- increases performance for non '-dev' users.
+	return
+end 
+dofile "../Libs/GameImprovements/interactable.lua"
 
-function sender.server_onCreate( self )
+mpPrint("loading WirelessBlock.lua")
+
+-- WirelessBlock.lua --
+WirelessBlock = class( nil )
+WirelessBlock.maxParentCount = 2
+WirelessBlock.maxChildCount = -1
+WirelessBlock.connectionInput =  sm.interactable.connectionType.power + sm.interactable.connectionType.logic
+WirelessBlock.connectionOutput = sm.interactable.connectionType.power + sm.interactable.connectionType.logic + sm.interactable.connectionType.bearing
+WirelessBlock.colorNormal = sm.color.new( 0xaaaaaaff )
+WirelessBlock.colorHighlight = sm.color.new( 0xaaaaaaff )
+WirelessBlock.poseWeightCount = 3
+
+function WirelessBlock.server_onCreate( self )
 	self:server_init()
 end
 
-function sender.server_init( self )
+function WirelessBlock.server_init( self )
 	self.sender = true
 	self.pose = 0.5
 	if not wirelessdata then
@@ -27,16 +35,16 @@ function sender.server_init( self )
 	self.storage:save(self.sender and 1 or 2)
 end
 
-function sender.server_onDestroy(self)
+function WirelessBlock.server_onDestroy(self)
 	wirelessdata[self.lastfrequency] = nil
 end
 
-function sender.server_onRefresh( self )
+function WirelessBlock.server_onRefresh( self )
 	self:server_init()
 end
 
 
-function sender.server_onFixedUpdate( self, dt )
+function WirelessBlock.server_onFixedUpdate( self, dt )
 	local parents = self.interactable:getParents()
 	local color = tostring(sm.shape.getColor(self.shape))
 	local data = {}
@@ -142,7 +150,7 @@ function sender.server_onFixedUpdate( self, dt )
 	self.lastcolor = color
 	self.lastmode = self.sender
 end
-function sender.client_onFixedUpdate(self, dt)
+function WirelessBlock.client_onFixedUpdate(self, dt)
 	local parents = self.interactable:getParents()
 	local pose = 0
 	for k, v in pairs(parents) do
@@ -156,27 +164,27 @@ function sender.client_onFixedUpdate(self, dt)
 	self.pose = pose
 end
 
-function sender.client_setUvframeIndex(self, index)
+function WirelessBlock.client_setUvframeIndex(self, index)
 	self.interactable:setUvFrameIndex(index)
 end
-function sender.client_setPose(self, data)
+function WirelessBlock.client_setPose(self, data)
 	self.interactable:setPoseWeight(0, data.pose0)
 	self.interactable:setPoseWeight(1, data.pose1)
 end
 
-function sender.client_onCreate(self)
+function WirelessBlock.client_onCreate(self)
 	self.network:sendToServer("server_requestmode")
 end
 
-function sender.server_requestmode(self)
+function WirelessBlock.server_requestmode(self)
 	self.network:sendToClients("client_setPose", {pose0 = 0.5, pose1 = self.sender and 0 or 1})
 end
 
-function sender.client_onInteract(self)
+function WirelessBlock.client_onInteract(self)
 	self.network:sendToServer("server_clientInteract")
 end
 
-function sender.server_clientInteract(self)
+function WirelessBlock.server_clientInteract(self)
 	self.sender = (not self.sender)
 	self.storage:save(self.sender and 1 or 2)
 	self.network:sendToClients("client_setPose", {pose0 = 0.5, pose1 = self.sender and 0 or 1})

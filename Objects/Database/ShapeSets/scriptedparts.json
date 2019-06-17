@@ -115,8 +115,8 @@
 			"sticky": "+Y-Y-Z+X-X",
             "scripted" : 
 			{
-				"filename": "$MOD_DATA/Scripts/logic.lua",
-				"classname": "analogsensor"
+				"filename": "$MOD_DATA/Scripts/NumberOut/SmartSensor.lua",
+				"classname": "SmartSensor"
 			},
 			"qualityLevel": 2
 		},
@@ -154,8 +154,8 @@
 			},
             "scripted" : 
 			{
-				"filename": "$MOD_DATA/Scripts/logic.lua",
-				"classname": "potentiometer"
+				"filename": "$MOD_DATA/Scripts/NumberLogic/CounterBlock.lua",
+				"classname": "CounterBlock"
 			},
 			"color": "df7f00",
 			"box": {
@@ -200,8 +200,8 @@
 			},
             "scripted" : 
 			{
-				"filename": "$MOD_DATA/Scripts/mathblock.lua",
-				"classname": "mathblock"
+				"filename": "$MOD_DATA/Scripts/NumberLogic/MathBlock.lua",
+				"classname": "MathBlock"
 			},
 			"color": "df7f00",
 			"box": {
@@ -247,8 +247,8 @@
 			},
             "scripted" : 
 			{
-				"filename": "$MOD_DATA/Scripts/logic.lua",
-				"classname": "BCD"
+				"filename": "$MOD_DATA/Scripts/NumberLogic/NumberBlock.lua",
+				"classname": "NumberBlock"
 			},
 			"color": "df7f00",
 			"box": {
@@ -294,8 +294,8 @@
 			},
             "scripted" : 
 			{
-				"filename": "$MOD_DATA/Scripts/memorygate.lua",
-				"classname": "memoryblock"
+				"filename": "$MOD_DATA/Scripts/NumberLogic/MemoryPanel.lua",
+				"classname": "MemoryPanel"
 			},
 			"color": "df7f00",
 			"hull": {
@@ -361,7 +361,7 @@
 			"density": 250.0,
 			"physicsMaterial": "Metal",
 			"scripted": {
-				"filename": "$MOD_DATA/Scripts/SmartTimer.lua",
+				"filename": "$MOD_DATA/Scripts/NumberLogic/SmartTimer.lua",
 				"classname": "SmartTimer",
                 "data": {
                     "defaultDelay": 1
@@ -411,8 +411,8 @@
 			},
             "scripted" : 
 			{
-				"filename": "$MOD_DATA/Scripts/timer.lua",
-				"classname": "timerblock"
+				"filename": "$MOD_DATA/Scripts/NumberOut/TimeBlock.lua",
+				"classname": "TimeBlock"
 			},
 			"color": "df7f00",
 			"hull": {
@@ -467,8 +467,8 @@
 			},
             "scripted" : 
 			{
-				"filename": "$MOD_DATA/Scripts/logic.lua",
-				"classname": "ascii"
+				"filename": "$MOD_DATA/Scripts/NumberLogic/AsciiBlock.lua",
+				"classname": "AsciiBlock"
 			},
 			"color": "df7f00",
 			"box": {
@@ -513,8 +513,8 @@
 			},
             "scripted" : 
 			{
-				"filename": "$MOD_DATA/Scripts/logic.lua",
-				"classname": "ascii"
+				"filename": "$MOD_DATA/Scripts/NumberLogic/AsciiBlock.lua",
+				"classname": "AsciiBlock"
 			},
 			"color": "df7f00",
 			"box": {
@@ -547,8 +547,8 @@
 			},
             "scripted" : 
 			{
-				"filename": "$MOD_DATA/Scripts/tracker.lua",
-				"classname": "tracker"
+				"filename": "$MOD_DATA/Scripts/Orientation/Tracker.lua",
+				"classname": "Tracker"
 			},
 			"color": "df7f00",
 			"hull": {
@@ -604,8 +604,8 @@
 			},
             "scripted" : 
 			{
-				"filename": "$MOD_DATA/Scripts/tracker.lua",
-				"classname": "jammer"
+				"filename": "$MOD_DATA/Scripts/Orientation/Jammer.lua",
+				"classname": "Jammer"
 			},
 			"color": "df7f00",
 			"hull": {
@@ -678,8 +678,8 @@
 				]
 			 },
 			 "scripted":{  
-				"filename":"$MOD_DATA/Scripts/RadarTest.lua",
-				"classname":"radar"
+				"filename":"$MOD_DATA/Scripts/Orientation/Radar2D.lua",
+				"classname":"Radar2D"
 			 },
 			 "rotationSet":"PropY",
 			 "color": "df7f00",
@@ -771,8 +771,8 @@
 				]
 			},
 			 "scripted":{  
-				"filename":"$MOD_DATA/Scripts/RadarTest.lua",
-				"classname":"radar3d"
+				"filename":"$MOD_DATA/Scripts/Orientation/Radar3D.lua",
+				"classname":"Radar3D"
 			 },
             "color": "df7f00",
 			"box": { "x": 5, "y": 7, "z": 5 },
@@ -808,8 +808,8 @@
 			},
             "scripted" : 
 			{
-				"filename": "$MOD_DATA/Scripts/logic.lua",
-				"classname": "colorblock"
+				"filename": "$MOD_DATA/Scripts/NumberLogic/ColorBlock.lua",
+				"classname": "ColorBlock"
 			},
 			"color": "eeeeee",
 			"box": {
@@ -844,8 +844,8 @@
             },
             "scripted" : 
             {
-                "filename": "$MOD_DATA/Scripts/smartcontrol.lua",
-                "classname": "smartcontrol"
+                "filename": "$MOD_DATA/Scripts/Locomotion/SmartControl.lua",
+                "classname": "SmartControl"
             },
             "rotationSet": "PropY",
             "color": "df7f00",
@@ -883,8 +883,8 @@
 			"physicsMaterial": "Metal",
             "scripted" : 
 			{
-				"filename": "$MOD_DATA/Scripts/logic.lua",
-				"classname": "smartthruster"
+				"filename": "$MOD_DATA/Scripts/Locomotion/SmartThruster.lua",
+				"classname": "SmartThruster"
 			},
 			"sticky": "+X-X+Y-Y",
 			"qualityLevel": 4
@@ -927,8 +927,8 @@
 			},
             "scripted" : 
 			{
-				"filename": "$MOD_DATA/Scripts/wasdthruster.lua",
-				"classname": "wasdthruster"
+				"filename": "$MOD_DATA/Scripts/Locomotion/WASDThruster.lua",
+				"classname": "WASDThruster"
 			},
 			"rotationSet": "PropFull",
 			"color": "df7f00",
@@ -962,8 +962,8 @@
 				]
 			},
 			"scripted" : {
-				"filename": "$MOD_DATA/Scripts/gimball.lua",
-				"classname": "gimball" 
+				"filename": "$MOD_DATA/Scripts/Locomotion/Gimball.lua",
+				"classname": "Gimball" 
 			},
 			"rotationSet": "PropZ",
 			"sticky": "-Z",
@@ -1033,8 +1033,8 @@
 			"physicsMaterial": "Plastic",
             "scripted" : 
 			{
-				"filename": "$MOD_DATA/Scripts/logic.lua",
-				"classname": "tickbutton"
+				"filename": "$MOD_DATA/Scripts/NumberLogic/TickButton.lua",
+				"classname": "TickButton"
 			},
 			"sticky": "-Y",
 			"qualityLevel": 3
@@ -1090,8 +1090,8 @@
 			"physicsMaterial": "Plastic",
             "scripted" : 
 			{
-				"filename": "$MOD_DATA/Scripts/wireless.lua",
-				"classname": "sender"
+				"filename": "$MOD_DATA/Scripts/NumberLogic/WirelessBlock.lua",
+				"classname": "WirelessBlock"
 			},
 			"sticky": "-Y",
 			"qualityLevel": 2
@@ -1134,7 +1134,7 @@
 			"physicsMaterial": "Metal",
             "scripted" : 
 			{
-				"filename": "$MOD_DATA/Scripts/orienter.lua",
+				"filename": "$MOD_DATA/Scripts/Orientation/orienter.lua",
 				"classname": "AI"
 			},
 			"qualityLevel": 3
@@ -1176,7 +1176,7 @@
 			},
             "scripted" : 
 			{
-				"filename": "$MOD_DATA/Scripts/Speedometer.lua",
+				"filename": "$MOD_DATA/Scripts/Orientation/Speedometer.lua",
 				"classname": "Tacho"
 			},
 			"color": "df7f00",
@@ -1248,7 +1248,7 @@
             "rotationSet": "PropY",
             "scripted" : 
 			{
-				"filename": "$MOD_DATA/Scripts/gravity.lua",
+				"filename": "$MOD_DATA/Scripts/Locomotion/GravityModulator.lua",
 				"classname": "gravcreation"
 			},
             "color": "df7f00",
@@ -1295,7 +1295,7 @@
             "sticky": "-Y",
             "scripted" : 
 			{
-				"filename": "$MOD_DATA/Scripts/gravity.lua",
+				"filename": "$MOD_DATA/Scripts/Locomotion/GravityModulator.lua",
 				"classname": "gravworld"
 			},
 			"qualityLevel": 5
@@ -1373,7 +1373,7 @@
                 ]
             },
             "scripted" : {
-                "filename": "$MOD_DATA/Scripts/FlappyWing.lua",
+                "filename": "$MOD_DATA/Scripts/Locomotion/FlappyWing.lua",
                 "classname": "FlappyWing",
                 "data": {
                     "animationName": "Flap",
@@ -1451,7 +1451,7 @@
                 ]
             },
             "scripted" : {
-                "filename": "$MOD_DATA/Scripts/FlappyWing.lua",
+                "filename": "$MOD_DATA/Scripts/Locomotion/FlappyWing.lua",
                 "classname": "FlappyWing",
                 "data": {
                     "animationName": "Rotation",

@@ -1,21 +1,29 @@
+dofile "../Libs/Debugger.lua"
 
-wasdthruster = class( nil )
-wasdthruster.maxParentCount = -1
-wasdthruster.maxChildCount = 0
-wasdthruster.connectionInput = sm.interactable.connectionType.power + sm.interactable.connectionType.logic
-wasdthruster.connectionOutput = sm.interactable.connectionType.none
-wasdthruster.colorNormal = sm.color.new( 0x009999ff  )
-wasdthruster.colorHighlight = sm.color.new( 0x11B2B2ff  )
-wasdthruster.poseWeightCount = 2
+-- the following code prevents re-load of this file, except if in '-dev' mode.  -- fixes broken sh*t by devs.
+if WASDThruster and not sm.isDev then -- increases performance for non '-dev' users.
+	return
+end 
 
-wasdthruster.stepSize = 0.05
+mpPrint("loading WASDThruster.lua")
+
+WASDThruster = class( nil )
+WASDThruster.maxParentCount = -1
+WASDThruster.maxChildCount = 0
+WASDThruster.connectionInput = sm.interactable.connectionType.power + sm.interactable.connectionType.logic
+WASDThruster.connectionOutput = sm.interactable.connectionType.none
+WASDThruster.colorNormal = sm.color.new( 0x009999ff  )
+WASDThruster.colorHighlight = sm.color.new( 0x11B2B2ff  )
+WASDThruster.poseWeightCount = 2
+
+WASDThruster.stepSize = 0.05
 
 
-function wasdthruster.server_onCreate( self ) 
+function WASDThruster.server_onCreate( self ) 
 	self:server_init()
 end
 
-function wasdthruster.server_init( self ) 
+function WASDThruster.server_init( self ) 
 	self.power = 0
 	self.direction = sm.vec3.new(0,0,1)
 	self.smode = 0
@@ -26,11 +34,11 @@ function wasdthruster.server_init( self )
 	end
 end
 
-function wasdthruster.server_onRefresh( self )
+function WASDThruster.server_onRefresh( self )
 	self:server_init()
 end
 
-function wasdthruster.server_onFixedUpdate( self, dt )
+function WASDThruster.server_onFixedUpdate( self, dt )
 	if self.interactable.power ~= self.power then 
 		self.interactable:setPower(self.power)
 	end
@@ -41,7 +49,7 @@ function wasdthruster.server_onFixedUpdate( self, dt )
 end
 
 
-function wasdthruster.client_onCreate(self)
+function WASDThruster.client_onCreate(self)
 	self.shootEffect = sm.effect.createEffect( "Thruster", self.interactable )
 	self.parentHPose = 0.5
 	self.prevparentHPose = 0.5
@@ -58,29 +66,29 @@ function wasdthruster.client_onCreate(self)
 end
 
 
-function wasdthruster.client_onDestroy(self)
+function WASDThruster.client_onDestroy(self)
 	self.shootEffect:stop()
 end
 
-function wasdthruster.client_onInteract(self)
+function WASDThruster.client_onInteract(self)
 	local crouching = sm.localPlayer.getPlayer().character:isCrouching()
 	self.network:sendToServer("server_changemode", crouching)
 end
-function wasdthruster.server_changemode(self, crouch)
+function WASDThruster.server_changemode(self, crouch)
 	self.smode = (self.smode + (crouch and -1 or 1))%4
 	self.storage:save(self.smode+1)
 	self.network:sendToClients("client_mode", self.smode)
 end
-function wasdthruster.server_requestmode(self)
+function WASDThruster.server_requestmode(self)
 	self.network:sendToClients("client_mode", self.smode)
 end
-function wasdthruster.client_mode(self, mode)
+function WASDThruster.client_mode(self, mode)
 	sm.audio.play("ConnectTool - Rotate", self.shape:getWorldPosition())
 	if mode ~= self.mode then print("mode: ", self.modes[mode+1]) end
 	self.mode = mode
 end
 
-function wasdthruster.client_onFixedUpdate(self, dt)
+function WASDThruster.client_onFixedUpdate(self, dt)
 	local parents = self.interactable:getParents()
 	local power = #parents>0 and 100 or 0
 	local hasnumber = false
@@ -208,12 +216,4 @@ function wasdthruster.client_onFixedUpdate(self, dt)
 end
 function getLocal(shape, vec)
     return sm.vec3.new(sm.shape.getRight(shape):dot(vec), sm.shape.getAt(shape):dot(vec), sm.shape.getUp(shape):dot(vec))
-end
-
-
-function round(x)
-  if x%2 ~= 0.5 then
-    return math.floor(x+0.5)
-  end
-  return x-0.5
 end

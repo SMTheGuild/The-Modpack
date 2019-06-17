@@ -1,21 +1,31 @@
+dofile "../Libs/Debugger.lua"
 
--- memoryblock.lua --
-memoryblock = class( nil )
-memoryblock.maxParentCount = -1
-memoryblock.maxChildCount = -1
-memoryblock.connectionInput =  sm.interactable.connectionType.power + sm.interactable.connectionType.logic
-memoryblock.connectionOutput = sm.interactable.connectionType.power 
-memoryblock.colorNormal = sm.color.new( 0x7F567Dff )
-memoryblock.colorHighlight = sm.color.new( 0x9f7fa5ff )
-memoryblock.poseWeightCount = 1
+-- the following code prevents re-load of this file, except if in '-dev' mode.  -- fixes broken sh*t by devs.
+if MemoryPanel and not sm.isDev then -- increases performance for non '-dev' users.
+	return
+end 
+dofile "../Libs/GameImprovements/interactable.lua"
+dofile "../Libs/MoreMath.lua"
 
-dofile('functions.lua')
+mpPrint("loading MemoryPanel.lua")
 
-function memoryblock.server_onCreate( self ) 
-	self:server_init()
+-- MemoryPanel.lua --
+MemoryPanel = class( nil )
+MemoryPanel.maxParentCount = -1
+MemoryPanel.maxChildCount = -1
+MemoryPanel.connectionInput =  sm.interactable.connectionType.power + sm.interactable.connectionType.logic
+MemoryPanel.connectionOutput = sm.interactable.connectionType.power 
+MemoryPanel.colorNormal = sm.color.new( 0x7F567Dff )
+MemoryPanel.colorHighlight = sm.color.new( 0x9f7fa5ff )
+MemoryPanel.poseWeightCount = 1
+
+
+function MemoryPanel.server_onRefresh( self )
+	sm.isDev = true
+	self:server_onCreate()
 end
 
-function memoryblock.server_init( self )
+function MemoryPanel.server_onCreate( self ) 
 	self.data = {}
 	self.data[0] = 0
 	self.data["key"] = 1
@@ -40,12 +50,9 @@ function memoryblock.server_init( self )
 	sm.interactable.setValue(self.interactable, self.power)
 end
 
-function memoryblock.server_onRefresh( self )
-	self:server_init()
-end
 
 
-function memoryblock.server_onFixedUpdate( self, dt )
+function MemoryPanel.server_onFixedUpdate( self, dt )
 	local parents = self.interactable:getParents()
 	local saves = false
 	local address = 0
@@ -117,13 +124,13 @@ function memoryblock.server_onFixedUpdate( self, dt )
 	self.lastaddress = address
 end
 
-function memoryblock.client_setUvframeIndex(self, index)
+function MemoryPanel.client_setUvframeIndex(self, index)
 	self.interactable:setUvFrameIndex(index)
 end
-function memoryblock.client_setPose(self, level)
+function MemoryPanel.client_setPose(self, level)
 	self.interactable:setPoseWeight(0, level)
 end
-function memoryblock.client_setUvValue(self, value) 
+function MemoryPanel.client_setUvValue(self, value) 
 	if value < 0 then 
 		value = 0-value 
 	end

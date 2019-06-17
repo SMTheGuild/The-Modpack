@@ -5,6 +5,16 @@
 	]]
 -- grav creation: normal gravity = 1
 
+dofile "../Libs/Debugger.lua"
+
+-- the following code prevents re-load of this file, except if in '-dev' mode.  -- fixes broken sh*t by devs.
+if gravcreation and not sm.isDev then -- increases performance for non '-dev' users.
+	return
+end 
+dofile "../Libs/GameImprovements/interactable.lua"
+
+mpPrint("loading GravityModulator.lua")
+
 gravcreation = class( nil )
 gravcreation.maxChildCount = 0
 gravcreation.maxParentCount = -1

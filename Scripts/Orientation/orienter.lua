@@ -1,3 +1,12 @@
+dofile "../Libs/Debugger.lua"
+
+-- the following code prevents re-load of this file, except if in '-dev' mode.  -- fixes broken sh*t by devs.
+if AI and not sm.isDev then -- increases performance for non '-dev' users.
+	return
+end 
+
+mpPrint("loading orienter.lua")
+
 
 -- AI.lua --
 AI = class( nil )
@@ -8,8 +17,6 @@ AI.connectionOutput = sm.interactable.connectionType.power
 AI.colorNormal = sm.color.new( 0x0000ffff )
 AI.colorHighlight = sm.color.new( 0x3333ffff )
 AI.poseWeightCount = 2
-
-dofile("functions.lua")
 
 function AI.server_onCreate( self ) 
 	self:server_init()

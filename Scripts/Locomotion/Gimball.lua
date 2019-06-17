@@ -1,19 +1,27 @@
+dofile "../Libs/Debugger.lua"
 
-gimball = class( nil )
-gimball.maxParentCount = -1
-gimball.maxChildCount = 0
-gimball.connectionInput = sm.interactable.connectionType.power + sm.interactable.connectionType.logic
-gimball.connectionOutput = sm.interactable.connectionType.none
-gimball.colorNormal = sm.color.new( 0x009999ff  )--sm.color.new( 0x844040ff )
-gimball.colorHighlight = sm.color.new( 0x11B2B2ff  )-- = sm.color.new( 0xb25959ff )
-gimball.poseWeightCount = 2
---gimball.maxtilt = 90
+-- the following code prevents re-load of this file, except if in '-dev' mode.  -- fixes broken sh*t by devs.
+if Gimball and not sm.isDev then -- increases performance for non '-dev' users.
+	return
+end 
 
-function gimball.server_onCreate( self ) 
+mpPrint("loading Gimball.lua")
+
+Gimball = class( nil )
+Gimball.maxParentCount = -1
+Gimball.maxChildCount = 0
+Gimball.connectionInput = sm.interactable.connectionType.power + sm.interactable.connectionType.logic
+Gimball.connectionOutput = sm.interactable.connectionType.none
+Gimball.colorNormal = sm.color.new( 0x009999ff  )--sm.color.new( 0x844040ff )
+Gimball.colorHighlight = sm.color.new( 0x11B2B2ff  )-- = sm.color.new( 0xb25959ff )
+Gimball.poseWeightCount = 2
+--Gimball.maxtilt = 90
+
+function Gimball.server_onCreate( self ) 
 	self:server_init()
 end
 
-function gimball.server_init( self ) 
+function Gimball.server_init( self ) 
 	self.power = 0
 	self.smode = 0
 	self.direction = sm.vec3.new(0,0,1)
@@ -24,17 +32,17 @@ function gimball.server_init( self )
 	end
 end
 
-function gimball.server_onRefresh( self )
+function Gimball.server_onRefresh( self )
 	self:server_init()
 end
 
-function gimball.server_onFixedUpdate( self )
+function Gimball.server_onFixedUpdate( self )
 	if self.power ~= 0 and math.abs(self.power) ~= math.huge then
 		sm.physics.applyImpulse(self.shape, self.direction*math.abs(self.power), true)
 		--print(self.direction)
 	end
 end
-function gimball.client_onCreate(self)
+function Gimball.client_onCreate(self)
 	self.shootEffect = sm.effect.createEffect( "Thruster", self.interactable )
 	self.parentHPose = 0.5
 	self.prevparentHPose = 0.5
@@ -49,28 +57,28 @@ function gimball.client_onCreate(self)
 	self.interactable:setAnimEnabled( "animX", true )
 end
 
-function gimball.client_onDestroy(self)
+function Gimball.client_onDestroy(self)
 	self.shootEffect:stop()
 end
-function gimball.client_onInteract(self)
+function Gimball.client_onInteract(self)
 	local crouching = sm.localPlayer.getPlayer().character:isCrouching()
 	self.network:sendToServer("server_changemode", crouching)
 end
-function gimball.server_changemode(self, crouch)
+function Gimball.server_changemode(self, crouch)
 	self.smode = (self.smode+(crouch and -1 or 1))%4
 	self.storage:save(self.smode+1)
 	self.network:sendToClients("client_mode", self.smode)
 end
-function gimball.server_requestmode(self)
+function Gimball.server_requestmode(self)
 	self.network:sendToClients("client_mode", self.smode)
 end
-function gimball.client_mode(self, mode)
+function Gimball.client_mode(self, mode)
 	sm.audio.play("ConnectTool - Rotate", self.shape:getWorldPosition())
 	if mode ~= self.mode then print("mode: ", self.modes[mode+1]) end
 	self.mode = mode
 end
 
-function gimball.client_onFixedUpdate(self, dt)
+function Gimball.client_onFixedUpdate(self, dt)
 	local parents = self.interactable:getParents()
 	local power = #parents>0 and 100 or 0
 	local hasnumber = false
@@ -282,12 +290,6 @@ function gimball.client_onFixedUpdate(self, dt)
 end
 
 
-function round(x)
-  if x%2 ~= 0.5 then
-    return math.floor(x+0.5)
-  end
-  return x-0.5
-end
 
 function VecToEuler2( direction )
     local euler = {}

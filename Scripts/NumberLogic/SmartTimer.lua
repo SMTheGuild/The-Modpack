@@ -1,10 +1,16 @@
+dofile "../Libs/Debugger.lua"
+
+-- the following code prevents re-load of this file, except if in '-dev' mode.  -- fixes broken sh*t by devs.
+if SmartTimer and not sm.isDev then -- increases performance for non '-dev' users.
+	return
+end 
+dofile "../Libs/GameImprovements/interactable.lua"
+dofile "../Libs/GlobalGui.lua"
+--dofile "../Libs/MoreMath.lua"
+
+mpPrint("loading SmartTimer.lua")
+
 -- SmartTimer.lua --
-
---print("[SmartTimer] file init")
-
-dofile("globalgui.lua")
-dofile("functions.lua")
-
 SmartTimer = class( nil )
 SmartTimer.maxChildCount = -1
 SmartTimer.maxParentCount = -1
@@ -21,7 +27,7 @@ function SmartTimer.client_onSetupGui( self )
     
     if sm.globalgui.wasCreated(self, SmartTimer.gui) then return end
     SmartTimer.gui = sm.globalgui.create(self, "Smart Timer", 1100, 700, nil, nil, nil, nil, nil)
-    debug("creatng gui")
+    mpPrint("creatng gui")
 	
     local bgx, bgy = SmartTimer.gui.bgPosX, SmartTimer.gui.bgPosY 
     
@@ -183,7 +189,7 @@ end
 -------------------------------- GUI stuff --------------------------------
 function SmartTimer.server_createRemoteGuiInstance( self )
 	do return end -- Disabled because GUIs are not implemented for this block yet
-	debug("server create")
+	mpPrint("server create")
     sm.globalgui.createRemote(SmartTimer, self)
 end
 
@@ -367,38 +373,3 @@ function SmartTimer.client_updateUv( self )
     self.interactable:setUvFrameIndex(index)
 end
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
---function printUnsafeTable(t)
---    local ts = "{"
---    for k,v in pairs(t) do
---        ts = ts .. tostring(v) .. ", "
---    end
---    ts = string.sub(ts, 0, -3) .. "}"
---    debug(ts)
---end
-
-function round(x)
-    if x%2 ~= 0.5 then
-        return math.floor(x+0.5)
-    end
-    return x-0.5
-end

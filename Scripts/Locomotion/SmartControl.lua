@@ -1,19 +1,29 @@
-smartcontrol = class( nil )
-smartcontrol.maxChildCount = -1
-smartcontrol.maxParentCount = -1
-smartcontrol.connectionInput = sm.interactable.connectionType.power + sm.interactable.connectionType.logic
-smartcontrol.connectionOutput = sm.interactable.connectionType.piston + sm.interactable.connectionType.bearing
-smartcontrol.colorNormal = sm.color.new(0xe54500ff)
-smartcontrol.colorHighlight = sm.color.new(0xff7033ff)
-smartcontrol.poseWeightCount = 1
+dofile "../Libs/Debugger.lua"
 
-function smartcontrol.server_onCreate(self)
+-- the following code prevents re-load of this file, except if in '-dev' mode.  -- fixes broken sh*t by devs.
+if SmartControl and not sm.isDev then -- increases performance for non '-dev' users.
+	return
+end 
+
+mpPrint("loading SmartControl.lua")
+
+
+SmartControl = class( nil )
+SmartControl.maxChildCount = -1
+SmartControl.maxParentCount = -1
+SmartControl.connectionInput = sm.interactable.connectionType.power + sm.interactable.connectionType.logic
+SmartControl.connectionOutput = sm.interactable.connectionType.piston + sm.interactable.connectionType.bearing
+SmartControl.colorNormal = sm.color.new(0xe54500ff)
+SmartControl.colorHighlight = sm.color.new(0xff7033ff)
+SmartControl.poseWeightCount = 1
+
+function SmartControl.server_onCreate(self)
 	self.last_length = {}
 
 end
 --smart engine/controller (setangle mode(angle, speed, strength), setspeed mode(speed, strength))
 --smart piston/suspension (length, speed , strength
-function smartcontrol.server_onFixedUpdate(self, dt)	
+function SmartControl.server_onFixedUpdate(self, dt)	
 	local parents = self.interactable:getParents()
 
 	local anglelength = nil
@@ -113,7 +123,7 @@ function smartcontrol.server_onFixedUpdate(self, dt)
 		end
 	end
 end
-function smartcontrol.server_onRefresh( self )
+function SmartControl.server_onRefresh( self )
 	self.runningAverageBuffer = nil
 
 end

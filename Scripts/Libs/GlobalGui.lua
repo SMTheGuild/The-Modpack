@@ -150,10 +150,7 @@
 -- NOTE: for setText() and getText(), reference the widget: optionMenu.items[1].label.widget:setText("lolol")
 
 
-if not debugmode then debugmode = function() return false end end
-if not debug then debug = function(...) end end
-
-if sm.globalguiVersion and (sm.globalguiVersion <= 2.0) and not debugmode() then return end
+if sm.globalguiVersion and (sm.globalguiVersion <= 2.0) then return end
 sm.globalguiVersion = 2.0
 
 --  == GLOBALGUI ==
@@ -164,11 +161,11 @@ sm.globalgui.scaleY = 1
 function sm.globalgui.wasCreated(self, gui)
 	-- only the remote shape can initialize a global gui:
 	if (self.shape.worldPosition - sm.vec3.new(0,0,2000)):length()>100 then
-		debug("not remote shape")
+		mpPrint("not remote shape")
 		return true-- too far from remoteguiposition, this block cannot initialize gui
 	elseif (gui and gui.instantiated) then -- kill duplicate remote gui blocks
-		debug("duped remote ") 
-		function self.server_onFixedUpdate(self, dt) self.shape:destroyShape(0) debug("destroyed dupe", self.shape.id) self.server_onFixedUpdate = nil end 
+		mpPrint("duped remote ") 
+		function self.server_onFixedUpdate(self, dt) self.shape:destroyShape(0) mpPrint("destroyed dupe", self.shape.id) self.server_onFixedUpdate = nil end 
 		return true
 	end
 	return false
@@ -264,7 +261,7 @@ function sm.globalgui.create(parentClass, title, width, height, on_hide, on_upda
 	
 	
 	function parentClass.client_onclick(self, widget)
-		debug("gui click")
+		mpPrint("gui click")
 		local currentTick = sm.game.getCurrentTick();
 		local itemids = guiBuilder.onClickRouteTable[widget.id]
 		for _, id in pairs(itemids) do
@@ -274,7 +271,7 @@ function sm.globalgui.create(parentClass, title, width, height, on_hide, on_upda
 		--Copyright (c) 2019 Brent Batch--
 	end
 	function parentClass.killview(self, widget) -- only bg items
-		debug("gui killview")
+		mpPrint("gui killview")
 		local itemid = guiBuilder.onClickRouteTable[widget.id]
 		guiBuilder.items[itemid]:setVisible(false)
 		guiBuilder.items[itemid] = nil
@@ -293,7 +290,7 @@ function sm.globalgui.create(parentClass, title, width, height, on_hide, on_upda
 		end
 	end
 	function parentClass.server_refreshgui(self)
-		debug("refreshgui")
+		mpPrint("refreshgui")
 		sm.shape.destroyShape( self.shape, 0 )
 		sm.shape.createPart( self.shape:getShapeUuid(), sm.vec3.new(0,0,2000), sm.quat.identity(), false, true ) 
 	end
@@ -303,7 +300,7 @@ function sm.globalgui.create(parentClass, title, width, height, on_hide, on_upda
 		if guiBuilder.on_update then guiBuilder:on_update(dt) end
 	end
 	function parentClass.client_onRefresh(self)
-		debug("gui onrefresh")
+		mpPrint("gui onrefresh")
 		parentClass.client_onUpdate = nil
 		if guiBuilder.visible then sm.gui.displayAlertText("gui reloaded, press 'e' again for interacts to work",6) end
 		guiBuilder:setVisible(false, true)
