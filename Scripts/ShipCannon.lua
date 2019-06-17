@@ -1,3 +1,12 @@
+dofile "Libs/Debugger.lua"
+
+-- the following code prevents re-load of this file, except if in '-dev' mode.  -- fixes broken sh*t by devs.
+if ShipCannon and not sm.isDev then -- increases performance for non '-dev' users.
+	return
+end 
+
+mpPrint("loading ShipCannon.lua")
+
 -- ShipCannon.lua --
 
 ShipCannon = class( nil )

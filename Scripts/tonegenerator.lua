@@ -1,3 +1,13 @@
+dofile "Libs/Debugger.lua"
+
+-- the following code prevents re-load of this file, except if in '-dev' mode.  -- fixes broken sh*t by devs.
+if tonegenerator and not sm.isDev then -- increases performance for non '-dev' users.
+	return
+end 
+
+mpPrint("loading tonegenerator.lua")
+
+
 tonegenerator = class( nil )
 tonegenerator.maxChildCount = 0
 tonegenerator.maxParentCount = -1

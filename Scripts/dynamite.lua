@@ -1,3 +1,12 @@
+dofile "Libs/Debugger.lua"
+
+-- the following code prevents re-load of this file, except if in '-dev' mode.  -- fixes broken sh*t by devs.
+if dynamite and not sm.isDev then -- increases performance for non '-dev' users.
+	return
+end 
+
+mpPrint("loading dynamite.lua")
+
 dynamite = class( nil )
 dynamite.maxChildCount = -1
 dynamite.maxParentCount = 1
