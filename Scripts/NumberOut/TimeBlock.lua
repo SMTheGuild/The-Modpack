@@ -6,14 +6,13 @@ if TimeBlock and not sm.isDev then -- increases performance for non '-dev' users
 end 
 
 dofile "../Libs/GameImprovements/interactable.lua"
---dofile "../Libs/MoreMath.lua"
 
 mpPrint("loading TimeBlock.lua")
 
 TimeBlock = class( nil )
 TimeBlock.maxParentCount = 0
 TimeBlock.maxChildCount = -1
-TimeBlock.connectionInput = sm.interactable.connectionType.power
+TimeBlock.connectionInput = sm.interactable.connectionType.none
 TimeBlock.connectionOutput = sm.interactable.connectionType.power
 TimeBlock.colorNormal = sm.color.new( 0xccccccff  )
 TimeBlock.colorHighlight = sm.color.new( 0xF2F2F2ff  )
@@ -25,47 +24,20 @@ function TimeBlock.server_onRefresh( self )
 	self:server_onCreate()
 end
 function TimeBlock.server_onCreate( self ) 
-	self.smode = 0
-	
-	local stored = self.storage:load()
-	if stored then
-		self.smode = stored - 1
-	end
 	sm.interactable.setValue(self.interactable, os.time())
 end
 
-
-function TimeBlock.client_onCreate(self)
-	self.clockms = 0
-end
-
 function TimeBlock.server_onFixedUpdate(self, dt)
-	local clockvalue = os.time()%86400
-	if clockvalue ~= self.interactable.power then
-		self.interactable:setPower(clockvalue)
-		sm.interactable.setValue(self.interactable, os.time())
+	local clockvalue = os.time()
+	if clockvalue ~= self.lastClockvalue then
+		self.interactable:setPower(clockvalue) -- power overflows, only modpack parts will be able to read using getValue
+		sm.interactable.setValue(self.interactable, clockvalue)
 	end
+	self.lastClockvalue = os.time()
 end
 
 function TimeBlock.client_onFixedUpdate( self, dt )
-	
-	if self.mode == 0 then
-		self.value = os.time()%86400
-		
-		if self.value ~= self.interactable.power then
-			self.clockms = 0
-		end
-		self.clockms = self.clockms + dt
-		local posevalue = (self.value%60)+30 + self.clockms
-		
-		self.interactable:setPoseWeight(0, (math.sin(0-2*math.pi*posevalue/60)+1)/2)
-		self.interactable:setPoseWeight(1, (math.cos(2*math.pi*posevalue/60)+1)/2)
-	else
-		local ostime = os.time() - 946684800 --year 2000
-		self.value = (ostime-ostime%86400)/86400
-		
-		local posevalue = (self.value%60)+30
-		self.interactable:setPoseWeight(0, (math.sin(0-2*math.pi*posevalue/60)+1)/2)
-		self.interactable:setPoseWeight(1, (math.cos(2*math.pi*posevalue/60)+1)/2)
-	end
+	local posevalue = (os.time()%60)+30
+	self.interactable:setPoseWeight(0, (math.sin(0-2*math.pi*posevalue/60)+1)/2)
+	self.interactable:setPoseWeight(1, (math.cos(2*math.pi*posevalue/60)+1)/2)
 end
