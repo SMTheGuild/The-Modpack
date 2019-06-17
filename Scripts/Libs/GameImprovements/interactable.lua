@@ -28,6 +28,9 @@ function sm.interactable.getValue(interactable, NOW)
 	return nil
 end
 
+function sm.interactable.isNumberType(interactable)
+	return (interactable:getType() == "scripted" and tostring(interactable:getShape().shapeUuid) ~= "6f2dd83e-bc0d-43f3-8ba5-d5209eb03d07"  --[[tickbutton]])
+end
 
 -- to activate   <interactable>:setValue(somevalue)
 -- perform   sm.ImproveUserData(self)   in   scriptclass.(server/client)_onCreate(self)
@@ -47,5 +50,7 @@ table.insert(
 	function(self)
 		self.interactable.setValue = sm.interactable.setValue
 		self.interactable.getValue = sm.interactable.getValue
+		
+		self.interactable.isNumberType = sm.interactable.isNumberType
 	end
 )
