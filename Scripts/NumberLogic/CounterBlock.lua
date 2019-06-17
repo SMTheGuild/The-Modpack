@@ -7,11 +7,6 @@ end
 dofile "../Libs/GameImprovements/interactable.lua"
 --dofile "../Libs/MoreMath.lua"
 
--- TODO: 
---   fix mess with storage
---	 use improved userdata 
---	 remove EMP crap
-
 mpPrint("loading CounterBlock.lua")
 
 
