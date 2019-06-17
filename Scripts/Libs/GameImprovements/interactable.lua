@@ -34,12 +34,10 @@ end
 if not sm.UserDataImprovements then 
 	sm.UserDataImprovements = {}
 	function sm.ImproveUserData(self)
-		debug('performing userdata improvements')
 		for k, improvement in pairs(sm.UserDataImprovements) do
-			debug('improvement:',k)
 			improvement(self)
-			sm.UserDataImprovements[k] = nil
 		end
+		function sm.ImproveUserData(self) end -- 'remove' function to prevent multiple loads
 	end
 end
 

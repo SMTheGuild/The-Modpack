@@ -1,6 +1,9 @@
+dofile "Debugger.lua"
+
 if __MoreMath_Loaded then return end
 __MoreMath_Loaded = true
-print("loading Libs/MoreMath.lua")
+debug("loading Libs/MoreMath.lua")
+
 
 function math.round(x)
   if x%2 ~= 0.5 then

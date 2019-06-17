@@ -1,4 +1,11 @@
-debuggerLoads = (debuggerLoads or 0) + 1
+debuggerLoads = (debuggerLoads or 0) + 1 -- has to be the first line of this file
+
+-- NOTE: Reloading this file in '-dev' mode before sm.isDev is set to true will cause it to false negative. reload the world in this case.
+ 
+if __Debugger_Loaded then return end
+__Debugger_Loaded = true
+
+
 function sm.checkDev(shape)   -- a '-dev' check by Brent Batch
 	if sm.isDev ~= nil then return sm.isDev end
 	if not worldStart then worldStart = os.clock() end
@@ -7,16 +14,9 @@ function sm.checkDev(shape)   -- a '-dev' check by Brent Batch
 	sm.isDev = debuggerLoads == debuggerLoadsOnWorldStart
 	print('set dev mode to: ', sm.isDev)
 	return sm.isDev
-end
+end 
 
--- NOTE: Reloading this file in '-dev' mode before sm.isDev is set to true will cause it to false negative. reload the world in this case.
- 
-if __Debugger_Loaded then return end
-__Debugger_Loaded = true
-print('Loading Debugger.lua') -- get's only loaded once! (these functions can't handle a 2nd load)
- 
-
-function sm.isMPTeam()
+function sm.isMPTeam()  -- an 'is in ModpackTeam' check by Brent Batch
 	if sm.game.getCurrentTick() > 0 then 
 		local modders = {["Brent Batch"] = true, ["TechnologicNick"] = true, ["MJM"] = true} 
 		local name = sm.player.getAllPlayers()[1].name 
@@ -39,7 +39,7 @@ end
 if not printO then
     printO = print
 end
-function print(...) -- fancy print
+function print(...) -- fancy print by TechnologicNick
 	if sm.isMPTeam() then
 		printO("[" .. sm.game.getCurrentTick() .. "]", sm.isServerMode() and "[Server]" or "[Client]", ...)
 	else
@@ -48,3 +48,4 @@ function print(...) -- fancy print
 end
 
 
+debug('Loading Libs/Debugger.lua')
