@@ -86,7 +86,7 @@ end
 
 function ShipCannon.client_onShoot( self )
 	self.boltValue = 1.0
-	local rot = sm.vec3.getRotation( sm.vec3.new( 0, 0, 1 ), self.shape.up )
+	--local rot = sm.vec3.getRotation( sm.vec3.new( 0, 0, 1 ), self.shape.up )
 	self.shootEffect:start()
 end
 
@@ -180,7 +180,7 @@ end
 
 function CrossBow.client_onShoot( self )
 	self.boltValue = 1.0
-	local rot = sm.vec3.getRotation( sm.vec3.new( 0, 0, 0 ), self.shape.up )
+	--local rot = sm.vec3.getRotation( sm.vec3.new( 0, 0, 0 ), self.shape.up )
 	self.shootEffect:start()
 end
 
@@ -274,7 +274,7 @@ end
 
 function Launcher.client_onShoot( self )
 	self.boltValue = 1.0
-	local rot = sm.vec3.getRotation( sm.vec3.new( 0, 0, 0 ), self.shape.up )
+	--local rot = sm.vec3.getRotation( sm.vec3.new( 0, 0, 0 ), self.shape.up )
 	self.shootEffect:start()
 end
 
@@ -368,7 +368,7 @@ end
 
 function Barrel1.client_onShoot( self )
 	self.boltValue = 1.0
-	local rot = sm.vec3.getRotation( sm.vec3.new( 0, 0, 0 ), self.shape.up )
+	--local rot = sm.vec3.getRotation( sm.vec3.new( 0, 0, 0 ), self.shape.up )
 	self.shootEffect:start()
 end
 
@@ -463,7 +463,7 @@ end
 
 function Barrel2.client_onShoot( self )
 	self.boltValue = 1.0
-	local rot = sm.vec3.getRotation( sm.vec3.new( 0, 0, 0 ), self.shape.up )
+	--local rot = sm.vec3.getRotation( sm.vec3.new( 0, 0, 0 ), self.shape.up )
 	self.shootEffect:start()
 end
 
@@ -557,6 +557,6 @@ end
 
 function BarrelFlat.client_onShoot( self )
 	self.boltValue = 1.0
-	local rot = sm.vec3.getRotation( sm.vec3.new( 0, 0, 0 ), self.shape.up )
+	--local rot = sm.vec3.getRotation( sm.vec3.new( 0, 0, 0 ), self.shape.up )
 	self.shootEffect:start()
 end
