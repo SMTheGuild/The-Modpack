@@ -886,7 +886,7 @@ function MathBlock.server_changemode(self, crouch)
 	end
 	
     self.mode = (self.mode + (crouch and -1 or 1) - 1 )%#self.modetable + 1
-	self.storage:save(self.modetable[self.mode].value)-- +1 is workaround for storage bug
+	self.storage:save(self.modetable[self.mode].value)
 	self:server_senduvtoclient(true)
 end
 
