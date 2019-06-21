@@ -1,7 +1,5 @@
 if __Other_Loaded then return end
 __Other_Loaded = true
-dofile "Debugger.lua"
-mpPrint("loading Libs/Other.lua")
 
 
 function getGlobal(shape, vec)

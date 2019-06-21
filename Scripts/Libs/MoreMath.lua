@@ -1,7 +1,5 @@
 if __MoreMath_Loaded then return end
 __MoreMath_Loaded = true
-dofile "Debugger.lua"
-mpPrint("loading Libs/MoreMath.lua")
 
 
 function math.round(x)

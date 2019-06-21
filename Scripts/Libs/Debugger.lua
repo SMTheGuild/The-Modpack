@@ -1,17 +1,19 @@
-DebuggerLoads = (DebuggerLoads or 0) + 1 -- has to be the first line of this file
+lastLoaded = sm.game.getCurrentTick()
+DebuggerLoads = (DebuggerLoads or 0) + 1
 
--- NOTE: Reloading this file in '-dev' mode before sm.isDev is set to true will cause it to false negative. reload the world in this case.
- 
 if __Debugger_Loaded then return end
 __Debugger_Loaded = true
 
 
 function sm.checkDev(shape)   -- a '-dev' check by Brent Batch
 	if sm.isDev ~= nil then return sm.isDev end
-	if not worldStart then worldStart = os.clock() end
-	if (os.clock() - worldStart) < 1 then DebuggerLoadsOnWorldStart = DebuggerLoads return false end
+	if lastLoaded == 1 then -- on world init dev check
+		sm.isDev = true
+		print('set dev mode to: ', sm.isDev)
+		return true
+	end
 	sm.shape.createPart( shape.shapeUuid, sm.vec3.new(705,0,0), sm.quat.identity( ), false, false )
-	sm.isDev = DebuggerLoads == DebuggerLoadsOnWorldStart
+	sm.isDev = DebuggerLoads == 1
 	print('set dev mode to: ', sm.isDev)
 	return sm.isDev
 end 

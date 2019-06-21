@@ -1,7 +1,5 @@
 if __InteractableImprovements_Loaded then return end
 __InteractableImprovements_Loaded = true
-dofile "../Debugger.lua"
-mpPrint("loading Libs/GameImprovements/interactable.lua")
 
 local values = {} -- <<not accessible for other scripts
 function sm.interactable.setValue(interactable, value)  
