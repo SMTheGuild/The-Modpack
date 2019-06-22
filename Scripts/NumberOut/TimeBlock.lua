@@ -33,7 +33,7 @@ function TimeBlock.server_onFixedUpdate(self, dt)
 		self.interactable:setPower(clockvalue) -- power overflows, only modpack parts will be able to read using getValue
 		sm.interactable.setValue(self.interactable, clockvalue)
 	end
-	self.lastClockvalue = os.time()
+	self.lastClockvalue = clockvalue
 end
 
 function TimeBlock.client_onFixedUpdate( self, dt )
