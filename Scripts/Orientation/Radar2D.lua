@@ -18,6 +18,52 @@ Radar2D.colorNormal = sm.color.new( 0x470067ff ) -- Connection and dot color
 Radar2D.colorHighlight = sm.color.new( 0x601980ff ) -- Connection and dot color when you highlight it
 Radar2D.poseWeightCount = 3 
 
+Radar2D.effectnames = {
+	["eeeeeeff"] = "RadarDot1",
+	["f5f071ff"] = "RadarDot2",
+	["cbf66fff"] = "RadarDot3",
+	["68ff88ff"] = "RadarDot4",
+	["7eededff"] = "RadarDot5",
+	["4c6fe3ff"] = "RadarDot6",
+	["ae79f0ff"] = "RadarDot7",
+	["ee7bf0ff"] = "RadarDot8",
+	["f06767ff"] = "RadarDot9",
+	["eeaf5cff"] = "RadarDot10",
+	["7f7f7fff"] = "RadarDot11",
+	["e2db13ff"] = "RadarDot12",
+	["a0ea00ff"] = "RadarDot13",
+	["19e753ff"] = "RadarDot14",
+	["2ce6e6ff"] = "RadarDot15",
+	["0a3ee2ff"] = "RadarDot16",
+	["7514edff"] = "RadarDot17",
+	["cf11d2ff"] = "RadarDot18",
+	["d02525ff"] = "RadarDot19",
+	["df7f00ff"] = "RadarDot20",
+	["4a4a4aff"] = "RadarDot21",
+	["817c00ff"] = "RadarDot22",
+	["577d07ff"] = "RadarDot23",
+	["0e8031ff"] = "RadarDot24",
+	["118787ff"] = "RadarDot25",
+	["0f2e91ff"] = "RadarDot26",
+	["500aa6ff"] = "RadarDot27",
+	["720a74ff"] = "RadarDot28",
+	["7c0000ff"] = "RadarDot29",
+	["673b00ff"] = "RadarDot30",
+	["222222ff"] = "RadarDot31",
+	["323000ff"] = "RadarDot32",
+	["375000ff"] = "RadarDot33",
+	["064023ff"] = "RadarDot34",
+	["0a4444ff"] = "RadarDot35",
+	["0a1d5aff"] = "RadarDot36",
+	["35086cff"] = "RadarDot37",
+	["520653ff"] = "RadarDot38",
+	["560202ff"] = "RadarDot39",
+	["472800ff"] = "RadarDot40"
+}
+	
+Radar2D.uvindex = 3
+Radar2D.range = 256
+
 function Radar2D.server_onCreate( self )
 	self.uvindexserver = 3
 	local stored = self.storage:load()
@@ -55,53 +101,9 @@ end
 
 
 function Radar2D.client_onCreate( self )
-	self.uvindex = 3
-	self.range = 256
 	self.network:sendToServer("server_sendIndexToClients", false)
 	self.playereffects = {}
 	self.trackereffects = {}
-	self.effectnames = {
-		["eeeeeeff"] = "RadarDot1",
-		["f5f071ff"] = "RadarDot2",
-		["cbf66fff"] = "RadarDot3",
-		["68ff88ff"] = "RadarDot4",
-		["7eededff"] = "RadarDot5",
-		["4c6fe3ff"] = "RadarDot6",
-		["ae79f0ff"] = "RadarDot7",
-		["ee7bf0ff"] = "RadarDot8",
-		["f06767ff"] = "RadarDot9",
-		["eeaf5cff"] = "RadarDot10",
-		["7f7f7fff"] = "RadarDot11",
-		["e2db13ff"] = "RadarDot12",
-		["a0ea00ff"] = "RadarDot13",
-		["19e753ff"] = "RadarDot14",
-		["2ce6e6ff"] = "RadarDot15",
-		["0a3ee2ff"] = "RadarDot16",
-		["7514edff"] = "RadarDot17",
-		["cf11d2ff"] = "RadarDot18",
-		["d02525ff"] = "RadarDot19",
-		["df7f00ff"] = "RadarDot20",
-		["4a4a4aff"] = "RadarDot21",
-		["817c00ff"] = "RadarDot22",
-		["577d07ff"] = "RadarDot23",
-		["0e8031ff"] = "RadarDot24",
-		["118787ff"] = "RadarDot25",
-		["0f2e91ff"] = "RadarDot26",
-		["500aa6ff"] = "RadarDot27",
-		["720a74ff"] = "RadarDot28",
-		["7c0000ff"] = "RadarDot29",
-		["673b00ff"] = "RadarDot30",
-		["222222ff"] = "RadarDot31",
-		["323000ff"] = "RadarDot32",
-		["375000ff"] = "RadarDot33",
-		["064023ff"] = "RadarDot34",
-		["0a4444ff"] = "RadarDot35",
-		["0a1d5aff"] = "RadarDot36",
-		["35086cff"] = "RadarDot37",
-		["520653ff"] = "RadarDot38",
-		["560202ff"] = "RadarDot39",
-		["472800ff"] = "RadarDot40"
-	}
 end
 function Radar2D.client_onRefresh(self)
 	self:client_onDestroy()
