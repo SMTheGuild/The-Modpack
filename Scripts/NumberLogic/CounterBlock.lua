@@ -100,12 +100,11 @@ function CounterBlock.server_onFixedUpdate( self, dt )
 	end
 	self.risingedge = not isTime
 	
-	
-	if self.power ~= sm.interactable.getValue(self.interactable) then
-		if self.power ~= self.power then self.power = 0 end -- NaN check
-		if math.abs(self.power) >= 3.3*10^38 then  -- inf check
-			if self.power < 0 then self.power = -3.3*10^38 else self.power = 3.3*10^38 end  
-		end
+	if self.power ~= self.power then self.power = 0 end -- NaN check
+	if math.abs(self.power) >= 3.3*10^38 then  -- inf check
+		if self.power < 0 then self.power = -3.3*10^38 else self.power = 3.3*10^38 end  
+	end
+	if self.power ~= self.interactable.power then -- self.interactable.power changes on the lift!  sm.interactable.getValue(self.interactable) does not!
 		self.interactable:setPower(self.power)
 		self.interactable:setActive(self.power>0)
 		sm.interactable.setValue(self.interactable, self.power)

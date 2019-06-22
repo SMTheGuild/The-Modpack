@@ -98,15 +98,14 @@ function MemoryPanel.server_onFixedUpdate( self, dt )
 		self.storage:save(self.data)
 	end
 	
-	if power ~= (self.interactable:getValue() or self.interactable.power) then
-		self.interactable:setValue(power)
-		
-		if power ~= power then power = 0 end
-		if math.abs(power) >= 3.3*10^38 then 
-			if power < 0 then power = -3.3*10^38 else power = 3.3*10^38 end  
-		end
-		self.interactable:setActive(power>0)
+	if power ~= power then power = 0 end
+	if math.abs(power) >= 3.3*10^38 then 
+		if power < 0 then power = -3.3*10^38 else power = 3.3*10^38 end  
+	end
+	if power ~= self.interactable.power then
+		self.interactable:setActive(power > 0)
 		self.interactable:setPower(power)
+		self.interactable:setValue(power)
 	end
 end
 

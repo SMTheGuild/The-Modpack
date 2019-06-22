@@ -869,7 +869,7 @@ function MathBlock.server_setValue(self, value)
 	if math.abs(value) >= 3.3*10^38 then 
 		if value < 0 then value = -3.3*10^38 else value = 3.3*10^38 end  
 	end
-	if value ~= (sm.interactable.getValue(self.interactable) or self.interactable.power) then
+	if value ~= self.interactable.power then
 		self.interactable:setActive(value > 0)
 		self.interactable:setPower(value)
 		self.interactable:setValue(value)

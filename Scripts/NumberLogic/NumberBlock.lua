@@ -150,9 +150,15 @@ function NumberBlock.server_onFixedUpdate( self, dt )   -- 'decimal'
 end
 
 function NumberBlock.server_setValue(self, value)
-	self.interactable:setActive(value>0)
-	self.interactable:setPower(value)
-	self.interactable:setValue(value)
+	if value ~= value then value = 0 end
+	if math.abs(value) >= 3.3*10^38 then 
+		if value < 0 then value = -3.3*10^38 else value = 3.3*10^38 end  
+	end
+	if value ~= self.interactable.power then
+		self.interactable:setActive(value > 0)
+		self.interactable:setPower(value)
+		self.interactable:setValue(value)
+	end
 end
 
 
