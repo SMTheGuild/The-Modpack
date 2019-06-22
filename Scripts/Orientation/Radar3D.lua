@@ -18,6 +18,70 @@ Radar3D.colorHighlight = sm.color.new( 0x601980ff ) -- Connection and dot color 
 Radar3D.poseWeightCount = 3 
 
 
+Radar3D.effectnames = {
+	["eeeeeeff"] = "RadarDot1",
+	["f5f071ff"] = "RadarDot2",
+	["cbf66fff"] = "RadarDot3",
+	["68ff88ff"] = "RadarDot4",
+	["7eededff"] = "RadarDot5",
+	["4c6fe3ff"] = "RadarDot6",
+	["ae79f0ff"] = "RadarDot7",
+	["ee7bf0ff"] = "RadarDot8",
+	["f06767ff"] = "RadarDot9",
+	["eeaf5cff"] = "RadarDot10",
+	["7f7f7fff"] = "RadarDot11",
+	["e2db13ff"] = "RadarDot12",
+	["a0ea00ff"] = "RadarDot13",
+	["19e753ff"] = "RadarDot14",
+	["2ce6e6ff"] = "RadarDot15",
+	["0a3ee2ff"] = "RadarDot16",
+	["7514edff"] = "RadarDot17",
+	["cf11d2ff"] = "RadarDot18",
+	["d02525ff"] = "RadarDot19",
+	["df7f00ff"] = "RadarDot20",
+	["4a4a4aff"] = "RadarDot21",
+	["817c00ff"] = "RadarDot22",
+	["577d07ff"] = "RadarDot23",
+	["0e8031ff"] = "RadarDot24",
+	["118787ff"] = "RadarDot25",
+	["0f2e91ff"] = "RadarDot26",
+	["500aa6ff"] = "RadarDot27",
+	["720a74ff"] = "RadarDot28",
+	["7c0000ff"] = "RadarDot29",
+	["673b00ff"] = "RadarDot30",
+	["222222ff"] = "RadarDot31",
+	["323000ff"] = "RadarDot32",
+	["375000ff"] = "RadarDot33",
+	["064023ff"] = "RadarDot34",
+	["0a4444ff"] = "RadarDot35",
+	["0a1d5aff"] = "RadarDot36",
+	["35086cff"] = "RadarDot37",
+	["520653ff"] = "RadarDot38",
+	["560202ff"] = "RadarDot39",
+	["472800ff"] = "RadarDot40"
+}
+Radar3D.playermodels = { -- [ name ] = effectname
+	["kAN"] = "Radar3dplayer_kAN",
+	["Moonbo"] = "Radar3dplayer_Moonbo",
+	["ScrapMan"] = "Radar3dplayer_ScrapMan",
+	["CamodoGaming"] = "Radar3dplayer_CamodoGaming",
+	["S.M.L. Chief Engineer"] = "Radar3dplayer_SML",
+	["Brent Batch"] = "Radar3dplayer_BB",
+	["Adahop"] = "Radar3dplayer_neebs_gaming",
+	["Simon"] = "Radar3dplayer_neebs_gaming",
+	["JonnyEthco"] = "Radar3dplayer_neebs_gaming",
+	["neebs_gaming"] = "Radar3dplayer_neebs_gaming",
+	["doraleous5000"] = "Radar3dplayer_neebs_gaming",
+	["AnthonyCSN"] = "Radar3dplayer_neebs_gaming",
+	["Thick44"] = "Radar3dplayer_neebs_gaming",
+	["Durf"] = "Radar3dplayer_Durf"
+}
+	
+Radar3D.uvindex = 3
+Radar3D.range = 256
+Radar3D.playereffects = {}
+Radar3D.trackereffects = {}
+	
 function Radar3D.server_onCreate( self )
 	self.uvindexserver = 3
 	local stored = self.storage:load()
@@ -54,69 +118,7 @@ end
 
 
 function Radar3D.client_onCreate( self )
-	self.uvindex = 3
-	self.range = 256
 	self.network:sendToServer("server_sendIndexToClients", false)
-	self.playereffects = {}
-	self.trackereffects = {}
-	self.effectnames = {
-		["eeeeeeff"] = "RadarDot1",
-		["f5f071ff"] = "RadarDot2",
-		["cbf66fff"] = "RadarDot3",
-		["68ff88ff"] = "RadarDot4",
-		["7eededff"] = "RadarDot5",
-		["4c6fe3ff"] = "RadarDot6",
-		["ae79f0ff"] = "RadarDot7",
-		["ee7bf0ff"] = "RadarDot8",
-		["f06767ff"] = "RadarDot9",
-		["eeaf5cff"] = "RadarDot10",
-		["7f7f7fff"] = "RadarDot11",
-		["e2db13ff"] = "RadarDot12",
-		["a0ea00ff"] = "RadarDot13",
-		["19e753ff"] = "RadarDot14",
-		["2ce6e6ff"] = "RadarDot15",
-		["0a3ee2ff"] = "RadarDot16",
-		["7514edff"] = "RadarDot17",
-		["cf11d2ff"] = "RadarDot18",
-		["d02525ff"] = "RadarDot19",
-		["df7f00ff"] = "RadarDot20",
-		["4a4a4aff"] = "RadarDot21",
-		["817c00ff"] = "RadarDot22",
-		["577d07ff"] = "RadarDot23",
-		["0e8031ff"] = "RadarDot24",
-		["118787ff"] = "RadarDot25",
-		["0f2e91ff"] = "RadarDot26",
-		["500aa6ff"] = "RadarDot27",
-		["720a74ff"] = "RadarDot28",
-		["7c0000ff"] = "RadarDot29",
-		["673b00ff"] = "RadarDot30",
-		["222222ff"] = "RadarDot31",
-		["323000ff"] = "RadarDot32",
-		["375000ff"] = "RadarDot33",
-		["064023ff"] = "RadarDot34",
-		["0a4444ff"] = "RadarDot35",
-		["0a1d5aff"] = "RadarDot36",
-		["35086cff"] = "RadarDot37",
-		["520653ff"] = "RadarDot38",
-		["560202ff"] = "RadarDot39",
-		["472800ff"] = "RadarDot40"
-	}
-	self.playermodels = { -- [ name ] = effectname
-		["kAN"] = "Radar3dplayer_kAN",
-		["Moonbo"] = "Radar3dplayer_Moonbo",
-		["ScrapMan"] = "Radar3dplayer_ScrapMan",
-		["CamodoGaming"] = "Radar3dplayer_CamodoGaming",
-		["S.M.L. Chief Engineer"] = "Radar3dplayer_SML",
-		["Brent Batch"] = "Radar3dplayer_BB",
-		["Adahop"] = "Radar3dplayer_neebs_gaming",
-		["Simon"] = "Radar3dplayer_neebs_gaming",
-		["JonnyEthco"] = "Radar3dplayer_neebs_gaming",
-		["neebs_gaming"] = "Radar3dplayer_neebs_gaming",
-		["doraleous5000"] = "Radar3dplayer_neebs_gaming",
-		["AnthonyCSN"] = "Radar3dplayer_neebs_gaming",
-		["Thick44"] = "Radar3dplayer_neebs_gaming",
-		["Durf"] = "Radar3dplayer_Durf"
-	}
 end
 function Radar3D.client_onRefresh(self)
 	self:client_onDestroy()
@@ -190,7 +192,7 @@ function Radar3D.client_onFixedUpdate(self, dt)
 		end
 	end
 	
-	for id, eff in pairs(self.playereffects) do
+	for id, eff in pairs(self.playereffects) do  -- TODO: modify effects so that they don't have to be teleported out of the world but can properly be stopped.
 		if not playeridsdrawn[id] then
 			self.playereffects[id][1]:setOffsetPosition(sm.vec3.new(1000,1000,0))
 			self.playereffects[id][1]:stop()
