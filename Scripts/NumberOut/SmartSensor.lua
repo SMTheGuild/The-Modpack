@@ -54,7 +54,6 @@ function SmartSensor.server_onRefresh( self )
 end
 
 function SmartSensor.server_onCreate( self )
-	print(sm.checkDev(self.shape))
 	local stored = self.storage:load()
 	if stored then
 		self.mode = self.savemodes[stored]
