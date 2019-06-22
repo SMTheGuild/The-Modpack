@@ -368,7 +368,7 @@ function AsciiBlock001.server_onFixedUpdate( self, dt )
 	end
 	self.buttonwasactive = buttonwasactive
 	self.power = (self.power + buttonpower)%(#self.icons)
-	if self.power ~= self.interactable.power and not (EMP and EMP.active and (self.shape.worldPosition - EMP.position):length() < 60/4) then
+	if self.power ~= self.interactable.power then
 		if self.icons[self.power] == nil then -- invalid input or 0
 			self.interactable:setActive(0)
 			self.interactable:setPower(0)
@@ -382,15 +382,8 @@ function AsciiBlock001.server_onFixedUpdate( self, dt )
 		end
 	end
 	
-	if EMP and EMP.active and (self.shape.worldPosition - EMP.position):length() < 60/4 then
-		self.interactable:setPower(self.interactable.power*math.random(80, 120)/100)
-	end
 end
-function AsciiBlock001.client_onFixedUpdate(self, dt)
-	if EMP and EMP.active and (self.shape.worldPosition - EMP.position):length() < 60/4 then
-		self.interactable:setUvFrameIndex(self.interactable:getUvFrameIndex()*math.random(80, 120)/100)
-	end
-end
+
 function AsciiBlock001.client_setUvframeIndex(self, index)
 	self.interactable:setUvFrameIndex(index)
 end
