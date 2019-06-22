@@ -99,7 +99,6 @@ function MemoryPanel.server_onFixedUpdate( self, dt )
 	end
 	
 	if power ~= (self.interactable:getValue() or self.interactable.power) then
-		print('power changed')
 		self.interactable:setValue(power)
 		
 		if power ~= power then power = 0 end
