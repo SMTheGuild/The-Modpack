@@ -79,8 +79,6 @@ Radar3D.playermodels = { -- [ name ] = effectname
 	
 Radar3D.uvindex = 3
 Radar3D.range = 256
-Radar3D.playereffects = {}
-Radar3D.trackereffects = {}
 	
 function Radar3D.server_onCreate( self )
 	self.uvindexserver = 3
@@ -119,6 +117,8 @@ end
 
 function Radar3D.client_onCreate( self )
 	self.network:sendToServer("server_sendIndexToClients", false)
+	self.playereffects = {}
+	self.trackereffects = {}
 end
 function Radar3D.client_onRefresh(self)
 	self:client_onDestroy()
