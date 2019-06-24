@@ -909,7 +909,7 @@ end
 function MathBlock.client_setMode(self, data)
 	local mode = data[1]
 	self.uv = self.modetable[mode].value
-	self.interactable:setUvFrameIndex(self.uv)
+	self.interactable:setUvFrameIndex(self.uv + (self.interactable.power > 0 and 128 or 0))
 	if data[2] then
 		sm.audio.play("GUI Inventory highlight", self.shape:getWorldPosition())
 		print('mode:', self.modetable[mode].name)
@@ -944,6 +944,7 @@ function MathBlock.client_onFixedUpdate(self, dt)
 	if (self.interactable.power > 0 and not self.waspos) or (self.interactable.power <= 0 and self.waspos) then
 		self.interactable:setUvFrameIndex(self.uv + (self.interactable.power > 0 and 128 or 0))
 		self.waspos = self.interactable.power>0
+		print('test')
 	end
 end
 
