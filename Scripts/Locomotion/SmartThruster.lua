@@ -19,15 +19,11 @@ SmartThruster.poseWeightCount = 2
 
 
 function SmartThruster.server_onCreate( self ) 
-	self:server_init()
-end
 
-function SmartThruster.server_init( self ) 
-	self.power = 0
 end
 
 function SmartThruster.server_onRefresh( self )
-	self:server_init()
+	self:server_onCreate()
 end
 
   
@@ -35,94 +31,82 @@ end
 function SmartThruster.server_onFixedUpdate( self, dt )
 
 	local parents = self.interactable:getParents()
-	self.power = #parents>0 and 100 or 0
+	local power = #parents>0 and 100 or 0
 	local hasnumber = false
 	local logicinput = 1
 	for k,v in pairs(parents) do
 		local typeparent = v:getType()
-		local power = v.power
 		if  v:getType() == "scripted" and tostring(v:getShape():getShapeUuid()) ~= "6f2dd83e-bc0d-43f3-8ba5-d5209eb03d07" then
 			-- number
-			if power ~= math.huge and power ~= 0-math.huge and math.abs(power) >= 0 then
-				if not hasnumber then self.power = 1 end
-				self.power = self.power * v.power
-				hasnumber = true
-			end
+			if not hasnumber then power = 1 end
+			power = power * v.power
+			hasnumber = true
 		else
 			-- logic
 			logicinput = logicinput * v.power
 		end
 	end
 	
-	self.power = self.power * logicinput
+	
+	if power ~= power then power = 0 end --NaN check
+	if math.abs(power) >= 3.3*10^38 then -- inf check
+		if power < 0 then power = -3.3*10^38 else power = 3.3*10^38 end  
+	end
+	
+	self.interactable.power = power
+	self.interactable.active = logicinput
+	
+	power = power * logicinput
 		
-	if self.power ~= 0 and math.abs(self.power) ~= math.huge then
-		sm.physics.applyImpulse(self.shape, sm.vec3.new(0,0, 0-self.power))
+	if power ~= 0 and math.abs(power) ~= math.huge then
+		sm.physics.applyImpulse(self.shape, sm.vec3.new(0,0, 0 - power))
 	end
 end
 
 
-function SmartThruster.client_onUpdate(self, dt)
-	local parents = self.interactable:getParents()
-	local clientpower = #parents>0 and 100 or 0
-	local hasnumber = false
-	local logicinput = 1
-	for k,v in pairs(parents) do
-		local typeparent = v:getType()
-		local power = v.power
-		if  v:getType() == "scripted" and tostring(v:getShape():getShapeUuid()) ~= "6f2dd83e-bc0d-43f3-8ba5-d5209eb03d07" then
-			-- number
-			if power ~= math.huge and power ~= 0-math.huge and math.abs(power) >= 0 then
-				if not hasnumber then self.power = 1 end
-				clientpower = clientpower * v.power
-				hasnumber = true
-			end
-		else
-			-- logic
-			logicinput = logicinput * v.power
-		end
-	end
+function SmartThruster.client_onCreate(self)
+	self.shootEffect = sm.effect.createEffect( "Thruster", self.interactable )
+	self.i = 0
+end
+
+
+function SmartThruster.client_onUpdate(self, dt) -- 1 tick delayed vs server but who cares, it's effects anyway
 	
-	self.interactable:setPoseWeight(0, math.min(math.abs(clientpower / 1000, 1)))
-	self.interactable:setPoseWeight(1, math.min(math.abs(clientpower / 1000, 1)))
+	local clientpower = (self.interactable.active and self.interactable.power or 0)
+		
+	local poseVal0 = sm.util.clamp( math.abs(self.interactable.power/700), 0.2, 0.8 )
+	local poseVal1 = poseVal0
 	
-	clientpower = clientpower * logicinput
-	
-	if math.abs(clientpower) > 0 then
+	if math.abs(clientpower) > 0.0001 then
 		if not self.shootEffect:isPlaying() then
 		self.shootEffect:start() end
+		
+		local isFlipped = clientpower < 0
+		if isFlipped ~= self.isFlipped then
+			local rot = sm.vec3.getRotation( sm.vec3.new(0,0,1),sm.vec3.new(0,0, isFlipped and -1 or 1))
+			self.shootEffect:setOffsetRotation(rot)
+			self.shootEffect:setOffsetPosition(sm.vec3.new(0,0, isFlipped and -1 or 0))
+		end
+		self.isFlipped = isFlipped
+		
+		self.i = self.i + 0.33
+		if not isFlipped then
+			poseVal0 = poseVal0 + sm.noise.simplexNoise1d(self.i)/5
+		else
+			poseVal1 = poseVal1 + sm.noise.simplexNoise1d(self.i)/5
+		end
+		
 	else
 		if self.shootEffect:isPlaying() then
 		self.shootEffect:stop() end
 	end
 	
-	if clientpower > 0.0001 then
-		local rot = sm.vec3.getRotation( sm.vec3.new(0,0,1),sm.vec3.new(0,0,1))
-		self.shootEffect:setOffsetRotation(rot)
-		self.shootEffect:setOffsetPosition(-sm.vec3.new(0,0,0))
-		
-		if self.i == nil then self.i = 0 end 
-		self.i = self.i + 0.35
-		clientpower = math.max(0,math.min(1,clientpower + sm.noise.simplexNoise1d(self.i)/4))
-		self.interactable:setPoseWeight(0, clientpower)
-	elseif clientpower < -0.0001 then
-		local rot = sm.vec3.getRotation( sm.vec3.new(0,0,1),sm.vec3.new(0,0,-1))
-		self.shootEffect:setOffsetRotation(rot)
-		self.shootEffect:setOffsetPosition(-sm.vec3.new(0,0,1))
-		
-		if self.i == nil then self.i = 0 end 
-		self.i = self.i + 0.35
-		clientpower = math.max(0,math.min(1,math.abs(clientpower) + sm.noise.simplexNoise1d(self.i)/4))
-		self.interactable:setPoseWeight(1, clientpower)
-	end
-
+	self.interactable:setPoseWeight(0, poseVal0)
+	self.interactable:setPoseWeight(1, poseVal1)
 end
+
 
 function SmartThruster.client_onDestroy(self)
 	self.shootEffect:stop()
-end
-
-function SmartThruster.client_onCreate(self)
-	self.shootEffect = sm.effect.createEffect( "Thruster", self.interactable )
 end
 
