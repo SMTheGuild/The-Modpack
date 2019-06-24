@@ -944,7 +944,6 @@ function MathBlock.client_onFixedUpdate(self, dt)
 	if (self.interactable.power > 0 and not self.waspos) or (self.interactable.power <= 0 and self.waspos) then
 		self.interactable:setUvFrameIndex(self.uv + (self.interactable.power > 0 and 128 or 0))
 		self.waspos = self.interactable.power>0
-		print('test')
 	end
 end
 
