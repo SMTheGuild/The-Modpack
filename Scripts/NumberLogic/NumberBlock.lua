@@ -129,14 +129,18 @@ function NumberBlock.server_onFixedUpdate( self, dt )   -- 'decimal'
 					-- show digit or full value
 					local s = self.dec[tostring(self.shape.color)] -- gets correct decimal location in parent based on own color   -- decimal number
 					
+					local show = power
+					
 					if s then
-						local show = math.floor(tonumber(tostring(math.abs(power/s)))%10)
+						show = math.floor(tonumber(tostring(math.abs(power/s)))%10)
 						
-						self:server_setValue(show)
-					else
+					elseif (tostring(sm.shape.getColor(self.shape)) == "f5f071ff") then
+						s = 0.00000001
+						show = (tonumber(tostring((math.abs(show)/s))))%1 -- shifts digits after the decimal point 8 places to the left and %1
+					end
 						-- any other color carry full value
-						self:server_setValue(power)
-					end	
+					
+					self:server_setValue(show)
 				end
 			else
 				-- more than one input, they get combined based on color
@@ -202,8 +206,10 @@ function NumberBlock.client_onFixedUpdate(self, value)
 				else
 					local s = self.dec[tostring(sm.shape.getColor(self.shape))] -- gets correct decimal location in parent based on own color   -- NumberBlock number
 					
+					local show = power
+					
 					if s then
-						local show = math.floor(tonumber(tostring(math.abs(power/s)))%10)
+						show = math.floor(tonumber(tostring(math.abs(power/s)))%10)
 						
 						-- figure out if first digit , show '-' in front of num if neg
 						if (s*10>0-power) and (power<0) then
@@ -217,6 +223,15 @@ function NumberBlock.client_onFixedUpdate(self, value)
 							end
 						end
 						self.interactable:setUvFrameIndex(show)
+						
+					elseif (tostring(sm.shape.getColor(self.shape)) == "f5f071ff") then
+						s = 0.00000001
+						local show = (tonumber(tostring((math.abs(power)/s))))%1
+						if show ~= 0 then
+							self.interactable:setUvFrameIndex(24)
+						else
+							self.interactable:setUvFrameIndex(0)
+						end
 					else
 						-- color is not a digit, carries full value in server.
 						self:client_setUVValue(power)
