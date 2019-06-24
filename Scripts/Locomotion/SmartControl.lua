@@ -123,7 +123,3 @@ function SmartControl.server_onFixedUpdate(self, dt)
 		end
 	end
 end
-function SmartControl.server_onRefresh( self )
-	self.runningAverageBuffer = nil
-
-end
