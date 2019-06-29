@@ -18,96 +18,113 @@ TickButton.colorHighlight = sm.color.new( 0xFFB2C3ff  )
 TickButton.poseWeightCount = 1
 
 
-function TickButton.server_onCreate( self ) 
-	self:server_init()
-end
-
-
-function TickButton.server_init( self ) 
-	self.timeon = 0
-	self.lasttime = 0
-	self.logicpress = true
-	self.duration = 0
+function TickButton.server_onCreate( self )
+	self.killAtTick = 0
+	self.ticksToLive = 1
 end
 
 function TickButton.server_onRefresh( self )
-	self:server_init()
+	sm.isDev = true
+	self:server_onCreate()
 end
 
 
 function TickButton.server_onFixedUpdate( self, dt )
-	local parents = self.interactable:getParents()
-	--typeparent == "logic" or typeparent == "timer" or typeparent == "button" or typeparent == "lever" or typeparent == "sensor" or typeparent == "steering" 
-	--typeparent == "scripted" and tostring(v:getShape():getShapeUuid()) ~= "6f2dd83e-bc0d-43f3-8ba5-d5209eb03d07"
-	local duration = 0
+	
+	local numberinput = 0
 	local logicactive = false
-	for k, v in pairs(parents) do
-		local typeparent = v:getType()
-		if v:getType() == "scripted" and tostring(v:getShape():getShapeUuid()) ~= "6f2dd83e-bc0d-43f3-8ba5-d5209eb03d07" and tostring(v:getShape():getShapeUuid()) ~= "c7a99aa6-c5a4-43ad-84c9-c85f7d842a93" --[[laser]] then
+	for k, v in pairs(self.interactable:getParents()) do
+		if v:getType() == "scripted" and tostring(v:getShape():getShapeUuid()) ~= "6f2dd83e-bc0d-43f3-8ba5-d5209eb03d07" --[[tickbutton]] then
 			-- number input
-			duration = duration + math.floor(v.power)
+			numberinput = numberinput + math.floor(v.power)
 		elseif v:getType() == "steering" or v:getType() == "seat" then
-			-- nothing, ignore
+			-- nothing, ignore, onInteract handles this.
 		else
 			-- logic input 
-			if v.active then logicactive = true end
-			if not self.lastinput and v.active then
-				self.timeon = self.duration
-				self.logicpress = true
+			logicactive = logicactive or v.active
+		end
+	end
+	
+	
+	numberinput = numberinput > 0 and numberinput or 1
+	
+	if numberinput ~= self.ticksToLive then
+		self.ticksToLive = numberinput
+		if not logicactive or self.wasActive then
+			-- notify clients of new ticksToLive
+			if self.killAtTick - sm.game.getCurrentTick() > self.ticksToLive then -- TimeToGo is smaller than total ticksToLive
+				self.killAtTick = sm.game.getCurrentTick() + self.ticksToLive -- new killAtTick
 			end
+			self.network:sendToClients("client_buttonPress",{self.ticksToLive, self.killAtTick, false})
 		end
 	end
-	self.lastinput = logicactive
-	self.duration = duration > 0 and duration or 1
 	
-	if self.timeon > self.duration then self.timeon = self.duration end
-	self.wason = self.timeon
+	if not self.wasActive and logicactive then
+		self:server_onInteract(true)
+	end
+	self.wasActive = logicactive
 	
-	--self.network:sendToClients("client_setPose", {pose = 0, level = (self.timeon/self.duration)})
-	self.network:sendToClients("client_setPose", {pose = 0, level = (self.timeon/self.duration)*3/4 + (self.timeon > 0 and 0.25 or 0)})
-	if self.timeon == 0 then
-		self.network:sendToClients("client_setUvframeIndex", 0)
-	else
-		self.network:sendToClients("client_setUvframeIndex",  (2-self.timeon/self.duration) * 25)
+	if self.interactable.active and self.killAtTick <= sm.game.getCurrentTick() then
+		self.interactable.active = false
+		self.interactable.power = 0
 	end
-	if self.timeon > 0 then
-		self.interactable:setActive(true)
-		self.interactable:setPower(1)
-		self.timeon = self.timeon - 1
-		if self.lasttime == 0 and not self.logicpress then
-			self.network:sendToClients("client_playsound", "Button on" )
-		end
-	else
-		self.interactable:setActive(false)
-		self.interactable:setPower(0)
-		if self.lasttime > 0 and not self.logicpress then 
-			--print('test')
-			self.network:sendToClients("client_playsound", "Button off" )
-		end
-	end
-	self.lasttime = self.wason
-end
-
-function TickButton.client_setUvframeIndex(self, index)
-	self.interactable:setUvFrameIndex(index)
-end
-function TickButton.client_playsound(self, sound)
-	sm.audio.play(sound, self.shape:getWorldPosition())
-end
-function TickButton.client_setPose(self, data)
-	self.interactable:setPoseWeight(data.pose, data.level)
-end
-
-function TickButton.client_onInteract(self)
-    self.network:sendToServer("server_settime")
-end
-function TickButton.server_settime(self)
-	self.timeon = self.duration
-	self.logicpress = false
+	
 end
 
 function TickButton.server_onProjectile(self, X, hits, four)
-	self.timeon = self.duration
-	self.logicpress = false
+	self:server_onInteract()
+end
+
+function TickButton.server_onInteract(self, nosound)
+	self.killAtTick = sm.game.getCurrentTick() + self.ticksToLive
+	self.network:sendToClients("client_buttonPress",{self.ticksToLive, self.killAtTick, not nosound})
+	self.interactable.active = true
+	self.interactable.power = 1
+end
+
+function TickButton.server_clientRequest(self) -- sends data to newly joined clients
+	self.network:sendToClients("client_buttonPress",{self.ticksToLive, self.killAtTick, false})
+end
+
+
+
+function TickButton.client_onCreate(self)
+	self.c_killAtTick = 0
+	self.c_ticksToLive = 1
+	self.network:sendToServer("server_clientRequest")
+end
+
+function TickButton.client_onFixedUpdate(self)
+	if self.animation_active then
+	
+		if self.c_killAtTick <= sm.game.getCurrentTick() then -- powers down
+			self.animation_active = false
+			self.interactable:setUvFrameIndex(0)
+			self.interactable:setPoseWeight(0, 0)
+			sm.audio.play("Button off", self.shape:getWorldPosition())
+			return
+		end
+		
+		local timeToGo = self.c_killAtTick - sm.game.getCurrentTick()
+		
+		self.interactable:setUvFrameIndex((2 - timeToGo / self.c_ticksToLive) * 25) -- artifact calculation
+		self.interactable:setPoseWeight(0, 0.25 + (timeToGo / self.c_ticksToLive) * 3/4) -- last 25% quickly pops down in a single tick
+	end
+end
+
+
+function TickButton.client_buttonPress(self, data)
+	self.c_ticksToLive = data[1]
+	self.c_killAtTick = data[2]
+	
+	if data[3] then
+		sm.audio.play("Button on", self.shape:getWorldPosition())
+	end
+	self.animation_active = self.c_killAtTick >= sm.game.getCurrentTick()
+end
+
+
+function TickButton.client_onInteract(self)
+    self.network:sendToServer("server_onInteract")
 end
 
