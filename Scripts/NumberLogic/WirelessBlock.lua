@@ -10,7 +10,7 @@ mpPrint("loading WirelessBlock.lua")
 
 -- WirelessBlock.lua --
 WirelessBlock = class( nil )
-WirelessBlock.maxParentCount = 2
+WirelessBlock.maxParentCount = -1
 WirelessBlock.maxChildCount = -1
 WirelessBlock.connectionInput =  sm.interactable.connectionType.power + sm.interactable.connectionType.logic
 WirelessBlock.connectionOutput = sm.interactable.connectionType.power + sm.interactable.connectionType.logic + sm.interactable.connectionType.bearing
