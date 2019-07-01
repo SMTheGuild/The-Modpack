@@ -316,9 +316,9 @@ function AsciiBlock.server_onCreate( self )
 		if type(stored) == "number" then
 			mpPrint('loading old version')
 			self.power = AsciiBlock.savemodes[stored] or 0
-			for k, v in pairs(AsciiBlock001) do
-				self[k] = v
-			end
+			--for k, v in pairs(AsciiBlock001) do
+			--	self[k] = v
+			--end  -- remove janky old compatibility
 		elseif type(stored) == "table" then
 			self.power = (AsciiBlock.savemodes[stored[1]] - 1) or 0
 			--version = stored[2]
