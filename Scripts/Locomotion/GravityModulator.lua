@@ -25,18 +25,15 @@ gravcreation.colorHighlight = sm.color.new(0x000000ff)
 gravcreation.poseWeightCount = 2
 gravcreation.creations = {}
 
-function gravcreation.server_onCreate( self )
-	self:server_init()
-end
 function gravcreation.server_onRefresh( self )
-	--self:server_init()
+	sm.isDev = true
+	--self:server_onCreate()
 end
 
-function gravcreation.server_init( self )
+function gravcreation.server_onCreate( self )
 	self.shapes = {}
 	self.e = false
 	self.gravwork = 0
-	self.time = os.clock()
 end
 
 function gravcreation.server_onDestroy(self)
@@ -157,13 +154,10 @@ function gravworld.server_onDestroy(self)
 	gravworld_playerspulsed = {}
 end
 
-function gravworld.server_onCreate( self )
-	self:server_init()
-end
 function gravworld.server_onRefresh( self )
-	self:server_init()
+	self:server_onCreate()
 end
-function gravworld.server_init( self )
+function gravworld.server_onCreate( self )
 	self.e = false
 	self.gravity = 0
 	gravworld_playerspulsed = {}
