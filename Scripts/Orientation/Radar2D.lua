@@ -72,6 +72,7 @@ function Radar2D.server_onCreate( self )
 	end
 end
 function Radar2D.server_onRefresh( self )
+	sm.isDev = true
     self:server_onCreate()
 end
 
@@ -81,7 +82,7 @@ function Radar2D.server_sendIndexToClients(self, playsound)
 end
 
 function Radar2D.server_clientInteract(self, crouch)
-	self.uvindexserver = (self.uvindexserver + (crouch and -1 or 1))%7
+	self.uvindexserver = (self.uvindexserver + (crouch and -1 or 1))%8
 	self.storage:save(self.uvindexserver)
 	self:server_sendIndexToClients(true)
 end
@@ -95,7 +96,7 @@ function Radar2D.client_range(self, data)
 	if data[2] then sm.audio.play("Blueprint - Camera", self.shape:getWorldPosition()) end
 	self.uvindex = data[1]
 	self.range = 2^(5+self.uvindex)
-	self.interactable:setUvFrameIndex(self.uvindex + (self.interactable.active and 6 or 0))
+	self.interactable:setUvFrameIndex(self.uvindex + (self.interactable.active and 8 or 0))
 end
 
 
@@ -127,12 +128,14 @@ function Radar2D.client_onFixedUpdate(self, dt)
 			localZ = sm.vec3.new(0,0,1)
 		end
 		if self.parentwasactive then
+			self.interactable:setUvFrameIndex(self.uvindex)
 			sm.audio.play("Blueprint - Camera", self.shape:getWorldPosition())
 		end
 	elseif not self.parentwasactive then
+		self.interactable:setUvFrameIndex(self.uvindex + 8)
 		sm.audio.play("Blueprint - Camera", self.shape:getWorldPosition())
 	end
-	self.parentwasactive = parent and parent:isActive()
+	self.parentwasactive = parent and parent.active
 	
 	local playeridsdrawn = {}
 	local trackeridsdrawn = {}
