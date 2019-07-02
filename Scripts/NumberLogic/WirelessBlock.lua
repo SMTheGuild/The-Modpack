@@ -66,15 +66,21 @@ function WirelessBlock.server_onFixedUpdate( self, dt )
 		local senderPose = 0 -- between -1 and 1
 		local pose_values = {}
 		
-		for k, v in pairs(wirelessdata[frequency][color]) do
-			if sm.exists(v) and sm.interactable.getValue_shadow(v) then
-				table.insert(pose_values, sm.interactable.getValue_shadow(v)[2]) -- shadow val should always exist.
+		local power = 0
+		local power_values = {}
+		
+		
+		if wirelessdata[frequency] and wirelessdata[frequency][color] then
+			for k, v in pairs(wirelessdata[frequency][color]) do
+				if sm.exists(v) and sm.interactable.getValue_shadow(v) then
+					table.insert(power_values, sm.interactable.getValue_shadow(v)[1])
+					table.insert(pose_values, sm.interactable.getValue_shadow(v)[2]) -- shadow val should always exist.
+				end
 			end
 		end
 		
 		if #pose_values == 1 then
 			senderPose = pose_values[1]
-			
 		elseif #pose_values > 1 then
 			local lowestValue = math.huge
 			local highestValue = math.huge*-1
@@ -100,16 +106,6 @@ function WirelessBlock.server_onFixedUpdate( self, dt )
 		
 		
 		
-		local power = 0
-		local power_values = {}
-		
-		if wirelessdata[frequency] and wirelessdata[frequency][color] then -- BUILD INTERFERENCE!
-			for k, v in pairs(wirelessdata[frequency][color]) do
-				if sm.exists(v) and sm.interactable.getValue_shadow(v) then
-					table.insert(power_values, sm.interactable.getValue_shadow(v)[1])
-				end
-			end
-		end
 		
 		if #power_values == 1 then
 			power = power_values[1]
