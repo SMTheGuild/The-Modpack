@@ -40,7 +40,7 @@ SmartSensor.modes = {
 	{ value = 1, targetPose = 0.8, 	description = "wide raycast, distance mode" },
 	{ value = 2, targetPose = 0, 	description = "1 raycast, color mode" },
 	{ value = 3, targetPose = 0.8, 	description = "wide raycast, color mode" },
-	{ value = 4, targetPose = 0, 	description = "type mode: nothing = 0" }
+	{ value = 4, targetPose = 0, 	description = "type mode: (nothing: 0, terrainSurface:1, terrainAsset:2, lift:3, body:4, character:5, joint:6, vision:7)" }
 }
 SmartSensor.savemodes = {}
 for k,v in pairs(SmartSensor.modes) do
