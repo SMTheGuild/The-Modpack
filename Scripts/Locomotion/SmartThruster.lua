@@ -53,7 +53,7 @@ function SmartThruster.server_onFixedUpdate( self, dt )
 		if power < 0 then power = -3.3*10^38 else power = 3.3*10^38 end  
 	end
 	
-	self.interactable.power = power
+	self.interactable.power = power * (logicinput or 1)
 	self.interactable.active = logicinput
 	
 	power = power * logicinput
@@ -73,7 +73,7 @@ end
 function SmartThruster.client_onUpdate(self, dt) -- 1 tick delayed vs server but who cares, it's effects anyway
 	
 	local clientpower = (self.interactable.active and self.interactable.power or 0)
-		
+	
 	local poseVal0 = sm.util.clamp( math.abs(self.interactable.power/700), 0.2, 0.8 )
 	local poseVal1 = poseVal0
 	
