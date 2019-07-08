@@ -965,7 +965,7 @@ function AI.server_onFixedUpdate( self, dt )
 	self.lastpose0 = self.yaw
 	self.lastpose1 = self.pose1
 	self.lastpos_tracked = direction
-	orienters[self.id] = {}
+	if not orienters[self.id] then orienters[self.id] = {} end
 	orienters[self.id].position = targetposition
 	orienters[self.id].direction = targetdir
 	orienters[self.id].mass = targetmass
