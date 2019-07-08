@@ -93,11 +93,12 @@ function SmartSensor.server_onFixedUpdate( self, dt )
 			
 		elseif mode ~= 4 then -- not type mode
 			-- distance mode
-			local hit, fraction = sm.physics.distanceRaycast(src + getLocal(self.shape, raypoint), self.shape.up*3000)
+			local hit, fraction = sm.physics.distanceRaycast(src + getGlobal(self.shape, raypoint), self.shape.up*3000)
 			if hit then
 				local d = fraction * 3000
-				if distance == nil or d < distance then
+				if distance == nil or d*4 - 0.5 < distance then
 					distance = d*4 - 0.5
+					--print(distance)
 				end
 			end
 		else 
