@@ -361,7 +361,10 @@ end
 
 
 function predictmove(self, mypos, direction, targetpos, localcalc)--MINE --FINAL
+
 	if self.mylastpos == nil then self.mylastpos = mypos end
+	local myposcopy = mypos
+	
 	mypos = mypos + (mypos - self.mylastpos)/10
 	local distance = (targetpos - mypos):length()
 	if self.lasttargetposition == nil then self.lasttargetposition = targetpos end
@@ -372,6 +375,8 @@ function predictmove(self, mypos, direction, targetpos, localcalc)--MINE --FINAL
 	local spudspeed = 130
 	local targetrelativepos = targetpos - mypos
 	local t = distance/spudspeed
+	
+	self.mylastpos = myposcopy
 	
 	if self.lastdistance == nil then self.lastdistance = distance end
 	local deltadistance = distance-self.lastdistance
