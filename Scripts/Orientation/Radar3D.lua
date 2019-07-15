@@ -143,55 +143,64 @@ function Radar3D.client_onFixedUpdate(self, dt)
 	local playeridsdrawn = {}
 	local trackeridsdrawn = {}
 	
-	for targetId , targets in pairs({sm.player.getAllPlayers(),  trackertrackers or {}}) do
-		for k, target in pairs(targets) do
-			if target ~= nil and (targetId == 1 and sm.exists(target) or (sm.exists(target.shape))) then
-				local targetpos = (targetId == 1 and target.character.worldPosition or target.shape.worldPosition)
-				local dir = targetpos - pos
-				
-				local radarloc = sm.vec3.new(dir:dot(localX),targetpos.z,-dir:dot(localY))/ self.range - sm.vec3.new(0,0.6,0)
-				if math.abs(radarloc.x) < 1 and math.abs(radarloc.y) < 1.4 and math.abs(radarloc.z) < 1 and nojammercloseby(targetpos) then
-					if type(target) == "Player" then
-						if not self.playereffects[target.id] then
-							local modelname = self.playermodels[target.name]
-							if not modelname then modelname = "Radar3Dplayer" end
-							local effect = sm.effect.createEffect( modelname, self.interactable)
-							effect:start()
-							self.playereffects[target.id] = {effect, nil}
-						end
-						self.playereffects[target.id][1]:setOffsetPosition(radarloc/1.7)
-						local direction = target.character:getDirection()
-						direction.z = 0
-						
-						
-						local lookquat = sm.vec3.getRotation(sm.vec3.new(0,0,1),sm.vec3.new(0,1,0)) * sm.vec3.getRotation(localY, -direction:normalize()) * sm.vec3.getRotation(sm.vec3.new(0,0,-1),sm.vec3.new(0,1,0))
-						
-						self.playereffects[target.id][1]:setOffsetRotation(lookquat)
-						playeridsdrawn[target.id] = true
-					else
-						local dot = self.effectnames[tostring(target.shape.color)]
-						dot = (dot and dot  or "RadarDot41")
-						
-						if self.trackereffects[target.shape.id] and self.trackereffects[target.shape.id][2] ~= dot then -- color changed
-							self.trackereffects[target.shape.id][1]:setOffsetPosition(sm.vec3.new(1000,1000,0))
-							self.trackereffects[target.shape.id][1]:stop()
-							self.trackereffects[target.shape.id] = nil
-						end
-						if not self.trackereffects[target.shape.id] then
-							local effect = sm.effect.createEffect( dot, self.interactable)
-							effect:start()
-							self.trackereffects[target.shape.id] = {effect, dot}
-						end
-						self.trackereffects[target.shape.id][1]:setOffsetPosition(radarloc/1.7)
-						trackeridsdrawn[target.shape.id] = true
-					end
+	for k, player in pairs(sm.player.getAllPlayers()) do
+		if player ~= nil and sm.exists(player) then
+			local targetpos = player.character.worldPosition
+			local dir = targetpos - pos
+			
+			local radarloc = sm.vec3.new(dir:dot(localX),targetpos.z,-dir:dot(localY))/ self.range - sm.vec3.new(0,0.6,0)
+			if math.abs(radarloc.x) < 1 and math.abs(radarloc.y) < 1.4 and math.abs(radarloc.z) < 1 and nojammercloseby(targetpos) then
+				if not self.playereffects[player.id] then
+					local modelname = self.playermodels[player.name]
+					if not modelname then modelname = "Radar3Dplayer" end
+					local effect = sm.effect.createEffect( modelname, self.interactable)
+					effect:start()
+					self.playereffects[player.id] = {effect, nil}
 				end
-			elseif targetId == 2 then
-				table.remove(trackertrackers, k)
+				self.playereffects[player.id][1]:setOffsetPosition(radarloc/1.7)
+				local direction = player.character:getDirection()
+				direction.z = 0
+				
+				
+				local lookquat = sm.vec3.getRotation(sm.vec3.new(0,0,1),sm.vec3.new(0,1,0)) * sm.vec3.getRotation(localY, -direction:normalize()) * sm.vec3.getRotation(sm.vec3.new(0,0,-1),sm.vec3.new(0,1,0))
+				
+				self.playereffects[player.id][1]:setOffsetRotation(lookquat)
+				playeridsdrawn[player.id] = true
 			end
 		end
 	end
+
 	
+	for k, target in pairs( trackertrackers or {}) do
+		local targetShape = (target ~= nil and sm.exists(target.shape) and target:getTrackerShape() or nil)
+		
+		if targetShape then
+			local targetpos = targetShape.worldPosition
+			local dir = targetpos - pos
+			
+			local radarloc = sm.vec3.new(dir:dot(localX),targetpos.z,-dir:dot(localY))/ self.range - sm.vec3.new(0,0.6,0)
+			if math.abs(radarloc.x) < 1 and math.abs(radarloc.y) < 1.4 and math.abs(radarloc.z) < 1 and nojammercloseby(targetpos) then
+				local dot = self.effectnames[tostring(targetShape.color)]
+				dot = (dot and dot  or "RadarDot41")
+				
+				if  self.trackereffects[targetShape.id] and self.trackereffects[targetShape.id][2] ~= dot then -- color changed
+					self.trackereffects[targetShape.id][1]:setOffsetPosition(sm.vec3.new(1000,1000,0))
+					self.trackereffects[targetShape.id][1]:stop()
+					self.trackereffects[targetShape.id] = nil
+				end
+				if not self.trackereffects[targetShape.id] then
+					local effect = sm.effect.createEffect( dot, self.interactable)
+					effect:start()
+					self.trackereffects[targetShape.id] = {effect, dot}
+				end
+				self.trackereffects[targetShape.id][1]:setOffsetPosition(radarloc/1.7)
+				trackeridsdrawn[targetShape.id] = true
+			end
+		else
+			table.remove(trackertrackers, k)
+		end
+	end
+
 	for id, eff in pairs(self.playereffects) do  -- TODO: modify effects so that they don't have to be teleported out of the world but can properly be stopped.
 		if not playeridsdrawn[id] then
 			self.playereffects[id][1]:setOffsetPosition(sm.vec3.new(1000,1000,0))

@@ -184,12 +184,14 @@ function AI.gettracker(self, data)  --self:gettracker({minrange = nil, maxrange 
 	local closestvalididmatchingcolor = nil
 	local closestvaliddistancematchingcolor = nil
 	for key, tracker in pairs(trackertrackers) do
-		if tracker and tracker.shape and sm.exists(tracker.shape) then 
-			local trackerpos = tracker.shape.worldPosition
+		local trackerShape = (tracker ~= nil and sm.exists(tracker.shape) and tracker:getTrackerShape() or nil)
+	
+		if trackerShape then 
+			local trackerpos = trackerShape.worldPosition
 			local distance = (centerpos - trackerpos):length()
 			if (nojammercloseby(trackerpos) or ignorejammers) and 
-			distance >= minrange and distance < maxrange and (tracker:getFrequency() == frequency or frequency == nil)  and (tracker.shape.color == color or not filtercolor) then
-				if tostring(tracker.shape.color) == color then
+			distance >= minrange and distance < maxrange and (tracker:getFrequency() == frequency or frequency == nil)  and (trackerShape.color == color or not filtercolor) then
+				if tostring(trackerShape.color) == color then
 					if not closestvalididmatchingcolor or closestvaliddistancematchingcolor > distance then
 						closestvalididmatchingcolor = key
 						closestvaliddistancematchingcolor = distance
@@ -199,7 +201,7 @@ function AI.gettracker(self, data)  --self:gettracker({minrange = nil, maxrange 
 					closestvalidid = key
 					closestvaliddistance = distance
 				end
-				table.insert(validtrackers, {tracker.shape, key})
+				table.insert(validtrackers, {trackerShape, key})
 				--validtrackers[tracker.id] = tracker
 			end
 		end
@@ -678,12 +680,14 @@ function AI.server_onFixedUpdate( self, dt )
 					end
 				end
 			end
-			targetposition = trackertrackers[id].shape.worldPosition
-			targetmass = trackertrackers[id].shape.mass
+			local targetShape = trackertrackers[id]:getTrackerShape()
+			
+			targetposition = targetShape.worldPosition
+			targetmass = targetShape.mass
 			-- targetdir = ... -- needs to be implemented still, needs rework of the tracker
 			
-			local targetdirection = (trackertrackers[id].shape.worldPosition - self.shape.worldPosition):normalize()
-			local distance = (trackertrackers[id].shape.worldPosition - self.shape.worldPosition):length()
+			local targetdirection = (targetShape.worldPosition - self.shape.worldPosition):normalize()
+			local distance = (targetShape.worldPosition - self.shape.worldPosition):length()
 			local pitch, yaw = 0,0
 			if localmode then 
 				pitch, yaw = self:calcpitchandyawlocal({direction = eye, targetdirection = targetdirection}) 
@@ -711,10 +715,12 @@ function AI.server_onFixedUpdate( self, dt )
 					end
 				end
 			end
-			targetposition = trackertrackers[id].shape.worldPosition
-			targetmass = trackertrackers[id].shape.mass
+			local targetShape = trackertrackers[id]:getTrackerShape()
 			
-			predictmove(self, self.shape.worldPosition, eye, trackertrackers[id].shape.worldPosition, localmode)
+			targetposition = targetShape.worldPosition
+			targetmass =targetShape.mass
+			
+			predictmove(self, self.shape.worldPosition, eye, targetShape.worldPosition, localmode)
 				
 		end
 		
@@ -771,8 +777,8 @@ function AI.server_onFixedUpdate( self, dt )
 		local closestmatchingtracker = self:gettracker({minrange = minrange, maxrange = maxrange, frequency = whiteinput, offset = blackinput, ignorejammers = false})
 	
 		local closestdistance_player = (closestplayer ~= 0) and (self.shape:getWorldPosition() - allplayers[closestplayer].character.worldPosition):length() or math.huge
-		local closestdistance_tracker = (closesttracker ~= 0) and  (self.shape:getWorldPosition() - trackertrackers[closesttracker].shape.worldPosition):length() or math.huge
-		local closestdistance_matchingtracker = (closestmatchingtracker ~= 0) and  (self.shape:getWorldPosition() - trackertrackers[closestmatchingtracker].shape.worldPosition):length() or math.huge
+		local closestdistance_tracker = (closesttracker ~= 0) and  (self.shape:getWorldPosition() - trackertrackers[closesttracker]:getTrackerShape().worldPosition):length() or math.huge
+		local closestdistance_matchingtracker = (closestmatchingtracker ~= 0) and  (self.shape:getWorldPosition() - trackertrackers[closestmatchingtracker]:getTrackerShape().worldPosition):length() or math.huge
 	
 	
 		local distance = 0
@@ -781,9 +787,9 @@ function AI.server_onFixedUpdate( self, dt )
 		
 		if ((closestplayer ~= 0) or (closesttracker ~= 0) or (closestmatchingtracker ~= 0)) and isON then
 			if closestmatchingtracker ~= 0 then
-				tracking = trackertrackers[closestmatchingtracker].shape.worldPosition
+				tracking = trackertrackers[closestmatchingtracker]:getTrackerShape().worldPosition
 				distance = closestdistance_matchingtracker
-				targetmass = trackertrackers[closestmatchingtracker].shape.mass
+				targetmass = trackertrackers[closestmatchingtracker]:getTrackerShape().mass
 				if closestplayer and closestdistance_player < closestdistance_matchingtracker then
 					tracking = allplayers[closestplayer].character.worldPosition
 					direction = allplayers[closestplayer].character.direction
@@ -791,8 +797,8 @@ function AI.server_onFixedUpdate( self, dt )
 					targetmass = allplayers[closestplayer].character.mass
 				end
 			elseif closesttracker ~= 0 and not closestmatchingtracker ~= 0 then
-				tracking = trackertrackers[closesttracker].shape.worldPosition
-				targetmass = trackertrackers[closesttracker].shape.mass
+				tracking = trackertrackers[closesttracker]:getTrackerShape().worldPosition
+				targetmass = trackertrackers[closesttracker]:getTrackerShape().mass
 				distance = closestdistance_tracker
 				if closestplayer ~= 0 and closestdistance_player < closestdistance_tracker then
 					tracking = allplayers[closestplayer].character.worldPosition
@@ -838,8 +844,8 @@ function AI.server_onFixedUpdate( self, dt )
 	 
 		--print(closestplayer, closesttracker, closestmatchingtracker)
 		local closestdistance_player = (closestplayer ~= 0) and (self.shape:getWorldPosition() - allplayers[closestplayer].character.worldPosition):length() or math.huge
-		local closestdistance_tracker = (closesttracker ~= 0) and  (self.shape:getWorldPosition() - trackertrackers[closesttracker].shape.worldPosition):length() or math.huge
-		local closestdistance_matchingtracker = (closestmatchingtracker ~= 0) and  (self.shape:getWorldPosition() - trackertrackers[closestmatchingtracker].shape.worldPosition):length() or math.huge
+		local closestdistance_tracker = (closesttracker ~= 0) and  (self.shape:getWorldPosition() - trackertrackers[closesttracker]:getTrackerShape().worldPosition):length() or math.huge
+		local closestdistance_matchingtracker = (closestmatchingtracker ~= 0) and  (self.shape:getWorldPosition() - trackertrackers[closestmatchingtracker]:getTrackerShape().worldPosition):length() or math.huge
 	
 	 
 		local distance = 0
@@ -848,9 +854,9 @@ function AI.server_onFixedUpdate( self, dt )
 		
 		if ((closestplayer ~= 0) or (closesttracker ~= 0) or (closestmatchingtracker ~= 0)) and isON then
 			if closestmatchingtracker ~= 0 then
-				tracking = trackertrackers[closestmatchingtracker].shape.worldPosition
+				tracking = trackertrackers[closestmatchingtracker]:getTrackerShape().worldPosition
 				distance = closestdistance_matchingtracker
-				targetmass = trackertrackers[closestmatchingtracker].shape.mass
+				targetmass = trackertrackers[closestmatchingtracker]:getTrackerShape().mass
 				if closestplayer and closestdistance_player < closestdistance_matchingtracker then
 					tracking = allplayers[closestplayer].character.worldPosition
 					direction = allplayers[closestplayer].character.direction
@@ -858,9 +864,9 @@ function AI.server_onFixedUpdate( self, dt )
 					targetmass = allplayers[closestplayer].character.mass
 				end
 			elseif closesttracker ~= 0 and not closestmatchingtracker ~= 0 then
-				tracking = trackertrackers[closesttracker].shape.worldPosition
+				tracking = trackertrackers[closesttracker]:getTrackerShape().worldPosition
 				distance = closestdistance_tracker
-				targetmass = trackertrackers[closesttracker].shape.mass
+				targetmass = trackertrackers[closesttracker]:getTrackerShape().mass
 				if closestplayer ~= 0 and closestdistance_player < closestdistance_tracker then
 					tracking = allplayers[closestplayer].character.worldPosition
 					direction = allplayers[closestplayer].character.direction

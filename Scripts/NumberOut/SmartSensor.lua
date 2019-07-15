@@ -14,8 +14,9 @@ mpPrint("loading SmartSensor.lua")
 
 -- SmartSensor.lua --
 SmartSensor = class( nil )
+SmartSensor.maxParentCount = -1 -- infinite
 SmartSensor.maxChildCount = -1
-SmartSensor.connectionInput = sm.interactable.connectionType.none
+SmartSensor.connectionInput = sm.interactable.connectionType.power
 SmartSensor.connectionOutput = sm.interactable.connectionType.logic + sm.interactable.connectionType.power
 SmartSensor.colorNormal = sm.color.new( 0x76034dff )
 SmartSensor.colorHighlight = sm.color.new( 0x8f2268ff )
@@ -63,9 +64,40 @@ function SmartSensor.server_onCreate( self )
 end
 
 function SmartSensor.server_onFixedUpdate( self, dt )
-	local src = self.shape.worldPosition
-	
 	local mode = self.modes[self.mode].value
+	
+	local parents = self.interactable:getParents()
+	local newmode = nil
+	local offset = 0
+	
+	for k, v in pairs(parents) do
+		if sm.interactable.isNumberType(v) then
+			local color = tostring(v:getShape().color)
+			if color == "eeeeeeff" then
+				newmode = (newmode or 0) + v.power
+			else
+				offset = offset + v.power
+			end
+		end
+	end
+	
+	newmode = (newmode and newmode%5 or nil)
+	
+	self.needssave = self.needssave or newmode and newmode ~= mode
+	
+	if newmode and newmode ~= mode then
+		mode = newmode
+		self.mode = self.savemodes[newmode]
+		self.network:sendToClients("client_newMode", {self.mode, true})
+	end
+	
+	local isTime = os.time()%5 == 0
+	if self.needssave and isTime and self.risingedge then
+		self.storage:save(mode)
+	end
+	self.risingedge = not isTime
+	
+	local src = self.shape.worldPosition + self.shape.up * offset/4
 	
 	local colormode = (mode == 2) or (mode == 3)
 	local bigSize = (mode == 1) or (mode == 3)

@@ -4,15 +4,17 @@ dofile "../Libs/Debugger.lua"
 if ColorBlock and not sm.isDev then -- increases performance for non '-dev' users.
 	return
 end 
+dofile "../Libs/Color.lua"
 dofile "../Libs/MoreMath.lua"
+dofile "../Libs/GameImprovements/interactable.lua"
 
 mpPrint("loading ColorBlock.lua")
 
 
 ColorBlock = class( nil )
-ColorBlock.maxParentCount = 6
+ColorBlock.maxParentCount = 7
 ColorBlock.maxChildCount = -1
-ColorBlock.connectionInput = sm.interactable.connectionType.power
+ColorBlock.connectionInput = sm.interactable.connectionType.power + sm.interactable.connectionType.logic
 ColorBlock.connectionOutput = sm.interactable.connectionType.power
 ColorBlock.colorNormal = sm.color.new( 0xD8D220ff )
 ColorBlock.colorHighlight = sm.color.new( 0xF2EC3Cff )
@@ -33,6 +35,16 @@ function ColorBlock.server_onFixedUpdate( self, dt )
 	local red = 0
 	local green = 0
 	local blue = 0
+	local HSVmode = false
+	for k, parent in pairs(parents) do
+		if not sm.interactable.isNumberType(parent) and 
+				parent:getType() ~= "steering" and 
+				tostring(parent:getShape():getShapeUuid()) ~= "ccaa33b6-e5bb-4edc-9329-b40f6efe2c9e" --[[orienter]] then
+			-- logic: switch, logic gate, ...
+			table.remove(parents, k)
+			HSVmode = parent.active
+		end
+	end
 	
 	if #parents == 1 then
 		self.power = math.round(sm.interactable.getPower(parents[1]))%(256^3)
@@ -187,14 +199,21 @@ function ColorBlock.server_onFixedUpdate( self, dt )
 			if r==b and r==g then
 				-- left column, do nothing
 			elseif g>r-9 and g>b then
-				green = v.power
+				green  = v.power
 			elseif b-4>r and b>g-1 then
 				blue = v.power
 			else
 				red = v.power
 			end
 		end
-		self.shape.color = sm.color.new(red/255, green/255, blue/255, 1)
+		if HSVmode then
+			local rgb = sm.color.toRGB({ h = red, s = green, v = blue })
+			--print("hsv:", red, green, blue)
+			--print("rgb:", rgb, tostring(rgb))
+			self.shape.color = rgb
+		else
+			self.shape.color = sm.color.new(red/255, green/255, blue/255, 1)
+		end
 	end
 	self.prev = #parents
 	if parents and #parents < 3 then self.prevcolor = nil end
@@ -211,22 +230,21 @@ function ColorBlock.server_onFixedUpdate( self, dt )
 end
 
 function ColorBlock.client_onCreate(self)
+	sm.ImproveUserDataClient(self)
 	self.interactable:setGlowMultiplier(0)
-	sm.interactable.ccsetValue(self.interactable, 0)
 end
 
 function ColorBlock.client_onFixedUpdate( self, dt )
 	local uv = 0
 	local parentrgb = nil
 	local parents = self.interactable:getParents()
-	sm.interactable.ccsetValue(self.interactable, 0)
 	for k, v in pairs(parents) do
 		if tostring(v.shape:getShapeUuid()) == "921a2ace-b543-4ca3-8a9b-6f3dd3132fa9" --[[rgb block]] then
 			self.interactable:setUvFrameIndex(v:getUvFrameIndex())
-			sm.interactable.ccsetValue(self.interactable, sm.interactable.ccgetValue(v))
+			self.interactable:setGlowMultiplier(v:getGlowMultiplier())
 			parentrgb = true
 		elseif tostring(v:getShape().color) == "eeeeeeff" then -- glow
-			sm.interactable.ccsetValue(self.interactable, math.max(0,math.min(1,v.power)))
+			self.interactable:setGlowMultiplier(math.max(0,math.min(1,v.power)))
 		elseif tostring(v:getShape().color) == "7f7f7fff" then -- reflection
 			uv = uv + math.max(0,math.min(255,v.power))
 		elseif tostring(v:getShape().color) == "222222ff" then -- specular
@@ -236,10 +254,4 @@ function ColorBlock.client_onFixedUpdate( self, dt )
 	if not parentrgb then
 		self.interactable:setUvFrameIndex(uv)
 	end
-	self.interactable:setGlowMultiplier(sm.interactable.ccgetValue(self.interactable) or 0)
 end
-
-if not sm.interactable.ccvalues then sm.interactable.ccvalues = {} end -- stores ccvalues --[[{{tick, value}, lastvalue}]]
-
-function sm.interactable.ccsetValue(interactable, value)  local currenttick = sm.game.getCurrentTick() sm.interactable.ccvalues[interactable.id] = {{tick = currenttick, value = value}, sm.interactable.ccvalues[interactable.id] and (sm.interactable.ccvalues[interactable.id][1] ~= nil and (sm.interactable.ccvalues[interactable.id][1].tick < currenttick) and sm.interactable.ccvalues[interactable.id][1].value or sm.interactable.ccvalues[interactable.id][2]) or nil} end
-function sm.interactable.ccgetValue(interactable) 		return (sm.exists(interactable) and (sm.interactable.ccvalues[interactable.id] and (sm.interactable.ccvalues[interactable.id][1] and sm.interactable.ccvalues[interactable.id][1].tick < sm.game.getCurrentTick() and sm.interactable.ccvalues[interactable.id][1].value or sm.interactable.ccvalues[interactable.id][2])) or nil) end

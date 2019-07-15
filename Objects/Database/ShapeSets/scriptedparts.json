@@ -1036,7 +1036,7 @@
 				"filename": "$MOD_DATA/Scripts/NumberLogic/TickButton.lua",
 				"classname": "TickButton"
 			},
-			"sticky": "-Y",
+			"sticky": "+X-X-Y+Z-Z",
 			"qualityLevel": 3
 		},
 

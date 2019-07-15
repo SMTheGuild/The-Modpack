@@ -140,43 +140,52 @@ function Radar2D.client_onFixedUpdate(self, dt)
 	local playeridsdrawn = {}
 	local trackeridsdrawn = {}
 	
-	for targetId , targets in pairs({sm.player.getAllPlayers(), trackertrackers or {}}) do
-		for k, target in pairs(targets) do
-			if target ~= nil and (targetId == 1 and sm.exists(target) or (sm.exists(target.shape))) then
-				local targetpos = (targetId == 1 and target.character.worldPosition or target.shape.worldPosition)
-				local dir = targetpos - pos
-				
-				local radarloc = sm.vec3.new(dir:dot(localX),dir:dot(localY),0)/ self.range
-				if radarloc:length2()<1 and nojammercloseby(targetpos) then					
-					if type(target) == "Player" then
-						if not self.playereffects[target.id] then
-							local effect = sm.effect.createEffect( "RadarDot", self.interactable)
-							effect:start()
-							self.playereffects[target.id] = {effect, nil}
-						end
-						self.playereffects[target.id][1]:setOffsetPosition(radarloc/3.2)
-						playeridsdrawn[target.id] = true
-					else
-						local dot = self.effectnames[tostring(target.shape.color)]
-						dot = (dot and dot  or "RadarDot41")
-						
-						if self.trackereffects[target.shape.id] and self.trackereffects[target.shape.id][2] ~= dot then
-							self.trackereffects[target.shape.id][1]:setOffsetPosition(sm.vec3.new(1000,1000,0))
-							self.trackereffects[target.shape.id][1]:stop()
-							self.trackereffects[target.shape.id] = nil
-						end
-						if not self.trackereffects[target.shape.id] then
-							local effect = sm.effect.createEffect( dot, self.interactable)
-							effect:start()
-							self.trackereffects[target.shape.id] = {effect, dot}
-						end
-						self.trackereffects[target.shape.id][1]:setOffsetPosition(radarloc/3.2)
-						trackeridsdrawn[target.shape.id] = true
-					end
+	for k, player in pairs(sm.player.getAllPlayers()) do
+		if player ~= nil and sm.exists(player) then
+			local targetpos = player.character.worldPosition
+			local dir = targetpos - pos
+			
+			local radarloc = sm.vec3.new(dir:dot(localX),dir:dot(localY),0)/ self.range
+			if radarloc:length2()<1 and nojammercloseby(targetpos) then		
+				if not self.playereffects[player.id] then
+					local effect = sm.effect.createEffect( "RadarDot", self.interactable)
+					effect:start()
+					self.playereffects[player.id] = {effect, nil}
 				end
-			elseif targetId == 2 then
-				table.remove(trackertrackers, k)
+				self.playereffects[player.id][1]:setOffsetPosition(radarloc/3.2)
+				playeridsdrawn[player.id] = true
 			end
+		end
+	end
+
+	for k, target in pairs(trackertrackers or {}) do
+		local targetShape = (target ~= nil and sm.exists(target.shape) and target:getTrackerShape() or nil)
+		
+		if targetShape then
+			local targetpos = targetShape.worldPosition
+			local dir = targetpos - pos
+			
+			local radarloc = sm.vec3.new(dir:dot(localX),dir:dot(localY),0)/ self.range
+			
+			if radarloc:length2()<1 and nojammercloseby(targetpos) then
+				local dot = self.effectnames[tostring(targetShape.color)]
+				dot = (dot and dot  or "RadarDot41")
+				
+				if  self.trackereffects[targetShape.id] and self.trackereffects[targetShape.id][2] ~= dot then
+					self.trackereffects[targetShape.id][1]:setOffsetPosition(sm.vec3.new(1000,1000,0))
+					self.trackereffects[targetShape.id][1]:stop()
+					self.trackereffects[targetShape.id] = nil
+				end
+				if not self.trackereffects[targetShape.id] then
+					local effect = sm.effect.createEffect( dot, self.interactable)
+					effect:start()
+					self.trackereffects[targetShape.id] = {effect, dot}
+				end
+				self.trackereffects[targetShape.id][1]:setOffsetPosition(radarloc/3.2)
+				trackeridsdrawn[targetShape.id] = true
+			end
+		else
+			table.remove(trackertrackers, k)
 		end
 	end
 	
