@@ -1,7 +1,9 @@
 --[[
-Made by DasEtwas
+Original script made by DasEtwas
 All rights reserved
 Donated to The Modpack Team! Thanks DasEtwas!
+
+Heavily modified script made by The Modpack Team
 ]]--
 
 airDensity = 2.75
@@ -88,6 +90,21 @@ function applyAirfoilImpulse( self, timeStep, area, angle, offset )
             Side  = self.shape.up
     ]]
     
+    local worldPos = self.shape.worldPosition + self.shape.worldRotation * offset
+	
+    -- Factor that increases lift when close to the ground. Almost matches the Wings mod made by DasEtwas
+	local factor = sm.vec3.new(1, 1, 1)
+	if worldPos.z < 20 then
+		local notSide = math.pow(1 - sm.util.clamp(worldPos.z / 20, 0, 1), 1.4) * 1.5
+		local side = notSide * 0.2 + 1
+        factor = sm.vec3.new(notSide + 1, side, side)
+	end
+    
+    --print(factor)
+    
+    
+    
+    
     local localX = self.shape.up --Front up
 	local localY = self.shape.right --Side right
 	local localZ = -self.shape.at --Top/Bottom --localX:cross(localY)
@@ -98,9 +115,9 @@ function applyAirfoilImpulse( self, timeStep, area, angle, offset )
 	local normalVel = self.globalVel:dot(localUp)
 	local lift = airDensity * normalVel * normalVel * 0.5 * area * sign(normalVel)
     
-    local toImpulse = sm.vec3.new(0, lift * timeStep * 40 * aCos, -lift * timeStep * 40 * aSin)
+    local toImpulse = sm.vec3.new(0, lift * timeStep * 40 * aCos, -lift * timeStep * 40 * aSin) * factor
 	if debugMode then
-        self.network:sendToClients("client_createParticle", self.shape.worldPosition + self.shape.worldRotation * offset)
+        self.network:sendToClients("client_createParticle", worldPos)
     end
 	sm.physics.applyImpulse(self.shape, toImpulse, false, offset)
 end
