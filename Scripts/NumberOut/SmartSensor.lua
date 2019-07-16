@@ -88,7 +88,7 @@ function SmartSensor.server_onFixedUpdate( self, dt )
 	if newmode and newmode ~= mode then
 		mode = newmode
 		self.mode = self.savemodes[newmode]
-		self.network:sendToClients("client_newMode", {self.mode, true})
+		self.network:sendToClients("client_newMode", {self.mode, false})
 	end
 	
 	local isTime = os.time()%5 == 0
