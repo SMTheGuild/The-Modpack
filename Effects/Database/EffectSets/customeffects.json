@@ -608,7 +608,7 @@
 	"Radar3dplayer_SML":
 	{
 		"parameterList": { "Size": 0.0, "velocity": 0.0, "power": 0.0, "color": "007fff", "radius": 1.5, "intensity": 0.01 },
-		"effectList": [ { "type": "particle", "name": "radar3dplayer", "offset": { "x": 0.0, "y": 0.0, "z": 0.0 }, "delay": 0.0 } ]
+		"effectList": [ { "type": "particle", "name": "radar3dplayer_SML", "offset": { "x": 0.0, "y": 0.0, "z": 0.0 }, "delay": 0.0 } ]
 	},
 	"Radar3dplayer_BB":
 	{
