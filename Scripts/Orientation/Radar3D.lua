@@ -66,7 +66,7 @@ Radar3D.playermodels = { -- [ name ] = effectname
 	["ScrapMan"] = "Radar3dplayer_ScrapMan",
 	["CamodoGaming"] = "Radar3dplayer_CamodoGaming",
 	["S.M.L. Chief Engineer"] = "Radar3dplayer_SML",
-	["Brent Batch"] = "Radar3dplayer_BB",
+	["Brent Batch"] = "Radar3dplayer_SML",
 	["Adahop"] = "Radar3dplayer_neebs_gaming",
 	["Simon"] = "Radar3dplayer_neebs_gaming",
 	["JonnyEthco"] = "Radar3dplayer_neebs_gaming",
@@ -224,4 +224,19 @@ function Radar3D.client_onDestroy(self)
 			effect[1]:stop()
 		end
 	end
+end
+
+
+function nojammercloseby(pos)
+	for k,v in pairs(jammerjammers or {}) do
+		if v and sm.exists(v) then
+			-- the following will do an error upon loading the world, 
+			if v.active and sm.vec3.length(pos - v.shape.worldPosition) < 5 then --5 units = 20 blocks
+				return false 
+			end
+		else
+			table.remove(jammerjammers, k)
+		end
+	end
+	return true
 end
