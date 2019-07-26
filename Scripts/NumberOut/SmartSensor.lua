@@ -202,9 +202,9 @@ end
 function SmartSensor.client_onFixedUpdate(self, dt)
 	local targetPose = self.modes[self.mode_client].targetPose
 	if self.pose == targetPose then return end
-	if self.pose > targetPose then
+	if self.pose > targetPose + 0.01 then
 		self.pose = self.pose - 0.04
-	elseif self.pose < targetPose then
+	elseif self.pose < targetPose - 0.01 then 
 		self.pose = self.pose + 0.04
 	end
 	self.interactable:setPoseWeight(0, self.pose)
