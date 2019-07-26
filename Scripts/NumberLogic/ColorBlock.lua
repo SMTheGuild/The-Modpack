@@ -15,13 +15,14 @@ ColorBlock = class( nil )
 ColorBlock.maxParentCount = 7
 ColorBlock.maxChildCount = -1
 ColorBlock.connectionInput = sm.interactable.connectionType.power + sm.interactable.connectionType.logic
-ColorBlock.connectionOutput = sm.interactable.connectionType.power
+ColorBlock.connectionOutput = sm.interactable.connectionType.power + sm.interactable.connectionType.logic
 ColorBlock.colorNormal = sm.color.new( 0xD8D220ff )
 ColorBlock.colorHighlight = sm.color.new( 0xF2EC3Cff )
 ColorBlock.poseWeightCount = 1
 
 function ColorBlock.server_onCreate( self ) 
 	self.power = 0
+    self.interactable.active = true
 end
 function ColorBlock.server_onProjectile(self, X, hits, four)
 	local red = math.random(0,255)
@@ -225,6 +226,15 @@ function ColorBlock.server_onFixedUpdate( self, dt )
 		local blue = math.round(sm.color.getB(self.shape.color) *255)
 		self.power = (red*256^2+ green*256 + blue)
 	end
+    
+    for k,v in pairs(self.interactable:getChildren()) do
+        if v.type == "pointLight" or v.type == "spotLight" then
+            if v.shape.color ~= color then
+                v.shape.color = color
+            end
+        end
+    end
+    
 	self.color = color
 	self.interactable:setPower(self.power)
 end
