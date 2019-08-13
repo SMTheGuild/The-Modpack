@@ -387,7 +387,7 @@ MathBlock.modeFunctions = {
 		end,
 		
 	[16] = function(self, parents)  -- random
-			local power = 0
+			local power = self.power or 0
 			if self.lastmode ~= self.mode then 
 				power = math.random() -- generate new number upon cycling to this and no parents connected
 			end
@@ -638,7 +638,7 @@ MathBlock.modeFunctions = {
 		end,
 		
 	[32] = function(self, parents)  -- bitmem
-			local power = 0
+			local power = self.power or 0
 			local value = 0
 			local logicon = 1
 			local haslogic = false
@@ -865,6 +865,7 @@ end
 
 
 function MathBlock.server_setValue(self, value)
+	self.power = value
 	if value ~= value then value = 0 end
 	if math.abs(value) >= 3.3*10^38 then 
 		if value < 0 then value = -3.3*10^38 else value = 3.3*10^38 end  
