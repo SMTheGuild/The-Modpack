@@ -1,83 +1,50 @@
 {
-   "partList" : [
-   	
-   	{
-			"uuid": "e8229f16-47e5-4d7d-b805-aa613be47790",
-			"renderable": {
-                "lodList": [
-                    {
-                        "subMeshList": [
-                            {
-                                "textureList": [
-                                    "$MOD_DATA/Objects/Textures/mod_decor_cone_dif.png",
-                                    "$MOD_DATA/Objects/Textures/mod_decor_cone_asg.png",
-                                    "$MOD_DATA/Objects/Textures/mod_decor_cone_nor.png"
-                                ],
-                                "material": "DifAsgNor"
-                            }
-                        ],
-			"mesh": "$MOD_DATA/Objects/Mesh/mjm_PipeOpening.mesh"
-                    }
-                ]
-            },
-			"rotationSet": "PropZ",
-			"color": "505050",
-			"cylinder": { "diameter": 1, "depth": 1, "axis": "Z" },
-			"density": 250.0,
-			"physicsMaterial": "Metal",
-            "qualityLevel": 4
-		},
+	"partList" : [
 		{
-			"uuid": "bf8f8e24-806b-4223-9345-2bac7c1e265d",
+			"uuid": "bf8f8e24-806b-4223-9345-2bac7c1e265d", // reduced collision block
 			"renderable": {
-                "lodList": [
-                    {
-                        "subMeshList": [
-                            {
-                                "textureList": [
-                                    "$GAME_DATA/Textures/transparent.tga",
-                                    "$MOD_DATA/Objects/Textures/default_asg.png",
-                                    "$GAME_DATA/Textures/nonor_nor.png"
-                                ],
-                                "material": "DifAsg"
-                            }
-                        ],
-			"mesh": "$MOD_DATA/Objects/Mesh/mjm_Block.mesh"
-                    }
-                ]
-            },
-			"rotationSet": "PropY",
-			"color": "505050",
-			"hull": { 
-				"x": 1, "y": 1, "z": 1,
-				"margin": 0.4,
-				"pointList": [
-					{ "x": 0.0, "y": 0.0, "z": 0.0 }
+				"lodList": [
+					{
+						"subMeshList": [
+							{
+								"textureList": [
+									"$GAME_DATA/Textures/transparent.tga",
+									"$MOD_DATA/Objects/Textures/default_asg.png",
+									"$GAME_DATA/Textures/nonor_nor.png"
+								],
+								"material": "DifAsg"
+							}
+						],
+						 "mesh": "$MOD_DATA/Objects/Mesh/basic1x1cube_nouv.obj"
+					}
 				]
 			},
+			"rotationSet": "PropY",
+			"color": "505050",
+			"hull": { "x": 1, "y": 1, "z": 1, "margin": 0.4, "pointList": [ { "x": 0.0, "y": 0.0, "z": 0.0 } ] },
 			"density": 250.0,
 			"physicsMaterial": "Metal",
-            "qualityLevel": 3
+			"qualityLevel": 3
 		},
 		{
-			"uuid": "9c40e3ab-8d03-40bc-a88b-eaebc61257d6",
+			"uuid": "9c40e3ab-8d03-40bc-a88b-eaebc61257d6", // vent block
 			"renderable": {
-                "lodList": [
-                    {
-                        "subMeshList": [
-                            {
-                                "textureList": [
-                                    "$MOD_DATA/Objects/Textures/mod_decor_cone_dif.png",
-                                    "$MOD_DATA/Objects/Textures/mod_decor_cone_asg.png",
-                                    "$MOD_DATA/Objects/Textures/mod_decor_cone_nor.png"
-                                ],
-                                "material": "DifAsg"
-                            }
-                        ],
-			"mesh": "$MOD_DATA/Objects/Mesh/mjm_VentBlock.mesh"
-                    }
-                ]
-            },
+				"lodList": [
+					{
+						"subMeshList": [
+							{
+								"textureList": [
+									"$MOD_DATA/Objects/Textures/mod_decor_cone_dif.png",
+									"$MOD_DATA/Objects/Textures/mod_decor_cone_asg.png",
+									"$MOD_DATA/Objects/Textures/mod_decor_cone_nor.png"
+								],
+								"material": "DifAsg"
+							}
+						],
+						"mesh": "$MOD_DATA/Objects/Mesh/mjm_VentBlock.mesh"
+					}
+				]
+			},
 			"rotationSet": "PropZ",
 			"color": "505050",
 			"hull": { 
@@ -92,1587 +59,1563 @@
 			},
 			"density": 250.0,
 			"physicsMaterial": "Metal",
-            "qualityLevel": 3
-		},
-		{
-			"uuid": "7ccca117-92ea-48b3-983e-eb7727af9152",
-			"renderable": {
-                "lodList": [
-                    {
-                        "subMeshList": [
-                            {
-                                "textureList": [
-                                    "$GAME_DATA/Textures/transparent.tga",
-                                    "$MOD_DATA/Objects/Textures/black_asg.png",
-                                    "$GAME_DATA/Textures/nonor_nor.png"
-                                ],
-                                "material": "Glass"
-                            },
-                            {
-                                "textureList": [
-                                    "$GAME_DATA/Textures/transparent.tga",
-                                    "$MOD_DATA/Objects/Textures/default_asg.png",
-                                    "$GAME_DATA/Textures/nonor_nor.png"
-                                ],
-                                "material": "DifAsgNor"
-                            }
-                        ],
-			"mesh": "$MOD_DATA/Objects/Mesh/mjm_WindshieldLongLeft.mesh"
-                    }
-                ]
-            },
-			"rotationSet": "PropYZnegX",
-			"color": "505050",
-			"hull": { 
-				"x": 1, "y": 8, "z": 2,
-				"margin": 0.1,
-				"pointList": [
-					{ "x": 1.0, "y": -1.0, "z": 1.0 },
-					{ "x": 1.0, "y": -1.0, "z": -1.0 },
-					{ "x": -1.0, "y": -1.0, "z": -1.0 },
-					{ "x": -1.0, "y": 0.5, "z": -1.0 },
-					{ "x": 1.0, "y": 0.0, "z": 0.5 },
-					{ "x": 1.0, "y": 0.5, "z": 0.3 },
-					{ "x": 1.0, "y": 1.0, "z": -1.0 }
-				]
-			},
-			"density": 250,
-			"physicsMaterial": "Glass",
-            "qualityLevel": 1
-		},
-		{
-			"uuid": "320b1e13-ab23-4a29-8c94-aa8b70951c06",
-			"renderable": {
-                "lodList": [
-                    {
-                        "subMeshList": [
-                            {
-                                "textureList": [
-                                    "$GAME_DATA/Textures/transparent.tga",
-                                    "$MOD_DATA/Objects/Textures/black_asg.png",
-                                    "$GAME_DATA/Textures/nonor_nor.png"
-                                ],
-                                "material": "Glass"
-                            },
-                            {
-                                "textureList": [
-                                    "$GAME_DATA/Textures/transparent.tga",
-                                    "$MOD_DATA/Objects/Textures/default_asg.png",
-                                    "$GAME_DATA/Textures/nonor_nor.png"
-                                ],
-                                "material": "DifAsgNor"
-                            }
-                        ],
-			"mesh": "$MOD_DATA/Objects/Mesh/mjm_WindshieldLongCenter.mesh"
-                    }
-                ]
-            },
-			"rotationSet": "PropYZX2",
-			"color": "505050",
-			"hull": { 
-				"x": 1, "y": 8, "z": 2,
-				"margin": 0.1,
-				"pointList": [
-					{ "x": -1.0, "y": -1.0, "z": 1.0 },
-					{ "x": 1.0, "y": -1.0, "z": 1.0 },
-					{ "x": 1.0, "y": 1.0, "z": -1.0 },
-					{ "x": -1.0, "y": 1.0, "z": -1.0 },
-					{ "x": 1.0, "y": 0.0, "z": 0.5 },
-					{ "x": -1.0, "y": 0.0, "z": 0.5 },
-					{ "x": 1.0, "y": 0.5, "z": 0.3 },
-					{ "x": -1.0, "y": 0.5, "z": 0.3 }
-				]
-			},
-			"density": 250,
-			"physicsMaterial": "Glass",
-            "qualityLevel": 1
-		},
-		{
-			"uuid": "473ac352-507c-4933-bbc5-9a2381eb6e8c",
-			"renderable": {
-                "lodList": [
-                    {
-                        "subMeshList": [
-                            {
-                                "textureList": [
-                                    "$GAME_DATA/Textures/transparent.tga",
-                                    "$MOD_DATA/Objects/Textures/black_asg.png",
-                                    "$GAME_DATA/Textures/nonor_nor.png"
-                                ],
-                                "material": "Glass"
-                            },
-                            {
-                                "textureList": [
-                                    "$GAME_DATA/Textures/transparent.tga",
-                                    "$MOD_DATA/Objects/Textures/default_asg.png",
-                                    "$GAME_DATA/Textures/nonor_nor.png"
-                                ],
-                                "material": "DifAsgNor"
-                            }
-                        ],
-			"mesh": "$MOD_DATA/Objects/Mesh/mjm_WindshieldLongRight.mesh"
-                    }
-                ]
-            },
-			"rotationSet": "PropYZX",
-			"color": "505050",
-			"hull": { 
-				"x": 1, "y": 8, "z": 2,
-				"margin": 0.1,
-				"pointList": [
-					{ "x": -1.0, "y": -1.0, "z": 1.0 },
-					{ "x": -1.0, "y": -1.0, "z": -1.0 },
-					{ "x": 1.0, "y": -1.0, "z": -1.0 },
-					{ "x": 1.0, "y": 0.5, "z": -1.0 },
-					{ "x": -1.0, "y": 0.0, "z": 0.5 },
-					{ "x": -1.0, "y": 0.5, "z": 0.3 },
-					{ "x": -1.0, "y": 1.0, "z": -1.0 }
-				]
-			},
-			"density": 250,
-			"physicsMaterial": "Glass",
-            "qualityLevel": 1
-		},
-		{
-			"uuid": "fbd52267-4e9b-434c-a1d3-fa836eb490b3",
-			"renderable": {
-                "lodList": [
-                    {
-                        "subMeshList": [
-                            {
-                                "textureList": [
-                                    "$GAME_DATA/Textures/transparent.tga",
-                                    "$MOD_DATA/Objects/Textures/black_asg.png",
-                                    "$GAME_DATA/Textures/nonor_nor.png"
-                                ],
-                                "material": "Glass"
-                            },
-                            {
-                                "textureList": [
-                                    "$GAME_DATA/Textures/transparent.tga",
-                                    "$MOD_DATA/Objects/Textures/default_asg.png",
-                                    "$GAME_DATA/Textures/nonor_nor.png"
-                                ],
-                                "material": "DifAsgNor"
-                            }
-                        ],
-			"mesh": "$MOD_DATA/Objects/Mesh/mjm_WindshieldAngledLeft.mesh"
-                    }
-                ]
-            },
-			"rotationSet": "PropYZnegX",
-			"color": "505050",
-			"hull": { 
-				"x": 1, "y": 6, "z": 3,
-				"margin": 0.1,
-				"pointList": [
-					{ "x": 1.0, "y": -1.0, "z": 1.0 },
-					{ "x": 1.0, "y": 1.0, "z": -0.25 },
-					{ "x": -1.0, "y": 0.5, "z": -1.0 },
-					{ "x": -1.0, "y": -0.5, "z": -1.0 }
-				]
-			},
-			"density": 250,
-			"physicsMaterial": "Glass",
-            "qualityLevel": 1
-		},
-		{
-			"uuid": "f7825c72-215c-4b87-bc04-02bde1c1cd71",
-			"renderable": {
-                "lodList": [
-                    {
-                        "subMeshList": [
-                            {
-                                "textureList": [
-                                    "$GAME_DATA/Textures/transparent.tga",
-                                    "$MOD_DATA/Objects/Textures/black_asg.png",
-                                    "$GAME_DATA/Textures/nonor_nor.png"
-                                ],
-                                "material": "Glass"
-                            },
-                            {
-                                "textureList": [
-                                    "$GAME_DATA/Textures/transparent.tga",
-                                    "$MOD_DATA/Objects/Textures/default_asg.png",
-                                    "$GAME_DATA/Textures/nonor_nor.png"
-                                ],
-                                "material": "DifAsgNor"
-                            }
-                        ],
-			"mesh": "$MOD_DATA/Objects/Mesh/mjm_WindshieldAngledCenter.mesh"
-                    }
-                ]
-            },
-			"rotationSet": "PropYZX2",
-			"color": "505050",
-			"hull": { 
-				"x": 1, "y": 6, "z": 2,
-				"margin": 0.1,
-				"pointList": [
-					{ "x": 1.0, "y": -1.0, "z": 1.0 },
-					{ "x": 1.0, "y": 1.0, "z": -1.0 },
-					{ "x": -1.0, "y": 1.0, "z": -1.0 },
-					{ "x": -1.0, "y": -1.0, "z": 1.0 }
-				]
-			},
-			"density": 250,
-			"physicsMaterial": "Glass",
-            "qualityLevel": 1
-		},
-		{
-			"uuid": "ede57c76-0483-4a44-8c7d-1a24382168f8",
-			"renderable": {
-                "lodList": [
-                    {
-                        "subMeshList": [
-                            {
-                                "textureList": [
-                                    "$GAME_DATA/Textures/transparent.tga",
-                                    "$MOD_DATA/Objects/Textures/black_asg.png",
-                                    "$GAME_DATA/Textures/nonor_nor.png"
-                                ],
-                                "material": "Glass"
-                            },
-                            {
-                                "textureList": [
-                                    "$GAME_DATA/Textures/transparent.tga",
-                                    "$MOD_DATA/Objects/Textures/default_asg.png",
-                                    "$GAME_DATA/Textures/nonor_nor.png"
-                                ],
-                                "material": "DifAsgNor"
-                            }
-                        ],
-			"mesh": "$MOD_DATA/Objects/Mesh/mjm_WindshieldAngledRight.mesh"
-                    }
-                ]
-            },
-			"rotationSet": "PropYZX",
-			"color": "505050",
-			"hull": { 
-				"x": 1, "y": 6, "z": 3,
-				"margin": 0.1,
-				"pointList": [
-					{ "x": 1.0, "y": -1.0, "z": 1.0 },
-					{ "x": 1.0, "y": 1.0, "z": -0.25 },
-					{ "x": -1.0, "y": 0.5, "z": -1.0 },
-					{ "x": -1.0, "y": -0.5, "z": -1.0 }
-				]
-			},
-			"density": 250,
-			"physicsMaterial": "Glass",
-            "qualityLevel": 1
-		},
-		{
-			"uuid": "a554e865-9255-4614-884d-cef1b4b98d6d",
-			"renderable": {
-                "lodList": [
-                    {
-                        "subMeshList": [
-                            {
-                                "textureList": [
-                                    "$GAME_DATA/Textures/transparent.tga",
-                                    "$MOD_DATA/Objects/Textures/black_asg.png",
-                                    "$GAME_DATA/Textures/nonor_nor.png"
-                                ],
-                                "material": "Glass"
-                            },
-                            {
-                                "textureList": [
-                                    "$GAME_DATA/Textures/transparent.tga",
-                                    "$MOD_DATA/Objects/Textures/default_asg.png",
-                                    "$GAME_DATA/Textures/nonor_nor.png"
-                                ],
-                                "material": "DifAsgNor"
-                            }
-                        ],
-			"mesh": "$MOD_DATA/Objects/Mesh/mjm_WindshieldBlockEdgeFlat.mesh"
-                    }
-                ]
-            },
-			"rotationSet": "PropY2Z2",
-			"color": "505050",
-			"hull": { 
-				"x": 1, "y": 1, "z": 1,
-				"margin": 0.1,
-				"pointList": [
-					{ "x": -0.66, "y": -1.0, "z": 1.0 },
-					{ "x": -0.66, "y": 1.0, "z": 1.0 },
-					{ "x": -1.0, "y": 1.0, "z": -1.0 },
-					{ "x": -1.0, "y": -1.0, "z": -1.0 },
-					{ "x": -0.34, "y": -1.0, "z": -1.0 },
-					{ "x": -0.34, "y": 1.0, "z": -1.0 }
-				]
-			},
-			"density": 250,
-			"physicsMaterial": "Glass",
-            "qualityLevel": 1
-		},
-		{
-			"uuid": "1f59238b-6e7b-47c9-bb2d-a2fe824f10a9",
-			"renderable": {
-                "lodList": [
-                    {
-                        "subMeshList": [
-                            {
-                                "textureList": [
-                                    "$GAME_DATA/Textures/transparent.tga",
-                                    "$MOD_DATA/Objects/Textures/black_asg.png",
-                                    "$GAME_DATA/Textures/nonor_nor.png"
-                                ],
-                                "material": "Glass"
-                            },
-                            {
-                                "textureList": [
-                                    "$GAME_DATA/Textures/transparent.tga",
-                                    "$MOD_DATA/Objects/Textures/default_asg.png",
-                                    "$GAME_DATA/Textures/nonor_nor.png"
-                                ],
-                                "material": "DifAsgNor"
-                            }
-                        ],
-			"mesh": "$MOD_DATA/Objects/Mesh/mjm_WindshieldBlockEdgeAngled.mesh"
-                    }
-                ]
-            },
-			"rotationSet": "PropYZX2",
-			"color": "505050",
-			"hull": { 
-				"x": 1, "y": 1, "z": 1,
-				"margin": 0.1,
-				"pointList": [
-					{ "x": -1.0, "y": 0.66, "z": -1.0 },
-					{ "x": -1.0, "y": -1.0, "z": 0.66 },
-					{ "x": 1.0, "y": -1.0, "z": 1.0 },
-					{ "x": 1.0, "y": 1.0, "z": -1.0 },
-					{ "x": 1.0, "y": 0.34, "z": -1.0 },
-					{ "x": 1.0, "y": -1.0, "z": 0.34 }
-				]
-			},
-			"density": 250,
-			"physicsMaterial": "Glass",
-            "qualityLevel": 1
-		},
-		{
-			"uuid": "baf4948c-73cc-4ed2-af77-0a56ddb3c9ea",
-			"renderable": {
-                "lodList": [
-                    {
-                        "subMeshList": [
-                            {
-                                "textureList": [
-                                    "$GAME_DATA/Textures/transparent.tga",
-                                    "$MOD_DATA/Objects/Textures/black_asg.png",
-                                    "$GAME_DATA/Textures/nonor_nor.png"
-                                ],
-                                "material": "Glass"
-                            },
-                            {
-                                "textureList": [
-                                    "$GAME_DATA/Textures/transparent.tga",
-                                    "$MOD_DATA/Objects/Textures/default_asg.png",
-                                    "$GAME_DATA/Textures/nonor_nor.png"
-                                ],
-                                "material": "DifAsgNor"
-                            }
-                        ],
-			"mesh": "$MOD_DATA/Objects/Mesh/mjm_WindshieldBlockEdgeCorner.mesh"
-                    }
-                ]
-            },
-			"rotationSet": "PropY2Z2",
-			"color": "505050",
-			"hull": { 
-				"x": 1, "y": 1, "z": 1,
-				"margin": 0.17,
-				"pointList": [
-					{ "x": -1.0, "y": -1.0, "z": 1.0 },
-					{ "x": -1.0, "y": 1.0, "z": 1.0 },
-					{ "x": -1.0, "y": 1.0, "z": -1.0 },
-					{ "x": -1.0, "y": -1.0, "z": -1.0 }
-				]
-			},
-			"density": 250,
-			"physicsMaterial": "Glass",
-            "qualityLevel": 1
-		},
-		{
-			"uuid": "8a93921f-e28f-484c-9f24-2013c88b70cb",
-			"renderable": {
-                "lodList": [
-                    {
-                        "subMeshList": [
-                            {
-                                "textureList": [
-                                    "$GAME_DATA/Textures/transparent.tga",
-                                    "$MOD_DATA/Objects/Textures/black_asg.png",
-                                    "$GAME_DATA/Textures/nonor_nor.png"
-                                ],
-                                "material": "Glass"
-                            }
-                        ], 
-			"mesh": "$MOD_DATA/Objects/Mesh/mjm_WindshieldBlockFlat.mesh"
-                    }
-                ]
-            },
-			"rotationSet": "PropY",
-			"color": "505050",
-			"hull": { 
-				"x": 1, "y": 1, "z": 1,
-				"margin": 0.1,
-				"pointList": [
-					{ "x": -1.0, "y": 1.0, "z": -0.66 },
-					{ "x": 1.0, "y": 1.0, "z": -0.66 },
-					{ "x": 1.0, "y": -1.0, "z": -0.66 },
-					{ "x": -1.0, "y": -1.0, "z": -0.66 }
-				]
-			},
-			"density": 250,
-			"physicsMaterial": "Glass",
-            "qualityLevel": 1
-		},
-		{
-			"uuid": "fb90ec45-e0ad-43b1-907a-d0d1434cf7d2",
-			"renderable": {
-                "lodList": [
-                    {
-                        "subMeshList": [
-                            {
-                                "textureList": [
-                                    "$GAME_DATA/Textures/transparent.tga",
-                                    "$MOD_DATA/Objects/Textures/black_asg.png",
-                                    "$GAME_DATA/Textures/nonor_nor.png"
-                                ],
-                                "material": "Glass"
-                            }
-                        ], 
-			"mesh": "$MOD_DATA/Objects/Mesh/mjm_WindshieldBlockAngled.mesh"
-                    }
-                ]
-            },
-			"rotationSet": "PropYZX",
-			"color": "505050",
-			"hull": { 
-				"x": 1, "y": 1, "z": 1,
-				"margin": 0.1,
-				"pointList": [
-					{ "x": -1.0, "y": 1.0, "z": 0.66 },
-					{ "x": 0.66, "y": 1.0, "z": -1.0 },
-					{ "x": 0.66, "y": -1.0, "z": -1.0 },
-					{ "x": -1.0, "y": -1.0, "z": 0.66 }
-				]
-			},
-			"density": 250,
-			"physicsMaterial": "Glass",
-            "qualityLevel": 1
-		},
-		{
-			"uuid": "a7b54314-5dda-4852-997b-5687974c1454",
-			"renderable": {
-                "lodList": [
-                    {
-                        "subMeshList": [
-                            {
-                                "textureList": [
-                                    "$GAME_DATA/Textures/transparent.tga",
-                                    "$MOD_DATA/Objects/Textures/black_asg.png",
-                                    "$GAME_DATA/Textures/nonor_nor.png"
-                                ],
-                                "material": "Glass"
-                            }
-                        ], 
-			"mesh": "$MOD_DATA/Objects/Mesh/mjm_WindshieldBlockCorner.mesh"
-                    }
-                ]
-            },
-			"rotationSet": "PropY",
-			"color": "505050",
-			"hull": { 
-				"x": 1, "y": 1, "z": 1,
-				"margin": 0.1,
-				"pointList": [
-					{ "x": -1.0, "y": -1.0, "z": 0.66 },
-					{ "x": -1.0, "y": 0.66, "z": -1.0 },
-					{ "x": 0.66, "y": -1.0, "z": -1.0 }
-				]
-			},
-			"density": 250,
-			"physicsMaterial": "Glass",
-            "qualityLevel": 1
-		},
-		{
-			"uuid": "36879846-d900-4cad-90df-ffa6cfafa5c0",
-			"renderable": {
-                "lodList": [
-                    {
-                        "subMeshList": [
-                            {
-                                "textureList": [
-                                    "$GAME_DATA/Textures/transparent.tga",
-                                    "$MOD_DATA/Objects/Textures/black_asg.png",
-                                    "$GAME_DATA/Textures/nonor_nor.png"
-                                ],
-                                "material": "Glass"
-                            },
-                            {
-                                "textureList": [
-                                    "$GAME_DATA/Textures/transparent.tga",
-                                    "$MOD_DATA/Objects/Textures/default_asg.png",
-                                    "$GAME_DATA/Textures/nonor_nor.png"
-                                ],
-                                "material": "DifAsgNor"
-                            }
-                        ],
-			"mesh": "$MOD_DATA/Objects/Mesh/mjm_WindshieldBlockFillEdge.mesh"
-                    }
-                ]
-            },
-			"rotationSet": "PropYZX2",
-			"color": "505050",
-			"hull": { 
-				"x": 1, "y": 1, "z": 1,
-				"margin": 0.16,
-				"pointList": [
-					{ "x": 1.0, "y": -1.0, "z": -1.0 },
-					{ "x": -1.0, "y": -1.0, "z": -1.0 }
-				]
-			},
-			"density": 250,
-			"physicsMaterial": "Glass",
-            "qualityLevel": 1
-		},
-		{
-			"uuid": "35aa2b1d-7659-43c8-9948-a5189acda818",
-			"renderable": {
-                "lodList": [
-                    {
-                        "subMeshList": [
-                            {
-                                "textureList": [
-                                    "$GAME_DATA/Textures/transparent.tga",
-                                    "$MOD_DATA/Objects/Textures/black_asg.png",
-                                    "$GAME_DATA/Textures/nonor_nor.png"
-                                ],
-                                "material": "Glass"
-                            }
-                        ], 
-			"mesh": "$MOD_DATA/Objects/Mesh/mjm_WindshieldBlockFillAngle.mesh"
-                    }
-                ]
-            },
-			"rotationSet": "PropYX",
-			"color": "505050",
-			"hull": { 
-				"x": 1, "y": 1, "z": 1,
-				"margin": 0.13,
-				"pointList": [
-					{ "x": 1.0, "y": -1.0, "z": -1.0 },
-					{ "x": -1.0, "y": -1.0, "z": -1.0 }
-				]
-			},
-			"density": 250,
-			"physicsMaterial": "Glass",
-            "qualityLevel": 1
-		},
-		{
-			"uuid": "3f542de8-c0f2-42de-8951-cd74aaa97074",
-			"renderable": {
-                "lodList": [
-                    {
-                        "subMeshList": [
-                            {
-                                "textureList": [
-                                    "$GAME_DATA/Textures/transparent.tga",
-                                    "$MOD_DATA/Objects/Textures/black_asg.png",
-                                    "$GAME_DATA/Textures/nonor_nor.png"
-                                ],
-                                "material": "Glass"
-                            }
-                        ], 
-			"mesh": "$MOD_DATA/Objects/Mesh/mjm_WindshieldBlockFillCorner.mesh"
-                    }
-                ]
-            },
-			"rotationSet": "PropY",
-			"color": "505050",
-			"hull": { 
-				"x": 1, "y": 1, "z": 1,
-				"margin": 0.1,
-				"pointList": [
-					{ "x": -1.0, "y": -1.0, "z": 0.84 },
-					{ "x": -1.0, "y": 0.84, "z": -1.0 },
-					{ "x": 0.84, "y": -1.0, "z": -1.0 }
-				]
-			},
-			"density": 250,
-			"physicsMaterial": "Glass",
-            "qualityLevel": 1
+			"qualityLevel": 3
 		},
 
 
-		
 		{
-			"uuid": "ad1d4020-f9de-11e6-bc64-92361f002671", 
+			"uuid": "b57c8185-2f95-4ba8-818d-eed258e01d00", // 1x1
 			"renderable": {
-                "lodList": [
-                    {
-                        "subMeshList": [
-                            {
-                                "textureList": [
-                                    "$MOD_DATA/Objects/Textures/transparent.png",
-                                    "$MOD_DATA/Objects/Textures/default_asg.png",
-                                    ""
-                                ],
-                                "material": "DifAsg"
-                            }
-                        ],
-                        "mesh": "$MOD_DATA/Objects/Mesh/gear11.obj"
-                    }
-                ]
-            },
-			"rotationSet": "PropFull",
-			"color": "505050",
-			"hull": {
-				"x": 1, "y": 1, "z": 1, "margin": 0.0,
+				"lodList": [
+					{
+						"subMeshList": [
+							{
+								"textureList": [
+									"$MOD_DATA/Objects/Textures/mod_decor_boot_dif.png",
+									"$MOD_DATA/Objects/Textures/mod_decor_boot_asg.png",
+									"$MOD_DATA/Objects/Textures/mod_decor_boot_nor.png"
+								],
+								"material": "DifAsgNor"
+							}
+						],
+						"mesh": "$MOD_DATA/Objects/Mesh/mjm_WheelRoller1x1.mesh"
+					}
+				]
+			},
+			"rotationSet": "PropZ",
+			"color": "7f7f7f",
+			"cylinder": { "diameter": 1, "depth": 1, "margin": 0.5, "axis": "Z" },
+			"density": 1250.0,
+			"physicsMaterial": "Plastic",
+			"qualityLevel": 3
+		},
+		{
+			"uuid": "4e1452d0-a9c2-42d4-91cf-1aea84c533ed", // 2x1
+			"renderable": {
+				"lodList": [
+					{
+						"subMeshList": [
+							{
+								"textureList": [
+									"$MOD_DATA/Objects/Textures/mod_decor_boot_dif.png",
+									"$MOD_DATA/Objects/Textures/mod_decor_boot_asg.png",
+									"$MOD_DATA/Objects/Textures/mod_decor_boot_nor.png"
+								],
+								"material": "DifAsgNor"
+							}
+						],
+						"mesh": "$MOD_DATA/Objects/Mesh/mjm_WheelRoller2x1.mesh"
+					}
+				]
+			},
+			"rotationSet": "PropZ",
+			"color": "7f7f7f",
+			"hull": { 
+				"x": 3, "y": 3, "z": 1,
+				"margin": 0.5,
 				"pointList": [
+					{ "x": 0.0, "y": 0.33, "z": 0.0 },
+					{ "x": 0.13, "y": 0.31, "z": 0.0 },
+					{ "x": 0.24, "y": 0.24, "z": 0.0 },
+					{ "x": 0.31, "y": 0.13, "z": 0.0 },
+					{ "x": 0.33, "y": 0.0, "z": 0.0 },
+					{ "x": 0.31, "y": -0.13, "z": 0.0 },
+					{ "x": 0.24, "y": -0.24, "z": 0.0 },
+					{ "x": 0.13, "y": -0.31, "z": 0.0 },
+					{ "x": 0.0, "y": -0.33, "z": 0.0 },
+					{ "x": -0.13, "y": -0.31, "z": 0.0 },
+					{ "x": -0.24, "y": -0.24, "z": 0.0 },
+					{ "x": -0.31, "y": -0.13, "z": 0.0 },
+					{ "x": -0.33, "y": 0.0, "z": 0.0 },
+					{ "x": -0.31, "y": 0.13, "z": 0.0 },
+					{ "x": -0.24, "y": 0.24, "z": 0.0 },
+					{ "x": -0.13, "y": 0.31, "z": 0.0 }
+				]
+			},
+			"density": 500.0,
+			"physicsMaterial": "Plastic",
+			"qualityLevel": 3
+		},
+		{
+			"uuid": "c460f40f-c7b7-4695-a627-9f01749724b6", // round 3x1
+			"renderable": {
+				"lodList": [
+					{
+						"subMeshList": [
+							{
+								"textureList": [
+									"$MOD_DATA/Objects/Textures/mod_decor_boot_dif.png",
+									"$MOD_DATA/Objects/Textures/mod_decor_boot_asg.png",
+									"$MOD_DATA/Objects/Textures/mod_decor_boot_nor.png"
+								],
+								"material": "DifAsgNor"
+							}
+						],
+						"mesh": "$MOD_DATA/Objects/Mesh/mjm_WheelRound3x1.mesh"
+					}
+				]
+			},
+			"rotationSet": "PropZ",
+			"color": "7f7f7f",
+			"cylinder": { "diameter": 3, "depth": 1, "margin": 0.5, "axis": "Z" },
+			"density": 1000.0,
+			"physicsMaterial": "Plastic",
+			"qualityLevel": 3
+		},
 
-					{ "x": 0.4142, "y": 0.8, "z": 1.0 },
-					{ "x": 1.0, "y": 0.8, "z": 0.4142 },
-					{ "x": 1.0, "y": 0.8, "z": -0.4142 },
-					{ "x": 0.4142, "y": 0.8, "z": -1.0 },
-					{ "x": -0.4142, "y": 0.8, "z": -1.0 },
-					{ "x": -1.0, "y": 0.8, "z": -0.4142 },
-					{ "x": -1.0, "y": 0.8, "z": 0.4142 },
-					{ "x": -0.4142, "y": -0.8, "z": 1.0 },
-					{ "x": 0.4142, "y": -0.8, "z": 1.0 },
-					{ "x": 1.0, "y": -0.8, "z": 0.4142 },
-					{ "x": 1.0, "y": -0.8, "z": -0.4142 },
-					{ "x": 0.4142, "y": -0.8, "z": -1.0 },
-					{ "x": -0.4142, "y": -0.8, "z": -1.0 },
-					{ "x": -1.0, "y": -0.8, "z": -0.4142 },
-					{ "x": -1.0, "y": -0.8, "z": 0.4142 },
-					{ "x": -0.4142, "y": -0.8, "z": 1.0 }
-					
+///////////////
+		{
+			"uuid": "c9cf3b88-86f3-4146-af16-a7b16c917ecc", // hubless
+			"renderable": {
+				"lodList": [
+					{
+						"subMeshList": [
+							{
+								"textureList": [
+									"$MOD_DATA/Objects/Textures/mod_decor_boot_dif.png",
+									"$MOD_DATA/Objects/Textures/mod_decor_boot_asg.png",
+									"$MOD_DATA/Objects/Textures/mod_decor_boot_nor.png"
+								],
+								"material": "DifAsgNor"
+							}
+						],
+						"mesh": "$MOD_DATA/Objects/Mesh/mjm_WheelHubless.mesh"
+					}
 				]
-				
 			},
-			"density": 250.0,
-			"physicsMaterial": "Metal",
-            "qualityLevel": 4
+			"rotationSet": "PropZ",
+			"color": "7f7f7f",
+			"cylinder": { "diameter": 5, "depth": 1, "margin": 0.5, "axis": "Z" },
+			"density": 1000.0,
+			"physicsMaterial": "Plastic",
+			"qualityLevel": 3
 		},
 		{
-			"uuid": "ad1d43b8-f9de-11e6-bc64-92361f002671", 
+			"uuid": "4358b01f-3303-42a2-91d2-cc950e23b59b", // invisible wheel
 			"renderable": {
-                "lodList": [
-                    {
-                        "subMeshList": [
-                            {
-                                "textureList": [
-                                    "$MOD_DATA/Objects/Textures/transparent.png",
-                                    "$MOD_DATA/Objects/Textures/default_asg.png",
-                                    ""
-                                ],
-                                "material": "DifAsg"
-                            }
-                        ],
-                        "mesh": "$MOD_DATA/Objects/Mesh/gear12.obj"
-                    }
-                ]
-            },
-			"rotationSet": "PropZY",
-			"color": "505050",
-			"hull": { 
-				"x": 1, "y": 1, "z": 1, "margin": 0.05,
-				"pointList": [
-					{ "x": -0.28995, "y": 0.95, "z": -1.0 },
-					{ "x": 0.28995, "y": 0.95, "z": -1.0 },
-					
-					{ "x": -0.28995, "y": -0.95, "z": -1.0 },
-					{ "x": 0.28995, "y": -0.95, "z": -1.0 },
-					
-					{ "x": -0.28995, "y": 0.95, "z": -0.2 },
-					{ "x": 0.28995, "y": 0.95, "z": -0.2 },
-					
-					{ "x": -0.28995, "y": -0.95, "z": -0.2 },
-					{ "x": 0.28995, "y": -0.95, "z": -0.2 },
-					
-					{ "x": -0.260955, "y": 0.95, "z": 0.0 },
-					{ "x": 0.260955, "y": 0.95, "z": 0.0 },
-					
-					{ "x": -0.260955, "y": -0.95, "z": 0.0 },
-					{ "x": 0.260955, "y": -0.95, "z": 0.0 },
-					
-					{ "x": -0.217462, "y": 0.95, "z": 0.2 },
-					{ "x": 0.217462, "y": 0.95, "z": 0.2 },
-					
-					{ "x": -0.217462, "y": -0.95, "z": 0.2 },
-					{ "x": 0.217462, "y": -0.95, "z": 0.2 },
-					
-					{ "x": -0.144975, "y": 0.95, "z": 0.4 },
-					{ "x": 0.144975, "y": 0.95, "z": 0.4 },
-					
-					{ "x": -0.144975, "y": -0.95, "z": 0.4 },
-					{ "x": 0.144975, "y": -0.95, "z": 0.4 }
-					
-					
-					
+				"lodList": [
+					{
+						"subMeshList": [
+							{
+								"textureList": [
+									"$GAME_DATA/Textures/transparent.tga",
+									"$GAME_DATA/Textures/black.png",
+									"$GAME_DATA/Textures/nonor_nor.png"
+								],
+								"material": "DifAsgNorAlphaFlip"
+							}
+						],
+						"mesh": "$MOD_DATA/Objects/Mesh/mjm_WheelDirtbike5x1.mesh"
+					}
 				]
 			},
-			"density": 250.0,
-			"physicsMaterial": "Metal",
-            "qualityLevel": 4
+			"rotationSet": "PropZ",
+			"color": "7f7f7f",
+			"cylinder": { "diameter": 5, "depth": 1, "axis": "Z" },
+			"physicsMaterial": "Plastic",
+			"qualityLevel": 3
 		},
-		
+/////////////
+
+// dirt wheels
 		{
-			"uuid": "ad1d5920-f9de-11e6-bc64-92361f002671", 
+			"uuid": "27b6541d-2be0-420f-abb8-d59f566e85bd",
 			"renderable": {
-                "lodList": [
-                    {
-                        "subMeshList": [
-                            {
-                                "textureList": [
-                                    "$MOD_DATA/Objects/Textures/transparent.png",
-                                    "$MOD_DATA/Objects/Textures/default_asg.png",
-                                    ""
-                                ],
-                                "material": "DifAsg"
-                            }
-                        ],
-                        "mesh": "$MOD_DATA/Objects/Mesh/gear12a.obj"
-                    }
-                ]
-            },
-			"rotationSet": "PropZY",
-			"color": "505050",
-			"hull": { 
-				"x": 1, "y": 1, "z": 1, "margin": 0.05,
-				"pointList": [
-					{ "x": -0.28995, "y": 0.486, "z": -1.0 },
-					{ "x": 0.28995, "y": 0.486, "z": -1.0 },
-					
-					{ "x": -0.28995, "y": -0.486, "z": -1.0 },
-					{ "x": 0.28995, "y": -0.486, "z": -1.0 },
-					
-					{ "x": -0.28995, "y": 0.356, "z": -0.2 },
-					{ "x": 0.28995, "y": 0.356, "z": -0.2 },
-					
-					{ "x": -0.28995, "y": -0.356, "z": -0.2 },
-					{ "x": 0.28995, "y": -0.356, "z": -0.2 },
-					
-					{ "x": -0.260955, "y": 0.356, "z": 0.0 },
-					{ "x": 0.260955, "y": 0.356, "z": 0.0 },
-					
-					{ "x": -0.260955, "y": -0.356, "z": 0.0 },
-					{ "x": 0.260955, "y": -0.356, "z": 0.0 },
-					
-					{ "x": -0.217462, "y": 0.228, "z": 0.2 },
-					{ "x": 0.217462, "y": 0.228, "z": 0.2 },
-					
-					{ "x": -0.217462, "y": -0.228, "z": 0.2 },
-					{ "x": 0.217462, "y": -0.228, "z": 0.2 },
-					
-					{ "x": -0.144975, "y": 0.1, "z": 0.4 },
-					{ "x": 0.144975, "y": 0.1, "z": 0.4 },
-					
-					{ "x": -0.144975, "y": -0.1, "z": 0.4 },
-					{ "x": 0.144975, "y": -0.1, "z": 0.4 }
-					
-					
-					
+				"lodList": [
+					{
+						"subMeshList": [
+							{
+								"textureList": [
+									"$MOD_DATA/Objects/Textures/mod_decor_boot_dif.png",
+									"$MOD_DATA/Objects/Textures/mod_decor_boot_asg.png",
+									"$MOD_DATA/Objects/Textures/mod_decor_boot_nor.png"
+								],
+								"material": "DifAsgNor"
+							}
+						],
+						"mesh": "$MOD_DATA/Objects/Mesh/mjm_WheelDirtbike3xhalf.mesh"
+					}
 				]
 			},
-			"density": 250.0,
-			"physicsMaterial": "Metal",
-            "qualityLevel": 4
+			"rotationSet": "PropZ",
+			"color": "7f7f7f",
+			"cylinder": { "diameter": 3, "depth": 1, "margin": 0.5, "axis": "Z" },
+			"density": 1000.0,
+			"physicsMaterial": "Plastic",
+			"qualityLevel": 3
 		},
-		
 		{
-			"uuid": "ad1d4598-f9de-11e6-bc64-92361f002671", 
+			"uuid": "68a7fe0a-4d48-4552-a29d-044d3c7b9e02",
 			"renderable": {
-                "lodList": [
-                    {
-                        "subMeshList": [
-                            {
-                                "textureList": [
-                                    "$MOD_DATA/Objects/Textures/transparent.png",
-                                    "$MOD_DATA/Objects/Textures/default_asg.png",
-                                    ""
-                                ],
-                                "material": "DifAsg"
-                            }
-                        ],
-                        "mesh": "$MOD_DATA/Objects/Mesh/gear13.obj"
-                    }
-                ]
-            },
-			"rotationSet": "PropGears",
-			"color": "505050",
-			"hull": { 
-				"x": 1, "y": 1, "z": 1, "margin": 0.05,
-				"pointList": [
-					{ "x": -1.0, "y": 0.95, "z": -1.0 },
-					{ "x": -1.0, "y": -0.95, "z": -1.0 },
-					
-					{ "x": -1.0, "y": 0.95, "z": -0.592 },
-					{ "x": -1.0, "y": -0.95, "z": -0.592 },
-					
-					{ "x": -0.592, "y": 0.95, "z": -1.0 },
-					{ "x": -0.592, "y": -0.95, "z": -1.0 },
-					
-					{ "x": -0.93047, "y": 0.95, "z": -0.520422 },
-					{ "x": -0.93047, "y": -0.95, "z": -0.520422 },
-					
-					{ "x": -0.520422, "y": 0.95, "z": -0.93047 },
-					{ "x": -0.520422, "y": -0.95, "z": -0.93047 },
-					
-					{ "x": -0.768548, "y": 0.95, "z": -0.399503 },
-					{ "x": -0.768548, "y": -0.95, "z": -0.399503},
-					
-					{ "x": -0.399503, "y": 0.95, "z": -0.768548 },
-					{ "x": -0.399503, "y": -0.95, "z": -0.768548 },
-					
-					{ "x": -0.596373, "y": 0.95, "z": -0.288835 },
-					{ "x": -0.596373, "y": -0.95, "z": -0.288835 },
-					
-					{ "x": -0.288835, "y": 0.95, "z": -0.596373 },
-					{ "x": -0.288835, "y": -0.95, "z": -0.596373 },
-					
-					{ "x": -0.403695, "y": 0.95, "z": -0.19867 },
-					{ "x": -0.403695, "y": -0.95, "z": -0.19867 },
-					
-					{ "x": -0.19867, "y": 0.95, "z": -0.403695 },
-					{ "x": -0.19867, "y": -0.95, "z": -0.403695 }
-					
+				"lodList": [
+					{
+						"subMeshList": [
+							{
+								"textureList": [
+									"$MOD_DATA/Objects/Textures/mod_decor_boot_dif.png",
+									"$MOD_DATA/Objects/Textures/mod_decor_boot_asg.png",
+									"$MOD_DATA/Objects/Textures/mod_decor_boot_nor.png"
+								],
+								"material": "DifAsgNor"
+							}
+						],
+						"mesh": "$MOD_DATA/Objects/Mesh/mjm_WheelDirtbike3x1.mesh"
+					}
 				]
 			},
-			"density": 250.0,
-			"physicsMaterial": "Metal",
-            "qualityLevel": 4
+			"rotationSet": "PropZ",
+			"color": "7f7f7f",
+			"cylinder": { "diameter": 3, "depth": 1, "margin": 0.5, "axis": "Z" },
+			"density": 1000.0,
+			"physicsMaterial": "Plastic",
+			"qualityLevel": 3
 		},
-		
 		{
-			"uuid": "ad1d5ad8-f9de-11e6-bc64-92361f002671", 
+			"uuid": "92d3c375-0e45-4df4-8691-90e49e8ce24d",
 			"renderable": {
-                "lodList": [
-                    {
-                        "subMeshList": [
-                            {
-                                "textureList": [
-                                    "$MOD_DATA/Objects/Textures/transparent.png",
-                                    "$MOD_DATA/Objects/Textures/default_asg.png",
-                                    ""
-                                ],
-                                "material": "DifAsg"
-                            }
-                        ],
-                        "mesh": "$MOD_DATA/Objects/Mesh/gear13a.obj"
-                    }
-                ]
-            },
-			"rotationSet": "PropGears",
-			"color": "505050",
-			"hull": { 
-				"x": 1, "y": 1, "z": 1, "margin": 0.05,
-				"pointList": [
-					{ "x": -1.0, "y": 0.486, "z": -1.0 },
-					{ "x": -1.0, "y": -0.486, "z": -1.0 },
-					
-					{ "x": -1.0, "y": 0.486, "z": -0.592 },
-					{ "x": -1.0, "y": -0.486, "z": -0.592 },
-					
-					{ "x": -0.592, "y": 0.486, "z": -1.0 },
-					{ "x": -0.592, "y": -0.486, "z": -1.0 },
-					
-					{ "x": -0.93047, "y": 0.356, "z": -0.520422 },
-					{ "x": -0.93047, "y": -0.356, "z": -0.520422 },
-					
-					{ "x": -0.520422, "y": 0.356, "z": -0.93047 },
-					{ "x": -0.520422, "y": -0.356, "z": -0.93047 },
-					
-					{ "x": -0.768548, "y": 0.356, "z": -0.399503 },
-					{ "x": -0.768548, "y": -0.356, "z": -0.399503},
-					
-					{ "x": -0.399503, "y": 0.356, "z": -0.768548 },
-					{ "x": -0.399503, "y": -0.356, "z": -0.768548 },
-					
-					{ "x": -0.596373, "y": 0.228, "z": -0.288835 },
-					{ "x": -0.596373, "y": -0.228, "z": -0.288835 },
-					
-					{ "x": -0.288835, "y": 0.228, "z": -0.596373 },
-					{ "x": -0.288835, "y": -0.228, "z": -0.596373 },
-					
-					{ "x": -0.403695, "y": 0.1, "z": -0.19867 },
-					{ "x": -0.403695, "y": -0.1, "z": -0.19867 },
-					
-					{ "x": -0.19867, "y": 0.1, "z": -0.403695 },
-					{ "x": -0.19867, "y": -0.1, "z": -0.403695 }
-					
+				"lodList": [
+					{
+						"subMeshList": [
+							{
+								"textureList": [
+									"$MOD_DATA/Objects/Textures/mod_decor_boot_dif.png",
+									"$MOD_DATA/Objects/Textures/mod_decor_boot_asg.png",
+									"$MOD_DATA/Objects/Textures/mod_decor_boot_nor.png"
+								],
+								"material": "DifAsgNor"
+							}
+						],
+						"mesh": "$MOD_DATA/Objects/Mesh/mjm_WheelDirtbike4x1.mesh"
+					}
 				]
 			},
-			"density": 250.0,
-			"physicsMaterial": "Metal",
-            "qualityLevel": 4
+			"rotationSet": "PropZ",
+			"color": "7f7f7f",
+			"hull": { 
+				"x": 5, "y": 5, "z": 1,
+				"margin": 0.5,
+				"pointList": [
+					{ "x": 0.0, "y": 0.6, "z": 0.0 },
+					{ "x": 0.23, "y": 0.55, "z": 0.0 },
+					{ "x": 0.42, "y": 0.42, "z": 0.0 },
+					{ "x": 0.55, "y": 0.23, "z": 0.0 },
+					{ "x": 0.6, "y": 0.0, "z": 0.0 },
+					{ "x": 0.55, "y": -0.23, "z": 0.0 },
+					{ "x": 0.42, "y": -0.42, "z": 0.0 },
+					{ "x": 0.23, "y": -0.55, "z": 0.0 },
+					{ "x": 0.0, "y": -0.6, "z": 0.0 },
+					{ "x": -0.23, "y": -0.55, "z": 0.0 },
+					{ "x": -0.42, "y": -0.42, "z": 0.0 },
+					{ "x": -0.55, "y": -0.23, "z": 0.0 },
+					{ "x": -0.6, "y": 0.0, "z": 0.0 },
+					{ "x": -0.55, "y": 0.23, "z": 0.0 },
+					{ "x": -0.42, "y": 0.42, "z": 0.0 },
+					{ "x": -0.23, "y": 0.55, "z": 0.0 }
+				]
+			},
+			"density": 1000.0,
+			"physicsMaterial": "Plastic",
+			"qualityLevel": 3
 		},
-		
 		{
-			"uuid": "ad1d4c50-f9de-11e6-bc64-92361f002671", 
+			"uuid": "041ae0ae-07d5-4ac5-9767-be396ba2445d",
 			"renderable": {
-                "lodList": [
-                    {
-                        "subMeshList": [
-                            {
-                                "textureList": [
-                                    "$MOD_DATA/Objects/Textures/transparent.png",
-                                    "$MOD_DATA/Objects/Textures/default_asg.png",
-                                    ""
-                                ],
-                                "material": "DifAsg"
-                            }
-                        ],
-                        "mesh": "$MOD_DATA/Objects/Mesh/gear23.obj"
-                    }
-                ]
-            },
-			"rotationSet": "PropGears",
-			"color": "505050",
-			"hull": { 
-				"x": 1, "y": 1, "z": 1, "margin": 0.04,
-				"pointList": [
-					{ "x": -1.0, "y": 0.95, "z": -1.0 },
-					{ "x": -1.0, "y": -0.95, "z": -1.0 },
-					
-					{ "x": -1.0, "y": 0.95, "z": -0.849847 },
-					{ "x": -1.0, "y": -0.95, "z": -0.849847 },
-					
-					{ "x": -0.441406, "y": 0.95, "z": -0.994898 },
-					{ "x": -0.441406, "y": -0.95, "z": -0.994898 },
-					
-					{ "x": -0.813682, "y": 0.95, "z": -0.378299 },
-					{ "x": -0.813682, "y": -0.95, "z": -0.378299 },
-					
-					{ "x": -0.277924, "y": 0.95, "z": -0.600217 },
-					{ "x": -0.277924, "y": -0.95, "z": -0.600217 },
-					
-					{ "x": -0.710356, "y": 0.95, "z": -0.204619 },
-					{ "x": -0.710356, "y": -0.95, "z": -0.204619 },
-					
-					{ "x": -0.228176, "y": 0.95, "z": -0.404345 },
-					{ "x": -0.228176, "y": -0.95, "z": -0.404345 },
-					
-					{ "x": -0.593638, "y": 0.95, "z": -0.036487 },
-					{ "x": -0.593638, "y": -0.95, "z": -0.036487 },
-					
-					{ "x": -0.191821, "y": 0.95, "z": -0.202925 },
-					{ "x": -0.191821, "y": -0.95, "z": -0.202925 },
-					
-					{ "x": -0.450131, "y": 0.95, "z": 0.120549 },
-					{ "x": -0.450131, "y": -0.95, "z": 0.120549 },
-					
-					{ "x": -0.182254, "y": 0.95, "z": -0.009591 },
-					{ "x": -0.182254, "y": -0.95, "z": -0.009591 }
-					
+				"lodList": [
+					{
+						"subMeshList": [
+							{
+								"textureList": [
+									"$MOD_DATA/Objects/Textures/mod_decor_boot_dif.png",
+									"$MOD_DATA/Objects/Textures/mod_decor_boot_asg.png",
+									"$MOD_DATA/Objects/Textures/mod_decor_boot_nor.png"
+								],
+								"material": "DifAsgNor"
+							}
+						],
+						"mesh": "$MOD_DATA/Objects/Mesh/mjm_WheelDirtbike5x1.mesh"
+					}
 				]
 			},
-			"density": 250.0,
-			"physicsMaterial": "Metal",
-            "qualityLevel": 4
+			"rotationSet": "PropZ",
+			"color": "7f7f7f",
+			"cylinder": { "diameter": 5, "depth": 1, "margin": 0.5, "axis": "Z" },
+			"density": 1000.0,
+			"physicsMaterial": "Plastic",
+			"qualityLevel": 3
 		},
-		
 		{
-			"uuid": "ad1d5c5e-f9de-11e6-bc64-92361f002671", 
+			"uuid": "c47ff0cd-e1f2-4727-ba40-c85d0512d6d0",
 			"renderable": {
-                "lodList": [
-                    {
-                        "subMeshList": [
-                            {
-                                "textureList": [
-                                    "$MOD_DATA/Objects/Textures/transparent.png",
-                                    "$MOD_DATA/Objects/Textures/default_asg.png",
-                                    ""
-                                ],
-                                "material": "DifAsg"
-                            }
-                        ],
-                        "mesh": "$MOD_DATA/Objects/Mesh/gear23a.obj"
-                    }
-                ]
-            },
-			"rotationSet": "PropGears",
-			"color": "505050",
-			"hull": { 
-				"x": 1, "y": 1, "z": 1, "margin": 0.04,
-				"pointList": [
-					{ "x": -1.0, "y": 0.486, "z": -1.0 },
-					{ "x": -1.0, "y": -0.486, "z": -1.0 },
-					
-					{ "x": -1.0, "y": 0.486, "z": -0.849847 },
-					{ "x": -1.0, "y": -0.486, "z": -0.849847 },
-					
-					{ "x": -0.441406, "y": 0.356, "z": -0.994898 },
-					{ "x": -0.441406, "y": -0.356, "z": -0.994898 },
-					
-					{ "x": -0.813682, "y": 0.356, "z": -0.378299 },
-					{ "x": -0.813682, "y": -0.356, "z": -0.378299 },
-					
-					{ "x": -0.277924, "y": 0.356, "z": -0.600217 },
-					{ "x": -0.277924, "y": -0.356, "z": -0.600217 },
-					
-					{ "x": -0.710356, "y": 0.356, "z": -0.204619 },
-					{ "x": -0.710356, "y": -0.356, "z": -0.204619 },
-					
-					{ "x": -0.228176, "y": 0.356, "z": -0.404345 },
-					{ "x": -0.228176, "y": -0.356, "z": -0.404345 },
-					
-					{ "x": -0.593638, "y": 0.228, "z": -0.036487 },
-					{ "x": -0.593638, "y": -0.228, "z": -0.036487 },
-					
-					{ "x": -0.191821, "y": 0.228, "z": -0.202925 },
-					{ "x": -0.191821, "y": -0.228, "z": -0.202925 },
-					
-					{ "x": -0.450131, "y": 0.1, "z": 0.120549 },
-					{ "x": -0.450131, "y": -0.1, "z": 0.120549 },
-					
-					{ "x": -0.182254, "y": 0.1, "z": -0.009591 },
-					{ "x": -0.182254, "y": -0.1, "z": -0.009591 }
-					
+				"lodList": [
+					{
+						"subMeshList": [
+							{
+								"textureList": [
+									"$MOD_DATA/Objects/Textures/mod_decor_boot_dif.png",
+									"$MOD_DATA/Objects/Textures/mod_decor_boot_asg.png",
+									"$MOD_DATA/Objects/Textures/mod_decor_boot_nor.png"
+								],
+								"material": "DifAsgNor"
+							}
+						],
+						"mesh": "$MOD_DATA/Objects/Mesh/mjm_WheelDirtbike5x2.mesh"
+					}
 				]
 			},
-			"density": 250.0,
-			"physicsMaterial": "Metal",
-            "qualityLevel": 4
+			"rotationSet": "PropZ",
+			"color": "7f7f7f",
+			"cylinder": { "diameter": 5, "depth": 2, "margin": 0.5, "axis": "Z" },
+			"physicsMaterial": "Plastic",
+			"qualityLevel": 3
 		},
-		
 		{
-			"uuid": "ad1d4746-f9de-11e6-bc64-92361f002671", 
+			"uuid": "784bf162-b2d1-4a6d-9cf4-091827871a40",
 			"renderable": {
-                "lodList": [
-                    {
-                        "subMeshList": [
-                            {
-                                "textureList": [
-                                    "$MOD_DATA/Objects/Textures/transparent.png",
-                                    "$MOD_DATA/Objects/Textures/default_asg.png",
-                                    ""
-                                ],
-                                "material": "DifAsg"
-                            }
-                        ],
-                        "mesh": "$MOD_DATA/Objects/Mesh/gear24.obj"
-                    }
-                ]
-            },
-			"rotationSet": "PropGears",
-			"color": "505050",
-			"hull": { 
-				"x": 1, "y": 1, "z": 1, "margin": 0.04,
-				"pointList": [
-					{ "x": -1.0, "y": 0.95, "z": -1.0 },
-					{ "x": -1.0, "y": -0.95, "z": -1.0 },
-					
-					{ "x": -0.99, "y": 0.95, "z": -0.585027 },
-					{ "x": -0.99, "y": -0.95, "z": -0.585027 },
-					
-					{ "x": -0.585027, "y": 0.95, "z": -0.99 },
-					{ "x": -0.585027, "y": -0.95, "z": -0.99 },
-					
-					{ "x": 0.48198, "y": 0.95, "z": 0.892031 },
-					{ "x": 0.48198, "y": -0.95, "z": 0.892031 },
-					
-					{ "x": 0.892031, "y": 0.95, "z": 0.48198 },
-					{ "x": 0.892031, "y": -0.95, "z": 0.48198 },
-					
-					{ "x": 0.643905, "y": 0.95, "z": 1.0 },
-					{ "x": 0.643905, "y": -0.95, "z": 1.0 },
-					
-					{ "x": 1.0, "y": 0.95, "z": 0.643905 },
-					{ "x": 1.0, "y": -0.95, "z": 0.643905 },
-					
-					{ "x": 1.0, "y": 0.95, "z": 1.0 },
-					{ "x": 1.0, "y": -0.95, "z": 1.0 }
-					
-					
-					
+				"lodList": [
+					{
+						"subMeshList": [
+							{
+								"textureList": [
+									"$MOD_DATA/Objects/Textures/mod_decor_boot_dif.png",
+									"$MOD_DATA/Objects/Textures/mod_decor_boot_asg.png",
+									"$MOD_DATA/Objects/Textures/mod_decor_boot_nor.png"
+								],
+								"material": "DifAsgNor"
+							}
+						],
+						"mesh": "$MOD_DATA/Objects/Mesh/mjm_WheelDirtbike5x3.mesh"
+					}
 				]
 			},
+			"rotationSet": "PropZ",
+			"color": "7f7f7f",
+			"cylinder": { "diameter": 5, "depth": 3, "margin": 0.5, "axis": "Z" },
 			"density": 250.0,
-			"physicsMaterial": "Metal",
-            "qualityLevel": 4
+			"physicsMaterial": "Plastic",
+			"qualityLevel": 3
 		},
-		
+// street wheels
 		{
-			"uuid": "ad1d5dee-f9de-11e6-bc64-92361f002671", 
+			"uuid": "5a9ff028-a6cb-4010-bcd4-c88eb230bcdb",
 			"renderable": {
-                "lodList": [
-                    {
-                        "subMeshList": [
-                            {
-                                "textureList": [
-                                    "$MOD_DATA/Objects/Textures/transparent.png",
-                                    "$MOD_DATA/Objects/Textures/default_asg.png",
-                                    ""
-                                ],
-                                "material": "DifAsg"
-                            }
-                        ],
-                        "mesh": "$MOD_DATA/Objects/Mesh/gear24a.obj"
-                    }
-                ]
-            },
-			"rotationSet": "PropGears",
-			"color": "505050",
-			"hull": { 
-				"x": 1, "y": 1, "z": 1, "margin": 0.04,
-				"pointList": [
-					{ "x": -1.0, "y": 0.356, "z": -1.0 },
-					{ "x": -1.0, "y": -0.356, "z": -1.0 },
-					
-					{ "x": -0.99, "y": 0.356, "z": -0.585027 },
-					{ "x": -0.99, "y": -0.356, "z": -0.585027 },
-					
-					{ "x": -0.585027, "y": 0.356, "z": -0.99 },
-					{ "x": -0.585027, "y": -0.356, "z": -0.99 },
-					
-					{ "x": 0.48198, "y": 0.228, "z": 0.892031 },
-					{ "x": 0.48198, "y": -0.228, "z": 0.892031 },
-					
-					{ "x": 0.892031, "y": 0.228, "z": 0.48198 },
-					{ "x": 0.892031, "y": -0.228, "z": 0.48198 },
-					
-					{ "x": 0.643905, "y": 0.1, "z": 1.0 },
-					{ "x": 0.643905, "y": -0.1, "z": 1.0 },
-					
-					{ "x": 1.0, "y": 0.1, "z": 0.643905 },
-					{ "x": 1.0, "y": -0.1, "z": 0.643905 },
-					
-					{ "x": 1.0, "y": 0.05, "z": 1.0 },
-					{ "x": 1.0, "y": -0.05, "z": 1.0 }
-					
-					
-					
+				"lodList": [
+					{
+						"subMeshList": [
+							{
+								"textureList": [
+									"$MOD_DATA/Objects/Textures/mod_decor_boot_dif.png",
+									"$MOD_DATA/Objects/Textures/mod_decor_boot_asg.png",
+									"$MOD_DATA/Objects/Textures/mod_decor_boot_nor.png"
+								],
+								"material": "DifAsgNor"
+							}
+						],
+						"mesh": "$MOD_DATA/Objects/Mesh/mjm_WheelStreet3x1.mesh"
+					}
 				]
 			},
-			"density": 250.0,
-			"physicsMaterial": "Metal",
-            "qualityLevel": 4
+			"rotationSet": "PropZ",
+			"color": "7f7f7f",
+			"cylinder": { "diameter": 3, "depth": 1, "margin": 0.5, "axis": "Z" },
+			"density": 1250.0,
+			"physicsMaterial": "Plastic",
+			"qualityLevel": 3
 		},
-		
 		{
-			"uuid": "ad1d5114-f9de-11e6-bc64-92361f002671", 
+			"uuid": "58e7fdd0-9f15-466c-aaba-60805044fe67",
 			"renderable": {
-                "lodList": [
-                    {
-                        "subMeshList": [
-                            {
-                                "textureList": [
-                                    "$MOD_DATA/Objects/Textures/transparent.png",
-                                    "$MOD_DATA/Objects/Textures/default_asg.png",
-                                    ""
-                                ],
-                                "material": "DifAsg"
-                            }
-                        ],
-                        "mesh": "$MOD_DATA/Objects/Mesh/gear33.obj"
-                    }
-                ]
-            },
-			"rotationSet": "PropGears",
-			"color": "505050",
-			"hull": { 
-				"x": 1, "y": 1, "z": 1, "margin": 0.07,
-				"pointList": [
-					{ "x": -0.960704, "y": 0.95, "z": -1.0 },
-					{ "x": -0.960704, "y": -0.95, "z": -1.0 },
-					
-					{ "x": -0.359153, "y": 0.95, "z": -1.0 },
-					{ "x": -0.359153, "y": -0.95, "z": -1.0 },
-					
-					{ "x": -0.778908, "y": 0.95, "z": -0.322589 },
-					{ "x": -0.778908, "y": -0.95, "z": -0.322589 },
-					
-					{ "x": -0.218768, "y": 0.95, "z": -0.472679 },
-					{ "x": -0.218768, "y": -0.95, "z": -0.472679 },
-					
-					{ "x": -0.699136, "y": 0.95, "z": -0.136908 },
-					{ "x": -0.699136, "y": -0.95, "z": -0.136908 },
-					
-					{ "x": -0.195012, "y": 0.95, "z": -0.271989 },
-					{ "x": -0.195012, "y": -0.95, "z": -0.271989 },
-					
-					{ "x": -0.605362, "y": 0.95, "z": 0.04502 },
-					{ "x": -0.605362, "y": -0.95, "z": 0.04502 },
-					
-					{ "x": -0.185258, "y": 0.95, "z": -0.067547 },
-					{ "x": -0.185258, "y": -0.95, "z": -0.067547 },
-					
-					{ "x": -0.483579, "y": 0.95, "z": 0.219444 },
-					{ "x": -0.483579, "y": -0.95, "z": 0.219444 },
-					
-					{ "x": -0.203511, "y": 0.95, "z": 0.144399 },
-					{ "x": -0.203511, "y": -0.95, "z": 0.144399 }
-					
-					
-					
+				"lodList": [
+					{
+						"subMeshList": [
+							{
+								"textureList": [
+									"$MOD_DATA/Objects/Textures/mod_decor_boot_dif.png",
+									"$MOD_DATA/Objects/Textures/mod_decor_boot_asg.png",
+									"$MOD_DATA/Objects/Textures/mod_decor_boot_nor.png"
+								],
+								"material": "DifAsgNor"
+							}
+						],
+						"mesh": "$MOD_DATA/Objects/Mesh/mjm_WheelStreet4x1.mesh"
+					}
 				]
 			},
-			"density": 250.0,
-			"physicsMaterial": "Metal",
-            "qualityLevel": 4
+			"rotationSet": "PropZ",
+			"color": "7f7f7f",
+			"hull": { 
+				"x": 5, "y": 5, "z": 1,
+				"margin": 0.5,
+				"pointList": [
+					{ "x": 0.0, "y": 0.6, "z": 0.0 },
+					{ "x": 0.23, "y": 0.55, "z": 0.0 },
+					{ "x": 0.42, "y": 0.42, "z": 0.0 },
+					{ "x": 0.55, "y": 0.23, "z": 0.0 },
+					{ "x": 0.6, "y": 0.0, "z": 0.0 },
+					{ "x": 0.55, "y": -0.23, "z": 0.0 },
+					{ "x": 0.42, "y": -0.42, "z": 0.0 },
+					{ "x": 0.23, "y": -0.55, "z": 0.0 },
+					{ "x": 0.0, "y": -0.6, "z": 0.0 },
+					{ "x": -0.23, "y": -0.55, "z": 0.0 },
+					{ "x": -0.42, "y": -0.42, "z": 0.0 },
+					{ "x": -0.55, "y": -0.23, "z": 0.0 },
+					{ "x": -0.6, "y": 0.0, "z": 0.0 },
+					{ "x": -0.55, "y": 0.23, "z": 0.0 },
+					{ "x": -0.42, "y": 0.42, "z": 0.0 },
+					{ "x": -0.23, "y": 0.55, "z": 0.0 }
+				]
+			},
+			"density": 1000.0,
+			"physicsMaterial": "Plastic",
+			"qualityLevel": 3
 		},
-		
 		{
-			"uuid": "ad1d5f6a-f9de-11e6-bc64-92361f002671", 
+			"uuid": "3147a872-cb90-487c-b6ce-438c6403b09c",
 			"renderable": {
-                "lodList": [
-                    {
-                        "subMeshList": [
-                            {
-                                "textureList": [
-                                    "$MOD_DATA/Objects/Textures/transparent.png",
-                                    "$MOD_DATA/Objects/Textures/default_asg.png",
-                                    ""
-                                ],
-                                "material": "DifAsg"
-                            }
-                        ],
-                        "mesh": "$MOD_DATA/Objects/Mesh/gear33a.obj"
-                    }
-                ]
-            },
-			"rotationSet": "PropGears",
-			"color": "505050",
-			"hull": { 
-				"x": 1, "y": 1, "z": 1, "margin": 0.07,
-				"pointList": [
-					{ "x": -0.960704, "y": 0.486, "z": -1.0 },
-					{ "x": -0.960704, "y": -0.486, "z": -1.0 },
-					
-					{ "x": -0.359153, "y": 0.486, "z": -1.0 },
-					{ "x": -0.359153, "y": -0.486, "z": -1.0 },
-					
-					{ "x": -0.778908, "y": 0.356, "z": -0.322589 },
-					{ "x": -0.778908, "y": -0.356, "z": -0.322589 },
-					
-					{ "x": -0.218768, "y": 0.356, "z": -0.472679 },
-					{ "x": -0.218768, "y": -0.356, "z": -0.472679 },
-					
-					{ "x": -0.699136, "y": 0.356, "z": -0.136908 },
-					{ "x": -0.699136, "y": -0.356, "z": -0.136908 },
-					
-					{ "x": -0.195012, "y": 0.356, "z": -0.271989 },
-					{ "x": -0.195012, "y": -0.356, "z": -0.271989 },
-					
-					{ "x": -0.605362, "y": 0.228, "z": 0.04502 },
-					{ "x": -0.605362, "y": -0.228, "z": 0.04502 },
-					
-					{ "x": -0.185258, "y": 0.228, "z": -0.067547 },
-					{ "x": -0.185258, "y": -0.228, "z": -0.067547 },
-					
-					{ "x": -0.483579, "y": 0.1, "z": 0.219444 },
-					{ "x": -0.483579, "y": -0.1, "z": 0.219444 },
-					
-					{ "x": -0.203511, "y": 0.1, "z": 0.144399 },
-					{ "x": -0.203511, "y": -0.1, "z": 0.144399 }
-					
-					
-					
+				"lodList": [
+					{
+						"subMeshList": [
+							{
+								"textureList": [
+									"$MOD_DATA/Objects/Textures/mod_decor_boot_dif.png",
+									"$MOD_DATA/Objects/Textures/mod_decor_boot_asg.png",
+									"$MOD_DATA/Objects/Textures/mod_decor_boot_nor.png"
+								],
+								"material": "DifAsgNor"
+							}
+						],
+						"mesh": "$MOD_DATA/Objects/Mesh/mjm_WheelStreet4x2.mesh"
+					}
 				]
 			},
-			"density": 250.0,
-			"physicsMaterial": "Metal",
-            "qualityLevel": 4
+			"rotationSet": "PropZ",
+			"color": "7f7f7f",
+			"hull": { 
+				"x": 5, "y": 5, "z": 2,
+				"margin": 1.0,
+				"pointList": [
+					{ "x": 0.0, "y": 0.4, "z": 0.0 },
+					{ "x": 0.15, "y": 0.37, "z": 0.0 },
+					{ "x": 0.28, "y": 0.28, "z": 0.0 },
+					{ "x": 0.37, "y": 0.15, "z": 0.0 },
+					{ "x": 0.4, "y": 0.0, "z": 0.0 },
+					{ "x": 0.37, "y": -0.15, "z": 0.0 },
+					{ "x": 0.28, "y": -0.28, "z": 0.0 },
+					{ "x": 0.15, "y": -0.37, "z": 0.0 },
+					{ "x": 0.0, "y": -0.4, "z": 0.0 },
+					{ "x": -0.15, "y": -0.37, "z": 0.0 },
+					{ "x": -0.28, "y": -0.28, "z": 0.0 },
+					{ "x": -0.37, "y": -0.15, "z": 0.0 },
+					{ "x": -0.4, "y": 0.0, "z": 0.0 },
+					{ "x": -0.37, "y": 0.15, "z": 0.0 },
+					{ "x": -0.28, "y": 0.28, "z": 0.0 },
+					{ "x": -0.15, "y": 0.37, "z": 0.0 }
+				]
+			},
+			"physicsMaterial": "Plastic",
+			"qualityLevel": 3
 		},
-		
 		{
-			"uuid": "ad1d5344-f9de-11e6-bc64-92361f002671", 
+			"uuid": "a02f96b2-26c3-4b3e-a00c-32254af91a5d",
 			"renderable": {
-                "lodList": [
-                    {
-                        "subMeshList": [
-                            {
-                                "textureList": [
-                                    "$MOD_DATA/Objects/Textures/transparent.png",
-                                    "$MOD_DATA/Objects/Textures/default_asg.png",
-                                    ""
-                                ],
-                                "material": "DifAsg"
-                            }
-                        ],
-                        "mesh": "$MOD_DATA/Objects/Mesh/gear34.obj"
-                    }
-                ]
-            },
-			"rotationSet": "PropGears1",
-			"color": "505050",
-			"hull": { 
-				"x": 1, "y": 1, "z": 1, "margin": 0.07,
-				"pointList": [
-					{ "x": -1.0, "y": 0.95, "z": -1.0 },
-					{ "x": -1.0, "y": -0.95, "z": -1.0 },
-					
-					{ "x": -0.798116, "y": 0.95, "z": -0.994769 },
-					{ "x": -0.798116, "y": -0.95, "z": -0.994769 },
-					
-					{ "x": -1.0, "y": 0.95, "z": -0.455352 },
-					{ "x": -1.0, "y": -0.95, "z": -0.455352 },
-					
-					{ "x": -0.711677, "y": 0.95, "z": -0.739377 },
-					{ "x": -0.711677, "y": -0.95, "z": -0.739377 },
-					
-					{ "x": -0.925545, "y": 0.95, "z": -0.384954 },
-					{ "x": -0.925545, "y": -0.95, "z": -0.384954 },
-					
-					{ "x": -0.674443, "y": 0.95, "z": -0.529928 },
-					{ "x": -0.674443, "y": -0.95, "z": -0.529928 }
-					
+				"lodList": [
+					{
+						"subMeshList": [
+							{
+								"textureList": [
+									"$MOD_DATA/Objects/Textures/mod_decor_boot_dif.png",
+									"$MOD_DATA/Objects/Textures/mod_decor_boot_asg.png",
+									"$MOD_DATA/Objects/Textures/mod_decor_boot_nor.png"
+								],
+								"material": "DifAsgNor"
+							}
+						],
+						"mesh": "$MOD_DATA/Objects/Mesh/mjm_WheelStreet5x2.mesh"
+					}
 				]
 			},
-			"density": 250.0,
-			"physicsMaterial": "Metal",
-            "qualityLevel": 4
+			"rotationSet": "PropZ",
+			"color": "7f7f7f",
+			"cylinder": { "diameter": 5, "depth": 2, "margin": 0.5, "axis": "Z" },
+			"physicsMaterial": "Plastic",
+			"qualityLevel": 3
 		},
-		
 		{
-			"uuid": "ad1d60f0-f9de-11e6-bc64-92361f002671", 
+			"uuid": "d3954d83-78ee-4fbf-9a60-70e4872e1d39",
 			"renderable": {
-                "lodList": [
-                    {
-                        "subMeshList": [
-                            {
-                                "textureList": [
-                                    "$MOD_DATA/Objects/Textures/transparent.png",
-                                    "$MOD_DATA/Objects/Textures/default_asg.png",
-                                    ""
-                                ],
-                                "material": "DifAsg"
-                            }
-                        ],
-                        "mesh": "$MOD_DATA/Objects/Mesh/gear34a.obj"
-                    }
-                ]
-            },
-			"rotationSet": "PropGears1",
-			"color": "505050",
-			"hull": { 
-				"x": 1, "y": 1, "z": 1, "margin": 0.07,
-				"pointList": [
-					{ "x": -1.0, "y": 0.356, "z": -1.0 },
-					{ "x": -1.0, "y": -0.356, "z": -1.0 },
-					
-					{ "x": -0.798116, "y": 0.356, "z": -0.994769 },
-					{ "x": -0.798116, "y": -0.356, "z": -0.994769 },
-					
-					{ "x": -1.0, "y": 0.228, "z": -0.455352 },
-					{ "x": -1.0, "y": -0.228, "z": -0.455352 },
-					
-					{ "x": -0.711677, "y": 0.228, "z": -0.739377 },
-					{ "x": -0.711677, "y": -0.228, "z": -0.739377 },
-					
-					{ "x": -0.925545, "y": 0.1, "z": -0.384954 },
-					{ "x": -0.925545, "y": -0.1, "z": -0.384954 },
-					
-					{ "x": -0.674443, "y": 0.1, "z": -0.529928 },
-					{ "x": -0.674443, "y": -0.1, "z": -0.529928 }
-					
+				"lodList": [
+					{
+						"subMeshList": [
+							{
+								"textureList": [
+									"$MOD_DATA/Objects/Textures/mod_decor_boot_dif.png",
+									"$MOD_DATA/Objects/Textures/mod_decor_boot_asg.png",
+									"$MOD_DATA/Objects/Textures/mod_decor_boot_nor.png"
+								],
+								"material": "DifAsgNor"
+							}
+						],
+						"mesh": "$MOD_DATA/Objects/Mesh/mjm_WheelStreet6x2.mesh"
+					}
 				]
 			},
-			"density": 250.0,
-			"physicsMaterial": "Metal",
-            "qualityLevel": 4
+			"rotationSet": "PropZ",
+			"color": "7f7f7f",
+			"hull": { 
+				"x": 7, "y": 7, "z": 2,
+				"margin": 1.0,
+				"pointList": [
+					{ "x": 0.0, "y": 0.57, "z": 0.0 },
+					{ "x": 0.22, "y": 0.53, "z": 0.0 },
+					{ "x": 0.4, "y": 0.4, "z": 0.0 },
+					{ "x": 0.53, "y": 0.22, "z": 0.0 },
+					{ "x": 0.57, "y": 0.0, "z": 0.0 },
+					{ "x": 0.53, "y": -0.22, "z": 0.0 },
+					{ "x": 0.4, "y": -0.4, "z": 0.0 },
+					{ "x": 0.22, "y": -0.53, "z": 0.0 },
+					{ "x": 0.0, "y": -0.57, "z": 0.0 },
+					{ "x": -0.22, "y": -0.53, "z": 0.0 },
+					{ "x": -0.4, "y": -0.4, "z": 0.0 },
+					{ "x": -0.53, "y": -0.22, "z": 0.0 },
+					{ "x": -0.57, "y": 0.0, "z": 0.0 },
+					{ "x": -0.53, "y": 0.22, "z": 0.0 },
+					{ "x": -0.4, "y": 0.4, "z": 0.0 },
+					{ "x": -0.22, "y": 0.53, "z": 0.0 }
+				]
+			},
+			"physicsMaterial": "Plastic",
+			"qualityLevel": 3
 		},
-		
+// combat wheels
 		{
-			"uuid": "ad1d54e8-f9de-11e6-bc64-92361f002671", 
+			"uuid": "d59bd448-6401-4476-849a-e6fc86d28b7b",
 			"renderable": {
-                "lodList": [
-                    {
-                        "subMeshList": [
-                            {
-                                "textureList": [
-                                    "$MOD_DATA/Objects/Textures/transparent.png",
-                                    "$MOD_DATA/Objects/Textures/default_asg.png",
-                                    ""
-                                ],
-                                "material": "DifAsg"
-                            }
-                        ],
-                        "mesh": "$MOD_DATA/Objects/Mesh/gear35.obj"
-                    }
-                ]
-            },
-			"rotationSet": "PropGears",
-			"color": "505050",
-			"hull": { 
-				"x": 1, "y": 1, "z": 1, "margin": 0.07,
-				"pointList": [
-				
-					{ "x": -1.0, "y": 0.95, "z": -1.0 },
-					{ "x": -1.0, "y": -0.95, "z": -1.0 },
-					
-					{ "x": -0.669491, "y": 0.95, "z": -0.25944 },
-					{ "x": -0.669491, "y": -0.95, "z": -0.25944 },
-					
-					{ "x": -0.25944, "y": 0.95, "z": -0.669491 },
-					{ "x": -0.25944, "y": -0.95, "z": -0.669491 },
-					
-					{ "x": -0.103806, "y": 0.95, "z": 0.306245 },
-					{ "x": -0.103806, "y": -0.95, "z": 0.306245 },
-					
-					{ "x": 0.306245, "y": 0.95, "z": -0.103806 },
-					{ "x": 0.306245, "y": -0.95, "z": -0.103806 },
-					
-					{ "x": 0.058119, "y": 0.95, "z": 0.427163 },
-					{ "x": 0.058119, "y": -0.95, "z": 0.427163 },
-					
-					{ "x": 0.427163, "y": 0.95, "z": 0.058119 },
-					{ "x": 0.427163, "y": -0.95, "z": 0.058119 },
-					
-					{ "x": 0.230293, "y": 0.95, "z": 0.537831 },
-					{ "x": 0.230293, "y": -0.95, "z": 0.537831 },
-					
-					{ "x": 0.537831, "y": 0.95, "z": 0.230293 },
-					{ "x": 0.537831, "y": -0.95, "z": 0.230293 },
-					
-					{ "x": 0.422972, "y": 0.95, "z": 0.627996 },
-					{ "x": 0.422972, "y": -0.95, "z": 0.627996 },
-					
-					{ "x": 0.627996, "y": 0.95, "z": 0.422972 },
-					{ "x": 0.627996, "y": -0.95, "z": 0.422972 }
-					
-					
+				"lodList": [
+					{
+						"subMeshList": [
+							{
+								"textureList": [
+									"$MOD_DATA/Objects/Textures/mod_decor_boot_dif.png",
+									"$MOD_DATA/Objects/Textures/mod_decor_boot_asg.png",
+									"$MOD_DATA/Objects/Textures/mod_decor_boot_nor.png"
+								],
+								"material": "DifAsgNor"
+							}
+						],
+						"mesh": "$MOD_DATA/Objects/Mesh/mjm_WheelCombat3x1.mesh"
+					}
 				]
 			},
-			"density": 250.0,
-			"physicsMaterial": "Metal",
-            "qualityLevel": 4
+			"rotationSet": "PropZ",
+			"color": "7f7f7f",
+			"cylinder": { "diameter": 3, "depth": 1, "margin": 0.5, "axis": "Z" },
+			"density": 1250.0,
+			"physicsMaterial": "Plastic",
+			"qualityLevel": 5
 		},
-		
 		{
-			"uuid": "ad1d6280-f9de-11e6-bc64-92361f002671", 
+			"uuid": "96fc86b1-57e7-4795-9d39-90e74f52ba87",
 			"renderable": {
-                "lodList": [
-                    {
-                        "subMeshList": [
-                            {
-                                "textureList": [
-                                    "$MOD_DATA/Objects/Textures/transparent.png",
-                                    "$MOD_DATA/Objects/Textures/default_asg.png",
-                                    ""
-                                ],
-                                "material": "DifAsg"
-                            }
-                        ],
-                        "mesh": "$MOD_DATA/Objects/Mesh/gear35a.obj"
-                    }
-                ]
-            },
-			"rotationSet": "PropGears",
-			"color": "505050",
-			"hull": { 
-				"x": 1, "y": 1, "z": 1, "margin": 0.07,
-				"pointList": [
-				
-					{ "x": -1.0, "y": 0.486, "z": -1.0 },
-					{ "x": -1.0, "y": -0.486, "z": -1.0 },
-					
-					{ "x": -0.669491, "y": 0.486, "z": -0.25944 },
-					{ "x": -0.669491, "y": -0.486, "z": -0.25944 },
-					
-					{ "x": -0.25944, "y": 0.486, "z": -0.669491 },
-					{ "x": -0.25944, "y": -0.486, "z": -0.669491 },
-					
-					{ "x": -0.103806, "y": 0.356, "z": 0.306245 },
-					{ "x": -0.103806, "y": -0.356, "z": 0.306245 },
-					
-					{ "x": 0.306245, "y": 0.356, "z": -0.103806 },
-					{ "x": 0.306245, "y": -0.356, "z": -0.103806 },
-					
-					{ "x": 0.058119, "y": 0.356, "z": 0.427163 },
-					{ "x": 0.058119, "y": -0.356, "z": 0.427163 },
-					
-					{ "x": 0.427163, "y": 0.356, "z": 0.058119 },
-					{ "x": 0.427163, "y": -0.356, "z": 0.058119 },
-					
-					{ "x": 0.230293, "y": 0.228, "z": 0.537831 },
-					{ "x": 0.230293, "y": -0.228, "z": 0.537831 },
-					
-					{ "x": 0.537831, "y": 0.228, "z": 0.230293 },
-					{ "x": 0.537831, "y": -0.228, "z": 0.230293 },
-					
-					{ "x": 0.422972, "y": 0.1, "z": 0.627996 },
-					{ "x": 0.422972, "y": -0.1, "z": 0.627996 },
-					
-					{ "x": 0.627996, "y": 0.1, "z": 0.422972 },
-					{ "x": 0.627996, "y": -0.1, "z": 0.422972 }
-					
-					
+				"lodList": [
+					{
+						"subMeshList": [
+							{
+								"textureList": [
+									"$MOD_DATA/Objects/Textures/mod_decor_boot_dif.png",
+									"$MOD_DATA/Objects/Textures/mod_decor_boot_asg.png",
+									"$MOD_DATA/Objects/Textures/mod_decor_boot_nor.png"
+								],
+								"material": "DifAsgNor"
+							}
+						],
+						"mesh": "$MOD_DATA/Objects/Mesh/mjm_WheelCombat5x2.mesh"
+					}
 				]
 			},
-			"density": 250.0,
-			"physicsMaterial": "Metal",
-            "qualityLevel": 4
+			"rotationSet": "PropZ",
+			"color": "7f7f7f",
+			"cylinder": { "diameter": 5, "depth": 2, "margin": 0.5, "axis": "Z" },
+			"physicsMaterial": "Plastic",
+			"qualityLevel": 5
 		},
-		
 		{
-			"uuid": "ad1d4f84-f9de-11e6-bc64-92361f002671", 
+			"uuid": "fafdc38f-e374-49fd-8fea-4062a4b5c93a",
 			"renderable": {
-                "lodList": [
-                    {
-                        "subMeshList": [
-                            {
-                                "textureList": [
-                                    "$MOD_DATA/Objects/Textures/transparent.png",
-                                    "$MOD_DATA/Objects/Textures/default_asg.png",
-                                    ""
-                                ],
-                                "material": "DifAsg"
-                            }
-                        ],
-                        "mesh": "$MOD_DATA/Objects/Mesh/rack.obj"
-                    }
-                ]
-            },
-			"rotationSet": "PropZY",
-			"color": "505050",
+				"lodList": [
+					{
+						"subMeshList": [
+							{
+								"textureList": [
+									"$MOD_DATA/Objects/Textures/mod_decor_boot_dif.png",
+									"$MOD_DATA/Objects/Textures/mod_decor_boot_asg.png",
+									"$MOD_DATA/Objects/Textures/mod_decor_boot_nor.png"
+								],
+								"material": "DifAsgNor"
+							}
+						],
+						"mesh": "$MOD_DATA/Objects/Mesh/mjm_WheelCombat7x2.mesh"
+					}
+				]
+			},
+			"rotationSet": "PropZ",
+			"color": "7f7f7f",
+			"cylinder": { "diameter": 7, "depth": 2, "margin": 0.5, "axis": "Z" },
+			"density": 250,
+			"physicsMaterial": "Plastic",
+			"qualityLevel": 5
+		},
+		{
+			"uuid": "4dee7b84-ee4c-42ce-9a42-4c6ced837ff5",
+			"renderable": {
+				"lodList": [
+					{
+						"subMeshList": [
+							{
+								"textureList": [
+									"$MOD_DATA/Objects/Textures/mod_decor_boot_dif.png",
+									"$MOD_DATA/Objects/Textures/mod_decor_boot_asg.png",
+									"$MOD_DATA/Objects/Textures/mod_decor_boot_nor.png"
+								],
+								"material": "DifAsgNor"
+							}
+						],
+						"mesh": "$MOD_DATA/Objects/Mesh/mjm_WheelCombat9x3.mesh"
+					}
+				]
+			},
+			"rotationSet": "PropZ",
+			"color": "7f7f7f",
+			"cylinder": { "diameter": 9, "depth": 3, "margin": 0.5, "axis": "Z" },
+			"density": 200,
+			"physicsMaterial": "Plastic",
+			"qualityLevel": 5
+		},
+		{
+			"uuid": "583f20c9-a7da-477b-b852-aac404467e3a",
+			"renderable": {
+				"lodList": [
+					{
+						"subMeshList": [
+							{
+								"textureList": [
+									"$MOD_DATA/Objects/Textures/mod_decor_boot_dif.png",
+									"$MOD_DATA/Objects/Textures/mod_decor_boot_asg.png",
+									"$MOD_DATA/Objects/Textures/mod_decor_boot_nor.png"
+								],
+								"material": "DifAsgNor"
+							}
+						],
+						"mesh": "$MOD_DATA/Objects/Mesh/mjm_WheelCombat11x4.mesh"
+					}
+				]
+			},
+			"rotationSet": "PropZ",
+			"color": "7f7f7f",
+			"cylinder": { "diameter": 11, "depth": 4, "margin": 0.5, "axis": "Z" },
+			"density": 150,
+			"physicsMaterial": "Plastic",
+			"qualityLevel": 5
+		},
+		{
+			"uuid": "90bc9601-b874-45e2-8970-09d5e5ff3ca9",
+			"renderable": {
+				"lodList": [
+					{
+						"subMeshList": [
+							{
+								"textureList": [
+									"$MOD_DATA/Objects/Textures/mod_decor_boot_dif.png",
+									"$MOD_DATA/Objects/Textures/mod_decor_boot_asg.png",
+									"$MOD_DATA/Objects/Textures/mod_decor_boot_nor.png"
+								],
+								"material": "DifAsgNor"
+							}
+						],
+						"mesh": "$MOD_DATA/Objects/Mesh/mjm_WheelCombat13x5.mesh"
+					}
+				]
+			},
+			"rotationSet": "PropZ",
+			"color": "7f7f7f",
+			"cylinder": { "diameter": 13, "depth": 5, "margin": 0.5, "axis": "Z" },
+			"density": 125,
+			"physicsMaterial": "Plastic",
+			"qualityLevel": 5
+		},
+// sand wheels
+		{
+			"uuid": "abe5a33f-a3cc-41a8-b32a-731ec2b184c1",
+			"renderable": {
+				"lodList": [
+					{
+						"subMeshList": [
+							{
+								"textureList": [
+									"$MOD_DATA/Objects/Textures/mod_decor_boot_dif.png",
+									"$MOD_DATA/Objects/Textures/mod_decor_boot_asg.png",
+									"$MOD_DATA/Objects/Textures/mod_decor_boot_nor.png"
+								],
+								"material": "DifAsgNor"
+							}
+						],
+						"mesh": "$MOD_DATA/Objects/Mesh/mjm_WheelSand3x2.mesh"
+					}
+				]
+			},
+			"rotationSet": "PropZ",
+			"color": "7f7f7f",
+			"cylinder": { "diameter": 3, "depth": 2, "margin": 0.5, "axis": "Z" },
+			"density": 1000.0,
+			"physicsMaterial": "Plastic",
+			"qualityLevel": 4
+		},
+		{
+			"uuid": "0761c82c-7a3f-4c22-8ec1-46223f10a2de",
+			"renderable": {
+				"lodList": [
+					{
+						"subMeshList": [
+							{
+								"textureList": [
+									"$MOD_DATA/Objects/Textures/mod_decor_boot_dif.png",
+									"$MOD_DATA/Objects/Textures/mod_decor_boot_asg.png",
+									"$MOD_DATA/Objects/Textures/mod_decor_boot_nor.png"
+								],
+								"material": "DifAsgNor"
+							}
+						],
+						"mesh": "$MOD_DATA/Objects/Mesh/mjm_WheelSand5x3.mesh"
+					}
+				]
+			},
+			"rotationSet": "PropZ",
+			"color": "7f7f7f",
+			"cylinder": { "diameter": 5, "depth": 3, "margin": 0.5, "axis": "Z" },
+			"physicsMaterial": "Plastic",
+			"qualityLevel": 4
+		},
+		{
+			"uuid": "ee8869cb-9cce-43c3-a04a-e8b37b9de0ed",
+			"renderable": {
+				"lodList": [
+					{
+						"subMeshList": [
+							{
+								"textureList": [
+									"$MOD_DATA/Objects/Textures/mod_decor_boot_dif.png",
+									"$MOD_DATA/Objects/Textures/mod_decor_boot_asg.png",
+									"$MOD_DATA/Objects/Textures/mod_decor_boot_nor.png"
+								],
+								"material": "DifAsgNor"
+							}
+						],
+						"mesh": "$MOD_DATA/Objects/Mesh/mjm_WheelSand7x4.mesh"
+					}
+				]
+			},
+			"rotationSet": "PropZ",
+			"color": "7f7f7f",
+			"cylinder": { "diameter": 7, "depth": 4, "margin": 0.5, "axis": "Z" },
+			"density": 250,
+			"physicsMaterial": "Plastic",
+			"qualityLevel": 4
+		},
+		{
+			"uuid": "2210586c-3a93-43ff-b861-542e2d2d12d6",
+			"renderable": {
+				"lodList": [
+					{
+						"subMeshList": [
+							{
+								"textureList": [
+									"$MOD_DATA/Objects/Textures/mod_decor_boot_dif.png",
+									"$MOD_DATA/Objects/Textures/mod_decor_boot_asg.png",
+									"$MOD_DATA/Objects/Textures/mod_decor_boot_nor.png"
+								],
+								"material": "DifAsgNor"
+							}
+						],
+						"mesh": "$MOD_DATA/Objects/Mesh/mjm_WheelSand9x5.mesh"
+					}
+				]
+			},
+			"rotationSet": "PropZ",
+			"color": "7f7f7f",
+			"cylinder": { "diameter": 9, "depth": 5, "margin": 0.5, "axis": "Z" },
+			"density": 200,
+			"physicsMaterial": "Plastic",
+			"qualityLevel": 4
+		},
+		{
+			"uuid": "6afcb463-925a-4a2e-b9bf-3397ef094df9",
+			"renderable": {
+				"lodList": [
+					{
+						"subMeshList": [
+							{
+								"textureList": [
+									"$MOD_DATA/Objects/Textures/mod_decor_boot_dif.png",
+									"$MOD_DATA/Objects/Textures/mod_decor_boot_asg.png",
+									"$MOD_DATA/Objects/Textures/mod_decor_boot_nor.png"
+								],
+								"material": "DifAsgNor"
+							}
+						],
+						"mesh": "$MOD_DATA/Objects/Mesh/mjm_WheelSand11x6.mesh"
+					}
+				]
+			},
+			"rotationSet": "PropZ",
+			"color": "7f7f7f",
+			"cylinder": { "diameter": 11, "depth": 6, "margin": 0.5, "axis": "Z" },
+			"density": 135,
+			"physicsMaterial": "Plastic",
+			"qualityLevel": 4
+		},
+		{
+			"uuid": "b0f71aed-04f0-4bba-b969-cba57f3fc667",
+			"renderable": {
+				"lodList": [
+					{
+						"subMeshList": [
+							{
+								"textureList": [
+									"$MOD_DATA/Objects/Textures/mod_decor_boot_dif.png",
+									"$MOD_DATA/Objects/Textures/mod_decor_boot_asg.png",
+									"$MOD_DATA/Objects/Textures/mod_decor_boot_nor.png"
+								],
+								"material": "DifAsgNor"
+							}
+						],
+						"mesh": "$MOD_DATA/Objects/Mesh/mjm_WheelSand13x6.mesh"
+					}
+				]
+			},
+			"rotationSet": "PropZ",
+			"color": "7f7f7f",
+			"cylinder": { "diameter": 13, "depth": 6, "margin": 0.5, "axis": "Z" },
+			"density": 125,
+			"physicsMaterial": "Plastic",
+			"qualityLevel": 4
+		},
+		{
+			"uuid": "87f8f460-eba5-43c1-a1ad-facfb3d3f376",
+			"renderable": {
+				"lodList": [
+					{
+						"subMeshList": [
+							{
+								"textureList": [
+									"$MOD_DATA/Objects/Textures/mod_decor_boot_dif.png",
+									"$MOD_DATA/Objects/Textures/mod_decor_boot_asg.png",
+									"$MOD_DATA/Objects/Textures/mod_decor_boot_nor.png"
+								],
+								"material": "DifAsgNor"
+							}
+						],
+						"mesh": "$MOD_DATA/Objects/Mesh/mjm_WheelSand15x7.mesh"
+					}
+				]
+			},
+			"rotationSet": "PropZ",
+			"color": "7f7f7f",
+			"cylinder": { "diameter": 15, "depth": 7, "margin": 0.5, "axis": "Z" },
+			"density": 65,
+			"physicsMaterial": "Plastic",
+			"qualityLevel": 4
+		},
+		{
+			"uuid": "2bcc8c8f-1e94-4f9d-97b9-6e7423ca40b0",
+			"renderable": {
+				"lodList": [
+					{
+						"subMeshList": [
+							{
+								"textureList": [
+									"$MOD_DATA/Objects/Textures/mod_decor_boot_dif.png",
+									"$MOD_DATA/Objects/Textures/mod_decor_boot_asg.png",
+									"$MOD_DATA/Objects/Textures/mod_decor_boot_nor.png"
+								],
+								"material": "DifAsgNor"
+							}
+						],
+						"mesh": "$MOD_DATA/Objects/Mesh/mjm_WheelSand17x8.mesh"
+					}
+				]
+			},
+			"rotationSet": "PropZ",
+			"color": "7f7f7f",
+			"cylinder": { "diameter": 17, "depth": 8, "margin": 0.5, "axis": "Z" },
+			"density": 45,
+			"physicsMaterial": "Plastic",
+			"qualityLevel": 4
+		},
+		{
+			"uuid": "61a70b37-ea24-4022-b1e6-45a5a3ae179d",
+			"renderable": {
+				"lodList": [
+					{
+						"subMeshList": [
+							{
+								"textureList": [
+									"$MOD_DATA/Objects/Textures/mod_decor_boot_dif.png",
+									"$MOD_DATA/Objects/Textures/mod_decor_boot_asg.png",
+									"$MOD_DATA/Objects/Textures/mod_decor_boot_nor.png"
+								],
+								"material": "DifAsgNor"
+							}
+						],
+						"mesh": "$MOD_DATA/Objects/Mesh/mjm_WheelSand19x9.mesh"
+					}
+				]
+			},
+			"rotationSet": "PropZ",
+			"color": "7f7f7f",
+			"cylinder": { "diameter": 19, "depth": 9, "margin": 0.5, "axis": "Z" },
+			"density": 30,
+			"physicsMaterial": "Plastic",
+			"qualityLevel": 4
+		},
+// vanilla large wheels
+		{
+			"legacyId": 3490,
+			"uuid": "036fc6d2-45df-11e6-beb8-9e71128cae77", 
+			"renderable": {
+				"lodList": [
+					{
+						"subMeshList": [
+							{
+								"textureList": [
+									"$GAME_DATA/Objects/Textures/vehicle/obj_large_wheel01_dif.tga",
+									"$GAME_DATA/Objects/Textures/vehicle/obj_large_wheel01_asg.tga",
+									"$GAME_DATA/Objects/Textures/vehicle/obj_large_wheel01_nor.tga"
+								],
+								"material": "DifAsgNor"
+							}
+						],
+						"mesh": "$MOD_DATA/Objects/Mesh/Tire7x3.obj"
+					}
+				]
+			},
+			"rotationSet": "PropZ",
+			"color": "df7f00",
+			"density": 50.0,
+			"cylinder": { "diameter": 7, "depth": 3, "margin": 0.2, "axis": "Z" },
+			"physicsMaterial": "Plastic",
+			"sticky": "-Z+Z",
+			"qualityLevel": 3
+		},
+		{
+			"legacyId": 3491,
+			"uuid": "036fc79a-45df-11e6-beb8-9e71128cae77", 
+			"renderable": {
+				"lodList": [
+					{
+						"subMeshList": [
+							{
+								"textureList": [
+									"$GAME_DATA/Objects/Textures/vehicle/obj_large_wheel01_dif.tga",
+									"$GAME_DATA/Objects/Textures/vehicle/obj_large_wheel01_asg.tga",
+									"$GAME_DATA/Objects/Textures/vehicle/obj_large_wheel01_nor.tga"
+								],
+								"material": "DifAsgNor"
+							}
+						],
+						"mesh": "$MOD_DATA/Objects/Mesh/Tire9x4.obj"
+					}
+				]
+			},
+			"rotationSet": "PropZ",
+			"color": "df7f00",
+			"density": 50.0,
+			"cylinder": { "diameter": 9, "depth": 4, "margin": 0.2, "axis": "Z" },
+			"physicsMaterial": "Plastic",
+			"sticky": "-Z+Z",
+			"qualityLevel": 3
+		},
+// wheel rims
+		{
+			"legacyId": 7101,
+			"uuid": "036ff44a-45df-11e6-beb8-9e71128cae77", 
+			"renderable": {
+				"lodList": [
+					{
+						"subMeshList": [
+							{
+								"textureList": [
+									"$MOD_DATA/Objects/Textures/monitor_dif.png",
+									"$MOD_DATA/Objects/Textures/rims_asg.png",
+									"$GAME_DATA/Textures/nonor_nor.png"
+								],
+								"material": "DifAsgNor"
+							}
+						],
+						"mesh": "$MOD_DATA/Objects/Mesh/RimLarge1.obj"
+					}
+				]
+			},
+			"rotationSet": "PropZnegZ",
+			"color": "dddddd",
 			"hull": { 
-				"x": 1, "y": 1, "z": 1, "margin": 0.05,
+				"x": 5, "y": 5, "z": 1.0,
 				"pointList": [
-					{ "x": -0.28995, "y": 0.95, "z": -1.0 },
-					{ "x": 0.28995, "y": 0.95, "z": -1.0 },
+					{ "x": 0.92, "y": 0.0, "z": 0.9 },
+					{ "x": 0.9026, "y": -0.1795, "z": 0.9 },
+					{ "x": 0.85, "y": -0.352, "z": 0.9 },
+					{ "x": 0.765, "y": -0.511, "z": 0.9 },
+					{ "x": 0.65, "y": -0.65, "z": 0.9 },
+					{ "x": 0.511, "y": -0.765, "z": 0.9 },
+					{ "x": 0.352, "y": -0.85, "z": 0.9 },
+					{ "x": 0.1795, "y": -0.9026, "z": 0.9 },
+					{ "x": 0.0, "y": -0.92, "z": 0.9 },
+					{ "x": -0.1795, "y": -0.9026, "z": 0.9 },
+					{ "x": -0.352, "y": -0.85, "z": 0.9 },
+					{ "x": -0.511, "y": -0.765, "z": 0.9 },
+					{ "x": -0.65, "y": -0.65, "z": 0.9 },
+					{ "x": -0.765, "y": -0.511, "z": 0.9 },
+					{ "x": -0.85, "y": -0.352, "z": 0.9 },
+					{ "x": -0.9026, "y": -0.1795, "z": 0.9 },
+					{ "x": -0.92, "y": 0.0, "z": 0.9 },
+					{ "x": -0.9026, "y": 0.1795, "z": 0.9 },
+					{ "x": -0.85, "y": 0.352, "z": 0.9 },
+					{ "x": -0.765, "y": 0.511, "z": 0.9 },
+					{ "x": -0.65, "y": 0.65, "z": 0.9 },
+					{ "x": -0.511, "y": 0.765, "z": 0.9 },
+					{ "x": -0.352, "y": 0.85, "z": 0.9 },
+					{ "x": -0.1795, "y": 0.9026, "z": 0.9 },
+					{ "x": 0.0, "y": 0.92, "z": 0.9 },
+					{ "x": 0.1795, "y": 0.9026, "z": 0.9 },
+					{ "x": 0.352, "y": 0.85, "z": 0.9 },
+					{ "x": 0.511, "y": 0.765, "z": 0.9 },
+					{ "x": 0.65, "y": 0.65, "z": 0.9 },
+					{ "x": 0.765, "y": 0.511, "z": 0.9 },
+					{ "x": 0.85, "y": 0.352, "z": 0.9 },
+					{ "x": 0.9026, "y": 0.1795, "z": 0.9 },
 					
-					{ "x": -0.28995, "y": -0.95, "z": -1.0 },
-					{ "x": 0.28995, "y": -0.95, "z": -1.0 },
-					
-					{ "x": -0.28995, "y": 0.95, "z": -0.2 },
-					{ "x": 0.28995, "y": 0.95, "z": -0.2 },
-					
-					{ "x": -0.28995, "y": -0.95, "z": -0.2 },
-					{ "x": 0.28995, "y": -0.95, "z": -0.2 },
-					
-					{ "x": -0.260955, "y": 0.95, "z": 0.0 },
-					{ "x": 0.260955, "y": 0.95, "z": 0.0 },
-					
-					{ "x": -0.260955, "y": -0.95, "z": 0.0 },
-					{ "x": 0.260955, "y": -0.95, "z": 0.0 },
-					
-					{ "x": -0.217462, "y": 0.95, "z": 0.1 },
-					{ "x": 0.217462, "y": 0.95, "z": 0.1 },
-					
-					{ "x": -0.217462, "y": -0.95, "z": 0.1 },
-					{ "x": 0.217462, "y": -0.95, "z": 0.1 },
-					
-					{ "x": -0.1, "y": 0.95, "z": 0.2 },
-					{ "x": 0.1, "y": 0.95, "z": 0.2 },
-					
-					{ "x": -0.1, "y": -0.95, "z": 0.2 },
-					{ "x": 0.1, "y": -0.95, "z": 0.2 },
-					
-					{ "x": -0.0, "y": -0.95, "z": 0.3 },
-					{ "x": 0.0, "y": -0.95, "z": 0.3 }
-					
+					{ "x": 0.92, "y": 0.0, "z": 1.0 },
+					{ "x": 0.9026, "y": -0.1795, "z": 1.0 },
+					{ "x": 0.85, "y": -0.352, "z": 1.0 },
+					{ "x": 0.765, "y": -0.511, "z": 1.0 },
+					{ "x": 0.65, "y": -0.65, "z": 1.0 },
+					{ "x": 0.511, "y": -0.765, "z": 1.0 },
+					{ "x": 0.352, "y": -0.85, "z": 1.0 },
+					{ "x": 0.1795, "y": -0.9026, "z": 1.0 },
+					{ "x": 0.0, "y": -0.92, "z": 1.0 },
+					{ "x": -0.1795, "y": -0.9026, "z": 1.0 },
+					{ "x": -0.352, "y": -0.85, "z": 1.0 },
+					{ "x": -0.511, "y": -0.765, "z": 1.0 },
+					{ "x": -0.65, "y": -0.65, "z": 1.0 },
+					{ "x": -0.765, "y": -0.511, "z": 1.0 },
+					{ "x": -0.85, "y": -0.352, "z": 1.0 },
+					{ "x": -0.9026, "y": -0.1795, "z": 1.0 },
+					{ "x": -0.92, "y": 0.0, "z": 1.0 },
+					{ "x": -0.9026, "y": 0.1795, "z": 1.0 },
+					{ "x": -0.85, "y": 0.352, "z": 1.0 },
+					{ "x": -0.765, "y": 0.511, "z": 1.0 },
+					{ "x": -0.65, "y": 0.65, "z": 1.0 },
+					{ "x": -0.511, "y": 0.765, "z": 1.0 },
+					{ "x": -0.352, "y": 0.85, "z": 1.0 },
+					{ "x": -0.1795, "y": 0.9026, "z": 1.0 },
+					{ "x": 0.0, "y": 0.92, "z": 1.0 },
+					{ "x": 0.1795, "y": 0.9026, "z": 1.0 },
+					{ "x": 0.352, "y": 0.85, "z": 1.0 },
+					{ "x": 0.511, "y": 0.765, "z": 1.0 },
+					{ "x": 0.65, "y": 0.65, "z": 1.0 },
+					{ "x": 0.765, "y": 0.511, "z": 1.0 },
+					{ "x": 0.85, "y": 0.352, "z": 1.0 },
+					{ "x": 0.9026, "y": 0.1795, "z": 1.0 }
 				]
 			},
 			"density": 250.0,
 			"physicsMaterial": "Metal",
-            "qualityLevel": 4
+			"sticky": "+Z",
+			"qualityLevel": 4
+		},
+		{
+			"legacyId": 7151,
+			"uuid": "036ff6ca-45df-11e6-beb8-9e71128cae77", 
+			"renderable": {
+				"lodList": [
+					{
+						"subMeshList": [
+							{
+								"textureList": [
+									"$MOD_DATA/Objects/Textures/monitor_dif.png",
+									"$MOD_DATA/Objects/Textures/rims_asg.png",
+									"$GAME_DATA/Textures/nonor_nor.png"
+								],
+								"material": "DifAsgNor"
+							}
+						],
+						"mesh": "$MOD_DATA/Objects/Mesh/RimSmall1.obj"
+					}
+				]
+			},
+			"rotationSet": "PropZnegZ",
+			"color": "dddddd",
+			"hull": { 
+				"x": 3, "y": 3, "z": 1.0,
+				"pointList": [
+					{ "x": 0.92, "y": 0.0, "z": 0.9 },
+					{ "x": 0.9026, "y": -0.1795, "z": 0.9 },
+					{ "x": 0.85, "y": -0.352, "z": 0.9 },
+					{ "x": 0.765, "y": -0.511, "z": 0.9 },
+					{ "x": 0.65, "y": -0.65, "z": 0.9 },
+					{ "x": 0.511, "y": -0.765, "z": 0.9 },
+					{ "x": 0.352, "y": -0.85, "z": 0.9 },
+					{ "x": 0.1795, "y": -0.9026, "z": 0.9 },
+					{ "x": 0.0, "y": -0.92, "z": 0.9 },
+					{ "x": -0.1795, "y": -0.9026, "z": 0.9 },
+					{ "x": -0.352, "y": -0.85, "z": 0.9 },
+					{ "x": -0.511, "y": -0.765, "z": 0.9 },
+					{ "x": -0.65, "y": -0.65, "z": 0.9 },
+					{ "x": -0.765, "y": -0.511, "z": 0.9 },
+					{ "x": -0.85, "y": -0.352, "z": 0.9 },
+					{ "x": -0.9026, "y": -0.1795, "z": 0.9 },
+					{ "x": -0.92, "y": 0.0, "z": 0.9 },
+					{ "x": -0.9026, "y": 0.1795, "z": 0.9 },
+					{ "x": -0.85, "y": 0.352, "z": 0.9 },
+					{ "x": -0.765, "y": 0.511, "z": 0.9 },
+					{ "x": -0.65, "y": 0.65, "z": 0.9 },
+					{ "x": -0.511, "y": 0.765, "z": 0.9 },
+					{ "x": -0.352, "y": 0.85, "z": 0.9 },
+					{ "x": -0.1795, "y": 0.9026, "z": 0.9 },
+					{ "x": 0.0, "y": 0.92, "z": 0.9 },
+					{ "x": 0.1795, "y": 0.9026, "z": 0.9 },
+					{ "x": 0.352, "y": 0.85, "z": 0.9 },
+					{ "x": 0.511, "y": 0.765, "z": 0.9 },
+					{ "x": 0.65, "y": 0.65, "z": 0.9 },
+					{ "x": 0.765, "y": 0.511, "z": 0.9 },
+					{ "x": 0.85, "y": 0.352, "z": 0.9 },
+					{ "x": 0.9026, "y": 0.1795, "z": 0.9 },
+					
+					{ "x": 0.92, "y": 0.0, "z": 1.0 },
+					{ "x": 0.9026, "y": -0.1795, "z": 1.0 },
+					{ "x": 0.85, "y": -0.352, "z": 1.0 },
+					{ "x": 0.765, "y": -0.511, "z": 1.0 },
+					{ "x": 0.65, "y": -0.65, "z": 1.0 },
+					{ "x": 0.511, "y": -0.765, "z": 1.0 },
+					{ "x": 0.352, "y": -0.85, "z": 1.0 },
+					{ "x": 0.1795, "y": -0.9026, "z": 1.0 },
+					{ "x": 0.0, "y": -0.92, "z": 1.0 },
+					{ "x": -0.1795, "y": -0.9026, "z": 1.0 },
+					{ "x": -0.352, "y": -0.85, "z": 1.0 },
+					{ "x": -0.511, "y": -0.765, "z": 1.0 },
+					{ "x": -0.65, "y": -0.65, "z": 1.0 },
+					{ "x": -0.765, "y": -0.511, "z": 1.0 },
+					{ "x": -0.85, "y": -0.352, "z": 1.0 },
+					{ "x": -0.9026, "y": -0.1795, "z": 1.0 },
+					{ "x": -0.92, "y": 0.0, "z": 1.0 },
+					{ "x": -0.9026, "y": 0.1795, "z": 1.0 },
+					{ "x": -0.85, "y": 0.352, "z": 1.0 },
+					{ "x": -0.765, "y": 0.511, "z": 1.0 },
+					{ "x": -0.65, "y": 0.65, "z": 1.0 },
+					{ "x": -0.511, "y": 0.765, "z": 1.0 },
+					{ "x": -0.352, "y": 0.85, "z": 1.0 },
+					{ "x": -0.1795, "y": 0.9026, "z": 1.0 },
+					{ "x": 0.0, "y": 0.92, "z": 1.0 },
+					{ "x": 0.1795, "y": 0.9026, "z": 1.0 },
+					{ "x": 0.352, "y": 0.85, "z": 1.0 },
+					{ "x": 0.511, "y": 0.765, "z": 1.0 },
+					{ "x": 0.65, "y": 0.65, "z": 1.0 },
+					{ "x": 0.765, "y": 0.511, "z": 1.0 },
+					{ "x": 0.85, "y": 0.352, "z": 1.0 },
+					{ "x": 0.9026, "y": 0.1795, "z": 1.0 }
+				]
+			},
+			"density": 250.0,
+			"physicsMaterial": "Metal",
+			"sticky": "+Z",
+			"qualityLevel": 4
+		},
+		{
+			"legacyId": 7102,
+			"uuid": "036ff530-45df-11e6-beb8-9e71128cae77",
+			"renderable": {
+				"lodList": [
+					{
+						"subMeshList": [
+							{
+								"textureList": [
+									"$MOD_DATA/Objects/Textures/monitor_dif.png",
+									"$MOD_DATA/Objects/Textures/rims_asg.png",
+									"$GAME_DATA/Textures/nonor_nor.png"
+								],
+								"material": "DifAsgNor"
+							}
+						],
+						"mesh": "$MOD_DATA/Objects/Mesh/RimLarge2.obj"
+					}
+				]
+			},
+			"rotationSet": "PropZnegZ",
+			"color": "dddddd",
+			"hull": { 
+				"x": 5, "y": 5, "z": 1.0,
+				"pointList": [
+					{ "x": 0.92, "y": 0.0, "z": 0.9 },
+					{ "x": 0.9026, "y": -0.1795, "z": 0.9 },
+					{ "x": 0.85, "y": -0.352, "z": 0.9 },
+					{ "x": 0.765, "y": -0.511, "z": 0.9 },
+					{ "x": 0.65, "y": -0.65, "z": 0.9 },
+					{ "x": 0.511, "y": -0.765, "z": 0.9 },
+					{ "x": 0.352, "y": -0.85, "z": 0.9 },
+					{ "x": 0.1795, "y": -0.9026, "z": 0.9 },
+					{ "x": 0.0, "y": -0.92, "z": 0.9 },
+					{ "x": -0.1795, "y": -0.9026, "z": 0.9 },
+					{ "x": -0.352, "y": -0.85, "z": 0.9 },
+					{ "x": -0.511, "y": -0.765, "z": 0.9 },
+					{ "x": -0.65, "y": -0.65, "z": 0.9 },
+					{ "x": -0.765, "y": -0.511, "z": 0.9 },
+					{ "x": -0.85, "y": -0.352, "z": 0.9 },
+					{ "x": -0.9026, "y": -0.1795, "z": 0.9 },
+					{ "x": -0.92, "y": 0.0, "z": 0.9 },
+					{ "x": -0.9026, "y": 0.1795, "z": 0.9 },
+					{ "x": -0.85, "y": 0.352, "z": 0.9 },
+					{ "x": -0.765, "y": 0.511, "z": 0.9 },
+					{ "x": -0.65, "y": 0.65, "z": 0.9 },
+					{ "x": -0.511, "y": 0.765, "z": 0.9 },
+					{ "x": -0.352, "y": 0.85, "z": 0.9 },
+					{ "x": -0.1795, "y": 0.9026, "z": 0.9 },
+					{ "x": 0.0, "y": 0.92, "z": 0.9 },
+					{ "x": 0.1795, "y": 0.9026, "z": 0.9 },
+					{ "x": 0.352, "y": 0.85, "z": 0.9 },
+					{ "x": 0.511, "y": 0.765, "z": 0.9 },
+					{ "x": 0.65, "y": 0.65, "z": 0.9 },
+					{ "x": 0.765, "y": 0.511, "z": 0.9 },
+					{ "x": 0.85, "y": 0.352, "z": 0.9 },
+					{ "x": 0.9026, "y": 0.1795, "z": 0.9 },
+					
+					{ "x": 0.92, "y": 0.0, "z": 1.0 },
+					{ "x": 0.9026, "y": -0.1795, "z": 1.0 },
+					{ "x": 0.85, "y": -0.352, "z": 1.0 },
+					{ "x": 0.765, "y": -0.511, "z": 1.0 },
+					{ "x": 0.65, "y": -0.65, "z": 1.0 },
+					{ "x": 0.511, "y": -0.765, "z": 1.0 },
+					{ "x": 0.352, "y": -0.85, "z": 1.0 },
+					{ "x": 0.1795, "y": -0.9026, "z": 1.0 },
+					{ "x": 0.0, "y": -0.92, "z": 1.0 },
+					{ "x": -0.1795, "y": -0.9026, "z": 1.0 },
+					{ "x": -0.352, "y": -0.85, "z": 1.0 },
+					{ "x": -0.511, "y": -0.765, "z": 1.0 },
+					{ "x": -0.65, "y": -0.65, "z": 1.0 },
+					{ "x": -0.765, "y": -0.511, "z": 1.0 },
+					{ "x": -0.85, "y": -0.352, "z": 1.0 },
+					{ "x": -0.9026, "y": -0.1795, "z": 1.0 },
+					{ "x": -0.92, "y": 0.0, "z": 1.0 },
+					{ "x": -0.9026, "y": 0.1795, "z": 1.0 },
+					{ "x": -0.85, "y": 0.352, "z": 1.0 },
+					{ "x": -0.765, "y": 0.511, "z": 1.0 },
+					{ "x": -0.65, "y": 0.65, "z": 1.0 },
+					{ "x": -0.511, "y": 0.765, "z": 1.0 },
+					{ "x": -0.352, "y": 0.85, "z": 1.0 },
+					{ "x": -0.1795, "y": 0.9026, "z": 1.0 },
+					{ "x": 0.0, "y": 0.92, "z": 1.0 },
+					{ "x": 0.1795, "y": 0.9026, "z": 1.0 },
+					{ "x": 0.352, "y": 0.85, "z": 1.0 },
+					{ "x": 0.511, "y": 0.765, "z": 1.0 },
+					{ "x": 0.65, "y": 0.65, "z": 1.0 },
+					{ "x": 0.765, "y": 0.511, "z": 1.0 },
+					{ "x": 0.85, "y": 0.352, "z": 1.0 },
+					{ "x": 0.9026, "y": 0.1795, "z": 1.0 }
+				]
+			},
+			"density": 250.0,
+			"physicsMaterial": "Metal",
+			"sticky": "+Z",
+			"qualityLevel": 4
+		},
+		{
+			"legacyId": 7152,
+			"uuid": "036ff792-45df-11e6-beb8-9e71128cae77", 
+			"renderable": {
+				"lodList": [
+					{
+						"subMeshList": [
+							{
+								"textureList": [
+									"$MOD_DATA/Objects/Textures/monitor_dif.png",
+									"$MOD_DATA/Objects/Textures/rims_asg.png",
+									"$GAME_DATA/Textures/nonor_nor.png"
+								],
+								"material": "DifAsgNor"
+							}
+						],
+						"mesh": "$MOD_DATA/Objects/Mesh/RimSmall2.obj"
+					}
+				]
+			},
+			"rotationSet": "PropZnegZ",
+			"color": "dddddd",
+			"hull": { 
+				"x": 3, "y": 3, "z": 1.0,
+				"pointList": [
+					{ "x": 0.92, "y": 0.0, "z": 0.9 },
+					{ "x": 0.9026, "y": -0.1795, "z": 0.9 },
+					{ "x": 0.85, "y": -0.352, "z": 0.9 },
+					{ "x": 0.765, "y": -0.511, "z": 0.9 },
+					{ "x": 0.65, "y": -0.65, "z": 0.9 },
+					{ "x": 0.511, "y": -0.765, "z": 0.9 },
+					{ "x": 0.352, "y": -0.85, "z": 0.9 },
+					{ "x": 0.1795, "y": -0.9026, "z": 0.9 },
+					{ "x": 0.0, "y": -0.92, "z": 0.9 },
+					{ "x": -0.1795, "y": -0.9026, "z": 0.9 },
+					{ "x": -0.352, "y": -0.85, "z": 0.9 },
+					{ "x": -0.511, "y": -0.765, "z": 0.9 },
+					{ "x": -0.65, "y": -0.65, "z": 0.9 },
+					{ "x": -0.765, "y": -0.511, "z": 0.9 },
+					{ "x": -0.85, "y": -0.352, "z": 0.9 },
+					{ "x": -0.9026, "y": -0.1795, "z": 0.9 },
+					{ "x": -0.92, "y": 0.0, "z": 0.9 },
+					{ "x": -0.9026, "y": 0.1795, "z": 0.9 },
+					{ "x": -0.85, "y": 0.352, "z": 0.9 },
+					{ "x": -0.765, "y": 0.511, "z": 0.9 },
+					{ "x": -0.65, "y": 0.65, "z": 0.9 },
+					{ "x": -0.511, "y": 0.765, "z": 0.9 },
+					{ "x": -0.352, "y": 0.85, "z": 0.9 },
+					{ "x": -0.1795, "y": 0.9026, "z": 0.9 },
+					{ "x": 0.0, "y": 0.92, "z": 0.9 },
+					{ "x": 0.1795, "y": 0.9026, "z": 0.9 },
+					{ "x": 0.352, "y": 0.85, "z": 0.9 },
+					{ "x": 0.511, "y": 0.765, "z": 0.9 },
+					{ "x": 0.65, "y": 0.65, "z": 0.9 },
+					{ "x": 0.765, "y": 0.511, "z": 0.9 },
+					{ "x": 0.85, "y": 0.352, "z": 0.9 },
+					{ "x": 0.9026, "y": 0.1795, "z": 0.9 },
+					
+					{ "x": 0.92, "y": 0.0, "z": 1.0 },
+					{ "x": 0.9026, "y": -0.1795, "z": 1.0 },
+					{ "x": 0.85, "y": -0.352, "z": 1.0 },
+					{ "x": 0.765, "y": -0.511, "z": 1.0 },
+					{ "x": 0.65, "y": -0.65, "z": 1.0 },
+					{ "x": 0.511, "y": -0.765, "z": 1.0 },
+					{ "x": 0.352, "y": -0.85, "z": 1.0 },
+					{ "x": 0.1795, "y": -0.9026, "z": 1.0 },
+					{ "x": 0.0, "y": -0.92, "z": 1.0 },
+					{ "x": -0.1795, "y": -0.9026, "z": 1.0 },
+					{ "x": -0.352, "y": -0.85, "z": 1.0 },
+					{ "x": -0.511, "y": -0.765, "z": 1.0 },
+					{ "x": -0.65, "y": -0.65, "z": 1.0 },
+					{ "x": -0.765, "y": -0.511, "z": 1.0 },
+					{ "x": -0.85, "y": -0.352, "z": 1.0 },
+					{ "x": -0.9026, "y": -0.1795, "z": 1.0 },
+					{ "x": -0.92, "y": 0.0, "z": 1.0 },
+					{ "x": -0.9026, "y": 0.1795, "z": 1.0 },
+					{ "x": -0.85, "y": 0.352, "z": 1.0 },
+					{ "x": -0.765, "y": 0.511, "z": 1.0 },
+					{ "x": -0.65, "y": 0.65, "z": 1.0 },
+					{ "x": -0.511, "y": 0.765, "z": 1.0 },
+					{ "x": -0.352, "y": 0.85, "z": 1.0 },
+					{ "x": -0.1795, "y": 0.9026, "z": 1.0 },
+					{ "x": 0.0, "y": 0.92, "z": 1.0 },
+					{ "x": 0.1795, "y": 0.9026, "z": 1.0 },
+					{ "x": 0.352, "y": 0.85, "z": 1.0 },
+					{ "x": 0.511, "y": 0.765, "z": 1.0 },
+					{ "x": 0.65, "y": 0.65, "z": 1.0 },
+					{ "x": 0.765, "y": 0.511, "z": 1.0 },
+					{ "x": 0.85, "y": 0.352, "z": 1.0 },
+					{ "x": 0.9026, "y": 0.1795, "z": 1.0 }
+				]
+			},
+			"density": 250.0,
+			"physicsMaterial": "Metal",
+			"sticky": "+Z",
+			"qualityLevel": 4
+		},
+		{
+			"legacyId": 7103,
+			"uuid": "036ff5f8-45df-11e6-beb8-9e71128cae77", 
+			"renderable": {
+				"lodList": [
+					{
+						"subMeshList": [
+							{
+								"textureList": [
+									"$MOD_DATA/Objects/Textures/monitor_dif.png",
+									"$MOD_DATA/Objects/Textures/rims_asg.png",
+									"$GAME_DATA/Textures/nonor_nor.png"
+								],
+								"material": "DifAsgNor"
+							}
+						],
+						"mesh": "$MOD_DATA/Objects/Mesh/RimLarge3.obj"
+					}
+				]
+			},
+			"rotationSet": "PropZnegZ",
+			"color": "dddddd",
+			"hull": { 
+				"x": 5, "y": 5, "z": 1.0,
+				"pointList": [
+					{ "x": 0.92, "y": 0.0, "z": 0.9 },
+					{ "x": 0.9026, "y": -0.1795, "z": 0.9 },
+					{ "x": 0.85, "y": -0.352, "z": 0.9 },
+					{ "x": 0.765, "y": -0.511, "z": 0.9 },
+					{ "x": 0.65, "y": -0.65, "z": 0.9 },
+					{ "x": 0.511, "y": -0.765, "z": 0.9 },
+					{ "x": 0.352, "y": -0.85, "z": 0.9 },
+					{ "x": 0.1795, "y": -0.9026, "z": 0.9 },
+					{ "x": 0.0, "y": -0.92, "z": 0.9 },
+					{ "x": -0.1795, "y": -0.9026, "z": 0.9 },
+					{ "x": -0.352, "y": -0.85, "z": 0.9 },
+					{ "x": -0.511, "y": -0.765, "z": 0.9 },
+					{ "x": -0.65, "y": -0.65, "z": 0.9 },
+					{ "x": -0.765, "y": -0.511, "z": 0.9 },
+					{ "x": -0.85, "y": -0.352, "z": 0.9 },
+					{ "x": -0.9026, "y": -0.1795, "z": 0.9 },
+					{ "x": -0.92, "y": 0.0, "z": 0.9 },
+					{ "x": -0.9026, "y": 0.1795, "z": 0.9 },
+					{ "x": -0.85, "y": 0.352, "z": 0.9 },
+					{ "x": -0.765, "y": 0.511, "z": 0.9 },
+					{ "x": -0.65, "y": 0.65, "z": 0.9 },
+					{ "x": -0.511, "y": 0.765, "z": 0.9 },
+					{ "x": -0.352, "y": 0.85, "z": 0.9 },
+					{ "x": -0.1795, "y": 0.9026, "z": 0.9 },
+					{ "x": 0.0, "y": 0.92, "z": 0.9 },
+					{ "x": 0.1795, "y": 0.9026, "z": 0.9 },
+					{ "x": 0.352, "y": 0.85, "z": 0.9 },
+					{ "x": 0.511, "y": 0.765, "z": 0.9 },
+					{ "x": 0.65, "y": 0.65, "z": 0.9 },
+					{ "x": 0.765, "y": 0.511, "z": 0.9 },
+					{ "x": 0.85, "y": 0.352, "z": 0.9 },
+					{ "x": 0.9026, "y": 0.1795, "z": 0.9 },
+					
+					{ "x": 0.92, "y": 0.0, "z": 1.0 },
+					{ "x": 0.9026, "y": -0.1795, "z": 1.0 },
+					{ "x": 0.85, "y": -0.352, "z": 1.0 },
+					{ "x": 0.765, "y": -0.511, "z": 1.0 },
+					{ "x": 0.65, "y": -0.65, "z": 1.0 },
+					{ "x": 0.511, "y": -0.765, "z": 1.0 },
+					{ "x": 0.352, "y": -0.85, "z": 1.0 },
+					{ "x": 0.1795, "y": -0.9026, "z": 1.0 },
+					{ "x": 0.0, "y": -0.92, "z": 1.0 },
+					{ "x": -0.1795, "y": -0.9026, "z": 1.0 },
+					{ "x": -0.352, "y": -0.85, "z": 1.0 },
+					{ "x": -0.511, "y": -0.765, "z": 1.0 },
+					{ "x": -0.65, "y": -0.65, "z": 1.0 },
+					{ "x": -0.765, "y": -0.511, "z": 1.0 },
+					{ "x": -0.85, "y": -0.352, "z": 1.0 },
+					{ "x": -0.9026, "y": -0.1795, "z": 1.0 },
+					{ "x": -0.92, "y": 0.0, "z": 1.0 },
+					{ "x": -0.9026, "y": 0.1795, "z": 1.0 },
+					{ "x": -0.85, "y": 0.352, "z": 1.0 },
+					{ "x": -0.765, "y": 0.511, "z": 1.0 },
+					{ "x": -0.65, "y": 0.65, "z": 1.0 },
+					{ "x": -0.511, "y": 0.765, "z": 1.0 },
+					{ "x": -0.352, "y": 0.85, "z": 1.0 },
+					{ "x": -0.1795, "y": 0.9026, "z": 1.0 },
+					{ "x": 0.0, "y": 0.92, "z": 1.0 },
+					{ "x": 0.1795, "y": 0.9026, "z": 1.0 },
+					{ "x": 0.352, "y": 0.85, "z": 1.0 },
+					{ "x": 0.511, "y": 0.765, "z": 1.0 },
+					{ "x": 0.65, "y": 0.65, "z": 1.0 },
+					{ "x": 0.765, "y": 0.511, "z": 1.0 },
+					{ "x": 0.85, "y": 0.352, "z": 1.0 },
+					{ "x": 0.9026, "y": 0.1795, "z": 1.0 }
+				]
+			},
+			"density": 250.0,
+			"physicsMaterial": "Metal",
+			"sticky": "+Z",
+			"qualityLevel": 4
+		},
+		{
+			"legacyId": 7153,
+			"uuid": "036ff864-45df-11e6-beb8-9e71128cae77", 
+			"renderable": {
+				"lodList": [
+					{
+						"subMeshList": [
+							{
+								"textureList": [
+									"$MOD_DATA/Objects/Textures/monitor_dif.png",
+									"$MOD_DATA/Objects/Textures/rims_asg.png",
+									"$GAME_DATA/Textures/nonor_nor.png"
+								],
+								"material": "DifAsgNor"
+							}
+						],
+						"mesh": "$MOD_DATA/Objects/Mesh/RimSmall3.obj"
+					}
+				]
+			},
+			"rotationSet": "PropZnegZ",
+			"color": "dddddd",
+			"hull": { 
+				"x": 3, "y": 3, "z": 1.0,
+				"pointList": [
+					{ "x": 0.92, "y": 0.0, "z": 0.9 },
+					{ "x": 0.9026, "y": -0.1795, "z": 0.9 },
+					{ "x": 0.85, "y": -0.352, "z": 0.9 },
+					{ "x": 0.765, "y": -0.511, "z": 0.9 },
+					{ "x": 0.65, "y": -0.65, "z": 0.9 },
+					{ "x": 0.511, "y": -0.765, "z": 0.9 },
+					{ "x": 0.352, "y": -0.85, "z": 0.9 },
+					{ "x": 0.1795, "y": -0.9026, "z": 0.9 },
+					{ "x": 0.0, "y": -0.92, "z": 0.9 },
+					{ "x": -0.1795, "y": -0.9026, "z": 0.9 },
+					{ "x": -0.352, "y": -0.85, "z": 0.9 },
+					{ "x": -0.511, "y": -0.765, "z": 0.9 },
+					{ "x": -0.65, "y": -0.65, "z": 0.9 },
+					{ "x": -0.765, "y": -0.511, "z": 0.9 },
+					{ "x": -0.85, "y": -0.352, "z": 0.9 },
+					{ "x": -0.9026, "y": -0.1795, "z": 0.9 },
+					{ "x": -0.92, "y": 0.0, "z": 0.9 },
+					{ "x": -0.9026, "y": 0.1795, "z": 0.9 },
+					{ "x": -0.85, "y": 0.352, "z": 0.9 },
+					{ "x": -0.765, "y": 0.511, "z": 0.9 },
+					{ "x": -0.65, "y": 0.65, "z": 0.9 },
+					{ "x": -0.511, "y": 0.765, "z": 0.9 },
+					{ "x": -0.352, "y": 0.85, "z": 0.9 },
+					{ "x": -0.1795, "y": 0.9026, "z": 0.9 },
+					{ "x": 0.0, "y": 0.92, "z": 0.9 },
+					{ "x": 0.1795, "y": 0.9026, "z": 0.9 },
+					{ "x": 0.352, "y": 0.85, "z": 0.9 },
+					{ "x": 0.511, "y": 0.765, "z": 0.9 },
+					{ "x": 0.65, "y": 0.65, "z": 0.9 },
+					{ "x": 0.765, "y": 0.511, "z": 0.9 },
+					{ "x": 0.85, "y": 0.352, "z": 0.9 },
+					{ "x": 0.9026, "y": 0.1795, "z": 0.9 },
+					
+					{ "x": 0.92, "y": 0.0, "z": 1.0 },
+					{ "x": 0.9026, "y": -0.1795, "z": 1.0 },
+					{ "x": 0.85, "y": -0.352, "z": 1.0 },
+					{ "x": 0.765, "y": -0.511, "z": 1.0 },
+					{ "x": 0.65, "y": -0.65, "z": 1.0 },
+					{ "x": 0.511, "y": -0.765, "z": 1.0 },
+					{ "x": 0.352, "y": -0.85, "z": 1.0 },
+					{ "x": 0.1795, "y": -0.9026, "z": 1.0 },
+					{ "x": 0.0, "y": -0.92, "z": 1.0 },
+					{ "x": -0.1795, "y": -0.9026, "z": 1.0 },
+					{ "x": -0.352, "y": -0.85, "z": 1.0 },
+					{ "x": -0.511, "y": -0.765, "z": 1.0 },
+					{ "x": -0.65, "y": -0.65, "z": 1.0 },
+					{ "x": -0.765, "y": -0.511, "z": 1.0 },
+					{ "x": -0.85, "y": -0.352, "z": 1.0 },
+					{ "x": -0.9026, "y": -0.1795, "z": 1.0 },
+					{ "x": -0.92, "y": 0.0, "z": 1.0 },
+					{ "x": -0.9026, "y": 0.1795, "z": 1.0 },
+					{ "x": -0.85, "y": 0.352, "z": 1.0 },
+					{ "x": -0.765, "y": 0.511, "z": 1.0 },
+					{ "x": -0.65, "y": 0.65, "z": 1.0 },
+					{ "x": -0.511, "y": 0.765, "z": 1.0 },
+					{ "x": -0.352, "y": 0.85, "z": 1.0 },
+					{ "x": -0.1795, "y": 0.9026, "z": 1.0 },
+					{ "x": 0.0, "y": 0.92, "z": 1.0 },
+					{ "x": 0.1795, "y": 0.9026, "z": 1.0 },
+					{ "x": 0.352, "y": 0.85, "z": 1.0 },
+					{ "x": 0.511, "y": 0.765, "z": 1.0 },
+					{ "x": 0.65, "y": 0.65, "z": 1.0 },
+					{ "x": 0.765, "y": 0.511, "z": 1.0 },
+					{ "x": 0.85, "y": 0.352, "z": 1.0 },
+					{ "x": 0.9026, "y": 0.1795, "z": 1.0 }
+				]
+			},
+			"density": 250.0,
+			"physicsMaterial": "Metal",
+			"sticky": "+Z",
+			"qualityLevel": 4
 		}
-   ]
+
+
+	]
 }

@@ -2,28 +2,6 @@
 	"blockList":
 	[
 		{
-			"uuid": "036ffd32-45df-11e6-beb8-9e71128cae77",
-			"dif": "$MOD_DATA/Objects/Textures/transparent.png",
-			"asg": "$MOD_DATA/Objects/Textures/glass16_asg.png",
-			"nor": "$GAME_DATA/Textures/nonor_nor.png",
-			"color": "88eeff",
-			"tiling": 1,
-			"glass": true,
-			"max_stack_count": 3,
-			"physicsMaterial": "Glass",
-			"qualityLevel": 2
-		},
-		{
-			"uuid": "e50485da-4545-4def-a585-0a5f158c6104",
-			"dif": "$MOD_DATA/Objects/Textures/transparent.png",
-			"asg": "$MOD_DATA/Objects/Textures/glow0_asg.png",
-			"nor": "$GAME_DATA/Textures/nonor_nor.png",
-			"color": "ffffff",
-			"tiling": 1,
-			"physicsMaterial": "Metal",
-			"qualityLevel": 3
-		},
-		{
 			"uuid": "c97c17c3-81bb-48b5-9e9c-8a5117ee431a",
 			"dif": "$GAME_DATA/Objects/Textures/Blocks/blk_metal01_dif.tga",
 			"asg": "$GAME_DATA/Objects/Textures/Blocks/blk_metal01_asg.tga",
@@ -35,8 +13,30 @@
 			"qualityLevel": 6
 		},
 		{
+			"uuid": "036ffd32-45df-11e6-beb8-9e71128cae77",
+			"dif": "$GAME_DATA/Textures/transparent.tga",
+			"asg": "$MOD_DATA/Objects/Textures/Glass_asg.png",
+			"nor": "$GAME_DATA/Textures/nonor_nor.png",
+			"color": "88eeff",
+			"tiling": 1,
+			"glass": true,
+			"max_stack_count": 3,
+			"physicsMaterial": "Glass",
+			"qualityLevel": 2
+		},
+		{
+			"uuid": "e50485da-4545-4def-a585-0a5f158c6104",
+			"dif": "$GAME_DATA/Textures/transparent.tga",
+			"asg": "$MOD_DATA/Objects/Textures/glow0_asg.png",
+			"nor": "$GAME_DATA/Textures/nonor_nor.png",
+			"color": "ffffff",
+			"tiling": 1,
+			"physicsMaterial": "Metal",
+			"qualityLevel": 3
+		},
+		{
 			"uuid": "66a95094-5d59-4286-910d-a1936b1473f5",
-			"dif": "$MOD_DATA/Objects/Textures/transparent.png",
+			"dif": "$GAME_DATA/Textures/transparent.tga",
 			"asg": "$MOD_DATA/Objects/Textures/chrome50_asg.png",
 			"nor": "$GAME_DATA/Textures/nonor_nor.png",
 			"density": 1250.0,
@@ -48,7 +48,7 @@
 		{
 			"uuid": "7a73cc98-b2d4-4b28-9095-f8b9077548e4",
 			"dif": "$GAME_DATA/Textures/white.png",
-			"asg": "$MOD_DATA/Objects/Textures/transparent.png",
+			"asg": "$GAME_DATA/Textures/transparent.tga",
 			"nor": "$GAME_DATA/Textures/nonor_nor.png",
 			"density": 250.0,
 			"color": "ffffff",
@@ -59,7 +59,7 @@
 		},
 		{
 			"uuid": "906c76ee-189a-4983-ae82-b31722e56b23",
-			"dif": "$MOD_DATA/Objects/Textures/transparent.png",
+			"dif": "$GAME_DATA/Textures/transparent.tga",
 			"asg": "$GAME_DATA/Textures/white.png",
 			"nor": "$GAME_DATA/Textures/nonor_nor.png",
 			"density": 250.0,
@@ -71,7 +71,7 @@
 		},
 		{
 			"uuid": "bc3efcdf-ae18-4037-b0aa-c5af14e03547",
-			"dif": "$MOD_DATA/Objects/Textures/transparent.png",
+			"dif": "$GAME_DATA/Textures/transparent.tga",
 			"asg": "$MOD_DATA/Objects/Textures/bling50_asg.png",
 			"nor": "$GAME_DATA/Textures/nonor_nor.png",
 			"density": 1250.0,

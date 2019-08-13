@@ -3,15 +3,15 @@
 // Building Blocks
 	"c97c17c3-81bb-48b5-9e9c-8a5117ee431a":
 	{
-		"title": "Diamond Plate Block",
-		"description": "Industrial metal",
-		"keywords": [ "modpack", "industrial", "factory", "metal" ]
+		"title": "ダイヤモンドプレートブロック",
+		"description": "工業用金属",
+		"keywords": [ "modpack", "工業用", "工場", "金属" ]
 	},
 	"036ffd32-45df-11e6-beb8-9e71128cae77":
 	{
-		"title": "Paintable Glass Flat Block",
-		"description": "This glass is clear, without a texture",
-		"keywords": [ "modpack", "clear", "clean", "glass" ]
+		"title": "平らな ガラス ブロック",
+		"description": "このガラスは透明で、テクスチャーはありません",
+		"keywords": [ "modpack", "クリア", "グラス" ]
 	},
 	"e50485da-4545-4def-a585-0a5f158c6104":
 	{
@@ -23,31 +23,31 @@
 	{
 		"title": "Chrome Block",
 		"description": "Shiny reflective metal",
-		"keywords": [ "modpack", "silver", "gold", "precious", "valuable", "metal", "mirror", "reflect", "reflective", "reflection" ]
+		"keywords": [ "modpack", "silver", "gold", "precious", "valuable", "金属", "mirror", "reflect", "reflective", "reflection" ]
 	},
 	"7a73cc98-b2d4-4b28-9095-f8b9077548e4":
 	{
 		"title": "Invisible Block",
 		"description": "This block is impossible to see!",
-		"keywords": [ "modpack", "clear", "see through", "transparent" ]
+		"keywords": [ "modpack", "クリア", "see through", "transparent" ]
 	},
 	"906c76ee-189a-4983-ae82-b31722e56b23":
 	{
 		"title": "Mirror Block",
 		"description": "Super reflective glass\n\nPro-tip:\nUse with glass or invisible block to create a one-way mirror like those used in an interrogation room",
-		"keywords": [ "modpack", "mirror", "reflect", "reflective", "one-way", "two-way", "glass", "poly", "plastic", "cubemap", "reflection" ]
+		"keywords": [ "modpack", "mirror", "reflect", "reflective", "one-way", "two-way", "グラス", "poly", "plastic", "cubemap", "reflection" ]
 	},
 	"bc3efcdf-ae18-4037-b0aa-c5af14e03547":
 	{
 		"title": "Bling Block",
 		"description": "OOOooooh shiny!",
-		"keywords": [ "modpack", "shiny", "silver", "gold", "precious", "metal", "valuable", "rich", "luxury", "vip", "bling" ]
+		"keywords": [ "modpack", "shiny", "silver", "gold", "precious", "金属", "valuable", "rich", "luxury", "vip", "bling" ]
 	},
 	"b51ad015-66e9-41b9-916c-277f9c93232d":
 	{
 		"title": "Game Grid Block",
 		"description": "Enter the virtual world (indestructible)",
-		"keywords": [ "modpack", "tron", "virtual", "grid", "metal", "light", "meter" ]
+		"keywords": [ "modpack", "tron", "virtual", "grid", "金属", "light", "meter" ]
 	},
 	"e7f7b758-6492-4c6a-8760-8fb95da530be":
 	{
@@ -409,7 +409,7 @@
 	"d3eda549-778f-432b-bf21-65a32ae53378": { //keypad addition
 		"title": "Keypad Input",
 		"description": "Keypad to enter values into a Memory Panel or other smart system. The value is output as you type it. Pressing Enter sends a single logic tick.\n\nNot sure how to use it? Connect a bunch of number block digits and give it a try.",
-		"keywords": [ "modpack", "key", "pad", "number", "button", "enter", "clear", "input", "calc", "calculator", "type" ]
+		"keywords": [ "modpack", "key", "pad", "number", "button", "enter", "クリア", "input", "calc", "calculator", "type" ]
 	},
 	"e627986c-b7dd-4365-8fd8-a0f8707af63d": {
 		"title": "Wireless Router",
