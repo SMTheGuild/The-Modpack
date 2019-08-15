@@ -3,11 +3,12 @@
       "emitters" : [
          {
             "color" : { "r" : 1.0, "g" : 0.1, "b" : 0.1, "a" : 1.0 },
+			"emission_mode" : "loop",
             "emission_rate" : 2000,
             "keep_local" : true,
             "particle" : "billboard",
             "scene_blend" : "alpha_blend",
-            "time_to_live_min" : 100000.0,
+            "time_to_live_min" : 1.01,
             "type" : "point",
             "velocity_max" : 0.0,
             "velocity_min" : 0.0,
@@ -16,6 +17,7 @@
          }
       ],
       "scale" : 0.03,
+      "scale_time" : 1,
       "system_type" : "stream"
-   }
+	}
 }
