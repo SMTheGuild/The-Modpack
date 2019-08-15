@@ -44,7 +44,7 @@ function ColorBlock.server_onFixedUpdate( self, dt )
 			-- logic: switch, logic gate, ...
 			table.remove(parents, k)
 			local parentcolor = parent:getShape().color
-			if not parentcolor.r == parentcolor.g or not parentcolor.r == parentcolor.b then
+			if not (parentcolor.r == parentcolor.g) or not (parentcolor.r == parentcolor.b) then
 				HSVmode = parent.active
 			end
 		end
