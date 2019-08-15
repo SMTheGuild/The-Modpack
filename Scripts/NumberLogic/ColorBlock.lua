@@ -43,7 +43,10 @@ function ColorBlock.server_onFixedUpdate( self, dt )
 				tostring(parent:getShape():getShapeUuid()) ~= "ccaa33b6-e5bb-4edc-9329-b40f6efe2c9e" --[[orienter]] then
 			-- logic: switch, logic gate, ...
 			table.remove(parents, k)
-			HSVmode = parent.active
+			local parentcolor = parent:getShape().color
+			if not parentcolor.r == parentcolor.g or not parentcolor.r == parentcolor.b then
+				HSVmode = parent.active
+			end
 		end
 	end
 	
