@@ -55,7 +55,7 @@ function TickButton.server_onFixedUpdate( self, dt )
 			if self.killAtTick - sm.game.getCurrentTick() > self.ticksToLive then -- TimeToGo is smaller than total ticksToLive
 				self.killAtTick = sm.game.getCurrentTick() + self.ticksToLive -- new killAtTick
 			end
-			self.network:sendToClients("client_buttonPress",{self.ticksToLive, self.killAtTick, false})
+			self.network:sendToClients("client_buttonPress",{self.killAtTick - sm.game.getCurrentTick(), self.ticksToLive, false})
 		end
 	end
 	
@@ -77,19 +77,22 @@ end
 
 function TickButton.server_onInteract(self, nosound)
 	self.killAtTick = sm.game.getCurrentTick() + self.ticksToLive
-	self.network:sendToClients("client_buttonPress",{self.ticksToLive, self.killAtTick, not nosound})
+	self.network:sendToClients("client_buttonPress",{self.ticksToLive, self.ticksToLive, not nosound})
 	self.interactable.active = true
 	self.interactable.power = 1
 end
 
 function TickButton.server_clientRequest(self) -- sends data to newly joined clients
-	self.network:sendToClients("client_buttonPress",{self.ticksToLive, self.killAtTick, false})
+	local ticksToLive = self.killAtTick - sm.game.getCurrentTick()
+	if ticksToLive > 0 then
+		self.network:sendToClients("client_buttonPress",{ticksToLive, self.ticksToLive, false})
+	end
 end
 
 
 
 function TickButton.client_onCreate(self)
-	self.c_killAtTick = 0
+	self.c_lifetime = 0
 	self.c_ticksToLive = 1
 	self.network:sendToServer("server_clientRequest")
 end
@@ -97,7 +100,7 @@ end
 function TickButton.client_onFixedUpdate(self)
 	if self.animation_active then
 	
-		if self.c_killAtTick <= sm.game.getCurrentTick() then -- powers down
+		if self.c_ticksToLive <= 0 then -- powers down
 			self.animation_active = false
 			self.interactable:setUvFrameIndex(0)
 			self.interactable:setPoseWeight(0, 0)
@@ -105,22 +108,22 @@ function TickButton.client_onFixedUpdate(self)
 			return
 		end
 		
-		local timeToGo = self.c_killAtTick - sm.game.getCurrentTick()
+		self.interactable:setUvFrameIndex((2 - self.c_ticksToLive / self.c_lifetime) * 25) -- artifact calculation
+		self.interactable:setPoseWeight(0, 0.25 + (self.c_ticksToLive / self.c_lifetime) * 3/4) -- last 25% quickly pops down in a single tick
 		
-		self.interactable:setUvFrameIndex((2 - timeToGo / self.c_ticksToLive) * 25) -- artifact calculation
-		self.interactable:setPoseWeight(0, 0.25 + (timeToGo / self.c_ticksToLive) * 3/4) -- last 25% quickly pops down in a single tick
+		self.c_ticksToLive = self.c_ticksToLive - 1
 	end
 end
 
 
 function TickButton.client_buttonPress(self, data)
 	self.c_ticksToLive = data[1]
-	self.c_killAtTick = data[2]
+	self.c_lifetime = data[2]
 	
 	if data[3] then
 		sm.audio.play("Button on", self.shape:getWorldPosition())
 	end
-	self.animation_active = self.c_killAtTick >= sm.game.getCurrentTick()
+	self.animation_active = self.c_ticksToLive > 0
 end
 
 
