@@ -1,11 +1,12 @@
 --[[ Keypad part ]]--
 
-dofile "Libs/VirtualButtons.lua"
 
 -- the following code prevents re-load of this file, except if in '-dev' mode.  -- fixes broken sh*t by devs.
 if Keypad and not sm.isDev then -- increases performance for non '-dev' users.
 	return
 end 
+dofile "Libs/GameImprovements/interactable.lua"
+dofile "Libs/VirtualButtons.lua"
 
 
 Keypad = class()
