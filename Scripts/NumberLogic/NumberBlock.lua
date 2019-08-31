@@ -179,7 +179,7 @@ function NumberBlock.client_onFixedUpdate(self, value)
 		
 			local dec = self.dec[color]
 			if dec == nil or #parents == 1 then dec = 1 end
-			power = power + dec * (parent:getValue() or parent.power)
+			power = power + dec * parent.power
 		else
 			-- logic input
 			local bit = self.bin[color]
@@ -196,8 +196,7 @@ function NumberBlock.client_onFixedUpdate(self, value)
 				if #children > 0 and children[1]:getType() ~= "scripted" and children[1]:getType() ~= "electricEngine" and children[1]:getType() ~= "gasEngine" then  -- show bits as output
 					local s = self.bin[tostring(self.shape.color)]
 					if s ~= nil then
-						local b = power%(s*2)
-						self.interactable:setUvFrameIndex(b>=s and 1 or 0)
+						self.interactable:setUvFrameIndex(self.interactable.power)
 					else
 						-- gate not correct color , begine flickering
 						if self.index == 0 then self.index = 1 else self.index = 0 end
@@ -209,7 +208,7 @@ function NumberBlock.client_onFixedUpdate(self, value)
 					local show = power
 					
 					if s then
-						show = math.floor(tonumber(tostring(math.abs(power/s)))%10)
+						show = self.interactable.power
 						
 						-- figure out if first digit , show '-' in front of num if neg
 						if (s*10>0-power) and (power<0) then
@@ -226,7 +225,7 @@ function NumberBlock.client_onFixedUpdate(self, value)
 						
 					elseif (tostring(sm.shape.getColor(self.shape)) == "f5f071ff") then
 						s = 0.00000001
-						local show = (tonumber(tostring((math.abs(power)/s))))%1
+						local show = self.interactable.power
 						if show ~= 0 then
 							self.interactable:setUvFrameIndex(24)
 						else
