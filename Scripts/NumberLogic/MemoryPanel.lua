@@ -20,7 +20,6 @@ MemoryPanel.colorNormal = sm.color.new( 0x7F567Dff )
 MemoryPanel.colorHighlight = sm.color.new( 0x9f7fa5ff )
 MemoryPanel.poseWeightCount = 1
 
-MemoryPanel.data = {[0] = 0}
 
 function MemoryPanel.server_onRefresh( self )
 	sm.isDev = true
@@ -29,9 +28,8 @@ end
 
 function MemoryPanel.server_onCreate( self )
 	sm.ImproveUserData(self)
-	self.mode = 0
-	self.time = 0
 	local value = 0
+	self.data = {[0] = 0}
 	local stored = self.storage:load()
 	if stored then
 		if type(stored) == "number" then --very old compatibility support
@@ -113,11 +111,17 @@ function MemoryPanel.server_onFixedUpdate( self, dt )
 	end
 end
 
+function MemoryPanel.client_onCreate(self)
+	self.mode = 0
+	self.time = 0
+end
+
 function MemoryPanel.client_onFixedUpdate(self, dt)
 	local parents = self.interactable:getParents()
 	local address = 0
 	local writevalue = false
 	local reset = false
+	local hasvalueparent = false
 	for k,v in pairs(parents) do
 		if v:isNumberType() then
 			-- number input
