@@ -23,16 +23,16 @@ Tacho.poseWeightCount = 2
 
 Tacho.modetable = {
 	{savevalue = 1,  texturevalue = 0,  name = "speed", 		description= "speed in any direction (blocks/second)"},
-	{savevalue = 7,  texturevalue = 18, name = "velocity", 		description= "speed in a direction (the 'normal' through the meter)"},
-	{savevalue = 2,  texturevalue = 3,  name = "acceleration",	description= "acceleration (blocks/second²)"},
-	{savevalue = 3,  texturevalue = 6,  name = "altitude", 		description= "the current height in blocks"},
-	{savevalue = 4,  texturevalue = 9,  name = "pos x", 		description= "current x pos in blocks"},
-	{savevalue = 5,  texturevalue = 12, name = "pos y", 		description= "current y pos in blocks"},
-	{savevalue = 6,  texturevalue = 15, name = "compass", 		description= "rotation relative to north (+Y)"},
+	{savevalue = 7,  texturevalue = 12, name = "velocity", 		description= "speed in a direction (the 'normal' through the meter)"},
+	{savevalue = 2,  texturevalue = 2,  name = "acceleration",	description= "acceleration (blocks/second²)"},
+	{savevalue = 3,  texturevalue = 4,  name = "altitude", 		description= "the current height in blocks"},
+	{savevalue = 4,  texturevalue = 6,  name = "pos x", 		description= "current x pos in blocks"},
+	{savevalue = 5,  texturevalue = 8, name = "pos y", 		description= "current y pos in blocks"},
+	{savevalue = 6,  texturevalue = 10, name = "compass", 		description= "rotation relative to north (+Y)"},
 	{savevalue = 11, texturevalue = 1,  name = "rotation", 		description= "rotation around placed axis"},
-	{savevalue = 8,  texturevalue = 21, name = "rpm", 			description= "angular speed in degrees/second (use it as a 'wheel')"},
-	{savevalue = 10, texturevalue = 27, name = "creation mass", description= "current mass in the whole creation"},
-	{savevalue = 9,  texturevalue = 24, name = "display", 		description= "can display any input number on the display, white number input defines 'max'(default:100)"},
+	{savevalue = 8,  texturevalue = 14, name = "rpm", 			description= "angular speed in degrees/second (use it as a 'wheel')"},
+	{savevalue = 10, texturevalue = 18, name = "creation mass", description= "current mass in the whole creation"},
+	{savevalue = 9,  texturevalue = 16, name = "display", 		description= "can display any input number on the display, white number input defines 'max'(default:100)"},
 }
 Tacho.savemodes = {}
 for k,v in pairs(Tacho.modetable) do
