@@ -55,12 +55,12 @@ function TickButton.server_onFixedUpdate( self, dt )
 			if self.killAtTick - sm.game.getCurrentTick() > self.ticksToLive then -- TimeToGo is smaller than total ticksToLive
 				self.killAtTick = sm.game.getCurrentTick() + self.ticksToLive -- new killAtTick
 			end
-			self.network:sendToClients("client_buttonPress",{self.killAtTick - sm.game.getCurrentTick(), self.ticksToLive, })
+			self.network:sendToClients("client_buttonPress",{self.killAtTick - sm.game.getCurrentTick(), self.ticksToLive, false})
 		end
 	end
 	
 	if not self.wasActive and logicactive then
-		self:server_onInteract(false)
+		self:server_onInteract(true)
 	end
 	self.wasActive = logicactive
 	
@@ -72,12 +72,12 @@ function TickButton.server_onFixedUpdate( self, dt )
 end
 
 function TickButton.server_onProjectile(self, X, hits, four)
-	self:server_onInteract(true)
+	self:server_onInteract()
 end
 
-function TickButton.server_onInteract(self, sound)
+function TickButton.server_onInteract(self, nosound)
 	self.killAtTick = sm.game.getCurrentTick() + self.ticksToLive
-	self.network:sendToClients("client_buttonPress",{self.ticksToLive, self.ticksToLive, sound})
+	self.network:sendToClients("client_buttonPress",{self.ticksToLive, self.ticksToLive, not nosound})
 	self.interactable.active = true
 	self.interactable.power = 1
 end
@@ -104,9 +104,7 @@ function TickButton.client_onFixedUpdate(self)
 			self.animation_active = false
 			self.interactable:setUvFrameIndex(0)
 			self.interactable:setPoseWeight(0, 0)
-			if self.playsound then
-				sm.audio.play("Button off", self.shape:getWorldPosition())
-			end
+			sm.audio.play("Button off", self.shape:getWorldPosition())
 			return
 		end
 		
@@ -121,9 +119,6 @@ end
 function TickButton.client_buttonPress(self, data)
 	self.c_ticksToLive = data[1]
 	self.c_lifetime = data[2]
-	if data[3] ~= nil then
-		self.playsound = data[3]
-	end
 	
 	if data[3] then
 		sm.audio.play("Button on", self.shape:getWorldPosition())
@@ -133,6 +128,6 @@ end
 
 
 function TickButton.client_onInteract(self)
-    self.network:sendToServer("server_onInteract", true)
+    self.network:sendToServer("server_onInteract")
 end
 
