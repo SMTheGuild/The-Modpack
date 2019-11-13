@@ -168,6 +168,7 @@ end
 
 function NumberBlock.client_onCreate(self)
 	self.index = 0
+	self.interactable.isNumberType = sm.interactable.isNumberType
 end
 
 function NumberBlock.client_onFixedUpdate(self, value)
