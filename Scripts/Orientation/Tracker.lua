@@ -58,7 +58,7 @@ function Tracker.computeInputValues(self)
 	
 	for k, v in pairs(self.interactable:getParents()) do
 		if sm.interactable.isNumberType(v) then
-			local color = tostring(v:getShape().color)
+			local color = v:getShape().color
 			local r,g,b = sm.color.getR(color) *255,sm.color.getG(color) *255, sm.color.getB(color) *255
 			
 			if r==b and r==g then -- frequency
