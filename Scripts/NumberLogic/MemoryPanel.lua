@@ -130,7 +130,7 @@ function MemoryPanel.client_onFixedUpdate(self, dt)
 				hasvalueparent = true
 			elseif tostring(v:getShape().color) == "eeeeeeff" then
 				-- address
-				address = address + (v:getValue() or v.power)
+				address = address + v.power
 			else
 				hasvalueparent = true
 			end
