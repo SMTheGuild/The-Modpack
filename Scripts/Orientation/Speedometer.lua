@@ -72,9 +72,9 @@ function Tacho.server_onFixedUpdate( self, timeStep )
 					local orienter = orienters[v:getShape().id]
 					power = ( orienter.position - (orienter.oldPos or orienter.position) ):length() /timeStep *4
 					orienters[v:getShape().id].oldPos = sm.vec3.new(0,0,0) + orienter.position -- (anti reference)
+				else
+					power = 0
 				end
-			else
-				power = 0
 			end
 		end
 		
@@ -93,9 +93,9 @@ function Tacho.server_onFixedUpdate( self, timeStep )
 					
 					orienters[v:getShape().id].oldPos = sm.vec3.new(0,0,0) + orienter.position -- (anti reference)
 					orienters[v:getShape().id].oldSpeed = sm.vec3.new(0,0,0) + speed-- (anti reference)
+				else
+					power = 0
 				end
-			else
-				power = 0
 			end
 		end
 		if not hasorients then 
@@ -109,9 +109,9 @@ function Tacho.server_onFixedUpdate( self, timeStep )
 			if tostring(v:getShape():getShapeUuid()) == "ccaa33b6-e5bb-4edc-9329-b40f6efe2c9e" --[[orienter]] then
 				if orienters and orienters[v:getShape().id] and orienters[v:getShape().id].position then
 					power = orienters[v:getShape().id].position.z*4
+				else
+					power = 0
 				end
-			else
-				power = 0
 			end
 		end
 	elseif mode == 4 then -- x pos
@@ -120,9 +120,9 @@ function Tacho.server_onFixedUpdate( self, timeStep )
 			if tostring(v:getShape():getShapeUuid()) == "ccaa33b6-e5bb-4edc-9329-b40f6efe2c9e" --[[orienter]] then
 				if orienters and orienters[v:getShape().id] and orienters[v:getShape().id].position then
 					power = orienters[v:getShape().id].position.x*4
+				else
+					power = 0
 				end
-			else
-				power = 0
 			end
 		end
 	elseif mode == 5 then -- y pos
@@ -131,9 +131,9 @@ function Tacho.server_onFixedUpdate( self, timeStep )
 			if tostring(v:getShape():getShapeUuid()) == "ccaa33b6-e5bb-4edc-9329-b40f6efe2c9e" --[[orienter]] then
 				if orienters and orienters[v:getShape().id] and orienters[v:getShape().id].position then
 					power = orienters[v:getShape().id].position.y*4
+				else
+					power = 0
 				end
-			else
-				power = 0
 			end
 		end
 	elseif mode == 6 then -- compass
