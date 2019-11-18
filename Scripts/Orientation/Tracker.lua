@@ -58,19 +58,20 @@ function Tracker.computeInputValues(self)
 	
 	for k, v in pairs(self.interactable:getParents()) do
 		if sm.interactable.isNumberType(v) then
-			local color = tostring(v:getShape().color)
-			if color == "eeeeeeff" then -- x
-				x = (x or 0) + v.power
-				spoofed = true
-			elseif color == "4a4a4aff" or color == "7f7f7fff" then -- y
-				y = (y or 0) + v.power
-				spoofed = true
-			elseif color == "222222ff" then -- z
-				z = (z or 0) + v.power
-				spoofed = true
-			else
-				-- frequency
+			local color = v:getShape().color
+			local r,g,b = sm.color.getR(color) *255,sm.color.getG(color) *255, sm.color.getB(color) *255
+			
+			if r==b and r==g then -- frequency
 				self.currentFreq = self.currentFreq + v.power
+			elseif g>r-9 and g>b then -- g -- y
+				y = (y or 0) + v.power/4
+				spoofed = true
+			elseif b-4>r and b>g-1 then -- b -- z
+				z = (z or 0) + v.power/4
+				spoofed = true
+			else -- r -- x
+				x = (x or 0) + v.power/4
+				spoofed = true
 			end
 		end
 	end

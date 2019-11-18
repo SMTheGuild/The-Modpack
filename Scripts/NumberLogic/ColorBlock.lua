@@ -22,7 +22,7 @@ ColorBlock.poseWeightCount = 1
 
 function ColorBlock.server_onCreate( self ) 
 	self.power = 0
-    self.interactable.active = true
+	self.glowinput = 0 -- glow of this block , turn connected lamps on/off based on this.
 end
 function ColorBlock.server_onProjectile(self, X, hits, four)
 	local red = math.random(0,255)
@@ -240,6 +240,7 @@ function ColorBlock.server_onFixedUpdate( self, dt )
     
 	self.color = color
 	self.interactable:setPower(self.power)
+    self.interactable.active = self.glowinput > 0
 end
 
 function ColorBlock.client_onCreate(self)
@@ -255,8 +256,10 @@ function ColorBlock.client_onFixedUpdate( self, dt )
 		if tostring(v.shape:getShapeUuid()) == "921a2ace-b543-4ca3-8a9b-6f3dd3132fa9" --[[rgb block]] then
 			self.interactable:setUvFrameIndex(v:getUvFrameIndex())
 			self.interactable:setGlowMultiplier(v:getGlowMultiplier())
+			self.glowinput = v:getGlowMultiplier()
 			parentrgb = true
 		elseif tostring(v:getShape().color) == "eeeeeeff" then -- glow
+			self.glowinput = v.power
 			self.interactable:setGlowMultiplier(math.max(0,math.min(1,v.power)))
 		elseif tostring(v:getShape().color) == "7f7f7fff" then -- reflection
 			uv = uv + math.max(0,math.min(255,v.power))
