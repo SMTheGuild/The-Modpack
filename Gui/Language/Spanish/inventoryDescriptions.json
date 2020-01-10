@@ -1,0 +1,770 @@
+{
+
+// Bloques de construcción
+	"c97c17c3-81bb-48b5-9e9c-8a5117ee431a":
+	{
+		"title": "Bloque de placa de diamante",
+		"description": "Metal industrial",
+		"keywords": [ "modpack", "industrial", "fábrica", "metal" ]
+	},
+	"036ffd32-45df-11e6-beb8-9e71128cae77":
+	{
+		"title": "Bloque plano de vidrio pintable",
+		"description": "Este vidrio es transparente, sin textura",
+		"keywords": [ "modpack", "claro", "limpio", "glass" ]
+	},
+	"e50485da-4545-4def-a585-0a5f158c6104":
+	{
+		"title": "Bloque resplandeciente",
+		"description": "Se ilumina",
+		"keywords": [ "modpack", "brillante", "brillo", "brillo", "irradiar", "radiación", "nuclear" ]
+	},
+	"66a95094-5d59-4286-910d-a1936b1473f5":
+	{
+		"title": "Bloque de Chrome",
+		"description": "Metal reflectante brillante",
+		"keywords": [ "modpack", "plata", "oro", "precioso", "valioso", "metal", "espejo", "reflejo", "reflectante", "reflejo" ]
+	},
+	"7a73cc98-b2d4-4b28-9095-f8b9077548e4":
+	{
+		"title": "Bloque invisible",
+		"description": "¡Este bloque es imposible de ver!",
+		"keywords": [ "modpack", "claro", "transparente" ]
+	},
+	"906c76ee-189a-4983-ae82-b31722e56b23":
+	{
+		"title": "Bloque espejo",
+		"description": "vidrio súper reflectante\nPro-tip:\nÚselo con vidrio o bloque invisible para crear un espejo unidireccional como los utilizados en una sala de interrogatorios",
+		"keywords": [ "modpack", "espejo", "reflejo", "reflectante", "unidireccional", "bidireccional", "vidrio", "poli", "plástico", "mapa de cubos", "reflejo" ]
+	},
+	"bc3efcdf-ae18-4037-b0aa-c5af14e03547":
+	{
+		"title": "Bloque de Oro",
+		"description": "¡OOOooooh brillante!",
+		"keywords": [ "modpack", "brillante", "plata", "oro", "precioso", "metal", "valioso", "rico", "lujo", "vip", "bling" ]
+	},
+	"b51ad015-66e9-41b9-916c-277f9c93232d":
+	{
+		"title": "Cuadrícula de Juego",
+		"description": "Entra en el mundo virtual (indestructible)",
+		"keywords": [ "modpack", "tron", "virtual", "cuadrícula", "metal", "luz", "metro" ]
+	},
+	"e7f7b758-6492-4c6a-8760-8fb95da530be":
+	{
+		"title": "Bloque de lujo",
+		"description": "¡Muestra tu estado VIP con este bloque de lujo!",
+		"keywords": [ "modpack", "oro", "precioso", "valioso", "rico", "cuero", "plástico", "lujo", "vip", "bling" ]
+	},
+
+// interactivos
+	"ebafd24a-7bbc-4e75-87f5-a67cdcf31e29":
+	{
+		"title": "Rodamiento invisible",
+		"description": "¡Use esto en mini tubos, vidrio o en cualquier lugar donde desee rotación pero no desea que se muestre un rodamiento!",
+		"keywords": [ "modpack", "claro, transparente" ]
+	},
+	"8f762ab9-5c78-4d9c-a22e-3119bf447169":
+	{
+		"title": "Tubo de dirección",
+		"description": "Puede usar esto para fallas en la dirección, o como parte sin colisión",
+		"keywords": [ "modpack", "dirigir", "suspensión", "fantasma", "torques", "torque", "torsión" ]
+	},
+	"c0d086eb-de4a-4ba9-922a-1c66f129d2ae":
+	{
+		"title": "Mini Suspensión - Corta",
+		"description": "Suspensión adecuada para mini tubos",
+		"keywords": [ "modpack", "resorte" ]
+	},
+	"8d6e5264-9f90-400a-a471-6c0cae101f4d":
+	{
+		"title": "Mini Suspensión - Larga",
+		"description": "Suspensión adecuada para mini tubos",
+		"keywords": [ "modpack", "resorte" ]
+	},
+	"9f016a8d-8cbe-4471-b210-f36f5f280758":
+	{
+		"title": "Suspensión - 4x",
+		"description": "Suspensión más larga",
+		"keywords": [ "modpack", "resorte" ]
+	},
+	"dd676b18-fd06-4aed-baa0-55d4599fdfa3":
+	{
+		"title": "Suspensión - 5x",
+		"description": "Suspensión aún más larga",
+		"keywords": [ "modpack", "resorte" ]
+	},
+	"93e08947-be6d-436c-a64f-932727428c89":
+	{
+		"title": "Suspensión del motor",
+		"description": "¡Esta parte es un motor! ¡Ponga esta parte en un rodamiento y conecte este motor al rodamiento! Conecte algunas tuberías a un extremo donde irá la rueda (y la dirección), y use el otro extremo para limitar el alcance de movimiento. Establezca la potencia de este motor para una suspensión del motor suelta o firme",
+		"keywords": [ "modpack", "motor", "suspensión", "resorte", "ángulo", "controlador" ]
+	},
+	"a6d186ad-c9ba-4b6d-922c-6c13dfcea230":
+	{
+		"title": "Mod Pistón (256)",
+		"description": "Extiende 1-255 bloques\n\nVelocidades:\n1, 2, 3, 4 (enano de pie)\n6, 8, 10, ... 30, 32, 34\n\n¡Más fuerte que el pistón normal!\n\nConsejo: rueda de desplazamiento para un ajuste fino",
+		"keywords": [ "modpack", "resorte", "pneumatic" ]
+	},
+
+// asientos
+	"a3da3841-5a76-4d72-a177-cdc4e572efc7":
+	{
+		"title": "Cama para dormir - Conductor",
+		"description": "Una cama en la que se puede dormir. También funciona como asiento del conductor.",
+		"keywords": [ "modpack", "dirigir", "dirección", "conducir", "control", "controlar", "piloto", "capitán", "operador", "conductor", "dormir", "cama" ]
+	},
+	"784bf71e-2331-4d56-a70f-b00a3994231b":
+	{
+		"title": "Almohada de Conducción",
+		"description": "Una almohada sobre la que se puede sentar. También funciona como asiento del conductor.",
+		"keywords": [ "modpack", "dirigir", "dirección", "conducir", "control", "controlar", "piloto", "capitán", "operador", "conductor", "dormir", "almohada", "cojín" ]
+	},
+	"0513fc6d-fb29-46b6-9409-3ec1a4b79c6f":
+	{
+		"title": "Asiento de motocicleta",
+		"description": "Un asiento del conductor delgado",
+		"keywords": [ "modpack", "dirigir", "dirección", "conducir", "control", "controlar", "piloto", "capitán", "operador", "conductor", "harley", "bicicleta", "silla de montar" ]
+	},
+	"ffddc616-2799-4883-8c62-193ba30b6fa8":
+	{
+		"title": "Asiento del piloto de carreras",
+		"description": "Si te recuestas vas más rápido",
+		"keywords": [ "modpack", "dirección", "dirección", "conducción", "control", "controlar", "piloto", "capitán", "operador", "conductor", "carrera", "carrera", "nascar", "velocidad" ]
+	},
+	"8c355d48-88cd-467b-863f-12c12b72304d":
+	{
+		"title": "Asiento de pasajero de carreras",
+		"description": "¿Qué pasaría si un automóvil de carrera tuviera asientos para pasajeros?",
+		"keywords": [ "modpack", "dirección", "dirección", "conducción", "control", "controlar", "piloto", "capitán", "operador", "conductor", "carrera", "carrera", "nascar", "velocidad" ]
+	},
+	"88e045aa-d3ab-435e-b248-60b34c206e6f":
+	{
+		"title": "Asiento de la rueda del barco",
+		"description": "Solo el capitán puede usar el asiento de este conductor",
+		"keywords": [ "modpack", "dirigir", "dirección", "conducir", "control", "controlar", "piloto", "capitán", "operador", "conductor", "barco", "rueda", "pirata", "bote" ]
+	},
+	"ad671132-c345-4edc-96c7-ec835ab3a2c9":
+	{
+		"title": "Asiento Jetpack - O Mech, Artillero, etc.",
+		"description": "Asiento del conductor con asas\n\nConsulte el paquete Scifi para el modelo anterior",
+		"keywords": [ "modpack", "dirigir", "dirección", "conducir", "control", "controlar", "piloto", "capitán", "operador", "conductor", "cohete", "jet", "jetpack", "mochila" ]
+	},
+	"3b41f562-70c4-4747-9045-3d26ff0e0243":
+	{
+		"title": "Asiento del conductor de pie",
+		"description": "Úselo para tablas de surf, esquís, patinetas o cualquier cosa donde el conductor esté parado",
+		"keywords": [ "modpack", "dirección", "dirección", "conducción", "control", "controlar", "piloto", "capitán", "operador", "conductor", "soporte", "de pie", "tpose", "t pose", "pose" ]
+	},
+	"b15f557c-872f-4bf5-9c0b-2891a34f430e":
+	{
+		"title": "Asiento Modular 1 - Estándar",
+		"description": "Un asiento del conductor invisible que se puede colocar encima de otros bloques\n\nPose: Asiento del conductor estándar",
+		"keywords": [ "modpack", "dirigir", "dirección", "conducir", "control", "controlar", "piloto", "capitán", "operador", "conductor", "mod", "personalizado", "rubor", "invisible", "superficie", "panel", "disfrazar", "falso", "sentarse" ]
+	},
+	"86d5ca1b-f1fa-42a9-9645-0d276e711b27":
+	{
+		"title": "Asiento Modular 2 - Sillín",
+		"description": "Un asiento del conductor invisible que se puede colocar encima de otros bloques\n\nPose: Asiento del conductor",
+		"keywords": [ "modpack", "dirigir", "dirección", "conducir", "control", "controlar", "piloto", "capitán", "operador", "conductor", "mod", "personalizado", "rubor", "invisible", "superficie", "panel", "disfrazar", "falso", "sentarse" ]
+	},
+	"d9f49f49-0ef9-41d6-a9a5-ec454be87082":
+	{
+		"title": "Asiento modular 3 - Carrera",
+		"description": "Un asiento del conductor invisible que se puede colocar encima de otros bloques\n\nPose: Asiento del conductor de carreras",
+		"keywords": [ "modpack", "dirigir", "dirección", "conducir", "control", "controlar", "piloto", "capitán", "operador", "conductor", "mod", "personalizado", "rubor", "invisible", "superficie", "panel", "disfrazar", "falso", "sentarse" ]
+	},
+
+// motores
+	"f55aa240-d4b2-48cc-9c6b-a90fce299bf4":
+	{
+		"title": "Motor de gas de 3 anchos",
+		"description": "Es un motor de gasolina que se ajusta al tamaño de un motor eléctrico. Perfecto para equilibrar creaciones de gas de ancho extraño",
+		"keywords": [ "modpack", "motor", "impar", "ancho impar", "ancho" ]
+	},
+	"c394b6e8-554c-4074-a119-ab2fec55e456":
+	{
+		"title": "Cohete Pico - Baja potencia",
+		"description": "Propulsores de maniobra, o simplemente un propulsor de baja potencia",
+		"keywords": [ "modpack", "cohete", "refuerzo", "impulso", "fuerza", "escape" ]
+	},
+	"036fbe44-45df-11e6-beb8-9e71128cae77":
+	{
+		"title": "1x1 Micro Cohete",
+		"description": "Micro Cohete con más niveles de potencia",
+		"keywords": [ "modpack", "cohete", "refuerzo", "impulso", "fuerza", "escape" ]
+	},
+
+// botones e interruptores
+	"685ccdd5-8ee9-480d-a64a-2696c31e1db0":
+	{
+		"title": "Botón de flecha",
+		"description": "Funciona como un botón normal, pero útil para mostrar una dirección que se está presionando",
+		"keywords": [ "modpack", "desencadenar", "empujar", "encendido", "accionar", "activar", "alternar" ]
+	},
+	"e426ee20-2cf7-40c9-ad5e-145f43752fab":
+	{
+		"title": "Bloqueo de botón oculto",
+		"description": "Este bloque se alinea con los bloques que lo rodean y puede ocultarse en una pared.",
+		"keywords": [ "modpack", "desencadenar", "empujar", "encendido", "accionar", "activar", "alternar", "secreto", "sigilo" ]
+	},
+	"f694b406-4f59-46cb-bf33-05e11851eaac":
+	{
+		"title": "Botón de arranque",
+		"description": "Con algo de lógica adicional, puede usar esto para arrancar sus motores y dar una apariencia realmente genial",
+		"keywords": [ "modpack", "desencadenar", "empujar", "encendido", "accionar", "activar", "alternar" ]
+	},
+	"deeb37a4-b9ba-4ba7-ad4b-6f5fd5e1d6f2":
+	{
+		"title": "Interruptor de marcación",
+		"description": "Un interruptor giratorio",
+		"keywords": [ "modpack", "desencadenar", "empujar", "encendido", "accionar", "activar", "palanca" ]
+	},
+	"70e5729d-0706-4c28-80a2-2ab9d7e7532c":
+	{
+		"title": "Interruptor de pestillo de paleta",
+		"description": "Un interruptor para vehículo o diseño industrial",
+		"keywords": [ "modpack", "desencadenar", "empujar", "encendido", "accionar", "activar", "alternar", "puerta", "palanca" ]
+	},
+	"f6619b4a-a627-40c0-939c-a44432ebc66a":
+	{
+		"title": "Interruptor de manija de puerta",
+		"description": "Un interruptor para el diseño interior de una casa.",
+		"keywords": [ "modpack", "desencadenar", "empujar", "encendido", "accionar", "activar", "alternar", "puerta", "palanca", "vehículo" ]
+	},
+	"7022c522-7b33-4638-8dfb-0dfa7c6eb36f":
+	{
+		"title": "Palanca del acelerador - Interruptor",
+		"description": "Un interruptor para pilotos",
+		"keywords": [ "modpack", "desencadenar", "empujar", "encendido", "accionar", "activar", "alternar", "puerta", "palanca", "piloto", "avión", "avión", "aviación" ]
+	},
+	"e9ab70ae-2c6c-4f68-86c3-2f652c180fc5":
+	{
+		"title": "Palanca mediana - Interruptor",
+		"description": "Una palanca de uso general",
+		"keywords": [ "modpack", "desencadenar", "empujar", "encendido", "accionar", "activar", "alternar", "palanca" ]
+	},
+	"ee92187e-8363-4ff6-a7ae-c96e60450537":
+	{
+		"title": "Palanca grande - Interruptor",
+		"description": "Una palanca grande",
+		"keywords": [ "modpack", "desencadenar", "empujar", "encendido", "accionar", "activar", "alternar", "palanca" ]
+	},
+	"73f35954-e7d2-4a32-bc7c-b88a341ab792":
+	{
+		"title": "Interruptor de válvula de tubería",
+		"description": "Es una válvula de tubería, eso también es un interruptor: D\n\n\n\n\nGracias a Jude por la sugerencia",
+		"keywords": [ "modpack", "desencadenar", "empujar", "encendido", "accionar", "activar", "alternar", "palanca", "plomería" ]
+	},
+
+// pistolas
+	"494f0a47-3f18-4ae1-bc42-3f0fccce4f43": {
+		"title": "Pistola de Papa",
+		"description": "Una pequeña pistola spud para caber en el extremo de las tuberías, auto-relé",
+		"keywords": [ "modpack", "arma", "pequeño", "tubo" ]
+	},
+	"5ec4ebcd-6f2a-402d-b8b9-315b78b4f654": {
+		"title": "Pistola de Papa Mini",
+		"description": "Una pequeña pistola spud para caber en el extremo de los mini tubos, auto-relé",
+		"keywords": [ "modpack", "arma", "mini", "pequeño", "pipa" ]
+	},
+
+// luces
+	"7947150d-a21c-4195-a4a8-76aab023ba3c":
+	{
+		"title": "Bloque de luz de Píxeles",
+		"description": "Un cubo pequeño que emite luz en todas las direcciones",
+		"keywords": [ "modpack", "cubo", "bloque", "píxel", "arte", "pantalla", "lógica", "brillo", "emisión", "faro", "lámpara" ]
+	},
+	"bfbd310d-7c07-4f08-a8cc-9a69e70a9ff0":
+	{
+		"title": "Luz - Redondo",
+		"description": "Se adapta al final de una tubería",
+		"keywords": [ "modpack", "brillo", "emitir", "redondo", "pequeño", "faro", "lámpara" ]
+	},
+	"d7de689e-5082-4323-b6c4-eb1ce8f29719":
+	{
+		"title": "Luz - Rectángulo",
+		"description": "Una luz de forma rectangular",
+		"keywords": [ "modpack", "brillo", "pequeño", "pequeño", "faro", "lámpara" ]
+	},
+	"5a3ea22a-99b1-48eb-b169-3243ad49b27c":
+	{
+		"title": "Luz - Redondo Mini",
+		"description": "Se adapta al extremo de una mini tubería",
+		"keywords": [ "modpack", "brillo", "pequeño", "pequeño", "mini", "redondo", "emitir", "faro", "lámpara" ]
+	},
+	"7b51eae8-c55c-4102-b9eb-6c23ca547e83":
+	{
+		"title": "Luz - Cuadrado",
+		"description": "Una luz de panel de superficie",
+		"keywords": [ "modpack", "bloque", "brillar", "pequeño", "emitir", "faro", "lámpara" ]
+	},
+	"e83e6fd9-e963-485f-8be0-43895af58ee3":
+	{
+		"title": "Luz - Cubo",
+		"description": "Una luz que cabe en el espacio de un bloque.\n\nLa posición de la luz es diferente a la versión del panel de superficie.",
+		"keywords": [ "modpack", "cubo", "bloque", "brillo", "pequeño", "emitir", "faro", "pequeño", "lámpara" ]
+	},
+	"0f994efc-b697-48e4-8ce0-f53eae15d41b":
+	{
+		"title": "Luz Delgada",
+		"description": "¡Una luz fácil de usar para montar en el lateral o la parte inferior de tus creaciones! En cualquier lugar realmente.",
+		"keywords": [ "modpack", "pequeño", "delgado", "debajo", "brillo", "emitir", "pequeño", "automóvil", "vehículo", "faro", "pequeño", "lámpara" ]
+	},
+
+// lógica vainilla
+	"9687439e-70a7-4c52-8dd1-d6fa6ec93df8":
+	{
+		"title": "Controlador de superficie",
+		"description": "Controlador de panel de superficie",
+		"keywords": [ "modpack", "panel", "secuencia", "paso a paso", "paso", "secuenciador", "descarga", "pequeño", "pequeño" ]
+	},
+	"60375a3b-0d70-43a2-a97a-4a4234b500dd":
+	{
+		"title": "Lógica de superficie",
+		"description": "Puerta lógica del panel de superficie",
+		"keywords": [ "modpack", "panel", "lógica", "descarga", "pequeño", "pequeño" ]
+	},
+	"f6b70b49-ea25-47cc-9dac-e2dc90e67d07":
+	{
+		"title": "Temporizador de superficie",
+		"description": "Temporizador de panel de superficie",
+		"keywords": [ "modpack", "panel", "secuencia", "lógica", "tiempo", "secuenciador", "descarga", "pequeño", "pequeño" ]
+	},
+
+// herramientas inteligentes
+	"f907144d-ae63-4e5e-bff9-f9ca413e2090": {
+		"title": "Desacoplador",
+		"description": "¡Desconecte las cosas a pedido! ¡Ya no tendrá que disparar cartón con un spud!\n\n¡Ponga entre las cosas que desea desconectar, conecte un botón / lógica y actívelo para desconectar!",
+		"keywords": [ "modpack", "separar", "adjuntar", "pareja", "desacoplar", "acoplador", "separado", "herramientas", "desconectar", "conectar", "conexión", "cortar", "cortar", "soltar", "inteligente" ]
+	},
+	"6613bebe-be9f-435c-b415-42a0b45cc8e3": {
+		"title": "Bloque de tiempo",
+		"description": "Emite un valor numérico por tiempo\n\nModos:\n - hora del día en segundos (GMT)\n - días desde el año 2000",
+		"keywords": [ "modpack", "reloj", "hora", "lógica", "número", "inteligente", "segundo", "minuto", "hora", "fecha", "día", "mes", "año", "reloj" ]
+	},
+	"4081ca6f-6b80-4c39-9e79-e1f747039bec": {
+		"title": "Sensor inteligente",
+		"description": "¡Rango infinito!\nDevuelve la distancia o el color detectado como un número.\n\nModos:\n - Modo de distancia normal\n - Modo de distancia amplia\n - Modo de color normal\n - Modo de color ancho\n - Detector de tipo\n\nUse una entrada numérica para compensar el haz de detección (¡vea a través de las paredes!)\nUtilice la entrada de número blanco para la selección de modo con lógica",
+		"keywords": [ "modpack", "sensor", "rango", "inteligente", "número", "lógica", "tipo", "detector", "detectar", "distancia", "radar", "ojo" ]
+	},
+	"c7a99aa6-c5a4-43ad-84c9-c85f7d842a93":
+	{
+		"title": "Láser",
+		"description": "Emite un láser en línea recta",
+		"keywords": [ "modpack", "sensor", "rango", "inteligente", "número", "lógica", "tipo", "detector", "detectar", "distancia", "radar", "ojo", "luz", "haz", "láser", "lazer", "seguridad", "línea" ]
+	},
+	"6594dff0-c652-4b44-8bb6-c725aaadea05": {
+		"title": "Rastreador",
+		"description": "¡Pega esto en tu creación para nunca volver a perderlo! ¡Podrás rastrear todo lo que pegues!\n\n¡Pinte su rastreador para rastrear por color! ¡Entrada de número blanco para usar frecuencia personalizada!\n\n¡Crea una posición de seguimiento falsa con entradas de números RGB!",
+		"keywords": [ "modpack", "radar", "distancia", "localizar", "ubicación", "número", "frecuencia", "canal", "distancia", "detectar", "jugador", "rastreador", "línea", "punto", "coordenada" ]
+	},
+	"55bb3871-8455-40dc-a968-3dc635a32b7e": {
+		"title": "Bloqueador de Radar",
+		"description": "Esto causará interferencia con la señal de seguimiento en un radar dentro de un radio de 16 bloques. Presione E para encender / apagar. ON por defecto.\n\nSi un proyectil golpea este dispositivo, dejará de funcionar por un corto tiempo",
+		"keywords": [ "modpack", "radar", "distancia", "localizar", "ubicación", "distancia", "frecuencia", "detectar", "jugador", "rastreador", "interrumpir", "sigilo", "ocultar", "atasco", "señal", "línea", "punto", "coordinar" ]
+	},
+	"d88ba569-f7a5-42e3-bb11-d7979b60ddad": {
+		"title": "x-o-metro",
+		"description": "Emite un valor numérico. Presione E para cambiar de modo, CTRL + E para retroceder.\n\nModos:\n- Velocímetro\n- Acelerómetro\n- altímetro\n- Posición X\n- Posición Y\n- Brújula\n- velocidad\n- RPM (Grados / Segundo)\n- Indicador de porcentaje personalizado",
+		"keywords": [ "modpack", "inteligente", "lógica", "orientar", "orientación", "medidor", "medir", "ángulo", "dirección", "brújula", "velocímetro", "velocidad", "aceleración", "velocidad", "vector", "inclinación", "calibre", "altitud", "posición", "ubicación", "grado", "rotación", "rpm", "línea", "punto", "coordenada", "equilibrio" ]
+	},
+	"ccaa33b6-e5bb-4edc-9329-b40f6efe2c9e": {
+		"title": "Bloque de Orientación",
+		"description": "Este bloque generará información de orientación. Úselo con un motor con cojinetes, propulsores, ¡todo lo que necesite para alinear este bloque con su objetivo! ¡Apunte al mundo, jugador, bloque de seguimiento y más! ¡Lectura de distancia adicional! WS y AD convierte desde el bloque matemático",
+		"keywords": [ "modpack", "inteligente", "lógica", "orientar", "orientación", "ángulo", "dirección", "cámara", "control", "controlar", "ai", "computadora", "auto", "automatic", "npc", "world", "player", "tracker", "track", "detect", "distance", "target", "range", "line", "point", "coordinar", "equilibrio" ]
+	},
+
+// Lógica inteligente
+	"6f2dd83e-bc0d-43f3-8ba5-d5209eb03d07": {
+		"title": "Botón Tick",
+		"description": "¡Este botón es muy preciso! Cuando se presiona, enviará una señal de 1 tick de longitud. Este botón también puede tener una entrada numérica para establecer la longitud de tick para tiempos de efecto más largos y más específicos.\n\nNúmero de color lógico compatible",
+		"keywords": [ "modpack", "inteligente", "lógica", "número", "marca", "pulso", "señal", "valor", "bit", "conteo", "agregar", "restar", "valor", "bit", "dígito", "disparador", "alternar" ]
+	},
+	"d8296109-2ffb-4efb-819a-54bd8cadf549": {
+		"title": "Contador",
+		"description": "Este bloque se utiliza como dispositivo de conteo. La primera entrada cuenta hacia arriba; la segunda entrada cuenta hacia atrás.\nLa salida es un número; utilizar con bloques de números y bloques matemáticos. Rango positivo y negativo.\nPresione E para restablecer el contador a cero.\nCompatible con dígitos ponderados por color para las entradas (es decir, 2 entradas rojas contarán hacia arriba / hacia abajo en 10)",
+		"keywords": [ "modpack", "inteligente", "lógica", "número", "recuento", "sumar", "restar", "valor", "bit", "dígito", "almacenamiento", "escribe", "guardar" ]
+	},
+	"efbd14a8-f896-4268-a273-b2b382db520c": {
+		"title": "Bloque numérico",
+		"description": "Se utiliza para mostrar y transferir valores numéricos. Compatible con dígitos ponderados por color.\n\nEjemplo:\nUse Counter como entrada para muchos bloques de números y pinte los bloques de números en la segunda fila de colores de pintura de derecha a izquierda para dígitos individuales.\nTambién puede almacenar un valor numérico en un solo bloque",
+		"keywords": [ "modpack", "inteligente", "lógica", "número", "conteo", "pantalla", "dígito", "valor", "pantalla", "bit", "binario", "bcd", "numérico" ]
+	},
+	"289e08ef-e3d8-4f1b-bc10-a0bcf36fa0ce": {
+		"title": "Bloque matemático\n(Bloque de funciones)",
+		"description": "¡Muchas funciones incluidas! ¡Presione E para recorrer las funciones! CTRL + E para retroceder.\nConecte entradas y realice funciones para una salida en formato numérico\nEspecifique el orden de las operaciones con entradas de color blanco / negro\nIncluye funciones de asiento y bit de memoria",
+		"keywords": [ "modpack", "inteligente", "lógica", "número", "función", "aritmética", "sumar", "menos", "invertir", "negativo", "restar", "multiplicar", "producto", "división", "dividir", "relación", "comparar", "convertir", "menos", "mayor", "<", ">", "igual", "no", "desigual", "valor", "wasd", "asiento", "control", "controlar", "ws", "ad", "operación", "hipotenusa", "seno", "pecado", "cos", "coseno", "tangente", "bronceado", "inverso", "arco", "trig", "trigonometría", "línea", "punto", "coordenada", "redondo", "arriba", "abajo", "dirección", "conducción", "aleatorio", "pi", "euler", "constante", "exponente", "raíz", "cuadrado", "min", "max", "log", "módulo", "mod", "memoria", "bit", "factor", "factorial", "flip", "switch", "digital" ]
+	},
+	"b39faec9-1ed0-4475-8bc0-78d125df1b58": {
+		"title": "Panel de memoria",
+		"description": "Guarda un valor numérico en una dirección de memoria. Use una entrada numérica para el valor y un interruptor / botón / lógica para guardar ese valor. Use una segunda entrada numérica pintada de blanco para especificar la dirección de memoria.",
+		"keywords": [ "modpack", "inteligente", "lógica", "número", "guardar", "almacenar", "almacenamiento", "memoria", "bit", "recuperar", "cargar", "valor", "dígito", "digital", "ram", "disco", "unidad", "disco duro", "ssd", "escritura" ]
+	},
+	"a1d0b1a0-4ec7-4614-8b7a-9a7c521cc03e": {
+		"title": "Reloj Automático Inteligente",
+		"description": "Entradas numéricas:\nBlanco: define cuánto tiempo retrasar la señal\nOtro: ingrese el valor del número, saldrá después del retraso establecido\n\nEntradas lógicas:\nBlanco = borrar la cola del temporizador\nNegro = pausa en la cola del temporizador\nOtro = valor de entrada de 1",
+		"keywords": [ "modpack", "inteligente", "lógica", "número", "retraso", "secuencia", "orden", "tiempo", "valor", "tick" ]
+	},
+	"d3eda549-778f-432b-bf21-65a32ae53378": {// adición de teclado
+		"title": "Entrada del teclado",
+		"description": "Teclado para ingresar valores en un Panel de Memoria u otro sistema inteligente. El valor se emite a medida que lo escribe. Al presionar Enter se envía un solo tic lógico.\n\n¿No estás seguro de cómo usarlo? Conecta un montón de dígitos de bloque de números y pruébalo",
+		"keywords": [ "modpack", "teclado", "número", "botón", "enter", "despejar", "entrada", "calc", "calculadora", "escribir" ]
+	},
+	"e627986c-b7dd-4365-8fd8-a0f8707af63d": {
+		"title": "Enrutador inalámbrico",
+		"description": "¡Este dispositivo inalámbrico puede transmitir datos a través de largas distancias!\n\nE para cambiar enviar / recibir\nEl color de la pintura define el canal\nNúmero blanco para frecuencia\n\nPrecaución: los dispositivos inalámbricos en el mismo canal y frecuencia interferirán entre sí",
+		"keywords": [ "modpack", "inteligente", "lógica", "número", "inalámbrico", "remoto", "transferencia", "control", "controlar", "señal", "frecuencia", "antena" ]
+	},
+	"921a2ace-b543-4ca3-8a9b-6f3dd3132fa9": {
+		"title": "Bloque de color",
+		"description": "Un bloque que puede cambiar de color.\n\nUse la entrada de 1 número para mostrar un color de negro a blanco (-1 es una forma rápida de llegar al blanco).\nUse 3 entradas numéricas (pintadas de rojo, verde, azul) para usar este bloque en modo RGB. Establezca cada componente de color de 0 a 255\n\nPintar el bloque también funciona.\nPuede conectar bloques de colores juntos también.\nBlanco, gris y negro para brillo, brillo y reflejo. Entrada lógica coloreada para cambiar de modo RGB a HSV",
+		"keywords": [ "modpack", "inteligente", "lógica", "número", "rgb", "color", "pantalla", "pantalla", "píxel", "punto", "brillo", "brillo", "reflejar", "rojo", "verde", "azul", "brillo", "personalizado", "pintura" ]
+	},
+	"9c47ec58-bdfc-43a4-b066-852156ad812a": {
+		"title": "Bloque Ascii",
+		"description": "Cree sus signos, pantallas, pantallas, juegos y más con el Bloque Ascii. Presione E para recorrer las letras, CTRL + E para retroceder.\n\nConecte una entrada numérica para especificar el símbolo que desea mostrar.\n\nO también puede conectar varios botones para recorrer los símbolos",
+		"keywords": [ "modpack", "smart", "logic", "número", "display", "letter", "symbol", "emoji", "emoticon", "emote", "smile", "flecha", "ceño", "cara", "signo", "dirección", "texto", "astrología", "matemáticas", "geometría", "imagen", "imagen", "diseño" ]
+	},
+	"8d27520e-2ebc-4f14-bd2c-b99ee8976799": {
+		"title": "Bloque Ascii invertido",
+		"description": "Cree sus signos, pantallas, pantallas, juegos y más con el Bloque Ascii. Presione E para recorrer las letras, CTRL + E para retroceder.\n\nConecte una entrada numérica para especificar el símbolo que desea mostrar.\n\nO también puede conectar varios botones para recorrer los símbolos",
+		"keywords": [ "modpack", "smart", "logic", "número", "display", "letter", "symbol", "emoji", "emoticon", "emote", "smile", "flecha", "ceño", "cara", "signo", "dirección", "texto", "astrología", "matemáticas", "geometría", "imagen", "imagen", "diseño" ]
+	},
+	"a459eb96-7f0a-42e6-a841-44f9c0561a55": {
+		"title": "Bloque Ascii de color",
+		"description": "Cree sus signos, pantallas, pantallas, juegos y más con el Bloque Ascii. Presione E para recorrer las letras, CTRL + E para retroceder.\n\nConecte una entrada numérica para especificar el símbolo que desea mostrar.\n\nO también puede conectar varios botones para recorrer los símbolos",
+		"keywords": [ "modpack", "smart", "logic", "número", "display", "letter", "symbol", "emoji", "emoticon", "emote", "smile", "flecha", "ceño", "cara", "signo", "dirección", "texto", "astrología", "matemáticas", "geometría", "imagen", "imagen", "diseño" ]
+	},
+
+// poder inteligente
+	"fe8978ec-5798-4b24-bdb2-8375387f171b": {
+		"title": "Controlador inteligente del motor",
+		"description": "¡Este dispositivo puede controlar rodamientos y pistones con lógica numérica!\nBlanco = velocidad\nNegro = Poder\nGris = rigidez\nOtro = Ángulo / longitud del objetivo\n\nValores predeterminados sin entradas:\n0 velocidad\n10.000 de potencia\n100 rigidez\nSin ángulo objetivo / longitud 0",
+		"keywords": [ "modpack", "inteligente", "lógica", "número", "paso", "paso a paso", "secuencia", "secuenciador", "ángulo", "pistón", "longitud", "personalizado", "resorte", "suspensión", "fuerza", "fuerza", "resistencia", "velocidad", "rotación", "rotación", "rpm", "electricidad", "gas" ]
+	},
+	"a4342028-9a61-4961-99a4-2ae372ee2481": {
+		"title": "Cohete Inteligente",
+		"description": "Conecte un asiento para los controles W y S. Ingrese el número para establecer el nivel de potencia. Utilice también las funciones del asiento del bloque matemático para los controles A y D.\n\nPotencia por defecto: 100\nEste es el valor numérico utilizado cuando no hay una entrada numérica conectada y es aproximadamente el mismo que un propulsor normal en la configuración de potencia más baja.",
+		"keywords": [ "modpack", "inteligente", "lógica", "número", "cohete", "potencia", "dirección", "control", "controlar", "personalizado", "ws", "asiento", "flotador", "volar", "jet" ]
+	},
+	"cec7c353-34ab-43a4-ade5-411df02eaa2a": {
+		"title": "WASD Cohete",
+		"description": "¡Dirija este propulsor con un asiento! Use un interruptor para encender / apagar. Use una entrada numérica para establecer el nivel de potencia, como el propulsor inteligente.\n\nIMPORTANTE: presione E para cambiar de modo, CTRL + E para retroceder.\nPredeterminado, tono invertido, solo WS, solo AD\n\nPotencia predeterminada: 100",
+		"keywords": [ "modpack", "inteligente", "lógica", "número", "cohete", "potencia", "dirección", "control", "controlar", "personalizado", "ws", "anuncio", "asiento", "flotador", "volar", "jet" ]
+	},
+	"41d596a6-882c-4f97-b0e0-3e11bff194e2": {
+		"title": "Cardán Cohete",
+		"description": "¡Siempre empujará hacia arriba! También puede ajustar la dirección con el asiento del conductor. Cambie a alternar y ingrese números para configurar la potencia.\n\nIMPORTANTE: presione E para cambiar de modo, CTRL + E para retroceder, coloque el lado derecho hacia arriba para los modos normales, coloque boca abajo para el otro lado\n\nPotencia predeterminada: 100",
+		"keywords": [ "modpack", "inteligente", "lógica", "número", "cohete", "potencia", "dirección", "control", "controlar", "personalizado", "ws", "anuncio", "asiento", "equilibrio", "flotador", "volar", "jet" ]
+	},
+	"c9e34f58-b30d-4ab5-92c5-76f707090c45": {
+		"title": "Módulo de gravedad",
+		"description": "¡Cambia la gravedad para una creación específica! Autos, aviones, naves espaciales, submarinos, etc.\n\nPresione E para activar! O puede usar un interruptor / lógica.\n\nLa configuración predeterminada es gravedad cero.\nEspecifique la gravedad con entradas numéricas (0.25x, 2x, etc.)",
+		"keywords": [ "modpack", "inteligente", "lógica", "número", "flotante", "volar", "grav", "0g", "anti", "antigravedad", "vehículo", "espacio", "nave espacial" ]
+	},
+	"e93ca226-4166-49e3-97cd-bb8df20242d7": {
+		"title": "Modulador de gravedad",
+		"description": "¡Cambia la gravedad del mundo entero!\n\nPresione E para activar! O puede usar interruptor / lógica.\n\nLa configuración predeterminada es gravedad cero.\nEspecifique la gravedad con entradas numéricas (0.25x, 2x, etc.)\n\n¡Múltiples moduladores están unidos entre sí! Apagar uno los apagará a todos.",
+		"keywords": [ "modpack", "inteligente", "lógica", "número", "flotante", "volar", "grav", "0g", "anti", "antigravedad", "mundo" ]
+	},
+	"e2cc7014-85f3-4bb8-a7ca-b70b6502d91e": {
+		"title": "Ala grande",
+		"description": "¡Un ala grande para crear vehículos voladores!\n\n¡Usa entradas numéricas para cambiar el ángulo de la aleta!",
+		"keywords": [ "modpack", "inteligente", "lógica", "número", "volar", "ala", "avión", "pájaro", "aviación", "aire", "florete", "barco", "jet", "grande", "grande" ]
+	},
+	"b5222776-1702-4c22-a8c5-ca26cc0290e7": {
+		"title": "Ala pequeña / Hélice",
+		"description": "Un ala pequeña que puede usarse para un control preciso, hélices, palas de helicóptero, aletas traseras, etc.\n\n¡Use entradas numéricas para cambiar el ángulo de esta parte sin la necesidad de cojinetes!",
+		"keywords": [ "modpack", "inteligente", "lógica", "número", "volar", "ala", "avión", "pájaro", "aviación", "aire", "florete", "buque", "jet", "pequeño", "turbina" ]
+	},
+	"c071509a-9854-4359-8857-296f16edf15d": {
+		"title": "Explosivo temporizado - dinamita",
+		"description": "¡Presione E para activar! Detona 10 segundos después de la activación.\n\nActivar inmediatamente con un botón / interruptor / sensor / lógica / temporizador\n\nSe usa para detonar explosivos más grandes",
+		"keywords": [ "modpack", "boom", "inteligente", "lógica", "hora", "temporizador", "reloj", "explosivo", "explosión", "destruir", "demoler", "construcción", "explotar", "pow", "explosión", "tnt", "c4" ]
+	},
+// sonido inteligente
+	"f73fd8c7-61eb-416f-8374-9a4c26e6db8f": {
+		"title": "Generador de tonos",
+		"description": "¡Usa la lógica numérica para crear sonido!\n\nEntradas:\nLógica = activar / desactivar\nNúmero blanco = nota para jugar\nNúmero gris = frecuencia para jugar\nNúmero negro = tipo de onda\nCualquier número de color = volumen\n\nTipos de olas:\nSeno, cuadrado, triángulo, diente de sierra",
+		"keywords": [ "modpack", "inteligente", "lógica", "número", "sonido", "canción", "tono", "midi", "tote", "bot", "totebot", "freq", "frecuencia", "instrumento", "onda", "tipo", "forma", "forma de onda", "oscilar", "resonar", "reproducir", "pausa", "sintetizador", "música" ]
+	},
+	"1d5d997e-efa9-478c-98ee-e452f5ff0dd2": {
+		"title": "Cabeza de Robot Inteligente",
+		"description": "Entradas:\nLógica = activar / desactivar\nNúmero blanco = nota para jugar\nNúmero gris = frecuencia para jugar\nNúmero negro = tipo Totebot\nCualquier número de color = volumen\n\nTotebots:\nBass 1, Percussion 1, Synth 1, Blip 1, Bass 2, Percussion 2, Synth 2, Blip 2, Glitch, Challenge Ball",
+		"keywords": [ "modpack", "inteligente", "lógica", "número", "sonido", "canción", "tono", "midi", "tote", "bot", "totebot", "freq", "frecuencia", "instrumento", "onda", "tipo", "forma", "forma de onda", "oscilar", "resonar", "reproducir", "pausa", "sintetizador", "música" ]
+	},
+// radares
+	"a053e38d-608b-4b9a-8d04-c3da2b6fdff7":
+	{
+		"title": "Radar",
+		"description": "Presione E para recorrer los rangos disponibles (unidades = bloques x 4), CTRL + E para retroceder.\nEsto rastreará jugadores y dispositivos rastreadores",
+		"keywords": [ "modpack", "radar", "distancia", "localizar", "ubicación", "distancia", "detectar", "jugador", "rastreador", "línea", "punto", "coordinar" ]
+	},
+	"0954264c-4914-4848-b35a-4ae46cabc467": {
+		"title": "Radar 3D\nRadar Tridimensional",
+		"description": "¡Visualiza las posiciones del jugador en una pantalla 3D! No detecta rastreadores (¿todavía?)",
+		"keywords": [ "modpack", "radar", "distancia", "localizar", "ubicación", "distancia", "detectar", "jugador", "rastreador", "3d", "línea", "punto", "coordenada" ]
+	},
+// parte engendradora
+	"99540e2a-7727-422c-8725-d38cc8d34126": {
+		"title": "Emisor de Piezas",
+		"description": "¡Un generador de bolas pirateado desde el modo desafío que te permite generar cualquier parte! Usa la lógica numérica para definir qué parte generar y cómo generarla. Opcionalmente, conecta un sensor para copiar una parte delante del sensor (cualquier parte). Use / console para más instrucciones",
+		"keywords": [ "modpack", "inteligente", "lógica", "número", "generador", "spawn", "bloque", "parte", "interactivo", "personalizado" ]
+	},
+
+// NO INTERACTIVOS:
+	"bf8f8e24-806b-4223-9345-2bac7c1e265d":
+	{
+		"title": "Bloque de colisión reducido",
+		"description": "Un bloque con la colisión de una esfera. Útil para puertas que se atascan",
+		"keywords": [ "modpack", "esfera", "colisión", "bajo" ]
+	},
+	"9c40e3ab-8d03-40bc-a88b-eaebc61257d6":
+	{
+		"title": "Panel de Ventilación",
+		"description": "Una pequeña ventilación para permitir que fluya el aire / escape",
+		"keywords": [ "modpack", "parrilla", "pequeño", "panel", "superficie", "ventilación", "aire" ]
+	},
+
+// ruedas
+	"b57c8185-2f95-4ba8-818d-eed258e01d00":
+	{
+		"title": "Rueda de rodillos - 1x1",
+		"description": "Una pequeña rueda",
+		"keywords": ["modpack", "1"]
+	},
+	"4e1452d0-a9c2-42d4-91cf-1aea84c533ed":
+	{
+		"title": "Rueda de rodillos - 2x1",
+		"description": "Una rueda muy pequeña",
+		"keywords": ["modpack", "2"]
+	},
+	"c460f40f-c7b7-4695-a627-9f01749724b6":
+	{
+		"title": "Rueda redondeada - 3x1",
+		"description": "Una pequeña rueda\n\nrueda de avión ",
+		"keywords": ["modpack", "plano", "redondo", "3"]
+	},
+	"c9cf3b88-86f3-4146-af16-a7b16c917ecc":
+	{
+		"title": "Rueda sin cubo",
+		"description": "Uso con rumbo invisible.\n\nPuede requerir The Modpack Invisible para un mejor montaje.\nEl soporte Modpack Legacy tiene el soporte de rodamiento de anillo antiguo ",
+		"keywords": ["modpack", "5"]
+	},
+	"4358b01f-3303-42a2-91d2-cc950e23b59b":
+	{
+		"title": "Rueda invisible",
+		"description": "Útil para cosas que necesitan moverse sin la apariencia de ruedas",
+		"keywords": ["modpack", "5"]
+	},
+	"27b6541d-2be0-420f-abb8-d59f566e85bd":
+	{
+		"title": "Rueda de tierra - 3x1 / 2",
+		"description": "Una rueda para vehículos todo terreno",
+		"keywords": ["modpack", "3", "half", "motorcross", "thin"]
+	},
+	"68a7fe0a-4d48-4552-a29d-044d3c7b9e02":
+	{
+		"title": "Rueda de tierra - 3x1",
+		"description": "Una rueda para vehículos todo terreno",
+		"keywords": ["modpack", "3", "motocross"]
+	},
+	"92d3c375-0e45-4df4-8691-90e49e8ce24d":
+	{
+		"title": "Rueda de tierra - 4x1",
+		"description": "Una rueda para vehículos todo terreno",
+		"keywords": ["modpack", "4", "motocross"]
+	},
+	"041ae0ae-07d5-4ac5-9767-be396ba2445d":
+	{
+		"title": "Rueda de tierra - 5x1",
+		"description": "Una rueda para vehículos todo terreno",
+		"keywords": ["modpack", "5", "motocross"]
+	},
+	"c47ff0cd-e1f2-4727-ba40-c85d0512d6d0":
+	{
+		"title": "Rueda de tierra - 5x2",
+		"description": "Una rueda para vehículos todo terreno",
+		"keywords": ["modpack", "5", "motocross"]
+	},
+	"784bf162-b2d1-4a6d-9cf4-091827871a40":
+	{
+		"title": "Rueda de tierra - 5x3",
+		"description": "Una rueda para vehículos todo terreno",
+		"keywords": ["modpack", "5", "wide", "motorcross"]
+	},
+	"5a9ff028-a6cb-4010-bcd4-c88eb230bcdb":
+	{
+		"title": "Rueda de la Calle - 3x1",
+		"description": "¡Una rueda lista para las calles!",
+		"keywords": ["modpack", "3"]
+	},
+	"58e7fdd0-9f15-466c-aaba-60805044fe67":
+	{
+		"title": "Rueda de la Calle - 4x1",
+		"description": "¡Una rueda lista para las calles!",
+		"keywords": ["modpack", "4", "even"]
+	},
+	"3147a872-cb90-487c-b6ce-438c6403b09c":
+	{
+		"title": "Rueda de la Calle - 4x2",
+		"description": "¡Una rueda lista para las calles!",
+		"keywords": ["modpack", "4", "even"]
+	},
+	"a02f96b2-26c3-4b3e-a00c-32254af91a5d":
+	{
+		"title": "Rueda de la Calle - 5x2",
+		"description": "¡Una rueda lista para las calles!",
+		"keywords": ["modpack", "5"]
+	},
+	"d3954d83-78ee-4fbf-9a60-70e4872e1d39":
+	{
+		"title": "Rueda de la Calle - 6x2",
+		"description": "¡Una rueda lista para las calles!",
+		"keywords": ["modpack", "6", "even"]
+	},
+	"d59bd448-6401-4476-849a-e6fc86d28b7b":
+	{
+		"title": "Rueda de combate - 3x1",
+		"description": "Una rueda muy duradera. ¡Lista para la batalla!",
+		"keywords": ["modpack", "3"]
+	},
+	"96fc86b1-57e7-4795-9d39-90e74f52ba87":
+	{
+		"title": "Rueda de combate - 5x2",
+		"description": "Una rueda muy duradera. ¡Lista para la batalla!",
+		"keywords": ["modpack", "5"]
+	},
+	"fafdc38f-e374-49fd-8fea-4062a4b5c93a":
+	{
+		"title": "Rueda de combate - 7x2",
+		"description": "Una rueda muy duradera. ¡Lista para la batalla!",
+		"keywords": ["modpack", "7"]
+	},
+	"4dee7b84-ee4c-42ce-9a42-4c6ced837ff5":
+	{
+		"title": "Rueda de combate - 9x3",
+		"description": "Una rueda muy duradera. ¡Lista para la batalla!",
+		"keywords": ["modpack", "9"]
+	},
+	"583f20c9-a7da-477b-b852-aac404467e3a":
+	{
+		"title": "Rueda de combate - 11x4",
+		"description": "Una rueda muy duradera. ¡Lista para la batalla!",
+		"keywords": ["modpack", "11"]
+	},
+	"90bc9601-b874-45e2-8970-09d5e5ff3ca9":
+	{
+		"title": "Rueda de combate - 13x5",
+		"description": "Una rueda muy duradera. ¡Lista para la batalla!",
+		"keywords": ["modpack", "13"]
+	},
+	"abe5a33f-a3cc-41a8-b32a-731ec2b184c1":
+	{
+		"title": "Rueda de arena - 3x2",
+		"description": "Un estilo de rueda para suciedad suelta",
+		"keywords": ["modpack", "3"]
+	},
+	"0761c82c-7a3f-4c22-8ec1-46223f10a2de":
+	{
+		"title": "Rueda de arena - 5x3",
+		"description": "Un estilo de rueda para suciedad suelta",
+		"keywords": ["modpack", "5"]
+	},
+	"ee8869cb-9cce-43c3-a04a-e8b37b9de0ed":
+	{
+		"title": "Rueda de arena - 7x4",
+		"description": "Un estilo de rueda para suciedad suelta",
+		"keywords": ["modpack", "7", "grande", "grande"]
+	},
+	"2210586c-3a93-43ff-b861-542e2d2d12d6":
+	{
+		"title": "Rueda de arena - 9x5",
+		"description": "Un estilo de rueda para suciedad suelta",
+		"keywords": ["modpack", "9", "grande", "grande"]
+	},
+	"6afcb463-925a-4a2e-b9bf-3397ef094df9":
+	{
+		"title": "Rueda de arena - 11x6",
+		"description": "Un estilo de rueda para suciedad suelta",
+		"keywords": ["modpack", "11", "grande", "grande"]
+	},
+	"b0f71aed-04f0-4bba-b969-cba57f3fc667":
+	{
+		"title": "Rueda de arena - 13x6",
+		"description": "Un estilo de rueda para suciedad suelta",
+		"keywords": ["modpack", "13", "grande", "grande"]
+	},
+	"87f8f460-eba5-43c1-a1ad-facfb3d3f376":
+	{
+		"title": "Rueda de arena - 15x7",
+		"description": "Un estilo de rueda para suciedad suelta",
+		"keywords": ["modpack", "15", "enorme", "grande", "grande"]
+	},
+	"2bcc8c8f-1e94-4f9d-97b9-6e7423ca40b0":
+	{
+		"title": "Rueda de arena - 17x8",
+		"description": "Un estilo de rueda para suciedad suelta",
+		"keywords": ["modpack", "17", "enorme", "grande", "grande"]
+	},
+	"61a70b37-ea24-4022-b1e6-45a5a3ae179d":
+	{
+		"title": "Rueda de arena - 19x9",
+		"description": "Un estilo de rueda para suciedad suelta",
+		"keywords": ["modpack", "19", "monstruo", "mega", "enorme", "grande", "grande"]
+	},
+
+	"036fc6d2-45df-11e6-beb8-9e71128cae77":
+	{
+		"title": "Rueda Grande - 7x3",
+		"description": "Una rueda de vainilla redimensionada",
+		"keywords": ["modpack", "7", "grande", "grande"]
+	},
+
+	"036fc79a-45df-11e6-beb8-9e71128cae77":
+	{
+		"title": "Rueda Grande - 9x4",
+		"description": "Una rueda de vainilla redimensionada",
+		"keywords": ["modpack", "9", "grande", "grande"]
+	},
+
+	// llantas
+	"036ff44a-45df-11e6-beb8-9e71128cae77":
+	{
+		"title": "Borde grande - 1",
+		"description": "Decoración de la rueda",
+		"keywords": ["modpack", "wheel", "spinner", "bling"]
+	},
+	"036ff6ca-45df-11e6-beb8-9e71128cae77":
+	{
+		"title": "Llanta pequeña - 1",
+		"description": "Decoración de la rueda",
+		"keywords": ["modpack", "wheel", "spinner", "bling"]
+	},
+	"036ff530-45df-11e6-beb8-9e71128cae77":
+	{
+		"title": "borde grande - 2",
+		"description": "Decoración de la rueda",
+		"keywords": ["modpack", "wheel", "spinner", "bling"]
+	},
+	"036ff792-45df-11e6-beb8-9e71128cae77":
+	{
+		"title": "Llanta pequeña - 2",
+		"description": "Decoración de la rueda",
+		"keywords": ["modpack", "wheel", "spinner", "bling"]
+	},
+	"036ff5f8-45df-11e6-beb8-9e71128cae77":
+	{
+		"title": "Borde grande - 3",
+		"description": "Decoración de la rueda",
+		"keywords": ["modpack", "wheel", "spinner", "bling"]
+	},
+	"036ff864-45df-11e6-beb8-9e71128cae77":
+	{
+		"title": "Llanta pequeña - 3",
+		"description": "Decoración de la rueda",
+		"keywords": ["modpack", "wheel", "spinner", "bling"]
+	}
+
+}

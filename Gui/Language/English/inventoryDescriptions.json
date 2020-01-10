@@ -345,7 +345,7 @@
 	},
 	"4081ca6f-6b80-4c39-9e79-e1f747039bec": {
 		"title": "Smart Sensor",
-		"description": "Infinite range!\nReturns the distance or color detected as a number\n\nModes:\n - Normal Distance Mode\n - Wide Distance Mode\n - Normal Color Mode\n - Wide Color Mode\n - Type Detector",
+		"description": "Infinite range!\nReturns the distance or color detected as a number\n\nModes:\n - Normal Distance Mode\n - Wide Distance Mode\n - Normal Color Mode\n - Wide Color Mode\n - Type Detector\n\nUse a number input to offset the detection beam (see through walls!)\nUse white number input for mode selection with logic!",
 		"keywords": [ "modpack", "sensor", "range", "smart", "number", "logic", "type", "detector", "detect", "distance", "radar", "eye" ]
 	},
 	"c7a99aa6-c5a4-43ad-84c9-c85f7d842a93":
@@ -356,7 +356,7 @@
 	},
 	"6594dff0-c652-4b44-8bb6-c725aaadea05": {
 		"title": "Tracker",
-		"description": "Stick this on your creation to never lose it again! You'll be able to track down whatever you stick this to!\n\nPaint your tracker to track by color! White number input to use custom frequency!\n\nCreate a fake tracking position with number inputs!",
+		"description": "Stick this on your creation to never lose it again! You'll be able to track down whatever you stick this to!\n\nPaint your tracker to track by color! White number input to use custom frequency!\n\nCreate a fake tracking position with RGB number inputs!",
 		"keywords": [ "modpack", "radar", "distance", "locate", "location", "number", "frequency", "channel", "distance", "detect", "player", "tracker", "line", "point", "coordinate" ]
 	},
 	"55bb3871-8455-40dc-a968-3dc635a32b7e": {
@@ -366,7 +366,7 @@
 	},
 	"d88ba569-f7a5-42e3-bb11-d7979b60ddad": {
 		"title": "x-o-meter",
-		"description": "Outputs a number value. Press E to switch modes, CTRL+E to cycle backwards.\n\nModes:\n- Speedometer\n- Accelerometer\n- Altimeter\n- Position X\n- Position Y\n- Compass\n- Velocity\n- RPM (Degress/Second)\n- Custom Percentage Guage",
+		"description": "Outputs a number value. Press E to switch modes, CTRL+E to cycle backwards.\n\nModes:\n- Speedometer\n- Accelerometer\n- Altimeter\n- Position X\n- Position Y\n- Compass\n- Velocity\n- RPM (Degrees/Second)\n- Custom Percentage Guage",
 		"keywords": [ "modpack", "smart", "logic", "orient", "orientation", "meter", "measure", "angle", "direction", "compass", "speedometer", "speed", "accel", "velocity", "vector", "tilt", "gauge", "altitude", "position", "location", "degree", "rotation", "rpm", "line", "point", "coordinate", "balance" ]
 	},
 	"ccaa33b6-e5bb-4edc-9329-b40f6efe2c9e": {
@@ -414,11 +414,11 @@
 	"e627986c-b7dd-4365-8fd8-a0f8707af63d": {
 		"title": "Wireless Router",
 		"description": "This wireless device can transmit data accross long distances!\n\nE to change send/receive\nPaint color defines channel\nWhite number for frequency\n\nCaution: wireless devices on the same channel and frequency will interfere with each other.",
-		"keywords": [ "modpack", "smart", "logic", "number", "wireless", "remote", "transfer", "control", "singal", "frequency", "antenna" ]
+		"keywords": [ "modpack", "smart", "logic", "number", "wireless", "remote", "transfer", "control", "signal", "frequency", "antenna" ]
 	},
 	"921a2ace-b543-4ca3-8a9b-6f3dd3132fa9": {
 		"title": "Color Block",
-		"description": "A block that can change colors.\n\nUse 1 number input to display a color from black to white (-1 is a quick way to get to white).\nUse 3 number inputs (painted red, green, blue) to use this block in RGB mode. Set each color component from 0 to 255\n\nPainting the block also works.\nCan connect color blocks together as well.",
+		"description": "A block that can change colors.\n\nUse 1 number input to display a color from black to white (-1 is a quick way to get to white).\nUse 3 number inputs (painted red, green, blue) to use this block in RGB mode. Set each color component from 0 to 255\n\nPainting the block also works.\nCan connect color blocks together as well.\nWhite, grey, and black for glow, shine, and reflection. Colored logic input to change from RGB to HSV mode.",
 		"keywords": [ "modpack", "smart", "logic", "number", "rgb", "colour", "screen", "display", "pixel", "dot", "glow", "shine", "reflect", "red", "green", "blue", "glow", "custom", "paint" ]
 	},
 	"9c47ec58-bdfc-43a4-b066-852156ad812a": {

@@ -5,766 +5,766 @@
 	{
 		"title": "ダイヤモンドプレートブロック",
 		"description": "工業用金属",
-		"keywords": [ "modpack", "工業用", "工場", "金属" ]
+		"keywords": [ "modpack", "modopaku", "モドパク", "工業用", "工場", "金属" ]
 	},
 	"036ffd32-45df-11e6-beb8-9e71128cae77":
 	{
 		"title": "平らな ガラス ブロック",
-		"description": "このガラスは透明で、テクスチャーはありません",
-		"keywords": [ "modpack", "クリア", "グラス" ]
+		"description": "このガラスは透明で、 テクスチャーはありません",
+		"keywords": [ "modpack", "modopaku", "モドパク", "クリア", "グラス" ]
 	},
 	"e50485da-4545-4def-a585-0a5f158c6104":
 	{
-		"title": "Glowing Block",
-		"description": "It glows",
-		"keywords": [ "modpack", "bright", "glow", "shine", "radiate", "radiation", "nuclear" ]
+		"title": "発光ブロック",
+		"description": "",
+		"keywords": [ "modpack", "modopaku", "モドパク", "明るい", "グロー", "輝く", "シャイン", "放射する", "放射線", "核" ]
 	},
 	"66a95094-5d59-4286-910d-a1936b1473f5":
 	{
-		"title": "Chrome Block",
-		"description": "Shiny reflective metal",
-		"keywords": [ "modpack", "silver", "gold", "precious", "valuable", "金属", "mirror", "reflect", "reflective", "reflection" ]
+		"title": "クロムブロック",
+		"description": "光沢のある反射金属",
+		"keywords": [ "modpack", "modopaku", "モドパク", "銀", "金", "ゴールド", "貴重な", "金属", "鏡", "ミラー", "反射", "リフレクション" ]
 	},
 	"7a73cc98-b2d4-4b28-9095-f8b9077548e4":
 	{
-		"title": "Invisible Block",
-		"description": "This block is impossible to see!",
-		"keywords": [ "modpack", "クリア", "see through", "transparent" ]
+		"title": "不可視ブロック",
+		"description": "このブロックが見えません！",
+		"keywords": [ "modpack", "modopaku", "モドパク", "クリア", "半透明", "トランスペアレント" ]
 	},
 	"906c76ee-189a-4983-ae82-b31722e56b23":
 	{
-		"title": "Mirror Block",
-		"description": "Super reflective glass\n\nPro-tip:\nUse with glass or invisible block to create a one-way mirror like those used in an interrogation room",
-		"keywords": [ "modpack", "mirror", "reflect", "reflective", "one-way", "two-way", "グラス", "poly", "plastic", "cubemap", "reflection" ]
+		"title": "鏡",
+		"description": "ミラーブロック\n\nガラス または 不可視 の ブロッ ク を使用 して、 尋問室で使用 さ れる よう な一方向 ミラー を 作成します",
+		"keywords": [ "modpack", "modopaku", "モドパク", "鏡", "ミラー", "一方通行", "グラス", "プラスチック", "反射", "リフレクション" ]
 	},
 	"bc3efcdf-ae18-4037-b0aa-c5af14e03547":
 	{
-		"title": "Bling Block",
-		"description": "OOOooooh shiny!",
-		"keywords": [ "modpack", "shiny", "silver", "gold", "precious", "金属", "valuable", "rich", "luxury", "vip", "bling" ]
+		"title": "ゴールド",
+		"description": "ケバケバ",
+		"keywords": [ "modpack", "modopaku", "モドパク", "ぴかぴか", "シャイニー", "銀", "金", "ゴールド", "貴重な", "金属", "リッチ", "豊か", "豊富な", "ぜいたく", "贅沢", "vip", "ケバ", "黄金" ]
 	},
 	"b51ad015-66e9-41b9-916c-277f9c93232d":
 	{
-		"title": "Game Grid Block",
-		"description": "Enter the virtual world (indestructible)",
-		"keywords": [ "modpack", "tron", "virtual", "grid", "金属", "light", "meter" ]
+		"title": "グリッドブロック",
+		"description": "仮想世界に入る（破壊不能）",
+		"keywords": [ "modpack", "modopaku", "モドパク", "トロン", "バーチャル", "グリッド", "金属", "光", "メーター" ]
 	},
 	"e7f7b758-6492-4c6a-8760-8fb95da530be":
 	{
-		"title": "Luxury Block",
-		"description": "Show off your VIP status with this luxury block!",
-		"keywords": [ "modpack", "gold", "precious", "valuable", "rich", "leather", "plastic", "luxury", "vip", "bling" ]
+		"title": "高級ブロック",
+		"description": "この 豪華 なブロッ ク であなた の 富を 誇示 し てください!",
+		"keywords": [ "modpack", "modopaku", "モドパク", "金", "ゴールド", "貴重な", "リッチ", "豊か", "豊富な", "レザー", "プラスチック", "ぜいたく", "贅沢", "vip", "ケバケバ" ]
 	},
 
 // interactives
 	"ebafd24a-7bbc-4e75-87f5-a67cdcf31e29":
 	{
-		"title": "Invisible Bearing",
-		"description": "Use this on mini pipes, glass, or anywhere you want rotation but don't want a bearing to show!",
-		"keywords": [ "modpack", "clear, transparent" ]
+		"title": "見えないベアリング",
+		"description": "小さな パイプ、 ガラス、 または 回転 したい がベアリング を 見せたくない 場所 で 使用 します！",
+		"keywords": [ "modpack", "modopaku", "モドパク", "クリア", "半透明", "トランスペアレント" ]
 	},
 	"8f762ab9-5c78-4d9c-a22e-3119bf447169":
 	{
-		"title": "Steering Pipe",
-		"description": "You can use this for steering glitch, or as a part without collision.",
-		"keywords": [ "modpack", "steer", "glitch", "bug", "suspension", "ghost", "torque"  ]
+		"title": "操舵 パイプ",
+		"description": "これ は、 グリッチ の ステアリング や 衝突 の ない 部品 と して 使用 できます。",
+		"keywords": [ "modpack", "modopaku", "モドパク", "操縦する", "グリッチ", "サスペンション", "トルク"  ]
 	},
 	"c0d086eb-de4a-4ba9-922a-1c66f129d2ae":
 	{
-		"title": "Mini Suspension - Short",
-		"description": "Suspension suited for mini pipes",
-		"keywords": [ "modpack", "spring" ]
+		"title": "小さなサスペンション",
+		"description": "ミニパイプに適したサスペンション",
+		"keywords": [ "modpack", "modopaku", "モドパク", "サスペンション" ]
 	},
 	"8d6e5264-9f90-400a-a471-6c0cae101f4d":
 	{
-		"title": "Mini Suspension - Long",
-		"description": "Suspension suited for mini pipes",
-		"keywords": [ "modpack", "spring" ]
+		"title": "小さなサスペンション",
+		"description": "ミニパイプに適したサスペンション",
+		"keywords": [ "modpack", "modopaku", "モドパク", "サスペンション" ]
 	},
 	"9f016a8d-8cbe-4471-b210-f36f5f280758":
 	{
-		"title": "Suspension - 4x",
-		"description": "Longer suspension",
-		"keywords": [ "modpack", "spring" ]
+		"title": "サスペンション - 4x",
+		"description": "長いサスペンション",
+		"keywords": [ "modpack", "modopaku", "モドパク", "サスペンション" ]
 	},
 	"dd676b18-fd06-4aed-baa0-55d4599fdfa3":
 	{
-		"title": "Suspension - 5x",
-		"description": "Even longer suspension",
-		"keywords": [ "modpack", "spring" ]
+		"title": "サスペンション - 5x",
+		"description": "長いサスペンション",
+		"keywords": [ "modpack", "modopaku", "モドパク", "サスペンション" ]
 	},
 	"93e08947-be6d-436c-a64f-932727428c89":
 	{
-		"title": "Engine Suspension",
-		"description": "This part is an engine! Put this part on a bearing and connect this engine to the bearing! Connect some pipes to one end where your wheel (and steering) will go, and use the other end to limit the range of movement. Set the power of this engine for a loose or firm engine-suspension.",
-		"keywords": [ "modpack", "motor", "suspension", "spring", "angle", "controller" ]
+		"title": "エンジン サスペンション",
+		"description": "この 部分 は エンジンです！ この 部品 を ベアリング に 取り付け、 この エンジン を ベアリング に 接続し ます！ ホイール （および ステアリング） が 行く 一方 の 端 に いくつ か の パイプ を 接続 し、 もう 一方 の 端 を 使用し て 可動 範囲 を 制限し ます。 緩い または しっかり した エンジン サスペンション の ため に、 この エンジン の 出力 を 設定 します。",
+		"keywords": [ "modpack", "modopaku", "モドパク", "モーター", "サスペンション", "サスペンション", "角度", "コントローラー" ]
 	},
 	"a6d186ad-c9ba-4b6d-922c-6c13dfcea230":
 	{
-		"title": "Mod Piston (256)",
-		"description": "Extends 1-255 blocks\n\nSpeeds:\n1, 2, 3, 4 (dwarf standing)\n6, 8, 10, ... 30, 32, 34\n\nStronger than regular piston!\n\nTip: Scroll wheel for fine adjustment",
-		"keywords": [ "modpack", "spring", "pneumatic" ]
+		"title": "ピストン 256",
+		"description": "1〜255ブロックを拡張\n\n速度：\n1、2、3、4\n（モバイル プラットフォーム上 に立つ こと が できます）\n6、8、10、... 30、32、34\n通常 の ピストン より も 強い！\n\nヒント： 微 調整 の ため の スクロールホイール",
+		"keywords": [ "modpack", "modopaku", "モドパク", "サスペンション", "空気圧" ]
 	},
 
 // seats
 	"a3da3841-5a76-4d72-a177-cdc4e572efc7":
 	{
-		"title": "Sleeping Bed - Driver",
-		"description": "A bed that can be slept in. Also functions as a driver seat.",
-		"keywords": [ "modpack", "steer", "steering", "drive", "control", "pilot", "captain", "operator", "conductor", "sleep", "bed" ]
+		"title": "マットレス 運転席",
+		"description": "寝る こと が できる ベッド。 運転 席 とし て も機能 します。",
+		"keywords": [ "modpack", "modopaku", "モドパク", "操縦する", "操舵", "ドライブ", "コントロール", "パイロット", "キャプテン", "主将", "艦長", "運転", "演算子", "専務", "睡眠", "ベッド" ]
 	},
 	"784bf71e-2331-4d56-a70f-b00a3994231b":
 	{
-		"title": "Driver's Pillow",
-		"description": "A pillow that can be sat on. Also functions as a driver seat.",
-		"keywords": [ "modpack", "steer", "steering", "drive", "control", "pilot", "captain", "operator", "conductor", "sleep", "pillow", "cushion" ]
+		"title": "枕 運転席",
+		"description": "座れる枕。 運転席 とし ても 機能 します。",
+		"keywords": [ "modpack", "modopaku", "モドパク", "操縦する", "操舵", "ドライブ", "コントロール", "パイロット", "キャプテン", "主将", "艦長", "運転", "演算子", "専務", "睡眠", "枕", "クッション" ]
 	},
 	"0513fc6d-fb29-46b6-9409-3ec1a4b79c6f":
 	{
-		"title": "Motorcycle Seat",
-		"description": "A thin driver's seat",
-		"keywords": [ "modpack", "steer", "steering", "drive", "control", "pilot", "captain", "operator", "conductor", "harley", "bike", "saddle" ]
+		"title": "オートバイ 運転席",
+		"description": "薄い 運転 席",
+		"keywords": [ "modpack", "modopaku", "モドパク", "操縦する", "操舵", "ドライブ", "コントロール", "パイロット", "キャプテン", "主将", "艦長", "運転", "演算子", "専務", "オートバイ", "自転車", "サドル" ]
 	},
 	"ffddc616-2799-4883-8c62-193ba30b6fa8":
 	{
-		"title": "Racing Driver Seat",
-		"description": "If you lean back you go faster",
-		"keywords": [ "modpack", "steer", "steering", "drive", "control", "pilot", "captain", "operator", "conductor", "race", "racing", "nascar", "speed" ]
+		"title": "レースカー 運転席",
+		"description": "後ろ に 傾く と、 速く なります",
+		"keywords": [ "modpack", "modopaku", "モドパク", "操縦する", "操舵", "ドライブ", "コントロール", "パイロット", "キャプテン", "主将", "艦長", "運転", "演算子", "専務", "レーシング", "速度", "スピード" ]
 	},
 	"8c355d48-88cd-467b-863f-12c12b72304d":
 	{
-		"title": "Racing Passenger Seat",
-		"description": "What if a race car had seats for passengers?",
-		"keywords": [ "modpack", "steer", "steering", "drive", "control", "pilot", "captain", "operator", "conductor", "race", "racing", "nascar", "speed" ]
+		"title": "レースカー 助手席",
+		"description": "後ろ に 傾く と、 速く なります",
+		"keywords": [ "modpack", "modopaku", "モドパク", "操縦する", "操舵", "ドライブ", "コントロール", "パイロット", "キャプテン", "主将", "艦長", "運転", "演算子", "専務", "レーシング", "速度", "スピード" ]
 	},
 	"88e045aa-d3ab-435e-b248-60b34c206e6f":
 	{
-		"title": "Ship's Wheel Seat",
-		"description": "Only the captain can use this driver's seat",
-		"keywords": [ "modpack", "steer", "steering", "drive", "control", "pilot", "captain", "operator", "conductor", "ship", "wheel", "pirate", "boat" ]
+		"title": "舵輪 運転席",
+		"description": "この 運転 席 は キャプテン のみ が 使用 できます",
+		"keywords": [ "modpack", "modopaku", "モドパク", "操縦する", "操舵", "ドライブ", "コントロール", "パイロット", "キャプテン", "主将", "艦長", "運転", "演算子", "専務", "船", "ボート", "舟", "舟艇", "バッテレ", "ホイール", "車輪", "海賊", "パイレーツ" ]
 	},
 	"ad671132-c345-4edc-96c7-ec835ab3a2c9":
 	{
-		"title": "Jetpack Seat - Or Mech, Gunner, etc",
-		"description": "A driver's seat with handles\n\nCheck the Scifi Pack for the previous model",
-		"keywords": [ "modpack", "steer", "steering", "drive", "control", "pilot", "captain", "operator", "conductor", "rocket", "jet", "jetpack", "backpack" ]
+		"title": "ジェットパック 運転席",
+		"description": "ハンドル付き運転席",
+		"keywords": [ "modpack", "modopaku", "モドパク", "操縦する", "操舵", "ドライブ", "コントロール", "パイロット", "キャプテン", "主将", "艦長", "運転", "演算子", "専務", "ロケット", "ジェット", "バックパック" ]
 	},
 	"3b41f562-70c4-4747-9045-3d26ff0e0243":
 	{
-		"title": "Standing Driver Seat",
-		"description": "Use for surfboards, skis, skateboards, or anything where the driver is standing.",
-		"keywords": [ "modpack", "steer", "steering", "drive", "control", "pilot", "captain", "operator", "conductor", "stand", "standing", "tpose", "t pose", "pose" ]
+		"title": "直立 運転席",
+		"description": "サーフボード、 スキー、 スケートボード、 または ドライバ ー が立っ て いる 場所 に 使用 します。",
+		"keywords": [ "modpack", "modopaku", "モドパク", "操縦する", "操舵", "ドライブ", "コントロール", "パイロット", "キャプテン", "主将", "艦長", "運転", "演算子", "専務", "直立する", "ティーポーズ", "tポーズ", "ポーズ" ]
 	},
 	"b15f557c-872f-4bf5-9c0b-2891a34f430e":
 	{
-		"title": "Modular Seat 1 - Standard",
-		"description": "An invisible driver seat that can be placed on top of other blocks\n\nPose: Standard Driver's Seat",
-		"keywords": [ "modpack", "steer", "steering", "drive", "control", "pilot", "captain", "operator", "conductor", "mod", "custom", "flush", "invisible", "surface", "panel", "disguise", "fake", "sit" ]
+		"title": "モジュラー 運転席 1 - 規格",
+		"description": "他 の ブロック の 上 に 配置 できる 見え ない運転 席",
+		"keywords": [ "modpack", "modopaku", "モドパク", "操縦する", "操舵", "ドライブ", "コントロール", "パイロット", "キャプテン", "主将", "艦長", "運転", "演算子", "専務", "カスタム", "不可視", "表面", "パネル", "変装", "偽物", "座る" ]
 	},
 	"86d5ca1b-f1fa-42a9-9645-0d276e711b27":
 	{
-		"title": "Modular Seat 2 - Saddle",
-		"description": "An invisible driver seat that can be placed on top of other blocks\n\nPose: Driver's Saddle Seat",
-		"keywords": [ "modpack", "steer", "steering", "drive", "control", "pilot", "captain", "operator", "conductor", "mod", "custom", "flush", "invisible", "surface", "panel", "disguise", "fake", "sit" ]
+		"title": "モジュラー 運転席 2 - サドル",
+		"description": "他 の ブロック の 上 に 配置 できる 見え ない運転 席",
+		"keywords": [ "modpack", "modopaku", "モドパク", "操縦する", "操舵", "ドライブ", "コントロール", "パイロット", "キャプテン", "主将", "艦長", "運転", "演算子", "専務", "カスタム", "不可視", "表面", "パネル", "変装", "偽物", "座る" ]
 	},
 	"d9f49f49-0ef9-41d6-a9a5-ec454be87082":
 	{
-		"title": "Modular Seat 3 - Race",
-		"description": "An invisible driver seat that can be placed on top of other blocks\n\nPose: Racing Driver's Seat",
-		"keywords": [ "modpack", "steer", "steering", "drive", "control", "pilot", "captain", "operator", "conductor", "mod", "custom", "flush", "invisible", "surface", "panel", "disguise", "fake", "sit" ]
+		"title": "モジュラー 運転席 3 - レースカー",
+		"description": "他 の ブロック の 上 に 配置 できる 見え ない運転 席",
+		"keywords": [ "modpack", "modopaku", "モドパク", "操縦する", "操舵", "ドライブ", "コントロール", "パイロット", "キャプテン", "主将", "艦長", "運転", "演算子", "専務", "カスタム", "不可視", "表面", "パネル", "変装", "偽物", "座る" ]
 	},
 
 // engines
 	"f55aa240-d4b2-48cc-9c6b-a90fce299bf4":
 	{
-		"title": "Gas Engine 3-Wide",
-		"description": "It's a gas engine that conforms to the size of an electric engine. Perfect for balance gas-powered odd-width creations!",
-		"keywords": [ "modpack", "motor", "odd", "odd-width", "width" ]
+		"title": "ガスエンジン 3x",
+		"description": "電気 エンジン の サイズ に 適合す る ガス エンジン です。 バランス の 取れた ガス 駆動 の 奇数 幅 の 作成に 最適です！",
+		"keywords": [ "modpack", "modopaku", "モドパク", "モーター", "奇数幅" ]
 	},
 	"c394b6e8-554c-4074-a119-ab2fec55e456":
 	{
-		"title": "Pico thruster - Low power",
-		"description": "Maneuvering thrusters, or just a low power thruster",
-		"keywords": [ "modpack", "rocket", "booster", "boost", "force", "exhaust" ]
+		"title": "ピコ スラスタ",
+		"description": "操縦 スラスタ または 単なる 低出力 スラスタ",
+		"keywords": [ "modpack", "modopaku", "モドパク", "ロケット", "力", "排気" ]
 	},
 	"036fbe44-45df-11e6-beb8-9e71128cae77":
 	{
-		"title": "1x1 Micro Thruster",
-		"description": "Micro Thruster with more power levels",
-		"keywords": [ "modpack", "rocket", "booster", "boost", "force", "exhaust" ]
+		"title": "小さな スラスタ 1x1",
+		"description": "より 多く の 出力 レベル を 持つ マイクロスラスタ",
+		"keywords": [ "modpack", "modopaku", "モドパク", "ロケット", "力", "排気" ]
 	},
 
 // buttons and switches
 	"685ccdd5-8ee9-480d-a64a-2696c31e1db0":
 	{
-		"title": "Arrow Button",
-		"description": "Functions like a regular button, but useful for displaying a direction being pressed.",
-		"keywords": [ "modpack", "trigger", "push", "on", "flip", "activate", "toggle" ]
+		"title": "矢印 ボタン",
+		"description": "通常 の ボタン の ように  機能 しますが、 押さ れた 方向 を 示す の に 役立ちます。",
+		"keywords": [ "modpack", "modopaku", "モドパク", "引き金", "押す", "に", "活性化する", "トグル" ]
 	},
 	"e426ee20-2cf7-40c9-ad5e-145f43752fab":
 	{
-		"title": "Hidden Button Block",
-		"description": "This block lines up with the blocks around it and can be hidden in a wall.",
-		"keywords": [ "modpack", "trigger", "push", "on", "flip", "activate", "toggle", "secret", "stealth"]
+		"title": "隠し ボタン",
+		"description": "この ブロック は 周囲 の ブロック と 並んでおり、 壁 に 隠す こと が できます。",
+		"keywords": [ "modpack", "modopaku", "モドパク", "引き金", "押す", "に", "活性化する", "トグル", "秘密の", "秘密", "シークレット", "ステルス" ]
 	},
 	"f694b406-4f59-46cb-bf33-05e11851eaac":
 	{
-		"title": "Pull-start Button",
-		"description": "With some extra logic, you can use this to start your engines, and give a really cool appearance.",
-		"keywords": [ "modpack", "trigger", "push", "on", "flip", "activate", "toggle" ]
+		"title": "手動開始 ボタン",
+		"description": "いくつ か の 追加 ロジック を 使用 する と、 これ を 使用 して エンジン を 起動 し、 非常 に クール に 見せる こと が できます。",
+		"keywords": [ "modpack", "modopaku", "モドパク", "引き金", "押す", "に", "活性化する", "トグル" ]
 	},
 	"deeb37a4-b9ba-4ba7-ad4b-6f5fd5e1d6f2":
 	{
-		"title": "Dial Switch",
-		"description": "A rotational switch.",
-		"keywords": [ "modpack", "trigger", "push", "on", "flip", "activate", "toggle", "knob" ]
+		"title": "回転 スイッチ",
+		"description": "車両 または 工業 デザイン の スイッチ。",
+		"keywords": [ "modpack", "modopaku", "モドパク", "引き金", "押す", "に", "活性化する", "トグル", "つまみ", "ノブ" ]
 	},
 	"70e5729d-0706-4c28-80a2-2ab9d7e7532c":
 	{
-		"title": "Paddle Latch Switch",
-		"description": "A switch for vehicle or industrial design.",
-		"keywords": [ "modpack", "trigger", "push", "on", "flip", "activate", "toggle", "door", "lever" ]
+		"title": "パドルラッチ スイッチ",
+		"description": "",
+		"keywords": [ "modpack", "modopaku", "モドパク", "引き金", "押す", "に", "活性化する", "トグル", "ドア", "戸", "扉", "レバー" ]
 	},
 	"f6619b4a-a627-40c0-939c-a44432ebc66a":
 	{
-		"title": "Door Handle Switch",
-		"description": "A switch for interior house design.",
-		"keywords": [ "modpack", "trigger", "push", "on", "flip", "activate", "toggle", "door", "lever", "vehicle" ]
+		"title": "ドア ハンドル スイッチ",
+		"description": "ホーム インテリア デザイン スイッチ。",
+		"keywords": [ "modpack", "modopaku", "モドパク", "引き金", "押す", "に", "活性化する", "トグル", "ドア", "戸", "扉", "レバー", "車両", "車" ]
 	},
 	"7022c522-7b33-4638-8dfb-0dfa7c6eb36f":
 	{
-		"title": "Throttle Lever - Switch",
-		"description": "A switch for pilots",
-		"keywords": [ "modpack", "trigger", "push", "on", "flip", "activate", "toggle", "door", "lever", "pilot", "plane", "airplane", "aviation" ]
+		"title": "スロットル",
+		"description": "パイロットスイッチ",
+		"keywords": [ "modpack", "modopaku", "モドパク", "引き金", "押す", "に", "活性化する", "トグル", "ドア", "戸", "扉", "レバー", "パイロット", "飛行機", "航空", "飛行" ]
 	},
 	"e9ab70ae-2c6c-4f68-86c3-2f652c180fc5":
 	{
-		"title": "Medium Lever - Switch",
-		"description": "A general purpose lever",
-		"keywords": [ "modpack", "trigger", "push", "on", "flip", "activate", "toggle", "lever" ]
+		"title": "中型 レバー",
+		"description": "汎用レバー",
+		"keywords": [ "modpack", "modopaku", "モドパク", "引き金", "押す", "に", "活性化する", "トグル", "レバー" ]
 	},
 	"ee92187e-8363-4ff6-a7ae-c96e60450537":
 	{
-		"title": "Large Lever - Switch",
-		"description": "A large lever",
-		"keywords": [ "modpack", "trigger", "push", "on", "flip", "activate", "toggle", "lever" ]
+		"title": "大型レバー",
+		"description": "",
+		"keywords": [ "modpack", "modopaku", "モドパク", "引き金", "押す", "に", "活性化する", "トグル", "レバー" ]
 	},
 	"73f35954-e7d2-4a32-bc7c-b88a341ab792":
 	{
-		"title": "Pipe Valve Switch",
-		"description": "It's a pipe valve, that's also a switch :D\n\n\n\n\nThanks to Jude for the suggestion",
-		"keywords": [ "modpack", "trigger", "push", "on", "flip", "activate", "toggle", "lever", "plumbing" ]
+		"title": "バルブ スイッチ",
+		"description": "パイプのスイッチ",
+		"keywords": [ "modpack", "modopaku", "モドパク", "引き金", "押す", "に", "活性化する", "トグル", "レバー", "配管" ]
 	},
 
 // guns
 	"494f0a47-3f18-4ae1-bc42-3f0fccce4f43": {
-		"title": "Pipe Spud Gun ",
-		"description": "A small spud gun to fit on the end of pipes, auto-relaod.",
-		"keywords": [ "modpack", "weapon", "small", "pipe" ]
+		"title": "パイプ じゃがいも 銃",
+		"description": "パイプ の 端 に 合う 自動 ガン",
+		"keywords": [ "modpack", "modopaku", "モドパク", "武器", "小さい", "パイプ" ]
 	},
 	"5ec4ebcd-6f2a-402d-b8b9-315b78b4f654": {
-		"title": "Minipipe Spud Gun",
-		"description": "A small spud gun to fit on the end of mini pipes, auto-relaod.",
-		"keywords": [ "modpack", "weapon", "mini", "small", "pipe" ]
+		"title": "小さなパイプ じゃがいも 銃",
+		"description": "小さな パイプ の 端 に 合う 自動 ガン",
+		"keywords": [ "modpack", "modopaku", "モドパク", "武器", "ミニ", "ミニチュア", "小さい", "パイプ" ]
 	},
 
 // lights
 	"7947150d-a21c-4195-a4a8-76aab023ba3c":
 	{
-		"title": "Pixel Light Block - Black-Off, Light-On",
-		"description": "A small cube that emits light in all directions",
-		"keywords": [ "modpack", "cube", "block", "pixel", "art", "screen", "logic", "shine", "emit", "headlight", "lamp" ]
+		"title": "ピクセル 電灯 ブロック",
+		"description": "すべて の 方向 に 光を放つ 小さな 立方体",
+		"keywords": [ "modpack", "modopaku", "モドパク", "立方体", "ブロック", "ピクセル", "アート", "芸術", "技術", "画面", "スクリーン", "論理", "ロジック", "輝く", "シャイン", "発する", "前照灯", "電灯" ]
 	},
 	"bfbd310d-7c07-4f08-a8cc-9a69e70a9ff0":
 	{
-		"title": "Off/On Light - Round",
-		"description": "Fits on the end of a pipe",
-		"keywords": [ "modpack", "shine", "emit", "round", "small", "headlight", "lamp" ]
+		"title": "円形 電灯",
+		"description": "パイプ の 端 に フィット",
+		"keywords": [ "modpack", "modopaku", "モドパク", "輝く", "シャイン", "発する", "円形", "小さい", "前照灯", "電灯" ]
 	},
 	"d7de689e-5082-4323-b6c4-eb1ce8f29719":
 	{
-		"title": "Off/On Light - Rectangle",
-		"description": "A rectangular shaped light",
-		"keywords": [ "modpack", "shine", "small", "tiny", "headlight", "lamp" ]
+		"title": "矩形 電灯",
+		"description": "長方形 ライト",
+		"keywords": [ "modpack", "modopaku", "モドパク", "輝く", "シャイン", "小さい", "小さな", "前照灯", "電灯" ]
 	},
 	"5a3ea22a-99b1-48eb-b169-3243ad49b27c":
 	{
-		"title": "Off/On Light - Round Mini",
-		"description": "Fits on the end of a mini pipe",
-		"keywords": [ "modpack", "shine", "small", "tiny", "mini", "round", "emit", "headlight", "lamp" ]
+		"title": "小さい 円形 電灯",
+		"description": "ミニ パイプ に 適して います",
+		"keywords": [ "modpack", "modopaku", "モドパク", "輝く", "シャイン", "小さい", "小さな", "ミニ", "ミニチュア", "円形", "発する", "前照灯", "電灯" ]
 	},
 	"7b51eae8-c55c-4102-b9eb-6c23ca547e83":
 	{
-		"title": "Off/On Light - Square",
-		"description": "A surface panel light",
-		"keywords": [ "modpack", "block", "shine", "small", "emit", "headlight", "lamp" ]
+		"title": "平方 電灯",
+		"description": "表面 パネル ライト",
+		"keywords": [ "modpack", "modopaku", "モドパク", "ブロック", "輝く", "シャイン", "小さい", "発する", "前照灯", "電灯" ]
 	},
 	"e83e6fd9-e963-485f-8be0-43895af58ee3":
 	{
-		"title": "Off/On Light - Cube",
-		"description": "A light that fits in the space of a block.\n\nThe light position is different than the surface panel version.",
-		"keywords": [ "modpack", "cube", "block", "shine", "small", "emit", "headlight", "small", "lamp" ]
+		"title": "立方体 電灯",
+		"description": "ブロック 空間 に 収まる 光。\n\nライト の 位置 は、 フロントパネルバージョン と は 異なります。",
+		"keywords": [ "modpack", "modopaku", "モドパク", "立方体", "ブロック", "輝く", "シャイン", "小さい", "発する", "前照灯", "小さい", "電灯" ]
 	},
 	"0f994efc-b697-48e4-8ce0-f53eae15d41b":
 	{
-		"title": "Slim Light",
-		"description": "An easy to use light to mount on the side or underside of your creations! Anywhere really.",
-		"keywords": [ "modpack", "tiny", "slim", "under", "shine", "emit", "tiny", "car", "vehicle", "headlight", "small", "lamp" ]
+		"title": "スリム 電灯",
+		"description": "作業 の 側面 または 底面 に 取り付け られる 使い やすい ライト！",
+		"keywords": [ "modpack", "modopaku", "モドパク", "小さな", "スリム", "下", "下側", "輝く", "シャイン", "発する", "小さな", "車", "車両", "車両", "車", "前照灯", "小さい", "電灯" ]
 	},
 
 // vanilla logic
 	"9687439e-70a7-4c52-8dd1-d6fa6ec93df8":
 	{
-		"title": "Surface Controller",
-		"description": "Surface panel controller",
-		"keywords": [ "modpack", "panel", "sequence", "stepper", "step", "sequencer", "flush", "small", "tiny" ]
+		"title": "小型コントローラー",
+		"description": "",
+		"keywords": [ "modpack", "modopaku", "モドパク", "パネル", "シーケンス", "順序", "ステッパー", "ステップ", "シーケンサー", "小さい", "小さな" ]
 	},
 	"60375a3b-0d70-43a2-a97a-4a4234b500dd":
 	{
-		"title": "Surface Logic",
-		"description": "Surface panel logic gate",
-		"keywords": [ "modpack", "panel", "logic", "flush", "small", "tiny" ]
+		"title": "小さい論理ゲート",
+		"description": "",
+		"keywords": [ "modpack", "modopaku", "モドパク", "パネル", "論理", "ロジック", "小さい", "小さな" ]
 	},
 	"f6b70b49-ea25-47cc-9dac-e2dc90e67d07":
 	{
-		"title": "Surface Timer",
-		"description": "Surface panel timer",
-		"keywords": [ "modpack", "panel", "sequence", "logic", "time", "sequencer", "flush", "small", "tiny" ]
+		"title": "小さなタイマー",
+		"description": "",
+		"keywords": [ "modpack", "modopaku", "モドパク", "パネル", "シーケンス", "順序", "論理", "ロジック", "時間", "時刻", "時", "タイム", "シーケンサー", "小さい", "小さな" ]
 	},
 
 // smart tools
 	"f907144d-ae63-4e5e-bff9-f9ca413e2090": {
-		"title": "Decoupler",
-		"description": "Disconnect things on demand! No more having to shoot cardboard with a spud!\n\nPut between things you want to disconnect, hook up a button/logic, and activate to disconnect!",
-		"keywords": [ "modpack", "detach", "attach", "couple", "decouple", "coupler", "separate", "tools", "disconnect", "connect", "connection", "sever", "cut", "let go", "smart" ]
+		"title": "カップリング",
+		"description": "オンデマンドで切断します！ スパッドで段ボールを撮影する必要はもうありません！ あなたが切断したいものの間に入れて、 ボタン/ロジックを接続し、 アクティブにして切断します！",
+		"keywords": [ "modpack", "modopaku", "モドパク", "切り離す", "取り外す", "付ける", "アタッチ", "カプラー", "分ける", "切断する", "つなぐ", "接続", "スマート", "知的な", "賢い" ]
 	},
 	"6613bebe-be9f-435c-b415-42a0b45cc8e3": {
-		"title": "Time Block ",
-		"description": "Outputs a number value for time\n\nModes:\n - time of day in seconds (GMT)\n - days since the year 2000",
-		"keywords": [ "modpack", "clock", "time", "logic", "number", "smart", "second", "minute", "hour", "date", "day", "month", "year", "watch" ]
+		"title": "時計",
+		"description": "時間の数値を出力します\n\nモード：\n-秒単位の時刻（GMT）\n-2000年からの日数",
+		"keywords": [ "modpack", "modopaku", "モドパク", "時計", "時間", "時刻", "時", "タイム", "論理", "ロジック", "数", "番号", "スマート", "知的な", "賢い", "秒", "分", "時", "日付", "日", "月", "年", "賢い" ]
 	},
 	"4081ca6f-6b80-4c39-9e79-e1f747039bec": {
-		"title": "Smart Sensor",
-		"description": "Infinite range!\nReturns the distance or color detected as a number\n\nModes:\n - Normal Distance Mode\n - Wide Distance Mode\n - Normal Color Mode\n - Wide Color Mode\n - Type Detector",
-		"keywords": [ "modpack", "sensor", "range", "smart", "number", "logic", "type", "detector", "detect", "distance", "radar", "eye" ]
+		"title": "賢い センサー",
+		"description": "無限の範囲！\n検出された距離 または色 を 数値として 返します\n\nモード：\n -通常距離モード\n -ワイド距離モード\n -通常のカラーモード\n -ワイドカラーモード\n -タイプ検出器",
+		"keywords": [ "modpack", "modopaku", "モドパク", "センサー", "範囲", "スマート", "知的な", "賢い", "数", "番号", "論理", "ロジック", "種類", "検出器", "探知機", "検出する", "距離", "レーダー", "電波探知機", "眼", "目", "賢い" ]
 	},
 	"c7a99aa6-c5a4-43ad-84c9-c85f7d842a93":
 	{
-		"title": "Laser Sight",
-		"description": "Beams out a laser in a straight line",
-		"keywords": [ "modpack", "sensor", "range", "smart", "number", "logic", "type", "detector", "detect", "distance", "radar", "eye", "light", "beam", "laser", "lazer", "security", "line" ]
+		"title": "レーザ",
+		"description": "レーザー を 直線 で 放射 します",
+		"keywords": [ "modpack", "modopaku", "モドパク", "センサー", "範囲", "スマート", "知的な", "賢い", "数", "番号", "論理", "ロジック", "種類", "検出器", "探知機", "検出する", "距離", "レーダー", "電波探知機", "眼", "目", "光", "ビーム", "光線", "レーザ", "保安", "警備", "ライン", "線", "行", "列", "賢い" ]
 	},
 	"6594dff0-c652-4b44-8bb6-c725aaadea05": {
-		"title": "Tracker",
-		"description": "Stick this on your creation to never lose it again! You'll be able to track down whatever you stick this to!\n\nPaint your tracker to track by color! White number input to use custom frequency!\n\nCreate a fake tracking position with number inputs!",
-		"keywords": [ "modpack", "radar", "distance", "locate", "location", "number", "frequency", "channel", "distance", "detect", "player", "tracker", "line", "point", "coordinate" ]
+		"title": "追跡装置 (トラッカー)",
+		"description": "これをあなたの創造物の上に置き、 それを再び失わないでください！ あなたはこれに固執 するものは何でも追跡することができます！ このデバイスをペイントし、 色で追跡します！ カスタム周波数を使用するための白い数値入力！ RGB番号を入力して、 偽の追跡位置を作成します！",
+		"keywords": [ "modpack", "modopaku", "モドパク", "レーダー", "電波探知機", "距離", "見つける", "ロケーション", "場所", "位置", "数", "番号", "周波数", "頻度", "周波", "チャネル", "チャンネル", "距離", "検出する", "プレーヤー", "選手", "トラッカー", "ライン", "線", "行", "列", "ポイント", "点", "箇所", "座標", "コーディネート", "賢い" ]
 	},
 	"55bb3871-8455-40dc-a968-3dc635a32b7e": {
-		"title": "Radar Jammer",
-		"description": "This will cause interference with the tracking signal on a radar within a 16 block radius. Press E to turn on/off. ON by default.\n\nIf this device is hit by a projectile, it will stop functioning for a short time.",
-		"keywords": [ "modpack", "radar", "distance", "locate", "location", "distance", "frequency", "detect", "player", "tracker", "disrupt", "stealth", "hide", "jam", "signal", "line", "point", "coordinate" ]
+		"title": "信号破壊器 (レーダージャマー)",
+		"description": "これは、 半径16ブロック以内のレーダーの 追跡信号と干渉します。 Eを押してオ ン/オ フを切り替えます。 デフォルトでオン。 このデバイスが 発射物に当たった場合、  短時間機能しなくなります。",
+		"keywords": [ "modpack", "modopaku", "モドパク", "レーダー", "電波探知機", "距離", "見つける", "ロケーション", "場所", "位置", "周波数", "頻度", "周波", "検出する", "プレーヤー", "選手", "トラッカー", "混乱させる", "ステルス", "隠す", "信号", "シグナル", "ライン", "線", "行", "列", "ポイント", "点", "箇所", "座標", "コーディネート", "賢い" ]
 	},
 	"d88ba569-f7a5-42e3-bb11-d7979b60ddad": {
-		"title": "x-o-meter",
-		"description": "Outputs a number value. Press E to switch modes, CTRL+E to cycle backwards.\n\nModes:\n- Speedometer\n- Accelerometer\n- Altimeter\n- Position X\n- Position Y\n- Compass\n- Velocity\n- RPM (Degress/Second)\n- Custom Percentage Guage",
-		"keywords": [ "modpack", "smart", "logic", "orient", "orientation", "meter", "measure", "angle", "direction", "compass", "speedometer", "speed", "accel", "velocity", "vector", "tilt", "gauge", "altitude", "position", "location", "degree", "rotation", "rpm", "line", "point", "coordinate", "balance" ]
+		"title": "多計器 (多度計)",
+		"description": "数値を出力します。 Eを押してモードを切り替え、 CTRL + E を押して逆方向に循環します。\n\nモード：\n- スピードメーター\n- 速度\n- 加速度計\n- 高度計\n- 位置 X\n- 位置 Y\n- コンパス\n- RPM（度/秒）\n- カスタムパーセンテージゲージ",
+		"keywords": [ "modpack", "modopaku", "モドパク", "スマート", "知的な", "賢い", "論理", "ロジック", "オリエント", "親しませる", "オリエンテーション", "標定", "メーター", "測る", "計測", "角度", "方向", "向き", "方位", "方角", "針路", "行き方", "コンパス", "羅針盤", "スピードメーター", "速度計", "速度", "スピード", "加速する", "加速度計", "速度", "ベクター", "傾く", "傾き" , "ゲージ", "計器" , "高度", "身長" , "ポジション", "位置" , "ロケーション", "場所", "位置", "度", "程度", "度合", "程", "学位", "加減", "次数", "回転", "旋回", "回り", "自転", "回転運動", "回旋", "循環", "廻り", "転回", "輪転", "ローテーション", "輪番", "周り", "rpm", "ライン", "線", "行", "列", "ポイント", "点", "箇所", "座標", "コーディネート", "バランス", "均衡", "賢い" ]
 	},
 	"ccaa33b6-e5bb-4edc-9329-b40f6efe2c9e": {
-		"title": "Orientation Block",
-		"description": "This block will output orientation information. Use with a motor with bearings, thrusters, anything you need to align this block with your target! Target the world, player, tracker block, and more! Additional distance reading! Connect to WS and AD convertes from the Math Block.",
-		"keywords": [ "modpack", "smart", "logic", "orient", "orientation", "angle", "direction", "camera", "control", "ai", "computer", "auto", "automatic", "npc", "world", "player", "tracker", "track", "detect", "distance", "target", "range", "line", "point", "coordinate", "balance" ]
+		"title": "オリエンテーション ブロック (標定)",
+		"description": "この ブロック は 方向 情報 を 出力 します。 モーター、 スラスタ、 この ブロックをターゲッ ト に合わせるために必要なもの を 使用して ください！ 世界、 プレイヤー、 追跡装置などをターゲットに！ 追加 の 距離読み取り！ 数学ブロックから WS および AD 機能に接続します。",
+		"keywords": [ "modpack", "modopaku", "モドパク", "スマート", "知的な", "賢い", "論理", "ロジック", "オリエント", "親しませる", "オリエンテーション", "標定", "角度", "方向", "向き", "方位", "方角", "針路", "行き方", "カメラ", "写真機", "コントロール", "ai", "人工知能", "技術", "コンピューター", "コンピュータ", "自動", "オートマチック", "自動の", "npc", "世界", "プレーヤー", "選手", "トラッカー", "トラック", "追跡する", "検出する", "距離", "ターゲット", "標的", "目標", "狙い所", "対象", "的", "指示先", "範囲", "ライン", "線", "行", "列", "ポイント", "点", "箇所", "座標", "コーディネート", "バランス", "均衡", "賢い" ]
 	},
 
 // Smart Logic
 	"6f2dd83e-bc0d-43f3-8ba5-d5209eb03d07": {
-		"title": "Tick Button",
-		"description": "This button is very precise! When pushed, will send a signal that is 1 tick in length. This button can also have a number input to set the tick length for longer and more specific effect times.\n\nNumber Logic Color Compatible",
-		"keywords": [ "modpack", "smart", "logic", "number", "tick", "pulse", "signal", "value", "bit", "count", "add", "subtract", "value", "bit", "digit", "trigger", "toggle" ]
+		"title": "ティック ボタン",
+		"description": "このボタンは非常に正確です！ プッシュされると、 長さが1ティックの信号を送信します。 このボタンには、 より長くより具体的な効果時間の 目盛り の 長さを設定するための 数値入力を含めることもできます。\n\n数値ロジックカラー対応",
+		"keywords": [ "modpack", "modopaku", "モドパク", "スマート", "知的な", "賢い", "論理", "ロジック", "数", "番号", "瞬間", "ティク", "脈", "信号", "シグナル", "値", "ビット", "カウント", "数える", "数に入れる", "加える", "加算", "引く", "減点する", "値", "ビット", "桁", "位取り", "引き金", "トグル", "賢い" ]
 	},
 	"d8296109-2ffb-4efb-819a-54bd8cadf549": {
-		"title": "Counter",
-		"description": "This block is used as a counting device. First input counts up; second input counts count down.\nThe output is a number; use with Number Blocks and Math Blocks. Positive and Negative range.\nPress E to reset counter to zero.\nCompatible with color weighted digits for inputs (i.e. 2 red inputs will count up/down by 10)",
-		"keywords": [ "modpack", "smart", "logic", "number", "count", "add", "subtract", "value", "bit", "digit", "storage", "write", "save" ]
+		"title": "数える / 数に入れる ブロック",
+		"description": "このブロックは、 カウントデバイスとして使用されます。\n出力は数値です。 正および負の範囲。\nEを押してカウンターをゼロにリセットします （白いロジックも）。\n色数ロジックと互換性があります。",
+		"keywords": [ "modpack", "modopaku", "モドパク", "スマート", "知的な", "賢い", "論理", "ロジック", "数", "番号", "カウント", "数える", "数に入れる", "加える", "加算", "引く", "減点する", "値", "ビット", "桁", "位取り", "ストレージ", "保管", "貯蔵", "格納", "記憶装置", "書きます", "書く", "保存", "保管", "貯蔵", "格納", "保存", "記憶装置", "賢い" ]
 	},
 	"efbd14a8-f896-4268-a273-b2b382db520c": {
-		"title": "Number Block",
-		"description": "Used to display and transfer number values. Compatible with color weighted digits.\n\nExample:\nUse Counter as input to many Number blocks, and paint the number blocks the second row of paint colors from right to left for individual digits.\nCan also store a number value in a single block",
-		"keywords": [ "modpack", "smart", "logic", "number", "count", "display", "digit", "value", "screen", "bit", "binary", "bcd", "numeric" ]
+		"title": "番号 ブロック",
+		"description": "数値の表示と転送に使用されます。 色数ロジックと互換性があります。",
+		"keywords": [ "modpack", "modopaku", "モドパク", "スマート", "知的な", "賢い", "論理", "ロジック", "数", "番号", "カウント", "数える", "数に入れる", "表示", "展示", "ディスプレー", "見せる", "桁", "位取り", "値", "画面", "スクリーン", "ビット", "バイナリ", "二進", "bcd", "数値", "二進", "数の", "値", "賢い" ]
 	},
 	"289e08ef-e3d8-4f1b-bc10-a0bcf36fa0ce": {
-		"title": "Math Block\n(Function Block)",
-		"description": "Many functions included! Press E to cycle through the functions! CTRL+E to cycle backwards.\nConnect inputs and perform functions for an output in number format\nSpecify order of operations with white/black colored inputs\nIncludes seat functions and memory bit",
-		"keywords": [ "modpack", "smart", "logic", "number", "function", "arithmetic", "add", "minus", "invert", "negative", "subtract", "multiply", "product", "division", "divide", "ratio", "compare", "convert", "less", "greater", "<", ">", "equal", "not", "unequal", "value", "wasd", "seat", "control", "ws", "ad", "operation", "hypotenuse", "sine", "sin", "cos", "cosine", "tangent", "tan", "inverse", "arc", "trig", "trigonometry", "line", "point", "coordinate", "round", "up", "down", "steering", "drive", "random", "pi", "euler", "constant", "exponent", "root", "square", "min", "max", "log", "modulus", "mod", "memory", "bit", "factor", "factorial", "flip", "switch", "digital" ]
+		"title": "数学ブロック\n(機能ブロック)",
+		"description": "多くの機能が含まれています！  Eを押して機能を切り替えます！  Ctrlキーを押しながらEキーを押すと、 逆方向に切り替わります。 \n入力を接続し、 数値形式で出力の機能を実行します。\n白 / 黒の入力で操作の順序を指定します。\n座席機能とメモリビットが含まれています。",
+		"keywords": [ "modpack", "modopaku", "モドパク", "スマート", "知的な", "賢い", "論理", "ロジック", "数", "番号", "関数", "機能", "能", "作用", "函数", "算術", "算数", "加える", "加算", "マイナス", "負", "引く", "転倒", "負", "ネガ", "陰性", "否定的", "引く", "減点する", "かける", "掛ける", "乗じる", "乗ずる", "増やす", "殖やす", "プロダクト", "分割", "除算", "分裂", "師団", "割り算", "区画", "分配", "区", "分", "割る", "分ける", "分水", "分水嶺", "比率", "比", "率", "割合", "レシオ", "比べる", "較べる", "変換する", "コンバート", "変える", "未満", "以下", "より多い", "余", "大きい", "大部", "<", ">", "等しい", "同じ", "イコール", "じゃない", "不平等", "値", "wasd", "シート", "座", "席", "座席", "コントロール", "ws", "ad", "操作", "オペレーション", "演算", "斜辺", "斜線", "サイン波", "正弦波", "正弦", "サイン", "サイン関数", "余弦", "正接", "逆", "あべこべ", "アーク", "円弧", "三角法", "三角関数", "ライン", "線", "行", "列", "ポイント", "点", "箇所", "座標", "コーディネート", "円形", "アップ", "上", "ダウン", "下へ", "下", "下り", "の下", "操舵", "ドライブ", "ランダム", "パイ", "オイラー", "定数", "指数", "平方根", "二乗根", "ルート", "根", "平方", "乗", "自乗", "二乗", "方形", "最小", "ミニマム", "最大", "最高", "極大", "マキシマム", "上限", "ログ", "対数", "モジュラス", "記憶", "メモリー", "記憶装置", "ビット", "因子", "因", "ファクター", "要因", "階乗", "スイッチ", "デジタル", "ディジタル", "賢い" ]
 	},
 	"b39faec9-1ed0-4475-8bc0-78d125df1b58": {
-		"title": "Memory Panel",
-		"description": "Saves a number value at a memory address. Use a number input for the value and a switch/button/logic to save that value. Use a second, white painted number input to specify the memory address.",
-		"keywords": [ "modpack", "smart", "logic", "number", "save", "store", "storage", "memory", "bit", "recall", "load", "value", "digit", "digital", "ram", "disk", "drive", "hdd", "ssd", "write" ]
+		"title": "メモリーパネル (記憶 デバイス)",
+		"description": "メモリアドレスに数値を保存します。 値の数値入力と論理信号を使用して、 その値を保存します。 白い塗りの数字入力を使用して、 メモリアドレスを指定します。",
+		"keywords": [ "modpack", "modopaku", "モドパク", "スマート", "知的な", "賢い", "論理", "ロジック", "数", "番号", "保存", "保管", "貯蔵", "格納", "保存", "記憶装置", "ストレージ", "保管", "貯蔵", "格納", "記憶装置", "記憶", "メモリー", "記憶装置", "ビット", "想起", "リコール", "思い出す", "ロード", "積み込み", "値", "桁", "位取り", "デジタル", "ディジタル", "ラム", "コンピュータ", "ディスク", "円盤", "音盤", "ドライブ", "hdd", "ssd", "書きます", "書く", "賢い" ]
 	},
 	"a1d0b1a0-4ec7-4614-8b7a-9a7c521cc03e": {
-		"title": "Smart Timer",
-		"description": "Number inputs:\nWhite: define how long to delay the signal\nOther: input number value, will output after the set delay\n\nLogic inputs:\nWhite = clear timer queue\nBlack = pause timer queue\nOther = input value of 1",
-		"keywords": [ "modpack", "smart", "logic", "number", "delay", "sequence", "order", "time", "value", "tick" ]
+		"title": "スマート タイマー",
+		"description": "数値入力：\n白：信号を遅延させる時間を定義します\nその他：入力された数値、 設定された遅延後に出力されます\n\nロジック入力：\n白=タイマーキューをクリア\n黒=一時停止タイマーキュー\nその他=入力値1",
+		"keywords": [ "modpack", "modopaku", "モドパク", "スマート", "知的な", "賢い", "論理", "ロジック", "数", "番号", "ディレイ", "遅延", "遅れ", "シーケンス", "順序", "順序", "時間", "時刻", "時", "タイム", "値", "ティク", "賢い" ]
 	},
 	"d3eda549-778f-432b-bf21-65a32ae53378": { //keypad addition
-		"title": "Keypad Input",
-		"description": "Keypad to enter values into a Memory Panel or other smart system. The value is output as you type it. Pressing Enter sends a single logic tick.\n\nNot sure how to use it? Connect a bunch of number block digits and give it a try.",
-		"keywords": [ "modpack", "key", "pad", "number", "button", "enter", "クリア", "input", "calc", "calculator", "type" ]
+		"title": "キーパッド",
+		"description": "メモリ パネル または その他 の スマートシステムに値 を 入力する ため の キーパッド。 入力すると値が出力されます。  Enterキーを押すと、 単一のロジックティックが送信されます。\n\n使い方がわかりませんか？ たくさんの数字ブロックの数字を接続して、 試してみてください。",
+		"keywords": [ "modpack", "modopaku", "モドパク", "キー", "鍵", "鍵盤", "キーボード", "数", "番号", "ボタン", "クリア", "入力", "インプット", "電卓", "計算する", "種類", "賢い" ]
 	},
 	"e627986c-b7dd-4365-8fd8-a0f8707af63d": {
-		"title": "Wireless Router",
-		"description": "This wireless device can transmit data accross long distances!\n\nE to change send/receive\nPaint color defines channel\nWhite number for frequency\n\nCaution: wireless devices on the same channel and frequency will interfere with each other.",
-		"keywords": [ "modpack", "smart", "logic", "number", "wireless", "remote", "transfer", "control", "singal", "frequency", "antenna" ]
+		"title": "無線ルーター",
+		"description": "この無線デバイスは、 長距離にわたってデータを送信できます！\n\n送信/受信を変更するにはE\nペイントカラーはチャンネルを定義します\n周波数の白数\n注意： 同じチャンネルと周波数の無線デバイスは互いに干渉します。",
+		"keywords": [ "modpack", "modopaku", "モドパク", "スマート", "知的な", "賢い", "論理", "ロジック", "数", "番号", "無線", "リモート", "遠隔", "転送", "移転", "トランスファー", "移送", "コントロール", "信号", "シグナル", "合図", "周波数", "頻度", "周波", "アンテナ", "賢い" ]
 	},
 	"921a2ace-b543-4ca3-8a9b-6f3dd3132fa9": {
-		"title": "Color Block",
-		"description": "A block that can change colors.\n\nUse 1 number input to display a color from black to white (-1 is a quick way to get to white).\nUse 3 number inputs (painted red, green, blue) to use this block in RGB mode. Set each color component from 0 to 255\n\nPainting the block also works.\nCan connect color blocks together as well.",
-		"keywords": [ "modpack", "smart", "logic", "number", "rgb", "colour", "screen", "display", "pixel", "dot", "glow", "shine", "reflect", "red", "green", "blue", "glow", "custom", "paint" ]
+		"title": "色 ブロック (カラーブロック)",
+		"description": "色を変更できるブロック。\n1つの数値入力を使用して、 黒から白までの色を表示します （-1を使用すると、 白にすばやくなります）。\nこのブロックを RGBモードで使用するには、 3 つの数値入力 （赤、緑、青にペイント） を使用します。 各色成分を0から255に設定します\n\nブロックのペイントも機能します。\nカラーブロックも一緒に接続できます。",
+		"keywords": [ "modpack", "modopaku", "モドパク", "スマート", "知的な", "賢い", "論理", "ロジック", "数", "番号", "rgb", "色", "カラー", "色彩", "彩る", "染める", "画面", "スクリーン", "表示", "展示", "ディスプレー", "見せる", "ピクセル", "ドット", "輝く", "シャイン", "赤", "緑", "青", "red", "green", "blue", "グロー", "カスタム", "ペイント", "塗料", "ペンキ", "描く", "塗る", "賢い" ]
 	},
 	"9c47ec58-bdfc-43a4-b066-852156ad812a": {
-		"title": "Ascii Block",
-		"description": "Create your signs, screens, displays, games, and more with the Ascii Block. Press E to cycle through the letters, CTRL+E to cycle backwards.\n\nConnect a number input to specify the symbol you want to display.\n\nOr you can connect multiple buttons to cycle through the symbols as well",
-		"keywords": [ "modpack", "smart", "logic", "number", "display", "letter", "symbol", "emoji", "emoticon", "emote", "smile", "arrow", "frown", "face", "sign", "direction", "text", "astrology", "math", "geometry", "image", "picture", "design" ]
+		"title": "アスキー ブロック",
+		"description": "アスキーブロックで標識、 スクリーン、 ディスプレイ、 ゲームなどを作成します。  Eを押して文字を循環し、 Ctrl + E を押して逆方向に循環します。\n\n数値入力を接続して、 表示するシンボルを指定します。\n\nまたは、 複数のボタンを接続して、 シンボルを順に切り替えることもできます",
+		"keywords": [ "modpack", "modopaku", "モドパク", "スマート", "知的な", "賢い", "論理", "ロジック", "数", "番号", "表示", "展示", "ディスプレー", "見せる", "文字", "シンボル", "記号", "符号", "象徴", "印", "絵文字", "エモート", "スマイル", "微笑", "笑み", "笑う", "微笑む", "微笑み", "矢", "顰める", "睨み付ける", "眉をひそめる", "面", "顔", "対向", "符号", "記号", "標識", "兆候", "徴候", "看板", "合図", "跡", "象徴", "方向", "向き", "方位", "方角", "針路", "行き方", "テキスト", "本文", "占星術", "星占い", "黄道帯", "数学", "幾何学", "幾何", "画像", "イメージ", "映像", "像", "写像", "偶像", "形象", "ピクチャー", "絵", "図", "画面", "描く", "設計", "図案", "デザイン", "意匠", "賢い" ]
 	},
 	"8d27520e-2ebc-4f14-bd2c-b99ee8976799": {
-		"title": "Ascii Block Inverted",
-		"description": "Create your signs, screens, displays, games, and more with the Ascii Block. Press E to cycle through the letters, CTRL+E to cycle backwards.\n\nConnect a number input to specify the symbol you want to display.\n\nOr you can connect multiple buttons to cycle through the symbols as well",
-		"keywords": [ "modpack", "smart", "logic", "number", "display", "letter", "symbol", "emoji", "emoticon", "emote", "smile", "arrow", "frown", "face", "sign", "direction", "text", "astrology", "math", "geometry", "image", "picture", "design" ]
+		"title": "アスキー ブロック 反転",
+		"description": "アスキーブロックで標識、 スクリーン、 ディスプレイ、 ゲームなどを作成します。  Eを押して文字を循環し、 Ctrl + E を押して逆方向に循環します。\n\n数値入力を接続して、 表示するシンボルを指定します。\n\nまたは、 複数のボタンを接続して、 シンボルを順に切り替えることもできます",
+		"keywords": [ "modpack", "modopaku", "モドパク", "スマート", "知的な", "賢い", "論理", "ロジック", "数", "番号", "表示", "展示", "ディスプレー", "見せる", "文字", "シンボル", "記号", "符号", "象徴", "印", "絵文字", "エモート", "スマイル", "微笑", "笑み", "笑う", "微笑む", "微笑み", "矢", "顰める", "睨み付ける", "眉をひそめる", "面", "顔", "対向", "符号", "記号", "標識", "兆候", "徴候", "看板", "合図", "跡", "象徴", "方向", "向き", "方位", "方角", "針路", "行き方", "テキスト", "本文", "占星術", "星占い", "黄道帯", "数学", "幾何学", "幾何", "画像", "イメージ", "映像", "像", "写像", "偶像", "形象", "ピクチャー", "絵", "図", "画面", "描く", "設計", "図案", "デザイン", "意匠", "賢い" ]
 	},
 	"a459eb96-7f0a-42e6-a841-44f9c0561a55": {
-		"title": "Ascii Block Colored",
-		"description": "Create your signs, screens, displays, games, and more with the Ascii Block. Press E to cycle through the letters, CTRL+E to cycle backwards.\n\nConnect a number input to specify the symbol you want to display.\n\nOr you can connect multiple buttons to cycle through the symbols as well",
-		"keywords": [ "modpack", "smart", "logic", "number", "display", "letter", "symbol", "emoji", "emoticon", "emote", "smile", "arrow", "frown", "face", "sign", "direction", "text", "astrology", "math", "geometry", "image", "picture", "design" ]
+		"title": "アスキー ブロック の色",
+		"description": "アスキーブロックで標識、 スクリーン、 ディスプレイ、 ゲームなどを作成します。  Eを押して文字を循環し、 Ctrl + E を押して逆方向に循環します。\n\n数値入力を接続して、 表示するシンボルを指定します。\n\nまたは、 複数のボタンを接続して、 シンボルを順に切り替えることもできます",
+		"keywords": [ "modpack", "modopaku", "モドパク", "スマート", "知的な", "賢い", "論理", "ロジック", "数", "番号", "表示", "展示", "ディスプレー", "見せる", "文字", "シンボル", "記号", "符号", "象徴", "印", "絵文字", "エモート", "スマイル", "微笑", "笑み", "笑う", "微笑む", "微笑み", "矢", "顰める", "睨み付ける", "眉をひそめる", "面", "顔", "対向", "符号", "記号", "標識", "兆候", "徴候", "看板", "合図", "跡", "象徴", "方向", "向き", "方位", "方角", "針路", "行き方", "テキスト", "本文", "占星術", "星占い", "黄道帯", "数学", "幾何学", "幾何", "画像", "イメージ", "映像", "像", "写像", "偶像", "形象", "ピクチャー", "絵", "図", "画面", "描く", "設計", "図案", "デザイン", "意匠", "賢い" ]
 	},
 
 // smart power
 	"fe8978ec-5798-4b24-bdb2-8375387f171b": {
-		"title": "Smart Engine Controller",
-		"description": "This device can control bearings and pistons with number logic!\nWhite = Speed\nBlack = Power\nGrey = Stiffness\nOther = Target Angle / Length\n\nDefaults without inputs:\n0 speed\n10,000 power\n100 stiffness\nNo target angle / 0 length",
-		"keywords": [ "modpack", "smart", "logic", "number", "step", "stepper", "sequence", "sequencer", "angle", "piston", "length", "custom", "spring", "suspension", "strength", "force", "resistance", "speed", "rotation", "rotate", "rpm", "electric", "gas" ]
+		"title": "スマート エンジン コントローラー",
+		"description": "このデバイスは、数値ロジックでベアリングとピストンを制御できます！\n\n白 = 速度\n黒 = 電源\nグレー = 剛性\nその他 = ターゲット角度 / 長さ\n\n入力なしのデフォルト：\n0 スピード\n10,000 パワー\n100 剛性\nターゲット角度なし / 長さ 0",
+		"keywords": [ "modpack", "modopaku", "モドパク", "スマート", "知的な", "賢い", "論理", "ロジック", "数", "番号", "ステップ", "ステッパー", "シーケンス", "順序", "シーケンサー", "角度", "ピストン", "丈", "レングス", "長さ", "カスタム", "サスペンション", "サスペンション", "強", "長さ", "力", "抵抗", "レジスタンス", "速度", "スピード", "回転", "旋回", "回り", "自転", "回転運動", "回旋", "循環", "廻り", "転回", "輪転", "ローテーション", "輪番", "周り", "回転させる", "回る", "廻る", "回転する", "rpm", "電気の", "電動", "エレクトリック", "ガス", "気体", "瓦斯", "賢い" ]
 	},
 	"a4342028-9a61-4961-99a4-2ae372ee2481": {
-		"title": "Smart Thruster",
-		"description": "Connect a seat for W and S controls. Number input to set the power level. Use with the Math block's seat functions for A and D controls as well\n\nDefault power: 100\nThis is the number value used when there is no number input connected and is approximately the same as a normal thruster on the lowest power setting.",
-		"keywords": [ "modpack", "smart", "logic", "number", "rocket", "power", "direction", "control", "custom", "ws", "seat", "float", "fly", "jet" ]
+		"title": "スマート スラスタ",
+		"description": "WおよびSコントロール用のシートを接続します。 電力レベルを設定する数値入力。  AおよびDコントロールの数学ブロックシート機能と併用\n\nデフォルトの電力：100",
+		"keywords": [ "modpack", "modopaku", "モドパク", "スマート", "知的な", "賢い", "論理", "ロジック", "数", "番号", "ロケット", "パワー", "電源", "力", "動力", "方向", "向き", "方位", "方角", "針路", "行き方", "コントロール", "カスタム", "ws", "シート", "座", "席", "座席", "浮く", "フロート", "浮き", "浮動", "飛ぶ", "フライ", "フライト", "飛翔", "便", "飛行", "フライング", "飛ぶ", "ジェット", "賢い" ]
 	},
 	"cec7c353-34ab-43a4-ade5-411df02eaa2a": {
-		"title": "WASD Thruster",
-		"description": "Steer this thruster with a seat! Use a switch to turn on/off. Use a number input to set the power level, like the smart thruster.\n\nIMPORTANT: Press E to switch modes, CTRL+E to cycle backwards.\nDefault, Pitch Inverted, WS only, AD only\n\nDefault power: 100",
-		"keywords": [ "modpack", "smart", "logic", "number", "rocket", "power", "direction", "control", "custom", "ws", "ad", "seat", "float", "fly", "jet" ]
+		"title": "WASD スラスタ",
+		"description": "このスラスターをシートで操縦してください！ スイッチを使用してオン/オフを切り替えます。 スマートスラスタのように、 数値入力を使用して出力レベルを設定します。\n\n重要：Eを押してモードを切り替え、 Ctrl + Eを押して逆方向に循環します。\nデフォルト、 ピッチ反転、 WSのみ、 ADのみ\n\nデフォルトの電力：100",
+		"keywords": [ "modpack", "modopaku", "モドパク", "スマート", "知的な", "賢い", "論理", "ロジック", "数", "番号", "ロケット", "パワー", "電源", "力", "動力", "方向", "向き", "方位", "方角", "針路", "行き方", "コントロール", "カスタム", "ws", "ad", "シート", "座", "席", "座席", "浮く", "フロート", "浮き", "浮動", "飛ぶ", "フライ", "フライト", "飛翔", "便", "飛行", "フライング", "飛ぶ", "ジェット", "賢い" ]
 	},
 	"41d596a6-882c-4f97-b0e0-3e11bff194e2": {
-		"title": "Gimbal Thruster",
-		"description": "Will always thrust up! You can also adjust the direction with your driver's seat. Switch to toggle and number input to set the power.\n\nIMPORTANT: Press E to switch modes, CTRL+E to cycle backwards, place right-side up for normal modes, place upside-down for other side\n\nDefault power: 100",
-		"keywords": [ "modpack", "smart", "logic", "number", "rocket", "power", "direction", "control", "custom", "ws", "ad", "seat", "balance", "float", "fly", "jet" ]
+		"title": "ジンバル スラスタ",
+		"description": "常に突き上げます！ 運転席で方向を調整することもできます。 切り替えて数値入力を切り替えて、 電力を設定します。\n\n重要： Eを押してモードを切り替え、 CTRL + Eを押して逆方向に切り替え、 通常モードでは右側を上に、 反対側では上下を逆に配置します\n\nデフォルトの電力：100",
+		"keywords": [ "modpack", "modopaku", "モドパク", "スマート", "知的な", "賢い", "論理", "ロジック", "数", "番号", "ロケット", "パワー", "電源", "力", "動力", "方向", "向き", "方位", "方角", "針路", "行き方", "コントロール", "カスタム", "ws", "ad", "シート", "座", "席", "座席", "バランス", "均衡", "浮く", "フロート", "浮き", "浮動", "飛ぶ", "フライ", "フライト", "飛翔", "便", "飛行", "フライング", "飛ぶ", "ジェット", "賢い" ]
 	},
 	"c9e34f58-b30d-4ab5-92c5-76f707090c45": {
-		"title": "Gravity Module",
-		"description": "Change the gravity for a specific creation! Cars, planes, spaceships, submarines, etc.\n\nPress E to activate! Or you can use a switch/logic.\n\nDefault setting is Zero gravity.\nSpecify gravity with number inputs (0.25x, 2x, etc)",
-		"keywords": [ "modpack", "smart", "logic", "number", "float", "fly", "grav", "0g", "anti", "antigravity", "vehicle", "space", "spaceship" ]
+		"title": "重力 モジュール",
+		"description": "特定の作成の重力を変更します！ 車、 飛行機、 宇宙船、 潜水艦など\n\nEを押してアクティブにします！または、 ロジックを使用できます。\n\nデフォルト設定は無重力です。\n数値入力で重力を指定 （例：0.25x、2x）",
+		"keywords": [ "modpack", "modopaku", "モドパク", "スマート", "知的な", "賢い", "論理", "ロジック", "数", "番号", "浮く", "フロート", "浮き", "浮動", "飛ぶ", "フライ", "フライト", "飛翔", "便", "飛行", "フライング", "飛ぶ", "重力", "引力", "0g", "反重力", "車両", "車", "宇宙空間", "宇宙", "宇宙船", "賢い" ]
 	},
 	"e93ca226-4166-49e3-97cd-bb8df20242d7": {
-		"title": "Gravity Modulator",
-		"description": "Change the gravity of the entire world!\n\nPress E to activate! Or you can use switch/logic.\n\nDefault setting is Zero gravity.\nSpecify gravity with number inputs (0.25x, 2x, etc)\n\nMultiple modulators are linked together! Turning one off will turn them all off.",
-		"keywords": [ "modpack", "smart", "logic", "number", "float", "fly", "grav", "0g", "anti", "antigravity", "world" ]
+		"title": "重力 変調器",
+		"description": "全世界の重力を変えてください！\nEを押してアクティブにします！または、 ロジックを使用できます。\n\nデフォルト設定は無重力です。\n数値入力で重力を指定（例：0.25x、2x）\n\n複数のモジュレーターがリンクされています！  1つをオフにすると、 すべてオフになります。",
+		"keywords": [ "modpack", "modopaku", "モドパク", "スマート", "知的な", "賢い", "論理", "ロジック", "数", "番号", "浮く", "フロート", "浮き", "浮動", "飛ぶ", "フライ", "フライト", "飛翔", "便", "飛行", "フライング", "飛ぶ", "重力", "引力", "0g", "反重力", "世界", "賢い" ]
 	},
 	"e2cc7014-85f3-4bb8-a7ca-b70b6502d91e": {
-		"title": "Large Wing",
-		"description": "A large wing to create flying vehicles!\n\nUse number inputs to change the angle of the flap!",
-		"keywords": [ "modpack", "smart", "logic", "number", "fly", "wing", "plane", "bird", "aviation", "air", "foil", "ship", "jet", "big", "large" ]
+		"title": "大翼",
+		"description": "空飛ぶ乗り物を作成するための大きな翼！\n\n数値入力を使用して、 フラップの角度を変更します！",
+		"keywords": [ "modpack", "modopaku", "モドパク", "スマート", "知的な", "賢い", "論理", "ロジック", "数", "番号", "飛ぶ", "フライ", "フライト", "飛翔", "便", "飛行", "フライング", "飛ぶ", "翼", "ウイング", "飛行機", "鳥", "航空", "飛行", "空気", "翼型", "船", "ボート", "舟", "舟艇", "バッテレ", "ジェット", "大きい", "大", "賢い" ]
 	},
 	"b5222776-1702-4c22-a8c5-ca26cc0290e7": {
-		"title": "Small Wing / Propeller",
-		"description": "A small wing that can be used for precise control, propellers, helicopter blades, tail fins, etc\n\nUse number inputs to change the angle of this part without the need for bearings!",
-		"keywords": [ "modpack", "smart", "logic", "number", "fly", "wing", "plane", "bird", "aviation", "air", "foil", "ship", "jet", "small", "turbine" ]
+		"title": "小翼 / プロペラ",
+		"description": "正確な制御、 プロペラ、 ヘリコプターのブレード、 尾びれなどに使用できる小さな翼\n\n数値入力を使用して、 ベアリングを使用せずにこの部品の角度を変更します！",
+		"keywords": [ "modpack", "modopaku", "モドパク", "スマート", "知的な", "賢い", "論理", "ロジック", "数", "番号", "飛ぶ", "フライ", "フライト", "飛翔", "便", "飛行", "フライング", "飛ぶ", "翼", "ウイング", "飛行機", "鳥", "航空", "飛行", "空気", "翼型", "船", "ボート", "舟", "舟艇", "バッテレ", "ジェット", "小さい", "タービン", "賢い" ]
 	},
 	"c071509a-9854-4359-8857-296f16edf15d": {
-		"title": "Timed Explosive - Dynamite",
-		"description": "Press E to activate! Detonates 10 seconds after activation.\n\nActivate immediately with a button/switch/sensor/logic/timer\n\nUse to detonate larger explosives",
-		"keywords": [ "modpack", "boom", "smart", "logic", "time", "timer", "clock", "explosive", "explosion", "destroy", "demolish", "construction", "explode", "pow", "bang", "tnt", "c4" ]
+		"title": "時限爆薬 (ダイナマイト)",
+		"description": "Eを押してアクティブにします！ 起動後10秒で爆発します。\n\nボタン / スイッチ / センサー / ロジック / タイマーですぐに有効化\n\nより大きな爆発物を爆発させるために使用",
+		"keywords": [ "modpack", "modopaku", "モドパク", "ブーム", "スマート", "知的な", "賢い", "論理", "ロジック", "時間", "時刻", "時", "タイム", "タイマー", "時計", "爆発物", "爆薬", "爆発", "爆破", "急増", "破壊する", "破壊", "取り壊す", "解体", "建設", "構築", "構造", "建築", "建造", "爆発する", "ブーム", "pow", "bang", "tnt", "c4", "賢い" ]
 	},
 // smart sound
 	"f73fd8c7-61eb-416f-8374-9a4c26e6db8f": {
-		"title": "Tone Generator",
-		"description": "Use number logic to create sound!\n\nInputs:\nLogic = on/off\nWhite Number = note to play\nGrey Number = Frequency to play\nBlack Number = Wave type\nAny Color Number = Volume\n\nWave Types:\nSine, Square, Triangle, Sawtooth",
-		"keywords": [ "modpack", "smart", "logic", "number", "sound", "song", "tone", "midi", "tote", "bot", "totebot", "freq", "frequency", "instrument", "wave", "type", "form", "waveform", "oscillate", "resonate", "play", "pause", "synth", "music" ]
+		"title": "音源",
+		"description": "数字ロジックを使用してサウンドを作成してください!\n\n入力：\nロジック=オン/オフ\n白の数字=再生するメモ\nグレーの番号=再生するトーン\n黒数=波のタイプ\n任意の色番号=ボリューム\n\n波の種類：\n正弦波, 方形波, 三角波, のこぎり波",
+		"keywords": [ "modpack", "modopaku", "モドパク", "スマート", "知的な", "賢い", "論理", "ロジック", "数", "番号", "音", "サウンド", "音声", "音響", "響き", "鳴らす", "鳴る", "歌", "ソング", "歌曲", "唄", "トーン", "調子", "口調", "音調", "トートボット", "周波数", "頻度", "周波", "周波数", "頻度", "周波", "楽器", "波", "種類", "波形", "振動させる", "発振する", "共鳴する", "再生します", "遊び", "プレー", "演じる", "弾く", "演ずる", "一時停止", "休止", "シンセ", "シンセサイザー", "音楽", "ミュージック", "音譜", "譜面", "賢い" ]
 	},
 	"1d5d997e-efa9-478c-98ee-e452f5ff0dd2": {
-		"title": "Smart Totebot",
-		"description": "Inputs:\nLogic = on/off\nWhite Number = note to play\nGrey Number = Frequency to play\nBlack Number = Totebot type\nAny Color Number = Volume\n\nTotebots:\nBass 1, Percussion 1, Synth 1, Blip 1, Bass 2, Percussion 2, Synth 2, Blip 2, Glitch, Challenge Ball",
-		"keywords": [ "modpack", "smart", "logic", "number", "sound", "song", "tone", "midi", "tote", "bot", "totebot", "freq", "frequency", "instrument", "wave", "type", "form", "waveform", "oscillate", "resonate", "play", "pause", "synth", "music" ]
+		"title": "スマート 音楽 ロボット",
+		"description": "入力：\nロジック=オン/オフ\n白の数字=再生するメモ\nグレーの番号=再生するトーン\n黒の数字=音の種類\n任意の色番号=ボリューム\n\n音の種類：\nベース1、 パーカッション1、 シンセ1、 ブリップ1、 ベース2、 パーカッション2、 シンセ2、 ブリップ2、 グリッチ、 チャレンジボール",
+		"keywords": [ "modpack", "modopaku", "モドパク", "スマート", "知的な", "賢い", "論理", "ロジック", "数", "番号", "音", "サウンド", "音声", "音響", "響き", "鳴らす", "鳴る", "歌", "ソング", "歌曲", "唄", "トーン", "調子", "口調", "音調", "トートボット", "周波数", "頻度", "周波", "周波数", "頻度", "周波", "楽器", "波", "種類", "波形", "振動させる", "発振する", "共鳴する", "再生します", "遊び", "プレー", "演じる", "弾く", "演ずる", "一時停止", "休止", "シンセ", "シンセサイザー", "音楽", "ミュージック", "音譜", "譜面", "賢い" ]
 	},
 // radars
 	"a053e38d-608b-4b9a-8d04-c3da2b6fdff7":
 	{
-		"title": "Radar",
-		"description": "Press E to cycle through available ranges (units = blocks x 4), CTRL+E to cycle backwards.\nThis will track players and tracker devices",
-		"keywords": [ "modpack", "radar", "distance", "locate", "location", "distance", "detect", "player", "tracker", "line", "point", "coordinate" ]
+		"title": "レーダー\n(電波探知機)",
+		"description": "Eを押して使用可能な範囲を循環し （単位=ブロックx 4）、 Ctrl + E を押して逆方向に循環します。 これにより、 プレーヤーと トラッカーデバイス が追跡されます",
+		"keywords": [ "modpack", "modopaku", "モドパク", "レーダー", "電波探知機", "距離", "見つける", "ロケーション", "場所", "位置", "距離", "検出する", "プレーヤー", "選手", "トラッカー", "ライン", "線", "行", "列", "ポイント", "点", "箇所", "座標", "コーディネート", "賢い" ]
 	},
 	"0954264c-4914-4848-b35a-4ae46cabc467": {
-		"title": "3D Radar",
-		"description": "Display player positions in a 3D display! Does not detect trackers (yet?).",
-		"keywords": [ "modpack", "radar", "distance", "locate", "location", "distance", "detect", "player", "tracker", "3d", "line", "point", "coordinate" ]
+		"title": "3D レーダー\n(三次元 電波探知機)",
+		"description": "プレーヤーの位置を3Dディスプレイに表示します！",
+		"keywords": [ "modpack", "modopaku", "モドパク", "レーダー", "電波探知機", "距離", "見つける", "ロケーション", "場所", "位置", "距離", "検出する", "プレーヤー", "選手", "トラッカー", "3d", "ライン", "線", "行", "列", "ポイント", "点", "箇所", "座標", "コーディネート", "賢い" ]
 	},
 // part spawner
 	"99540e2a-7727-422c-8725-d38cc8d34126": {
-		"title": "Part Spawner",
-		"description": "A hacked ball-spawner from challenge mode that allows you to spawn any part! Use number logic to define which part to spawn, and how to spawn it. Optionally, connect a sensor to copy a part in front of the sensor (any part). Use /console for more instructions",
-		"keywords": [ "modpack", "smart", "logic", "number", "generator", "spawn", "block", "part", "interactive", "custom" ]
+		"title": "部品複写機",
+		"description": "チャレンジモード から ハッキング さ れた ボールスポーナー を 使用 する と、 すべて の パーツ を スポーン できます！ 番号 ロジック を 使用 して、 どの パーツが 生成 さ れ、 どの よう に生成 される か を 定義 します。 オプション で、 センサー を 接続 し、 センサー の 前 の 部分 （任意 の 部分） を コピー します。 詳細 に ついて は /console を 使用 して ください",
+		"keywords": [ "modpack", "modopaku", "モドパク", "スマート", "知的な", "賢い", "論理", "ロジック", "数", "番号", "ジェネレータ", "生む", "プロデュース", "ブロック", "部", "複写", "インタラクティブ", "カスタム", "賢い" ]
 	},
 
 // NON-INTERACTIVES:
 	"bf8f8e24-806b-4223-9345-2bac7c1e265d":
 	{
-		"title": "Reduced Collision Block",
-		"description": "A block with the collision of a sphere. Useful for doorways that get stuck.",
-		"keywords": [ "modpack", "sphere", "collision", "low" ]
+		"title": "衝突防止ブロック",
+		"description": "球体 衝突 の ある ブロック",
+		"keywords": [ "modpack", "modopaku", "モドパク", "球体", "球", "衝突" ]
 	},
 	"9c40e3ab-8d03-40bc-a88b-eaebc61257d6":
 	{
-		"title": "Vent Block",
-		"description": "A small vent to allow air / exhaust to flow",
-		"keywords": [ "modpack", "grill", "small", "panel", "surface", "ventilation", "air" ]
+		"title": "排気口",
+		"description": "",
+		"keywords": [ "modpack", "modopaku", "モドパク", "グリル", "小さい", "パネル", "表面", "換気", "空気" ]
 	},
 
 // Wheels
 	"b57c8185-2f95-4ba8-818d-eed258e01d00":
 	{
-		"title": "Roller Wheel - 1x1",
-		"description": "A tiny wheel",
-		"keywords": [ "modpack", "1" ]
+		"title": "マイクロ ホイール 1x1",
+		"description": "",
+		"keywords": [ "modpack", "modopaku", "モドパク", "1" ]
 	},
 	"4e1452d0-a9c2-42d4-91cf-1aea84c533ed":
 	{
-		"title": "Roller Wheel - 2x1",
-		"description": "A very small wheel",
-		"keywords": [ "modpack", "2" ]
+		"title": "小さい ホイール 2x1",
+		"description": "",
+		"keywords": [ "modpack", "modopaku", "モドパク", "2" ]
 	},
 	"c460f40f-c7b7-4695-a627-9f01749724b6":
 	{
-		"title": "Rounded Wheel - 3x1",
-		"description": "A small wheel\n\nplane wheel",
-		"keywords": [ "modpack", "plane", "round", "3" ]
+		"title": "丸い車輪 3x1",
+		"description": "小さいホイール\n\n飛行機の車輪",
+		"keywords": [ "modpack", "modopaku", "モドパク", "飛行機", "円形", "3" ]
 	},
 	"c9cf3b88-86f3-4146-af16-a7b16c917ecc":
 	{
-		"title": "Hubless Wheel",
-		"description": "Use wth invisible bearing.\n\nMay require The Modpack Invisible for a better mount.\nThe Modpack Legacy Support has the old ring bearing bracket",
-		"keywords": [ "modpack", "5" ]
+		"title": "中空ホイール",
+		"description": "不可視部分で使用",
+		"keywords": [ "modpack", "modopaku", "モドパク", "5" ]
 	},
 	"4358b01f-3303-42a2-91d2-cc950e23b59b":
 	{
-		"title": "Invisible Wheel",
-		"description": "Useful for things that need to move without the appearance of wheels",
-		"keywords": [ "modpack", "5" ]
+		"title": "目に見えないホイール",
+		"description": "車輪 の 外観なしで移動 する必要がある もの に 便利",
+		"keywords": [ "modpack", "modopaku", "モドパク", "5" ]
 	},
 	"27b6541d-2be0-420f-abb8-d59f566e85bd":
 	{
-		"title": "Dirt Wheel - 3x1/2",
-		"description": "A wheel for off-road vehicles",
-		"keywords": [ "modpack", "3", "half", "motorcross", "thin" ]
+		"title": "泥 ホイール 3x1/2",
+		"description": "オフロード 車用 ホイール",
+		"keywords": [ "modpack", "modopaku", "モドパク", "3", "ハーフ", "半", "モトクロス", "薄いです", "細い" ]
 	},
 	"68a7fe0a-4d48-4552-a29d-044d3c7b9e02":
 	{
-		"title": "Dirt Wheel - 3x1",
-		"description": "A wheel for off-road vehicles",
-		"keywords": [ "modpack", "3", "motorcross" ]
+		"title": "泥 ホイール 3x1",
+		"description": "オフロード 車用 ホイール",
+		"keywords": [ "modpack", "modopaku", "モドパク", "3", "モトクロス" ]
 	},
 	"92d3c375-0e45-4df4-8691-90e49e8ce24d":
 	{
-		"title": "Dirt Wheel - 4x1",
-		"description": "A wheel for off-road vehicles",
-		"keywords": [ "modpack", "4", "motorcross" ]
+		"title": "泥 ホイール 4x1",
+		"description": "オフロード 車用 ホイール",
+		"keywords": [ "modpack", "modopaku", "モドパク", "4", "モトクロス" ]
 	},
 	"041ae0ae-07d5-4ac5-9767-be396ba2445d":
 	{
-		"title": "Dirt Wheel - 5x1",
-		"description": "A wheel for off-road vehicles",
-		"keywords": [ "modpack", "5", "motorcross" ]
+		"title": "泥 ホイール 5x1",
+		"description": "オフロード 車用 ホイール",
+		"keywords": [ "modpack", "modopaku", "モドパク", "5", "モトクロス" ]
 	},
 	"c47ff0cd-e1f2-4727-ba40-c85d0512d6d0":
 	{
-		"title": "Dirt Wheel - 5x2",
-		"description": "A wheel for off-road vehicles",
-		"keywords": [ "modpack", "5", "motorcross" ]
+		"title": "泥 ホイール 5x2",
+		"description": "オフロード 車用 ホイール",
+		"keywords": [ "modpack", "modopaku", "モドパク", "5", "モトクロス" ]
 	},
 	"784bf162-b2d1-4a6d-9cf4-091827871a40":
 	{
-		"title": "Dirt Wheel - 5x3",
-		"description": "A wheel for off-road vehicles",
-		"keywords": [ "modpack", "5", "wide", "motorcross" ]
+		"title": "泥 ホイール 5x3",
+		"description": "オフロード 車用 ホイール",
+		"keywords": [ "modpack", "modopaku", "モドパク", "5", "ワイド", "広い", "モトクロス" ]
 	},
 	"5a9ff028-a6cb-4010-bcd4-c88eb230bcdb":
 	{
-		"title": "Street Wheel - 3x1",
-		"description": "A wheel ready for the streets!",
-		"keywords": [ "modpack", "3" ]
+		"title": "通り ホイール 3x1",
+		"description": "通り の 準備 が できた 車輪！",
+		"keywords": [ "modpack", "modopaku", "モドパク", "3" ]
 	},
 	"58e7fdd0-9f15-466c-aaba-60805044fe67":
 	{
-		"title": "Street Wheel - 4x1",
-		"description": "A wheel ready for the streets!",
-		"keywords": [ "modpack", "4", "even" ]
+		"title": "通り ホイール 4x1",
+		"description": "通り の 準備 が できた 車輪！",
+		"keywords": [ "modpack", "modopaku", "モドパク", "4", "偶数" ]
 	},
 	"3147a872-cb90-487c-b6ce-438c6403b09c":
 	{
-		"title": "Street Wheel - 4x2",
-		"description": "A wheel ready for the streets!",
-		"keywords": [ "modpack", "4", "even" ]
+		"title": "通り ホイール 4x2",
+		"description": "通り の 準備 が できた 車輪！",
+		"keywords": [ "modpack", "modopaku", "モドパク", "4", "偶数" ]
 	},
 	"a02f96b2-26c3-4b3e-a00c-32254af91a5d":
 	{
-		"title": "Street Wheel - 5x2",
-		"description": "A wheel ready for the streets!",
-		"keywords": [ "modpack", "5" ]
+		"title": "通り ホイール 5x2",
+		"description": "通り の 準備 が できた 車輪！",
+		"keywords": [ "modpack", "modopaku", "モドパク", "5" ]
 	},
 	"d3954d83-78ee-4fbf-9a60-70e4872e1d39":
 	{
-		"title": "Street Wheel - 6x2",
-		"description": "A wheel ready for the streets!",
-		"keywords": [ "modpack", "6", "even" ]
+		"title": "通り ホイール 6x2",
+		"description": "通り の 準備 が できた 車輪！",
+		"keywords": [ "modpack", "modopaku", "モドパク", "6", "偶数" ]
 	},
 	"d59bd448-6401-4476-849a-e6fc86d28b7b":
 	{
-		"title": "Combat Wheel - 3x1",
-		"description": "A very durable wheel. Ready for battle!",
-		"keywords": [ "modpack", "3" ]
+		"title": "戦闘 ホイール 3x1",
+		"description": "ホイール は 非常 に 耐久性が あ ります。 これ で 戦う 準備 が できました！",
+		"keywords": [ "modpack", "modopaku", "モドパク", "3" ]
 	},
 	"96fc86b1-57e7-4795-9d39-90e74f52ba87":
 	{
-		"title": "Combat Wheel - 5x2",
-		"description": "A very durable wheel. Ready for battle!",
-		"keywords": [ "modpack", "5" ]
+		"title": "戦闘 ホイール 5x2",
+		"description": "ホイール は 非常 に 耐久性が あ ります。 これ で 戦う 準備 が できました！",
+		"keywords": [ "modpack", "modopaku", "モドパク", "5" ]
 	},
 	"fafdc38f-e374-49fd-8fea-4062a4b5c93a":
 	{
-		"title": "Combat Wheel - 7x2",
-		"description": "A very durable wheel. Ready for battle!",
-		"keywords": [ "modpack", "7" ]
+		"title": "戦闘 ホイール 7x2",
+		"description": "ホイール は 非常 に 耐久性が あ ります。 これ で 戦う 準備 が できました！",
+		"keywords": [ "modpack", "modopaku", "モドパク", "7" ]
 	},
 	"4dee7b84-ee4c-42ce-9a42-4c6ced837ff5":
 	{
-		"title": "Combat Wheel - 9x3",
-		"description": "A very durable wheel. Ready for battle!",
-		"keywords": [ "modpack", "9" ]
+		"title": "戦闘 ホイール 9x3",
+		"description": "ホイール は 非常 に 耐久性が あ ります。 これ で 戦う 準備 が できました！",
+		"keywords": [ "modpack", "modopaku", "モドパク", "9" ]
 	},
 	"583f20c9-a7da-477b-b852-aac404467e3a":
 	{
-		"title": "Combat Wheel - 11x4",
-		"description": "A very durable wheel. Ready for battle!",
-		"keywords": [ "modpack", "11" ]
+		"title": "戦闘 ホイール 11x4",
+		"description": "ホイール は 非常 に 耐久性が あ ります。 これ で 戦う 準備 が できました！",
+		"keywords": [ "modpack", "modopaku", "モドパク", "11" ]
 	},
 	"90bc9601-b874-45e2-8970-09d5e5ff3ca9":
 	{
-		"title": "Combat Wheel - 13x5",
-		"description": "A very durable wheel. Ready for battle!",
-		"keywords": [ "modpack", "13" ]
+		"title": "戦闘 ホイール 13x5",
+		"description": "ホイール は 非常 に 耐久性が あ ります。 これ で 戦う 準備 が できました！",
+		"keywords": [ "modpack", "modopaku", "モドパク", "13" ]
 	},
 	"abe5a33f-a3cc-41a8-b32a-731ec2b184c1":
 	{
-		"title": "Sand Wheel - 3x2",
-		"description": "A style of wheel for loose dirt",
-		"keywords": [ "modpack", "3" ]
+		"title": "砂車 3x2",
+		"description": "ゆるい 汚れ の ため の ホイールスタイル",
+		"keywords": [ "modpack", "modopaku", "モドパク", "3" ]
 	},
 	"0761c82c-7a3f-4c22-8ec1-46223f10a2de":
 	{
-		"title": "Sand Wheel - 5x3",
-		"description": "A style of wheel for loose dirt",
-		"keywords": [ "modpack", "5" ]
+		"title": "砂車 5x3",
+		"description": "ゆるい 汚れ の ため の ホイールスタイル",
+		"keywords": [ "modpack", "modopaku", "モドパク", "5" ]
 	},
 	"ee8869cb-9cce-43c3-a04a-e8b37b9de0ed":
 	{
-		"title": "Sand Wheel - 7x4",
-		"description": "A style of wheel for loose dirt",
-		"keywords": [ "modpack", "7", "large", "big" ]
+		"title": "砂車 7x4",
+		"description": "ゆるい 汚れ の ため の ホイールスタイル",
+		"keywords": [ "modpack", "modopaku", "モドパク", "7", "大", "大きい" ]
 	},
 	"2210586c-3a93-43ff-b861-542e2d2d12d6":
 	{
-		"title": "Sand Wheel - 9x5",
-		"description": "A style of wheel for loose dirt",
-		"keywords": [ "modpack", "9", "large", "big" ]
+		"title": "砂車 9x5",
+		"description": "ゆるい 汚れ の ため の ホイールスタイル",
+		"keywords": [ "modpack", "modopaku", "モドパク", "9", "大", "大きい" ]
 	},
 	"6afcb463-925a-4a2e-b9bf-3397ef094df9":
 	{
-		"title": "Sand Wheel - 11x6",
-		"description": "A style of wheel for loose dirt",
-		"keywords": [ "modpack", "11", "large", "big" ]
+		"title": "砂車 11x6",
+		"description": "ゆるい 汚れ の ため の ホイールスタイル",
+		"keywords": [ "modpack", "modopaku", "モドパク", "11", "大", "大きい" ]
 	},
 	"b0f71aed-04f0-4bba-b969-cba57f3fc667":
 	{
-		"title": "Sand Wheel - 13x6",
-		"description": "A style of wheel for loose dirt",
-		"keywords": [ "modpack", "13", "large", "big" ]
+		"title": "砂車 13x6",
+		"description": "ゆるい 汚れ の ため の ホイールスタイル",
+		"keywords": [ "modpack", "modopaku", "モドパク", "13", "大", "大きい" ]
 	},
 	"87f8f460-eba5-43c1-a1ad-facfb3d3f376":
 	{
-		"title": "Sand Wheel - 15x7",
-		"description": "A style of wheel for loose dirt",
-		"keywords": [ "modpack", "15", "huge", "large", "big" ]
+		"title": "砂車 15x7",
+		"description": "ゆるい 汚れ の ため の ホイールスタイル",
+		"keywords": [ "modpack", "modopaku", "モドパク", "15", "巨大", "大", "大きい" ]
 	},
 	"2bcc8c8f-1e94-4f9d-97b9-6e7423ca40b0":
 	{
-		"title": "Sand Wheel - 17x8",
-		"description": "A style of wheel for loose dirt",
-		"keywords": [ "modpack", "17", "huge", "large", "big" ]
+		"title": "砂車 17x8",
+		"description": "ゆるい 汚れ の ため の ホイールスタイル",
+		"keywords": [ "modpack", "modopaku", "モドパク", "17", "巨大", "大", "大きい" ]
 	},
 	"61a70b37-ea24-4022-b1e6-45a5a3ae179d":
 	{
-		"title": "Sand Wheel - 19x9",
-		"description": "A style of wheel for loose dirt",
-		"keywords": [ "modpack", "19", "monster", "mega", "huge", "large", "big" ]
+		"title": "砂車 19x9",
+		"description": "ゆるい 汚れ の ため の ホイールスタイル",
+		"keywords": [ "modpack", "modopaku", "モドパク", "19", "モンスター", "怪獣", "メガ", "巨大", "大", "大きい" ]
 	},
 
 	"036fc6d2-45df-11e6-beb8-9e71128cae77":
 	{
-		"title": "Big Wheel - 7x3",
-		"description": "A resized vanilla wheel",
-		"keywords": [ "modpack", "7", "large", "big" ]
+		"title": "ビッグホイール 7x3",
+		"description": "",
+		"keywords": [ "modpack", "modopaku", "モドパク", "7", "大", "大きい" ]
 	},
 	
 	"036fc79a-45df-11e6-beb8-9e71128cae77":
 	{
-		"title": "Big Wheel - 9x4",
-		"description": "A resized vanilla wheel",
-		"keywords": [ "modpack", "9", "large", "big" ]
+		"title": "ビッグホイール 9x4",
+		"description": "",
+		"keywords": [ "modpack", "modopaku", "モドパク", "9", "大", "大きい" ]
 	},
 
 // wheel rims	
 	"036ff44a-45df-11e6-beb8-9e71128cae77":
 	{
-		"title": "Large Rim - 1",
-		"description": "Wheel decoration",
-		"keywords": [ "modpack", "wheel", "spinner", "bling" ]
+		"title": "大 ホイール装飾 1",
+		"description": "ホイールリム",
+		"keywords": [ "modpack", "modopaku", "モドパク", "ホイール", "車輪", "ケバケバ" ]
 	},
 	"036ff6ca-45df-11e6-beb8-9e71128cae77":
 	{
-		"title": "Small Rim - 1",
-		"description": "Wheel decoration",
-		"keywords": [ "modpack", "wheel", "spinner", "bling" ]
+		"title": "小さい ホイール装飾 1",
+		"description": "ホイールリム",
+		"keywords": [ "modpack", "modopaku", "モドパク", "ホイール", "車輪", "ケバケバ" ]
 	},
 	"036ff530-45df-11e6-beb8-9e71128cae77":
 	{
-		"title": "large Rim - 2",
-		"description": "Wheel decoration",
-		"keywords": [ "modpack", "wheel", "spinner", "bling" ]
+		"title": "大 ホイール装飾 2",
+		"description": "ホイールリム",
+		"keywords": [ "modpack", "modopaku", "モドパク", "ホイール", "車輪", "ケバケバ" ]
 	},
 	"036ff792-45df-11e6-beb8-9e71128cae77":
 	{
-		"title": "Small Rim - 2",
-		"description": "Wheel decoration",
-		"keywords": [ "modpack", "wheel", "spinner", "bling" ]
+		"title": "小さい ホイール装飾 2",
+		"description": "ホイールリム",
+		"keywords": [ "modpack", "modopaku", "モドパク", "ホイール", "車輪", "ケバケバ" ]
 	},
 	"036ff5f8-45df-11e6-beb8-9e71128cae77":
 	{
-		"title": "Large Rim - 3",
-		"description": "Wheel decoration",
-		"keywords": [ "modpack", "wheel", "spinner", "bling" ]
+		"title": "大 ホイール装飾 3",
+		"description": "ホイールリム",
+		"keywords": [ "modpack", "modopaku", "モドパク", "ホイール", "車輪", "ケバケバ" ]
 	},
 	"036ff864-45df-11e6-beb8-9e71128cae77":
 	{
-		"title": "Small Rim - 3",
-		"description": "Wheel decoration",
-		"keywords": [ "modpack", "wheel", "spinner", "bling" ]
+		"title": "小さい ホイール装飾 3",
+		"description": "ホイールリム",
+		"keywords": [ "modpack", "modopaku", "モドパク", "ホイール", "車輪", "ケバケバ" ]
 	}
 
 }
