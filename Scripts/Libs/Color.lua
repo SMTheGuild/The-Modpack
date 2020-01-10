@@ -39,6 +39,7 @@ end
 
 --HSV to RGB converter
 function sm.color.toRGB( hsv )
+	hsv.h = sm.util.clamp( hsv.h, -360000000, 360000000 )
 	local C = hsv.v * hsv.s
 	local X = C * ( 1 - math.abs( ((hsv.h / 60) % 2) - 1 ) )
 	local M = hsv.v - C
