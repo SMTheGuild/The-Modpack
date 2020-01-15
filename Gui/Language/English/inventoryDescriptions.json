@@ -55,6 +55,18 @@
 		"description": "Show off your VIP status with this luxury block!",
 		"keywords": [ "modpack", "gold", "precious", "valuable", "rich", "leather", "plastic", "luxury", "vip", "bling" ]
 	},
+	"116325e1-1020-40ec-8f31-0678f8bb98bc":
+	{
+		"title": "Smooth Ice",
+		"description": "Very slippery!\n\nCan be painted",
+		"keywords": [ "modpack", "ice", "smooth", "icy", "frozen", "subzero", "cold", "skating", "rink", "hockey", "curling", "slip", "slippery", "slide", "friction", "frictionless" ]
+	},
+	"b742cff1-98a7-469f-b514-a7402f705924":
+	{
+		"title": "Icy Rocks",
+		"description": "Cold and a little bit slippery!\n\nCan be painted",
+		"keywords": [ "modpack", "ice", "icy", "rock", "rocky", "rocks", "rough", "alien", "mars", "moon", "asteroid", "cold", "frozen", "subzero", "slip", "slippery", "slide", "friction", "frictionless" ]
+	},
 
 // interactives
 	"ebafd24a-7bbc-4e75-87f5-a67cdcf31e29":

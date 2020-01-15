@@ -24,7 +24,8 @@
 			"hull": { "x": 1, "y": 1, "z": 1, "margin": 0.4, "pointList": [ { "x": 0.0, "y": 0.0, "z": 0.0 } ] },
 			"density": 250.0,
 			"physicsMaterial": "Metal",
-			"qualityLevel": 3
+			"qualityLevel": 3,
+			"friction": 0
 		},
 		{
 			"uuid": "9c40e3ab-8d03-40bc-a88b-eaebc61257d6", // vent block
@@ -419,7 +420,8 @@
 			"cylinder": { "diameter": 3, "depth": 1, "margin": 0.5, "axis": "Z" },
 			"density": 1250.0,
 			"physicsMaterial": "Plastic",
-			"qualityLevel": 3
+			"qualityLevel": 3,
+			"friction": 0.8
 		},
 		{
 			"uuid": "58e7fdd0-9f15-466c-aaba-60805044fe67",
@@ -466,7 +468,8 @@
 			},
 			"density": 1000.0,
 			"physicsMaterial": "Plastic",
-			"qualityLevel": 3
+			"qualityLevel": 3,
+			"friction": 0.8
 		},
 		{
 			"uuid": "3147a872-cb90-487c-b6ce-438c6403b09c",
@@ -512,7 +515,8 @@
 				]
 			},
 			"physicsMaterial": "Plastic",
-			"qualityLevel": 3
+			"qualityLevel": 3,
+			"friction": 0.8
 		},
 		{
 			"uuid": "a02f96b2-26c3-4b3e-a00c-32254af91a5d",
@@ -537,7 +541,8 @@
 			"color": "7f7f7f",
 			"cylinder": { "diameter": 5, "depth": 2, "margin": 0.5, "axis": "Z" },
 			"physicsMaterial": "Plastic",
-			"qualityLevel": 3
+			"qualityLevel": 3,
+			"friction": 0.8
 		},
 		{
 			"uuid": "d3954d83-78ee-4fbf-9a60-70e4872e1d39",
@@ -583,7 +588,8 @@
 				]
 			},
 			"physicsMaterial": "Plastic",
-			"qualityLevel": 3
+			"qualityLevel": 3,
+			"friction": 0.8
 		},
 // combat wheels
 		{
@@ -610,7 +616,8 @@
 			"cylinder": { "diameter": 3, "depth": 1, "margin": 0.5, "axis": "Z" },
 			"density": 1250.0,
 			"physicsMaterial": "Plastic",
-			"qualityLevel": 5
+			"qualityLevel": 5,
+			"friction": 50000
 		},
 		{
 			"uuid": "96fc86b1-57e7-4795-9d39-90e74f52ba87",
@@ -635,7 +642,8 @@
 			"color": "7f7f7f",
 			"cylinder": { "diameter": 5, "depth": 2, "margin": 0.5, "axis": "Z" },
 			"physicsMaterial": "Plastic",
-			"qualityLevel": 5
+			"qualityLevel": 5,
+			"friction": 50000
 		},
 		{
 			"uuid": "fafdc38f-e374-49fd-8fea-4062a4b5c93a",
@@ -661,7 +669,8 @@
 			"cylinder": { "diameter": 7, "depth": 2, "margin": 0.5, "axis": "Z" },
 			"density": 250,
 			"physicsMaterial": "Plastic",
-			"qualityLevel": 5
+			"qualityLevel": 5,
+			"friction": 50000
 		},
 		{
 			"uuid": "4dee7b84-ee4c-42ce-9a42-4c6ced837ff5",
@@ -687,7 +696,8 @@
 			"cylinder": { "diameter": 9, "depth": 3, "margin": 0.5, "axis": "Z" },
 			"density": 200,
 			"physicsMaterial": "Plastic",
-			"qualityLevel": 5
+			"qualityLevel": 5,
+			"friction": 50000
 		},
 		{
 			"uuid": "583f20c9-a7da-477b-b852-aac404467e3a",
@@ -713,7 +723,8 @@
 			"cylinder": { "diameter": 11, "depth": 4, "margin": 0.5, "axis": "Z" },
 			"density": 150,
 			"physicsMaterial": "Plastic",
-			"qualityLevel": 5
+			"qualityLevel": 5,
+			"friction": 50000
 		},
 		{
 			"uuid": "90bc9601-b874-45e2-8970-09d5e5ff3ca9",
@@ -739,7 +750,8 @@
 			"cylinder": { "diameter": 13, "depth": 5, "margin": 0.5, "axis": "Z" },
 			"density": 125,
 			"physicsMaterial": "Plastic",
-			"qualityLevel": 5
+			"qualityLevel": 5,
+			"friction": 50000
 		},
 // sand wheels
 		{
@@ -766,7 +778,9 @@
 			"cylinder": { "diameter": 3, "depth": 2, "margin": 0.5, "axis": "Z" },
 			"density": 1000.0,
 			"physicsMaterial": "Plastic",
-			"qualityLevel": 4
+			"qualityLevel": 4,
+			"friction": 0.8,
+			"restitution": 0.3
 		},
 		{
 			"uuid": "0761c82c-7a3f-4c22-8ec1-46223f10a2de",
@@ -791,7 +805,9 @@
 			"color": "7f7f7f",
 			"cylinder": { "diameter": 5, "depth": 3, "margin": 0.5, "axis": "Z" },
 			"physicsMaterial": "Plastic",
-			"qualityLevel": 4
+			"qualityLevel": 4,
+			"friction": 0.8,
+			"restitution": 0.3
 		},
 		{
 			"uuid": "ee8869cb-9cce-43c3-a04a-e8b37b9de0ed",
@@ -817,7 +833,9 @@
 			"cylinder": { "diameter": 7, "depth": 4, "margin": 0.5, "axis": "Z" },
 			"density": 250,
 			"physicsMaterial": "Plastic",
-			"qualityLevel": 4
+			"qualityLevel": 4,
+			"friction": 0.8,
+			"restitution": 0.3
 		},
 		{
 			"uuid": "2210586c-3a93-43ff-b861-542e2d2d12d6",
@@ -843,7 +861,9 @@
 			"cylinder": { "diameter": 9, "depth": 5, "margin": 0.5, "axis": "Z" },
 			"density": 200,
 			"physicsMaterial": "Plastic",
-			"qualityLevel": 4
+			"qualityLevel": 4,
+			"friction": 0.8,
+			"restitution": 0.3
 		},
 		{
 			"uuid": "6afcb463-925a-4a2e-b9bf-3397ef094df9",
@@ -869,7 +889,9 @@
 			"cylinder": { "diameter": 11, "depth": 6, "margin": 0.5, "axis": "Z" },
 			"density": 135,
 			"physicsMaterial": "Plastic",
-			"qualityLevel": 4
+			"qualityLevel": 4,
+			"friction": 0.8,
+			"restitution": 0.3
 		},
 		{
 			"uuid": "b0f71aed-04f0-4bba-b969-cba57f3fc667",
@@ -895,7 +917,9 @@
 			"cylinder": { "diameter": 13, "depth": 6, "margin": 0.5, "axis": "Z" },
 			"density": 125,
 			"physicsMaterial": "Plastic",
-			"qualityLevel": 4
+			"qualityLevel": 4,
+			"friction": 0.8,
+			"restitution": 0.3
 		},
 		{
 			"uuid": "87f8f460-eba5-43c1-a1ad-facfb3d3f376",
@@ -921,7 +945,9 @@
 			"cylinder": { "diameter": 15, "depth": 7, "margin": 0.5, "axis": "Z" },
 			"density": 65,
 			"physicsMaterial": "Plastic",
-			"qualityLevel": 4
+			"qualityLevel": 4,
+			"friction": 0.8,
+			"restitution": 0.3
 		},
 		{
 			"uuid": "2bcc8c8f-1e94-4f9d-97b9-6e7423ca40b0",
@@ -947,7 +973,9 @@
 			"cylinder": { "diameter": 17, "depth": 8, "margin": 0.5, "axis": "Z" },
 			"density": 45,
 			"physicsMaterial": "Plastic",
-			"qualityLevel": 4
+			"qualityLevel": 4,
+			"friction": 0.8,
+			"restitution": 0.3
 		},
 		{
 			"uuid": "61a70b37-ea24-4022-b1e6-45a5a3ae179d",
@@ -973,7 +1001,9 @@
 			"cylinder": { "diameter": 19, "depth": 9, "margin": 0.5, "axis": "Z" },
 			"density": 30,
 			"physicsMaterial": "Plastic",
-			"qualityLevel": 4
+			"qualityLevel": 4,
+			"friction": 0.8,
+			"restitution": 0.3
 		},
 // vanilla large wheels
 		{

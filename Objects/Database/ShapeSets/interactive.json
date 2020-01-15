@@ -638,7 +638,8 @@
 			"box": { "x": 5, "y": 7, "z": 2 },
 			"density": 250.0,
 			"physicsMaterial": "Plastic",
-			"qualityLevel": 2
+			"qualityLevel": 2,
+			"restitution": 1
 		},
 		{
 			"uuid": "784bf71e-2331-4d56-a70f-b00a3994231b",
@@ -1415,7 +1416,7 @@
 					}
 				]
 			},
-			"spotlight": { "effect": "ModLightCube" },
+			"spotLight": { "effect": "ModLightCube" },
 			"color": "ffff66",
 			"box": {
 				"x": 1, "y": 1, "z": 1
@@ -1477,7 +1478,7 @@
 			"density": 250.0,
 			"physicsMaterial": "Plastic",
 			"sticky": "-X+X-Y+Y-Z",
-			"spotlight": { "effect": "ModHeadLight" },
+			"spotLight": { "effect": "ModHeadLight" },
 			"qualityLevel": 1
 		},
 		{
@@ -1529,7 +1530,7 @@
 			"density": 250.0,
 			"physicsMaterial": "Plastic",
 			"sticky": "-X+X-Y+Y-Z",
-			"spotlight": { "effect": "ModHeadLight" },
+			"spotLight": { "effect": "ModHeadLight" },
 			"qualityLevel": 1
 		},
 		{
@@ -1583,7 +1584,7 @@
 			"density": 250.0,
 			"physicsMaterial": "Plastic",
 			"sticky": "-X+X-Y+Y-Z",
-			"spotlight": { "effect": "ModHeadLight" },
+			"spotLight": { "effect": "ModHeadLight" },
 			"qualityLevel": 1
 		},
 		{
@@ -1637,7 +1638,7 @@
 			"density": 250.0,
 			"physicsMaterial": "Plastic",
 			"sticky": "-X+X-Y+Y-Z",
-			"spotlight": { "effect": "ModHeadLight" },
+			"spotLight": { "effect": "ModHeadLight" },
 			"qualityLevel": 1
 		},
 		{
@@ -1682,7 +1683,7 @@
 			"density": 250.0,
 			"physicsMaterial": "Plastic",
 			"sticky": "-X+X-Y+Y-Z",
-			"spotlight": { "effect": "ModHeadLight" },
+			"spotLight": { "effect": "ModHeadLight" },
 			"qualityLevel": 3
 		},
 		{
@@ -1736,7 +1737,7 @@
 			"density": 250.0,
 			"physicsMaterial": "Plastic",
 			"sticky": "-X+X-Y+Y-Z",
-			"spotlight": { "effect": "ModHeadLight" },
+			"spotLight": { "effect": "ModHeadLight" },
 			"qualityLevel": 1
 		},
 

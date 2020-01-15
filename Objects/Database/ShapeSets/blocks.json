@@ -10,7 +10,8 @@
          	"density": 1250.0,
 			"tiling": 8,
 			"physicsMaterial": "Metal",
-			"qualityLevel": 6
+			"qualityLevel": 6,
+			"friction": 0.8
 		},
 		{
 			"uuid": "036ffd32-45df-11e6-beb8-9e71128cae77",
@@ -35,17 +36,6 @@
 			"qualityLevel": 3
 		},
 		{
-			"uuid": "66a95094-5d59-4286-910d-a1936b1473f5",
-			"dif": "$GAME_DATA/Textures/transparent.tga",
-			"asg": "$MOD_DATA/Objects/Textures/chrome50_asg.png",
-			"nor": "$GAME_DATA/Textures/nonor_nor.png",
-			"density": 1250.0,
-			"color": "000000",
-			"tiling": 1,
-			"physicsMaterial": "Metal",
-			"qualityLevel": 5
-		},
-		{
 			"uuid": "7a73cc98-b2d4-4b28-9095-f8b9077548e4",
 			"dif": "$GAME_DATA/Textures/white.png",
 			"asg": "$GAME_DATA/Textures/transparent.tga",
@@ -55,7 +45,8 @@
 			"tiling": 1,
 			"glass": true,
 			"physicsMaterial": "Plastic",
-			"qualityLevel": 2
+			"qualityLevel": 2,
+			"alpha": true 
 		},
 		{
 			"uuid": "906c76ee-189a-4983-ae82-b31722e56b23",
@@ -100,6 +91,30 @@
 			"tiling": 2,
 			"physicsMaterial": "Plastic",
 			"qualityLevel": 3
+		},
+		{ // smooth ice
+			"uuid": "116325e1-1020-40ec-8f31-0678f8bb98bc",
+			"dif": "$GAME_DATA/Textures/transparent.tga",
+			"asg": "$MOD_DATA/Objects/Textures/chrome50_asg.png",
+			"nor": "$GAME_DATA/Textures/nonor_nor.png",
+			"color": "c8dcff",
+			"density": 500.0,
+			"tiling": 2,
+			"physicsMaterial": "Glass",
+			"qualityLevel": 2, //1,
+			"friction": 0.000001
+		},
+		{
+			"uuid": "b742cff1-98a7-469f-b514-a7402f705924",
+			"dif": "$MOD_DATA/Objects/Textures/blk_rockice_dif.png",
+			"asg": "$MOD_DATA/Objects/Textures/blk_rockice_asg.png",
+			"nor": "$MOD_DATA/Objects/Textures/blk_rockice_norG.png",
+			"color": "c8dcff",
+			"density": 1250.0,
+			"tiling": 8,
+			"physicsMaterial": "Rock",
+			"qualityLevel": 4,
+			"friction": 0.2
 		}
 	]
 }
