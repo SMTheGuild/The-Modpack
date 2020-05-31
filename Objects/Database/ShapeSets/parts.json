@@ -617,7 +617,7 @@
 			"density": 1250.0,
 			"physicsMaterial": "Plastic",
 			"qualityLevel": 5,
-			"friction": 50000
+			"friction": 2
 		},
 		{
 			"uuid": "96fc86b1-57e7-4795-9d39-90e74f52ba87",
@@ -643,7 +643,7 @@
 			"cylinder": { "diameter": 5, "depth": 2, "margin": 0.5, "axis": "Z" },
 			"physicsMaterial": "Plastic",
 			"qualityLevel": 5,
-			"friction": 50000
+			"friction": 2
 		},
 		{
 			"uuid": "fafdc38f-e374-49fd-8fea-4062a4b5c93a",
@@ -670,7 +670,7 @@
 			"density": 250,
 			"physicsMaterial": "Plastic",
 			"qualityLevel": 5,
-			"friction": 50000
+			"friction": 2
 		},
 		{
 			"uuid": "4dee7b84-ee4c-42ce-9a42-4c6ced837ff5",
@@ -697,7 +697,7 @@
 			"density": 200,
 			"physicsMaterial": "Plastic",
 			"qualityLevel": 5,
-			"friction": 50000
+			"friction": 2
 		},
 		{
 			"uuid": "583f20c9-a7da-477b-b852-aac404467e3a",
@@ -724,7 +724,7 @@
 			"density": 150,
 			"physicsMaterial": "Plastic",
 			"qualityLevel": 5,
-			"friction": 50000
+			"friction": 2
 		},
 		{
 			"uuid": "90bc9601-b874-45e2-8970-09d5e5ff3ca9",
@@ -751,7 +751,7 @@
 			"density": 125,
 			"physicsMaterial": "Plastic",
 			"qualityLevel": 5,
-			"friction": 50000
+			"friction": 2
 		},
 // sand wheels
 		{
@@ -1017,7 +1017,7 @@
 								"textureList": [
 									"$GAME_DATA/Objects/Textures/vehicle/obj_large_wheel01_dif.tga",
 									"$GAME_DATA/Objects/Textures/vehicle/obj_large_wheel01_asg.tga",
-									"$GAME_DATA/Objects/Textures/vehicle/obj_large_wheel01_nor.tga"
+									"$MOD_DATA/Objects/Textures/obj_large_wheel01_nor.png"
 								],
 								"material": "DifAsgNor"
 							}
@@ -1045,7 +1045,7 @@
 								"textureList": [
 									"$GAME_DATA/Objects/Textures/vehicle/obj_large_wheel01_dif.tga",
 									"$GAME_DATA/Objects/Textures/vehicle/obj_large_wheel01_asg.tga",
-									"$GAME_DATA/Objects/Textures/vehicle/obj_large_wheel01_nor.tga"
+									"$MOD_DATA/Objects/Textures/obj_large_wheel01_nor.png"
 								],
 								"material": "DifAsgNor"
 							}
@@ -1062,6 +1062,69 @@
 			"sticky": "-Z+Z",
 			"qualityLevel": 3
 		},
+		{
+			"uuid": "d739fdf9-2c61-47ea-88ab-beac6a6c35c0",
+			"renderable": {
+				"lodList": [
+					{
+						"subMeshList": [
+							{
+								"textureList": [
+									"$GAME_DATA/Objects/Textures/vehicle/obj_large_wheel01_dif.tga",
+									"$GAME_DATA/Objects/Textures/vehicle/obj_large_wheel01_asg.tga",
+									"$MOD_DATA/Objects/Textures/obj_large_wheel01_nor.png"
+								],
+								"material": "DifAsgNor"
+							},
+							{
+								"textureList": [
+									"$GAME_DATA/Textures/transparent.tga",
+									"$MOD_DATA/Objects/Textures/chain_asg.png",
+									"$MOD_DATA/Objects/Textures/chain_nor.png"
+								],
+								"material": "DifAsgNorAlphaFlip"
+							}
+						],
+						"mesh": "$MOD_DATA/Objects/Mesh/chained_wheel.obj"
+					}
+				]
+			},
+			"rotationSet": "PropZ",
+			"color": "df7f00",
+			"cylinder": { "diameter": 5, "depth": 2, "margin": 0.5, "axis": "Z" },
+			"physicsMaterial": "Plastic",
+			"sticky": "-Z+Z",
+			"qualityLevel": 3,
+			"friction": 100 //10 (10 = 1:1 with rock ice)
+		},
+		{
+			"uuid": "d739fdf9-2c61-47ea-88ab-beac6a6c35c1",
+			"renderable": {
+				"lodList": [
+					{
+						"subMeshList": [
+							{
+								"textureList": [
+									"$GAME_DATA/Objects/Textures/vehicle/obj_large_wheel01_dif.tga",
+									"$GAME_DATA/Objects/Textures/vehicle/obj_large_wheel01_asg.tga",
+									"$MOD_DATA/Objects/Textures/obj_large_wheel01_nor.png"
+								],
+								"material": "DifAsgNor"
+							}
+						],
+						"mesh": "$MOD_DATA/Objects/Mesh/spiked_wheel.obj"
+					}
+				]
+			},
+			"rotationSet": "PropZ",
+			"color": "df7f00",
+			"cylinder": { "diameter": 5, "depth": 2, "margin": 0.5, "axis": "Z" },
+			"physicsMaterial": "Plastic",
+			"sticky": "-Z+Z",
+			"qualityLevel": 3,
+			"friction": 50000 //100000 (50k = 1:2 with smooth ice)
+		},
+
 // wheel rims
 		{
 			"legacyId": 7101,

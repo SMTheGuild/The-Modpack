@@ -67,6 +67,12 @@
 		"description": "Cold and a little bit slippery!\n\nCan be painted",
 		"keywords": [ "modpack", "ice", "icy", "rock", "rocky", "rocks", "rough", "alien", "mars", "moon", "asteroid", "cold", "frozen", "subzero", "slip", "slippery", "slide", "friction", "frictionless" ]
 	},
+	"123425e2-2020-40ec-8f31-0678f8bc99bd":
+	{
+		"title": "Rubber Block",
+		"description": "More friction than other materials\n\nCan be painted",
+		"keywords": [ "modpack", "friction", "rubber", "sticky", "grip" ]
+	},
 
 // interactives
 	"ebafd24a-7bbc-4e75-87f5-a67cdcf31e29":
@@ -739,6 +745,19 @@
 		"title": "Big Wheel - 9x4",
 		"description": "A resized vanilla wheel",
 		"keywords": [ "modpack", "9", "large", "big" ]
+	},
+
+	"d739fdf9-2c61-47ea-88ab-beac6a6c35c0":
+	{
+		"title": "Chained Wheel",
+		"description": "A wheel with chained wrapped around the outside, for better traction in the ice and snow",
+		"keywords": [ "modpack", "friction", "chain", "spikes", "spiked", "grip" ]
+	},
+	"d739fdf9-2c61-47ea-88ab-beac6a6c35c1":
+	{
+		"title": "Spiked Wheel",
+		"description": "Not enough traction? No problem! With this wheel, you'll even be able drive on smooth ice!",
+		"keywords": [ "modpack", "friction", "chain", "spikes", "spiked", "grip" ]
 	},
 
 // wheel rims	

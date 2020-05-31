@@ -114,7 +114,19 @@
 			"tiling": 8,
 			"physicsMaterial": "Rock",
 			"qualityLevel": 4,
-			"friction": 0.2
+			"friction": 0.1
+		},
+		{ // rubber (plain)
+			"uuid": "123425e2-2020-40ec-8f31-0678f8bc99bd",
+			"dif": "$GAME_DATA/Textures/transparent.tga",
+			"asg": "$GAME_DATA/Textures/transparent.tga",
+			"nor": "$MOD_DATA/Objects/Textures/rubber_norE.png",
+			"color": "222222",
+			"density": 500.0,
+			"tiling": 4,
+			"physicsMaterial": "Plastic",
+			"qualityLevel": 3,
+			"friction": 10000
 		}
 	]
 }
