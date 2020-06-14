@@ -1,9 +1,8 @@
-dofile "../Libs/Debugger.lua"
-
--- the following code prevents re-load of this file, except if in '-dev' mode.   
-if WASDThruster and not sm.isDev then -- increases performance for non '-dev' users.
-	return
-end 
+--[[
+	Copyright (c) 2020 Modpack Team
+	Brent Batch#9261
+]]--
+dofile "../Libs/LoadLibs.lua"
 
 mpPrint("loading WASDThruster.lua")
 
@@ -50,7 +49,7 @@ end
 
 
 function WASDThruster.client_onCreate(self)
-	self.shootEffect = sm.effect.createEffect( "Thruster", self.interactable )
+	self.shootEffect = sm.effect.createEffect( "Thruster - Level 2", self.interactable )
 	self.parentHPose = 0.5
 	self.prevparentHPose = 0.5
 	self.parentVPose = 0.5
@@ -70,7 +69,8 @@ function WASDThruster.client_onDestroy(self)
 	self.shootEffect:stop()
 end
 
-function WASDThruster.client_onInteract(self)
+function WASDThruster.client_onInteract(self, character, lookAt)
+	if not lookAt then return end
 	local crouching = sm.localPlayer.getPlayer().character:isCrouching()
 	self.network:sendToServer("server_changemode", crouching)
 end
@@ -84,9 +84,14 @@ function WASDThruster.server_requestmode(self)
 end
 function WASDThruster.client_mode(self, mode)
 	sm.audio.play("ConnectTool - Rotate", self.shape:getWorldPosition())
-	if mode ~= self.mode then print("mode: ", self.modes[mode+1]) end
 	self.mode = mode
 end
+function WASDThruster.client_canInteract(self)
+	sm.gui.setInteractionText( "press", sm.gui.getKeyBinding( "Use" ), "to change mode")
+	sm.gui.setInteractionText( "current mode: ".. self.modes[self.mode+1])
+	return true
+end
+
 
 function WASDThruster.client_onFixedUpdate(self, dt)
 	local parents = self.interactable:getParents()

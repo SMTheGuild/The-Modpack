@@ -1,13 +1,8 @@
-dofile "../Libs/Debugger.lua"
-
--- the following code prevents re-load of this file, except if in '-dev' mode.   
-if AsciiBlock and not sm.isDev then -- increases performance for non '-dev' users.
-	return
-end 
---dofile "../Libs/GameImprovements/interactable.lua"
-dofile "../Libs/MoreMath.lua"
-
-dofile "../Versions_old/Ascii/AsciiBlock001.lua"
+--[[
+	Copyright (c) 2020 Modpack Team
+	Brent Batch#9261
+]]--
+dofile "../Libs/LoadLibs.lua"
 
 mpPrint("loading AsciiBlock.lua")
 
@@ -43,6 +38,7 @@ AsciiBlock.bin = {
 	["cf11d2ff"] = 4,
 	["d02525ff"] = 2,
 	["df7f00ff"] = 1,
+	["df7f01ff"] = 1, -- orange 2, hecking devs changing vanilla colors ..... smh
 }
 AsciiBlock.icons = {
 	{uv =001, name = "0"},
@@ -314,7 +310,7 @@ function AsciiBlock.server_onCreate( self )
 	local stored = self.storage:load()
 	if stored then
 		if type(stored) == "number" then
-			mpPrint('loading old version')
+			mpPrint('loading old version data')
 			self.power = AsciiBlock.savemodes[stored] or 0
 			--for k, v in pairs(AsciiBlock001) do
 			--	self[k] = v
@@ -324,7 +320,7 @@ function AsciiBlock.server_onCreate( self )
 			--version = stored[2]
 		end
 	else
-		self.storage:save({0, 1}) 
+		self.storage:save({0, 1}) --{value, version}
 	end
 	self.interactable:setPower(self.power%(#self.icons))
 end
@@ -338,9 +334,16 @@ function AsciiBlock.server_changemode(self, crouch)
 	self.storage:save({self.icons[self.interactable.power + 1].uv, 1})
 	self.network:sendToClients("client_playsound", "GUI Inventory highlight")
 end
-function AsciiBlock.client_onInteract(self)
+function AsciiBlock.client_onInteract(self, character, lookAt)
+	if not lookAt then return end
 	local crouching = sm.localPlayer.getPlayer().character:isCrouching()
 	self.network:sendToServer("server_changemode", crouching)
+end
+
+function AsciiBlock.client_canInteract(self)
+	sm.gui.setInteractionText( "", sm.gui.getKeyBinding( "Use" ), "to cycle forward")
+	sm.gui.setInteractionText( "", sm.gui.getKeyBinding( "Crawl").." + "..sm.gui.getKeyBinding( "Use" ), "to cycle backwards")
+	return true
 end
 function AsciiBlock.client_playsound(self, sound)
 	sm.audio.play(sound, self.shape:getWorldPosition())

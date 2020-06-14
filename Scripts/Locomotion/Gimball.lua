@@ -1,13 +1,13 @@
-dofile "../Libs/Debugger.lua"
+--[[
+	Copyright (c) 2020 Modpack Team
+	Brent Batch#9261
+]]--
+dofile "../Libs/LoadLibs.lua"
 
--- the following code prevents re-load of this file, except if in '-dev' mode.   
-if Gimball and not sm.isDev then -- increases performance for non '-dev' users.
-	return
-end 
 
 mpPrint("loading Gimball.lua")
 
-Gimball = class( nil )
+Gimball = class()
 Gimball.maxParentCount = -1
 Gimball.maxChildCount = 0
 Gimball.connectionInput = sm.interactable.connectionType.power + sm.interactable.connectionType.logic
@@ -43,7 +43,7 @@ function Gimball.server_onFixedUpdate( self )
 	end
 end
 function Gimball.client_onCreate(self)
-	self.shootEffect = sm.effect.createEffect( "Thruster", self.interactable )
+	self.shootEffect = sm.effect.createEffect( "Thruster - Level 2", self.interactable )
 	self.parentHPose = 0.5
 	self.prevparentHPose = 0.5
 	self.parentVPose = 0.5
@@ -60,7 +60,8 @@ end
 function Gimball.client_onDestroy(self)
 	self.shootEffect:stop()
 end
-function Gimball.client_onInteract(self)
+function Gimball.client_onInteract(self, character, lookAt)
+	if not lookAt then return end
 	local crouching = sm.localPlayer.getPlayer().character:isCrouching()
 	self.network:sendToServer("server_changemode", crouching)
 end
@@ -74,8 +75,12 @@ function Gimball.server_requestmode(self)
 end
 function Gimball.client_mode(self, mode)
 	sm.audio.play("ConnectTool - Rotate", self.shape:getWorldPosition())
-	if mode ~= self.mode then print("mode: ", self.modes[mode+1]) end
 	self.mode = mode
+end
+function Gimball.client_canInteract(self)
+	sm.gui.setInteractionText( "press", sm.gui.getKeyBinding( "Use" ), "to change mode")
+	sm.gui.setInteractionText( "current mode: ".. self.modes[self.mode+1])
+	return true
 end
 
 function Gimball.client_onFixedUpdate(self, dt)
@@ -84,7 +89,6 @@ function Gimball.client_onFixedUpdate(self, dt)
 	local hasnumber = false
 	local logicinput = 1
 	local canfire = 0
-	
 	
 	local ws = nil
 	local ad = nil

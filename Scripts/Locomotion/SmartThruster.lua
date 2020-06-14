@@ -1,9 +1,8 @@
-dofile "../Libs/Debugger.lua"
-
--- the following code prevents re-load of this file, except if in '-dev' mode.   
-if SmartThruster and not sm.isDev then -- increases performance for non '-dev' users.
-	return
-end 
+--[[
+	Copyright (c) 2020 Modpack Team
+	Brent Batch#9261
+]]--
+dofile "../Libs/LoadLibs.lua"
 
 mpPrint("loading SmartThruster.lua")
 
@@ -65,7 +64,7 @@ end
 
 
 function SmartThruster.client_onCreate(self)
-	self.shootEffect = sm.effect.createEffect( "Thruster", self.interactable )
+	self.shootEffect = sm.effect.createEffect( "Thruster - Level 2", self.interactable )
 	self.i = 0
 end
 

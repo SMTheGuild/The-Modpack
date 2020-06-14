@@ -1,9 +1,8 @@
-dofile "Libs/Debugger.lua"
-
--- the following code prevents re-load of this file, except if in '-dev' mode.   
-if dynamite and not sm.isDev then -- increases performance for non '-dev' users.
-	return
-end 
+--[[
+	Copyright (c) 2020 Modpack Team
+	Brent Batch#9261 for copy pasta
+]]--
+dofile "Libs/LoadLibs.lua"
 
 mpPrint("loading dynamite.lua")
 
@@ -37,8 +36,10 @@ function dynamite.server_onFixedUpdate(self, dt)
 end
 
 
-function dynamite.client_onInteract(self)
-	self.network:sendToServer("server_changemode")
+function dynamite.client_onInteract(self, character, lookAt)
+	if lookAt then
+		self.network:sendToServer("server_changemode")
+	end
 end
 
 function dynamite.server_changemode(self)

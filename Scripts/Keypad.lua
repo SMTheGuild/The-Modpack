@@ -1,18 +1,14 @@
---[[ Keypad part ]]--
-
-
--- the following code prevents re-load of this file, except if in '-dev' mode.  -- fixes broken sh*t by devs.
-if Keypad and not sm.isDev then -- increases performance for non '-dev' users.
-	return
-end 
-dofile "Libs/GameImprovements/interactable.lua"
-dofile "Libs/VirtualButtons.lua"
+--[[
+	Copyright (c) 2020 Modpack Team
+	Brent Batch#9261 for copy pasta
+]]--
+dofile "Libs/LoadLibs.lua"
 
 
 Keypad = class()
-Keypad.maxParentCount = 0
+Keypad.maxParentCount = -1
 Keypad.maxChildCount = -1
-Keypad.connectionInput = sm.interactable.connectionType.none
+Keypad.connectionInput = sm.interactable.connectionType.logic
 Keypad.connectionOutput = sm.interactable.connectionType.power + sm.interactable.connectionType.logic
 Keypad.colorNormal = sm.color.new( 0x00971dff )
 Keypad.colorHighlight = sm.color.new( 0x00b822ff )
@@ -22,6 +18,7 @@ Keypad.colorHighlight = sm.color.new( 0x00b822ff )
 function Keypad.server_onCreate( self )
 	self.activeTime = 0
 	self.strNumber = "0"
+	self.enabled = true
 end
 function Keypad.server_onRefresh( self )
 	if not sm.exists(self.interactable) then return end
@@ -39,6 +36,20 @@ function Keypad.server_onFixedUpdate( self, dt )
 			self.activeTime = self.activeTime - 1
 		end
 	end
+	local enabled = true
+	for k, v in pairs(self.interactable:getParents()) do 
+		local color = tostring(v:getShape().color)
+		if color == "222222ff" then
+			if v.active then
+				self.strNumber = "0"
+				self.interactable.power = 0
+				sm.interactable.setValue(self.interactable, 0)
+			end
+		else
+			enabled = enabled and v.active
+		end
+	end
+	self.enabled = enabled
 	if self.buttonPress then
 		self.buttonPress = false
 		self.network:sendToClients("client_playSound", "Button off")
@@ -46,6 +57,7 @@ function Keypad.server_onFixedUpdate( self, dt )
 end
 
 function Keypad.server_onButtonPress(self, buttonName)
+	if not self.enabled then return end
 	if self.enter and buttonName ~= "e" then
 		-- can press 'enter' multiple times
 		self.strNumber = "0"
@@ -145,11 +157,11 @@ function Keypad.client_onFixedUpdate(self)
 end
 
 -- Called on pressing [E]
-function Keypad.client_onInteract( self ) 
+function Keypad.client_onInteract( self, character, lookAt)
+	if not lookAt then return end
 	local hit, hitResult = sm.localPlayer.getRaycast(10) -- world point the vector hit
 	if not hit then return end
 	local dotX, dotY = self:getLocalXY(hitResult.pointWorld)
-	
 	sm.virtualButtons.client_onInteract(self, dotX, dotY)
 end
 

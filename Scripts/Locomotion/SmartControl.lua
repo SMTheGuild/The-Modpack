@@ -1,9 +1,8 @@
-dofile "../Libs/Debugger.lua"
-
--- the following code prevents re-load of this file, except if in '-dev' mode.   
-if SmartControl and not sm.isDev then -- increases performance for non '-dev' users.
-	return
-end 
+--[[
+	Copyright (c) 2020 Modpack Team
+	Brent Batch#9261
+]]--
+dofile "../Libs/LoadLibs.lua"
 
 mpPrint("loading SmartControl.lua")
 

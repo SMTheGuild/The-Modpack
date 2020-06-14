@@ -1,14 +1,22 @@
-dofile "../Libs/Debugger.lua"
-
--- the following code prevents re-load of this file, except if in '-dev' mode.   
-if MemoryPanel and not sm.isDev then -- increases performance for non '-dev' users.
-	return
-end 
-dofile "../Libs/GameImprovements/interactable.lua"
-dofile "../Libs/MoreMath.lua"
+--[[
+	Copyright (c) 2020 Modpack Team
+	Brent Batch#9261
+]]--
+dofile "../Libs/LoadLibs.lua"
 
 
 mpPrint("loading MemoryPanel.lua")
+
+local memorypanels = {}
+
+sm.modpack = {
+	memorypanelWrite = function(interactableid, saveValue)
+		local panel = memorypanels[interactableid]
+		if panel then
+			panel:server_setData(saveValue)
+		end
+	end
+}
 
 -- MemoryPanel.lua --
 MemoryPanel = class( nil )
@@ -27,7 +35,6 @@ function MemoryPanel.server_onRefresh( self )
 end
 
 function MemoryPanel.server_onCreate( self )
-	sm.ImproveUserData(self)
 	local value = 0
 	self.data = {[0] = 0}
 	local stored = self.storage:load()
@@ -41,14 +48,20 @@ function MemoryPanel.server_onCreate( self )
 	else
 		self.storage:save(self.data)
 	end
-	self.interactable:setValue(value)
+	sm.interactable.setValue(self.interactable, value)
 	if value ~= value then value = 0 end
 	if math.abs(value) >= 3.3*10^38 then 
 		if value < 0 then value = -3.3*10^38 else value = 3.3*10^38 end  
 	end
 	self.interactable:setPower(value)
+
+	memorypanels[self.interactable.id] = self
 end
 
+function MemoryPanel.server_setData(self, saveData)
+	self.data = saveData
+	self.storage:save(saveData)
+end
 
 
 function MemoryPanel.server_onFixedUpdate( self, dt )
@@ -59,18 +72,18 @@ function MemoryPanel.server_onFixedUpdate( self, dt )
 	local hasvalueparent = false
 	local reset = false
 	for k,v in pairs(parents) do
-		if v:isNumberType() then
+		if sm.interactable.isNumberType(v) then
 			-- number input
 			if tostring(v:getShape().shapeUuid) == "d3eda549-778f-432b-bf21-65a32ae53378" then
 				writevalue = writevalue or v.active
-				value = value + (v:getValue() or v.power)
+				value = value + (sm.interactable.getValue(v) or v.power)
 				hasvalueparent = true
 			elseif tostring(v:getShape().color) == "eeeeeeff" then
 				-- address
-				address = address + (v:getValue() or v.power)
+				address = address + (sm.interactable.getValue(v) or v.power)
 			else
 				-- value
-				value = value + (v:getValue() or v.power)
+				value = value + (sm.interactable.getValue(v) or v.power)
 				hasvalueparent = true
 			end
 		else
@@ -107,7 +120,7 @@ function MemoryPanel.server_onFixedUpdate( self, dt )
 	if power ~= self.interactable.power then
 		self.interactable:setActive(power > 0)
 		self.interactable:setPower(power)
-		self.interactable:setValue(power)
+		sm.interactable.setValue(self.interactable, power)
 	end
 end
 
@@ -123,7 +136,7 @@ function MemoryPanel.client_onFixedUpdate(self, dt)
 	local reset = false
 	local hasvalueparent = false
 	for k,v in pairs(parents) do
-		if v:isNumberType() then
+		if sm.interactable.isNumberType(v) then
 			-- number input
 			if tostring(v:getShape().shapeUuid) == "d3eda549-778f-432b-bf21-65a32ae53378" then
 				writevalue = writevalue or v.active

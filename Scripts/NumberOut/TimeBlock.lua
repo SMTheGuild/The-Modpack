@@ -1,11 +1,8 @@
-dofile "../Libs/Debugger.lua"
-
--- the following code prevents re-load of this file, except if in '-dev' mode.   
-if TimeBlock and not sm.isDev then -- increases performance for non '-dev' users.
-	return
-end 
-
-dofile "../Libs/GameImprovements/interactable.lua"
+--[[
+	Copyright (c) 2020 Modpack Team
+	Brent Batch#9261
+]]--
+dofile "../Libs/LoadLibs.lua"
 
 mpPrint("loading TimeBlock.lua")
 

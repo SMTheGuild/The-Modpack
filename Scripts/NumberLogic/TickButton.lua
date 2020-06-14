@@ -1,9 +1,9 @@
-dofile "../Libs/Debugger.lua"
+--[[
+	Copyright (c) 2020 Modpack Team
+	Brent Batch#9261
+]]--
+dofile "../Libs/LoadLibs.lua"
 
--- the following code prevents re-load of this file, except if in '-dev' mode.   
-if TickButton and not sm.isDev then -- increases performance for non '-dev' users.
-	return
-end 
 
 mpPrint("loading TickButton.lua")
 
@@ -132,7 +132,8 @@ function TickButton.client_buttonPress(self, data)
 end
 
 
-function TickButton.client_onInteract(self)
+function TickButton.client_onInteract(self, character, lookAt)
+	if not lookAt then return end
     self.network:sendToServer("server_onInteract", true)
 end
 

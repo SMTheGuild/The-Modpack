@@ -1,12 +1,8 @@
-dofile "../Libs/Debugger.lua"
-
--- the following code prevents re-load of this file, except if in '-dev' mode.   
-if ColorBlock and not sm.isDev then -- increases performance for non '-dev' users.
-	return
-end 
-dofile "../Libs/Color.lua"
-dofile "../Libs/MoreMath.lua"
-dofile "../Libs/GameImprovements/interactable.lua"
+--[[
+	Copyright (c) 2020 Modpack Team
+	Brent Batch#9261
+]]--
+dofile "../Libs/LoadLibs.lua"
 
 mpPrint("loading ColorBlock.lua")
 
@@ -236,7 +232,26 @@ function ColorBlock.server_onFixedUpdate( self, dt )
                 v.shape.color = color
             end
         end
-    end
+	end
+	
+	
+
+	-- temp fix to remove glow/spec/refl
+	for k, v in pairs(parents) do
+		if tostring(v.shape:getShapeUuid()) == "921a2ace-b543-4ca3-8a9b-6f3dd3132fa9" --[[rgb block]] then break end
+		if tostring(v:getShape().color) == "eeeeeeff" then -- glow
+			v:disconnect(self.interactable)
+			self.network:sendToClients("client_giveError", "glow feature currently not supported untill the devs fix this.")
+		elseif tostring(v:getShape().color) == "7f7f7fff" then -- reflection
+			v:disconnect(self.interactable)
+			self.network:sendToClients("client_giveError", "reflection feature currently not supported untill the devs fix this.")
+		elseif tostring(v:getShape().color) == "222222ff" then -- specular
+			v:disconnect(self.interactable)
+			self.network:sendToClients("client_giveError", "specular feature currently not supported untill the devs fix this.")
+		end
+	end
+
+
     
 	self.color = color
 	self.interactable:setPower(self.power)
@@ -244,30 +259,36 @@ function ColorBlock.server_onFixedUpdate( self, dt )
 end
 
 function ColorBlock.client_onCreate(self)
-	sm.ImproveUserDataClient(self)
-	self.interactable:setGlowMultiplier(0)
+	--self.interactable:setGlowMultiplier(0)
+	self.glowinput = 0 -- glow of this block , turn connected lamps on/off based on this.
 end
 
+
+function ColorBlock.client_giveError(self, error)
+	sm.gui.displayAlertText(error)
+end
+
+--[[
 function ColorBlock.client_onFixedUpdate( self, dt )
 	local uv = 0
 	local parentrgb = nil
 	local parents = self.interactable:getParents()
 	for k, v in pairs(parents) do
-		if tostring(v.shape:getShapeUuid()) == "921a2ace-b543-4ca3-8a9b-6f3dd3132fa9" --[[rgb block]] then
+		if tostring(v.shape:getShapeUuid()) == "921a2ace-b543-4ca3-8a9b-6f3dd3132fa9"  then --rgb block
 			self.interactable:setUvFrameIndex(v:getUvFrameIndex())
-			self.interactable:setGlowMultiplier(v:getGlowMultiplier())
 			self.glowinput = v:getGlowMultiplier()
 			parentrgb = true
 		elseif tostring(v:getShape().color) == "eeeeeeff" then -- glow
-			self.glowinput = v.power
-			self.interactable:setGlowMultiplier(math.max(0,math.min(1,v.power)))
+			self.glowinput = math.max(0,math.min(1,v.power))
 		elseif tostring(v:getShape().color) == "7f7f7fff" then -- reflection
 			uv = uv + math.max(0,math.min(255,v.power))
 		elseif tostring(v:getShape().color) == "222222ff" then -- specular
 			uv = uv + math.max(0,math.min(255,v.power))*256
 		end
 	end
+
+	self.interactable:setGlowMultiplier(self.glowinput * math.random()/100) -- why do i have to throw in a random amount in order to get an updated value? why does glow reset to 1 when the color changes???? 
 	if not parentrgb then
 		self.interactable:setUvFrameIndex(uv)
 	end
-end
+end]]

@@ -4,14 +4,11 @@
 		if (all input logic is on) or ( no logic and 'e') then do gravity
 	]]
 -- grav creation: normal gravity = 1
-
-dofile "../Libs/Debugger.lua"
-
--- the following code prevents re-load of this file, except if in '-dev' mode.   
-if gravcreation and not sm.isDev then -- increases performance for non '-dev' users.
-	return
-end 
-dofile "../Libs/GameImprovements/interactable.lua"
+--[[
+	Copyright (c) 2020 Modpack Team
+	Brent Batch#9261
+]]--
+dofile "../Libs/LoadLibs.lua"
 
 mpPrint("loading GravityModulator.lua")
 
@@ -93,7 +90,8 @@ function gravcreation.server_onFixedUpdate( self, dt )
 	if self.gravwork ~= self.clientgravity then self.network:sendToClients("client_grav", self.gravwork) end
 end
 
-function gravcreation.client_onInteract(self)
+function gravcreation.client_onInteract(self, character, lookAt)
+	if not lookAt then return end
 	self.network:sendToServer("server_changemode")
 end
 function gravcreation.server_changemode(self)
@@ -250,7 +248,8 @@ function gravworld.server_onFixedUpdate( self, dt )
 end
 
 
-function gravworld.client_onInteract(self)
+function gravworld.client_onInteract(self, character, lookAt)
+	if not lookAt then return end
 	self.network:sendToServer("server_changemode")
 end
 function gravworld.server_changemode(self)

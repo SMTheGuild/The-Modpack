@@ -714,7 +714,8 @@
 							{
 								"textureList": [
 									"$GAME_DATA/Textures/transparent.tga",
-									"$MOD_DATA/Objects/Textures/colorblock_asg.png",
+									"$GAME_DATA/Textures/transparent.tga",
+									//"$MOD_DATA/Objects/Textures/colorblock_asg.png",
 									"$GAME_DATA/Textures/nonor_nor.png"
 								],
 								"material": "UVAnimDifAsgNor",

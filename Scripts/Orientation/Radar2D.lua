@@ -1,9 +1,8 @@
-dofile "../Libs/Debugger.lua"
-
--- the following code prevents re-load of this file, except if in '-dev' mode.   
-if Radar2D and not sm.isDev then -- increases performance for non '-dev' users.
-	return
-end 
+--[[
+	Copyright (c) 2020 Modpack Team
+	Brent Batch#9261
+]]--
+dofile "../Libs/LoadLibs.lua"
 
 mpPrint("loading Radar2D.lua")
 
@@ -39,6 +38,7 @@ Radar2D.effectnames = {
 	["cf11d2ff"] = "RadarDot18",
 	["d02525ff"] = "RadarDot19",
 	["df7f00ff"] = "RadarDot20",
+	["df7f01ff"] = "RadarDot20",
 	["4a4a4aff"] = "RadarDot21",
 	["817c00ff"] = "RadarDot22",
 	["577d07ff"] = "RadarDot23",
@@ -88,7 +88,8 @@ function Radar2D.server_clientInteract(self, crouch)
 end
 
 
-function Radar2D.client_onInteract(self)
+function Radar2D.client_onInteract(self, character, lookAt)
+	if not lookAt then return end
 	self.network:sendToServer("server_clientInteract", sm.localPlayer.getPlayer().character:isCrouching())
 end
 

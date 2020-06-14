@@ -1,13 +1,8 @@
-dofile "../Libs/Debugger.lua"
-
--- the following code prevents re-load of this file, except if in '-dev' mode.   
-if SmartSensor and not sm.isDev then -- increases performance for non '-dev' users.
-	return
-end 
-
---dofile "../Libs/GameImprovements/interactable.lua"
-dofile "../Libs/MoreMath.lua"
-dofile "../Libs/Other.lua" -- getGlobal getLocal
+--[[
+	Copyright (c) 2020 Modpack Team
+	Brent Batch#9261
+]]--
+dofile "../Libs/LoadLibs.lua"
 
 mpPrint("loading SmartSensor.lua")
 
@@ -186,7 +181,8 @@ function SmartSensor.client_onCreate(self)
 	self.network:sendToServer("server_requestMode")
 end
 
-function SmartSensor.client_onInteract(self)
+function SmartSensor.client_onInteract(self, character, lookAt)
+	if not lookAt then return end
 	local crouching = sm.localPlayer.getPlayer().character:isCrouching()
     self.network:sendToServer("server_changemode", crouching)
 end

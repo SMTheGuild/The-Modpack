@@ -1,11 +1,8 @@
-dofile "../Libs/Debugger.lua"
-
--- the following code prevents re-load of this file, except if in '-dev' mode.   
-if CounterBlock and not sm.isDev then -- increases performance for non '-dev' users.
-	return
-end 
-dofile "../Libs/GameImprovements/interactable.lua"
---dofile "../Libs/MoreMath.lua"
+--[[
+	Copyright (c) 2020 Modpack Team
+	Brent Batch#9261
+]]--
+dofile "../Libs/LoadLibs.lua"
 
 mpPrint("loading CounterBlock.lua")
 
@@ -39,6 +36,7 @@ CounterBlock.digs = {
 	["cf11d2ff"] = 100,
 	["d02525ff"] = 10,
 	["df7f00ff"] = 1,
+	["df7f01ff"] = 1, -- yay the devs made all vanilla stuff color have an offset compared to old vanilla stuff  >:-(
 	
 	["eeaf5cff"] = 0.1,
 	["f06767ff"] = 0.01,
@@ -83,7 +81,7 @@ function CounterBlock.server_onFixedUpdate( self, dt )
 	
 	local reset = false
 	for k,v in pairs(parents) do
-		local x = self.digs[tostring(sm.shape.getColor(v:getShape()))]
+		local x = self.digs[tostring(v:getShape().color)]
 		if x ~= nil and (sm.interactable.getValue(v) or v.power) ~= 0 then
 			self.power = self.power + x * (sm.interactable.getValue(v) or v.power)
 		end
@@ -116,7 +114,8 @@ function CounterBlock.server_reset(self)
 	self.power = 0
 end
 
-function CounterBlock.client_onInteract(self)
+function CounterBlock.client_onInteract(self, character, lookAt)
+	if not lookAt then return end
 	self.network:sendToServer("server_reset")
 end
 

@@ -1,9 +1,7 @@
-dofile "../Libs/Debugger.lua"
-
--- the following code prevents re-load of this file, except if in '-dev' mode.   
-if FlappyWing and not sm.isDev then -- increases performance for non '-dev' users.
-	return
-end 
+--[[
+	Copyright (c) 2020 Modpack Team
+]]--
+dofile "../Libs/LoadLibs.lua"
 
 mpPrint("loading FlappyWing.lua")
 

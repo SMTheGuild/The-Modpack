@@ -1,9 +1,8 @@
-dofile "../Libs/Debugger.lua"
-
--- the following code prevents re-load of this file, except if in '-dev' mode.   
-if AI and not sm.isDev then -- increases performance for non '-dev' users.
-	return
-end 
+--[[
+	Copyright (c) 2020 Modpack Team
+	Brent Batch#9261
+]]--
+dofile "../Libs/LoadLibs.lua"
 
 mpPrint("loading orienter.lua")
 
@@ -92,7 +91,8 @@ end
 function AI.server_onRefresh( self )
 	self:server_init()
 end
-function AI.client_onInteract(self)
+function AI.client_onInteract(self, character, lookAt)
+	if not lookAt then return end
 	local crouching = sm.localPlayer.getPlayer().character:isCrouching()
 	self.network:sendToServer("server_changemode", crouching)
 end
@@ -103,9 +103,16 @@ function AI.server_changemode(self, crouch)
 		self.mode = (self.mode-2)%#self.modetable + 1
 	end
 	self.storage:save(self.modetable[self.mode].savevalue)
-	print(self.modetable[self.mode].name)
+	--print(self.modetable[self.mode].name)
 	self.network:sendToClients("client_playsound", "GUI Inventory highlight")
 end
+
+function AI.client_canInteract(self)
+	sm.gui.setInteractionText( "press", sm.gui.getKeyBinding( "Use" ), "to change mode")
+	--sm.gui.setInteractionText( "current mode: "..self.modetable[self.mode].name)
+	return true
+end
+
 function AI.client_playsound(self, sound)
 	sm.audio.play(sound, self.shape:getWorldPosition())
 end

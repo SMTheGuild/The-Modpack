@@ -1,9 +1,8 @@
-dofile "Libs/Debugger.lua"
-
--- the following code prevents re-load of this file, except if in '-dev' mode.   
-if tonegenerator and not sm.isDev then -- increases performance for non '-dev' users.
-	return
-end 
+--[[
+	Copyright (c) 2020 Modpack Team
+	Brent Batch#9261 for copy pasta
+]]--
+dofile "Libs/LoadLibs.lua"
 
 mpPrint("loading tonegenerator.lua")
 

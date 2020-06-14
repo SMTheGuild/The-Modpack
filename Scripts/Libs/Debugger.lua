@@ -1,11 +1,10 @@
-lastLoaded = sm.game.getCurrentTick()
-DebuggerLoads = (DebuggerLoads or 0) + 1
-
 if __Debugger_Loaded then return end
 __Debugger_Loaded = true
 
 
 function sm.checkDev(shape)   -- a '-dev' check by Brent Batch
+	return false
+	--[[
 	if sm.isDev ~= nil then return sm.isDev end
 	if lastLoaded == 1 then -- on world init dev check
 		sm.isDev = true
@@ -15,7 +14,7 @@ function sm.checkDev(shape)   -- a '-dev' check by Brent Batch
 	sm.shape.createPart( shape.shapeUuid, sm.vec3.new(705,0,0), sm.quat.identity( ), false, false )
 	sm.isDev = DebuggerLoads == 1
 	print('set dev mode to: ', sm.isDev)
-	return sm.isDev
+	return sm.isDev]]
 end 
 
 function sm.isMPTeam()  -- an 'is in ModpackTeam' check by Brent Batch
@@ -38,15 +37,13 @@ function mpPrint(...)  -- print that only works for the team.
 	end 
 end
 
-function devPrint(...)  -- print that only works in '-dev' mode  (requires a part to do 'sm.checkDev(shape)'
-	if sm.isDev then 
+function devPrint(...) -- can't check for dev any more :/
+	if sm.isMPTeam() then 
 		print(...) 
 	end 
 end
 
-if not printO then
-    printO = print
-end
+local printO = print
 function print(...) -- fancy print by TechnologicNick
 	if sm.isMPTeam() then
 		printO("[" .. sm.game.getCurrentTick() .. "]", sm.isServerMode() and "[Server]" or "[Client]", ...)

@@ -1,11 +1,8 @@
-dofile "../Libs/Debugger.lua"
-
--- the following code prevents re-load of this file, except if in '-dev' mode.   
-if NumberBlock and not sm.isDev then -- increases performance for non '-dev' users.
-	return
-end 
-dofile "../Libs/GameImprovements/interactable.lua"
-dofile "../Libs/MoreMath.lua"
+--[[
+	Copyright (c) 2020 Modpack Team
+	Brent Batch#9261
+]]--
+dofile "../Libs/LoadLibs.lua"
 
 mpPrint("loading NumberBlock.lua")
 
@@ -38,6 +35,7 @@ NumberBlock.dec = {
 	["cf11d2ff"] = 100,
 	["d02525ff"] = 10,
 	["df7f00ff"] = 1,
+	["df7f01ff"] = 1, -- orange 2, smh
 			
 	["eeaf5cff"] = 0.1,
 	["f06767ff"] = 0.01,
@@ -66,6 +64,7 @@ NumberBlock.bin = {
 	["cf11d2ff"] = 4,
 	["d02525ff"] = 2,
 	["df7f00ff"] = 1,
+	["df7f01ff"] = 1,
 	
 	["eeaf5cff"] = 1/2,
 	["f06767ff"] = 1/4,
@@ -84,7 +83,6 @@ function NumberBlock.server_onRefresh( self )
 end
 
 function NumberBlock.server_onCreate( self )
-	sm.ImproveUserData(self)
 	self:server_setValue(0)
 end
 
@@ -94,11 +92,11 @@ function NumberBlock.server_onFixedUpdate( self, dt )   -- 'decimal'
 	
 	for k, parent in pairs(parents) do
 		local color = tostring(parent:getShape().color)
-		if parent:isNumberType() then
+		if sm.interactable.isNumberType(parent) then
 		
 			local dec = self.dec[color]
 			if dec == nil or #parents == 1 then dec = 1 end
-			power = power + dec * (parent:getValue() or parent.power)
+			power = power + dec * (sm.interactable.getValue(parent) or parent.power)
 		else
 			-- logic input
 			local bit = self.bin[color]
@@ -115,7 +113,7 @@ function NumberBlock.server_onFixedUpdate( self, dt )   -- 'decimal'
 	if power == 0 then
 		self:server_setValue(0)
 	else
-		if parents[1]:isNumberType() then  -- power input, show correct decimal
+		if sm.interactable.isNumberType(parents[1]) then  -- power input, show correct decimal
 			if #parents == 1 then
 				if #children > 0 and children[1]:getType() ~= "scripted" and children[1]:getType() ~= "electricEngine" and children[1]:getType() ~= "gasEngine" then  -- show bits as output
 					local s = self.bin[tostring(self.shape.color)]
@@ -161,14 +159,13 @@ function NumberBlock.server_setValue(self, value)
 	if value ~= self.interactable.power then
 		self.interactable:setActive(value > 0)
 		self.interactable:setPower(value)
-		self.interactable:setValue(value)
+		sm.interactable.setValue(self.interactable, value)
 	end
 end
 
 
 function NumberBlock.client_onCreate(self)
 	self.index = 0
-	self.interactable.isNumberType = sm.interactable.isNumberType
 end
 
 function NumberBlock.client_onFixedUpdate(self, value)
@@ -176,7 +173,7 @@ function NumberBlock.client_onFixedUpdate(self, value)
 	local power = 0
 	for k, parent in pairs(parents) do
 		local color = tostring(parent:getShape().color)
-		if parent:isNumberType() then
+		if sm.interactable.isNumberType(parent) then
 		
 			local dec = self.dec[color]
 			if dec == nil or #parents == 1 then dec = 1 end
@@ -192,7 +189,7 @@ function NumberBlock.client_onFixedUpdate(self, value)
 	if power == 0 then
 		self.interactable:setUvFrameIndex(0)
 	else
-		if parents[1]:isNumberType() then  -- power input, show correct decimal
+		if sm.interactable.isNumberType(parents[1]) then  -- power input, show correct decimal
 			if #parents == 1 then
 				if #children > 0 and children[1]:getType() ~= "scripted" and children[1]:getType() ~= "electricEngine" and children[1]:getType() ~= "gasEngine" then  -- show bits as output
 					local s = self.bin[tostring(self.shape.color)]
@@ -214,9 +211,9 @@ function NumberBlock.client_onFixedUpdate(self, value)
 						-- figure out if first digit , show '-' in front of num if neg
 						if (s*10>0-power) and (power<0) then
 							--print('first digit')
-							if power <= -1  or (show == 0 and tostring(self.shape.color) == "df7f00ff") then -- give first digit a '-', if orange shows '0' and it's before first digit, give it a '-'
+							if power <= -1  or (show == 0 and (tostring(self.shape.color) == "df7f00ff" or tostring(self.shape.color) == "df7f01ff")) then -- give first digit a '-', if orange shows '0' and it's before first digit, give it a '-'
 								--print('neg')
-								if (show == 0 and tostring(self.shape.color)=="df7f00ff") then 
+								if (show == 0 and (tostring(self.shape.color)=="df7f00ff" or tostring(self.shape.color) == "df7f01ff")) then 
 									show = show + 12
 								end
 								if power <= -1 and s*show >= power and show ~= 0 then  show = show + 12 end

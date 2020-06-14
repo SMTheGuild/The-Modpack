@@ -1,11 +1,10 @@
 -- Copyright (c) 2018 Lord Pain & Brent Batch --
 
-dofile "../Libs/Debugger.lua"
-
--- the following code prevents re-load of this file, except if in '-dev' mode.   
-if Tacho and not sm.isDev then -- increases performance for non '-dev' users.
-	return
-end 
+--[[
+	Copyright (c) 2020 Modpack Team
+	Brent Batch#9261 / Lord Pain
+]]--
+dofile "../Libs/LoadLibs.lua"
 
 
 mpPrint("loading speedometer.lua")
@@ -405,7 +404,8 @@ function Tacho.client_onFixedUpdate(self, dt)
 	end
 end
 
-function Tacho.client_onInteract(self)
+function Tacho.client_onInteract(self, character, lookAt)
+	if not lookAt then return end
 	local crouching = sm.localPlayer.getPlayer().character:isCrouching()
 	self.network:sendToServer("server_changemode", crouching)
 end

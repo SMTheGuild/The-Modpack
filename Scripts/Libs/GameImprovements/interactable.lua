@@ -33,35 +33,9 @@ function sm.interactable.isNumberType(interactable)
 end
 
 
--- to have the following working   <interactable>:setValue(somevalue) <interactable>:getValue()
--- perform   sm.ImproveUserData(self)   in   scriptclass.server_onCreate(self)
+-- setGlowMultiplier and setUvFrameIndex bugs got fixed:
 
-if not sm.UserDataImprovements then 
-	sm.UserDataImprovements = {}
-	function sm.ImproveUserData(self)
-		for k, improvement in pairs(sm.UserDataImprovements) do
-			improvement(self)
-		end
-		function sm.ImproveUserData(self) end -- 'remove' function to prevent multiple loads
-	end
-end
-
-table.insert(
-	sm.UserDataImprovements, 
-	function(self)
-		self.interactable.setValue = sm.interactable.setValue
-		self.interactable.getValue = sm.interactable.getValue
-		
-		self.interactable.isNumberType = sm.interactable.isNumberType
-	end
-)
-
-
-
-
--- client:
-
----[[
+--[[
 local uvs = {} -- <<not directly accessible for other scripts
 local __OLD_setUvFrameIndex = sm.interactable.setUvFrameIndex
 function sm.interactable.setUvFrameIndex(interactable, value)  
@@ -120,24 +94,4 @@ function sm.interactable.getGlowMultiplier(interactable)
 	end
 	return __OLD_getGlowMultiplier(interactable)
 end
-
--- perform  sm.ImproveUserDataClient(self)  in  client_onCreate to have  <interactable>:getUvFrameIndex()  working
-if not sm.UserDataImprovementsClient then 
-	sm.UserDataImprovementsClient = {}
-	function sm.ImproveUserDataClient(self)
-		for k, improvement in pairs(sm.UserDataImprovementsClient) do
-			improvement(self)
-		end
-		function sm.ImproveUserDataClient(self) end -- 'remove' function to prevent multiple loads
-	end
-end
-table.insert(
-	sm.UserDataImprovementsClient, 
-	function(self)
-		self.interactable.setUvFrameIndex = sm.interactable.setUvFrameIndex
-		self.interactable.getUvFrameIndex = sm.interactable.getUvFrameIndex
-		self.interactable.setGlowMultiplier = sm.interactable.setGlowMultiplier
-		self.interactable.getGlowMultiplier = sm.interactable.getGlowMultiplier
-	end
-)
 --]]

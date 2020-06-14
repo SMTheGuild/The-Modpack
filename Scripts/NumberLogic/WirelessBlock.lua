@@ -1,10 +1,8 @@
-dofile "../Libs/Debugger.lua"
-
--- the following code prevents re-load of this file, except if in '-dev' mode.   
-if WirelessBlock and not sm.isDev then -- increases performance for non '-dev' users.
-	return
-end 
-dofile "../Libs/GameImprovements/interactable.lua"
+--[[
+	Copyright (c) 2020 Modpack Team
+	Brent Batch#9261
+]]--
+dofile "../Libs/LoadLibs.lua"
 
 mpPrint("loading WirelessBlock.lua")
 
@@ -293,7 +291,8 @@ function WirelessBlock.client_onDestroy(self)
 	wirelessdata[self.lastfrequency][self.lastcolor][self.interactableID] = nil
 end
 
-function WirelessBlock.client_onInteract(self)
+function WirelessBlock.client_onInteract(self, character, lookAt)
+	if not lookAt then return end
 	self.network:sendToServer("server_clientInteract")
 end
 
