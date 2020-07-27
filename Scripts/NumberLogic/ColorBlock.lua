@@ -255,7 +255,7 @@ function ColorBlock.server_onFixedUpdate( self, dt )
     
 	self.color = color
 	self.interactable:setPower(self.power)
-    self.interactable.active = self.glowinput > 0
+    self.interactable.active = self.power ~= 0 -- self.glowinput > 0 -- disabled until glow is fixed
 end
 
 function ColorBlock.client_onCreate(self)
