@@ -3,6 +3,7 @@
 
 		{
 			"uuid": "ebafd24a-7bbc-4e75-87f5-a67cdcf31e29",
+			"name": "jnt_mod_invisiblebearing",
 			"renderable": {
 				"lodList": [
 					{
@@ -11,22 +12,32 @@
 								"textureList": [
 									"$GAME_DATA/Textures/transparent.tga",
 									"$GAME_DATA/Textures/black.png",
-									"$GAME_DATA/Textures/nonor_nor.png"
+									"$GAME_DATA/Textures/nonor_nor.tga"
 								],
 								"material": "DifAsgNorAlphaFlip"
 							}
 						],
-						"mesh": "$GAME_DATA/Objects/Mesh/interactive/obj_interactive_bearing.mesh"
+						"mesh": "$GAME_DATA/Objects/Mesh/interactive/obj_interactive_bearing.fbx"
 					}
 				]
 			},
-			"rotationSet": "PropZ",
 			"color": "999999",
 			"cylinder": { "diameter": 1, "depth": 1, "axis": "Z" },
-			"physicsMaterial": "Metal",
 			"bearing": { },
-			"qualityLevel": 2
+			"rotationSet": "PropZ",
+			"sticky": "-Z",
+			"physicsMaterial": "Mechanical",
+			"ratings": {
+				"density": 4,
+				"durability": 1,
+				"friction": 4,
+				"buoyancy": 0
+			},
+			"flammable": false,
+			"qualityLevel": 2,
+			"stackSize": 10
 		},
+
 		{
 			"uuid": "8f762ab9-5c78-4d9c-a22e-3119bf447169",
 			"renderable": {
@@ -46,10 +57,8 @@
 					}
 				]
 			},
-			"rotationSet": "PropZ",
 			"color": "df7f00",
 			"cylinder": { "diameter": 1, "depth": 1, "axis": "Z" },
-			"physicsMaterial": "Metal",
 			"spring": {
 				"length": 1,
 				"defaultStiffnessLevel" : 2,
@@ -76,7 +85,11 @@
 					{ "stiffness": 997500 }
 				]
 			},
-			"qualityLevel": 2
+			"rotationSet": "PropZ",
+			"sticky": "-Z",
+			"physicsMaterial": "Mechanical",
+			"qualityLevel": 2,
+			"stackSize": 5
 		},
 		{
 			"uuid": "c0d086eb-de4a-4ba9-922a-1c66f129d2ae",
@@ -88,7 +101,7 @@
 								"textureList": [
 									"$GAME_DATA/Objects/Textures/interactive/obj_interactive_suspensionoffroad_dif.tga",
 									"$GAME_DATA/Objects/Textures/interactive/obj_interactive_suspensions_asg.tga",
-									"$GAME_DATA/Textures/nonor_nor.png"
+									"$GAME_DATA/Textures/nonor_nor.tga"
 								],
 								"material": "PoseAnimDifAsgNor"
 							}
@@ -126,10 +139,13 @@
 					{ "stiffness": 807500 },
 					{ "stiffness": 900000 },
 					{ "stiffness": 997500 }
-				]
+				],
+				"effect": "Suspension"
 			},
 			"sticky": "-Z",
-			"qualityLevel": 2
+			"physicsMaterial": "Mechanical",
+			"qualityLevel": 2,
+			"stackSize": 5
 		},
 		{
 			"uuid": "8d6e5264-9f90-400a-a471-6c0cae101f4d",
@@ -141,7 +157,7 @@
 								"textureList": [
 									"$GAME_DATA/Objects/Textures/interactive/obj_interactive_suspensionoffroad_dif.tga",
 									"$GAME_DATA/Objects/Textures/interactive/obj_interactive_suspensions_asg.tga",
-									"$GAME_DATA/Textures/nonor_nor.png"
+									"$GAME_DATA/Textures/nonor_nor.tga"
 								],
 								"material": "PoseAnimDifAsgNor"
 							}
@@ -179,9 +195,13 @@
 					{ "stiffness": 807500 },
 					{ "stiffness": 900000 },
 					{ "stiffness": 997500 }
-				]
+				],
+				"effect": "Suspension"
 			},
-			"qualityLevel": 2
+			"sticky": "-Z",
+			"physicsMaterial": "Mechanical",
+			"qualityLevel": 2,
+			"stackSize": 5
 		},
 		{
 			"uuid": "9f016a8d-8cbe-4471-b210-f36f5f280758",
@@ -231,10 +251,13 @@
 					{ "stiffness": 807500 },
 					{ "stiffness": 900000 },
 					{ "stiffness": 997500 }
-				]
+				],
+				"effect": "Suspension"
 			},
 			"sticky": "-Z",
-			"qualityLevel": 2
+			"physicsMaterial": "Mechanical",
+			"qualityLevel": 2,
+			"stackSize": 5
 		},
 		{
 			"uuid": "dd676b18-fd06-4aed-baa0-55d4599fdfa3",
@@ -284,10 +307,13 @@
 					{ "stiffness": 807500 },
 					{ "stiffness": 900000 },
 					{ "stiffness": 997500 }
-				]
+				],
+				"effect": "Suspension"
 			},
 			"sticky": "-Z",
-			"qualityLevel": 2
+			"physicsMaterial": "Mechanical",
+			"qualityLevel": 2,
+			"stackSize": 5
 		},
 		{
 			"uuid": "93e08947-be6d-436c-a64f-932727428c89",
@@ -299,7 +325,7 @@
 								"textureList": [
 									"$MOD_DATA/Objects/Textures/mod_decor_cone_dif.png",
 									"$MOD_DATA/Objects/Textures/mod_decor_cone_asg.png",
-									"$GAME_DATA/Textures/nonor_nor.png"
+									"$GAME_DATA/Textures/nonor_nor.tga"
 								],
 								"material": "DifAsg"
 							}
@@ -325,11 +351,8 @@
 			},
 			"density": 1250.0,
 			"physicsMaterial": "Metal",
-			"engine":
-			{
-				"type": "Petrol",
-				"gears":
-				[
+			"gasEngine": {
+				"gears": [
 					{ "velocity": 0, "power": 0 },
 					{ "velocity": 45, "power": 8 },
 					{ "velocity": 90, "power": 16 },
@@ -347,7 +370,8 @@
 					{ "velocity": 10000, "power": 65536 },
 					{ "velocity": 10000, "power": 131072 },
 					{ "velocity": 10000, "power": 262144 }
-				]
+				],
+				"effect": "GasEngine - Level 1"
 			},
 			"qualityLevel": 4
 		},
@@ -371,10 +395,9 @@
 					}
 				]
 			},
-			"rotationSet": "PropZ",
+			"previewRotation": [ 1, 0, 0, 0, 1, 0, 0, 0, 1 ],
 			"color": "007fdf",
 			"box": { "x": 1, "y": 1, "z": 1 },
-			"physicsMaterial": "Metal",
 			"piston": {
 				"length": 256,
 				"defaultRange": 255,
@@ -400,11 +423,14 @@
 					{ "speed": 34.0 }
 				],
 				"defaultSpeedLevel": 2,
-				"force": 1000000.0
+				"force": 1000000.0,
+				"effect": "Piston - Default"
 			},
+			"rotationSet": "PropZ",
 			"sticky": "-Z",
-			"previewRotation": [ 1, 0, 0, 0, 1, 0, 0, 0, 1 ],
-			"qualityLevel": 2
+			"physicsMaterial": "Mechanical",
+			"qualityLevel": 2,
+			"stackSize": 10
 		},
 		
 		{
@@ -428,7 +454,7 @@
 				"steerAngle": 30.0, "enterAudio": "Seat seated", "exitAudio": "Seat unseated" },
 			"box": { "x": 1, "y": 1, "z": 5 },
 			"density": 250.0,
-			"physicsMaterial": "Steering",
+			"physicsMaterial": "Mechanical",
 			"qualityLevel": 4
 		},
 		{
@@ -452,7 +478,7 @@
 				"steerAngle": 30.0, "enterAudio": "Seat seated", "exitAudio": "Seat unseated" },
 			"box": { "x": 2, "y": 2, "z": 5 },
 			"density": 250.0,
-			"physicsMaterial": "Steering",
+			"physicsMaterial": "Mechanical",
 			"qualityLevel": 4
 		},
 		{
@@ -474,7 +500,7 @@
 				"steerAngle": 30.0, "enterAudio": "Seat seated", "exitAudio": "Seat unseated" },
 			"box": { "x": 2, "y": 2, "z": 4, "margin": 0.0 },
 			"density": 250.0,
-			"physicsMaterial": "Steering",
+			"physicsMaterial": "Mechanical",
 			"qualityLevel": 4
 		},
 		{
@@ -520,7 +546,7 @@
 					{ "x": -1.0, "y": -1.0, "z": -1.0 }
 				]
 			},
-			"physicsMaterial": "Steering",
+			"physicsMaterial": "Mechanical",
 			"qualityLevel": 4
 		},
 		{
@@ -555,7 +581,7 @@
 			},
 			"box": { "x": 1, "y": 1, "z": 1 },
 			"density": 250.0,
-			"physicsMaterial": "Steering",
+			"physicsMaterial": "Mechanical",
 			"qualityLevel": 4
 		},
 		{
@@ -601,7 +627,7 @@
 				]
 			},
 			"density": 250.0,
-			"physicsMaterial": "Steering",
+			"physicsMaterial": "Mechanical",
 			"qualityLevel": 4
 		},
 		{
@@ -690,7 +716,7 @@
 				]
 			},
 			"density": 250.0,
-			"physicsMaterial": "Steering",
+			"physicsMaterial": "Mechanical",
 			"qualityLevel": 2
 		},
 		{
@@ -703,7 +729,7 @@
 								"textureList": [
 									"$GAME_DATA/Textures/transparent.tga",
 									"$GAME_DATA/Textures/black.png",
-									"$GAME_DATA/Textures/nonor_nor.png"
+									"$GAME_DATA/Textures/nonor_nor.tga"
 								],
 								"material": "DifAsgNorAlphaFlip"
 							}
@@ -739,7 +765,7 @@
 				]
 			},
 			"density": 250.0,
-			"physicsMaterial": "Steering",
+			"physicsMaterial": "Mechanical",
 			"qualityLevel": 2
 		},
 		{
@@ -752,7 +778,7 @@
 								"textureList": [
 									"$GAME_DATA/Textures/transparent.tga",
 									"$GAME_DATA/Textures/black.png",
-									"$GAME_DATA/Textures/nonor_nor.png"
+									"$GAME_DATA/Textures/nonor_nor.tga"
 								],
 								"material": "DifAsgNorAlphaFlip"
 							}
@@ -761,7 +787,7 @@
 						"includes": [ "POSITION", "UV0", "NORMAL", "TANGENT", "BLEND_INDICES", "BLEND_WEIGHTS" ],
 						"custom": { "skeleton": { "anim0": "steering" } }
 					}
-			]
+				]
 			},
 			"rotationSet": "PropY",
 			"color": "df7f00",
@@ -788,7 +814,7 @@
 				]
 			},
 			"density": 250.0,
-			"physicsMaterial": "Steering",
+			"physicsMaterial": "Mechanical",
 			"qualityLevel": 2
 		},
 		{
@@ -801,7 +827,7 @@
 								"textureList": [
 									"$GAME_DATA/Textures/transparent.tga",
 									"$GAME_DATA/Textures/black.png",
-									"$GAME_DATA/Textures/nonor_nor.png"
+									"$GAME_DATA/Textures/nonor_nor.tga"
 								],
 								"material": "DifAsgNorAlphaFlip"
 							}
@@ -838,7 +864,7 @@
 				]
 			},
 			"density": 250.0,
-			"physicsMaterial": "Steering",
+			"physicsMaterial": "Mechanical",
 			"qualityLevel": 2
 		},
 
@@ -866,11 +892,8 @@
 			"box": { "x": 3, "y": 2, "z": 2 },
 			"density": 1250.0,
 			"physicsMaterial": "Metal",
-			"engine":
-			{
-				"type": "Petrol",
-				"gears":
-				[
+			"gasEngine": {
+				"gears": [
 					{ "velocity": 0, "power": 0 },
 					{ "velocity": 45, "power": 8 },
 					{ "velocity": 90, "power": 16 },
@@ -880,7 +903,8 @@
 					{ "velocity": 1440, "power": 256 },
 					{ "velocity": 2880, "power": 512 },
 					{ "velocity": 5760, "power": 1024 }
-				]
+				],
+				"effect": "GasEngine - Level 1"
 			},
 			"qualityLevel": 5
 		},
@@ -919,8 +943,6 @@
 					{ "x": 0.0, "y": -1.0, "z": -0.8 }
 				]
 			},
-			"density": 250.0,
-			"physicsMaterial": "Metal",
 			"thruster":
 			{
 				"levels":
@@ -938,8 +960,13 @@
 					{ "averageForce": 15000, "forceVariation": 0 },
 					{ "averageForce": 20000, "forceVariation": 0 },
 					{ "averageForce": 25000, "forceVariation": 0 }
-				]
+				],
+				"effect": "Thruster - Level 1"
 			},
+			"rotationSet": "PropZ",
+			"sticky": "-Z",
+			"physicsMaterial": "Mechanical",
+			"density": 250.0,
 			"qualityLevel": 4
 		},
 		{
@@ -965,11 +992,8 @@
 					}
 				]
 			},
-			"rotationSet": "PropZ",
 			"color": "007fdf",
 			"box": { "x": 1, "y": 1, "z": 1 },
-			"density": 250.0,
-			"physicsMaterial": "Metal",
 			"thruster":
 			{ 
 				"levels":
@@ -987,8 +1011,13 @@
 					{ "averageForce": 128144.31, "forceVariation": 0 },
 					{ "averageForce": 192216.97, "forceVariation": 0 },
 					{ "averageForce": 288325.96, "forceVariation": 0 }
-				]
+				],
+				"effect": "Thruster - Level 1"
 			},
+			"rotationSet": "PropZ",
+			"sticky": "-Z",
+			"physicsMaterial": "Mechanical",
+			"density": 250.0,
 			"qualityLevel": 4
 		},
 		
@@ -1324,7 +1353,7 @@
 			"sticky": "-Y",
 			"color": "a41717",
 			"cylinder": { "diameter": 1, "depth": 1, "margin": 0.04, "axis": "Y" },
-			"physicsMaterial": "Metal",
+			"physicsMaterial": "Mechanical",
 			"lever": { },
 			"qualityLevel": 4
 		},
@@ -1339,7 +1368,7 @@
 								"textureList": [
 									"$MOD_DATA/Objects/Textures/UniTex2_dif.png",
 									"$MOD_DATA/Objects/Textures/UniTex_asg.png",
-									"$GAME_DATA/Textures/nonor_nor.png"
+									"$GAME_DATA/Textures/nonor_nor.tga"
 								],
 								"material": "DifAsgNor"
 							}
@@ -1357,9 +1386,10 @@
 					{ "x": 0, "y": 0, "z": 1 }
 				]
 			},
-			"physicsMaterial": "Metal",
-			"sticky": "-Z",			
+			"physicsMaterial": "Mechanical",
 			"rotationSet": "PropZ",
+			"sticky": "-Z",
+			"density": 250.0,
 			"qualityLevel": 4
 		},
 		{
@@ -1372,7 +1402,7 @@
 								"textureList": [
 									"$MOD_DATA/Objects/Textures/UniTex2_dif.png",
 									"$MOD_DATA/Objects/Textures/UniTex_asg.png",
-									"$GAME_DATA/Textures/nonor_nor.png"
+									"$GAME_DATA/Textures/nonor_nor.tga"
 								],
 								"material": "DifAsgNor"
 							}
@@ -1390,9 +1420,10 @@
 					{ "x": 0, "y": 0, "z": 1 }
 				]
 			},
-			"physicsMaterial": "Metal",
-			"sticky": "-Z",
+			"physicsMaterial": "Mechanical",
 			"rotationSet": "PropZ",
+			"sticky": "-Z",
+			"density": 250.0,
 			"qualityLevel": 4
 		},
 
@@ -1416,17 +1447,27 @@
 					}
 				]
 			},
-			"spotLight": { "effect": "ModLightCube" },
+			"spotLight": { "defaultLuminance": 50, "effect": "ModLightCube" },
 			"color": "ffff66",
 			"box": {
 				"x": 1, "y": 1, "z": 1
 			},
-			"density": 250.0,
-			"physicsMaterial": "Plastic",
-			"sticky": "-Z+Z-Y+Y-X+X",	
 			"rotationSet": "PropYZ",
-			"qualityLevel": 2
+			"sticky": "-Z+Z-Y+Y-X+X",	
+			"physicsMaterial": "Plastic",
+			"ratings": {
+				"density": 2,
+				"durability": 3,
+				"friction": 4,
+				"buoyancy": 4
+			},
+			"flammable": true,
+			"density": 250.0,
+			"qualityLevel": 3
 		},
+
+
+		//////////////////////////////////////////////////////////////////
 		{
 			"uuid": "bfbd310d-7c07-4f08-a8cc-9a69e70a9ff0",
 			"renderable": {
@@ -1443,9 +1484,9 @@
 							},
 							{
 								"textureList": [
-									"$GAME_DATA/Objects/Textures/lights/obj_light_headlight_dif.tga",
-									"$GAME_DATA/Objects/Textures/lights/obj_light_headlight_asg.tga",
-									"$GAME_DATA/Objects/Textures/lights/obj_light_headlight_nor.tga"
+									"$MOD_DATA/Objects/Textures/obj_light_headlight_dif.tga",
+									"$MOD_DATA/Objects/Textures/obj_light_headlight_asg.tga",
+									"$MOD_DATA/Objects/Textures/obj_light_headlight_nor.tga"
 								],
 								"material": "PoseAnimDifAsgNor"
 							},
@@ -1475,11 +1516,18 @@
 					{ "x": 0.0, "y": -1.0, "z": -1.0 }
 				]
 			},
-			"density": 250.0,
-			"physicsMaterial": "Plastic",
+			"spotLight": { "defaultLuminance": 50, "effect": "ModHeadLight" },
 			"sticky": "-X+X-Y+Y-Z",
-			"spotLight": { "effect": "ModHeadLight" },
-			"qualityLevel": 1
+			"physicsMaterial": "Plastic",
+			"ratings": {
+				"density": 2,
+				"durability": 3,
+				"friction": 4,
+				"buoyancy": 4
+			},
+			"flammable": true,
+			"density": 250.0,
+			"qualityLevel": 3
 		},
 		{
 			"uuid": "d7de689e-5082-4323-b6c4-eb1ce8f29719",
@@ -1489,9 +1537,9 @@
 						"subMeshList": [
 							{
 								"textureList": [
-									"$GAME_DATA/Objects/Textures/lights/obj_light_headlight_dif.tga",
-									"$GAME_DATA/Objects/Textures/lights/obj_light_headlight_asg.tga",
-									"$GAME_DATA/Objects/Textures/lights/obj_light_headlight_nor.tga"
+									"$MOD_DATA/Objects/Textures/obj_light_headlight_dif.tga",
+									"$MOD_DATA/Objects/Textures/obj_light_headlight_asg.tga",
+									"$MOD_DATA/Objects/Textures/obj_light_headlight_nor.tga"
 								],
 								"material": "PoseAnimDifAsgNor"
 							},
@@ -1527,11 +1575,18 @@
 					{ "x": -1.0, "y": 0.0, "z": -1.0 }
 				]
 			},
-			"density": 250.0,
 			"physicsMaterial": "Plastic",
 			"sticky": "-X+X-Y+Y-Z",
-			"spotLight": { "effect": "ModHeadLight" },
-			"qualityLevel": 1
+			"spotLight": { "defaultLuminance": 50, "effect": "ModHeadLight" },
+			"ratings": {
+				"density": 2,
+				"durability": 3,
+				"friction": 4,
+				"buoyancy": 4
+			},
+			"flammable": true,
+			"density": 250.0,
+			"qualityLevel": 3
 		},
 		{
 			"uuid": "5a3ea22a-99b1-48eb-b169-3243ad49b27c",
@@ -1549,9 +1604,9 @@
 							},
 							{
 								"textureList": [
-									"$GAME_DATA/Objects/Textures/lights/obj_light_headlight_dif.tga",
-									"$GAME_DATA/Objects/Textures/lights/obj_light_headlight_asg.tga",
-									"$GAME_DATA/Objects/Textures/lights/obj_light_headlight_nor.tga"
+									"$MOD_DATA/Objects/Textures/obj_light_headlight_dif.tga",
+									"$MOD_DATA/Objects/Textures/obj_light_headlight_asg.tga",
+									"$MOD_DATA/Objects/Textures/obj_light_headlight_nor.tga"
 								],
 								"material": "PoseAnimDifAsgNor"
 							},
@@ -1581,11 +1636,18 @@
 					{ "x": 0.0, "y": -0.25, "z": -1.0 }
 				]
 			},
-			"density": 250.0,
 			"physicsMaterial": "Plastic",
 			"sticky": "-X+X-Y+Y-Z",
-			"spotLight": { "effect": "ModHeadLight" },
-			"qualityLevel": 1
+			"spotLight": { "defaultLuminance": 50, "effect": "ModHeadLight" },
+			"ratings": {
+				"density": 2,
+				"durability": 3,
+				"friction": 4,
+				"buoyancy": 4
+			},
+			"flammable": true,
+			"density": 250.0,
+			"qualityLevel": 3
 		},
 		{
 			"uuid": "7b51eae8-c55c-4102-b9eb-6c23ca547e83",
@@ -1595,9 +1657,9 @@
 						"subMeshList": [
 							{
 								"textureList": [
-									"$GAME_DATA/Objects/Textures/lights/obj_light_headlight_dif.tga",
-									"$GAME_DATA/Objects/Textures/lights/obj_light_headlight_asg.tga",
-									"$GAME_DATA/Objects/Textures/lights/obj_light_headlight_nor.tga"
+									"$MOD_DATA/Objects/Textures/obj_light_headlight_dif.tga",
+									"$MOD_DATA/Objects/Textures/obj_light_headlight_asg.tga",
+									"$MOD_DATA/Objects/Textures/obj_light_headlight_nor.tga"
 								],
 								"material": "PoseAnimDifAsgNor"
 							},
@@ -1635,11 +1697,18 @@
 					{ "x": -1.0, "y": 1.0, "z": -1.0 }
 				]
 			},
-			"density": 250.0,
 			"physicsMaterial": "Plastic",
 			"sticky": "-X+X-Y+Y-Z",
-			"spotLight": { "effect": "ModHeadLight" },
-			"qualityLevel": 1
+			"spotLight": { "defaultLuminance": 50, "effect": "ModHeadLight" },
+			"ratings": {
+				"density": 2,
+				"durability": 3,
+				"friction": 4,
+				"buoyancy": 4
+			},
+			"flammable": true,
+			"density": 250.0,
+			"qualityLevel": 3
 		},
 		{
 			"uuid": "e83e6fd9-e963-485f-8be0-43895af58ee3",
@@ -1649,9 +1718,9 @@
 						"subMeshList": [
 							{
 								"textureList": [
-									"$GAME_DATA/Objects/Textures/lights/obj_light_headlight_dif.tga",
-									"$GAME_DATA/Objects/Textures/lights/obj_light_headlight_asg.tga",
-									"$GAME_DATA/Objects/Textures/lights/obj_light_headlight_nor.tga"
+									"$MOD_DATA/Objects/Textures/obj_light_headlight_dif.tga",
+									"$MOD_DATA/Objects/Textures/obj_light_headlight_asg.tga",
+									"$MOD_DATA/Objects/Textures/obj_light_headlight_nor.tga"
 								],
 								"material": "PoseAnimDifAsgNor"
 							},
@@ -1680,11 +1749,18 @@
 			"rotationSet": "PropYZ",
 			"color": "ffff66",
 			"box": { "x": 1, "y": 1, "z": 1 },
-			"density": 250.0,
 			"physicsMaterial": "Plastic",
 			"sticky": "-X+X-Y+Y-Z",
-			"spotLight": { "effect": "ModHeadLight" },
-			"qualityLevel": 3
+			"spotLight": { "defaultLuminance": 50, "effect": "ModHeadLight" },
+			"ratings": {
+				"density": 2,
+				"durability": 3,
+				"friction": 4,
+				"buoyancy": 4
+			},
+			"flammable": true,
+			"density": 250.0,
+			"qualityLevel": 3		
 		},
 		{
 			"uuid": "0f994efc-b697-48e4-8ce0-f53eae15d41b",
@@ -1694,9 +1770,9 @@
 						"subMeshList": [
 							{
 								"textureList": [
-									"$GAME_DATA/Objects/Textures/lights/obj_light_headlight_dif.tga",
-									"$GAME_DATA/Objects/Textures/lights/obj_light_headlight_asg.tga",
-									"$GAME_DATA/Objects/Textures/lights/obj_light_headlight_nor.tga"
+									"$MOD_DATA/Objects/Textures/obj_light_headlight_dif.tga",
+									"$MOD_DATA/Objects/Textures/obj_light_headlight_asg.tga",
+									"$MOD_DATA/Objects/Textures/obj_light_headlight_nor.tga"
 								],
 								"material": "PoseAnimDifAsgNor"
 							},
@@ -1734,15 +1810,23 @@
 					{ "x": -1.0, "y": -1.0, "z": 1.0 }
 				]
 			},
-			"density": 250.0,
 			"physicsMaterial": "Plastic",
 			"sticky": "-X+X-Y+Y-Z",
-			"spotLight": { "effect": "ModHeadLight" },
-			"qualityLevel": 1
+			"spotLight": { "defaultLuminance": 50, "effect": "ModHeadLight" },
+			"ratings": {
+				"density": 2,
+				"durability": 3,
+				"friction": 4,
+				"buoyancy": 4
+			},
+			"flammable": true,
+			"density": 250.0,
+			"qualityLevel": 3
 		},
-
+///////////////////////////////////////////////////
 		{
 			"uuid": "9687439e-70a7-4c52-8dd1-d6fa6ec93df8",
+			"name": "mod_controller_panel",
 			"renderable": {
 				"lodList": [
 					{
@@ -1760,7 +1844,6 @@
 					}
 				]
 			},
-			"rotationSet": "PropYZ",
 			"color": "df7f00",
 			"hull": {
 				"x": 1, "y": 1, "z": 1,
@@ -1772,13 +1855,17 @@
 					{ "x": -1.0, "y": -1.0, "z": -1.0 }
 				]
 			},
+			"controller": { "effect": "Controller - Default" },
+			"rotationSet": "PropYZ",
+			"physicsMaterial": "Mechanical",
 			"density": 250.0,
-			"physicsMaterial": "Plastic",
-			"timedjoint": { },
-			"qualityLevel": 3
+			"qualityLevel": 3,
+			"stackSize": 5
+
 		},
 		{
 			"uuid": "60375a3b-0d70-43a2-a97a-4a4234b500dd",
+			"name": "mod_logic_panel",
 			"renderable": {
 				"lodList": [
 					{
@@ -1800,7 +1887,6 @@
 					}
 				]
 			},
-			"rotationSet": "PropYZ",
 			"color": "df7f00",
 			"hull": {
 				"x": 1, "y": 1, "z": 1,
@@ -1812,10 +1898,20 @@
 					{ "x": -1.0, "y": -1.0, "z": -1.0 }
 				]
 			},
+			"logic": {},
+			"rotationSet": "PropYZ",
+			"physicsMaterial": "Mechanical",
+			"ratings": {
+				"density": 2,
+				"durability": 3,
+				"friction": 5,
+				"buoyancy": 2
+			},
+			"flammable": false,
 			"density": 250.0,
-			"physicsMaterial": "Plastic",
-			"logic": { },
-			"qualityLevel": 3
+			"qualityLevel": 3,
+			"stackSize": 10
+
 		},
 		{
 			"uuid": "f6b70b49-ea25-47cc-9dac-e2dc90e67d07",
@@ -1840,7 +1936,6 @@
 					}
 				]
 			},
-			"rotationSet": "PropYZ",
 			"color": "04bfc6",
 			"hull": {
 				"x": 1, "y": 1, "z": 1,
@@ -1852,10 +1947,19 @@
 					{ "x": -1.0, "y": -1.0, "z": -1.0 }
 				]
 			},
+			"timer": {},
+			"rotationSet": "PropYZ",
+			"physicsMaterial": "Mechanical",
+			"ratings": {
+				"density": 2,
+				"durability": 3,
+				"friction": 5,
+				"buoyancy": 4
+			},
+			"flammable": false,
 			"density": 250.0,
-			"physicsMaterial": "Plastic",
-			"timer": { },
-			"qualityLevel": 3
+			"qualityLevel": 3,
+			"stackSize": 5
 		}
 	]
 }

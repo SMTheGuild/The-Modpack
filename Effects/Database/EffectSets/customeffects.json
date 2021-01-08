@@ -7,7 +7,10 @@
 			"power": 0.0,
 			"color": "007fff",
 			"radius": 1.5,
-			"intensity": 0.01
+			"intensity": 0.01,
+			"ambient": true,
+			"ambientIntensityScale": 1.0,
+			"ambientRangeScale": 2.0
 		},
 		"effectList":
 		[
@@ -23,8 +26,8 @@
 				"delay": 0.0
 			},
 			{
-				"type": "light",
-				"name": "Point", //No proper light definitions atm, this is just a temporary WIP solution
+				"type": "pointLight",
+				"name": "",
 				"offset": { "x": 0.0, "y": 0.0, "z": -0.875 },
 				"parameters":
 				[
@@ -646,17 +649,24 @@
 	{
 		"parameterList":
 		{
-			"color": "ffff66",
-			"coneAngle": 25.0,
+			"range": 50.0,
 			"coneFade": 0.5,
+			"coneAngle": 25.0,
+			"intensity": 1.5,
+			"ambient": true,
+			"ambientPosScale": 0.25,
+			"ambientIntensityScale": 0.2,
+			"ambientRangeScale": 1.0,
+			"shadowMode": 2,
+			"color": "ffff66",
 			"luminance": 0.5
 		},
 		"effectList":
 		[
 			{
-				"type": "light",
-				"name": "SpotLight",
-				"direction": { "x": 0, "y": 0, "z": 1 },
+				"type": "spotLight",
+				"name": "",
+				"direction": { "x": 0.0, "y": 0.0, "z": 1.0 },
 				"parameters":
 				[
 					"color",
@@ -672,15 +682,18 @@
 	{
 		"parameterList":
 		{
-			"color": "ffff66",
 			"radius": 20,
-			"intensity": 0.5
+			"intensity": 0.5,
+			"ambient": true,
+			"ambientIntensityScale": 1.0,
+			"ambientRangeScale": 2.0,
+			"color": "ffff66"
 		},
 		"effectList":
 		[
 			{
-				"type": "light",
-				"name": "Point",
+				"type": "pointLight",
+				"name": "",
 				"offset": { "x": 0.0, "y": 0.0, "z": 0.0 },
 				"parameters":
 				[

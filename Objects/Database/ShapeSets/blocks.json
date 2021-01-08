@@ -1,132 +1,373 @@
 {
 	"blockList":
 	[
+
+
+
 		{
 			"uuid": "c97c17c3-81bb-48b5-9e9c-8a5117ee431a",
+			"name": "blk_mod_diamondplate", // industrial metal block
 			"dif": "$GAME_DATA/Objects/Textures/Blocks/blk_metal01_dif.tga",
 			"asg": "$GAME_DATA/Objects/Textures/Blocks/blk_metal01_asg.tga",
 			"nor": "$MOD_DATA/Objects/Textures/blk_diamondplate_nor.png",
-			"color": "505050",
-         	"density": 1250.0,
 			"tiling": 8,
+			"color": "505050",
 			"physicsMaterial": "Metal",
-			"qualityLevel": 6,
-			"friction": 0.8
+			"ratings": { // copied from spaceship02
+				"density": 5,
+				"durability": 5,
+				"friction": 6,
+				"buoyancy": 2
+			},
+			"flammable": false,
+         	"density": 1250.0,
+			"qualityLevel": 6
+			//"friction": 0.8 // old rating
+			/**/ , // Survival Context?
+			"restrictions": {
+				"destructable": true,
+				"erasable": true,
+				"buildable": true,
+				"convertibleToDynamic": true,
+				"liftable": true,
+				"paintable": true
+			}
+			/*-*/
 		},
 		{
 			"uuid": "036ffd32-45df-11e6-beb8-9e71128cae77",
+			"name": "blk_mod_smoothglass", // tempured glass 
 			"dif": "$GAME_DATA/Textures/transparent.tga",
 			"asg": "$MOD_DATA/Objects/Textures/Glass_asg.png",
-			"nor": "$GAME_DATA/Textures/nonor_nor.png",
-			"color": "88eeff",
+			"nor": "$GAME_DATA/Textures/nonor_nor.tga",
 			"tiling": 1,
+			"color": "88eeff",
+			"physicsMaterial": "Glass",
+			"ratings": {
+				"density": 3,
+				"durability": 2,
+				"friction": 3,
+				"buoyancy": 5
+			},
+			"alpha": false,
 			"glass": true,
 			"max_stack_count": 3,
-			"physicsMaterial": "Glass",
+			"flammable": false,
+			"friction": 1.0,
+			"density": 250.0,
 			"qualityLevel": 2
+			/**/ , // Survival Context?
+			"restrictions": {
+				"destructable": true,
+				"erasable": true,
+				"buildable": true,
+				"convertibleToDynamic": true,
+				"liftable": true,
+				"paintable": true
+			}
+			/*-*/
 		},
+
+
 		{
 			"uuid": "e50485da-4545-4def-a585-0a5f158c6104",
+			"name": "blk_mod_glow", // 100% glowing block, 100% dif color. Creative mode block
 			"dif": "$GAME_DATA/Textures/transparent.tga",
 			"asg": "$MOD_DATA/Objects/Textures/glow0_asg.png",
-			"nor": "$GAME_DATA/Textures/nonor_nor.png",
-			"color": "ffffff",
+			"nor": "$GAME_DATA/Textures/nonor_nor.tga",
 			"tiling": 1,
+			"color": "ffffff",
 			"physicsMaterial": "Metal",
+			"ratings": {
+				"density": 3,
+				"durability": 3,
+				"friction": 3,
+				"buoyancy": 5
+			},
+			"alpha": false,
+			"glass": false,
+			//"max_stack_count": 3, //not applicable
+			"flammable": false,
+			"friction": 1.0, //?
+			"density": 250.0,
 			"qualityLevel": 3
+			/**/ , // Survival Context?
+			"restrictions": {
+				"destructable": true,
+				"erasable": true,
+				"buildable": true,
+				"convertibleToDynamic": true,
+				"liftable": true,
+				"paintable": true
+			}
+			/*-*/
 		},
 		{
 			"uuid": "7a73cc98-b2d4-4b28-9095-f8b9077548e4",
+			"name": "blk_mod_transparent", // 100% invisible block. Good for invisible barriers or with mirror blocks
 			"dif": "$GAME_DATA/Textures/white.png",
 			"asg": "$GAME_DATA/Textures/transparent.tga",
-			"nor": "$GAME_DATA/Textures/nonor_nor.png",
-			"density": 250.0,
-			"color": "ffffff",
+			"nor": "$GAME_DATA/Textures/nonor_nor.tga",
 			"tiling": 1,
-			"glass": true,
+			"color": "ffffff",
 			"physicsMaterial": "Plastic",
-			"qualityLevel": 2,
-			"alpha": true 
+			"ratings": {
+				"density": 3,
+				"durability": 2,
+				"friction": 3,
+				"buoyancy": 4
+			},
+			"alpha": true,
+			"glass": true,
+			"max_stack_count": 1, // not applicable
+			"flammable": false,
+			"friction": 1.0,
+			"density": 250.0,
+			"qualityLevel": 2
+			/**/ , // Survival Context?
+			"restrictions": {
+				"destructable": true,
+				"erasable": true,
+				"buildable": true,
+				"convertibleToDynamic": true,
+				"liftable": true,
+				"paintable": true
+			}
+			/*-*/
 		},
 		{
 			"uuid": "906c76ee-189a-4983-ae82-b31722e56b23",
+			"name": "blk_mod_mirror", // full env reflection + glass = render trick with other glass blocks
 			"dif": "$GAME_DATA/Textures/transparent.tga",
 			"asg": "$GAME_DATA/Textures/white.png",
-			"nor": "$GAME_DATA/Textures/nonor_nor.png",
-			"density": 250.0,
-			"color": "ffffff",
+			"nor": "$GAME_DATA/Textures/nonor_nor.tga",
 			"tiling": 1,
-			"glass": true,
+			"color": "ffffff",
 			"physicsMaterial": "Plastic",
+			"ratings": {
+				"density": 3,
+				"durability": 2,
+				"friction": 3,
+				"buoyancy": 4
+			},
+			"alpha": false,
+			"glass": true,
+			"max_stack_count": 1, // not applicable
+			"flammable": false,
+			"friction": 1.0,
+			"density": 250.0,
 			"qualityLevel": 2
+			/**/ , // Survival Context?
+			"restrictions": {
+				"destructable": true,
+				"erasable": true,
+				"buildable": true,
+				"convertibleToDynamic": true,
+				"liftable": true,
+				"paintable": true
+			}
+			/*-*/
 		},
 		{
 			"uuid": "bc3efcdf-ae18-4037-b0aa-c5af14e03547",
+			"name": "blk_mod_bling", // precious metal (glow + reflective)
 			"dif": "$GAME_DATA/Textures/transparent.tga",
 			"asg": "$MOD_DATA/Objects/Textures/bling50_asg.png",
-			"nor": "$GAME_DATA/Textures/nonor_nor.png",
-			"density": 1250.0,
-			"color": "df7f00",
+			"nor": "$GAME_DATA/Textures/nonor_nor.tga",
 			"tiling": 1,
+			"color": "df7f00",
 			"physicsMaterial": "Metal",
+			"ratings": {
+				"density": 5,
+				"durability": 4,
+				"friction": 2,
+				"buoyancy": 5
+			},
+			"alpha": false,
+			"glass": false,
+			//"max_stack_count": 3, // NA
+			"flammable": false,
+			"friction": 0.75, // ?
+			"density": 1250.0,
 			"qualityLevel": 4
+			/**/ , // Survival Context?
+			"restrictions": {
+				"destructable": true,
+				"erasable": true,
+				"buildable": true,
+				"convertibleToDynamic": true,
+				"liftable": true,
+				"paintable": true
+			}
+			/*-*/
 		},
 		{
 			"uuid": "b51ad015-66e9-41b9-916c-277f9c93232d",
+			"name": "blk_mod_gamegrid", // custom block texture (tron grid, unrealistically durable)
 			"dif": "$MOD_DATA/Objects/Textures/blk_gamegrid_dif.png",
 			"asg": "$MOD_DATA/Objects/Textures/blk_gamegrid_asg.png",
-			"nor": "$GAME_DATA/Textures/nonor_nor.png",
-			"color": "0099ff",
+			"nor": "$GAME_DATA/Textures/nonor_nor.tga",
 			"tiling": 4,
+			"color": "0099ff",
 			"physicsMaterial": "Metal",
+			"ratings": {
+				"density": 10,
+				"durability": 10,
+				"friction": 4,
+				"buoyancy": 10 // higher = less boyant?
+			},
+			"alpha": false,
+			"glass": false,
+			//"max_stack_count": 3, // NA
+			"flammable": false,
+			"friction": 1.0, // ?
+			"density": 1250.0,
 			"qualityLevel": 6
+			/**/ , // Survival Context?
+			"restrictions": {
+				"destructable": true,
+				"erasable": true,
+				"buildable": true,
+				"convertibleToDynamic": true,
+				"liftable": true,
+				"paintable": true
+			}
+			/*-*/
 		},
 		{
 			"uuid": "e7f7b758-6492-4c6a-8760-8fb95da530be",
+			"name": "blk_mod_luxury", // louis vuitton style "leather" block
 			"dif": "$MOD_DATA/Objects/Textures/luxuryblock_dif.png",
 			"asg": "$MOD_DATA/Objects/Textures/luxuryblock_asg.png",
 			"nor": "$MOD_DATA/Objects/Textures/luxuryblock_nor.png",
-			"color": "644632",
-			"density": 250.0,
 			"tiling": 2,
+			"color": "644632",
 			"physicsMaterial": "Plastic",
+			"ratings": {
+				"density": 3,
+				"durability": 3,
+				"friction": 3,
+				"buoyancy": 3
+			},
+			"alpha": false,
+			"glass": false,
+			//"max_stack_count": 3, // NA
+			"flammable": false,
+			"friction": 1.0, // ?
+			"density": 250.0,
 			"qualityLevel": 3
+			/**/ , // Survival Context?
+			"restrictions": {
+				"destructable": true,
+				"erasable": true,
+				"buildable": true,
+				"convertibleToDynamic": true,
+				"liftable": true,
+				"paintable": true
+			}
+			/*-*/
 		},
-		{ // smooth ice
+
+		{ 
 			"uuid": "116325e1-1020-40ec-8f31-0678f8bb98bc",
+			"name": "blk_mod_smoothice", // smooth ice, polished (very slippery)
 			"dif": "$GAME_DATA/Textures/transparent.tga",
 			"asg": "$MOD_DATA/Objects/Textures/chrome50_asg.png",
-			"nor": "$GAME_DATA/Textures/nonor_nor.png",
-			"color": "c8dcff",
-			"density": 500.0,
+			"nor": "$GAME_DATA/Textures/nonor_nor.tga",
 			"tiling": 2,
+			"color": "c8dcff",
 			"physicsMaterial": "Glass",
-			"qualityLevel": 2, //1,
-			"friction": 0.000001
+
+			"ratings": {
+				"density": 3,
+				"durability": 2,
+				"friction": 0,
+				"buoyancy": 0
+			},
+			"alpha": false,
+			"glass": false,
+			//"max_stack_count": 3, // NA
+			"flammable": false,
+			"friction": 0.000001, // old setting
+			"density": 500.0,
+			"qualityLevel": 2
+			/**/ , // Survival Context?
+			"restrictions": {
+				"destructable": true,
+				"erasable": true,
+				"buildable": true,
+				"convertibleToDynamic": true,
+				"liftable": true,
+				"paintable": true
+			}
+			/*-*/
 		},
 		{
 			"uuid": "b742cff1-98a7-469f-b514-a7402f705924",
+			"name": "blk_mod_rockice", // Icey surface, no polish (mildly slippery)
 			"dif": "$MOD_DATA/Objects/Textures/blk_rockice_dif.png",
 			"asg": "$MOD_DATA/Objects/Textures/blk_rockice_asg.png",
 			"nor": "$MOD_DATA/Objects/Textures/blk_rockice_norG.png",
-			"color": "c8dcff",
-			"density": 1250.0,
 			"tiling": 8,
+			"color": "c8dcff",
 			"physicsMaterial": "Rock",
-			"qualityLevel": 4,
-			"friction": 0.1
+			"ratings": {
+				"density": 5,
+				"durability": 4,
+				"friction": 1,
+				"buoyancy": 1
+			},
+			"alpha": false,
+			"glass": false,
+			//"max_stack_count": 3, // NA
+			"flammable": false,
+			"friction": 0.1, // ?
+			"density": 1250.0,
+			"qualityLevel": 4
+			/**/ , // Survival Context?
+			"restrictions": {
+				"destructable": true,
+				"erasable": true,
+				"buildable": true,
+				"convertibleToDynamic": true,
+				"liftable": true,
+				"paintable": true
+			}
+			/*-*/
 		},
-		{ // rubber (plain)
+		{ 
 			"uuid": "123425e2-2020-40ec-8f31-0678f8bc99bd",
+			"name": "blk_mod_rubber", // rubber block (very high friction building block)
 			"dif": "$GAME_DATA/Textures/transparent.tga",
 			"asg": "$GAME_DATA/Textures/transparent.tga",
 			"nor": "$MOD_DATA/Objects/Textures/rubber_norE.png",
-			"color": "222222",
-			"density": 500.0,
 			"tiling": 4,
+			"color": "222222",
 			"physicsMaterial": "Plastic",
-			"qualityLevel": 3,
-			"friction": 10000
+
+			"ratings": {
+				"density": 5,
+				"durability": 4,
+				"friction": 10,
+				"buoyancy": 5
+			},
+			"alpha": false,
+			"glass": false,
+			//"max_stack_count": 3, // NA
+			"flammable": false,
+			"friction": 10000,
+			"density": 500.0,
+			"qualityLevel": 3
+			/**/ , // Survival Context?
+			"restrictions": {
+				"destructable": true,
+				"erasable": true,
+				"buildable": true,
+				"convertibleToDynamic": true,
+				"liftable": true,
+				"paintable": true
+			}
+			/*-*/
 		}
 	]
 }

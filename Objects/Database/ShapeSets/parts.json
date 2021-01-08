@@ -10,7 +10,7 @@
 								"textureList": [
 									"$GAME_DATA/Textures/transparent.tga",
 									"$MOD_DATA/Objects/Textures/default_asg.png",
-									"$GAME_DATA/Textures/nonor_nor.png"
+									"$GAME_DATA/Textures/nonor_nor.tga"
 								],
 								"material": "DifAsg"
 							}
@@ -201,7 +201,7 @@
 								"textureList": [
 									"$GAME_DATA/Textures/transparent.tga",
 									"$GAME_DATA/Textures/black.png",
-									"$GAME_DATA/Textures/nonor_nor.png"
+									"$GAME_DATA/Textures/nonor_nor.tga"
 								],
 								"material": "DifAsgNorAlphaFlip"
 							}
@@ -1015,14 +1015,14 @@
 						"subMeshList": [
 							{
 								"textureList": [
-									"$GAME_DATA/Objects/Textures/vehicle/obj_large_wheel01_dif.tga",
-									"$GAME_DATA/Objects/Textures/vehicle/obj_large_wheel01_asg.tga",
-									"$MOD_DATA/Objects/Textures/obj_large_wheel01_nor.png"
+									"$GAME_DATA/Objects/Textures/vehicle/obj_vehicle_bigwheel_dif.tga",
+									"$GAME_DATA/Objects/Textures/vehicle/obj_vehicle_bigwheel_asg.tga",
+									"$GAME_DATA/Objects/Textures/vehicle/obj_vehicle_bigwheel_nor.tga"
 								],
 								"material": "DifAsgNor"
 							}
 						],
-						"mesh": "$MOD_DATA/Objects/Mesh/Tire7x3.obj"
+						"mesh": "$MOD_DATA/Objects/Mesh/bigwheel_7x3.obj"
 					}
 				]
 			},
@@ -1043,14 +1043,14 @@
 						"subMeshList": [
 							{
 								"textureList": [
-									"$GAME_DATA/Objects/Textures/vehicle/obj_large_wheel01_dif.tga",
-									"$GAME_DATA/Objects/Textures/vehicle/obj_large_wheel01_asg.tga",
-									"$MOD_DATA/Objects/Textures/obj_large_wheel01_nor.png"
+									"$GAME_DATA/Objects/Textures/vehicle/obj_vehicle_bigwheel_dif.tga",
+									"$GAME_DATA/Objects/Textures/vehicle/obj_vehicle_bigwheel_asg.tga",
+									"$GAME_DATA/Objects/Textures/vehicle/obj_vehicle_bigwheel_nor.tga"
 								],
 								"material": "DifAsgNor"
 							}
 						],
-						"mesh": "$MOD_DATA/Objects/Mesh/Tire9x4.obj"
+						"mesh": "$MOD_DATA/Objects/Mesh/bigwheel_9x4.obj"
 					}
 				]
 			},
@@ -1070,19 +1070,19 @@
 						"subMeshList": [
 							{
 								"textureList": [
-									"$GAME_DATA/Objects/Textures/vehicle/obj_large_wheel01_dif.tga",
-									"$GAME_DATA/Objects/Textures/vehicle/obj_large_wheel01_asg.tga",
-									"$MOD_DATA/Objects/Textures/obj_large_wheel01_nor.png"
-								],
-								"material": "DifAsgNor"
-							},
-							{
-								"textureList": [
 									"$GAME_DATA/Textures/transparent.tga",
 									"$MOD_DATA/Objects/Textures/chain_asg.png",
 									"$MOD_DATA/Objects/Textures/chain_nor.png"
 								],
 								"material": "DifAsgNorAlphaFlip"
+							},
+							{
+								"textureList": [
+									"$GAME_DATA/Objects/Textures/vehicle/obj_vehicle_bigwheel_dif.tga",
+									"$GAME_DATA/Objects/Textures/vehicle/obj_vehicle_bigwheel_asg.tga",
+									"$GAME_DATA/Objects/Textures/vehicle/obj_vehicle_bigwheel_nor.tga"
+								],
+								"material": "DifAsgNor"
 							}
 						],
 						"mesh": "$MOD_DATA/Objects/Mesh/chained_wheel.obj"
@@ -1105,9 +1105,17 @@
 						"subMeshList": [
 							{
 								"textureList": [
-									"$GAME_DATA/Objects/Textures/vehicle/obj_large_wheel01_dif.tga",
-									"$GAME_DATA/Objects/Textures/vehicle/obj_large_wheel01_asg.tga",
-									"$MOD_DATA/Objects/Textures/obj_large_wheel01_nor.png"
+									"$GAME_DATA/Objects/Textures/vehicle/obj_vehicle_bigwheel_dif.tga",
+									"$GAME_DATA/Objects/Textures/vehicle/obj_vehicle_bigwheel_asg.tga",
+									"$GAME_DATA/Objects/Textures/vehicle/obj_vehicle_bigwheel_nor.tga"
+								],
+								"material": "DifAsgNor"
+							},
+							{
+								"textureList": [
+									"$GAME_DATA/Objects/Textures/vehicle/obj_vehicle_bigwheel_dif.tga",
+									"$GAME_DATA/Objects/Textures/vehicle/obj_vehicle_bigwheel_asg.tga",
+									"$GAME_DATA/Objects/Textures/vehicle/obj_vehicle_bigwheel_nor.tga"
 								],
 								"material": "DifAsgNor"
 							}
@@ -1137,7 +1145,7 @@
 								"textureList": [
 									"$MOD_DATA/Objects/Textures/monitor_dif.png",
 									"$MOD_DATA/Objects/Textures/rims_asg.png",
-									"$GAME_DATA/Textures/nonor_nor.png"
+									"$GAME_DATA/Textures/nonor_nor.tga"
 								],
 								"material": "DifAsgNor"
 							}
@@ -1234,7 +1242,7 @@
 								"textureList": [
 									"$MOD_DATA/Objects/Textures/monitor_dif.png",
 									"$MOD_DATA/Objects/Textures/rims_asg.png",
-									"$GAME_DATA/Textures/nonor_nor.png"
+									"$GAME_DATA/Textures/nonor_nor.tga"
 								],
 								"material": "DifAsgNor"
 							}
@@ -1331,7 +1339,7 @@
 								"textureList": [
 									"$MOD_DATA/Objects/Textures/monitor_dif.png",
 									"$MOD_DATA/Objects/Textures/rims_asg.png",
-									"$GAME_DATA/Textures/nonor_nor.png"
+									"$GAME_DATA/Textures/nonor_nor.tga"
 								],
 								"material": "DifAsgNor"
 							}
@@ -1428,7 +1436,7 @@
 								"textureList": [
 									"$MOD_DATA/Objects/Textures/monitor_dif.png",
 									"$MOD_DATA/Objects/Textures/rims_asg.png",
-									"$GAME_DATA/Textures/nonor_nor.png"
+									"$GAME_DATA/Textures/nonor_nor.tga"
 								],
 								"material": "DifAsgNor"
 							}
@@ -1525,7 +1533,7 @@
 								"textureList": [
 									"$MOD_DATA/Objects/Textures/monitor_dif.png",
 									"$MOD_DATA/Objects/Textures/rims_asg.png",
-									"$GAME_DATA/Textures/nonor_nor.png"
+									"$GAME_DATA/Textures/nonor_nor.tga"
 								],
 								"material": "DifAsgNor"
 							}
@@ -1622,7 +1630,7 @@
 								"textureList": [
 									"$MOD_DATA/Objects/Textures/monitor_dif.png",
 									"$MOD_DATA/Objects/Textures/rims_asg.png",
-									"$GAME_DATA/Textures/nonor_nor.png"
+									"$GAME_DATA/Textures/nonor_nor.tga"
 								],
 								"material": "DifAsgNor"
 							}

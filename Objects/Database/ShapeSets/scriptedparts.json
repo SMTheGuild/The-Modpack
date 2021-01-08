@@ -25,7 +25,7 @@
 								"textureList": [
 									"$MOD_DATA/Objects/Textures/timeclock_dif.png",
 									"$MOD_DATA/Objects/Textures/timeclock_asg.png",
-									"$GAME_DATA/Textures/nonor_nor.png"
+									"$GAME_DATA/Textures/nonor_nor.tga"
 								],
 								"material": "2PoseAnimDifAsgNor"
 							},
@@ -33,7 +33,7 @@
 								"textureList": [
 									"$GAME_DATA/Textures/white.png",
 									"$MOD_DATA/Objects/Textures/tc_asg.png",
-									"$GAME_DATA/Textures/nonor_nor.png"
+									"$GAME_DATA/Textures/nonor_nor.tga"
 								],
 								"material": "Glass"
 							},
@@ -83,7 +83,7 @@
 								"textureList": [
 									"$MOD_DATA/Objects/Textures/analog_sensor_dif.png",
 									"$MOD_DATA/Objects/Textures/analog_sensor_asg.png",
-									"$GAME_DATA/Objects/Textures/interactive/obj_interactive_logicgate_nor.tga"
+									"$MOD_DATA/Objects/Textures/obj_interactive_logicgate_nor.tga"
 								],
 								"material": "PoseAnimDifAsgNor"
 							},
@@ -91,7 +91,7 @@
 								"textureList": [
 									"$MOD_DATA/Objects/Textures/asensor_glass_dif.png",
 									"$MOD_DATA/Objects/Textures/asensor_glass_asg.png",
-									"$GAME_DATA/Textures/nonor_nor.png"
+									"$GAME_DATA/Textures/nonor_nor.tga"
 								],
 								"material": "Glass"
 							}
@@ -129,7 +129,7 @@
 								"textureList": [
 									"$GAME_DATA/Textures/transparent.tga",
 									"$MOD_DATA/Objects/Textures/glow0_asg.png",
-									"$GAME_DATA/Textures/nonor_nor.png"
+									"$GAME_DATA/Textures/nonor_nor.tga"
 								],
 								"material": "PoseAnimDifAsgNor"
 							},
@@ -267,7 +267,7 @@
 								"textureList": [
 									"$MOD_DATA/Objects/Textures/xometer_screen_dif.png",
 									"$MOD_DATA/Objects/Textures/xometer_screen_asg.png",
-									"$GAME_DATA/Textures/nonor_nor.png"
+									"$GAME_DATA/Textures/nonor_nor.tga"
 								],
 								"material": "UVAnimDifAsgNor",
 								"custom":
@@ -279,7 +279,7 @@
 								"textureList": [
 									"$MOD_DATA/Objects/Textures/xometer_body_dif.png",
 									"$MOD_DATA/Objects/Textures/xometer_body_asg.png",
-									"$GAME_DATA/Textures/nonor_nor.png"
+									"$GAME_DATA/Textures/nonor_nor.tga"
 								],
 								"material": "2PoseAnimDifAsgNor"
 							}
@@ -319,9 +319,9 @@
 						"subMeshList": [
 							{
 								"textureList": [
-									"$MOD_DATA/Objects/Textures/orientor.png",
+									"$MOD_DATA/Objects/Textures/orientor_work.png",
 									"$MOD_DATA/Objects/Textures/memory_slots_asg.png",
-									"$GAME_DATA/Textures/nonor_nor.png"
+									"$GAME_DATA/Textures/nonor_nor.tga"
 								],
 								"material": "UVAnimDifAsgNor",
 								"custom":
@@ -360,7 +360,7 @@
 								"textureList": [
 									"$MOD_DATA/Objects/Textures/tick_button_dif.png",
 									"$MOD_DATA/Objects/Textures/tick_button_asg.png",
-									"$GAME_DATA/Textures/nonor_nor.png"
+									"$GAME_DATA/Textures/nonor_nor.tga"
 								],
 								"material": "PoseAnimDifAsgNor"
 							},
@@ -368,7 +368,7 @@
 								"textureList": [
 									"$MOD_DATA/Objects/Textures/tick_button_dif.png",
 									"$MOD_DATA/Objects/Textures/tick_button_asg.png",
-									"$GAME_DATA/Textures/nonor_nor.png"
+									"$GAME_DATA/Textures/nonor_nor.tga"
 								],
 								"material": "UVAnimDifAsgNor",
 								"custom":
@@ -411,11 +411,11 @@
 						"subMeshList": [
 							{
 								"textureList": [
-									"$MOD_DATA/Objects/Textures/potentiometer.png",
+									"$GAME_DATA/Objects/Textures/interactive/obj_interactive_logicgate_dif.tga",
 									"$GAME_DATA/Objects/Textures/interactive/obj_interactive_logicgate_asg.tga",
 									"$GAME_DATA/Objects/Textures/interactive/obj_interactive_logicgate_nor.tga"
 								],
-								"material": "PoseAnimDifAsgNor"
+								"material": "DifAsgNor"
 							},
 							{
 								"textureList": [
@@ -464,7 +464,7 @@
 								"textureList": [
 									"$MOD_DATA/Objects/Textures/BCD.png",
 									"$MOD_DATA/Objects/Textures/numberblock_asg.png",
-									"$GAME_DATA/Objects/Textures/interactive/obj_interactive_logicgate_nor.tga"
+									"$MOD_DATA/Objects/Textures/obj_interactive_logicgate_nor.tga"
 								],
 								"material": "UVAnimDifAsgNor",
 								"custom":
@@ -497,9 +497,9 @@
 						"subMeshList": [
 							{
 								"textureList": [
-									"$GAME_DATA/Objects/Textures/interactive/obj_interactive_logicgate_dif.tga",
-									"$GAME_DATA/Objects/Textures/interactive/obj_interactive_logicgate_asg.tga",
-									"$GAME_DATA/Objects/Textures/interactive/obj_interactive_logicgate_nor.tga"
+									"$MOD_DATA/Objects/Textures/obj_interactive_logicgate_dif.tga",
+									"$MOD_DATA/Objects/Textures/obj_interactive_logicgate_asg.tga",
+									"$MOD_DATA/Objects/Textures/obj_interactive_logicgate_nor.tga"
 								],
 								"material": "DifAsgNor"
 							},
@@ -507,7 +507,7 @@
 								"textureList": [
 									"$MOD_DATA/Objects/Textures/maths.png",
 									"$MOD_DATA/Objects/Textures/maths_asg.png",
-									"$GAME_DATA/Textures/nonor_nor.png"
+									"$GAME_DATA/Textures/nonor_nor.tga"
 								],
 								"material": "UVAnimDifAsgNor",
 								"custom":
@@ -549,7 +549,7 @@
 								"textureList": [
 									"$MOD_DATA/Objects/Textures/memory_slots_dif.png",
 									"$MOD_DATA/Objects/Textures/memory_slots_asg.png",
-									"$GAME_DATA/Textures/nonor_nor.png"
+									"$GAME_DATA/Textures/nonor_nor.tga"
 								],
 								"material": "UVAnimDifAsgNor",
 								"custom":
@@ -597,9 +597,9 @@
 						"subMeshList": [
 							{
 								"textureList": [
-									"$GAME_DATA/Objects/Textures/interactive/obj_interactive_logicgate_dif.tga",
-									"$GAME_DATA/Objects/Textures/interactive/obj_interactive_logicgate_asg.tga",
-									"$GAME_DATA/Objects/Textures/interactive/obj_interactive_logicgate_nor.tga"
+									"$MOD_DATA/Objects/Textures/obj_interactive_logicgate_dif.tga",
+									"$MOD_DATA/Objects/Textures/obj_interactive_logicgate_asg.tga",
+									"$MOD_DATA/Objects/Textures/obj_interactive_logicgate_nor.tga"
 								],
 								"material": "DifAsgNor"
 							},
@@ -663,7 +663,7 @@
 								"textureList": [
 									"$MOD_DATA/Objects/Textures/memory_slots_dif.png",
 									"$MOD_DATA/Objects/Textures/memory_slots_asg.png",
-									"$GAME_DATA/Textures/nonor_nor.png"
+									"$GAME_DATA/Textures/nonor_nor.tga"
 								],
 								"material": "UVAnimDifAsgNor",
 								"custom":
@@ -715,8 +715,7 @@
 								"textureList": [
 									"$GAME_DATA/Textures/transparent.tga",
 									"$GAME_DATA/Textures/transparent.tga",
-									//"$MOD_DATA/Objects/Textures/colorblock_asg.png",
-									"$GAME_DATA/Textures/nonor_nor.png"
+									"$GAME_DATA/Textures/nonor_nor.tga"
 								],
 								"material": "UVAnimDifAsgNor",
 								"custom":
@@ -750,7 +749,7 @@
 								"textureList": [
 									"$MOD_DATA/Objects/Textures/letterblock_whiteletters_dif.png",
 									"$MOD_DATA/Objects/Textures/default_asg.png",
-									"$GAME_DATA/Textures/nonor_nor.png"
+									"$GAME_DATA/Textures/nonor_nor.tga"
 								],
 								"material": "UVAnimDifAsgNor",
 								"custom":
@@ -762,7 +761,7 @@
 								"textureList": [
 									"$MOD_DATA/Objects/Textures/letterblock_whiteletters_dif.png",
 									"$MOD_DATA/Objects/Textures/default_asg.png",
-									"$GAME_DATA/Textures/nonor_nor.png"
+									"$GAME_DATA/Textures/nonor_nor.tga"
 								],
 								"material": "DifAsgNor"
 							}
@@ -792,7 +791,7 @@
 								"textureList": [
 									"$MOD_DATA/Objects/Textures/letterblock_blackletters_dif.png",
 									"$MOD_DATA/Objects/Textures/default_asg.png",
-									"$GAME_DATA/Textures/nonor_nor.png"
+									"$GAME_DATA/Textures/nonor_nor.tga"
 								],
 								"material": "UVAnimDifAsgNor",
 								"custom":
@@ -804,7 +803,7 @@
 								"textureList": [
 									"$MOD_DATA/Objects/Textures/letterblock_blackletters_dif.png",
 									"$MOD_DATA/Objects/Textures/default_asg.png",
-									"$GAME_DATA/Textures/nonor_nor.png"
+									"$GAME_DATA/Textures/nonor_nor.tga"
 								],
 								"material": "DifAsgNor"
 							}
@@ -834,7 +833,7 @@
 								"textureList": [
 									"$MOD_DATA/Objects/Textures/letterblock_paintletters_dif.png",
 									"$MOD_DATA/Objects/Textures/default_asg.png",
-									"$GAME_DATA/Textures/nonor_nor.png"
+									"$GAME_DATA/Textures/nonor_nor.tga"
 								],
 								"material": "UVAnimDifAsgNor",
 								"custom":
@@ -846,7 +845,7 @@
 								"textureList": [
 									"$MOD_DATA/Objects/Textures/letterblock_paintletters_dif.png",
 									"$MOD_DATA/Objects/Textures/default_asg.png",
-									"$GAME_DATA/Textures/nonor_nor.png"
+									"$GAME_DATA/Textures/nonor_nor.tga"
 								],
 								"material": "DifAsgNor"
 							}
@@ -935,7 +934,7 @@
 								"textureList": [
 									"$MOD_DATA/Objects/Textures/WASD_Display_dif.png",
 									"$MOD_DATA/Objects/Textures/WASD_Display_asg.png",
-									"$GAME_DATA/Textures/nonor_nor.png"
+									"$GAME_DATA/Textures/nonor_nor.tga"
 								],
 								"material" : "UVAnimDifAsgNor",
 												"custom":
@@ -977,7 +976,7 @@
 								"textureList": [
 									"$MOD_DATA/Objects/Textures/gymbal_dif.png",
 									"$MOD_DATA/Objects/Textures/gymbal_asg.png",
-									"$GAME_DATA/Textures/nonor_nor.png"
+									"$GAME_DATA/Textures/nonor_nor.tga"
 								],
 								"material" : "SkelAnimDifAsgNor"
 							}
@@ -1011,7 +1010,7 @@
 								"textureList": [
 									"$MOD_DATA/Objects/Textures/Glass_dif.png",
 									"$MOD_DATA/Objects/Textures/Glass_asg.png",
-									"$GAME_DATA/Textures/nonor_nor.png"
+									"$GAME_DATA/Textures/nonor_nor.tga"
 								],
 								"material": "Glass"
 							},
@@ -1019,7 +1018,7 @@
 								"textureList": [
 									"$MOD_DATA/Objects/Textures/UniTex2_dif.png",
 									"$MOD_DATA/Objects/Textures/UniTex_asg.png",
-									"$GAME_DATA/Textures/nonor_nor.png"
+									"$GAME_DATA/Textures/nonor_nor.tga"
 								],
 								"material": "2PoseAnimDifAsgNor"
 							}
@@ -1049,7 +1048,7 @@
 								"textureList": [
 									"$MOD_DATA/Objects/Textures/Glass_dif.png",
 									"$MOD_DATA/Objects/Textures/Glass_asg.png",
-									"$GAME_DATA/Textures/nonor_nor.png"
+									"$GAME_DATA/Textures/nonor_nor.tga"
 								],
 								"material": "Glass"
 							},
@@ -1057,7 +1056,7 @@
 								"textureList": [
 									"$MOD_DATA/Objects/Textures/UniTex2_dif.png",
 									"$MOD_DATA/Objects/Textures/UniTex_asg.png",
-									"$GAME_DATA/Textures/nonor_nor.png"
+									"$GAME_DATA/Textures/nonor_nor.tga"
 								],
 								"material": "2PoseAnimDifAsgNor"
 							}
@@ -1087,7 +1086,7 @@
 								"textureList": [
 									"$MOD_DATA/Objects/Textures/UniTex2_dif.png",
 									"$MOD_DATA/Objects/Textures/UniTex_asg.png",
-									"$GAME_DATA/Textures/nonor_nor.png"
+									"$GAME_DATA/Textures/nonor_nor.tga"
 								],
 								"material" : "SkelAnimDifAsgNor"
 							}
@@ -1148,7 +1147,7 @@
 								"textureList": [
 									"$MOD_DATA/Objects/Textures/UniTex2_dif.png",
 									"$MOD_DATA/Objects/Textures/UniTex_asg.png",
-									"$GAME_DATA/Textures/nonor_nor.png"
+									"$GAME_DATA/Textures/nonor_nor.tga"
 								],
 								"material" : "SkelAnimDifAsgNor"
 							}
@@ -1192,7 +1191,7 @@
 								"textureList": [
 									"$MOD_DATA/Objects/Textures/dynamite_numbers_dif.png",
 									"$MOD_DATA/Objects/Textures/dynamite_numbers_asg.png",
-									"$GAME_DATA/Textures/nonor_nor.png"
+									"$GAME_DATA/Textures/nonor_nor.tga"
 								],
 								"material": "UVAnimDifAsgNor",
 								"custom": { "uv0": { "u": 0.125, "v": 0.076 } }
@@ -1201,7 +1200,7 @@
 								"textureList": [
 									"$MOD_DATA/Objects/Textures/UniTex2_dif.png",
 									"$MOD_DATA/Objects/Textures/UniTex_asg.png",
-									"$GAME_DATA/Textures/nonor_nor.png"
+									"$GAME_DATA/Textures/nonor_nor.tga"
 								],
 								"material": "PoseAnimDifAsgNor"
 							}
@@ -1290,7 +1289,7 @@
 								"textureList":[
 									"$MOD_DATA/Objects/Textures/RadarDisplay_dif.png",
 									"$MOD_DATA/Objects/Textures/RadarDisplay_asg.png",
-									"$GAME_DATA/Textures/nonor_nor.png"
+									"$GAME_DATA/Textures/nonor_nor.tga"
 								],
 								"material":"UVAnimDifAsgNor",
 								"custom": { "uv0": { "u": 0.125, "v": 0.125} }
@@ -1299,7 +1298,7 @@
 								"textureList": [
 									"$MOD_DATA/Objects/Textures/RadarGlassBlack_dif.png",
 									"$MOD_DATA/Objects/Textures/RadarGlass_asg.png",
-									"$GAME_DATA/Textures/nonor_nor.png"
+									"$GAME_DATA/Textures/nonor_nor.tga"
 								],
 								"material": "DifAsgAlphaFlip"
 							},
@@ -1307,7 +1306,7 @@
 								"textureList": [
 									"$MOD_DATA/Objects/Textures/White_dif.png",
 									"$MOD_DATA/Objects/Textures/Glass_asg.png",
-									"$GAME_DATA/Textures/nonor_nor.png"
+									"$GAME_DATA/Textures/nonor_nor.tga"
 								],
 								"material": "Glass"
 							},
@@ -1315,7 +1314,7 @@
 								"textureList":[
 									"$MOD_DATA/Objects/Textures/UniTex2_dif.png",
 									"$MOD_DATA/Objects/Textures/UniTex_asg.png",
-									"$GAME_DATA/Textures/nonor_nor.png"
+									"$GAME_DATA/Textures/nonor_nor.tga"
 								],
 								"material":"3PoseAnimDifAsgNor"
 							}
@@ -1345,7 +1344,7 @@
 								"textureList": [
 									"$MOD_DATA/Objects/Textures/White_dif.png",
 									"$MOD_DATA/Objects/Textures/Glass_asg.png",
-									"$GAME_DATA/Textures/nonor_nor.png"
+									"$GAME_DATA/Textures/nonor_nor.tga"
 								],
 								"material": "Glass"
 							},
@@ -1353,7 +1352,7 @@
 								"textureList": [
 									"$MOD_DATA/Objects/Textures/UniTex2_dif.png",
 									"$MOD_DATA/Objects/Textures/UniTex_asg.png",
-									"$GAME_DATA/Textures/nonor_nor.png"
+									"$GAME_DATA/Textures/nonor_nor.tga"
 								],
 								"material": "DifAsg"
 							}
@@ -1380,7 +1379,7 @@
 								"textureList": [
 									"$MOD_DATA/Objects/Textures/memory_slots_dif.png",
 									"$MOD_DATA/Objects/Textures/memory_slots_asg.png",
-									"$GAME_DATA/Textures/nonor_nor.png"
+									"$GAME_DATA/Textures/nonor_nor.tga"
 								],
 								"material": "UVAnimDifAsgNor",
 								"custom":
@@ -1392,7 +1391,7 @@
 								"textureList": [
 									"$MOD_DATA/Objects/Textures/ps_lights_dif.png",
 									"$MOD_DATA/Objects/Textures/ps_lights_asg.png",
-									"$GAME_DATA/Textures/nonor_nor.png"
+									"$GAME_DATA/Textures/nonor_nor.tga"
 								],
 								"material": "3PoseAnimDifAsgNor"
 							},
