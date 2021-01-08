@@ -326,7 +326,7 @@ end
 function Tacho.client_onTinker(self, character, lookAt)
 	if lookAt then
 		local _curMode = self.modetable[self.mode]
-		if _curMode.name and _curMode.description then
+		if _curMode and _curMode.name and _curMode.description then
 			sm.audio.play("GUI Item released")
 			sm.gui.chatMessage(("[#ffff00X-O-Meter#ffffff] Description of \"#ffff00%s#ffffff\": %s"):format(_curMode.name, _curMode.description))
 		else
@@ -425,9 +425,13 @@ function Tacho.client_onFixedUpdate(self, dt)
 end
 
 function Tacho.client_onInteract(self, character, lookAt)
-	if not lookAt then return end
-	local crouching = sm.localPlayer.getPlayer().character:isCrouching()
-	self.network:sendToServer("server_changemode", crouching)
+	if lookAt then
+		local _L_Interact = character:getLockingInteractable()
+		if _L_Interact == nil then
+			local crouching = character:isCrouching()
+			self.network:sendToServer("server_changemode", crouching)
+		end
+	end
 end
 
 

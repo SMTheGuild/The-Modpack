@@ -36,30 +36,41 @@ local FarmbotDetectorModes = {
 	[27] = {specific = "woc"},
 	[28] = {specific = "glorp"}
 }
---[[
-	that's how you can add your own units into the list
-	function class:server_onCreate()
-		if sm.MODPACK_ORIENT_ADD_UNIT then
-			local name = "test_unit_name"
-			local unit_uuid = "8984bdbf-521e-4eed-b3c4-2b5e287eb879"
-			local is_friendly = true
-			sm.MODPACK_ORIENT_ADD_UNIT(name, unit_uuid, is_friendly)
+
+local _GETALLUNITS = function()
+	return {}
+end
+
+if sm then
+	--[[
+		that's how you can add your own units into the list
+		function class:server_onCreate()
+			if sm.MODPACK_ORIENT_ADD_UNIT then
+				local name = "test_unit_name"
+				local unit_uuid = "8984bdbf-521e-4eed-b3c4-2b5e287eb879"
+				local is_friendly = true
+				sm.MODPACK_ORIENT_ADD_UNIT(name, unit_uuid, is_friendly)
+			end
+		end
+		WARNING: this function can't be used when the script of Orientation Block hasn't been initialized yet
+	]]
+	--this function allows adding unit uuids into The Modpack from any mod since that function is in global table
+	sm.MODPACK_ORIENT_ADD_UNIT = function(name, unit_uuid, is_friendly)
+		local list = (is_friendly and "friendly" or "hostile")
+		if known_mobs[list][name] == nil then
+			known_mobs[list][name] = {}
+		end
+		if known_mobs[list][name][unit_uuid] == nil then
+			known_mobs[list][name][unit_uuid] = true
+			print("[Modpack] Unit \""..unit_uuid.."\" named \""..name.."\" has been successfully added into "..list.." units list!")
 		end
 	end
-	WARNING: this function can't be used when the script of Orientation Block hasn't been initialized yet
-]]
-
---[[
-	this function allows adding unit uuids into The Modpack from any mod since that function is in global table
-]]
-sm.MODPACK_ORIENT_ADD_UNIT = function(name, unit_uuid, is_friendly)
-	local list = (is_friendly and "friendly" or "hostile")
-	if known_mobs[list][name] == nil then
-		known_mobs[list][name] = {}
-	end
-	if known_mobs[list][name][unit_uuid] == nil then
-		known_mobs[list][name][unit_uuid] = true
-		print("[Modpack] Unit \""..unit_uuid.."\" named \""..name.."\" has been successfully added into "..list.." units list!")
+	if sm.unit then
+		if sm.unit.getAllUnits and type(sm.unit.getAllUnits) == "function" then --better than having a function that checks the same stuff but 40 times per second
+			_GETALLUNITS = sm.unit.getAllUnits
+		elseif sm.unit.HACK_getAllUnits_HACK and type(sm.unit.HACK_getAllUnits_HACK) == "function" then
+			_GETALLUNITS = sm.unit.HACK_getAllUnits_HACK
+		end
 	end
 end
 
@@ -126,7 +137,7 @@ function AI.server_init( self )
 		{savevalue = 24, name = "Hostile totebot orient"..usage},
 		{savevalue = 26, name = "Friendly units orient"..usage},
 		{savevalue = 27, name = "Woc orient"..usage},
-		{savevalue = 28, name = "Glow gorp orient"..usage}
+		{savevalue = 28, name = "Glow worm orient"..usage}
 	}
 	--more code here:
 	
@@ -157,9 +168,13 @@ function AI.server_onRefresh( self )
 	self:server_init()
 end
 function AI.client_onInteract(self, character, lookAt)
-	if not lookAt then return end
-	local crouching = sm.localPlayer.getPlayer().character:isCrouching()
-	self.network:sendToServer("server_changemode", crouching)
+	if lookAt then
+		local _L_Interact = character:getLockingInteractable()
+		if _L_Interact == nil then
+			local crouching = character:isCrouching()
+			self.network:sendToServer("server_changemode", crouching)
+		end
+	end
 end
 function AI.client_onTinker(self, character, lookAt)
 	if lookAt then
@@ -253,16 +268,6 @@ function AI.getplayer(self, data)  --self:getplayer({useexceptionlist = false, m
 	return sortedplayers[1].id
 end
 
-function AI.BetterGetAllUnits() --makes farmbot orienter compatible with older versions of the game
-	local f_list = {}
-	if sm.unit.HACK_getAllUnits_HACK then
-		f_list = sm.unit.HACK_getAllUnits_HACK()
-	elseif sm.unit.getAllUnits then
-		f_list = sm.unit.getAllUnits()
-	end
-	return f_list
-end
-
 function AI.TestFarmbotUuid(uuid, data)
 	if data.hostile and data.friendly then
 		for list, val in pairs(known_mobs) do
@@ -302,7 +307,7 @@ function AI.getFarmbot(self, data)
 	local closestvalidid = nil
 	local closestvaliddistance = nil
 
-	for key, farmbot in pairs(self:BetterGetAllUnits()) do
+	for key, farmbot in pairs(_GETALLUNITS()) do
 		if farmbot.character and farmbot.character.worldPosition and (nojammercloseby(farmbot.character.worldPosition) or ignorejammers) then
 			local _fbotUuid = tostring(farmbot.character:getCharacterType())
 			if self.TestFarmbotUuid(_fbotUuid, fbot_data) then
@@ -609,7 +614,7 @@ function AI.server_onFixedUpdate( self, dt )
 		allplayers[player.id] = player
 	end
 	local allunits = {}
-	for k, unit in pairs(self:BetterGetAllUnits()) do
+	for k, unit in pairs(_GETALLUNITS()) do
 		allunits[unit.id] = unit
 	end
 	local parents = self.interactable:getParents()
@@ -1393,7 +1398,9 @@ function AI.client_setUvframeIndex(self, index)
 end
 function AI.client_setPose(self, data)
 	if sm.isServer then return end
-	self.interactable:setPoseWeight(data.pose, data.level)
+	if data.level == data.level then --NaN check
+		self.interactable:setPoseWeight(data.pose, data.level)
+	end
 end
 
 function nojammercloseby(pos)

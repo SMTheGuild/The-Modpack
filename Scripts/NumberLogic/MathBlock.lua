@@ -878,13 +878,6 @@ end
 
 
 function MathBlock.server_changemode(self, crouch)
-	local parents = self.interactable:getParents()
-	for k,v in pairs(parents) do
-		if (v:getType() == "seat" or v:getType() == "steering") and v:isActive() then
-			return 0 -- DENIED
-		end
-	end
-	
     self.mode = (self.mode + (crouch and -1 or 1) - 1 )%#self.modetable + 1
 	self.storage:save(self.modetable[self.mode].value)
 	self:server_senduvtoclient(true)
@@ -902,9 +895,13 @@ function MathBlock.client_onCreate(self)
 end
 
 function MathBlock.client_onInteract(self, character, lookAt)
-	if not lookAt then return end
-	local crouching = sm.localPlayer.getPlayer().character:isCrouching()
-	self.network:sendToServer("server_changemode", crouching)
+	if lookAt then
+		local _L_Interact = character:getLockingInteractable()
+		if _L_Interact == nil then
+			local crouching = character:isCrouching()
+			self.network:sendToServer("server_changemode", crouching)
+		end
+	end
 end
 
 function MathBlock.client_onTinker(self, character, lookAt)

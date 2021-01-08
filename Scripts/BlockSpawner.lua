@@ -1,9 +1,9 @@
 dofile "Libs/Debugger.lua"
 
 -- the following code prevents re-load of this file, except if in '-dev' mode.   
-if BlockSpawner and not sm.isDev then -- increases performance for non '-dev' users.
+--[[if BlockSpawner and not sm.isDev then -- increases performance for non '-dev' users.
 	return
-end 
+end ]]
 dofile("ShapeDatabase.lua")
 
 
@@ -111,44 +111,51 @@ function BlockSpawner.server_onFixedUpdate( self, timeStep )
     local parents = self.interactable:getParents()
     if #parents > 0 then
         for k,v in pairs(parents) do
-            if v:getType() == "scripted" and tostring(v.shape.shapeUuid) ~= "6f2dd83e-bc0d-43f3-8ba5-d5209eb03d07" then -- Number stuff and not tick button
-                if tostring(v.shape.shapeUuid) == "921a2ace-b543-4ca3-8a9b-6f3dd3132fa9" then --colorblock
-                    color = sm.color.new(v.power * 2^8 + 255)
-                elseif tostring(v.shape.shapeUuid) == "4081ca6f-6b80-4c39-9e79-e1f747039bec" then --smart sensor
+            local _pType = v:getType()
+            local _pUuid = tostring(v:getShape():getShapeUuid())
+            local _pSteering = v:hasSteering()
+            if not _pSteering then
+                if _pType == "scripted" and _pUuid ~= "6f2dd83e-bc0d-43f3-8ba5-d5209eb03d07" then -- Number stuff and not tick button
+                    if _pUuid == "921a2ace-b543-4ca3-8a9b-6f3dd3132fa9" then --colorblock
+                        color = sm.color.new(v.power * 2^8 + 255)
+                    elseif _pUuid == "4081ca6f-6b80-4c39-9e79-e1f747039bec" then --smart sensor
+                        if v.active then 
+                            sensorShape = v.shape
+                        end
+                    else
+                        local _pColor = tostring(v:getShape():getColor())
+                        if _pColor == "df7f00ff" then -- 2nd brown
+                            offsetZ = v.power
+                        elseif _pColor == "d02525ff" then -- 2nd red
+                            offsetY = v.power
+                        elseif _pColor == "cf11d2ff" then -- 2nd magenta
+                            offsetX = v.power
+                        elseif _pColor == "eeeeeeff" then -- white
+                            color = sm.color.new(v.power * 2^8 + 255)
+                        elseif _pColor == "472800ff" then -- 4th brown
+                            sizeZ = v.power
+                        elseif _pColor == "560202ff" then -- 4th red
+                            sizeY = v.power
+                        elseif _pColor == "520653ff" then -- 4th magenta
+                            sizeX = v.power
+                        elseif _pColor == "222222ff" then -- black
+                            numericId = round(v.power)
+                        end
+                    end
+                elseif _pType == "sensor" then
                     if v.active then 
                         sensorShape = v.shape
                     end
-                else
-                    if tostring(v:getShape():getColor()) == "df7f00ff" then -- 2nd brown
-                        offsetZ = v.power
-                    elseif tostring(v:getShape():getColor()) == "d02525ff" then -- 2nd red
-                        offsetY = v.power
-                    elseif tostring(v:getShape():getColor()) == "cf11d2ff" then -- 2nd magenta
-                        offsetX = v.power
-                    elseif tostring(v:getShape():getColor()) == "eeeeeeff" then -- white
-                        color = sm.color.new(v.power * 2^8 + 255)
-                    elseif tostring(v:getShape():getColor()) == "472800ff" then -- 4th brown
-                        sizeZ = v.power
-                    elseif tostring(v:getShape():getColor()) == "560202ff" then -- 4th red
-                        sizeY = v.power
-                    elseif tostring(v:getShape():getColor()) == "520653ff" then -- 4th magenta
-                        sizeX = v.power
-                    elseif tostring(v:getShape():getColor()) == "222222ff" then -- black
-                        numericId = round(v.power)
-                    end
-                end
-            elseif v:getType() == "sensor" then
-                if v.active then 
-                    sensorShape = v.shape
-                end
-            else -- Logic
-                if tostring(v:getShape():getColor()) == "7f7f7fff" then -- 2nd grey
-                    dynamic = v.active
-                elseif tostring(v:getShape():getColor()) == "4a4a4aff" then -- 3nd grey
-                    forceSpawn = v.active
-                else
-                    if not wantSpawn and v.active then
-                        wantSpawn = true
+                else -- Logic
+                    local _pColor = tostring(v:getShape():getColor())
+                    if _pColor == "7f7f7fff" then -- 2nd grey
+                        dynamic = v.active
+                    elseif _pColor == "4a4a4aff" then -- 3nd grey
+                        forceSpawn = v.active
+                    else
+                        if not wantSpawn and v.active then
+                            wantSpawn = true
+                        end
                     end
                 end
             end

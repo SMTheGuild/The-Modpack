@@ -71,9 +71,13 @@ function WASDThruster.client_onDestroy(self)
 end
 
 function WASDThruster.client_onInteract(self, character, lookAt)
-	if not lookAt then return end
-	local crouching = sm.localPlayer.getPlayer().character:isCrouching()
-	self.network:sendToServer("server_changemode", crouching)
+	if lookAt then
+		local _L_Interact = character:getLockingInteractable()
+		if _L_Interact == nil then
+			local crouching = character:isCrouching()
+			self.network:sendToServer("server_changemode", crouching)
+		end
+	end
 end
 function WASDThruster.server_changemode(self, crouch)
 	self.smode = (self.smode + (crouch and -1 or 1))%4

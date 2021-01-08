@@ -122,8 +122,12 @@ function CounterBlock.client_resetSound(self)
 end
 
 function CounterBlock.client_onInteract(self, character, lookAt)
-	if not lookAt then return end
-	self.network:sendToServer("server_reset")
+	if lookAt then
+		local _L_Interact = character:getLockingInteractable()
+		if _L_Interact == nil then
+			self.network:sendToServer("server_reset")
+		end
+	end
 end
 
 

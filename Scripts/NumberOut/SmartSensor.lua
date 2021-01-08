@@ -182,9 +182,31 @@ function SmartSensor.client_onCreate(self)
 end
 
 function SmartSensor.client_onInteract(self, character, lookAt)
-	if not lookAt then return end
-	local crouching = sm.localPlayer.getPlayer().character:isCrouching()
-    self.network:sendToServer("server_changemode", crouching)
+	if lookAt then
+		local _L_Interact = character:getLockingInteractable()
+		if _L_Interact == nil then
+			local crouching = character:isCrouching()
+			self.network:sendToServer("server_changemode", crouching)
+		end
+	end
+end
+
+function SmartSensor.client_onTinker(self, character, lookAt)
+	if lookAt then
+		local _curMode = self.modes[self.mode]
+		if _curMode and _curMode.description then
+			sm.audio.play("GUI Item released")
+			sm.gui.chatMessage("[#ffff00Smart Sensor#ffffff] Description of selected function: ".._curMode.description)
+		end
+	end
+end
+
+function SmartSensor.client_canInteract(self, character, lookAt)
+	local _useKey = sm.gui.getKeyBinding("Use")
+	local _tinkerKey = sm.gui.getKeyBinding("Tinker")
+	sm.gui.setInteractionText("Press", _useKey, "to change mode")
+	sm.gui.setInteractionText("Press", _tinkerKey, "to print the description of the current function")
+	return true
 end
 
 function SmartSensor.client_newMode(self, data)

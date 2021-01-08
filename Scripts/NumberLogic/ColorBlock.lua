@@ -102,13 +102,14 @@ function ColorBlock.server_onFixedUpdate( self, dt )
 			local haswhite, hasgrey, hasblack = false, false, false
 			local validcolored = {}
 			for k , v in pairs(parents) do 
-				if tostring(v:getShape().color) == "eeeeeeff" and not haswhite then -- glow
+				local _pColor = tostring(v:getShape():getColor())
+				if _pColor == "eeeeeeff" and not haswhite then -- glow
 					haswhite = true
 					validcolored[v.id] = true
-				elseif tostring(v:getShape().color) == "7f7f7fff" and not hasgrey then -- reflection
+				elseif _pColor == "7f7f7fff" and not hasgrey then -- reflection
 					hasgrey = true
 					validcolored[v.id] = true
-				elseif tostring(v:getShape().color) == "222222ff" and not hasblack then -- specular
+				elseif _pColor == "222222ff" and not hasblack then -- specular
 					hasblack = true
 					validcolored[v.id] = true
 				end
@@ -238,14 +239,16 @@ function ColorBlock.server_onFixedUpdate( self, dt )
 
 	-- temp fix to remove glow/spec/refl
 	for k, v in pairs(parents) do
-		if tostring(v.shape:getShapeUuid()) == "921a2ace-b543-4ca3-8a9b-6f3dd3132fa9" --[[rgb block]] then break end
-		if tostring(v:getShape().color) == "eeeeeeff" then -- glow
+		local _pUuid = tostring(v:getShape():getShapeUuid())
+		if _pUuid == "921a2ace-b543-4ca3-8a9b-6f3dd3132fa9" --[[rgb block]] then break end
+		local _pColor = tostring(v:getShape():getColor())
+		if _pColor == "eeeeeeff" then -- glow
 			v:disconnect(self.interactable)
 			self.network:sendToClients("client_giveError", "glow feature currently not supported untill the devs fix this.")
-		elseif tostring(v:getShape().color) == "7f7f7fff" then -- reflection
+		elseif _pColor == "7f7f7fff" then -- reflection
 			v:disconnect(self.interactable)
 			self.network:sendToClients("client_giveError", "reflection feature currently not supported untill the devs fix this.")
-		elseif tostring(v:getShape().color) == "222222ff" then -- specular
+		elseif _pColor == "222222ff" then -- specular
 			v:disconnect(self.interactable)
 			self.network:sendToClients("client_giveError", "specular feature currently not supported untill the devs fix this.")
 		end

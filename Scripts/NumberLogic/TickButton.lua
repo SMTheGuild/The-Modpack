@@ -34,14 +34,17 @@ function TickButton.server_onFixedUpdate( self, dt )
 	local numberinput = 0
 	local logicactive = false
 	for k, v in pairs(self.interactable:getParents()) do
-		if v:getType() == "scripted" and tostring(v:getShape():getShapeUuid()) ~= "6f2dd83e-bc0d-43f3-8ba5-d5209eb03d07" --[[tickbutton]] then
-			-- number input
-			numberinput = numberinput + math.floor(v.power)
-		elseif v:getType() == "steering" or v:getType() == "seat" then
-			-- nothing, ignore, onInteract handles this.
-		else
-			-- logic input 
-			logicactive = logicactive or v.active
+		local _newSeat = v:hasSteering() or v:hasSeat()
+		if not _newSeat then
+			local _pType = v:getType()
+			local _pUuid = tostring(v:getShape():getShapeUuid())
+			if _pType == "scripted" and _pUuid ~= "6f2dd83e-bc0d-43f3-8ba5-d5209eb03d07" --[[tickbutton]] then
+				-- number input
+				numberinput = numberinput + math.floor(v.power)
+			else
+				-- logic input 
+				logicactive = logicactive or v.active
+			end
 		end
 	end
 	

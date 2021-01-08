@@ -335,14 +335,20 @@ function AsciiBlock.server_changemode(self, crouch)
 	self.network:sendToClients("client_playsound", "GUI Inventory highlight")
 end
 function AsciiBlock.client_onInteract(self, character, lookAt)
-	if not lookAt then return end
-	local crouching = sm.localPlayer.getPlayer().character:isCrouching()
-	self.network:sendToServer("server_changemode", crouching)
+	if lookAt then
+		local _L_Interact = character:getLockingInteractable()
+		if _L_Interact == nil then
+			local crouching = character:isCrouching()
+			self.network:sendToServer("server_changemode", crouching)
+		end
+	end
 end
 
 function AsciiBlock.client_canInteract(self)
-	sm.gui.setInteractionText( "", sm.gui.getKeyBinding( "Use" ), "to cycle forward")
-	sm.gui.setInteractionText( "", sm.gui.getKeyBinding( "Crawl").." + "..sm.gui.getKeyBinding( "Use" ), "to cycle backwards")
+	local _useKey = sm.gui.getKeyBinding("Use")
+	local _crawlKey = sm.gui.getKeyBinding("Crawl")
+	sm.gui.setInteractionText( "", _useKey, "to cycle forward")
+	sm.gui.setInteractionText( "", _crawlKey.." + ".._useKey, "to cycle backwards")
 	return true
 end
 function AsciiBlock.client_playsound(self, sound)
@@ -367,7 +373,6 @@ function AsciiBlock.server_onFixedUpdate( self, dt )
 		if not _sSteering and _pType == "scripted" and _sUuid ~= "6f2dd83e-bc0d-43f3-8ba5-d5209eb03d07" --[[tick button]] then
 			-- number input
 			self.power = self.power + math.floor(v.power)
-			
 		elseif _pType == "button" or _sUuid == "6f2dd83e-bc0d-43f3-8ba5-d5209eb03d07"--[[tick button]] then
 			-- button input
 			if not self.buttonwasactive then
