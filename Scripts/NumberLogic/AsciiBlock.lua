@@ -361,18 +361,22 @@ function AsciiBlock.server_onFixedUpdate( self, dt )
 	end
 	
 	for k, v in pairs(parents) do
-		if v:getType() == "scripted" and tostring(v:getShape():getShapeUuid()) ~= "6f2dd83e-bc0d-43f3-8ba5-d5209eb03d07" --[[tick button]] then
+		local _sSteering = v:hasSteering()
+		local _sUuid = tostring(v:getShape():getShapeUuid())
+		local _pType = v:getType()
+		if not _sSteering and _pType == "scripted" and _sUuid ~= "6f2dd83e-bc0d-43f3-8ba5-d5209eb03d07" --[[tick button]] then
 			-- number input
 			self.power = self.power + math.floor(v.power)
 			
-		elseif v:getType() == "button" or tostring(v:getShape():getShapeUuid()) == "6f2dd83e-bc0d-43f3-8ba5-d5209eb03d07"--[[tick button]] then
+		elseif _pType == "button" or _sUuid == "6f2dd83e-bc0d-43f3-8ba5-d5209eb03d07"--[[tick button]] then
 			-- button input
 			if not self.buttonwasactive then
 				buttoncycle = buttoncycle * -1
 				if v:isActive() then
-					if tostring(sm.shape.getColor(v:getShape())) == "eeeeeeff" then 
+					local _sColor = tostring(v:getShape():getColor())
+					if _sColor == "eeeeeeff" then 
 						buttonpower = buttonpower + 1
-					elseif tostring(sm.shape.getColor(v:getShape())) == "222222ff" then 
+					elseif _sColor == "222222ff" then 
 						buttonpower = buttonpower - 1
 					else
 						buttonpower = buttonpower + buttoncycle

@@ -34,22 +34,23 @@ function SmartTimer.server_onFixedUpdate( self, timeStep )
     -- Reads the outputs of the parents to use as parameters for the timer
     local parents = self.interactable:getParents()
     for k,v in pairs(parents) do
+        local _pColor = tostring(v:getShape():getColor())
         if v:getType() == "scripted" and tostring(v:getShape():getShapeUuid()) ~= "6f2dd83e-bc0d-43f3-8ba5-d5209eb03d07" --[[tickbutton]] then
             -- number
-            if tostring(v:getShape():getColor()) == "eeeeeeff" or -- white
-               tostring(v:getShape():getColor()) == "222222ff" then -- black
+            if _pColor == "eeeeeeff" or -- white
+            _pColor == "222222ff" then -- black
                 delay = (delay or 0) + math.ceil(v.power)
             else
                 input = input + (sm.interactable.getValue(v) or v.power)
             end
         else
             --logic input
-            if tostring(v:getShape():getColor()) == "eeeeeeff" then -- white 
+            if _pColor == "eeeeeeff" then -- white 
                 clear = clear or v.active
-            elseif tostring(v:getShape():getColor()) == "222222ff" then -- black
+            elseif _pColor == "222222ff" then -- black
                 tick = tick or v.active
-            elseif tostring(v:getShape():getColor()) == "7f7f7fff" or -- light grey
-                   tostring(v:getShape():getColor()) == "4a4a4aff" then -- dark grey
+            elseif _pColor == "7f7f7fff" or -- light grey
+            _pColor == "4a4a4aff" then -- dark grey
                 -- Reserved for future use
 			else
 				input = input + (v.active and 1 or 0)
@@ -148,22 +149,23 @@ function SmartTimer.client_onFixedUpdate( self, timeStep )
     -- Reads the outputs of the parents to use as parameters for the timer
     local parents = self.interactable:getParents()
     for k,v in pairs(parents) do
-        if v:getType() == "scripted" and tostring(v:getShape():getShapeUuid()) ~= "6f2dd83e-bc0d-43f3-8ba5-d5209eb03d07" --[[tickbutton]] then
+        local _pColor = tostring(v:getShape():getColor())
+        if not v:hasSteering() and v:getType() == "scripted" and tostring(v:getShape():getShapeUuid()) ~= "6f2dd83e-bc0d-43f3-8ba5-d5209eb03d07" --[[tickbutton]] then
             -- number
-            if tostring(v:getShape():getColor()) == "eeeeeeff" or -- white
-               tostring(v:getShape():getColor()) == "222222ff" then -- black
+            if _pColor == "eeeeeeff" or -- white
+            _pColor == "222222ff" then -- black
                 delay = (delay or 0) + math.ceil(v.power)
             else
                 input = input + (sm.interactable.getValue(v) or v.power)
             end
         else
             --logic input
-            if tostring(v:getShape():getColor()) == "eeeeeeff" then -- white 
+            if _pColor == "eeeeeeff" then -- white 
                 clear = clear or v.active
-            elseif tostring(v:getShape():getColor()) == "222222ff" then -- black
+            elseif _pColor == "222222ff" then -- black
                 tick = tick or v.active
-			elseif tostring(v:getShape():getColor()) == "7f7f7fff" or -- light grey
-                   tostring(v:getShape():getColor()) == "4a4a4aff" then -- dark grey
+			elseif _pColor == "7f7f7fff" or -- light grey
+            _pColor == "4a4a4aff" then -- dark grey
                 -- Reserved for future use
 			else
 				input = input + (v.active and 1 or 0)

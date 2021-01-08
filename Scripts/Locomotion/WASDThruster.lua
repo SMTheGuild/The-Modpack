@@ -50,6 +50,7 @@ end
 
 function WASDThruster.client_onCreate(self)
 	self.shootEffect = sm.effect.createEffect( "Thruster - Level 2", self.interactable )
+	self.shootEffect:setOffsetPosition(sm.vec3.zero())
 	self.parentHPose = 0.5
 	self.prevparentHPose = 0.5
 	self.parentVPose = 0.5
@@ -87,7 +88,9 @@ function WASDThruster.client_mode(self, mode)
 	self.mode = mode
 end
 function WASDThruster.client_canInteract(self)
-	sm.gui.setInteractionText( "press", sm.gui.getKeyBinding( "Use" ), "to change mode")
+	local _useKey = sm.gui.getKeyBinding("Use")
+	local _crawlKey = sm.gui.getKeyBinding("Crawl")
+	sm.gui.setInteractionText("Press", _useKey, " / ", _crawlKey.." + ".._useKey, "to change mode")
 	sm.gui.setInteractionText( "current mode: ".. self.modes[self.mode+1])
 	return true
 end
@@ -103,13 +106,14 @@ function WASDThruster.client_onFixedUpdate(self, dt)
 	local ad = nil
 	local ws = nil
 	for k,v in pairs(parents) do
-		local typeparent = v:getType()
-		if tostring(v:getShape():getShapeUuid()) == "289e08ef-e3d8-4f1b-bc10-a0bcf36fa0ce" and v:getUvFrameIndex()%128 == 30 then
+		local _pType = v:getType()
+		local _pUuid = tostring(v:getShape():getShapeUuid())
+		if _pUuid == "289e08ef-e3d8-4f1b-bc10-a0bcf36fa0ce" and v:getUvFrameIndex()%128 == 30 then
 			ad = v.power
-		elseif tostring(v:getShape():getShapeUuid()) == "289e08ef-e3d8-4f1b-bc10-a0bcf36fa0ce" and v:getUvFrameIndex()%128 == 31 then
+		elseif _pUuid == "289e08ef-e3d8-4f1b-bc10-a0bcf36fa0ce" and v:getUvFrameIndex()%128 == 31 then
 			ws = v.power
-		elseif  v:getType() == "scripted" and tostring(v:getShape():getShapeUuid()) ~= "6f2dd83e-bc0d-43f3-8ba5-d5209eb03d07" --[[tickbutton]] 
-			and tostring(v:getShape():getShapeUuid()) ~= "ccaa33b6-e5bb-4edc-9329-b40f6efe2c9e" --[[orient block]] then
+		elseif not v:hasSteering() and  _pType == "scripted" and _pUuid ~= "6f2dd83e-bc0d-43f3-8ba5-d5209eb03d07" --[[tickbutton]] 
+			and _pUuid ~= "ccaa33b6-e5bb-4edc-9329-b40f6efe2c9e" --[[orient block]] then
 			-- number
 			if v.power ~= math.huge and v.power ~= 0-math.huge and math.abs(v.power) >= 0 then
 				if not hasnumber then power = 1 end
@@ -117,19 +121,20 @@ function WASDThruster.client_onFixedUpdate(self, dt)
 				hasnumber = true
 			end
 			canfire = 1
-		elseif v:getType() == "steering" then
+		elseif _pType == "steering" or v:hasSteering() then
+			local _isOldSeat = (_pType == "steering")
 			if self.mode == 0 then
 				self.parentVPose = (v.power * -1/2)+0.5
-				self.parentHPose = v:getPoseWeight(0)
+				self.parentHPose = _isOldSeat and v:getPoseWeight(0) or v:getSteeringAngle() + 0.5
 			elseif self.mode == 1 then
 				self.parentVPose = (v.power * 1/2)+0.5
-				self.parentHPose = v:getPoseWeight(0)
+				self.parentHPose = _isOldSeat and v:getPoseWeight(0) or v:getSteeringAngle() + 0.5
 			elseif self.mode == 2 then
 				self.parentVPose = (v.power * 1/2)+0.5
 				self.parentHPose = 0.5
 			elseif self.mode == 3 then
 				self.parentVPose = 0.5
-				self.parentHPose = v:getPoseWeight(0)
+				self.parentHPose = _isOldSeat and v:getPoseWeight(0) or v:getSteeringAngle() + 0.5
 			end
 			
 			if self.parentHPose > 0.5 and not (self.parentHPose < self.prevparentHPose) and self.currentHPose < 1 then -- D
@@ -150,7 +155,7 @@ function WASDThruster.client_onFixedUpdate(self, dt)
 				if self.currentVPose > 0.5001 then self.currentVPose = self.currentVPose - self.stepSize end
 			end
 	
-		elseif tostring(v:getShape():getShapeUuid()) == "ccaa33b6-e5bb-4edc-9329-b40f6efe2c9e" then
+		elseif _pUuid == "ccaa33b6-e5bb-4edc-9329-b40f6efe2c9e" then
 			if self.mode == 0 then
 				self.parentVPose = (v.power *6 * -1/2)+0.5
 				self.parentHPose = (v:getPoseWeight(0)-0.5)*6+0.5
@@ -206,7 +211,7 @@ function WASDThruster.client_onFixedUpdate(self, dt)
 	--rotation particle(next patch):
 	local worldRot = sm.vec3.getRotation( getLocal(self.shape,sm.shape.getUp(self.shape)),self.direction)
 	self.shootEffect:setOffsetRotation(worldRot)
-	self.shootEffect:setOffsetPosition((-sm.vec3.new(0,0,1.25)+self.direction)*0.36)
+	--self.shootEffect:setOffsetPosition((-sm.vec3.new(0,0,1.25)+self.direction)*0.36) --old calculations
 	if self.power > 0 then
 		if not self.shootEffect:isPlaying() then
 		self.shootEffect:start() end

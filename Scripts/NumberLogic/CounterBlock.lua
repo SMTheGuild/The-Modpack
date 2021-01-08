@@ -111,7 +111,14 @@ end
 
 
 function CounterBlock.server_reset(self)
+	if self.power > 0 then
+		self.network:sendToClients("client_resetSound")
+	end
 	self.power = 0
+end
+
+function CounterBlock.client_resetSound(self)
+	sm.audio.play("GUI Item drag", self.shape:getWorldPosition())
 end
 
 function CounterBlock.client_onInteract(self, character, lookAt)
@@ -123,6 +130,12 @@ end
 function CounterBlock.client_onCreate(self, dt)
 	self.frameindex = 0
 	self.lastpower = 0
+end
+
+function CounterBlock.client_canInteract(self)
+	local _useKey = sm.gui.getKeyBinding("Use")
+	sm.gui.setInteractionText("Press", _useKey, "to reset counter")
+	return true
 end
 
 function CounterBlock.client_onFixedUpdate(self, dt)

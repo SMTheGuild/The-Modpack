@@ -1,6 +1,6 @@
 dofile "Libs/Debugger.lua"
 
--- the following code prevents re-load of this file, except if in '-dev' mode.  -- fixes broken sh*t by devs.
+-- the following code prevents re-load of this file, except if in '-dev' mode.   
 if BlockSpawner and not sm.isDev then -- increases performance for non '-dev' users.
 	return
 end 
@@ -22,17 +22,11 @@ BlockSpawner.poseWeightCount = 3
 
 BlockSpawner.measureDistance = 20
 
-local lastUsagePrint = lastUsagePrint or os.clock()
---if sm.game.getCurrentTick() == 1 then
---    print(os.clock())
---end
-
 --[[
     -----------Logic signal-------------
     Any logic         = Spawn block/part
     2nd grey          = dynamic
     3rd grey          = forceSpawn
-    black             = absolute position
 
     -----------Number signals-----------
     2nd brown         = offsetZ
@@ -74,7 +68,6 @@ function BlockSpawner.printDescription()
     "Any logic             = Spawn block/part            \n"..
     "2nd grey             = dynamic                      \n"..
     "3rd grey              = forceSpawn                  \n"..
-    "black                   = absolute position         \n"..
     "---------------Number signals------------------     \n"..
     "2nd brown          = offsetZ                        \n"..
     "2nd red              = offsetY                      \n"..
@@ -88,10 +81,7 @@ function BlockSpawner.printDescription()
     "1 tick signal with a delay of 2 ticks if the block is spawned.\n"..
     "Can cause a false positive when there is lag present.\n"..
     "---------------------------------------------------------"
-    if lastUsagePrint + 5 < os.clock() then
-        print(message)
-        lastUsagePrint = os.clock()
-    end
+    print(message)
 end
 
 function BlockSpawner.server_onFixedUpdate( self, timeStep )
@@ -112,7 +102,6 @@ function BlockSpawner.server_onFixedUpdate( self, timeStep )
     local sizeZ = 1
     local dynamic = true
     local forceSpawn = false
-    local absolutePosition = false
     local sensorShape = nil
 
     
@@ -157,8 +146,6 @@ function BlockSpawner.server_onFixedUpdate( self, timeStep )
                     dynamic = v.active
                 elseif tostring(v:getShape():getColor()) == "4a4a4aff" then -- 3nd grey
                     forceSpawn = v.active
-                elseif tostring(v:getShape():getColor()) == "222222ff" then -- black
-                    absolutePosition = v.active
                 else
                     if not wantSpawn and v.active then
                         wantSpawn = true
@@ -228,50 +215,25 @@ function BlockSpawner.server_onFixedUpdate( self, timeStep )
             -- Calculate rotation
             rotation = self.shape.worldRotation * sm.quat.new(0, 0.70710678118, 0.70710678118, 0)   --sm.quat.lookRotation(-self.shape.up, self.shape.at)
             
-            local succes, spawnedShape = nil, nil
+            -- Spawn block
+            local succes, spawnedShape = pcall(sm.shape.createBlock,
+                uuid,
+                sm.vec3.new(sizeX, sizeY, sizeZ),
+                self.shape:getWorldPosition() + rotation * sm.vec3.new(offsetX-0.5, offsetY-1, offsetZ-0.5) * 0.25,
+                rotation,
+                dynamic,
+                forceSpawn
+            )
             
-            if absolutePosition then
-                -- Spawn block
-                succes, spawnedShape = pcall(sm.shape.createBlock,
+            -- If the UUID is not a block, it must be a part.
+            if not succes then
+                succes, spawnedShape = pcall(sm.shape.createPart,
                     uuid,
-                    sm.vec3.new(sizeX, sizeY, sizeZ),
-                    sm.vec3.new(offsetX, offsetY, offsetZ),
-                    sm.quat.identity(),
-                    dynamic,
-                    forceSpawn
-                )
-                
-                -- If the UUID is not a block, it must be a part.
-                if not succes then
-                    succes, spawnedShape = pcall(sm.shape.createPart,
-                        uuid,
-                        sm.vec3.new(offsetX, offsetY, offsetZ),
-                        sm.quat.identity(),
-                        dynamic,
-                        forceSpawn
-                    )
-                end
-            else
-                -- Spawn block
-                succes, spawnedShape = pcall(sm.shape.createBlock,
-                    uuid,
-                    sm.vec3.new(sizeX, sizeY, sizeZ),
-                    self.shape:getWorldPosition() + rotation * sm.vec3.new(offsetX-0.5, offsetY-1, offsetZ-0.5) * 0.25,
+                    self.shape:getWorldPosition() + rotation * sm.vec3.new(offsetX-0, offsetY-0.5, offsetZ-0.5) * 0.25,
                     rotation,
                     dynamic,
                     forceSpawn
                 )
-                
-                -- If the UUID is not a block, it must be a part.
-                if not succes then
-                    succes, spawnedShape = pcall(sm.shape.createPart,
-                        uuid,
-                        self.shape:getWorldPosition() + rotation * sm.vec3.new(offsetX-0.5, offsetY-1, offsetZ-0.5) * 0.25,
-                        rotation,
-                        dynamic,
-                        forceSpawn
-                    )
-                end
             end
             
             if succes and color then -- Set the color of the spawned shape

@@ -314,10 +314,30 @@ function Tacho.server_sendModeToClient(self)
 end
 
 
+function Tacho.client_canInteract(self)
+	local _useKey = sm.gui.getKeyBinding("Use")
+	local _tinkerKey = sm.gui.getKeyBinding("Tinker")
+	local _crawlKey = sm.gui.getKeyBinding("Crawl")
+	sm.gui.setInteractionText("Press", _useKey, " / ", _crawlKey.." + ".._useKey, "to cycle forwards / backwards")
+	sm.gui.setInteractionText("Press", _tinkerKey, "to print the description of the selected function")
+	return true
+end
 
+function Tacho.client_onTinker(self, character, lookAt)
+	if lookAt then
+		local _curMode = self.modetable[self.mode]
+		if _curMode.name and _curMode.description then
+			sm.audio.play("GUI Item released")
+			sm.gui.chatMessage(("[#ffff00X-O-Meter#ffffff] Description of \"#ffff00%s#ffffff\": %s"):format(_curMode.name, _curMode.description))
+		else
+			sm.gui.chatMessage("[#ffff00X-O-Meter#ffffff] #ff0000ERROR#ffffff: Couldn't get the name or description of the selected function")
+		end
+	end
+end
 
 function Tacho.client_newMode(self, mode)
 	self.mode_client = mode
+	sm.audio.play("GUI Item drag", self.shape:getWorldPosition())
 end
 
 function Tacho.client_onCreate(self)

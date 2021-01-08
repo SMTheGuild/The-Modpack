@@ -188,10 +188,15 @@ function WirelessBlock.client_onFixedUpdate(self, dt)
 	
 	
 	for k, v in pairs(parents) do
-		if v:getType() == "steering" or tostring(v:getShape():getShapeUuid()) == "ccaa33b6-e5bb-4edc-9329-b40f6efe2c9e" --[[orienter]] then
+		local _isOldSeat = (v:getType() == "steering")
+		if v:hasSteering() or _isOldSeat or tostring(v:getShape():getShapeUuid()) == "ccaa33b6-e5bb-4edc-9329-b40f6efe2c9e" --[[orienter]] then
 			-- pose
-			local success, result = pcall(sm.interactable.getPoseWeight, v, 0)
-			pose = pose + ((success and result or 0)*2 -1) -- convert 0-1 to -1 ~ +1
+			if _isOldSeat then
+				local success, result = pcall(sm.interactable.getPoseWeight, v, 0)
+				pose = pose + ((success and result or 0)*2 -1) -- convert 0-1 to -1 ~ +1
+			elseif v:hasSteering() then
+				pose = pose + v:getSteeringAngle()
+			end
 			power = power + (sm.interactable.getValue(v) or v.power)
 		
 			sendsstuff = true
@@ -299,6 +304,7 @@ end
 
 function WirelessBlock.client_changeMode(self, mode)
 	self.IsSender_client = mode
+	sm.audio.play("Button on", self.shape:getWorldPosition())
 end
 
 

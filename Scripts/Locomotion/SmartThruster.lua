@@ -84,7 +84,8 @@ function SmartThruster.client_onUpdate(self, dt) -- 1 tick delayed vs server but
 		if isFlipped ~= self.isFlipped then
 			local rot = sm.vec3.getRotation( sm.vec3.new(0,0,1),sm.vec3.new(0,0, isFlipped and -1 or 1))
 			self.shootEffect:setOffsetRotation(rot)
-			self.shootEffect:setOffsetPosition(sm.vec3.new(0,0, isFlipped and -1 or 0))
+			---self.shootEffect:setOffsetPosition(sm.vec3.new(0,0, isFlipped and -1 or 0)) --old function
+			self.shootEffect:setOffsetPosition(sm.vec3.new(0,0, isFlipped and -0.01 or 0.01))
 		end
 		self.isFlipped = isFlipped
 		

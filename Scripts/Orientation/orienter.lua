@@ -6,6 +6,62 @@ dofile "../Libs/LoadLibs.lua"
 
 mpPrint("loading orienter.lua")
 
+local known_mobs = {
+	hostile = {
+		tapebot = {
+			["04761b4a-a83e-4736-b565-120bc776edb2"] = true,
+			["9dbbd2fb-7726-4e8f-8eb4-0dab228a561d"] = true,
+			["fcb2e8ce-ca94-45e4-a54b-b5acc156170b"] = true,
+			["68d3b2f3-ed4b-4967-9d22-8ee6f555df63"] = true,
+			["c3d31c47-0c9b-4b07-9bd4-8f022dc4333e"] = true
+		},
+		totebot = {["8984bdbf-521e-4eed-b3c4-2b5e287eb879"] = true},
+		haybot = {["c8bfb8f3-7efc-49ac-875a-eb85ac0614db"] = true},
+		farmbot = {["9f4fde94-312f-4417-b13b-84029c5d6b52"] = true}
+	},
+	friendly = {
+		glorp = {["48c03f69-3ec8-454c-8d1a-fa09083363b1"] = true},
+		woc = {["264a563a-e304-430f-a462-9963c77624e9"] = true}
+	}
+}
+
+local FarmbotDetectorModes = {
+	[20] = {hostile = true},
+	[21] = {hostile = true, specific = "farmbot"},
+	[22] = {hostile = true, specific = "tapebot"},
+	[23] = {hostile = true, specific = "haybot"},
+	[24] = {hostile = true, specific = "totebot"},
+	[25] = {hostile = true, friendly = true},
+	[26] = {friendly = true},
+	[27] = {specific = "woc"},
+	[28] = {specific = "glorp"}
+}
+--[[
+	that's how you can add your own units into the list
+	function class:server_onCreate()
+		if sm.MODPACK_ORIENT_ADD_UNIT then
+			local name = "test_unit_name"
+			local unit_uuid = "8984bdbf-521e-4eed-b3c4-2b5e287eb879"
+			local is_friendly = true
+			sm.MODPACK_ORIENT_ADD_UNIT(name, unit_uuid, is_friendly)
+		end
+	end
+	WARNING: this function can't be used when the script of Orientation Block hasn't been initialized yet
+]]
+
+--[[
+	this function allows adding unit uuids into The Modpack from any mod since that function is in global table
+]]
+sm.MODPACK_ORIENT_ADD_UNIT = function(name, unit_uuid, is_friendly)
+	local list = (is_friendly and "friendly" or "hostile")
+	if known_mobs[list][name] == nil then
+		known_mobs[list][name] = {}
+	end
+	if known_mobs[list][name][unit_uuid] == nil then
+		known_mobs[list][name][unit_uuid] = true
+		print("[Modpack] Unit \""..unit_uuid.."\" named \""..name.."\" has been successfully added into "..list.." units list!")
+	end
+end
 
 -- AI.lua --
 AI = class( nil )
@@ -61,6 +117,16 @@ function AI.server_init( self )
 		{savevalue = 18, name = "LOCAL tracker + player orient predictive"..predictiveusage},
 		{savevalue = 16, name = "LOCAL player camera orient"..usage.."\nAn connected occupied seat will overwrite ANY filter settings"},--
 		{savevalue = 19, name = "LOCAL player camera orient predictive"..predictiveusage.."\nAn connected occupied seat will overwrite ANY filter settings"},
+
+		{savevalue = 25, name = "All units orient"..usage},
+		{savevalue = 20, name = "Hostile units orient"..usage},
+		{savevalue = 21, name = "Hostile farmbot orient"..usage},
+		{savevalue = 22, name = "Hostile tapebot orient"..usage},
+		{savevalue = 23, name = "Hostile haybot orient"..usage},
+		{savevalue = 24, name = "Hostile totebot orient"..usage},
+		{savevalue = 26, name = "Friendly units orient"..usage},
+		{savevalue = 27, name = "Woc orient"..usage},
+		{savevalue = 28, name = "Glow gorp orient"..usage}
 	}
 	--more code here:
 	
@@ -68,7 +134,6 @@ function AI.server_init( self )
 	for k,v in pairs(self.modetable) do
 	   savemodes[v.savevalue]=k
 	end
-	
 	
 	local stored = self.storage:load()
 	if stored and type(stored) == "number" then
@@ -96,6 +161,17 @@ function AI.client_onInteract(self, character, lookAt)
 	local crouching = sm.localPlayer.getPlayer().character:isCrouching()
 	self.network:sendToServer("server_changemode", crouching)
 end
+function AI.client_onTinker(self, character, lookAt)
+	if lookAt then
+		local _curMode = self.modetable[self.mode]
+		if _curMode.name then
+			sm.gui.chatMessage(("[#ffff00Orient Block#ffffff] Description of the selected function: %s"):format(_curMode.name))
+			sm.audio.play("GUI Item released")
+		else
+			sm.gui.chatMessage("[#ffff00Orient Block#ffffff] #ff0000ERROR#ffffff: Couldn't get the description of the selected function")
+		end
+	end
+end
 function AI.server_changemode(self, crouch)
 	if not crouch then
 		self.mode = (self.mode)%#self.modetable + 1
@@ -104,12 +180,15 @@ function AI.server_changemode(self, crouch)
 	end
 	self.storage:save(self.modetable[self.mode].savevalue)
 	--print(self.modetable[self.mode].name)
-	self.network:sendToClients("client_playsound", "GUI Inventory highlight")
+	self.network:sendToClients("client_playsound", "GUI Item drag")
 end
 
 function AI.client_canInteract(self)
-	sm.gui.setInteractionText( "press", sm.gui.getKeyBinding( "Use" ), "to change mode")
-	--sm.gui.setInteractionText( "current mode: "..self.modetable[self.mode].name)
+	local _useKey = sm.gui.getKeyBinding("Use")
+	local _tinkerKey = sm.gui.getKeyBinding("Tinker")
+	local _crawlKey = sm.gui.getKeyBinding("Crawl")
+	sm.gui.setInteractionText("Press", _useKey, " / ", _crawlKey.." + ".._useKey, "to cycle forwards / backwards")
+	sm.gui.setInteractionText("Press", _tinkerKey, "to print the description of the selected function")
 	return true
 end
 
@@ -172,6 +251,95 @@ function AI.getplayer(self, data)  --self:getplayer({useexceptionlist = false, m
 		return sortedplayers[offset].id
 	end
 	return sortedplayers[1].id
+end
+
+function AI.BetterGetAllUnits() --makes farmbot orienter compatible with older versions of the game
+	local f_list = {}
+	if sm.unit.HACK_getAllUnits_HACK then
+		f_list = sm.unit.HACK_getAllUnits_HACK()
+	elseif sm.unit.getAllUnits then
+		f_list = sm.unit.getAllUnits()
+	end
+	return f_list
+end
+
+function AI.TestFarmbotUuid(uuid, data)
+	if data.hostile and data.friendly then
+		for list, val in pairs(known_mobs) do
+			for k, v in pairs(known_mobs[list]) do
+				if v[uuid] then return true end
+			end
+		end
+	else
+		local list = (data.hostile and "hostile" or "friendly")
+		local c_tab = known_mobs[list]
+		if data.specific then
+			if c_tab[data.specific] then
+				c_tab = c_tab[data.specific]
+			end
+			return (c_tab[uuid] ~= nil)
+		else
+			for k, v in pairs(c_tab) do
+				if v[uuid] then return true end
+			end
+		end
+	end
+	
+	return false
+end
+
+function AI.getFarmbot(self, data)
+	local centerpos = data.centerpos or self.shape:getWorldPosition()
+	local minrange = data.minrange or 0
+	local maxrange = data.maxrange or 10000000
+	local offset = data.offset or 1
+	local tryid = data.tryid
+	local ignorejammers = data.ignorejammers
+	local fbot_data = data.fbot_data
+	
+	
+	local validfarmbots = {}
+	local closestvalidid = nil
+	local closestvaliddistance = nil
+
+	for key, farmbot in pairs(self:BetterGetAllUnits()) do
+		if farmbot.character and farmbot.character.worldPosition and (nojammercloseby(farmbot.character.worldPosition) or ignorejammers) then
+			local _fbotUuid = tostring(farmbot.character:getCharacterType())
+			if self.TestFarmbotUuid(_fbotUuid, fbot_data) then
+				local distance = (centerpos - farmbot.character.worldPosition):length()
+				if distance >= minrange and distance < maxrange then
+					if farmbot.id == tryid then return data.tryid end
+					if not closestvalidid or closestvaliddistance > distance then
+						closestvalidid = farmbot.id
+						closestvaliddistance = distance
+					end
+					table.insert(validfarmbots, farmbot)
+				end
+			end
+		end
+	end
+	
+	if closestvalidid == nil then return 0 end
+	if offset == 1 or #validplayers == 1 then return closestvalidid end
+	
+	local sortedfarmbots = validfarmbots
+	for i = 1, #sortedfarmbots do
+		for j = i, #sortedfarmbots do
+			local farmbot = sortedfarmbots[i]
+			local farmbot2 = sortedfarmbots[j]
+			if (centerpos - farmbot.character.worldPosition):length() > (centerpos - farmbot2.character.worldPosition):length() then
+				sortedfarmbots[i] = farmbot
+				sortedfarmbots[j] = farmbot2
+			end
+		end
+	end
+
+	offset = math.max(math.min(offset, #sortedfarmbots), -#sortedfarmbots)
+	if offset and offset ~= 0 and offset <= #sortedfarmbots and offset >= -#sortedfarmbots then
+		if offset < 0 then offset = offset + 1 + #sortedfarmbots end
+		return sortedfarmbots[offset].id
+	end
+	return sortedfarmbots[1].id
 end
 function AI.gettracker(self, data)  --self:gettracker({minrange = nil, maxrange = nil, offset = 1, frequency = 0, ignorejammers = false})
 	local centerpos = self.shape:getWorldPosition()
@@ -440,6 +608,10 @@ function AI.server_onFixedUpdate( self, dt )
 	for k, player in pairs(sm.player.getAllPlayers()) do
 		allplayers[player.id] = player
 	end
+	local allunits = {}
+	for k, unit in pairs(self:BetterGetAllUnits()) do
+		allunits[unit.id] = unit
+	end
 	local parents = self.interactable:getParents()
 	local eye = self
 	local targetposition = nil
@@ -459,18 +631,22 @@ function AI.server_onFixedUpdate( self, dt )
 	local occupied = nil
 	--print(os.clock())
 	for k,v in pairs(parents) do
-		if tostring(sm.shape.getColor(v:getShape())) == "eeeeeeff" and v:getType() == "scripted" and tostring(v:getShape():getShapeUuid()) ~= "6f2dd83e-bc0d-43f3-8ba5-d5209eb03d07" then
+		local _pType = v:getType()
+		local _pUuid = tostring(v:getShape():getShapeUuid())
+		local _pColor = tostring(v:getShape():getColor())
+		local _pSteering = v:hasSteering()
+		if not _pSteering and _pColor == "eeeeeeff" and _pType == "scripted" and _pUuid ~= "6f2dd83e-bc0d-43f3-8ba5-d5209eb03d07" then
 			if whiteinput == nil then whiteinput = 0 end
 			whiteinput = whiteinput + v.power
-		elseif tostring(sm.shape.getColor(v:getShape())) == "222222ff" and v:getType() == "scripted" then
+		elseif _pColor == "222222ff" and _pType == "scripted" then
 			if blackinput == nil then blackinput = 0 end
 			blackinput = blackinput + v.power
-		elseif tostring(sm.shape.getColor(v:getShape())) == "7f7f7fff" and v:getType() == "scripted" then
+		elseif _pColor == "7f7f7fff" and _pType == "scripted" then
 			damping = (damping and damping or 0) + v.power
-		elseif tostring(sm.shape.getColor(v:getShape())) == "4a4a4aff" and v:getType() == "scripted" then
+		elseif _pColor == "4a4a4aff" and _pType == "scripted" then
 			lead = (lead and lead or 0) + v.power
 			
-		elseif v:getType() == "scripted" and tostring(v:getShape():getShapeUuid()) ~= "6f2dd83e-bc0d-43f3-8ba5-d5209eb03d07" then
+		elseif not _pSteering and _pType == "scripted" and _pUuid ~= "6f2dd83e-bc0d-43f3-8ba5-d5209eb03d07" then
 		--number input, not tickbutton
 			if maxrange == math.huge then maxrange = 0 end
 			if minrange == math.huge*-1 and numberinputs > 0 then minrange = 10000000 end
@@ -484,11 +660,11 @@ function AI.server_onFixedUpdate( self, dt )
 			if math.abs(v.power)/4 > maxrange then maxrange = math.abs(v.power)/4 end	
 			numberinputs = numberinputs + 1
 			
-		elseif v:getType() == "seat" or v:getType() == "steering" then
+		elseif _pSteering or _pType == "seat" or _pType == "steering" then
 			--seat
 			occupied = ( (occupied == nil or occupied) and v.active)
 			
-		elseif tostring(sm.shape.getColor(v:getShape())) == "eeeeeeff" and (v:getType() ~= "scripted" or tostring(v:getShape():getShapeUuid()) == "6f2dd83e-bc0d-43f3-8ba5-d5209eb03d07") then
+		elseif _pColor == "eeeeeeff" and (_pType ~= "scripted" or _pUuid == "6f2dd83e-bc0d-43f3-8ba5-d5209eb03d07") then
 			-- exceptionlist input 
 			if v:isActive() then
 				if not self.pressed then
@@ -504,9 +680,9 @@ function AI.server_onFixedUpdate( self, dt )
 				self.pressed = false
 			end
 			
-		elseif v:getType() ~= "scripted" then
+		elseif _pType ~= "scripted" then
 			-- logic input
-			if not (tostring(v:getShape():getShapeUuid()) == "add3acc6-a6fd-44e8-a384-a7a16ce13c81" or tostring(v:getShape():getShapeUuid()) == "4081ca6f-6b80-4c39-9e79-e1f747039bec") then
+			if not (_pUuid == "add3acc6-a6fd-44e8-a384-a7a16ce13c81" or _pUuid == "4081ca6f-6b80-4c39-9e79-e1f747039bec") then
 				-- do not turn on/off when sensor input, sensor input can be used as new 'eye'
 				isON = ( (isON == nil or isON) and v.power ~= 0)
 			end
@@ -535,15 +711,41 @@ function AI.server_onFixedUpdate( self, dt )
 	local mode = self.modetable[self.mode].savevalue
 	
 	local localmode = false
-	if mode > 11 then -- not future proof, when modes added this number needs to grow
+	if mode > 11 and mode < 20 then -- not future proof, when modes added this number needs to grow
 		localmode = true
 		if mode > 16 then mode = mode +1 end -- distance doens't have a localmode, skip it
 		mode = mode - 9 -- 2 first modes do not have a 'local' mode, they're already local
 		-- mode '12' -> 11-7 = 3--> player orient local 
 	end
 	
-	
-	if mode == 1 then  -- orient world aka gyro aka tilt sensor
+	if (mode >= 20 and mode <= 28) then
+		local id = self:getFarmbot({useexceptionlist = true, minrange = minrange, maxrange = maxrange, offset = blackinput, tryid = whiteinput, fbot_data = FarmbotDetectorModes[mode]})
+		if id ~= 0 and isON then
+			for k, v in pairs(parents) do
+				local _sUuid = tostring(v:getShape():getShapeUuid())
+				if (_sUuid == "add3acc6-a6fd-44e8-a384-a7a16ce13c81" or _sUuid == "4081ca6f-6b80-4c39-9e79-e1f747039bec") then
+					eye = v -- sensor or smartsensor
+				end
+			end
+			targetposition = allunits[id].character.worldPosition
+			targetmass = allunits[id].character.mass
+			targetdir = allunits[id].character.direction
+
+			local targetdirection = (allunits[id].character.worldPosition - self.shape.worldPosition):normalize()
+			local distance = (allunits[id].character.worldPosition - self.shape.worldPosition):length()
+
+			local pitch, yaw = 0, 0
+			pitch, yaw = self:calcpitchandyaw({direction = eye, targetdirection = targetdirection})
+
+			self.pitch = pitch
+			self.yaw = yaw
+			self.pose1 = ((1/(4*distance)) and 1/(4*distance) or 1)
+		else
+			self.pitch = 0
+			self.yaw = 0
+			self.pose1 = 1
+		end
+	elseif mode == 1 then  -- orient world aka gyro aka tilt sensor
 		--local pitch, yaw = self:calcpitchandyawlocal(sm.vec3.new(0,0,-1))
 		local localX = -sm.shape.getRight(self.shape) -- right side
 		local localY = -sm.shape.getAt(self.shape)-- up
@@ -634,7 +836,8 @@ function AI.server_onFixedUpdate( self, dt )
 		local id = self:getplayer({useexceptionlist = true, minrange = minrange, maxrange = maxrange, offset = blackinput, tryid = whiteinput})
 		if id ~= 0 and isON then
 			for k, v in pairs(parents) do
-				if (tostring(v:getShape():getShapeUuid()) == "add3acc6-a6fd-44e8-a384-a7a16ce13c81" or tostring(v:getShape():getShapeUuid()) == "4081ca6f-6b80-4c39-9e79-e1f747039bec") then
+				local _sUuid = tostring(v:getShape():getShapeUuid())
+				if (_sUuid == "add3acc6-a6fd-44e8-a384-a7a16ce13c81" or _sUuid == "4081ca6f-6b80-4c39-9e79-e1f747039bec") then
 					eye = v -- sensor or smartsensor
 				end
 			end
@@ -661,7 +864,8 @@ function AI.server_onFixedUpdate( self, dt )
 		local id = self:getplayer({useexceptionlist = true, minrange = minrange, maxrange = maxrange, offset = blackinput, tryid = whiteinput})
 		if id ~= 0 and isON then
 			for k, v in pairs(parents) do
-				if (tostring(v:getShape():getShapeUuid()) == "add3acc6-a6fd-44e8-a384-a7a16ce13c81" or tostring(v:getShape():getShapeUuid()) == "4081ca6f-6b80-4c39-9e79-e1f747039bec") then
+				local _sUuid = tostring(v:getShape():getShapeUuid())
+				if (_sUuid == "add3acc6-a6fd-44e8-a384-a7a16ce13c81" or _sUuid == "4081ca6f-6b80-4c39-9e79-e1f747039bec") then
 					eye = v -- sensor or smartsensor
 				end
 			end
@@ -682,7 +886,8 @@ function AI.server_onFixedUpdate( self, dt )
 		if id ~= 0 and isON then
 			if #parents>0 then
 				for k, v in pairs(parents) do
-					if (tostring(v:getShape():getShapeUuid()) == "add3acc6-a6fd-44e8-a384-a7a16ce13c81" or tostring(v:getShape():getShapeUuid()) == "4081ca6f-6b80-4c39-9e79-e1f747039bec") then
+					local _sUuid = tostring(v:getShape():getShapeUuid())
+					if (_sUuid == "add3acc6-a6fd-44e8-a384-a7a16ce13c81" or _sUuid == "4081ca6f-6b80-4c39-9e79-e1f747039bec") then
 						eye = v -- sensor or smartsensor
 					end
 				end
@@ -717,7 +922,8 @@ function AI.server_onFixedUpdate( self, dt )
 		if id ~= 0 and isON then
 			if #parents>0 then
 				for k, v in pairs(parents) do
-					if (tostring(v:getShape():getShapeUuid()) == "add3acc6-a6fd-44e8-a384-a7a16ce13c81" or tostring(v:getShape():getShapeUuid()) == "4081ca6f-6b80-4c39-9e79-e1f747039bec") then
+					local _sUuid = tostring(v:getShape():getShapeUuid())
+					if (_sUuid == "add3acc6-a6fd-44e8-a384-a7a16ce13c81" or _sUuid == "4081ca6f-6b80-4c39-9e79-e1f747039bec") then
 						eye = v -- sensor or smartsensor
 					end
 				end
@@ -737,13 +943,14 @@ function AI.server_onFixedUpdate( self, dt )
 		local id = self:getplayer({useexceptionlist = true, minrange = minrange, maxrange = maxrange, offset = blackinput, tryid = whiteinput})
 		
 		for k, v in pairs(parents) do
-			if (tostring(v:getShape():getShapeUuid()) == "add3acc6-a6fd-44e8-a384-a7a16ce13c81" or tostring(v:getShape():getShapeUuid()) == "4081ca6f-6b80-4c39-9e79-e1f747039bec") then
+			local _pType = v:getType()
+			local _sUuid = tostring(v:getShape():getShapeUuid())
+			if (_sUuid == "add3acc6-a6fd-44e8-a384-a7a16ce13c81" or _sUuid == "4081ca6f-6b80-4c39-9e79-e1f747039bec") then
 				eye = v -- sensor or smartsensor
 			end
 			--find input seats:
-			if (v:getType() == "seat" or v:getType() == "steering") and v:isActive() then -- someone is inside the seat that is an input
+			if (_pType == "seat" or _pType == "steering") and v:isActive() then -- someone is inside the seat that is an input
 				id = self:getplayer({centerpos = v:getShape().worldPosition, useexceptionlist = false, minrange = 0, maxrange = 1000000, ignorejammers = true})
-				
 			end
 		end
 		
@@ -904,11 +1111,13 @@ function AI.server_onFixedUpdate( self, dt )
 		local id = self:getplayer({useexceptionlist = true, minrange = minrange, maxrange = maxrange, offset = blackinput, tryid = whiteinput})
 		
 		for k, v in pairs(parents) do
-			if (tostring(v:getShape():getShapeUuid()) == "add3acc6-a6fd-44e8-a384-a7a16ce13c81" or tostring(v:getShape():getShapeUuid()) == "4081ca6f-6b80-4c39-9e79-e1f747039bec") then
+			local _sUuid = tostring(v:getShape():getShapeUuid())
+			local _pType = v:getType()
+			if (_sUuid == "add3acc6-a6fd-44e8-a384-a7a16ce13c81" or _sUuid == "4081ca6f-6b80-4c39-9e79-e1f747039bec") then
 				eye = v -- sensor or smartsensor
 			end
 			--find input seats:
-			if (v:getType() == "seat" or v:getType() == "steering") and v:isActive() then -- someone is inside the seat that is an input
+			if (_pType == "seat" or _pType == "steering") and v:isActive() then -- someone is inside the seat that is an input
 				id = self:getplayer({centerpos = v:getShape().worldPosition, useexceptionlist = false, minrange = 0, maxrange = 1000000, ignorejammers = true})
 				
 			end
@@ -990,7 +1199,7 @@ function AI.server_onFixedUpdate( self, dt )
 end
 
 function playerexists(player)
-	return (player.character.worldPosition ~= nil)
+	return (player.character and player.character.worldPosition ~= nil)
 end
 
 function AI.client_onFixedUpdate(self, dt)

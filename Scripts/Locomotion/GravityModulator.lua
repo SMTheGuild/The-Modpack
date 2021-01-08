@@ -38,14 +38,13 @@ function gravcreation.server_onDestroy(self)
 end
 
 function gravcreation.server_onFixedUpdate( self, dt )
-
 	local parents = self.interactable:getParents()
 	local power = 0
 	local logic = 1
 	local haslogic = self.e -- [[ pressing e can activate the thing as well if there's no logic input ]]
 	if parents then
 		for k, v in pairs(parents) do
-			if v:getType() ~= "scripted" or tostring(v:getShape():getShapeUuid()) == "6f2dd83e-bc0d-43f3-8ba5-d5209eb03d07" then
+			if v:hasSteering() or v:getType() ~= "scripted" or tostring(v:getShape():getShapeUuid()) == "6f2dd83e-bc0d-43f3-8ba5-d5209eb03d07" then
 				-- logic [[vanilla or tickbutton]]
 				haslogic = true
 				if v.power == 0 then logic = 0 end
@@ -173,7 +172,7 @@ function gravworld.server_onFixedUpdate( self, dt )
 	local haslogic = false
 	if parents then
 		for k, v in pairs(parents) do
-			if v:getType() ~= "scripted" or tostring(v:getShape():getShapeUuid()) == "6f2dd83e-bc0d-43f3-8ba5-d5209eb03d07" then
+			if v:hasSteering() or v:getType() ~= "scripted" or tostring(v:getShape():getShapeUuid()) == "6f2dd83e-bc0d-43f3-8ba5-d5209eb03d07" then
 				-- logic [[vanilla or tickbutton]]
 				haslogic = true
 				if v.power == 0 then logic = 0 end

@@ -609,7 +609,7 @@ MathBlock.modeFunctions = {
 	[29] = function(self, parents)  -- seated
 			local power = 0
 			for k, v in pairs(parents) do
-				if (v:getType() == "seat" or v:getType() == "steering") then
+				if (v:getType() == "seat" or v:getType() == "steering" or v:hasSeat()) then
 					power = power + (v:isActive() and 1 or 0)
 				end
 			end
@@ -640,7 +640,6 @@ MathBlock.modeFunctions = {
 			local logicon = 1
 			local haslogic = false
 			for k, v in pairs(parents) do
-				local typeparent = v:getType()
 				if tostring(v:getShape().color) == "eeeeeeff" and tostring(v:getShape():getShapeUuid()) ~= "6f2dd83e-bc0d-43f3-8ba5-d5209eb03d07"--[[tickbutton]] then
 				--if v:getType() == "scripted" and tostring(v:getShape():getShapeUuid()) ~= "6f2dd83e-bc0d-43f3-8ba5-d5209eb03d07"--[[tickbutton]] then
 					-- number input
@@ -694,25 +693,26 @@ MathBlock.modeFunctions = {
 			local on = true
 			for k,v in pairs(parents) do
 				if sm.interactable.isNumberType(v) then
-					if tostring(v:getShape().color) == "720a74ff" then  -- 3rd purple
+					local _shape_col = tostring(v:getShape():getColor())
+					if _shape_col == "720a74ff" then  -- 3rd purple
 						if deltatime_d == nil then deltatime_d = 0 end
 						deltatime_d = deltatime_d + v.power
-					elseif tostring(v:getShape().color) == "7c0000ff" then  --3rd red
+					elseif _shape_col == "7c0000ff" then  --3rd red
 						if deltatime_i == nil then deltatime_i = 0 end
 						deltatime_i = deltatime_i + v.power
-					elseif tostring(v:getShape().color) == "cf11d2ff" then  --purple
+					elseif _shape_col == "cf11d2ff" then  --purple
 						d = d + v.power
-					elseif tostring(v:getShape().color) == "d02525ff"  then -- red
+					elseif _shape_col == "d02525ff"  then -- red
 						i = i + v.power
-					elseif tostring(v:getShape().color) == "df7f00ff" then -- orange
+					elseif _shape_col == "df7f00ff" then -- orange
 						p = p + v.power
-					elseif tostring(v:getShape().color) == "df7f01ff" then -- orange 2
+					elseif _shape_col == "df7f01ff" then -- orange 2
 						p = p + v.power
-					elseif tostring(v:getShape().color) == "eeeeeeff" then --white
+					elseif _shape_col == "eeeeeeff" then --white
 						setvalue = setvalue + v.power
-					elseif tostring(v:getShape().color) == "222222ff" then --black
+					elseif _shape_col == "222222ff" then --black
 						processvalue = processvalue + v.power
-					elseif tostring(v:getShape().color) == "673b00ff" then --black
+					elseif _shape_col == "673b00ff" then --black
 						if limit == nil then limit = 0 end
 						limit = limit + math.abs(v.power)
 					end
@@ -869,7 +869,8 @@ function MathBlock.server_setValue(self, value)
 		if value < 0 then value = -3.3*10^38 else value = 3.3*10^38 end  
 	end
 	if value ~= self.interactable.power then
-		self.interactable:setActive(value > 0)
+		self.interactable:setActive(value ~= 0) --that makes new engines work
+		--self.interactable:setActive(value > 0) --old function
 		self.interactable:setPower(value)
 		sm.interactable.setValue(self.interactable, value)
 	end
@@ -906,23 +907,39 @@ function MathBlock.client_onInteract(self, character, lookAt)
 	self.network:sendToServer("server_changemode", crouching)
 end
 
+function MathBlock.client_onTinker(self, character, lookAt)
+	if lookAt then
+		local _curMode = self.modetable[self.mode]
+		if _curMode and _curMode.description then
+			local _desc = _curMode.description
+			local _name = _curMode.name
+			sm.audio.play("GUI Item released")
+			sm.gui.chatMessage(("[#ffff00Math Block#ffffff] Description of \"#ffff00%s#ffffff\": %s"):format(_name, _desc))
+		else
+			sm.gui.chatMessage("[#ffff00Math Block#ffffff] #ff0000ERROR#ffffff: couldn't find the description for the selected function!")
+		end
+	end
+end
+
 function MathBlock.client_setMode(self, data)
 	local mode = data[1]
 	self.uv = self.modetable[mode].value
 	self.interactable:setUvFrameIndex(self.uv + (self.interactable.power > 0 and 128 or 0))
 	if data[2] then
-		sm.audio.play("GUI Inventory highlight", self.shape:getWorldPosition())
+		sm.audio.play("GUI Item drag", self.shape:getWorldPosition())
 		print('mode:', self.modetable[mode].name)
 		print('description:', self.modetable[mode].description,'\n')
 	end
 end
 
 function MathBlock.client_canInteract(self)
-	sm.gui.setInteractionText( "", sm.gui.getKeyBinding( "Use" ), "to cycle forward")
-	sm.gui.setInteractionText( "", sm.gui.getKeyBinding( "Crawl").." + "..sm.gui.getKeyBinding( "Use" ), "to cycle backwards")
+	local _useKey = sm.gui.getKeyBinding("Use")
+	local _tinkerKey = sm.gui.getKeyBinding("Tinker")
+	local _crawlKey = sm.gui.getKeyBinding("Crawl")
+	sm.gui.setInteractionText("Press", _useKey, " / ", _crawlKey.." + ".._useKey, "to cycle forwards / backwards")
+	sm.gui.setInteractionText("Press", _tinkerKey, "to print the description of the selected function")
 	return true
 end
-
 
 function MathBlock.client_onFixedUpdate(self, dt)
 	if sm.isHost then
@@ -932,9 +949,13 @@ function MathBlock.client_onFixedUpdate(self, dt)
 			local power =  0
 			local amountofparents = 0
 			for k, v in pairs(parents) do
-				if v:getType() == "steering" or tostring(v:getShape():getShapeUuid()) == "ccaa33b6-e5bb-4edc-9329-b40f6efe2c9e" or tostring(v:getShape():getShapeUuid()) == "e627986c-b7dd-4365-8fd8-a0f8707af63d" then
+				local _s_uuid = tostring(v:getShape():getShapeUuid())
+				if v:getType() == "steering" or _s_uuid == "ccaa33b6-e5bb-4edc-9329-b40f6efe2c9e" or _s_uuid == "e627986c-b7dd-4365-8fd8-a0f8707af63d" then
 					amountofparents = amountofparents + 1
 					power = power + (v:getPoseWeight(0)-0.5)*2
+				elseif v:hasSteering() then
+					amountofparents = amountofparents + 1
+					power = power + v:getSteeringAngle()
 				else
 					amountofparents = amountofparents + 1
 					power = power + v.power

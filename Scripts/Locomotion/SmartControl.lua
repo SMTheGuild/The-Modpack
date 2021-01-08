@@ -34,23 +34,26 @@ function SmartControl.server_onFixedUpdate(self, dt)
 	local haslogic = false
 	local stiffness = nil
 	for k, v in pairs(parents) do
-		if v:getType() == "scripted" and tostring(v:getShape():getShapeUuid()) ~= "6f2dd83e-bc0d-43f3-8ba5-d5209eb03d07" --[[tickbutton]] then
-			if tostring(sm.shape.getColor(v:getShape())) == "eeeeeeff" then
+		local _pType = v:getType()
+		local _pUuid = tostring(v:getShape():getShapeUuid())
+		local _pSteer = v:hasSteering()
+		if not _pSteer and _pType == "scripted" and _pUuid ~= "6f2dd83e-bc0d-43f3-8ba5-d5209eb03d07" --[[tickbutton]] then
+			local _pColor = tostring(v:getShape():getColor())
+			if _pColor == "eeeeeeff" then
 				-- speed
 				speed = (speed and speed or 0) + v.power
-			elseif tostring(sm.shape.getColor(v:getShape())) == "222222ff" then
+			elseif _pColor == "222222ff" then
 				-- strength
 				strength = (strength and strength or 0) + v.power
-			elseif tostring(sm.shape.getColor(v:getShape())) == "7f7f7fff" then
+			elseif _pColor == "7f7f7fff" then
 				stiffness = (stiffness and stiffness or 0) + v.power
-			elseif tostring(sm.shape.getColor(v:getShape())) == "4a4a4aff" then
+			elseif _pColor == "4a4a4aff" then
 				stiffness = (stiffness and stiffness or 0) + v.power
 			else
 				-- angle/length
 				anglelength = (anglelength and anglelength or 0) + v.power
 			end
-		elseif v:getType() == "steering" or tostring(v:getShape():getShapeUuid()) == "ccaa33b6-e5bb-4edc-9329-b40f6efe2c9e" or
-			tostring(v:getShape():getShapeUuid()) == "e627986c-b7dd-4365-8fd8-a0f8707af63d" then
+		elseif _pSteer or _pType == "steering" or _pUuid == "ccaa33b6-e5bb-4edc-9329-b40f6efe2c9e" or _pUuid == "e627986c-b7dd-4365-8fd8-a0f8707af63d" then
 			-- seat
 			seats = seats + 1
 			seat = seat + v.power

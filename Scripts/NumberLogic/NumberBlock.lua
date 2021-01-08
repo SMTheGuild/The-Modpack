@@ -92,7 +92,7 @@ function NumberBlock.server_onFixedUpdate( self, dt )   -- 'decimal'
 	
 	for k, parent in pairs(parents) do
 		local color = tostring(parent:getShape().color)
-		if sm.interactable.isNumberType(parent) then
+		if sm.interactable.isNumberType(parent) and not parent:hasSteering() then
 		
 			local dec = self.dec[color]
 			if dec == nil or #parents == 1 then dec = 1 end
@@ -113,7 +113,7 @@ function NumberBlock.server_onFixedUpdate( self, dt )   -- 'decimal'
 	if power == 0 then
 		self:server_setValue(0)
 	else
-		if sm.interactable.isNumberType(parents[1]) then  -- power input, show correct decimal
+		if sm.interactable.isNumberType(parents[1]) and not parents[1]:hasSteering() then  -- power input, show correct decimal
 			if #parents == 1 then
 				if #children > 0 and children[1]:getType() ~= "scripted" and children[1]:getType() ~= "electricEngine" and children[1]:getType() ~= "gasEngine" then  -- show bits as output
 					local s = self.bin[tostring(self.shape.color)]
@@ -173,7 +173,7 @@ function NumberBlock.client_onFixedUpdate(self, value)
 	local power = 0
 	for k, parent in pairs(parents) do
 		local color = tostring(parent:getShape().color)
-		if sm.interactable.isNumberType(parent) then
+		if sm.interactable.isNumberType(parent) and not parent:hasSteering() then
 		
 			local dec = self.dec[color]
 			if dec == nil or #parents == 1 then dec = 1 end
@@ -189,7 +189,7 @@ function NumberBlock.client_onFixedUpdate(self, value)
 	if power == 0 then
 		self.interactable:setUvFrameIndex(0)
 	else
-		if sm.interactable.isNumberType(parents[1]) then  -- power input, show correct decimal
+		if sm.interactable.isNumberType(parents[1]) and not parents[1]:hasSteering() then  -- power input, show correct decimal
 			if #parents == 1 then
 				if #children > 0 and children[1]:getType() ~= "scripted" and children[1]:getType() ~= "electricEngine" and children[1]:getType() ~= "gasEngine" then  -- show bits as output
 					local s = self.bin[tostring(self.shape.color)]
