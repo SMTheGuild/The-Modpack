@@ -62,9 +62,8 @@ function Gimball.client_onDestroy(self)
 	self.shootEffect:stop()
 end
 function Gimball.client_onInteract(self, character, lookAt)
-	if not lookAt then return end
-	local crouching = sm.localPlayer.getPlayer().character:isCrouching()
-	self.network:sendToServer("server_changemode", crouching)
+	if not lookAt or character:getLockingInteractable() then return end
+	self.network:sendToServer("server_changemode", character:isCrouching())
 end
 function Gimball.server_changemode(self, crouch)
 	self.smode = (self.smode+(crouch and -1 or 1))%4
@@ -79,8 +78,8 @@ function Gimball.client_mode(self, mode)
 	self.mode = mode
 end
 function Gimball.client_canInteract(self)
-	sm.gui.setInteractionText( "press", sm.gui.getKeyBinding( "Use" ), "to change mode")
-	sm.gui.setInteractionText( "current mode: ".. self.modes[self.mode+1])
+	sm.gui.setInteractionText("Press", sm.gui.getKeyBinding("Use"), "to change mode")
+	sm.gui.setInteractionText("Current mode: "..self.modes[self.mode+1])
 	return true
 end
 
