@@ -54,6 +54,7 @@ end
 
 function Barrel1.client_onCreate( self )
 	self.shootEffect = sm.effect.createEffect("MountedPotatoRifle - Shoot", self.interactable)
+	self.shootEffect:setOffsetPosition(sm.vec3.new(0, 0, -0.35))
 end
 
 function Barrel1.client_onShoot( self )
