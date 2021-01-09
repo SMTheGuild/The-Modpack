@@ -1,11 +1,6 @@
 dofile "Libs/Debugger.lua"
 
--- the following code prevents re-load of this file, except if in '-dev' mode.   
-if BlockSpawner and not sm.isDev then -- increases performance for non '-dev' users.
-	return
-end
 dofile("ShapeDatabase.lua")
-
 
 mpPrint("loading BlockSpawner.lua")
 
@@ -57,31 +52,42 @@ function BlockSpawner.server_onCreate( self )
 end
 
 function BlockSpawner.client_onCreate( self )
-    self:printDescription()
     self:client_setSelfEnabled(false)
 end
 
 function BlockSpawner.printDescription()
-    -- Console doesn't have a monospace font ;(
-    local message = "Block Spawner Usage: \n"..
-    "---------------Logic signal------------------------ \n"..
-    "Any logic             = Spawn block/part            \n"..
-    "2nd grey             = dynamic                      \n"..
-    "3rd grey              = forceSpawn                  \n"..
-    "---------------Number signals------------------     \n"..
-    "2nd brown          = offsetZ                        \n"..
-    "2nd red              = offsetY                      \n"..
-    "2nd magenta      = offsetX                          \n"..
-    "white/Color Block = color                           \n"..
-    "black/Sensor       = shapeID                        \n"..
-    "4th brown           = sizeZ                         \n"..
-    "4th red               = sizeY                       \n"..
-    "4th magenta       = sizeX                           \n"..
-    "---------------Output-------------------------------\n"..
-    "1 tick signal with a delay of 2 ticks if the block is spawned.\n"..
-    "Can cause a false positive when there is lag present.\n"..
-    "---------------------------------------------------------"
-    print(message)
+    -- Chat doesn't have a monospace font
+    local message = "\nPart spawner usage: \n"..
+    "---------------------Logic signal----------------------\n"..
+    "Any logic                    = Spawn block/part\n"..
+    "2nd grey                #7f7f7f█#ffffff = dynamic\n"..
+    "3rd grey                 #4a4a4a█#ffffff = forceSpawn\n"..
+    "--------------------Number signals--------------------\n"..
+    "2nd brown             #df7f00█#ffffff = offsetZ\n"..
+    "2nd red                  #d02525█#ffffff = offsetY\n"..
+    "2nd magenta         #cf11d2█#ffffff = offsetX\n"..
+    "white/Color Block █ = color\n"..
+    "black/Sensor         #222222█#ffffff = shapeID\n"..
+    "4th brown              #472800█#ffffff = sizeZ\n"..
+    "4th red                   #560202█#ffffff = sizeY\n"..
+    "4th magenta          #520653█#ffffff = sizeX\n"..
+    "------------------------Output-------------------------\n"..
+    "1 tick signal with a delay of 2 ticks if the block is spawned. "..
+    "Can cause a false positive when there is lag present."
+    sm.gui.chatMessage(message)
+end
+
+function BlockSpawner.client_canInteract(self)
+    local _useKey = sm.gui.getKeyBinding("Use")
+    sm.gui.setInteractionText("Press", _useKey, "to print color input/output in chat")
+    return true
+end
+
+function BlockSpawner.client_onInteract( self, character, lookAt )
+    if not lookAt then return end
+    print("interact")
+
+    self:printDescription()
 end
 
 function BlockSpawner.server_onFixedUpdate( self, timeStep )
