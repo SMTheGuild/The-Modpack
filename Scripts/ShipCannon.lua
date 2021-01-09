@@ -22,81 +22,40 @@ Barrel1.minForce = 125
 Barrel1.maxForce = 130
 Barrel1.spreadDeg = 1
 
-function Barrel1.server_onCreate( self ) 
-	self:server_init()
-end
-
-function Barrel1.server_init( self ) 
-	self.fireDelayProgress = 0
-	self.canFire = true
-	self.parentActive = false
-end
-
-function Barrel1.server_onRefresh( self )
-	self:server_init()
-end
-
 function Barrel1.server_onFixedUpdate( self, timeStep )
-	if not self.canFire then
-		self.fireDelayProgress = self.fireDelayProgress + 1
-		if self.fireDelayProgress >= self.fireDelay then
-			self.fireDelayProgress = 0
-			self.canFire = true	
-		end
-	end
-	self:server_tryFire()
 	local parent = self.interactable:getSingleParent()
-	if parent then
-		self.parentActive = parent:isActive()
+	local active = parent and parent.active
+	if active and not self.reload then
+		self.reload = self.fireDelay
+		self:server_shoot()
+	end
+
+	if self.reload then
+		self.reload = (self.reload > 1 and self.reload - 1) or nil
 	end
 end
 
-function Barrel1.server_tryFire( self )
-	local parent = self.interactable:getSingleParent()
-	if parent then
-		if parent:isActive() and self.canFire then
-			self.canFire = false
-			firePos = sm.vec3.new( 0.0, 0.0, 0.0 )
-			fireForce = math.random( self.minForce, self.maxForce )
+function Barrel1.server_shoot( self )
+	firePos = sm.vec3.new( 0.0, 0.0, 0.0 )
+	fireForce = math.random( self.minForce, self.maxForce )
 
-			local dir = sm.noise.gunSpread( sm.vec3.new( 0.0, 0.0, 1.0 ), self.spreadDeg )
-			
-			sm.projectile.shapeFire( self.shape, "potato", firePos, dir * fireForce )
-						
-			self.network:sendToClients( "client_onShoot" )
-			local mass = sm.projectile.getProjectileMass( "potato" )
-			local impulse = dir * -fireForce * mass * 0.8
-			
-			sm.physics.applyImpulse( self.shape, impulse )
-			
-		end
-	end
+	local dir = sm.noise.gunSpread( sm.vec3.new( 0.0, 0.0, 1.0 ), self.spreadDeg )
+	
+	sm.projectile.shapeFire( self.shape, "potato", firePos, dir * fireForce )
+				
+	self.network:sendToClients( "client_onShoot" )
+	local mass = sm.projectile.getProjectileMass( "potato" )
+	local impulse = dir * -fireForce * mass * 0.8
+	
+	sm.physics.applyImpulse( self.shape, impulse )
 end
 
 -- Client
 
 function Barrel1.client_onCreate( self )
-	self.boltValue = 0.0
-	self.shootEffect = sm.effect.createEffect( "MountedPotatoRifle - Shoot" )
-end
-
-function Barrel1.client_onUpdate( self, dt )
-	if self.boltValue > 0.0 then
-		self.boltValue = self.boltValue - dt * 6
-	end
-	if self.boltValue ~= self.prevBoltValue then
-		self.interactable:setPoseWeight( 0, self.boltValue ) --Clamping inside
-		self.prevBoltValue = self.boltValue
-	end
-	
-	local rot = sm.vec3.getRotation( sm.vec3.new( 0, 0, 1 ), self.shape.up )
-	local pos = sm.shape.getWorldPosition( self.shape ) - self.shape.up * 0.35
-	self.shootEffect:setPosition( pos )
-	self.shootEffect:setRotation( rot )
+	self.shootEffect = sm.effect.createEffect("MountedPotatoRifle - Shoot", self.interactable)
 end
 
 function Barrel1.client_onShoot( self )
-	self.boltValue = 1.0
-	--local rot = sm.vec3.getRotation( sm.vec3.new( 0, 0, 0 ), self.shape.up )
 	self.shootEffect:start()
 end
