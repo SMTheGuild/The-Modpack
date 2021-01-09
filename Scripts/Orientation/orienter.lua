@@ -37,41 +37,37 @@ local FarmbotDetectorModes = {
 	[28] = {specific = "glorp"}
 }
 
+--[[
+	that's how you can add your own units into the list
+	function class:server_onCreate()
+		if sm.MODPACK_ORIENT_ADD_UNIT then
+			local name = "test_unit_name"
+			local unit_uuid = "8984bdbf-521e-4eed-b3c4-2b5e287eb879"
+			local is_friendly = true
+			sm.MODPACK_ORIENT_ADD_UNIT(name, unit_uuid, is_friendly)
+		end
+	end
+	WARNING: this function can't be used when the script of Orientation Block hasn't been initialized yet
+]]
+--this function allows adding unit uuids into The Modpack from any mod since that function is in global table
+sm.MODPACK_ORIENT_ADD_UNIT = function(name, unit_uuid, is_friendly)
+	local list = (is_friendly and "friendly" or "hostile")
+	if known_mobs[list][name] == nil then
+		known_mobs[list][name] = {}
+	end
+	if known_mobs[list][name][unit_uuid] == nil then
+		known_mobs[list][name][unit_uuid] = true
+		print("[Modpack] Unit \""..unit_uuid.."\" named \""..name.."\" has been successfully added into "..list.." units list!")
+	end
+end
+
 local _GETALLUNITS = function()
 	return {}
 end
-
-if sm then
-	--[[
-		that's how you can add your own units into the list
-		function class:server_onCreate()
-			if sm.MODPACK_ORIENT_ADD_UNIT then
-				local name = "test_unit_name"
-				local unit_uuid = "8984bdbf-521e-4eed-b3c4-2b5e287eb879"
-				local is_friendly = true
-				sm.MODPACK_ORIENT_ADD_UNIT(name, unit_uuid, is_friendly)
-			end
-		end
-		WARNING: this function can't be used when the script of Orientation Block hasn't been initialized yet
-	]]
-	--this function allows adding unit uuids into The Modpack from any mod since that function is in global table
-	sm.MODPACK_ORIENT_ADD_UNIT = function(name, unit_uuid, is_friendly)
-		local list = (is_friendly and "friendly" or "hostile")
-		if known_mobs[list][name] == nil then
-			known_mobs[list][name] = {}
-		end
-		if known_mobs[list][name][unit_uuid] == nil then
-			known_mobs[list][name][unit_uuid] = true
-			print("[Modpack] Unit \""..unit_uuid.."\" named \""..name.."\" has been successfully added into "..list.." units list!")
-		end
-	end
-	if sm.unit then
-		if sm.unit.getAllUnits and type(sm.unit.getAllUnits) == "function" then --better than having a function that checks the same stuff but 40 times per second
-			_GETALLUNITS = sm.unit.getAllUnits
-		elseif sm.unit.HACK_getAllUnits_HACK and type(sm.unit.HACK_getAllUnits_HACK) == "function" then
-			_GETALLUNITS = sm.unit.HACK_getAllUnits_HACK
-		end
-	end
+if sm.unit.getAllUnits and type(sm.unit.getAllUnits) == "function" then --better than having a function that checks the same stuff but 40 times per second
+	_GETALLUNITS = sm.unit.getAllUnits
+elseif sm.unit.HACK_getAllUnits_HACK and type(sm.unit.HACK_getAllUnits_HACK) == "function" then
+	_GETALLUNITS = sm.unit.HACK_getAllUnits_HACK
 end
 
 -- AI.lua --
@@ -168,13 +164,8 @@ function AI.server_onRefresh( self )
 	self:server_init()
 end
 function AI.client_onInteract(self, character, lookAt)
-	if lookAt then
-		local _L_Interact = character:getLockingInteractable()
-		if _L_Interact == nil then
-			local crouching = character:isCrouching()
-			self.network:sendToServer("server_changemode", crouching)
-		end
-	end
+	if not lookAt or character:getLockingInteractable() then return end
+	self.network:sendToServer("server_changemode", character:isCrouching())
 end
 function AI.client_onTinker(self, character, lookAt)
 	if lookAt then

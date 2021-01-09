@@ -297,12 +297,8 @@ function WirelessBlock.client_onDestroy(self)
 end
 
 function WirelessBlock.client_onInteract(self, character, lookAt)
-	if lookAt then
-		local _L_Interact = character:getLockingInteractable()
-		if _L_Interact == nil then
-			self.network:sendToServer("server_clientInteract")
-		end
-	end
+	if not lookAt or character:getLockingInteractable() then return end
+	self.network:sendToServer("server_clientInteract")
 end
 
 

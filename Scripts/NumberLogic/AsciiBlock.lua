@@ -335,13 +335,8 @@ function AsciiBlock.server_changemode(self, crouch)
 	self.network:sendToClients("client_playsound", "GUI Inventory highlight")
 end
 function AsciiBlock.client_onInteract(self, character, lookAt)
-	if lookAt then
-		local _L_Interact = character:getLockingInteractable()
-		if _L_Interact == nil then
-			local crouching = character:isCrouching()
-			self.network:sendToServer("server_changemode", crouching)
-		end
-	end
+	if not lookAt or character:getLockingInteractable() then return end
+	self.network:sendToServer("server_changemode", character:isCrouching())
 end
 
 function AsciiBlock.client_canInteract(self)

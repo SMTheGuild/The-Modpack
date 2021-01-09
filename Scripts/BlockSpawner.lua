@@ -1,9 +1,9 @@
 dofile "Libs/Debugger.lua"
 
 -- the following code prevents re-load of this file, except if in '-dev' mode.   
---[[if BlockSpawner and not sm.isDev then -- increases performance for non '-dev' users.
+if BlockSpawner and not sm.isDev then -- increases performance for non '-dev' users.
 	return
-end ]]
+end
 dofile("ShapeDatabase.lua")
 
 

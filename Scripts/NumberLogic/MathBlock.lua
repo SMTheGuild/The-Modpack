@@ -895,13 +895,8 @@ function MathBlock.client_onCreate(self)
 end
 
 function MathBlock.client_onInteract(self, character, lookAt)
-	if lookAt then
-		local _L_Interact = character:getLockingInteractable()
-		if _L_Interact == nil then
-			local crouching = character:isCrouching()
-			self.network:sendToServer("server_changemode", crouching)
-		end
-	end
+	if not lookAt or character:getLockingInteractable() then return end
+	self.network:sendToServer("server_changemode", character:isCrouching())
 end
 
 function MathBlock.client_onTinker(self, character, lookAt)
