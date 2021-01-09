@@ -316,7 +316,8 @@ function AsciiBlock.server_onCreate( self )
 			--	self[k] = v
 			--end  -- remove janky old compatibility
 		elseif type(stored) == "table" then
-			self.power = (AsciiBlock.savemodes[stored[1]] - 1) or 0
+			local _storedVal = type(stored[1]) == "number" and stored[1] or 0
+			self.power = (AsciiBlock.savemodes[_storedVal] - 1) or 0
 			--version = stored[2]
 		end
 	else
@@ -342,8 +343,8 @@ end
 function AsciiBlock.client_canInteract(self)
 	local _useKey = sm.gui.getKeyBinding("Use")
 	local _crawlKey = sm.gui.getKeyBinding("Crawl")
-	sm.gui.setInteractionText( "", _useKey, "to cycle forward")
-	sm.gui.setInteractionText( "", _crawlKey.." + ".._useKey, "to cycle backwards")
+	sm.gui.setInteractionText("", _useKey, "to cycle forward")
+	sm.gui.setInteractionText("", _crawlKey.." + ".._useKey, "to cycle backwards")
 	return true
 end
 function AsciiBlock.client_playsound(self, sound)

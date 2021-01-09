@@ -87,6 +87,7 @@ function BlockSpawner.client_onInteract( self, character, lookAt )
     if not lookAt then return end
     print("interact")
 
+    sm.audio.play("GUI Item released")
     self:printDescription()
 end
 
