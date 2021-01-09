@@ -306,11 +306,11 @@ function Tacho.server_changemode(self, crouch)
 	end
 	print("description:",self.modetable[self.mode].description)
 	self.storage:save(self.modetable[self.mode].savevalue)
-	self:server_sendModeToClient()
+	self:server_sendModeToClient(true)
 end
 
-function Tacho.server_sendModeToClient(self)
-	self.network:sendToClients("client_newMode", self.mode)
+function Tacho.server_sendModeToClient(self, snd)
+	self.network:sendToClients("client_newMode", {self.mode, snd})
 end
 
 
@@ -336,8 +336,10 @@ function Tacho.client_onTinker(self, character, lookAt)
 end
 
 function Tacho.client_newMode(self, mode)
-	self.mode_client = mode
-	sm.audio.play("GUI Item drag", self.shape:getWorldPosition())
+	self.mode_client = mode[1]
+	if mode[2] then
+		sm.audio.play("GUI Item drag", self.shape:getWorldPosition())
+	end
 end
 
 function Tacho.client_onCreate(self)

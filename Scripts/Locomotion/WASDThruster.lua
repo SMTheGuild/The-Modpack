@@ -77,14 +77,16 @@ end
 function WASDThruster.server_changemode(self, crouch)
 	self.smode = (self.smode + (crouch and -1 or 1))%4
 	self.storage:save(self.smode+1)
-	self.network:sendToClients("client_mode", self.smode)
+	self.network:sendToClients("client_mode", {self.smode, true})
 end
 function WASDThruster.server_requestmode(self)
-	self.network:sendToClients("client_mode", self.smode)
+	self.network:sendToClients("client_mode", {self.smode})
 end
 function WASDThruster.client_mode(self, mode)
-	sm.audio.play("ConnectTool - Rotate", self.shape:getWorldPosition())
-	self.mode = mode
+	if mode[2] then
+		sm.audio.play("ConnectTool - Rotate", self.shape:getWorldPosition())
+	end
+	self.mode = mode[1]
 end
 function WASDThruster.client_canInteract(self)
 	local _useKey = sm.gui.getKeyBinding("Use")

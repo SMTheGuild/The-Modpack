@@ -332,7 +332,7 @@ function AsciiBlock.server_changemode(self, crouch)
 	self.power = (self.power + (crouch and -1 or 1))%(#self.icons)
 	self.interactable:setPower(self.power)
 	self.storage:save({self.icons[self.interactable.power + 1].uv, 1})
-	self.network:sendToClients("client_playsound", "GUI Inventory highlight")
+	self.network:sendToClients("client_playsound", "GUI Item released")
 end
 function AsciiBlock.client_onInteract(self, character, lookAt)
 	if not lookAt or character:getLockingInteractable() then return end

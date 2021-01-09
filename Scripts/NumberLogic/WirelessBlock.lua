@@ -135,11 +135,11 @@ end
 function WirelessBlock.server_clientInteract(self)
 	self.IsSender = (not self.IsSender)
 	self.storage:save(self.IsSender)
-	self:server_sendModeToClient()
+	self:server_sendModeToClient(true)
 end
 
-function WirelessBlock.server_sendModeToClient(self)
-	self.network:sendToClients("client_changeMode", self.IsSender)
+function WirelessBlock.server_sendModeToClient(self, snd)
+	self.network:sendToClients("client_changeMode", {self.IsSender, snd})
 end
 
 
@@ -303,8 +303,10 @@ end
 
 
 function WirelessBlock.client_changeMode(self, mode)
-	self.IsSender_client = mode
-	sm.audio.play("Button on", self.shape:getWorldPosition())
+	self.IsSender_client = mode[1]
+	if mode[2] then
+		sm.audio.play("Button on", self.shape:getWorldPosition())
+	end
 end
 
 
