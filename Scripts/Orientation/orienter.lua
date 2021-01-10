@@ -1387,11 +1387,13 @@ function AI.client_setUvframeIndex(self, index)
 	if sm.isServer then return end
 	self.interactable:setUvFrameIndex(index)
 end
+
 function AI.client_setPose(self, data)
 	if sm.isServer then return end
-	if data.level == data.level then --NaN check
-		self.interactable:setPoseWeight(data.pose, data.level)
-	end
+
+	--dealing with NaN and Inf
+	local _normVal = math.min(1, math.max(data.level, 0))
+	self.interactable:setPoseWeight(data.pose, _normVal)
 end
 
 function nojammercloseby(pos)
