@@ -72,26 +72,29 @@ function MemoryPanel.server_onFixedUpdate( self, dt )
 	local hasvalueparent = false
 	local reset = false
 	for k,v in pairs(parents) do
-		if sm.interactable.isNumberType(v) then
-			-- number input
-			if tostring(v:getShape().shapeUuid) == "d3eda549-778f-432b-bf21-65a32ae53378" then
-				writevalue = writevalue or v.active
-				value = value + (sm.interactable.getValue(v) or v.power)
-				hasvalueparent = true
-			elseif tostring(v:getShape().color) == "eeeeeeff" then
-				-- address
-				address = address + (sm.interactable.getValue(v) or v.power)
+		local _isSeat = v:hasSteering()
+		if not _isSeat then
+			if sm.interactable.isNumberType(v) then
+				-- number input
+				if tostring(v:getShape().shapeUuid) == "d3eda549-778f-432b-bf21-65a32ae53378" then
+					writevalue = writevalue or v.active
+					value = value + (sm.interactable.getValue(v) or v.power)
+					hasvalueparent = true
+				elseif tostring(v:getShape().color) == "eeeeeeff" then
+					-- address
+					address = address + (sm.interactable.getValue(v) or v.power)
+				else
+					-- value
+					value = value + (sm.interactable.getValue(v) or v.power)
+					hasvalueparent = true
+				end
 			else
-				-- value
-				value = value + (sm.interactable.getValue(v) or v.power)
-				hasvalueparent = true
-			end
-		else
-			-- logic input
-			if v.active then 
-				writevalue = true
-				if tostring(v:getShape().color) == "222222ff" then
-					reset = true
+				-- logic input
+				if v.active then 
+					writevalue = true
+					if tostring(v:getShape().color) == "222222ff" then
+						reset = true
+					end
 				end
 			end
 		end
@@ -136,23 +139,26 @@ function MemoryPanel.client_onFixedUpdate(self, dt)
 	local reset = false
 	local hasvalueparent = false
 	for k,v in pairs(parents) do
-		if sm.interactable.isNumberType(v) then
-			-- number input
-			if tostring(v:getShape().shapeUuid) == "d3eda549-778f-432b-bf21-65a32ae53378" then
-				writevalue = writevalue or v.active
-				hasvalueparent = true
-			elseif tostring(v:getShape().color) == "eeeeeeff" then
-				-- address
-				address = address + v.power
+		local _isSeat = v:hasSteering()
+		if not _isSeat then
+			if sm.interactable.isNumberType(v) then
+				-- number input
+				if tostring(v:getShape().shapeUuid) == "d3eda549-778f-432b-bf21-65a32ae53378" then
+					writevalue = writevalue or v.active
+					hasvalueparent = true
+				elseif tostring(v:getShape().color) == "eeeeeeff" then
+					-- address
+					address = address + v.power
+				else
+					hasvalueparent = true
+				end
 			else
-				hasvalueparent = true
-			end
-		else
-			-- logic input
-			if v.active then 
-				writevalue = true
-				if tostring(v:getShape().color) == "222222ff" then
-					reset = true
+				-- logic input
+				if v.active then 
+					writevalue = true
+					if tostring(v:getShape().color) == "222222ff" then
+						reset = true
+					end
 				end
 			end
 		end
