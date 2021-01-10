@@ -38,15 +38,16 @@ function tonegenerator.client_onFixedUpdate(self, dt)
 	local note = nil
 	local wavetype = nil
 	for k, v in pairs(parents) do 
-		if v:getType() == "scripted" and tostring(v:getShape():getShapeUuid()) ~= "6f2dd83e-bc0d-43f3-8ba5-d5209eb03d07"--[[tickbutton]] then
+		if not v:hasSteering() and v:getType() == "scripted" and tostring(v:getShape():getShapeUuid()) ~= "6f2dd83e-bc0d-43f3-8ba5-d5209eb03d07"--[[tickbutton]] then
 			-- number
-			if tostring(v:getShape().color) == "eeeeeeff" then
+			local _pColor = tostring(v:getShape():getColor())
+			if _pColor == "eeeeeeff" then
 				note = (note and note or 0) + v.power
-			elseif tostring(v:getShape().color) == "7f7f7fff" then
+			elseif _pColor == "7f7f7fff" then
 				frequency = frequency + v.power
-			elseif tostring(v:getShape().color) == "4a4a4aff" then
+			elseif _pColor == "4a4a4aff" then
 				frequency = frequency + v.power
-			elseif tostring(v:getShape().color) == "222222ff" then
+			elseif _pColor == "222222ff" then
 				wavetype = (wavetype and wavetype or 0) + math.floor(v.power)
 			else
 				volume = (volume and volume or 0) + v.power
@@ -128,15 +129,16 @@ function totegenerator.client_onFixedUpdate(self, dt)
 --black = wave type/totebot type
 --other = volume
 	for k, v in pairs(parents) do 
-		if v:getType() == "scripted" and tostring(v:getShape():getShapeUuid()) ~= "6f2dd83e-bc0d-43f3-8ba5-d5209eb03d07"--[[tickbutton]] then
+		if not v:hasSteering() and v:getType() == "scripted" and tostring(v:getShape():getShapeUuid()) ~= "6f2dd83e-bc0d-43f3-8ba5-d5209eb03d07"--[[tickbutton]] then
 			-- number
-			if tostring(v:getShape().color) == "eeeeeeff" then
+			local _pColor = tostring(v:getShape():getColor())
+			if _pColor == "eeeeeeff" then
 				note = (note and note or 0) + v.power
-			elseif tostring(v:getShape().color) == "7f7f7fff" then
+			elseif _pColor == "7f7f7fff" then
 				frequency = (frequency and frequency or 0) + v.power
-			elseif tostring(v:getShape().color) == "4a4a4aff" then
+			elseif _pColor == "4a4a4aff" then
 				frequency = (frequency and frequency or 0) + v.power
-			elseif tostring(v:getShape().color) == "222222ff" then
+			elseif _pColor == "222222ff" then
 				tote = ((tote and tote or 0) + math.floor(v.power))
 			else
 				volume = (volume and volume or 0) + v.power
