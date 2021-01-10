@@ -35,7 +35,7 @@ function SmartTimer.server_onFixedUpdate( self, timeStep )
     local parents = self.interactable:getParents()
     for k,v in pairs(parents) do
         local _pColor = tostring(v:getShape():getColor())
-        if v:getType() == "scripted" and tostring(v:getShape():getShapeUuid()) ~= "6f2dd83e-bc0d-43f3-8ba5-d5209eb03d07" --[[tickbutton]] then
+        if not v:hasSteering() and v:getType() == "scripted" and tostring(v:getShape():getShapeUuid()) ~= "6f2dd83e-bc0d-43f3-8ba5-d5209eb03d07" --[[tickbutton]] then
             -- number
             if _pColor == "eeeeeeff" or -- white
             _pColor == "222222ff" then -- black
