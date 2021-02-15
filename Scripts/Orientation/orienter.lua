@@ -64,10 +64,12 @@ end
 local _GETALLUNITS = function()
 	return {}
 end
-if sm.unit.getAllUnits and type(sm.unit.getAllUnits) == "function" then --better than having a function that checks the same stuff but 40 times per second
-	_GETALLUNITS = sm.unit.getAllUnits
-elseif sm.unit.HACK_getAllUnits_HACK and type(sm.unit.HACK_getAllUnits_HACK) == "function" then
-	_GETALLUNITS = sm.unit.HACK_getAllUnits_HACK
+if sm.unit then --for some reason clients don't have sm.unit
+	if sm.unit.getAllUnits and type(sm.unit.getAllUnits) == "function" then --better than having a function that checks the same stuff but 40 times per second
+		_GETALLUNITS = sm.unit.getAllUnits
+	elseif sm.unit.HACK_getAllUnits_HACK and type(sm.unit.HACK_getAllUnits_HACK) == "function" then
+		_GETALLUNITS = sm.unit.HACK_getAllUnits_HACK
+	end
 end
 
 -- AI.lua --
