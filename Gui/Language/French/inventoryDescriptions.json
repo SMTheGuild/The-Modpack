@@ -3,9 +3,9 @@
 // Building Blocks
 	"c97c17c3-81bb-48b5-9e9c-8a5117ee431a":
 	{
-		"title": "Bloc Plaqué De Diamant",
-		"description": "Métal industriel",
-		"keywords": [ "modpack", "industriel", "usine", "métal" ]
+		"title": "Bloc Plaquï¿½ De Diamant",
+		"description": "Mï¿½tal industriel",
+		"keywords": [ "modpack", "industriel", "usine", "mï¿½tal" ]
 	},
 	"036ffd32-45df-11e6-beb8-9e71128cae77":
 	{
@@ -16,69 +16,69 @@
 	"e50485da-4545-4def-a585-0a5f158c6104":
 	{
 		"title": "Bloc Luminaissant",
-		"description": "Émait de la lumière",
-		"keywords": [ "modpack", "glow", "", "brillant", "brille", "radiation", "nucléaire" ]
+		"description": "ï¿½mait de la lumiï¿½re",
+		"keywords": [ "modpack", "glow", "", "brillant", "brille", "radiation", "nuclï¿½aire" ]
 	},
 	"66a95094-5d59-4286-910d-a1936b1473f5":
 	{
-		"title": "Bloc Chromé",
-		"description": "Métal luisant et réfléchissant",
-		"keywords": [ "modpack", "argent", "or", "précieux", "métal", "miroir", "réfléchissant", "réflection" ]
+		"title": "Bloc Chromï¿½",
+		"description": "Mï¿½tal luisant et rï¿½flï¿½chissant",
+		"keywords": [ "modpack", "argent", "or", "prï¿½cieux", "mï¿½tal", "miroir", "rï¿½flï¿½chissant", "rï¿½flection" ]
 	},
 	"7a73cc98-b2d4-4b28-9095-f8b9077548e4":
 	{
 		"title": "Bloc Invisible",
-		"description": "Ce block est impossible à voir!",
+		"description": "Ce block est impossible ï¿½ voir!",
 		"keywords": [ "modpack", "clair", "invisible", "transparent" ]
 	},
 	"906c76ee-189a-4983-ae82-b31722e56b23":
 	{
 		"title": "Bloc Miroir",
-		"description": "Verre super réfléchissant\n\nConseil:\nUtilise avec du verre ou des blocs invisibles pour créer un miroir à sens unique comme ceux utilisés dans les salles d'interrogation",
-		"keywords": [ "modpack", "miroir", "réfléchissant", "sens unique", "sens double", "verre", "poly", "plastique", "réflection" ]
+		"description": "Verre super rï¿½flï¿½chissant\n\nConseil:\nUtilise avec du verre ou des blocs invisibles pour crï¿½er un miroir ï¿½ sens unique comme ceux utilisï¿½s dans les salles d'interrogation",
+		"keywords": [ "modpack", "miroir", "rï¿½flï¿½chissant", "sens unique", "sens double", "verre", "poly", "plastique", "rï¿½flection" ]
 	},
 	"bc3efcdf-ae18-4037-b0aa-c5af14e03547":
 	{
 		"title": "Bloc Bling",
 		"description": "OOOooooh Brillant!",
-		"keywords": [ "modpack", "brillant", "argent", "or", "précieux", "métal","riche", "luxurieux", "vip", "bling" ]
+		"keywords": [ "modpack", "brillant", "argent", "or", "prï¿½cieux", "mï¿½tal","riche", "luxurieux", "vip", "bling" ]
 	},
 	"b51ad015-66e9-41b9-916c-277f9c93232d":
 	{
 		"title": "Bloc De Grille De Jeu",
 		"description": "Entrez dans le monde virtuel (indestructible)",
-		"keywords": [ "modpack", "tron", "virtuel", "grid", "métal", "lumière", "mètre" ]
+		"keywords": [ "modpack", "tron", "virtuel", "grid", "mï¿½tal", "lumiï¿½re", "mï¿½tre" ]
 	},
 	"e7f7b758-6492-4c6a-8760-8fb95da530be":
 	{
 		"title": "Bloc Luxueux",
 		"description": "Montrez votre statut de VIP avec ce bloc luxueux!",
-		"keywords": [ "modpack", "or", "précieux", "riche", "cuire", "plastique", "luxueux", "vip", "bling" ]
+		"keywords": [ "modpack", "or", "prï¿½cieux", "riche", "cuire", "plastique", "luxueux", "vip", "bling" ]
 	},
 
 // interactives
 	"ebafd24a-7bbc-4e75-87f5-a67cdcf31e29":
 	{
 		"title": "Roulement Invisible",
-		"description": "Utilisez le sur les mini tuyaux, du verre, ou partout où voulez une rotation mais ne voulez pas voir de roulement dépasser",
+		"description": "Utilisez le sur les mini tuyaux, du verre, ou partout oï¿½ voulez une rotation mais ne voulez pas voir de roulement dï¿½passer",
 		"keywords": [ "modpack", "claire, transparent" ]
 	},
 	"8f762ab9-5c78-4d9c-a22e-3119bf447169":
 	{
 		"title": "Steering Pipe",
-		"description": "Vous pouvez l'utiliser pour des problèmes de direction ou en tant que pièce sans collision.",
-		"keywords": ["modpack", "steer", "glitch", "bug", "suspension", "fantôme", "couple"]
+		"description": "Vous pouvez l'utiliser pour des problï¿½mes de direction ou en tant que piï¿½ce sans collision.",
+		"keywords": ["modpack", "steer", "glitch", "bug", "suspension", "fantï¿½me", "couple"]
 	},
 	"c0d086eb-de4a-4ba9-922a-1c66f129d2ae":
 	{
 		"title": "Mini Suspension - Short",
-		"description": "Suspension adaptée aux mini-tuyaux",
+		"description": "Suspension adaptï¿½e aux mini-tuyaux",
 		"keywords": ["modpack", "spring"]
 	},
 	"8d6e5264-9f90-400a-a471-6c0cae101f4d":
 	{
 		"title": "Mini Suspension - Long",
-		"description": "Suspension adaptée aux mini-tuyaux",
+		"description": "Suspension adaptï¿½e aux mini-tuyaux",
 		"keywords": ["modpack", "spring"]
 	},
 	"9f016a8d-8cbe-4471-b210-f36f5f280758":
@@ -96,13 +96,13 @@
 	"93e08947-be6d-436c-a64f-932727428c89":
 	{
 		"title": "Suspension de moteur",
-		"description": "Cette pièce est un moteur! Placez cette pièce sur un roulement et connectez ce moteur au roulement! Connectez des tuyaux à une extrémité où iront votre roue (et votre direction) et utilisez l'autre extrémité pour limiter la portée Régler la puissance de ce moteur pour une suspension de moteur lâche ou ferme. ",
-		"keywords": ["modpack", "moteur", "suspension", "ressort", "angle", "contrôleur"]
+		"description": "Cette piï¿½ce est un moteur! Placez cette piï¿½ce sur un roulement et connectez ce moteur au roulement! Connectez des tuyaux ï¿½ une extrï¿½mitï¿½ oï¿½ iront votre roue (et votre direction) et utilisez l'autre extrï¿½mitï¿½ pour limiter la portï¿½e Rï¿½gler la puissance de ce moteur pour une suspension de moteur lï¿½che ou ferme. ",
+		"keywords": ["modpack", "moteur", "suspension", "ressort", "angle", "contrï¿½leur"]
 	},
 	"a6d186ad-c9ba-4b6d-922c-6c13dfcea230":
 	{
 		"title": "Mod Piston (256)",
-		"description": "étend 1-255 blocs\n\nVitesses:\n1, 2, 3, 4 (nain debout)\n6, 8, 10, ... 30, 32, 34\n\nPlus fort que le piston ordinaire!\n\nAstuce: molette de défilement pour un réglage précis ",
+		"description": "ï¿½tend 1-255 blocs\n\nVitesses:\n1, 2, 3, 4 (nain debout)\n6, 8, 10, ... 30, 32, 34\n\nPlus fort que le piston ordinaire!\n\nAstuce: molette de dï¿½filement pour un rï¿½glage prï¿½cis ",
 		"keywords": ["modpack", "spring", "pneumatique"]
 	},
 
@@ -110,107 +110,107 @@
 	"a3da3841-5a76-4d72-a177-cdc4e572efc7":
 	{
 		"title": "Sleeping Bed - Driver",
-		"description": "Un lit dans lequel on peut dormir. Fonctionne également comme siège du conducteur.",
-		"keywords": ["modpack", "direction", "direction", "entraînement", "commande", "pilote", "capitaine", "opérateur", "conducteur", "sommeil", "lit"]
+		"description": "Un lit dans lequel on peut dormir. Fonctionne ï¿½galement comme siï¿½ge du conducteur.",
+		"keywords": ["modpack", "direction", "direction", "entraï¿½nement", "commande", "pilote", "capitaine", "opï¿½rateur", "conducteur", "sommeil", "lit"]
 	},
 	"784bf71e-2331-4d56-a70f-b00a3994231b":
 	{
 		"title": "Driver's Pillow",
-		"description": "Un oreiller sur lequel on peut s'asseoir. Fonctionne également comme siège du conducteur.",
-		"keywords": ["modpack", "direction", "direction", "entraînement", "commande", "pilote", "capitaine", "opérateur", "conducteur", "sommeil", "oreiller", " coussin" ]
+		"description": "Un oreiller sur lequel on peut s'asseoir. Fonctionne ï¿½galement comme siï¿½ge du conducteur.",
+		"keywords": ["modpack", "direction", "direction", "entraï¿½nement", "commande", "pilote", "capitaine", "opï¿½rateur", "conducteur", "sommeil", "oreiller", " coussin" ]
 	},
 	"0513fc6d-fb29-46b6-9409-3ec1a4b79c6f":
 	{
-		"title": "Siège de moto",
-		"description": "Un siège conducteur mince",
-		"keywords": ["modpack", "steer", "pilotage", "drive", "control", "pilote", "capitaine", "opérateur", "conducteur", "conducteur", "harley", "vélo", " selle" ]
+		"title": "Siï¿½ge de moto",
+		"description": "Un siï¿½ge conducteur mince",
+		"keywords": ["modpack", "steer", "pilotage", "drive", "control", "pilote", "capitaine", "opï¿½rateur", "conducteur", "conducteur", "harley", "vï¿½lo", " selle" ]
 	},
 	"ffddc616-2799-4883-8c62-193ba30b6fa8":
 	{
-		"title": "Siège pilote",
-		"description": "Si vous vous penchez en arrière, vous irez plus vite",
-		"keywords": ["modpack", "direction", "direction", "entraînement", "commande", "pilote", "capitaine", "opérateur", "conducteur", "course", "course", " nascar "," vitesse "]
+		"title": "Siï¿½ge pilote",
+		"description": "Si vous vous penchez en arriï¿½re, vous irez plus vite",
+		"keywords": ["modpack", "direction", "direction", "entraï¿½nement", "commande", "pilote", "capitaine", "opï¿½rateur", "conducteur", "course", "course", " nascar "," vitesse "]
 	},
 	"8c355d48-88cd-467b-863f-12c12b72304d":
 	{
 		"title": "Seat Passenger Seat",
-		"description": "Et si une voiture de course avait des sièges pour passagers?",
-		"keywords": ["modpack", "direction", "direction", "entraînement", "commande", "pilote", "capitaine", "opérateur", "conducteur", "course", "course", " nascar "," vitesse "]
+		"description": "Et si une voiture de course avait des siï¿½ges pour passagers?",
+		"keywords": ["modpack", "direction", "direction", "entraï¿½nement", "commande", "pilote", "capitaine", "opï¿½rateur", "conducteur", "course", "course", " nascar "," vitesse "]
 	},
 	"88e045aa-d3ab-435e-b248-60b34c206e6f":
 	{
-	"titre": "Siège de roue du navire",
-		"description": "Seul le capitaine peut utiliser ce siège conducteur",
-		"keywords": ["modpack", "direction", "direction", "entraînement", "commande", "pilote", "capitaine", "opérateur", "conducteur", "conducteur", "navire", "volant", " pirate "," bateau "]
+		"title": "Siï¿½ge de roue du navire",
+		"description": "Seul le capitaine peut utiliser ce siï¿½ge conducteur",
+		"keywords": ["modpack", "direction", "direction", "entraï¿½nement", "commande", "pilote", "capitaine", "opï¿½rateur", "conducteur", "conducteur", "navire", "volant", " pirate "," bateau "]
 	},
 	"ad671132-c345-4edc-96c7-ec835ab3a2c9":
 	{
 		"title": "Jetpack Seat - Ou Mech, Gunner, etc.",
-		"description": "Un siège conducteur avec poignées\n\nVérifiez le pack Scifi pour le modèle précédent ",
-		"keywords": ["modpack", "direction", "direction", "entraînement", "commande", "pilote", "capitaine", "opérateur", "conducteur", "roquette", "jet", " jetpack "," sac à dos "]
+		"description": "Un siï¿½ge conducteur avec poignï¿½es\n\nVï¿½rifiez le pack Scifi pour le modï¿½le prï¿½cï¿½dent ",
+		"keywords": ["modpack", "direction", "direction", "entraï¿½nement", "commande", "pilote", "capitaine", "opï¿½rateur", "conducteur", "roquette", "jet", " jetpack "," sac ï¿½ dos "]
 	},
 	"3b41f562-70c4-4747-9045-3d26ff0e0243":
 	{
-		"title": "Siège du conducteur debout",
-		"description": "À utiliser pour les planches de surf, les skis, les planches à roulettes ou tout autre objet où le conducteur est debout.",
-		"keywords": ["modpack", "steer", "direction", "drive", "control", "pilote", "capitaine", "opérateur", "conducteur", "conducteur", "debout", "debout", " tpose "," t pose "," pose "]
+		"title": "Siï¿½ge du conducteur debout",
+		"description": "ï¿½ utiliser pour les planches de surf, les skis, les planches ï¿½ roulettes ou tout autre objet oï¿½ le conducteur est debout.",
+		"keywords": ["modpack", "steer", "direction", "drive", "control", "pilote", "capitaine", "opï¿½rateur", "conducteur", "conducteur", "debout", "debout", " tpose "," t pose "," pose "]
 	},
 	"b15f557c-872f-4bf5-9c0b-2891a34f430e":
 	{
 		"title": "Modular Seat 1 - Standard",
-		"description": "Un siège conducteur invisible pouvant être placé au-dessus d'autres blocs\n\nPose: siège du conducteur standard ",
-		"keywords": ["modpack", "direction", "direction", "entraînement", "commande", "pilote", "capitaine", "opérateur", "conducteur", "mod", "personnalisé", "affleurant", "invisible", "surface", "panneau", "déguisement", "faux", "sit"]
+		"description": "Un siï¿½ge conducteur invisible pouvant ï¿½tre placï¿½ au-dessus d'autres blocs\n\nPose: siï¿½ge du conducteur standard ",
+		"keywords": ["modpack", "direction", "direction", "entraï¿½nement", "commande", "pilote", "capitaine", "opï¿½rateur", "conducteur", "mod", "personnalisï¿½", "affleurant", "invisible", "surface", "panneau", "dï¿½guisement", "faux", "sit"]
 	},
 	"86d5ca1b-f1fa-42a9-9645-0d276e711b27":
 	{
 		"title": "Modular Seat 2 - Saddle",
-		"description": "Un siège conducteur invisible pouvant être placé au-dessus d'autres blocs\n\nPose: siège de selle du conducteur ",
-		"keywords": ["modpack", "direction", "direction", "entraînement", "commande", "pilote", "capitaine", "opérateur", "conducteur", "mod", "personnalisé", "affleurant", "invisible", "surface", "panneau", "déguisement", "faux", "sit"]
+		"description": "Un siï¿½ge conducteur invisible pouvant ï¿½tre placï¿½ au-dessus d'autres blocs\n\nPose: siï¿½ge de selle du conducteur ",
+		"keywords": ["modpack", "direction", "direction", "entraï¿½nement", "commande", "pilote", "capitaine", "opï¿½rateur", "conducteur", "mod", "personnalisï¿½", "affleurant", "invisible", "surface", "panneau", "dï¿½guisement", "faux", "sit"]
 	},
 	"d9f49f49-0ef9-41d6-a9a5-ec454be87082":
 	{
 		"title": "Modular Seat 3 - Race",
-		"description": "Un siège conducteur invisible pouvant être placé au-dessus d'autres blocs\n\nPose: siège du pilote de course ",
-		"keywords": ["modpack", "direction", "direction", "entraînement", "commande", "pilote", "capitaine", "opérateur", "conducteur", "mod", "personnalisé", "affleurant", "invisible", "surface", "panneau", "déguisement", "faux", "sit"]
+		"description": "Un siï¿½ge conducteur invisible pouvant ï¿½tre placï¿½ au-dessus d'autres blocs\n\nPose: siï¿½ge du pilote de course ",
+		"keywords": ["modpack", "direction", "direction", "entraï¿½nement", "commande", "pilote", "capitaine", "opï¿½rateur", "conducteur", "mod", "personnalisï¿½", "affleurant", "invisible", "surface", "panneau", "dï¿½guisement", "faux", "sit"]
 	},
 
 // moteurs
 	"f55aa240-d4b2-48cc-9c6b-a90fce299bf4":
 	{
 		"title": "Gas Engine 3-Wide",
-		"description": "Il s’agit d’un moteur à essence de la taille d’un moteur électrique. Idéal pour les créations à largeur irrégulière à essence à essence!",
+		"description": "Il sï¿½agit dï¿½un moteur ï¿½ essence de la taille dï¿½un moteur ï¿½lectrique. Idï¿½al pour les crï¿½ations ï¿½ largeur irrï¿½guliï¿½re ï¿½ essence ï¿½ essence!",
 		"keywords": ["modpack", "motor", "impair", "impair-width", "width"]
 	},
 	"c394b6e8-554c-4074-a119-ab2fec55e456":
 	{
 		"title": "Pico thruster - Low power",
-		"description": "Des propulseurs en manœuvre, ou tout simplement un propulseur basse consommation",
-		"keywords": ["modpack", "rocket", "booster", "boost", "force", "échappement"]
+		"description": "Des propulseurs en manï¿½uvre, ou tout simplement un propulseur basse consommation",
+		"keywords": ["modpack", "rocket", "booster", "boost", "force", "ï¿½chappement"]
 	},
 	"036fbe44-45df-11e6-beb8-9e71128cae77":
 	{
 		"title": "1x1 Micro Thruster",
 		"description": "Micro Thruster avec plusieurs niveaux de puissance",
-		"keywords": ["modpack", "rocket", "booster", "boost", "force", "échappement"]
+		"keywords": ["modpack", "rocket", "booster", "boost", "force", "ï¿½chappement"]
 	},
 
 // boutons et commutateurs
 	"685ccdd5-8ee9-480d-a64a-2696c31e1db0":
 	{
-	"titre": "Bouton fléché",
+		"title": "Bouton flï¿½chï¿½",
 		"description": "Fonctionne comme un bouton normal, mais utile pour afficher le sens dans lequel on appuie.",
 		"keywords": ["modpack", "trigger", "push", "on", "flip", "activate", "bascule"]
 	},
 	"e426ee20-2cf7-40c9-ad5e-145f43752fab":
 	{
-		"title": "Bloc de boutons cachés",
-		"description": "Ce bloc s'aligne avec les blocs qui l'entourent et peut être caché dans un mur.",
+		"title": "Bloc de boutons cachï¿½s",
+		"description": "Ce bloc s'aligne avec les blocs qui l'entourent et peut ï¿½tre cachï¿½ dans un mur.",
 		"keywords": ["modpack", "trigger", "push", "on", "flip", "activate", "bascule", "secret", "furtif"]
 	},
 	"f694b406-4f59-46cb-bf33-05e11851eaac":
 	{
-		"title": "Bouton de démarrage",
-		"description": "Avec un peu de logique supplémentaire, vous pouvez l'utiliser pour démarrer vos moteurs et donner un aspect vraiment cool.",
+		"title": "Bouton de dï¿½marrage",
+		"description": "Avec un peu de logique supplï¿½mentaire, vous pouvez l'utiliser pour dï¿½marrer vos moteurs et donner un aspect vraiment cool.",
 		"keywords": ["modpack", "trigger", "push", "on", "flip", "activate", "bascule"]
 	},
 	"deeb37a4-b9ba-4ba7-ad4b-6f5fd5e1d6f2":
@@ -222,14 +222,14 @@
 	"70e5729d-0706-4c28-80a2-2ab9d7e7532c":
 	{
 		"title": "Paddle Latch Switch",
-		"description": "un commutateur pour véhicule ou pour dessin industriel.",
+		"description": "un commutateur pour vï¿½hicule ou pour dessin industriel.",
 		"keywords": ["modpack", "trigger", "push", "on", "flip", "activate", "bascule", "porte", "levier"]
 	},
 	"f6619b4a-a627-40c0-939c-a44432ebc66a":
 	{
-		"title": "Interrupteur de poignée de porte",
-		"description": "Un interrupteur pour l'aménagement intérieur d'une maison.",
-		"keywords": ["modpack", "trigger", "push", "on", "bascule", "activer", "bascule", "porte", "levier", "véhicule"]
+		"title": "Interrupteur de poignï¿½e de porte",
+		"description": "Un interrupteur pour l'amï¿½nagement intï¿½rieur d'une maison.",
+		"keywords": ["modpack", "trigger", "push", "on", "bascule", "activer", "bascule", "porte", "levier", "vï¿½hicule"]
 	},
 	"7022c522-7b33-4638-8dfb-0dfa7c6eb36f":
 	{
@@ -240,7 +240,7 @@
 	"e9ab70ae-2c6c-4f68-86c3-2f652c180fc5":
 	{
 		"title": "Medium Lever - Switch",
-		"description": "Un levier d'usage général",
+		"description": "Un levier d'usage gï¿½nï¿½ral",
 		"keywords": ["modpack", "trigger", "push", "on", "basculer", "activer", "bascule", "levier"]
 	},
 	"ee92187e-8363-4ff6-a7ae-c96e60450537":
@@ -252,72 +252,72 @@
 	"73f35954-e7d2-4a32-bc7c-b88a341ab792":
 	{
 		"title": "Pipe Valve Switch",
-		"description": "C'est une vanne de canalisation, c'est aussi un interrupteur: D\n\n\n\n\nMerci à Jude pour la suggestion ",
+		"description": "C'est une vanne de canalisation, c'est aussi un interrupteur: D\n\n\n\n\nMerci ï¿½ Jude pour la suggestion ",
 		"keywords": ["modpack", "trigger", "push", "on", "basculer", "activer", "bascule", "levier", "plomberie"]
 	},
 
-// armes à feu
+// armes ï¿½ feu
 	"494f0a47-3f18-4ae1-bc42-3f0fccce4f43": {
 		"title": "Pipe Spud Gun",
-		"description": "Un petit pistolet à spud pour s'adapter à l'extrémité des tuyaux, auto-relod.",
+		"description": "Un petit pistolet ï¿½ spud pour s'adapter ï¿½ l'extrï¿½mitï¿½ des tuyaux, auto-relod.",
 		"keywords": ["modpack", "arme", "petit", "pipe"]
 	},
 	"5ec4ebcd-6f2a-402d-b8b9-315b78b4f654": {
 		"title": "Minipipe Spud Gun",
-		"description": "Un petit pistolet à épiler à insérer au bout des mini-tuyaux, auto-rechargement.",
+		"description": "Un petit pistolet ï¿½ ï¿½piler ï¿½ insï¿½rer au bout des mini-tuyaux, auto-rechargement.",
 		"keywords": ["modpack", "arme", "mini", "petit", "pipe"]
 	},
 
-// lumières
+// lumiï¿½res
 	"7947150d-a21c-4195-a4a8-76aab023ba3c":
 	{
 		"title": "Pixel Light Block - Black-Off, Light-On",
-		"description": "Un petit cube qui émet de la lumière dans toutes les directions",
-		"keywords": ["modpack", "cube", "bloc", "pixel", "art", "écran", "logique", "briller", "émettre", "phare", "lampe"]
+		"description": "Un petit cube qui ï¿½met de la lumiï¿½re dans toutes les directions",
+		"keywords": ["modpack", "cube", "bloc", "pixel", "art", "ï¿½cran", "logique", "briller", "ï¿½mettre", "phare", "lampe"]
 	},
 	"bfbd310d-7c07-4f08-a8cc-9a69e70a9ff0":
 	{
 		"title": "Off / On Light - Round",
 		"description": "convient au bout d'un tuyau",
-		"keywords": ["modpack", "briller", "émettre", "rond", "petit", "phare", "lampe"]
+		"keywords": ["modpack", "briller", "ï¿½mettre", "rond", "petit", "phare", "lampe"]
 	},
 	"d7de689e-5082-4323-b6c4-eb1ce8f29719":
 	{
-		"title": "Lumière Off / On - Rectangle",
-		"description": "Une lumière de forme rectangulaire",
+		"title": "Lumiï¿½re Off / On - Rectangle",
+		"description": "Une lumiï¿½re de forme rectangulaire",
 		"keywords": ["modpack", "briller", "petit", "minuscule", "phare", "lampe"]
 	},
 	"5a3ea22a-99b1-48eb-b169-3243ad49b27c":
 	{
-		"title": "Lumière Off / On - Round Mini",
-		"description": "Convient à l'extrémité d'un mini tuyau",
-		"keywords": ["modpack", "briller", "petit", "minuscule", "mini", "rond", "émettre", "phare", "lampe"]
+		"title": "Lumiï¿½re Off / On - Round Mini",
+		"description": "Convient ï¿½ l'extrï¿½mitï¿½ d'un mini tuyau",
+		"keywords": ["modpack", "briller", "petit", "minuscule", "mini", "rond", "ï¿½mettre", "phare", "lampe"]
 	},
 	"7b51eae8-c55c-4102-b9eb-6c23ca547e83":
 	{
 		"title": "Off / On Light - Square",
 		"description": "Un voyant de surface",
-		"keywords": ["modpack", "bloc", "briller", "petit", "émettre", "phare", "lampe"]
+		"keywords": ["modpack", "bloc", "briller", "petit", "ï¿½mettre", "phare", "lampe"]
 	},
 	"e83e6fd9-e963-485f-8be0-43895af58ee3":
 	{
 		"title": "Off / On Light - Cube",
-		"description": "Une lumière qui s'inscrit dans l'espace d'un bloc.\n\nLa position de la lumière est différente de la version du panneau de surface. ",
-		"keywords": ["modpack", "cube", "bloc", "briller", "petit", "émettre", "phare", "petit", "lampe"]
+		"description": "Une lumiï¿½re qui s'inscrit dans l'espace d'un bloc.\n\nLa position de la lumiï¿½re est diffï¿½rente de la version du panneau de surface. ",
+		"keywords": ["modpack", "cube", "bloc", "briller", "petit", "ï¿½mettre", "phare", "petit", "lampe"]
 	},
 	"0f994efc-b697-48e4-8ce0-f53eae15d41b":
 	{
-	"titre": "Slim Light",
-		"description": "Une lumière facile à utiliser à monter sur le côté ou le dessous de vos créations! En réalité, partout.",
-		"keywords": ["modpack", "minuscule", "mince", "sous", "briller", "émettre", "minuscule", "voiture", "véhicule", "phare", "petit", " lampe "]
+		"title": "Slim Light",
+		"description": "Une lumiï¿½re facile ï¿½ utiliser ï¿½ monter sur le cï¿½tï¿½ ou le dessous de vos crï¿½ations! En rï¿½alitï¿½, partout.",
+		"keywords": ["modpack", "minuscule", "mince", "sous", "briller", "ï¿½mettre", "minuscule", "voiture", "vï¿½hicule", "phare", "petit", " lampe "]
 	},
 
 // logique vanille
 	"9687439e-70a7-4c52-8dd1-d6fa6ec93df8":
 	{
-		"title": "Contrôleur de surface",
-		"description": "Contrôleur de panneau de surface",
-		"keywords": ["modpack", "panel", "sequence", "stepper", "step", "séquenceur", "flush", "petit", "minuscule"]
+		"title": "Contrï¿½leur de surface",
+		"description": "Contrï¿½leur de panneau de surface",
+		"keywords": ["modpack", "panel", "sequence", "stepper", "step", "sï¿½quenceur", "flush", "petit", "minuscule"]
 	},
 	"60375a3b-0d70-43a2-a97a-4a4234b500dd":
 	{
@@ -329,195 +329,195 @@
 	{
 		"title": "Surface Timer",
 		"description": "Minuterie de panneau de surface",
-		"keywords": ["modpack", "panel", "sequence", "logic", "time", "séquenceur", "flush", "small", "minuscule"]
+		"keywords": ["modpack", "panel", "sequence", "logic", "time", "sï¿½quenceur", "flush", "small", "minuscule"]
 	},
 
 // outils intelligents
 	"f907144d-ae63-4e5e-bff9-f9ca413e2090": {
-	"titre": "Découpleur",
-		"description": "Déconnectez les objets à la demande! Plus besoin de tirer avec du carton!\n\nMettez entre les éléments que vous souhaitez déconnecter, connectez un bouton / une logique et activez-le pour vous déconnecter! ",
-		"keywords": ["modpack", "detach", "attach", "couple", "decouple", "coupleur", "séparé", "outils", "déconnexion", "connect", "connexion", "couper", "laisser aller", "intelligent" ]
+		"title": "Dï¿½coupleur",
+		"description": "Dï¿½connectez les objets ï¿½ la demande! Plus besoin de tirer avec du carton!\n\nMettez entre les ï¿½lï¿½ments que vous souhaitez dï¿½connecter, connectez un bouton / une logique et activez-le pour vous dï¿½connecter! ",
+		"keywords": ["modpack", "detach", "attach", "couple", "decouple", "coupleur", "sï¿½parï¿½", "outils", "dï¿½connexion", "connect", "connexion", "couper", "laisser aller", "intelligent" ]
 	},
 	"6613bebe-be9f-435c-b415-42a0b45cc8e3": {
 		"title": "Time Block",
-		"description": "Affiche une valeur numérique pour le temps\n\nModes:\n - heure de la journée en secondes (GMT)\n - jours depuis l'an 2000 ",
-		"keywords": ["modpack", "horloge", "heure", "logique", "numéro", "intelligent", "seconde", "minute", "heure", "date", "jour", " mois "," année "," montre "]
+		"description": "Affiche une valeur numï¿½rique pour le temps\n\nModes:\n - heure de la journï¿½e en secondes (GMT)\n - jours depuis l'an 2000 ",
+		"keywords": ["modpack", "horloge", "heure", "logique", "numï¿½ro", "intelligent", "seconde", "minute", "heure", "date", "jour", " mois "," annï¿½e "," montre "]
 	},
 	"4081ca6f-6b80-4c39-9e79-e1f747039bec": {
 		"title": "Smart Sensor",
-		"description": "Gamme infinie!\nRenvoie la distance ou la couleur détectée sous forme de nombre\n\nModes:\n - Mode distance normale\n - Mode grande distance\n - Mode de couleur normale\n - Mode couleur large\n - Détecteur de type\n\nUtilisez une entrée numérique pour décaler le faisceau de détection (voir à travers les murs!)\nUtilisez la saisie de numéro blanc pour la sélection de mode avec logique!",
-		"keywords": ["modpack", "sensor", "range", "smart", "number", "logic", "type", "détecteur", "detect", "distance", "radar", " œil" ]
+		"description": "Gamme infinie!\nRenvoie la distance ou la couleur dï¿½tectï¿½e sous forme de nombre\n\nModes:\n - Mode distance normale\n - Mode grande distance\n - Mode de couleur normale\n - Mode couleur large\n - Dï¿½tecteur de type\n\nUtilisez une entrï¿½e numï¿½rique pour dï¿½caler le faisceau de dï¿½tection (voir ï¿½ travers les murs!)\nUtilisez la saisie de numï¿½ro blanc pour la sï¿½lection de mode avec logique!",
+		"keywords": ["modpack", "sensor", "range", "smart", "number", "logic", "type", "dï¿½tecteur", "detect", "distance", "radar", " ï¿½il" ]
 	},
 	"c7a99aa6-c5a4-43ad-84c9-c85f7d842a93":
 	{
 		"title": "Laser Sight",
 		"description": "Rayonne un laser en ligne droite",
-		"keywords": ["modpack", "sensor", "range", "smart", "number", "logic", "type", "détecteur", "detect", "distance", "radar", "lumière", "faisceau", "laser", "lazer", "sécurité", "ligne"]
+		"keywords": ["modpack", "sensor", "range", "smart", "number", "logic", "type", "dï¿½tecteur", "detect", "distance", "radar", "lumiï¿½re", "faisceau", "laser", "lazer", "sï¿½curitï¿½", "ligne"]
 	},
 	"6594dff0-c652-4b44-8bb6-c725aaadad05": {
-	"titre": "Tracker",
-		"description": "Collez ceci sur votre création pour ne plus la perdre! Vous pourrez retrouver tout ce que vous voulez coller!\n\nPeignez votre tracker pour suivre par couleur! Nombre blanc à utiliser pour utiliser la fréquence personnalisée!\n\nCréez une fausse position de suivi avec des entrées de numéro RVB! ",
-		"keywords": ["modpack", "radar", "distance", "localiser", "emplacement", "nombre", "fréquence", "canal", "distance", "détecter", "lecteur", " suivi "," ligne "," point "," coordonnée "]
+		"title": "Tracker",
+		"description": "Collez ceci sur votre crï¿½ation pour ne plus la perdre! Vous pourrez retrouver tout ce que vous voulez coller!\n\nPeignez votre tracker pour suivre par couleur! Nombre blanc ï¿½ utiliser pour utiliser la frï¿½quence personnalisï¿½e!\n\nCrï¿½ez une fausse position de suivi avec des entrï¿½es de numï¿½ro RVB! ",
+		"keywords": ["modpack", "radar", "distance", "localiser", "emplacement", "nombre", "frï¿½quence", "canal", "distance", "dï¿½tecter", "lecteur", " suivi "," ligne "," point "," coordonnï¿½e "]
 	},
 	"55bb3871-8455-40dc-a968-3dc635a32b7e": {
-	"titre": "Radar Jammer",
-		"description": "Ceci causera des interférences avec le signal de poursuite sur un radar dans un rayon de 16 blocs. Appuyez sur E. pour activer / désactiver. ON par défaut.\n\nSi cet appareil est touché par un projectile, il ne fonctionnera plus pendant un court instant. ",
-		"keywords": ["modpack", "radar", "distance", "localiser", "localisation", "distance", "fréquence", "détecter", "lecteur", "traqueur", "perturber", " furtif "," masquer "," jam "," signal "," ligne "," point "," coordonnée "]
+		"title": "Radar Jammer",
+		"description": "Ceci causera des interfï¿½rences avec le signal de poursuite sur un radar dans un rayon de 16 blocs. Appuyez sur E. pour activer / dï¿½sactiver. ON par dï¿½faut.\n\nSi cet appareil est touchï¿½ par un projectile, il ne fonctionnera plus pendant un court instant. ",
+		"keywords": ["modpack", "radar", "distance", "localiser", "localisation", "distance", "frï¿½quence", "dï¿½tecter", "lecteur", "traqueur", "perturber", " furtif "," masquer "," jam "," signal "," ligne "," point "," coordonnï¿½e "]
 	},
 	"d88ba569-f7a5-42e3-bb11-d7979b60ddad": {
 		"title": "x-o-meter",
-		"description": "Affiche une valeur numérique. Appuyez sur E pour changer de mode, sur CTRL + E pour revenir en arrière.\n\nModes:\n- Indicateur de vitesse\n- Accéléromètre\n- altimètre\n- Position X\n- Position Y\n- Boussole\n- Rapidité\n- RPM (degrés / seconde)\n- Jauge de pourcentage personnalisée ",
-		"keywords": ["modpack", "smart", "logic", "orient", "orientation", "meter", "measure", "angle", "direction", "compass", "speedometer", "vitesse", "accélération", "vitesse", "vecteur", "inclinaison", "jauge", "altitude", "position", "position", "degré", "rotation", "tour par minute", "ligne" , "point", "coordonnée", "balance"]
+		"description": "Affiche une valeur numï¿½rique. Appuyez sur E pour changer de mode, sur CTRL + E pour revenir en arriï¿½re.\n\nModes:\n- Indicateur de vitesse\n- Accï¿½lï¿½romï¿½tre\n- altimï¿½tre\n- Position X\n- Position Y\n- Boussole\n- Rapiditï¿½\n- RPM (degrï¿½s / seconde)\n- Jauge de pourcentage personnalisï¿½e ",
+		"keywords": ["modpack", "smart", "logic", "orient", "orientation", "meter", "measure", "angle", "direction", "compass", "speedometer", "vitesse", "accï¿½lï¿½ration", "vitesse", "vecteur", "inclinaison", "jauge", "altitude", "position", "position", "degrï¿½", "rotation", "tour par minute", "ligne" , "point", "coordonnï¿½e", "balance"]
 	},
 	"ccaa33b6-e5bb-4edc-9329-b40f6efe2c9e": {
 		"title": "Orientation Block",
-		"description": "Ce bloc affichera les informations d'orientation. Utilisez-le avec un moteur avec roulements, propulseurs, tout ce dont vous avez besoin pour aligner ce bloc sur votre cible! Ciblez le monde, le lecteur, le bloc de suivi et plus encore! Relevé de distance supplémentaire! Se connecter à WS et AD convertis à partir du bloc mathématique. ",
-		"keywords": ["modpack", "smart", "logic", "orient", "orientation", "angle", "direction", "camera", "control", "ai", "ordinateur", " auto "," automatique "," npc "," monde "," lecteur "," suivi "," piste "," détecter "," distance "," cible "," plage "," ligne "," point " , "coordonnée", "balance"]
+		"description": "Ce bloc affichera les informations d'orientation. Utilisez-le avec un moteur avec roulements, propulseurs, tout ce dont vous avez besoin pour aligner ce bloc sur votre cible! Ciblez le monde, le lecteur, le bloc de suivi et plus encore! Relevï¿½ de distance supplï¿½mentaire! Se connecter ï¿½ WS et AD convertis ï¿½ partir du bloc mathï¿½matique. ",
+		"keywords": ["modpack", "smart", "logic", "orient", "orientation", "angle", "direction", "camera", "control", "ai", "ordinateur", " auto "," automatique "," npc "," monde "," lecteur "," suivi "," piste "," dï¿½tecter "," distance "," cible "," plage "," ligne "," point " , "coordonnï¿½e", "balance"]
 	},
 
 // Smart Logic
 	"6f2dd83e-bc0d-43f3-8ba5-d5209eb03d07": {
 		"title": "Tick",
-		"description": "Ce bouton est très précis! Il suffit d'appuyer sur ce bouton pour envoyer un signal d'une longueur de 1 tick. Ce bouton peut également comporter une entrée numérique permettant de définir la longueur du tick pour des temps d'effet plus longs et plus spécifiques.\n\nCompatibilité couleur logique numéro ",
-		"keywords": ["modpack", "smart", "logic", "number", "tick", "pulse", "signal", "value", "bit", "count", "add", " soustraire "," valeur "," bit "," chiffre "," déclencheur "," bascule "]
+		"description": "Ce bouton est trï¿½s prï¿½cis! Il suffit d'appuyer sur ce bouton pour envoyer un signal d'une longueur de 1 tick. Ce bouton peut ï¿½galement comporter une entrï¿½e numï¿½rique permettant de dï¿½finir la longueur du tick pour des temps d'effet plus longs et plus spï¿½cifiques.\n\nCompatibilitï¿½ couleur logique numï¿½ro ",
+		"keywords": ["modpack", "smart", "logic", "number", "tick", "pulse", "signal", "value", "bit", "count", "add", " soustraire "," valeur "," bit "," chiffre "," dï¿½clencheur "," bascule "]
 	},
 	"d8296109-2ffb-4efb-819a-54bd8cadf549": {
-	"titre": "Compteur",
-		"description": "Ce bloc est utilisé comme un dispositif de comptage. La première entrée décroît, la deuxième entrée décompte.\nLa sortie est un nombre; utiliser avec des blocs de nombre et des blocs de calcul. Plage positive et négative.\nAppuyez sur E pour remettre le compteur à zéro.\nCompatible avec les chiffres pondérés par couleur pour les entrées (c’est-à-dire que 2 entrées rouges compteront 10 fois de plus en plus) ",
-		"keywords": ["modpack", "smart", "logic", "number", "count", "add", "soustraire", "value", "bit", "digit", "storage", " écrire "," enregistrer "]
+		"title": "Compteur",
+		"description": "Ce bloc est utilisï¿½ comme un dispositif de comptage. La premiï¿½re entrï¿½e dï¿½croï¿½t, la deuxiï¿½me entrï¿½e dï¿½compte.\nLa sortie est un nombre; utiliser avec des blocs de nombre et des blocs de calcul. Plage positive et nï¿½gative.\nAppuyez sur E pour remettre le compteur ï¿½ zï¿½ro.\nCompatible avec les chiffres pondï¿½rï¿½s par couleur pour les entrï¿½es (cï¿½est-ï¿½-dire que 2 entrï¿½es rouges compteront 10 fois de plus en plus) ",
+		"keywords": ["modpack", "smart", "logic", "number", "count", "add", "soustraire", "value", "bit", "digit", "storage", " ï¿½crire "," enregistrer "]
 	},
 	"efbd14a8-f896-4268-a273-b2b382db520c": {
 		"title": "Number Number",
-		"description": "Utilisé pour afficher et transférer les valeurs numériques. Compatible avec les chiffres pondérés par couleur.\n\nExemple:\nUtilisez Compteur comme entrée pour plusieurs blocs de nombres et peignez le nombre de blocs de la deuxième ligne de couleurs de peinture de droite à gauche pour des chiffres individuels.\nPeut également stocker une valeur numérique dans un seul bloc ",
-		"keywords": ["modpack", "smart", "logic", "number", "count", "display", "digit", "value", "screen", "bit", "binary", " bcd "," numérique "]
+		"description": "Utilisï¿½ pour afficher et transfï¿½rer les valeurs numï¿½riques. Compatible avec les chiffres pondï¿½rï¿½s par couleur.\n\nExemple:\nUtilisez Compteur comme entrï¿½e pour plusieurs blocs de nombres et peignez le nombre de blocs de la deuxiï¿½me ligne de couleurs de peinture de droite ï¿½ gauche pour des chiffres individuels.\nPeut ï¿½galement stocker une valeur numï¿½rique dans un seul bloc ",
+		"keywords": ["modpack", "smart", "logic", "number", "count", "display", "digit", "value", "screen", "bit", "binary", " bcd "," numï¿½rique "]
 	},
 	"289e08ef-e3d8-4f1b-bc10-a0bcf36fa0ce": {
 		"title": "Math Block\n(Bloc fonctionnel) ",
-		"description": "Nombreuses fonctions incluses! Appuyez sur E pour faire défiler les fonctions! CTRL + E pour faire défiler en arrière.\nConnectez les entrées et effectuez les fonctions pour une sortie au format numérique\nSpécifier l'ordre des opérations avec les entrées de couleur blanche / noire\nComprend les fonctions de siège et le bit de mémoire ",
-		"keywords": ["modpack", "smart", "logic", "number", "function", "arithmetic", "add", "moins", "invert", "négatif", "soustraire", " multiplier "," produit "," division "," diviser "," rapport "," comparer "," convertir "," moins "," plus grand "," <","> "," égal "," pas " , "inégale", "valeur", "wasd", "siège", "contrôle", "ws", "ad", "opération", "hypoténuse", "sinus", "sin", "cos", " cosinus "," tangente "," bronzage "," inverse "," arc "," trig "," trigonométrie "," ligne "," point "," coordonnée "," rond "," up "," down " , "direction", "entraînement", "aléatoire", "pi", "euler", "constante", "exposant", "racine", "carré", "min", "max", "journal", " module "," mod "," mémoire "," bit "," facteur "," factoriel "," bascule "," commutateur "," numérique "]
+		"description": "Nombreuses fonctions incluses! Appuyez sur E pour faire dï¿½filer les fonctions! CTRL + E pour faire dï¿½filer en arriï¿½re.\nConnectez les entrï¿½es et effectuez les fonctions pour une sortie au format numï¿½rique\nSpï¿½cifier l'ordre des opï¿½rations avec les entrï¿½es de couleur blanche / noire\nComprend les fonctions de siï¿½ge et le bit de mï¿½moire ",
+		"keywords": ["modpack", "smart", "logic", "number", "function", "arithmetic", "add", "moins", "invert", "nï¿½gatif", "soustraire", " multiplier "," produit "," division "," diviser "," rapport "," comparer "," convertir "," moins "," plus grand "," <","> "," ï¿½gal "," pas " , "inï¿½gale", "valeur", "wasd", "siï¿½ge", "contrï¿½le", "ws", "ad", "opï¿½ration", "hypotï¿½nuse", "sinus", "sin", "cos", " cosinus "," tangente "," bronzage "," inverse "," arc "," trig "," trigonomï¿½trie "," ligne "," point "," coordonnï¿½e "," rond "," up "," down " , "direction", "entraï¿½nement", "alï¿½atoire", "pi", "euler", "constante", "exposant", "racine", "carrï¿½", "min", "max", "journal", " module "," mod "," mï¿½moire "," bit "," facteur "," factoriel "," bascule "," commutateur "," numï¿½rique "]
 	},
 	"b39faec9-1ed0-4475-8bc0-78d125df1b58": {
 		"title": "Memory Panel",
-		"description": "Enregistre une valeur numérique à une adresse mémoire. Utilisez une entrée numérique pour la valeur et un commutateur / bouton / logique pour enregistrer cette valeur. Utilisez une deuxième entrée numérique peinte en blanc pour spécifier l'adresse de la mémoire.",
-		"keywords": ["modpack", "smart", "logic", "number", "save", "store", "storage", "memory", "bit", "rappel", "load", " valeur "," chiffre "," numérique "," ram "," disque "," lecteur "," disque dur "," ssd "," écriture "]
+		"description": "Enregistre une valeur numï¿½rique ï¿½ une adresse mï¿½moire. Utilisez une entrï¿½e numï¿½rique pour la valeur et un commutateur / bouton / logique pour enregistrer cette valeur. Utilisez une deuxiï¿½me entrï¿½e numï¿½rique peinte en blanc pour spï¿½cifier l'adresse de la mï¿½moire.",
+		"keywords": ["modpack", "smart", "logic", "number", "save", "store", "storage", "memory", "bit", "rappel", "load", " valeur "," chiffre "," numï¿½rique "," ram "," disque "," lecteur "," disque dur "," ssd "," ï¿½criture "]
 	},
 	"a1d0b1a0-4ec7-4614-8b7a-9a7c521cc03e": {
 		"title": "Smart Timer",
-		"description": "Nombre d'entrées:\nBlanc: définit combien de temps retarder le signal\nAutre: valeur numérique entrée, sortie après le délai défini\n\nEntrées logiques:\nBlanc = effacer la file d'attente\nNoir = pause dans la file d'attente\nAutre = valeur d'entrée de 1 ",
+		"description": "Nombre d'entrï¿½es:\nBlanc: dï¿½finit combien de temps retarder le signal\nAutre: valeur numï¿½rique entrï¿½e, sortie aprï¿½s le dï¿½lai dï¿½fini\n\nEntrï¿½es logiques:\nBlanc = effacer la file d'attente\nNoir = pause dans la file d'attente\nAutre = valeur d'entrï¿½e de 1 ",
 		"keywords": ["modpack", "smart", "logic", "number", "delay", "sequence", "order", "time", "value", "tick"]
 	},
 	"d3eda549-778f-432b-bf21-65a32ae53378": {// ajout du clavier
-		"title": "Entrée clavier",
-		"description": "Clavier permettant de saisir les valeurs dans un panneau de mémoire ou un autre système intelligent. La valeur est sortie au fur et à mesure de la frappe. Appuyez sur Entrée pour envoyer un tick logique.\n\nVous ne savez pas comment l'utiliser? Connectez un tas de chiffres du bloc de numéro et essayez-le. ",
+		"title": "Entrï¿½e clavier",
+		"description": "Clavier permettant de saisir les valeurs dans un panneau de mï¿½moire ou un autre systï¿½me intelligent. La valeur est sortie au fur et ï¿½ mesure de la frappe. Appuyez sur Entrï¿½e pour envoyer un tick logique.\n\nVous ne savez pas comment l'utiliser? Connectez un tas de chiffres du bloc de numï¿½ro et essayez-le. ",
 		"keywords": ["modpack", "key", "pad", "number", "button", "enter", "clear", "input", "calc", "calculatrice", "type"]
 	},
 	"e627986c-b7dd-4365-8fd8-a0f8707af63d": {
 		"title": "Routeur sans fil",
-		"description": "Cet appareil sans fil peut transmettre des données sur de longues distances!\n\nE pour changer envoyer / recevoir\nLa couleur de peinture définit le canal\nNombre blanc pour la fréquence\n\nAttention: les appareils sans fil du même canal et de la même fréquence s’interféreront mutuellement. ",
-	"mots-clés": ["modpack", "smart", "logique", "nombre", "sans fil", "distant", "transfert", "contrôle", "signal", "fréquence", "antenne"]
+		"description": "Cet appareil sans fil peut transmettre des donnï¿½es sur de longues distances!\n\nE pour changer envoyer / recevoir\nLa couleur de peinture dï¿½finit le canal\nNombre blanc pour la frï¿½quence\n\nAttention: les appareils sans fil du mï¿½me canal et de la mï¿½me frï¿½quence sï¿½interfï¿½reront mutuellement. ",
+		"keywords": ["modpack", "smart", "logique", "nombre", "sans fil", "distant", "transfert", "contrï¿½le", "signal", "frï¿½quence", "antenne"]
 	},
 	"921a2ace-b543-4ca3-8a9b-6f3dd3132fa9": {
 		"title": "Color Block",
-		"description": "Un bloc qui peut changer de couleur.\n\nUtilisez 1 chiffre pour afficher une couleur allant du noir au blanc (-1 est un moyen rapide d’obtenir du blanc).\nUtilisez 3 entrées numériques (peint en rouge, vert et bleu) pour utiliser ce bloc en mode RVB. Définissez chaque composante de couleur de 0 à 255\n\nPeindre le bloc fonctionne aussi.\nPeut aussi connecter des blocs de couleur.\nBlanc, gris et noir pour un éclat, une brillance et une réflexion. Entrée logique colorée pour passer du mode RVB au mode HSV. ",
-		"keywords": ["modpack", "smart", "logic", "number", "rgb", "color", "screen", "display", "pixel", "point", "lueur", " briller "," réfléchir "," rouge "," vert "," bleu "," lueur "," personnalisé "," peindre "]
+		"description": "Un bloc qui peut changer de couleur.\n\nUtilisez 1 chiffre pour afficher une couleur allant du noir au blanc (-1 est un moyen rapide dï¿½obtenir du blanc).\nUtilisez 3 entrï¿½es numï¿½riques (peint en rouge, vert et bleu) pour utiliser ce bloc en mode RVB. Dï¿½finissez chaque composante de couleur de 0 ï¿½ 255\n\nPeindre le bloc fonctionne aussi.\nPeut aussi connecter des blocs de couleur.\nBlanc, gris et noir pour un ï¿½clat, une brillance et une rï¿½flexion. Entrï¿½e logique colorï¿½e pour passer du mode RVB au mode HSV. ",
+		"keywords": ["modpack", "smart", "logic", "number", "rgb", "color", "screen", "display", "pixel", "point", "lueur", " briller "," rï¿½flï¿½chir "," rouge "," vert "," bleu "," lueur "," personnalisï¿½ "," peindre "]
 	},
 	"9c47ec58-bdfc-43a4-b066-852156ad812a": {
-	"titre": "Bloc Ascii",
-		"description": "Créez vos panneaux, écrans, jeux, etc. avec le bloc Ascii. Appuyez sur E pour faire défiler les lettres, CTRL + E pour faire défiler en arrière.\n\nConnectez une entrée numérique pour spécifier le symbole que vous souhaitez afficher.\n\nOu vous pouvez connecter plusieurs boutons pour parcourir les symboles ",
-		"keywords": ["modpack", "smart", "logic", "number", "display", "letter", "symbol", "emoji", "emoticon", "emote", "smile", " flèche "," froncer les sourcils "," visage "," signe "," direction "," texte "," astrologie "," maths "," géométrie "," image "," image "," dessin "]
+		"title": "Bloc Ascii",
+		"description": "Crï¿½ez vos panneaux, ï¿½crans, jeux, etc. avec le bloc Ascii. Appuyez sur E pour faire dï¿½filer les lettres, CTRL + E pour faire dï¿½filer en arriï¿½re.\n\nConnectez une entrï¿½e numï¿½rique pour spï¿½cifier le symbole que vous souhaitez afficher.\n\nOu vous pouvez connecter plusieurs boutons pour parcourir les symboles ",
+		"keywords": ["modpack", "smart", "logic", "number", "display", "letter", "symbol", "emoji", "emoticon", "emote", "smile", " flï¿½che "," froncer les sourcils "," visage "," signe "," direction "," texte "," astrologie "," maths "," gï¿½omï¿½trie "," image "," image "," dessin "]
 	},
 	"8d27520e-2ebc-4f14-bd2c-b99ee8976799": {
 		"title": "Bloc Ascii Inverted",
-		"description": "Créez vos panneaux, écrans, jeux, etc. avec le bloc Ascii. Appuyez sur E pour faire défiler les lettres, CTRL + E pour faire défiler en arrière.\n\nConnectez une entrée numérique pour spécifier le symbole que vous souhaitez afficher.\n\nOu vous pouvez connecter plusieurs boutons pour parcourir les symboles ",
-		"keywords": ["modpack", "smart", "logic", "number", "display", "letter", "symbol", "emoji", "emoticon", "emote", "smile", " flèche "," froncer les sourcils "," visage "," signe "," direction "," texte "," astrologie "," maths "," géométrie "," image "," image "," dessin "]
+		"description": "Crï¿½ez vos panneaux, ï¿½crans, jeux, etc. avec le bloc Ascii. Appuyez sur E pour faire dï¿½filer les lettres, CTRL + E pour faire dï¿½filer en arriï¿½re.\n\nConnectez une entrï¿½e numï¿½rique pour spï¿½cifier le symbole que vous souhaitez afficher.\n\nOu vous pouvez connecter plusieurs boutons pour parcourir les symboles ",
+		"keywords": ["modpack", "smart", "logic", "number", "display", "letter", "symbol", "emoji", "emoticon", "emote", "smile", " flï¿½che "," froncer les sourcils "," visage "," signe "," direction "," texte "," astrologie "," maths "," gï¿½omï¿½trie "," image "," image "," dessin "]
 	},
 	"a459eb96-7f0a-42e6-a841-44f9c0561a55": {
 		"title": "Ascii Block Colored",
-		"description": "Créez vos panneaux, écrans, jeux, etc. avec le bloc Ascii. Appuyez sur E pour faire défiler les lettres, CTRL + E pour faire défiler en arrière.\n\nConnectez une entrée numérique pour spécifier le symbole que vous souhaitez afficher.\n\nOu vous pouvez connecter plusieurs boutons pour parcourir les symboles ",
-		"keywords": ["modpack", "smart", "logic", "number", "display", "letter", "symbol", "emoji", "emoticon", "emote", "smile", " flèche "," froncer les sourcils "," visage "," signe "," direction "," texte "," astrologie "," maths "," géométrie "," image "," image "," dessin "]
+		"description": "Crï¿½ez vos panneaux, ï¿½crans, jeux, etc. avec le bloc Ascii. Appuyez sur E pour faire dï¿½filer les lettres, CTRL + E pour faire dï¿½filer en arriï¿½re.\n\nConnectez une entrï¿½e numï¿½rique pour spï¿½cifier le symbole que vous souhaitez afficher.\n\nOu vous pouvez connecter plusieurs boutons pour parcourir les symboles ",
+		"keywords": ["modpack", "smart", "logic", "number", "display", "letter", "symbol", "emoji", "emoticon", "emote", "smile", " flï¿½che "," froncer les sourcils "," visage "," signe "," direction "," texte "," astrologie "," maths "," gï¿½omï¿½trie "," image "," image "," dessin "]
 	},
 
 // Puissance intelligente
 	"fe8978ec-5798-4b24-bdb2-8375387f171b": {
 		"title": "Smart Engine Controller",
-		"description": "Cet appareil peut contrôler des roulements et des pistons avec une logique numérique!\nBlanc = Vitesse\nNoir = puissance\nGris = raideur\nAutre = Angle / Longueur de la cible\n\nValeurs par défaut sans entrées:\n0 vitesse\n10 000 puissance\n100 rigidité\nPas d'angle cible / 0 longueur ",
-		"keywords": ["modpack", "smart", "logic", "number", "step", "stepper", "sequence", "séquenceur", "angle", "piston", "length", " coutume "," ressort "," suspension "," force "," force "," résistance "," vitesse "," rotation "," rotation "," tours par minute "," électrique "," gaz "]
+		"description": "Cet appareil peut contrï¿½ler des roulements et des pistons avec une logique numï¿½rique!\nBlanc = Vitesse\nNoir = puissance\nGris = raideur\nAutre = Angle / Longueur de la cible\n\nValeurs par dï¿½faut sans entrï¿½es:\n0 vitesse\n10 000 puissance\n100 rigiditï¿½\nPas d'angle cible / 0 longueur ",
+		"keywords": ["modpack", "smart", "logic", "number", "step", "stepper", "sequence", "sï¿½quenceur", "angle", "piston", "length", " coutume "," ressort "," suspension "," force "," force "," rï¿½sistance "," vitesse "," rotation "," rotation "," tours par minute "," ï¿½lectrique "," gaz "]
 	},
 	"a4342028-9a61-4961-99a4-2ae372ee2481": {
 		"title": "Smart Thruster",
-		"description": "Connectez un siège pour les commandes W et S. Entrée numérique pour régler le niveau de puissance. À utiliser également avec les fonctions de siège du bloc Math pour les commandes A et D\n\nPuissance par défaut: 100\nC'est la valeur numérique utilisée lorsqu'aucune entrée numérique n'est connectée et correspond à peu près à la même chose qu'un propulseur normal avec le réglage de puissance le plus faible. ",
-		"keywords": ["modpack", "smart", "logic", "number", "rocket", "power", "direction", "control", "custom", "ws", "siège", " float "," fly "," jet "]
+		"description": "Connectez un siï¿½ge pour les commandes W et S. Entrï¿½e numï¿½rique pour rï¿½gler le niveau de puissance. ï¿½ utiliser ï¿½galement avec les fonctions de siï¿½ge du bloc Math pour les commandes A et D\n\nPuissance par dï¿½faut: 100\nC'est la valeur numï¿½rique utilisï¿½e lorsqu'aucune entrï¿½e numï¿½rique n'est connectï¿½e et correspond ï¿½ peu prï¿½s ï¿½ la mï¿½me chose qu'un propulseur normal avec le rï¿½glage de puissance le plus faible. ",
+		"keywords": ["modpack", "smart", "logic", "number", "rocket", "power", "direction", "control", "custom", "ws", "siï¿½ge", " float "," fly "," jet "]
 	},
 	"cec7c353-34ab-43a4-ade5-411df02eaa2a": {
 		"title": "WASD Thruster",
-		"description": "Dirigez ce propulseur avec un siège! Utilisez un commutateur pour allumer / éteindre. Utilisez une entrée numérique pour définir le niveau de puissance, comme le propulseur intelligent.\n\nIMPORTANT: Appuyez sur E pour changer de mode, sur CTRL + E pour revenir en arrière.\nPar défaut, Pitch Inverted, WS uniquement, AD uniquement\n\nPuissance par défaut: 100 ",
-		"keywords": ["modpack", "smart", "logic", "number", "rocket", "power", "direction", "control", "custom", "ws", "ad", " siège "," float "," mouche "," jet "]
+		"description": "Dirigez ce propulseur avec un siï¿½ge! Utilisez un commutateur pour allumer / ï¿½teindre. Utilisez une entrï¿½e numï¿½rique pour dï¿½finir le niveau de puissance, comme le propulseur intelligent.\n\nIMPORTANT: Appuyez sur E pour changer de mode, sur CTRL + E pour revenir en arriï¿½re.\nPar dï¿½faut, Pitch Inverted, WS uniquement, AD uniquement\n\nPuissance par dï¿½faut: 100 ",
+		"keywords": ["modpack", "smart", "logic", "number", "rocket", "power", "direction", "control", "custom", "ws", "ad", " siï¿½ge "," float "," mouche "," jet "]
 	},
 	"41d596a6-882c-4f97-b0e0-3e11bff194e2": {
 		"title": "Gimbal Thruster",
-		"description": "Toujours poussé vers le haut! Vous pouvez également régler la direction de votre siège conducteur. Basculez sur la bascule et entrez le nombre pour régler la puissance.\n\nIMPORTANT: Appuyez sur E pour changer de mode, sur CTRL + E pour revenir en arrière, placez le côté droit vers le haut pour les modes normaux, placez-le à l'envers pour l'autre côté.\n\nPuissance par défaut: 100 ",
-		"keywords": ["modpack", "smart", "logic", "number", "rocket", "power", "direction", "control", "custom", "ws", "ad", " siège "," balance "," flotteur "," mouche "," jet "]
+		"description": "Toujours poussï¿½ vers le haut! Vous pouvez ï¿½galement rï¿½gler la direction de votre siï¿½ge conducteur. Basculez sur la bascule et entrez le nombre pour rï¿½gler la puissance.\n\nIMPORTANT: Appuyez sur E pour changer de mode, sur CTRL + E pour revenir en arriï¿½re, placez le cï¿½tï¿½ droit vers le haut pour les modes normaux, placez-le ï¿½ l'envers pour l'autre cï¿½tï¿½.\n\nPuissance par dï¿½faut: 100 ",
+		"keywords": ["modpack", "smart", "logic", "number", "rocket", "power", "direction", "control", "custom", "ws", "ad", " siï¿½ge "," balance "," flotteur "," mouche "," jet "]
 	},
 	"c9e34f58-b30d-4ab5-92c5-76f707090c45": {
 		"title": "Gravity Module",
-		"description": "Change la gravité d'une création spécifique! Voitures, avions, vaisseaux spatiaux, sous-marins, etc.\n\nAppuyez sur E pour activer! Ou vous pouvez utiliser un commutateur / logique.\n\nLe réglage par défaut est Gravité zéro.\nSpécifiez la gravité avec des entrées numériques (0,25x, 2x, etc.) ",
-		"keywords": ["modpack", "smart", "logic", "number", "float", "fly", "grav", "0g", "anti", "antigravity", "véhicule", " espace "," vaisseau spatial "]
+		"description": "Change la gravitï¿½ d'une crï¿½ation spï¿½cifique! Voitures, avions, vaisseaux spatiaux, sous-marins, etc.\n\nAppuyez sur E pour activer! Ou vous pouvez utiliser un commutateur / logique.\n\nLe rï¿½glage par dï¿½faut est Gravitï¿½ zï¿½ro.\nSpï¿½cifiez la gravitï¿½ avec des entrï¿½es numï¿½riques (0,25x, 2x, etc.) ",
+		"keywords": ["modpack", "smart", "logic", "number", "float", "fly", "grav", "0g", "anti", "antigravity", "vï¿½hicule", " espace "," vaisseau spatial "]
 	},
 	"e93ca226-4166-49e3-97cd-bb8df20242d7": {
-	"titre": "Modulateur de gravité",
-		"description": "Change la gravité du monde entier!\n\nAppuyez sur E pour activer! Ou vous pouvez utiliser un commutateur / logique.\n\nLe réglage par défaut est Gravité zéro.\nSpécifiez la gravité avec des entrées numériques (0,25x, 2x, etc.)\n\nPlusieurs modulateurs sont liés ensemble! En éteindre un les éteindra tous. ",
-	"mots-clés": ["modpack", "smart", "logique", "nombre", "float", "mouche", "grav", "0g", "anti", "antigravité", "monde"]
+		"title": "Modulateur de gravitï¿½",
+		"description": "Change la gravitï¿½ du monde entier!\n\nAppuyez sur E pour activer! Ou vous pouvez utiliser un commutateur / logique.\n\nLe rï¿½glage par dï¿½faut est Gravitï¿½ zï¿½ro.\nSpï¿½cifiez la gravitï¿½ avec des entrï¿½es numï¿½riques (0,25x, 2x, etc.)\n\nPlusieurs modulateurs sont liï¿½s ensemble! En ï¿½teindre un les ï¿½teindra tous. ",
+		"keywords": ["modpack", "smart", "logique", "nombre", "float", "mouche", "grav", "0g", "anti", "antigravitï¿½", "monde"]
 	},
 	"e2cc7014-85f3-4bb8-a7ca-b70b6502d91e": {
 		"title": "Large Wing",
-		"description": "Une grande aile pour créer des véhicules volants!\n\nUtilisez les entrées numériques pour changer l’angle du volet! ",
+		"description": "Une grande aile pour crï¿½er des vï¿½hicules volants!\n\nUtilisez les entrï¿½es numï¿½riques pour changer lï¿½angle du volet! ",
 		"keywords": ["modpack", "smart", "logic", "number", "fly", "wing", "wing", "plane", "bird", "aviation", "air", "foil", " navire "," jet "," grand "," grand "]
 	},
 	"b5222776-1702-4c22-a8c5-ca26cc0290e7": {
-		"title": "Petite aile / hélice",
-		"description": "Une petite aile pouvant être utilisée pour un contrôle précis, hélices, pales d'hélicoptère, nageoires caudales, etc.\n\nUtilisez les entrées numériques pour changer l’angle de cette pièce sans avoir besoin de roulements! ",
+		"title": "Petite aile / hï¿½lice",
+		"description": "Une petite aile pouvant ï¿½tre utilisï¿½e pour un contrï¿½le prï¿½cis, hï¿½lices, pales d'hï¿½licoptï¿½re, nageoires caudales, etc.\n\nUtilisez les entrï¿½es numï¿½riques pour changer lï¿½angle de cette piï¿½ce sans avoir besoin de roulements! ",
 		"keywords": ["modpack", "smart", "logic", "number", "fly", "wing", "wing", "plane", "bird", "aviation", "air", "foil", " navire "," jet "," petit "," turbine "]
 	},
 	"c071509a-9854-4359-8857-296f16edf15d": {
-		"title": "Explosif chronométré - Dynamite",
-		"description": "Appuyez sur E pour activer! Détonate 10 secondes après l'activation.\n\nActiver immédiatement avec un bouton / commutateur / capteur / logique / minuterie\n\nUtiliser pour faire exploser des explosifs plus gros ",
-		"keywords": ["modpack", "boom", "intelligent", "logique", "heure", "minuterie", "horloge", "explosif", "explosion", "destruction", "démolir", " construction "," exploser "," pow "," bang "," tnt "," c4 "]
+		"title": "Explosif chronomï¿½trï¿½ - Dynamite",
+		"description": "Appuyez sur E pour activer! Dï¿½tonate 10 secondes aprï¿½s l'activation.\n\nActiver immï¿½diatement avec un bouton / commutateur / capteur / logique / minuterie\n\nUtiliser pour faire exploser des explosifs plus gros ",
+		"keywords": ["modpack", "boom", "intelligent", "logique", "heure", "minuterie", "horloge", "explosif", "explosion", "destruction", "dï¿½molir", " construction "," exploser "," pow "," bang "," tnt "," c4 "]
 	},
 // son intelligent
 	"f73fd8c7-61eb-416f-8374-9a4c26e6db8f": {
-		"title": "Générateur de sons",
-		"description": "Utilisez la logique numérique pour créer un son!\n\nContributions:\nLogic = on / off\nNuméro blanc = note à jouer\nNombre gris = Fréquence à jouer\nNuméro noir = type de vague\nN'importe quel numéro de couleur = volume\n\nTypes de vagues:\nSinus, carré, triangle, dents de scie ",
-		"keywords": ["modpack", "smart", "logic", "number", "sound", "song", "tone", "midi", "tote", "bot", "totebot", " fréq "," fréquence "," instrument "," vague "," type "," forme "," forme d'onde "," osciller "," résonner "," jouer "," pause "," synthé "," musique " ]
+		"title": "Gï¿½nï¿½rateur de sons",
+		"description": "Utilisez la logique numï¿½rique pour crï¿½er un son!\n\nContributions:\nLogic = on / off\nNumï¿½ro blanc = note ï¿½ jouer\nNombre gris = Frï¿½quence ï¿½ jouer\nNumï¿½ro noir = type de vague\nN'importe quel numï¿½ro de couleur = volume\n\nTypes de vagues:\nSinus, carrï¿½, triangle, dents de scie ",
+		"keywords": ["modpack", "smart", "logic", "number", "sound", "song", "tone", "midi", "tote", "bot", "totebot", " frï¿½q "," frï¿½quence "," instrument "," vague "," type "," forme "," forme d'onde "," osciller "," rï¿½sonner "," jouer "," pause "," synthï¿½ "," musique " ]
 	},
 	"1d5d997e-efa9-478c-98ee-e452f5ff0dd2": {
-	"titre": "Smart Totebot",
-		"description": "Entrées:\nLogic = on / off\nNuméro blanc = note à jouer\nNombre gris = Fréquence à jouer\nNombre noir = Type de robot\nN'importe quel numéro de couleur = volume\n\nTotebots:\nBass 1, Percussion 1, Synth 1, Blip 1, Bass 2, Percussions 2, Synth 2, Blip 2, Glitch, Challenge Ball ",
-		"keywords": ["modpack", "smart", "logic", "number", "sound", "song", "tone", "midi", "tote", "bot", "totebot", " fréq "," fréquence "," instrument "," vague "," type "," forme "," forme d'onde "," osciller "," résonner "," jouer "," pause "," synthé "," musique " ]
+		"title": "Smart Totebot",
+		"description": "Entrï¿½es:\nLogic = on / off\nNumï¿½ro blanc = note ï¿½ jouer\nNombre gris = Frï¿½quence ï¿½ jouer\nNombre noir = Type de robot\nN'importe quel numï¿½ro de couleur = volume\n\nTotebots:\nBass 1, Percussion 1, Synth 1, Blip 1, Bass 2, Percussions 2, Synth 2, Blip 2, Glitch, Challenge Ball ",
+		"keywords": ["modpack", "smart", "logic", "number", "sound", "song", "tone", "midi", "tote", "bot", "totebot", " frï¿½q "," frï¿½quence "," instrument "," vague "," type "," forme "," forme d'onde "," osciller "," rï¿½sonner "," jouer "," pause "," synthï¿½ "," musique " ]
 	},
 // radars
 	"a053e38d-608b-4b9a-8d04-c3da2b6fdff7":
 	{
-	"titre": "Radar",
-		"description": "Appuyez sur E pour parcourir les plages disponibles (unités = blocs x 4), sur CTRL + E pour revenir en arrière.\nCela permettra de suivre les lecteurs et les dispositifs de suivi ",
-		"keywords": ["modpack", "radar", "distance", "localiser", "localisation", "distance", "détecter", "joueur", "traqueur", "ligne", "point", " coordonner "]
+		"title": "Radar",
+		"description": "Appuyez sur E pour parcourir les plages disponibles (unitï¿½s = blocs x 4), sur CTRL + E pour revenir en arriï¿½re.\nCela permettra de suivre les lecteurs et les dispositifs de suivi ",
+		"keywords": ["modpack", "radar", "distance", "localiser", "localisation", "distance", "dï¿½tecter", "joueur", "traqueur", "ligne", "point", " coordonner "]
 	},
 	"0954264c-4914-4848-b35a-4ae46cabc467": {
 		"title": "Radar 3D",
-		"description": "Afficher les positions du lecteur sur un écran 3D! Ne détecte pas (encore?) les trackers.",
-		"keywords": ["modpack", "radar", "distance", "localiser", "emplacement", "distance", "détecter", "joueur", "suivi", "3d", "ligne", " point "," coordonnée "]
+		"description": "Afficher les positions du lecteur sur un ï¿½cran 3D! Ne dï¿½tecte pas (encore?) les trackers.",
+		"keywords": ["modpack", "radar", "distance", "localiser", "emplacement", "distance", "dï¿½tecter", "joueur", "suivi", "3d", "ligne", " point "," coordonnï¿½e "]
 	},
-// partie génitrice
+// partie gï¿½nitrice
 	"99540e2a-7727-422c-8725-d38cc8d34126": {
 		"title": "Part Spawner",
-		"description": "Créateur de balle piraté du mode défi qui vous permet de créer n'importe quelle partie! Utilisez la logique numérique pour définir quelle partie créer, et comment la générer. Vous pouvez éventuellement connecter un capteur pour copier une partie devant le capteur (n'importe quelle partie). Utilisez / console pour plus d'instructions ",
-		"keywords": ["modpack", "smart", "logic", "number", "générateur", "spawn", "block", "part", "interactive", "custom"]
+		"description": "Crï¿½ateur de balle piratï¿½ du mode dï¿½fi qui vous permet de crï¿½er n'importe quelle partie! Utilisez la logique numï¿½rique pour dï¿½finir quelle partie crï¿½er, et comment la gï¿½nï¿½rer. Vous pouvez ï¿½ventuellement connecter un capteur pour copier une partie devant le capteur (n'importe quelle partie). Utilisez / console pour plus d'instructions ",
+		"keywords": ["modpack", "smart", "logic", "number", "gï¿½nï¿½rateur", "spawn", "block", "part", "interactive", "custom"]
 	},
 
 // NON INTERACTIFS:
 	"bf8f8e24-806b-4223-9345-2bac7c1e265d":
 	{
-		"title": "Blocage de collisions réduit",
-		"description": "Un bloc avec la collision d'une sphère. Utile pour les portes bloquées.",
+		"title": "Blocage de collisions rï¿½duit",
+		"description": "Un bloc avec la collision d'une sphï¿½re. Utile pour les portes bloquï¿½es.",
 		"keywords": ["modpack", "sphere", "collision", "low"]
 	},
 	"9c40e3ab-8d03-40bc-a88b-eaebc61257d6":
