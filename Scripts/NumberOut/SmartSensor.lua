@@ -188,7 +188,7 @@ end
 
 function SmartSensor.client_onTinker(self, character, lookAt)
 	if lookAt then
-		local _curMode = self.modes[self.mode]
+		local _curMode = self.modes[self.mode_client]
 		if _curMode and _curMode.description then
 			sm.audio.play("GUI Item released")
 			sm.gui.chatMessage("[#ffff00Smart Sensor#ffffff] Description of selected function: ".._curMode.description)
@@ -207,7 +207,6 @@ end
 function SmartSensor.client_newMode(self, data)
 	self.mode_client = data[1]
 	if data[2] then
-		print(self.modes[self.mode_client].description)
 		sm.audio.play("ConnectTool - Rotate", self.shape:getWorldPosition())
 	end
 end

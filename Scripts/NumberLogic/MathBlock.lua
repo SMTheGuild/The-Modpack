@@ -891,6 +891,7 @@ end
 
 function MathBlock.client_onCreate(self)
 	self.uv = 0
+	self.description_id = 1
 	self.network:sendToServer("server_senduvtoclient")
 end
 
@@ -901,14 +902,12 @@ end
 
 function MathBlock.client_onTinker(self, character, lookAt)
 	if lookAt then
-		local _curMode = self.modetable[self.mode]
-		if _curMode and _curMode.description then
+		local _curMode = self.modetable[self.description_id]
+		if _curMode and _curMode.description and _curMode.name then
 			local _desc = _curMode.description
 			local _name = _curMode.name
 			sm.audio.play("GUI Item released")
 			sm.gui.chatMessage(("[#ffff00Math Block#ffffff] Description of \"#ffff00%s#ffffff\": %s"):format(_name, _desc))
-		else
-			sm.gui.chatMessage("[#ffff00Math Block#ffffff] #ff0000ERROR#ffffff: couldn't find the description for the selected function!")
 		end
 	end
 end
@@ -917,10 +916,9 @@ function MathBlock.client_setMode(self, data)
 	local mode = data[1]
 	self.uv = self.modetable[mode].value
 	self.interactable:setUvFrameIndex(self.uv + (self.interactable.power > 0 and 128 or 0))
+	self.description_id = mode
 	if data[2] then
 		sm.audio.play("GUI Item drag", self.shape:getWorldPosition())
-		print('mode:', self.modetable[mode].name)
-		print('description:', self.modetable[mode].description,'\n')
 	end
 end
 

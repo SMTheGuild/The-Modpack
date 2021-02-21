@@ -304,7 +304,6 @@ function Tacho.server_changemode(self, crouch)
 	else
 		self.mode = (self.mode-2)%#self.modetable + 1
 	end
-	print("description:",self.modetable[self.mode].description)
 	self.storage:save(self.modetable[self.mode].savevalue)
 	self:server_sendModeToClient(true)
 end
@@ -325,7 +324,7 @@ end
 
 function Tacho.client_onTinker(self, character, lookAt)
 	if lookAt then
-		local _curMode = self.modetable[self.mode]
+		local _curMode = self.modetable[self.mode_client]
 		if _curMode and _curMode.name and _curMode.description then
 			sm.audio.play("GUI Item released")
 			sm.gui.chatMessage(("[#ffff00X-O-Meter#ffffff] Description of \"#ffff00%s#ffffff\": %s"):format(_curMode.name, _curMode.description))
