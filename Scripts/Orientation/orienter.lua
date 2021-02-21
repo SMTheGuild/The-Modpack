@@ -156,11 +156,13 @@ function AI.server_init( self )
 end
 
 function AI.client_onCreate(self)
+	self.description_id = 1
 	self.network:sendToServer("server_senduvtoclient")
 	--print("AI orient block: ")
 end
 function AI.server_senduvtoclient(self)
-	self.network:sendToClients("client_setUvframeIndex", self.mode-1)
+	local _UvIndex = self.modetable[self.mode].savevalue
+	self.network:sendToClients("client_setUvframeIndex", _UvIndex - 1)
 end
 function AI.server_onRefresh( self )
 	self:server_init()
@@ -171,8 +173,8 @@ function AI.client_onInteract(self, character, lookAt)
 end
 function AI.client_onTinker(self, character, lookAt)
 	if lookAt then
-		local _curMode = self.modetable[self.mode]
-		if _curMode.name then
+		local _curMode = self.modetable[self.description_id]
+		if _curMode and _curMode.name then
 			sm.gui.chatMessage(("[#ffff00Orient Block#ffffff] Description of the selected function: %s"):format(_curMode.name))
 			sm.audio.play("GUI Item released")
 		else
@@ -1179,6 +1181,7 @@ function AI.server_onFixedUpdate( self, dt )
 	mode = self.modetable[self.mode].savevalue
 	if self.mode ~= self.lastmode then
 		self.network:sendToClients("client_setUvframeIndex", (mode-1))
+		self.network:sendToClients("client_setDescriptionId", self.mode)
 	end 
 	if self.yaw ~= self.lastpose0 then
 		self.network:sendToClients("client_setPose", {pose = 0, level = 1-(self.yaw/360+0.5)})
@@ -1186,7 +1189,7 @@ function AI.server_onFixedUpdate( self, dt )
 	if self.pose1 ~= self.lastpose1 then
 		self.network:sendToClients("client_setPose", {pose = 1, level = self.pose1})
 	end
-	self.lastmode = mode
+	self.lastmode = self.mode
 	self.lastpose0 = self.yaw
 	self.lastpose1 = self.pose1
 	self.lastpos_tracked = direction
@@ -1218,6 +1221,9 @@ function AI.client_onFixedUpdate(self, dt)
 	end
 end
 
+function AI.client_setDescriptionId(self, id)
+	self.description_id = id
+end
 
 function AI.client_setServerDirection(self, id)
 	if id == sm.localPlayer.getId() then
