@@ -133,6 +133,7 @@
       "scale" : 1.0,
       "scale_time" : 1.0,
       "scale_velocity" : 1.0,
-      "system_type" : "stream"
+      "system_type" : "stream",
+      "min_quality":"low"
    }
 }
