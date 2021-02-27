@@ -82,7 +82,53 @@ AI.colorNormal = sm.color.new( 0x0000ffff )
 AI.colorHighlight = sm.color.new( 0x3333ffff )
 AI.poseWeightCount = 2
 
-function AI.server_onCreate( self ) 
+local usage = "\nWhite logic input press: toggle closest player on exceptionlist"..
+"\nOther logic input: turn on/off"..
+"\nWhite number input: player id / tracker frequency"..
+"\nBlack number input: closest/furthest (2=2nd closest, -2=2nd furthest)"..
+"\nOther columns color input: range (1 input=maxrange, 2inputs=range in between inputs)"
+
+local predictiveusage = usage..
+"\nLightGrey input: damping (%)"..
+"\nDarkGrey input: lead (%)"..
+"\n================="
+usage = usage..
+"\n================="
+
+AI.modetable = {
+	{savevalue = 1, name = "world orient, \nwill point towards the ground, use wasd/gimball or math block for wasd output"..usage},
+	{savevalue = 2, name = "world orient predictive, \nwill point towards the ground, use wasd/gimball or math block for wasd output"..predictiveusage},
+	{savevalue = 3, name = "player orient"..usage},
+	{savevalue = 4, name = "player orient predictive"..predictiveusage},
+	{savevalue = 5, name = "tracker orient"..usage},
+	{savevalue = 6, name = "tracker orient predictive"..predictiveusage},
+	{savevalue = 9, name = "tracker + player orient"..usage},
+	{savevalue = 10, name = "tracker + player orient predictive"..predictiveusage},
+	{savevalue = 7, name = "player camera orient"..usage.."\nAn connected occupied seat will overwrite ANY filter settings"},
+	{savevalue = 11, name = "player camer orient predictive"..predictiveusage.."\nAn connected occupied seat will overwrite ANY filter settings"},
+	{savevalue = 8, name = "orient distance reader,\nRead distance to target from other orient blocks\n================="},
+	
+	{savevalue = 12, name = "LOCAL player orient, \nLOCAL is used for missiles!"..usage},
+	{savevalue = 13, name = "LOCAL player orient predictive"..predictiveusage},
+	{savevalue = 14, name = "LOCAL tracker orient"..usage},
+	{savevalue = 15, name = "LOCAL tracker orient predictive"..predictiveusage},
+	{savevalue = 17, name = "LOCAL tracker + player orient"..usage},
+	{savevalue = 18, name = "LOCAL tracker + player orient predictive"..predictiveusage},
+	{savevalue = 16, name = "LOCAL player camera orient"..usage.."\nAn connected occupied seat will overwrite ANY filter settings"},--
+	{savevalue = 19, name = "LOCAL player camera orient predictive"..predictiveusage.."\nAn connected occupied seat will overwrite ANY filter settings"},
+
+	{savevalue = 25, name = "All units orient"..usage},
+	{savevalue = 20, name = "Hostile units orient"..usage},
+	{savevalue = 21, name = "Hostile farmbot orient"..usage},
+	{savevalue = 22, name = "Hostile tapebot orient"..usage},
+	{savevalue = 23, name = "Hostile haybot orient"..usage},
+	{savevalue = 24, name = "Hostile totebot orient"..usage},
+	{savevalue = 26, name = "Friendly units orient"..usage},
+	{savevalue = 27, name = "Woc orient"..usage},
+	{savevalue = 28, name = "Glow worm orient"..usage}
+}
+
+function AI.server_onCreate( self )
 	self:server_init()
 end
 
@@ -94,49 +140,6 @@ function AI.server_init( self )
 	self.yaw = 0
 	self.pose1 = 0
 	self.playerexceptions = {}
-	local usage = "\nWhite logic input press: toggle closest player on exceptionlist"..
-	"\nOther logic input: turn on/off"..
-	"\nWhite number input: player id / tracker frequency"..
-	"\nBlack number input: closest/furthest (2=2nd closest, -2=2nd furthest)"..
-	"\nOther columns color input: range (1 input=maxrange, 2inputs=range in between inputs)"
-	local predictiveusage = usage..
-	"\nLightGrey input: damping (%)"..
-	"\nDarkGrey input: lead (%)"..
-	"\n================="
-	usage = usage..
-	"\n================="
-	self.modetable = {
-		{savevalue = 1, name = "world orient, \nwill point towards the ground, use wasd/gimball or math block for wasd output"..usage},
-		{savevalue = 2, name = "world orient predictive, \nwill point towards the ground, use wasd/gimball or math block for wasd output"..predictiveusage},
-		{savevalue = 3, name = "player orient"..usage},
-		{savevalue = 4, name = "player orient predictive"..predictiveusage},
-		{savevalue = 5, name = "tracker orient"..usage},
-		{savevalue = 6, name = "tracker orient predictive"..predictiveusage},
-		{savevalue = 9, name = "tracker + player orient"..usage},
-		{savevalue = 10, name = "tracker + player orient predictive"..predictiveusage},
-		{savevalue = 7, name = "player camera orient"..usage.."\nAn connected occupied seat will overwrite ANY filter settings"},
-		{savevalue = 11, name = "player camer orient predictive"..predictiveusage.."\nAn connected occupied seat will overwrite ANY filter settings"},
-		{savevalue = 8, name = "orient distance reader,\nRead distance to target from other orient blocks\n================="},
-		
-		{savevalue = 12, name = "LOCAL player orient, \nLOCAL is used for missiles!"..usage},
-		{savevalue = 13, name = "LOCAL player orient predictive"..predictiveusage},
-		{savevalue = 14, name = "LOCAL tracker orient"..usage},
-		{savevalue = 15, name = "LOCAL tracker orient predictive"..predictiveusage},
-		{savevalue = 17, name = "LOCAL tracker + player orient"..usage},
-		{savevalue = 18, name = "LOCAL tracker + player orient predictive"..predictiveusage},
-		{savevalue = 16, name = "LOCAL player camera orient"..usage.."\nAn connected occupied seat will overwrite ANY filter settings"},--
-		{savevalue = 19, name = "LOCAL player camera orient predictive"..predictiveusage.."\nAn connected occupied seat will overwrite ANY filter settings"},
-
-		{savevalue = 25, name = "All units orient"..usage},
-		{savevalue = 20, name = "Hostile units orient"..usage},
-		{savevalue = 21, name = "Hostile farmbot orient"..usage},
-		{savevalue = 22, name = "Hostile tapebot orient"..usage},
-		{savevalue = 23, name = "Hostile haybot orient"..usage},
-		{savevalue = 24, name = "Hostile totebot orient"..usage},
-		{savevalue = 26, name = "Friendly units orient"..usage},
-		{savevalue = 27, name = "Woc orient"..usage},
-		{savevalue = 28, name = "Glow worm orient"..usage}
-	}
 	--more code here:
 	
 	local savemodes = {}
@@ -152,7 +155,6 @@ function AI.server_init( self )
 	
 	if not orienters then orienters = {} end
 	self.id = self.shape.id
-	
 end
 
 function AI.client_onCreate(self)
