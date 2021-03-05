@@ -19,8 +19,10 @@ end
 
 function sm.isMPTeam()  -- an 'is in ModpackTeam' check by Brent Batch
 	if sm.game.getCurrentTick() > 0 then 
-		local modders = {["Brent Batch"] = true, ["TechnologicNick"] = true, ["MJM"] = true} 
-		local name = sm.player.getAllPlayers()[1].name 
+		local modders = {["Brent Batch"] = true, ["TechnologicNick"] = true, ["MJM"] = true}
+		local host = sm.player.getAllPlayers()[1]
+		if not host then return false end -- sometimes the host doesn't exist yet
+		local name = host.name 
 		if modders[name] then 
 			function sm.isMPTeam() return true end 
 			return true 
