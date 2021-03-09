@@ -3,11 +3,24 @@
 shapeDatabase = {}
 shapeDatabaseLookup = {}
 
+local ShapeDatabasePath = {
+    "$CONTENT_bd5c1e72-513c-40b4-b75e-db50082461e9/Scripts/Data/shapeDatabase.json", --Local Copy Path
+    "$CONTENT_26ef623b-97d2-49ba-9a10-8898c1a94e9a/Scripts/Data/shapeDatabase.json" --Workshop Modpack Path
+}
+
 function reloadShapeDatabase()
-    shapeDatabase = sm.json.open("$CONTENT_bd5c1e72-513c-40b4-b75e-db50082461e9/Scripts/Data/shapeDatabase.json")
-    for k,v in pairs(shapeDatabase) do
-        shapeDatabaseLookup[v.uuid] = tonumber(k)
+    for k, v in pairs(ShapeDatabasePath) do
+        local success, error = pcall(sm.json.open, v)
+        if success then
+            shapeDatabase = error
+            for k, v in pairs(error) do
+                shapeDatabaseLookup[v.uuid] = tonumber(k)
+            end
+
+            break
+        end
     end
+
     print("ShapeDatabase.json reloaded!")
 end
 
