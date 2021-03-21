@@ -123,7 +123,7 @@ function Radar2D.client_onFixedUpdate(self, dt)
 	if not (parent and parent.active) then
 		local radians = math.acos(localZ:dot(sm.vec3.new(0,0,1)))
 		local axis = localZ:cross(sm.vec3.new(0,0,1))
-		if radians ~= 0 and math.deg(radians) ~= 180 and radians == radians then
+		if radians ~= 0 and math.deg(radians) ~= 180 and radians == radians and axis:length() > 0.0001 then
 			localX = sm.vec3.rotate(localX, radians, axis:normalize())
 			localY = sm.vec3.rotate(localY, radians, axis:normalize())
 			localZ = sm.vec3.new(0,0,1)

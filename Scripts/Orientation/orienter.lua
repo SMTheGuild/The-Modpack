@@ -226,8 +226,7 @@ function AI.getplayer(self, data)  --self:getplayer({useexceptionlist = false, m
 	local closestvalidid = nil
 	local closestvaliddistance = nil
 	for key, player in pairs(sm.player.getAllPlayers()) do
-		local exists, msg = pcall(playerexists, player)
-		if exists and (not self.playerexceptions[player.id] or not enabled) and (nojammercloseby(player.character.worldPosition) or ignorejammers) then 
+		if playerexists(player) and (not self.playerexceptions[player.id] or not enabled) and (nojammercloseby(player.character.worldPosition) or ignorejammers) then
 			local distance = (centerpos - player.character.worldPosition):length()
 			if distance >= minrange and distance < maxrange then
 				if player.id == tryid then return data.tryid end
@@ -305,7 +304,7 @@ function AI.getFarmbot(self, data)
 	local closestvaliddistance = nil
 
 	for key, farmbot in pairs(_GETALLUNITS()) do
-		if farmbot.character and farmbot.character.worldPosition and (nojammercloseby(farmbot.character.worldPosition) or ignorejammers) then
+		if playerexists(farmbot) and (nojammercloseby(farmbot.character.worldPosition) or ignorejammers) then
 			local _fbotUuid = tostring(farmbot.character:getCharacterType())
 			if self.TestFarmbotUuid(_fbotUuid, fbot_data) then
 				local distance = (centerpos - farmbot.character.worldPosition):length()
@@ -1202,7 +1201,7 @@ function AI.server_onFixedUpdate( self, dt )
 end
 
 function playerexists(player)
-	return (player.character and player.character.worldPosition ~= nil)
+	return (player and player.character and player.character.worldPosition)
 end
 
 function AI.client_onFixedUpdate(self, dt)
