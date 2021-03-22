@@ -165,8 +165,11 @@ function Keypad.client_onInteract( self, character, lookAt)
 	sm.virtualButtons.client_onInteract(self, dotX, dotY)
 end
 
-function Keypad.client_canInteract(self)
-	return (self.shape.worldPosition - sm.localPlayer.getPosition()):length2() < 4
+function Keypad.client_canInteract(self) --sm.localPlayer.getPosition is deprecated now
+	local _Player = sm.localPlayer.getPlayer()
+	if not (_Player and _Player.character) then return false end
+	local _Position = _Player.character.worldPosition
+	return (self.shape.worldPosition - _Position):length2() < 4
 end
 
 function Keypad.client_onDestroy(self)
