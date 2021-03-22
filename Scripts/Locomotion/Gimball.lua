@@ -66,18 +66,18 @@ function Gimball.client_onInteract(self, character, lookAt)
 	self.network:sendToServer("server_changemode", character:isCrouching())
 end
 function Gimball.server_changemode(self, crouch)
-	self.smode = (self.smode+(crouch and -1 or 1))%4
+	self.smode = (self.smode + (crouch and -1 or 1)) % 4
 	self.storage:save(self.smode+1)
-	self.network:sendToClients("client_mode", {self.smode, true})
+	self.network:sendToClients("client_mode", {mode = self.smode, sound = true})
 end
 function Gimball.server_requestmode(self)
-	self.network:sendToClients("client_mode", {self.smode})
+	self.network:sendToClients("client_mode", {mode = self.smode, sound = false})
 end
-function Gimball.client_mode(self, mode)
-	if mode[2] then
+function Gimball.client_mode(self, data)
+	if data.sound then
 		sm.audio.play("ConnectTool - Rotate", self.shape:getWorldPosition())
 	end
-	self.mode = mode[1]
+	self.mode = data.mode
 end
 function Gimball.client_canInteract(self)
 	sm.gui.setInteractionText("Press", sm.gui.getKeyBinding("Use"), "to change mode")
