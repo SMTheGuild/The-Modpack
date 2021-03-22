@@ -36,7 +36,6 @@
 			"qualityLevel": 2,
 			"stackSize": 10
 		},
-
 		{
 			"uuid": "8f762ab9-5c78-4d9c-a22e-3119bf447169",
 			"renderable": {
@@ -113,7 +112,6 @@
 			"rotationSet": "PropZ",
 			"color": "2f2f2f",
 			"cylinder": { "diameter": 1, "depth": 2, "axis": "Z" },
-			"physicsMaterial": "Metal",
 			"spring": {
 				"length": 2,
 				"defaultStiffnessLevel" : 2,
@@ -169,7 +167,6 @@
 			"rotationSet": "PropZ",
 			"color": "2f2f2f",
 			"cylinder": { "diameter": 1, "depth": 3, "axis": "Z" },
-			"physicsMaterial": "Metal",
 			"spring": {
 				"length": 3,
 				"defaultStiffnessLevel" : 2,
@@ -225,7 +222,6 @@
 			"rotationSet": "PropZ",
 			"color": "df7f00",
 			"cylinder": { "diameter": 1, "depth": 4, "axis": "Z" },
-			"physicsMaterial": "Metal",
 			"spring": {
 				"length": 4,
 				"defaultStiffnessLevel" : 2,
@@ -281,7 +277,6 @@
 			"rotationSet": "PropZ",
 			"color": "df7f00",
 			"cylinder": { "diameter": 1, "depth": 5, "axis": "Z" },
-			"physicsMaterial": "Metal",
 			"spring": {
 				"length": 5,
 				"defaultStiffnessLevel" : 2,
@@ -431,26 +426,40 @@
 			"qualityLevel": 2,
 			"stackSize": 10
 		},
-		
 		{
 			"uuid": "0513fc6d-fb29-46b6-9409-3ec1a4b79c6f",
-			"renderable": {"lodList": [{
-			"subMeshList": [{"textureList": [
-				"$GAME_DATA/Objects/Textures/interactive/obj_interactive_bikeseat_dif.tga",
-				"$GAME_DATA/Objects/Textures/interactive/obj_interactive_bikeseat_asg.tga",
-				"$GAME_DATA/Objects/Textures/interactive/obj_interactive_bikeseat_nor.tga"],
-				"material": "SkelAnimDifAsgNor"}],
-				"mesh": "$MOD_DATA/Objects/Mesh/mjm_MotorcycleSeat_V2.mesh",
-				"includes": [ "POSITION", "UV0", "NORMAL", "TANGENT", "BLEND_INDICES", "BLEND_WEIGHTS" ],
-				"custom": { "skeleton": { "anim0": "steering" }}}]},
+			"renderable": {
+				"lodList": [
+					{
+						"subMeshList": [
+							{
+								"textureList": [
+									"$GAME_DATA/Objects/Textures/interactive/obj_interactive_bikeseat_dif.tga",
+									"$GAME_DATA/Objects/Textures/interactive/obj_interactive_bikeseat_asg.tga",
+									"$GAME_DATA/Objects/Textures/interactive/obj_interactive_bikeseat_nor.tga"
+								],
+								"material": "SkelAnimDifAsgNor"
+							}
+						],
+						"mesh": "$MOD_DATA/Objects/Mesh/mjm_MotorcycleSeat_V2.mesh",
+						"includes": [ "POSITION", "UV0", "NORMAL", "TANGENT", "BLEND_INDICES", "BLEND_WEIGHTS" ],
+						"custom": { "skeleton": { "anim0": "steering" }}
+					}
+				]
+			},
 			"rotationSet": "PropY",
 			"color": "df7f00",
-			"steering": { "bones": [
-				{ "name": "root_jnt", "offset": { "x": 0.0, "y": 0.0, "z": 0.0 } },
-				{ "name": "LeftForeArm", "offset": { "x": 1.1, "y": 0.4, "z": 1.9 }, "freeRotation": true, "steers": true },
-				{ "name": "RightForeArm", "offset": { "x": -1.1, "y": 0.4, "z": 1.9 }, "freeRotation": true, "steers": true }],
+			"steering": {
+				"bones": [
+					{ "name": "root_jnt", "offset": { "x": 0.0, "y": 0.0, "z": 0.0 } },
+					{ "name": "LeftForeArm", "offset": { "x": 1.1, "y": 0.4, "z": 1.9 }, "freeRotation": true, "steers": true },
+					{ "name": "RightForeArm", "offset": { "x": -1.1, "y": 0.4, "z": 1.9 }, "freeRotation": true, "steers": true }
+				],
 				"ragdollFile": "$MOD_DATA/Character/MJM_MotorcycleSeat1_ragdoll.json",
-				"steerAngle": 30.0, "enterAudio": "Seat seated", "exitAudio": "Seat unseated" },
+				"steerAngle": 30.0,
+				"enterAudio": "Seat seated",
+				"exitAudio": "Seat unseated"
+			},
 			"box": { "x": 1, "y": 1, "z": 5 },
 			"density": 250.0,
 			"physicsMaterial": "Mechanical",
@@ -458,23 +467,38 @@
 		},
 		{
 			"uuid": "ffddc616-2799-4883-8c62-193ba30b6fa8",
-			"renderable": {"lodList": [{
-			"subMeshList": [{"textureList": [
-				"$GAME_DATA/Objects/Textures/interactive/obj_interactive_driverseat_dif.tga",
-				"$GAME_DATA/Objects/Textures/interactive/obj_interactive_driverseat_asg.tga",
-				"$GAME_DATA/Objects/Textures/interactive/obj_interactive_driverseat_nor.tga"],
-				"material": "SkelAnimDifAsgNor"}],
-				"mesh": "$MOD_DATA/Objects/Mesh/mjm_RaceSeat_V2.mesh",
-				"includes": [ "POSITION", "UV0", "NORMAL", "TANGENT", "BLEND_INDICES", "BLEND_WEIGHTS" ],
-				"custom": { "skeleton": { "anim0": "steering" }}}]},
+			"renderable": {
+				"lodList": [
+					{
+						"subMeshList": [
+							{
+								"textureList": [
+									"$GAME_DATA/Objects/Textures/interactive/obj_interactive_driverseat_dif.tga",
+									"$GAME_DATA/Objects/Textures/interactive/obj_interactive_driverseat_asg.tga",
+									"$GAME_DATA/Objects/Textures/interactive/obj_interactive_driverseat_nor.tga"
+								],
+								"material": "SkelAnimDifAsgNor"
+							}
+						],
+						"mesh": "$MOD_DATA/Objects/Mesh/mjm_RaceSeat_V2.mesh",
+						"includes": [ "POSITION", "UV0", "NORMAL", "TANGENT", "BLEND_INDICES", "BLEND_WEIGHTS" ],
+						"custom": { "skeleton": { "anim0": "steering" }}
+					}
+				]
+			},
 			"rotationSet": "PropY",
 			"color": "df7f00",
-			"steering": { "bones": [
-				{ "name": "root_jnt", "offset": { "x": 0.0, "y": 0.25, "z": -0.2 } },
-				{ "name": "LeftForeArm", "offset": { "x": 1.1, "y": 1.4, "z": 0.6 }, "freeRotation": true, "steers": true },
-				{ "name": "RightForeArm", "offset": { "x": -1.1, "y": 1.4, "z": 0.6 }, "freeRotation": true, "steers": true }],
+			"steering": {
+				"bones": [
+					{ "name": "root_jnt", "offset": { "x": 0.0, "y": 0.25, "z": -0.2 } },
+					{ "name": "LeftForeArm", "offset": { "x": 1.1, "y": 1.4, "z": 0.6 }, "freeRotation": true, "steers": true },
+					{ "name": "RightForeArm", "offset": { "x": -1.1, "y": 1.4, "z": 0.6 }, "freeRotation": true, "steers": true }
+				],
 				"ragdollFile": "$MOD_DATA/Character/MJM_RaceSeat1_ragdoll.json",
-				"steerAngle": 30.0, "enterAudio": "Seat seated", "exitAudio": "Seat unseated" },
+				"steerAngle": 30.0,
+				"enterAudio": "Seat seated",
+				"exitAudio": "Seat unseated"
+			},
 			"box": { "x": 2, "y": 2, "z": 5 },
 			"density": 250.0,
 			"physicsMaterial": "Mechanical",
@@ -482,21 +506,36 @@
 		},
 		{
 			"uuid": "8c355d48-88cd-467b-863f-12c12b72304d",
-			"renderable": {"lodList": [{
-			"subMeshList": [{"textureList": [
-				"$GAME_DATA/Objects/Textures/interactive/obj_interactive_driverseat_dif.tga",
-				"$GAME_DATA/Objects/Textures/interactive/obj_interactive_driverseat_asg.tga",
-				"$GAME_DATA/Objects/Textures/interactive/obj_interactive_driverseat_nor.tga"],
-				"material": "DifAsgNor"}],
-				"mesh": "$MOD_DATA/Objects/Mesh/mjm_RaceSeatPas_V2.mesh"}]},
+			"renderable": {
+				"lodList": [
+					{
+						"subMeshList": [
+							{
+								"textureList": [
+									"$GAME_DATA/Objects/Textures/interactive/obj_interactive_driverseat_dif.tga",
+									"$GAME_DATA/Objects/Textures/interactive/obj_interactive_driverseat_asg.tga",
+									"$GAME_DATA/Objects/Textures/interactive/obj_interactive_driverseat_nor.tga"
+								],
+								"material": "DifAsgNor"
+							}
+						],
+						"mesh": "$MOD_DATA/Objects/Mesh/mjm_RaceSeatPas_V2.mesh"
+					}
+				]
+			},
 			"rotationSet": "PropY",
 			"color": "df7f00",
-			"steering": { "bones": [
-				{ "name": "root_jnt", "offset": { "x": 0.0, "y": 0.0, "z": 0.2 } },
-				{ "name": "LeftForeArm", "offset": { "x": 1.1, "y": 0.3, "z": 1.0 }, "freeRotation": true},
-				{ "name": "RightForeArm", "offset": { "x": -1.1, "y": 0.3, "z": 1.0 }, "freeRotation": true}],
+			"steering": {
+				"bones": [
+					{ "name": "root_jnt", "offset": { "x": 0.0, "y": 0.0, "z": 0.2 } },
+					{ "name": "LeftForeArm", "offset": { "x": 1.1, "y": 0.3, "z": 1.0 }, "freeRotation": true},
+					{ "name": "RightForeArm", "offset": { "x": -1.1, "y": 0.3, "z": 1.0 }, "freeRotation": true}
+				],
 				"ragdollFile": "$MOD_DATA/Character/MJM_RaceSeat1_ragdoll.json",
-				"steerAngle": 30.0, "enterAudio": "Seat seated", "exitAudio": "Seat unseated" },
+				"steerAngle": 30.0,
+				"enterAudio": "Seat seated",
+				"exitAudio": "Seat unseated"
+			},
 			"box": { "x": 2, "y": 2, "z": 4, "margin": 0.0 },
 			"density": 250.0,
 			"physicsMaterial": "Mechanical",
@@ -532,7 +571,9 @@
 					{ "name": "RightForeArm", "offset": { "x": -1.5, "y": 1.25, "z": 0.49 }, "freeRotation": true, "steers": true }
 				],
 				"ragdollFile": "$MOD_DATA/Character/standingseat1_ragdoll.json",
-				"steerAngle": 35.0, "enterAudio": "Seat seated", "exitAudio": "Seat unseated"
+				"steerAngle": 35.0,
+				"enterAudio": "Seat seated",
+				"exitAudio": "Seat unseated"
 			},
 			"hull": { 
 				"x": 4, "y": 4, "z": 3,
@@ -576,7 +617,9 @@
 					{ "name": "RightForeArm", "offset": { "x": -1.2, "y": -0.75, "z": 1.65}, "freeRotation": true }
 				],
 				"ragdollFile": "$MOD_DATA/Character/jetpackseat_ragdoll.json",
-				"steerAngle": 35.0, "enterAudio": "Seat seated", "exitAudio": "Seat unseated"
+				"steerAngle": 35.0,
+				"enterAudio": "Seat seated",
+				"exitAudio": "Seat unseated"
 			},
 			"box": { "x": 1, "y": 1, "z": 1 },
 			"density": 250.0,
@@ -613,7 +656,9 @@
 					{ "name": "RightForeArm", "offset": { "x": -2.7, "y": 2.7, "z": 0.2 }, "freeRotation": true, "steers": true }
 				],
 				"ragdollFile": "$MOD_DATA/Character/standingseat2_ragdoll.json",
-				"steerAngle": 12.0, "enterAudio": "Seat seated", "exitAudio": "Seat unseated"
+				"steerAngle": 12.0,
+				"enterAudio": "Seat seated",
+				"exitAudio": "Seat unseated"
 			},
 			"hull": { 
 				"x": 3, "y": 1, "z": 1,
@@ -658,7 +703,9 @@
 					{ "name": "RightForeArm", "offset": { "x": -1.5, "y": -0.5, "z": 1.5 }, "freeRotation": true }
 				],
 				"ragdollFile": "$MOD_DATA/Character/bed_ragdoll.json",
-				"steerAngle": 35.0, "enterAudio": "Seat seated", "exitAudio": "Seat unseated"
+				"steerAngle": 35.0,
+				"enterAudio": "Seat seated",
+				"exitAudio": "Seat unseated"
 			},
 			"box": { "x": 5, "y": 7, "z": 2 },
 			"density": 250.0,
@@ -747,7 +794,9 @@
 					{ "name": "RightForeArm", "offset": { "x": -1.25, "y": 1.2, "z": 2.0 }, "freeRotation": true, "steers": true }
 				],
 				"ragdollFile": "$GAME_DATA/Character/seat_ragdoll.json",
-				"steerAngle": 30.0, "enterAudio": "Seat seated", "exitAudio": "Seat unseated"
+				"steerAngle": 30.0,
+				"enterAudio": "Seat seated",
+				"exitAudio": "Seat unseated"
 			},
 			"hull": { 
 				"x": 1, "y": 1, "z": 1,
@@ -796,7 +845,9 @@
 					{ "name": "RightForeArm", "offset": { "x": -1.25, "y": 1.25, "z": 2.0 }, "freeRotation": true, "steers": true }
 				],
 				"ragdollFile": "$GAME_DATA/Character/bikeseat_ragdoll.json",
-				"steerAngle": 30.0, "enterAudio": "Seat seated", "exitAudio": "Seat unseated"
+				"steerAngle": 30.0,
+				"enterAudio": "Seat seated",
+				"exitAudio": "Seat unseated"
 			},
 			"hull": { 
 				"x": 1, "y": 1, "z": 1,
@@ -846,7 +897,9 @@
 					{ "name": "RightForeArm", "offset": { "x": -1.25, "y": -1.0, "z": 1.0 }, "freeRotation": true, "steers": true }
 				],
 				"ragdollFile": "$MOD_DATA/Character/raceseat1_ragdoll.json",
-				"steerAngle": 30.0, "enterAudio": "Seat seated", "exitAudio": "Seat unseated"
+				"steerAngle": 30.0,
+				"enterAudio": "Seat seated",
+				"exitAudio": "Seat unseated"
 			},
 			"hull": { 
 				"x": 1, "y": 1, "z": 1,
@@ -866,7 +919,6 @@
 			"physicsMaterial": "Mechanical",
 			"qualityLevel": 2
 		},
-
 		{
 			"uuid": "f55aa240-d4b2-48cc-9c6b-a90fce299bf4",
 			"renderable": {
@@ -926,7 +978,6 @@
 					}
 				]
 			},
-			"rotationSet": "FlipZ",
 			"color": "df7f00",
 			"hull": { 
 				"x": 1, "y": 1, "z": 1,
@@ -942,10 +993,8 @@
 					{ "x": 0.0, "y": -1.0, "z": -0.8 }
 				]
 			},
-			"thruster":
-			{
-				"levels":
-				[
+			"thruster": {
+				"levels": [
 					{ "averageForce": 800, "forceVariation": 0 },
 					{ "averageForce": 1250, "forceVariation": 0 },
 					{ "averageForce": 1500, "forceVariation": 0 },
@@ -978,8 +1027,8 @@
 							{
 								"textureList": [
 									"$GAME_DATA/Objects/Textures/interactive/obj_interactive_enginejet_dif.tga",
-												"$GAME_DATA/Objects/Textures/interactive/obj_interactive_enginejet_asg.tga",
-												"$GAME_DATA/Objects/Textures/interactive/obj_interactive_enginejet_nor.tga"
+									"$GAME_DATA/Objects/Textures/interactive/obj_interactive_enginejet_asg.tga",
+									"$GAME_DATA/Objects/Textures/interactive/obj_interactive_enginejet_nor.tga"
 								],
 								"material": "3PoseAnimDifAsgNor"
 							}
@@ -993,10 +1042,8 @@
 			},
 			"color": "007fdf",
 			"box": { "x": 1, "y": 1, "z": 1 },
-			"thruster":
-			{ 
-				"levels":
-				[
+			"thruster": { 
+				"levels": [
 					{ "averageForce": 2222.22, "forceVariation": 0 },
 					{ "averageForce": 3333.33, "forceVariation": 0 },
 					{ "averageForce": 5000, "forceVariation": 0 },
@@ -1019,7 +1066,6 @@
 			"density": 250.0,
 			"qualityLevel": 4
 		},
-		
 		{
 			"uuid": "685ccdd5-8ee9-480d-a64a-2696c31e1db0",
 			"renderable": {
@@ -1359,7 +1405,6 @@
 			"lever": { },
 			"qualityLevel": 4
 		},
-
    		{
 			"uuid": "494f0a47-3f18-4ae1-bc42-3f0fccce4f43",
 			"renderable": {
@@ -1942,10 +1987,7 @@
 									"$GAME_DATA/Objects/Textures/interactive/obj_interactive_timer_nor.tga"
 								],
 								"material": "UVAnimDifAsgNor",
-								"custom":
-								{
-									"uv0": { "u": 0.00390625, "v": 0.189453125 }
-								}
+								"custom": {"uv0": { "u": 0.00390625, "v": 0.189453125 }}
 							}
 						],
 						"mesh": "$MOD_DATA/Objects/Mesh/timer_surface.obj"

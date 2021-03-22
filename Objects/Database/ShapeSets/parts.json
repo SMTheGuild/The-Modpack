@@ -72,8 +72,6 @@
 			"physicsMaterial": "Metal",
 			"qualityLevel": 3
 		},
-
-
 		{
 			"uuid": "b57c8185-2f95-4ba8-818d-eed258e01d00", // 1x1
 			"renderable": {
@@ -173,7 +171,6 @@
 			"physicsMaterial": "Plastic",
 			"qualityLevel": 3
 		},
-
 ///////////////
 		{
 			"uuid": "c9cf3b88-86f3-4146-af16-a7b16c917ecc", // hubless
@@ -227,7 +224,6 @@
 			"qualityLevel": 3
 		},
 /////////////
-
 // dirt wheels
 		{
 			"uuid": "27b6541d-2be0-420f-abb8-d59f566e85bd",

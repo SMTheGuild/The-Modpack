@@ -1,9 +1,6 @@
 {
 	"blockList":
 	[
-
-
-
 		{
 			"uuid": "c97c17c3-81bb-48b5-9e9c-8a5117ee431a",
 			"name": "blk_mod_diamondplate", // industrial metal block
@@ -67,8 +64,6 @@
 			}
 			/*-*/
 		},
-
-
 		{
 			"uuid": "e50485da-4545-4def-a585-0a5f158c6104",
 			"name": "blk_mod_glow", // 100% glowing block, 100% dif color. Creative mode block

@@ -2,13 +2,22 @@
 	"partList" : [
 		{
 			"uuid": "f907144d-ae63-4e5e-bff9-f9ca413e2090", // decoupler detach
-			"renderable": {"lodList": [{
-				"subMeshList": [{
-					"textureList": ["$MOD_DATA/Objects/Textures/UniTex2_dif.png","$MOD_DATA/Objects/Textures/UniTex_asg.png"],
-					"material": "DifAsg"
-				}],
-				"mesh": "$MOD_DATA/Objects/Mesh/decoupler.obj"
-			}]},
+			"renderable": {
+				"lodList": [
+					{
+						"subMeshList": [
+							{
+								"textureList": [
+									"$MOD_DATA/Objects/Textures/UniTex2_dif.png",
+									"$MOD_DATA/Objects/Textures/UniTex_asg.png"
+								],
+								"material": "DifAsg"
+							}
+						],
+						"mesh": "$MOD_DATA/Objects/Mesh/decoupler.obj"
+					}
+				]
+			},
 			"scripted": { "filename": "$MOD_DATA/Scripts/decoupler.lua", "classname": "decoupler" },
 			"rotationSet": "PropYNegY",
 			"color": "df7f00", "density": 250.0, "physicsMaterial": "Metal", "sticky": "-Y+Y",
