@@ -142,7 +142,7 @@ function Radar2D.client_onFixedUpdate(self, dt)
 	local trackeridsdrawn = {}
 	
 	for k, player in pairs(sm.player.getAllPlayers()) do
-		if player ~= nil and sm.exists(player) then
+		if player and player.character and sm.exists(player) then
 			local targetpos = player.character.worldPosition
 			local dir = targetpos - pos
 			
