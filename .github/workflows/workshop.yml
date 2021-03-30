@@ -1,0 +1,28 @@
+name: Push to Steam Workshop
+
+on:
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+
+      # Copy everything to /build
+      - name: Copy to build directory
+        run: find . -maxdepth 1 -type d -not -path "./build" -not -path "." -exec mv --target-directory "./build" {} +
+
+      # Upload to Steam Workshop
+      - uses: arma-actions/workshop-upload@v1
+        with:
+          appId: '387990'
+          itemId: '12345678' # Id of item to update
+          contentPath: 'build'
+          changelog: ''
+        env:
+          STEAM_USERNAME: ${{ secrets.STEAM_USERNAME }}
+          STEAM_PASSWORD: ${{ secrets.STEAM_PASSWORD }}
