@@ -12,16 +12,16 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
-      # Copy everything to /build
-      - name: Copy to build directory
-        run: find . -maxdepth 1 -type d -not -path "./build" -not -path "." -exec mv --target-directory "./build" {} +
+      # Copy everything to /dist
+      - name: Copy to dist directory
+        run: find . -maxdepth 1 -type d -not -path "./dist" -not -path "." -exec mv --target-directory "./dist" {} +
 
       # Upload to Steam Workshop
       - uses: arma-actions/workshop-upload@v1
         with:
           appId: '387990'
-          itemId: '12345678' # Id of item to update
-          contentPath: 'build'
+          itemId: '2448492759' # Id of item to update
+          contentPath: 'dist'
           changelog: ''
         env:
           STEAM_USERNAME: ${{ secrets.STEAM_USERNAME }}
