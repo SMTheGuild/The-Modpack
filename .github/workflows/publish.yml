@@ -20,6 +20,7 @@ jobs:
         env:
           GITHUB_CONTEXT: ${{ toJSON(github) }}
         run: |
+          echo "${{ toJSON( { version: github.event.release.tag_name } ) }}" > ./dist/version.json
           zip -r release.zip ./dist
           echo "$GITHUB_CONTEXT"
 
@@ -41,7 +42,7 @@ jobs:
           appId: '387990'
           itemId: '2448492759' # Id of item to update
           contentPath: 'dist'
-          changelog: '[b]${{ github.event.release.tag_name }}[/b]\\n\\n${{ github.event.release.body }}\\n\\n${{ github.event.release.html_url }}'
+          changelog: '[b]${{ github.event.release.tag_name }}[/b]\n\n${{ github.event.release.body }}\n\n${{ github.event.release.html_url }}'
         env:
           STEAM_USERNAME: ${{ secrets.STEAM_USERNAME }}
           STEAM_PASSWORD: ${{ secrets.STEAM_PASSWORD }}
