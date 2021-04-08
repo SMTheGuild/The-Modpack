@@ -32,7 +32,7 @@ jobs:
         with:
           upload_url: ${{ github.event.release.upload_url }}
           asset_path: ./release.zip
-          asset_name: ${{ github.event.repository.name }}-${{ github.event.release.tag_name }}.zip
+          asset_name: ${{ github.event.repository.name }}-release.zip
           asset_content_type: application/zip
 
       # Upload to Steam Workshop
