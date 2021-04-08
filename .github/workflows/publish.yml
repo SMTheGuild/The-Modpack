@@ -1,23 +1,31 @@
-name: Push to Steam Workshop
+name: Build and publish
 
 on:
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
+  release:
+    types: [published]
 
 jobs:
   build:
+    name: Push to Steam Workshop
     runs-on: ubuntu-latest
 
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
-      # Copy everything to /dist
-      - name: Copy to dist directory
+      - name: Copy to /dist
         run: find . -maxdepth 1 -type d -not -path "./dist" -not -path "." -not -path "./.*" -exec mv --target-directory "./dist" {} +
 
+      - name: Add files to Github release
+        env:
+          GITHUB_CONTEXT: ${{ toJSON(github) }}
+        run: |
+          echo "$GITHUB_CONTEXT"
+          exit 1
+
       # Upload to Steam Workshop
-      - uses: arma-actions/workshop-upload@v1
+      - name: Upload to Steam Workshop
+        uses: arma-actions/workshop-upload@v1
         with:
           appId: '387990'
           itemId: '2448492759' # Id of item to update
