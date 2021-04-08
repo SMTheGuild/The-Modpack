@@ -20,7 +20,7 @@ jobs:
         env:
           GITHUB_CONTEXT: ${{ toJSON(github) }}
         run: |
-          echo "${{ toJSON( { version: github.event.release.tag_name } ) }}" > ./dist/version.json
+          echo '{"version": "${{ github.event.release.tag_name }}"}' > ./dist/version.json
           zip -r release.zip ./dist
           echo "$GITHUB_CONTEXT"
 
