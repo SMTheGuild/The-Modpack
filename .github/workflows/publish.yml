@@ -29,9 +29,9 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`.
+          upload_url: ${{ github.event.release.assets_url }}
           asset_path: ./release.zip
-          asset_name: The-Modpack-${{ github.event.release.tag_name }}
+          asset_name: ${{ github.event.repository.name }}-${{ github.event.release.tag_name }}
           asset_content_type: application/zip
 
       # Upload to Steam Workshop
