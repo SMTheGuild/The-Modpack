@@ -14,7 +14,7 @@ jobs:
 
       # Copy everything to /dist
       - name: Copy to dist directory
-        run: find . -maxdepth 1 -type d -not -path "./dist" -not -path "." -exec mv --target-directory "./dist" {} +
+        run: find . -maxdepth 1 -type d -not -path "./dist" -not -path "." -not "./.*" -exec mv --target-directory "./dist" {} +
 
       # Upload to Steam Workshop
       - uses: arma-actions/workshop-upload@v1
