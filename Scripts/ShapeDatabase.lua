@@ -6,7 +6,7 @@ shapeDatabaseLookup = {}
 local ShapeDatabasePath = {
     "$MOD_DATA/Scripts/Data/shapeDatabase.json", --$MOD_DATA finally got fixed, so i'll leave it here, i guess
     "$CONTENT_bd5c1e72-513c-40b4-b75e-db50082461e9/Scripts/Data/shapeDatabase.json", --Local Copy Path
-    "$CONTENT_26ef623b-97d2-49ba-9a10-8898c1a94e9a/Scripts/Data/shapeDatabase.json" --Workshop Modpack Path
+    "$CONTENT_b7443f95-67b7-4f1e-82f4-9bef0c62c4b3/Scripts/Data/shapeDatabase.json" --Workshop Modpack Continuation Path
 }
 
 function reloadShapeDatabase()
