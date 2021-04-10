@@ -68,11 +68,11 @@ function SmartControl.server_onFixedUpdate(self, dt)
 	if not haslogic then logic = 1 end -- default on if no logic input
 	if not stiffness then stiffness = 100 end -- default suspension-ish behaviour
 	
-	-- game limits: (functions will throw errors when not limited between -2.199 * 10^42 and 2.199 * 10^42)
-	if speed then speed = math.min(2.199 * 10^42, math.max(speed, -2.199 * 10^42)) end
-	if strength then strength = math.min(2.199 * 10^42, math.max(strength, -2.199 * 10^42)) end
-	if anglelength then anglelength = math.min(2.199 * 10^42, math.max(anglelength, -2.199 * 10^42)) end
-	if stiffness then stiffness = math.min(2.199 * 10^42, math.max(stiffness, -2.199 * 10^42)) end
+	-- game limits: (functions will throw errors when not limited between -3.402e+38 and 3.402e+38)
+	if speed then speed = sm.util.clamp(speed, -3.402e+38, 3.402e+38) end
+	if strength then strength = sm.util.clamp(strength, -3.402e+38, 3.402e+38) end
+	if anglelength then anglelength = sm.util.clamp(anglelength, -3.402e+38, 3.402e+38) end
+	if stiffness then stiffness = sm.util.clamp(stiffness, -3.402e+38, 3.402e+38) end
 	
 	
 	if logic ~= 0 then
@@ -100,7 +100,11 @@ function SmartControl.server_onFixedUpdate(self, dt)
 			-- delta length for suspension-ish
 			if not self.last_length[v.id] then self.last_length[v.id] = v.length end
 			local extraforce = math.abs(length - (v.length-1))*stiffness/100
-			sm.joint.setTargetLength( v, length*seat, pistonspeed, pistonstrength*(1+ extraforce )  - (v.length-self.last_length[v.id])*10 ) -- change 10 to 1-200 depending on how well dampening oscillations works
+
+			local maxImpulse = pistonstrength*(1+ extraforce )  - (v.length-self.last_length[v.id])*10 -- change 10 to 1-200 depending on how well dampening oscillations works
+			maxImpulse = sm.util.clamp(maxImpulse, -3.402e+38, 3.402e+38)
+
+			sm.joint.setTargetLength( v, length*seat, pistonspeed, maxImpulse )
 		end
 	else
 		local rotationspeed = (speed ~= nil and math.rad(speed) or math.rad(90)) -- if no input speed setting set , give it a 90°/s speed as to be able to reset bearing to 0°
