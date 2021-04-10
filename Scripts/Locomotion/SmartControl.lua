@@ -74,7 +74,7 @@ function SmartControl.server_onFixedUpdate(self, dt)
 	if anglelength then anglelength = sm.util.clamp(anglelength, -3.402e+38, 3.402e+38) end
 	if stiffness then stiffness = sm.util.clamp(stiffness, -3.402e+38, 3.402e+38) end
 	
-	
+
 	if logic ~= 0 then
 		local angle = (anglelength ~= nil and math.rad(anglelength) or nil)
 		local rotationspeed = (speed ~= nil and math.rad(speed) or math.rad(0))-- speed 0 by default as to not let it rotate bearing when no inputs
@@ -114,7 +114,11 @@ function SmartControl.server_onFixedUpdate(self, dt)
 				sm.joint.setMotorVelocity(v, 0, rotationstrength )
 			else -- check if v.reversed works suspension-ish when powering off the smart engine  ('v.reversed and 1 or -1)--> test with reversed bearings
 				local extraforce = math.abs(v.angle)*(v.reversed  and 1 or -1)/1000*stiffness -- acts more like suspension when strength collapses for current force
-				sm.joint.setTargetAngle( v, 0, rotationspeed, rotationstrength*(1+ extraforce) - v.angularVelocity*10) -- change 10 to 1-200 depending on how well dampening oscillations works
+
+				local maxImpulse = rotationstrength*(1+ extraforce) - v.angularVelocity*10 -- change 10 to 1-200 depending on how well dampening oscillations works
+				maxImpulse = sm.util.clamp(maxImpulse, -3.402e+38, 3.402e+38)
+
+				sm.joint.setTargetAngle( v, 0, rotationspeed, maxImpulse)
 			end
 		end
 		
@@ -125,7 +129,11 @@ function SmartControl.server_onFixedUpdate(self, dt)
 			-- delta length for suspension-ish
 			if not self.last_length[v.id] then self.last_length[v.id] = v.length end
 			local extraforce = math.abs(length - (v.length-1))*stiffness/100
-			sm.joint.setTargetLength( v, 0, pistonspeed, pistonstrength*(1+ extraforce) - (v.length-self.last_length[v.id])*10 ) -- change 10 to 1-200 depending on how well dampening oscillations works
+
+			local maxImpulse = pistonstrength*(1+ extraforce) - (v.length-self.last_length[v.id])*10 -- change 10 to 1-200 depending on how well dampening oscillations works
+			maxImpulse = sm.util.clamp(maxImpulse, -3.402e+38, 3.402e+38)
+
+			sm.joint.setTargetLength( v, 0, pistonspeed, maxImpulse )
 		end
 	end
 end
