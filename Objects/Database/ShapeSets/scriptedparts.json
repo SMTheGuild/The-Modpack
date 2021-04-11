@@ -945,6 +945,14 @@
 									"$GAME_DATA/Objects/Textures/interactive/obj_interactive_enginejet_nor.tga"
 								],
 								"material": "2PoseAnimDifAsgNor"
+							},
+							{
+								"textureList": [
+									"$GAME_DATA/Objects/Textures/interactive/obj_interactive_enginejet_dif.tga",
+									"$GAME_DATA/Objects/Textures/interactive/obj_interactive_enginejet_asg.tga",
+									"$GAME_DATA/Objects/Textures/interactive/obj_interactive_enginejet_nor.tga"
+								],
+								"material": "2PoseAnimDifAsgNor"
 							}
 						],
 						"mesh": "$MOD_DATA/Objects/Mesh/2way_thruster_off.obj",
