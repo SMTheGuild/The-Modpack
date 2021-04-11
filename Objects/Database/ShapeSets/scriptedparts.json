@@ -18,7 +18,7 @@
 					}
 				]
 			},
-			"scripted": { "filename": "$MOD_DATA/Scripts/decoupler.lua", "classname": "decoupler" },
+			"scripted": { "filename": "$MOD_DATA/Scripts/interactable/Decoupler.lua", "classname": "decoupler" },
 			"rotationSet": "PropYNegY",
 			"color": "df7f00", "density": 250.0, "physicsMaterial": "Metal", "sticky": "-Y+Y",
 			"cylinder": { "diameter": 1, "depth": 1, "axis": "Y" },
@@ -61,7 +61,7 @@
 					}
 				]
 			},
-			"scripted": { "filename": "$MOD_DATA/Scripts/NumberOut/TimeBlock.lua", "classname": "TimeBlock" },
+			"scripted": { "filename": "$MOD_DATA/Scripts/interactable/NumberOut/TimeBlock.lua", "classname": "TimeBlock" },
 			"color": "df7f00",
 			"hull": {
 				"x":1,"y":1,"z":1,"margin":0.05,
@@ -86,7 +86,7 @@
 			},
 			"density": 250.0,
 			"physicsMaterial": "Plastic",
-			"sticky": "-Y",			
+			"sticky": "-Y",
 			"rotationSet": "PropY",
 			"qualityLevel": 2
 		},
@@ -124,7 +124,7 @@
 			"density": 250.0,
 			"physicsMaterial": "Plastic",
 			"sticky": "+Y-Y-Z+X-X",
-			"scripted": { "filename": "$MOD_DATA/Scripts/NumberOut/SmartSensor.lua", "classname": "SmartSensor" },
+			"scripted": { "filename": "$MOD_DATA/Scripts/interactable/NumberOut/SmartSensor.lua", "classname": "SmartSensor" },
 			"qualityLevel": 2
 		},
 		{
@@ -140,7 +140,7 @@
 									"",
 									""
 								],
-								"material": "PoseAnimLightCone" 
+								"material": "PoseAnimLightCone"
 								*/
 								// very visible but has a shadow
 								"textureList": [
@@ -156,7 +156,7 @@
 									"$MOD_DATA/Objects/Textures/mod_decor_cone_asg.png",
 									"$MOD_DATA/Objects/Textures/mod_decor_cone_nor.png"
 								],
-								"material": "DifAsgNor" 
+								"material": "DifAsgNor"
 							}
 						],
 						"mesh": "$MOD_DATA/Objects/Mesh/LaserSightB_off.obj",
@@ -166,7 +166,7 @@
 			},
 			"rotationSet": "PropZ",
 			"color": "800000",
-			"hull": { 
+			"hull": {
 				"x": 1, "y": 1, "z": 1,
 				"margin": 0.25,
 				"pointList": [
@@ -178,7 +178,7 @@
 			},
 			"density": 250.0,
 			"physicsMaterial": "Metal",
-			"scripted": { "filename": "$MOD_DATA/Scripts/NumberOut/LaserSight.lua", "classname": "LaserSight" },
+			"scripted": { "filename": "$MOD_DATA/Scripts/interactable/NumberOut/LaserSight.lua", "classname": "LaserSight" },
 			"qualityLevel": 2
 		},
 		{
@@ -200,7 +200,7 @@
 					}
 				]
 			},
-			"scripted": { "filename": "$MOD_DATA/Scripts/Orientation/Tracker.lua", "classname": "Tracker" },
+			"scripted": { "filename": "$MOD_DATA/Scripts/interactable/Orientation/Tracker.lua", "classname": "Tracker" },
 			"color": "df7f00",
 			"hull": {
 				"x":1,"y":1,"z":1,"margin":0.05,
@@ -217,7 +217,7 @@
 			},
 			"density": 250.0,
 			"physicsMaterial": "Metal",
-			"sticky": "-Z",			
+			"sticky": "-Z",
 			"rotationSet": "PropZ",
 			"qualityLevel": 4
 		},
@@ -253,7 +253,7 @@
 					}
 				]
 			},
-			"scripted": { "filename": "$MOD_DATA/Scripts/Orientation/Jammer.lua", "classname": "Jammer" },
+			"scripted": { "filename": "$MOD_DATA/Scripts/interactable/Orientation/Jammer.lua", "classname": "Jammer" },
 			"color": "df7f00",
 			"hull": {
 				"x":1,"y":1,"z":1,"margin":0.05,
@@ -270,14 +270,14 @@
 			},
 			"density": 250.0,
 			"physicsMaterial": "Metal",
-			"sticky": "-Z",			
+			"sticky": "-Z",
 			"rotationSet": "PropZ",
 			"qualityLevel": 4
 		},
 		{
 			"uuid": "d88ba569-f7a5-42e3-bb11-d7979b60ddad",// xo meter
 			"renderable": {
-				"lodList": [ 
+				"lodList": [
 					 {
 						"subMeshList": [
 							{
@@ -307,7 +307,7 @@
 					}
 				]
 			},
-			"scripted": { "filename": "$MOD_DATA/Scripts/Orientation/Speedometer.lua", "classname": "Tacho" },
+			"scripted": { "filename": "$MOD_DATA/Scripts/interactable/Orientation/Speedometer.lua", "classname": "Tacho" },
 			"color": "df7f00",
 			"hull": {
 				"x":1,"y":1,"z":1,"margin":0.05,
@@ -332,12 +332,12 @@
 			},
 			"density": 250.0,
 			"physicsMaterial": "Metal",
-			"sticky": "-Z",			
+			"sticky": "-Z",
 			"rotationSet": "PropZ",
 			"qualityLevel": 3
 		},
 		{
-			"uuid": "ccaa33b6-e5bb-4edc-9329-b40f6efe2c9e", // orient block, targetting sensor target 
+			"uuid": "ccaa33b6-e5bb-4edc-9329-b40f6efe2c9e", // orient block, targetting sensor target
 			"renderable": {
 				"lodList": [
 					{
@@ -360,7 +360,7 @@
 									"$GAME_DATA/Objects/Textures/interactive/obj_interactive_sensor_asg.tga",
 									"$GAME_DATA/Objects/Textures/interactive/obj_interactive_sensor_nor.tga"
 								],
-								"material": "DifAsgNor"	
+								"material": "DifAsgNor"
 							}
 						],
 						"mesh": "$MOD_DATA/Objects/Mesh/orientation_block.obj"
@@ -372,7 +372,7 @@
 			"box": { "x": 1, "y": 1, "z": 1 },
 			"density": 250.0,
 			"physicsMaterial": "Metal",
-			"scripted": { "filename": "$MOD_DATA/Scripts/Orientation/orienter.lua", "classname": "AI" },
+			"scripted": { "filename": "$MOD_DATA/Scripts/interactable/Orientation/Orienter.lua", "classname": "AI" },
 			"qualityLevel": 3
 		},
 		{
@@ -424,7 +424,7 @@
 			},
 			"density": 250.0,
 			"physicsMaterial": "Plastic",
-			"scripted": { "filename": "$MOD_DATA/Scripts/NumberLogic/TickButton.lua", "classname": "TickButton" },
+			"scripted": { "filename": "$MOD_DATA/Scripts/interactable/NumberLogic/TickButton.lua", "classname": "TickButton" },
 			"sticky": "+X-X-Y+Z-Z",
 			"qualityLevel": 3
 		},
@@ -460,14 +460,14 @@
 					}
 				]
 			},
-			"scripted": { "filename": "$MOD_DATA/Scripts/NumberLogic/CounterBlock.lua", "classname": "CounterBlock" },
+			"scripted": { "filename": "$MOD_DATA/Scripts/interactable/NumberLogic/CounterBlock.lua", "classname": "CounterBlock" },
 			"color": "df7f00",
 			"box": {
 				"x": 1, "y": 1, "z": 1
 			},
 			"density": 250.0,
 			"physicsMaterial": "Plastic",
-			"sticky": "+Z-Z-Y+Y-X+X",			
+			"sticky": "+Z-Z-Y+Y-X+X",
 			"rotationSet": "PropYZ",
 			"qualityLevel": 2
 		},
@@ -503,14 +503,14 @@
 					}
 				]
 			},
-			"scripted": { "filename": "$MOD_DATA/Scripts/NumberLogic/NumberBlock.lua", "classname": "NumberBlock" },
+			"scripted": { "filename": "$MOD_DATA/Scripts/interactable/NumberLogic/NumberBlock.lua", "classname": "NumberBlock" },
 			"color": "df7f00",
 			"box": {
 				"x": 1, "y": 1, "z": 1
 			},
 			"density": 250.0,
 			"physicsMaterial": "Plastic",
-			"sticky": "+Z-Z-Y+Y-X+X",			
+			"sticky": "+Z-Z-Y+Y-X+X",
 			"rotationSet": "NumberBlock",
 			"qualityLevel": 2
 		},
@@ -545,14 +545,14 @@
 					}
 				]
 			},
-			"scripted": { "filename": "$MOD_DATA/Scripts/NumberLogic/MathBlock.lua", "classname": "MathBlock" },
+			"scripted": { "filename": "$MOD_DATA/Scripts/interactable/NumberLogic/MathBlock.lua", "classname": "MathBlock" },
 			"color": "df7f00",
 			"box": {
 				"x": 1, "y": 1, "z": 1
 			},
 			"density": 250.0,
 			"physicsMaterial": "Plastic",
-			"sticky": "-Z+Z-Y+Y-X+X",			
+			"sticky": "-Z+Z-Y+Y-X+X",
 			"rotationSet": "PropYZ",
 			"qualityLevel": 2
 		},
@@ -604,7 +604,7 @@
 					}
 				]
 			},
-			"scripted": { "filename": "$MOD_DATA/Scripts/NumberLogic/MemoryPanel.lua", "classname": "MemoryPanel" },
+			"scripted": { "filename": "$MOD_DATA/Scripts/interactable/NumberLogic/MemoryPanel.lua", "classname": "MemoryPanel" },
 			"color": "df7f00",
 			"hull": {
 				"x":1,"y":1,"z":1,"margin":0.05,
@@ -625,7 +625,7 @@
 			},
 			"density": 250.0,
 			"physicsMaterial": "Plastic",
-			"sticky": "-Y+X-X+Z-X",			
+			"sticky": "-Y+X-X+Z-X",
 			"rotationSet": "PropY",
 			"qualityLevel": 2
 		},
@@ -665,7 +665,7 @@
 			"box": { "x": 1, "y": 1, "z": 1 },
 			"density": 250.0,
 			"physicsMaterial": "Metal",
-			 "scripted": { "filename": "$MOD_DATA/Scripts/NumberLogic/SmartTimer.lua", "classname": "SmartTimer",
+			 "scripted": { "filename": "$MOD_DATA/Scripts/interactable/NumberLogic/SmartTimer.lua", "classname": "SmartTimer",
 				"data": {
 					"defaultDelay": 1
 				}
@@ -673,9 +673,9 @@
 			"qualityLevel": 3
 		},
 		{
-			"uuid": "d3eda549-778f-432b-bf21-65a32ae53378", // keypad input 
+			"uuid": "d3eda549-778f-432b-bf21-65a32ae53378", // keypad input
 			"renderable": { "lodList": [{ "subMeshList": [{ "textureList": [ "$MOD_DATA/Objects/Textures/keypad.png"], "material": "Dif" }], "mesh": "$MOD_DATA/Objects/Mesh/keypad.obj" }] },
-			"scripted" : { "filename": "$MOD_DATA/Scripts/Keypad.lua", "classname": "Keypad" },
+			"scripted" : { "filename": "$MOD_DATA/Scripts/interactable/Keypad.lua", "classname": "Keypad" },
 			"rotationSet": "PropZ",
 			"color": "df7f00",
 			"density": 250.0,
@@ -728,7 +728,7 @@
 			},
 			"rotationSet": "PropY",
 			"color": "df7f00",
-			"hull": { 
+			"hull": {
 				"x": 1, "y": 1, "z": 1,
 				"pointList": [
 					{ "x": -1.0, "y": -1.0, "z": -1.0 },
@@ -741,7 +741,7 @@
 			},
 			"density": 250.0,
 			"physicsMaterial": "Plastic",
-			"scripted": { "filename": "$MOD_DATA/Scripts/NumberLogic/WirelessBlock.lua", "classname": "WirelessBlock" },
+			"scripted": { "filename": "$MOD_DATA/Scripts/interactable/NumberLogic/WirelessBlock.lua", "classname": "WirelessBlock" },
 			"sticky": "-Y",
 			"qualityLevel": 2
 		},
@@ -768,14 +768,14 @@
 					}
 				]
 			},
-			"scripted": { "filename": "$MOD_DATA/Scripts/NumberLogic/ColorBlock.lua", "classname": "ColorBlock" },
+			"scripted": { "filename": "$MOD_DATA/Scripts/interactable/NumberLogic/ColorBlock.lua", "classname": "ColorBlock" },
 			"color": "eeeeee",
 			"box": {
 				"x": 1, "y": 1, "z": 1
 			},
 			"density": 250.0,
 			"physicsMaterial": "Plastic",
-			"sticky": "-Z+Z-Y+Y-X+X",	
+			"sticky": "-Z+Z-Y+Y-X+X",
 			"rotationSet": "PropYZ",
 			"qualityLevel": 2
 		},
@@ -810,14 +810,14 @@
 					}
 				]
 			},
-			"scripted": { "filename": "$MOD_DATA/Scripts/NumberLogic/AsciiBlock.lua", "classname": "AsciiBlock" },
+			"scripted": { "filename": "$MOD_DATA/Scripts/interactable/NumberLogic/AsciiBlock.lua", "classname": "AsciiBlock" },
 			"color": "df7f00",
 			"box": {
 				"x": 1, "y": 1, "z": 1
 			},
 			"density": 250.0,
 			"physicsMaterial": "Plastic",
-			//"sticky": "+Z-Z-Y-X+X",			
+			//"sticky": "+Z-Z-Y-X+X",
 			"rotationSet": "AsciiBlock",
 			"qualityLevel": 2
 		},
@@ -852,14 +852,14 @@
 					}
 				]
 			},
-			"scripted": { "filename": "$MOD_DATA/Scripts/NumberLogic/AsciiBlock.lua", "classname": "AsciiBlock" },
+			"scripted": { "filename": "$MOD_DATA/Scripts/interactable/NumberLogic/AsciiBlock.lua", "classname": "AsciiBlock" },
 			"color": "df7f00",
 			"box": {
 				"x": 1, "y": 1, "z": 1
 			},
 			"density": 250.0,
 			"physicsMaterial": "Plastic",
-			//"sticky": "+Z-Z-Y-X+X",			
+			//"sticky": "+Z-Z-Y-X+X",
 			"rotationSet": "AsciiBlock",
 			"qualityLevel": 2
 		},
@@ -894,14 +894,14 @@
 					}
 				]
 			},
-			"scripted": { "filename": "$MOD_DATA/Scripts/NumberLogic/AsciiBlock.lua", "classname": "AsciiBlock" },
+			"scripted": { "filename": "$MOD_DATA/Scripts/interactable/NumberLogic/AsciiBlock.lua", "classname": "AsciiBlock" },
 			"color": "df7f00",
 			"box": {
 				"x": 1, "y": 1, "z": 1
 			},
 			"density": 250.0,
 			"physicsMaterial": "Plastic",
-			//"sticky": "-Z-Y+Z-X+X",			
+			//"sticky": "-Z-Y+Z-X+X",
 			"rotationSet": "AsciiBlock",
 			"qualityLevel": 2
 		},
@@ -924,7 +924,7 @@
 					}
 				]
 			},
-			"scripted": { "filename": "$MOD_DATA/Scripts/Locomotion/SmartControl.lua", "classname": "SmartControl" },
+			"scripted": { "filename": "$MOD_DATA/Scripts/interactable/Locomotion/SmartControl.lua", "classname": "SmartControl" },
 			"rotationSet": "PropY",
 			"color": "df7f00",
 			"box": { "x": 2, "y": 1, "z": 1 },
@@ -966,7 +966,7 @@
 			"box": { "x": 2, "y": 2, "z": 4 },
 			"density": 250.0,
 			"physicsMaterial": "Metal",
-			"scripted": { "filename": "$MOD_DATA/Scripts/Locomotion/SmartThruster.lua", "classname": "SmartThruster" },
+			"scripted": { "filename": "$MOD_DATA/Scripts/interactable/Locomotion/SmartThruster.lua", "classname": "SmartThruster" },
 			"sticky": "+X-X+Y-Y",
 			"qualityLevel": 4
 		},
@@ -1006,7 +1006,7 @@
 					}
 				]
 			},
-			"scripted": { "filename": "$MOD_DATA/Scripts/Locomotion/WASDThruster.lua", "classname": "WASDThruster" },
+			"scripted": { "filename": "$MOD_DATA/Scripts/interactable/Locomotion/WASDThruster.lua", "classname": "WASDThruster" },
 			"rotationSet": "PropFull",
 			"color": "df7f00",
 			"density": 500.0,
@@ -1038,7 +1038,7 @@
 					}
 				]
 			},
-			"scripted": { "filename": "$MOD_DATA/Scripts/Locomotion/Gimball.lua", "classname": "Gimball" },
+			"scripted": { "filename": "$MOD_DATA/Scripts/interactable/Locomotion/Gimball.lua", "classname": "Gimball" },
 			"rotationSet": "PropZ",
 			"sticky": "-Z",
 			"color": "df7f00",
@@ -1118,7 +1118,7 @@
 				]
 			},
 			"rotationSet": "PropY",
-			"scripted": { "filename": "$MOD_DATA/Scripts/Locomotion/GravityModulator.lua", "classname": "gravcreation" },
+			"scripted": { "filename": "$MOD_DATA/Scripts/interactable/Locomotion/GravityModulator.lua", "classname": "gravcreation" },
 			"color": "df7f00",
 			"box": { "x": 2, "y": 1, "z": 1 },
 			"physicsMaterial": "Metal",
@@ -1127,7 +1127,7 @@
 			"qualityLevel": 5
 		},
 		{
-			"uuid": "e93ca226-4166-49e3-97cd-bb8df20242d7", // gravity modulator 
+			"uuid": "e93ca226-4166-49e3-97cd-bb8df20242d7", // gravity modulator
 			"renderable": {
 				"lodList": [
 					{
@@ -1161,7 +1161,7 @@
 			"physicsMaterial": "Metal",
 			"density": 1250,
 			"sticky": "-Y",
-			"scripted": { "filename": "$MOD_DATA/Scripts/Locomotion/GravityModulator.lua", "classname": "gravworld" },
+			"scripted": { "filename": "$MOD_DATA/Scripts/interactable/Locomotion/GravityModulator.lua", "classname": "gravworld" },
 			"qualityLevel": 5
 		},
 		{
@@ -1185,7 +1185,7 @@
 					}
 				]
 			},
-			 "scripted": { "filename": "$MOD_DATA/Scripts/Locomotion/FlappyWing.lua", "classname": "FlappyWing",
+			 "scripted": { "filename": "$MOD_DATA/Scripts/interactable/Locomotion/FlappyWing.lua", "classname": "FlappyWing",
 				"data": {
 					"animationName": "Flap", "animationLoop": false,
 					"animationMin": -90, "animationMax": 90,
@@ -1193,9 +1193,9 @@
 					"angleMin": -90, "angleMax": 90,
 					"surfaces": [
 						{ "area": 0.75, "angleModifier": 0, "angleOffset": 0, "offset": [0, 0, -0.125] },
-						{ "area": 0.25,	"angleModifier": 1, "angleOffset": 0, "offset": [0, 0, 0.125], 
-							"offsetModifierSin": [0, 0.25, 0], 
-							"offsetModifierCos": [0, 0, 0.25], 
+						{ "area": 0.25,	"angleModifier": 1, "angleOffset": 0, "offset": [0, 0, 0.125],
+							"offsetModifierSin": [0, 0.25, 0],
+							"offsetModifierCos": [0, 0, 0.25],
 							"offsetModifierTan": [0, 0, 0]
 						}
 					]
@@ -1246,7 +1246,7 @@
 					}
 				]
 			},
-			 "scripted": { "filename": "$MOD_DATA/Scripts/Locomotion/FlappyWing.lua", "classname": "FlappyWing",
+			 "scripted": { "filename": "$MOD_DATA/Scripts/interactable/Locomotion/FlappyWing.lua", "classname": "FlappyWing",
 				"data": {
 					"animationName": "Rotation", "animationLoop": true,
 					"animationMin": 0, "animationMax": 180, "animationOffset": 0,
@@ -1305,7 +1305,7 @@
 			"physicsMaterial": "Metal",
 			"density": 250,
 			"sticky": "-X+X-Y+Y-Z+Z",
-			"scripted": { "filename": "$MOD_DATA/Scripts/dynamite.lua", "classname": "dynamite" }
+			"scripted": { "filename": "$MOD_DATA/Scripts/interactable/Dynamite.lua", "classname": "dynamite" }
 		},
 //*
 		{
@@ -1333,7 +1333,7 @@
 			"box": { "x": 1, "y": 1, "z": 1 },
 			"density": 250.0,
 			"physicsMaterial": "Metal",
-			"scripted": { "filename": "$MOD_DATA/Scripts/tonegenerator.lua", "classname": "tonegenerator" },
+			"scripted": { "filename": "$MOD_DATA/Scripts/interactable/ToneGenerator.lua", "classname": "tonegenerator" },
 			"qualityLevel": 4
 		},
 // */
@@ -1362,7 +1362,7 @@
 			"box": { "x": 2, "y": 2, "z": 2 },
 			"density": 250.0,
 			"physicsMaterial": "Metal",
-			"scripted": { "filename": "$MOD_DATA/Scripts/tonegenerator.lua", "classname": "totegenerator" },
+			"scripted": { "filename": "$MOD_DATA/Scripts/interactable/ToneGenerator.lua", "classname": "totegenerator" },
 			"sticky": "+Y-Y-Z+X-X",
 			"qualityLevel": 4
 
@@ -1414,7 +1414,7 @@
 					}
 				]
 			},
-			"scripted": { "filename": "$MOD_DATA/Scripts/Orientation/Radar2D.lua", "classname": "Radar2D" },
+			"scripted": { "filename": "$MOD_DATA/Scripts/interactable/Orientation/Radar2D.lua", "classname": "Radar2D" },
 			"rotationSet":"PropY",
 			"color": "df7f00",
 			"density":250.0,
@@ -1425,7 +1425,7 @@
 		{
 			"uuid": "0954264c-4914-4848-b35a-4ae46cabc467", // 3D radar
 			"renderable": {
-				"lodList": [ 
+				"lodList": [
 					 {
 						"subMeshList": [
 							{
@@ -1449,11 +1449,11 @@
 					}
 				]
 			},
-			 "scripted": { "filename": "$MOD_DATA/Scripts/Orientation/Radar3D.lua", "classname": "Radar3D" },
+			 "scripted": { "filename": "$MOD_DATA/Scripts/interactable/Orientation/Radar3D.lua", "classname": "Radar3D" },
 			"color": "df7f00",
 			"box": { "x": 5, "y": 7, "z": 5 },
 			"physicsMaterial": "Metal",
-			"sticky": "+Y-Y+X-X+Z-Z",			
+			"sticky": "+Y-Y+X-X+Z-Z",
 			"rotationSet": "PropY",
 			"qualityLevel": 4
 		},
@@ -1500,7 +1500,7 @@
 				]
 			},
 			"rotationSet": "PropY",
-			"scripted": { "filename": "$MOD_DATA/Scripts/BlockSpawner.lua", "classname": "BlockSpawner" },
+			"scripted": { "filename": "$MOD_DATA/Scripts/interactable/BlockSpawner.lua", "classname": "BlockSpawner" },
 			"color": "9f2600",
 			"box": { "x": 3, "y": 1, "z": 2 },
 			"previewRotation": [ -1, 0, 0, 0, 0, 1, 0, 1, 0 ],

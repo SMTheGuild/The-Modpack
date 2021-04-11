@@ -44,13 +44,13 @@
 						"subMeshList": [
 							{
 								"textureList": [
-									"$GAME_DATA/Objects/Textures/interactive/obj_interactive_robotbliphead01_dif.tga", 
-									"$GAME_DATA/Objects/Textures/interactive/obj_interactive_robotbliphead01_asg.tga", 
+									"$GAME_DATA/Objects/Textures/interactive/obj_interactive_robotbliphead01_dif.tga",
+									"$GAME_DATA/Objects/Textures/interactive/obj_interactive_robotbliphead01_asg.tga",
 									"$GAME_DATA/Objects/Textures/interactive/obj_interactive_robotbliphead01_nor.tga"
-								], 
+								],
 								"material": "DifAsgNor"
 							}
-						], 
+						],
 						"mesh": "$MOD_DATA/Objects/Mesh/mjm_TorquePipe.mesh"
 					}
 				]
@@ -330,7 +330,7 @@
 			},
 			"rotationSet": "PropY",
 			"color": "df7f00",
-			"hull": { 
+			"hull": {
 				"x": 1, "y": 1, "z": 3,
 				"pointList": [
 					{ "x": 0.0, "y": 1.0, "z": 1.0 },
@@ -575,7 +575,7 @@
 				"enterAudio": "Seat seated",
 				"exitAudio": "Seat unseated"
 			},
-			"hull": { 
+			"hull": {
 				"x": 4, "y": 4, "z": 3,
 				"pointList": [
 					{ "x": 0.2, "y": 1.0, "z": 1.0 },
@@ -660,7 +660,7 @@
 				"enterAudio": "Seat seated",
 				"exitAudio": "Seat unseated"
 			},
-			"hull": { 
+			"hull": {
 				"x": 3, "y": 1, "z": 1,
 				"margin": 0.1,
 				"pointList": [
@@ -744,7 +744,7 @@
 				"enterAudio": "Seat seated",
 				"exitAudio": "Seat unseated"
 			},
-			"hull": { 
+			"hull": {
 				"x": 3, "y": 1, "z": 2,
 				"pointList": [
 					{ "x": -1.0, "y": -1.0, "z": 1.0 },
@@ -798,7 +798,7 @@
 				"enterAudio": "Seat seated",
 				"exitAudio": "Seat unseated"
 			},
-			"hull": { 
+			"hull": {
 				"x": 1, "y": 1, "z": 1,
 				"margin": 0.0,
 				"pointList": [
@@ -849,7 +849,7 @@
 				"enterAudio": "Seat seated",
 				"exitAudio": "Seat unseated"
 			},
-			"hull": { 
+			"hull": {
 				"x": 1, "y": 1, "z": 1,
 				"margin": 0.0,
 				"pointList": [
@@ -901,7 +901,7 @@
 				"enterAudio": "Seat seated",
 				"exitAudio": "Seat unseated"
 			},
-			"hull": { 
+			"hull": {
 				"x": 1, "y": 1, "z": 1,
 				"margin": 0.0,
 				"pointList": [
@@ -979,7 +979,7 @@
 				]
 			},
 			"color": "df7f00",
-			"hull": { 
+			"hull": {
 				"x": 1, "y": 1, "z": 1,
 				"margin": 0.0,
 				"pointList": [
@@ -1019,7 +1019,7 @@
 		},
 		{
 			"legacyId": 3222,
-			"uuid": "036fbe44-45df-11e6-beb8-9e71128cae77", 
+			"uuid": "036fbe44-45df-11e6-beb8-9e71128cae77",
 			"renderable": {
 				"lodList": [
 					{
@@ -1042,7 +1042,7 @@
 			},
 			"color": "007fdf",
 			"box": { "x": 1, "y": 1, "z": 1 },
-			"thruster": { 
+			"thruster": {
 				"levels": [
 					{ "averageForce": 2222.22, "forceVariation": 0 },
 					{ "averageForce": 3333.33, "forceVariation": 0 },
@@ -1088,7 +1088,7 @@
 			},
 			"rotationSet": "PropZ",
 			"color": "df7f00",
-			"hull": { 
+			"hull": {
 				"x": 1, "y": 1, "z": 1,
 				"margin": 0.25,
 				"pointList": [
@@ -1193,7 +1193,7 @@
 			},
 			"rotationSet": "PropZ",
 			"color": "df7f00",
-			"hull": { 
+			"hull": {
 				"x": 1, "y": 1, "z": 1,
 				"margin": 0.25,
 				"pointList": [
@@ -1286,7 +1286,7 @@
 			},
 			"rotationSet": "PropY",
 			"color": "df7f00",
-			"hull": { 
+			"hull": {
 				"x": 1, "y": 1, "z": 1,
 				"margin": 0.25,
 				"pointList": [
@@ -1323,7 +1323,7 @@
 			},
 			"rotationSet": "PropY",
 			"color": "df7f00",
-			"hull": { 
+			"hull": {
 				"x": 1, "y": 2, "z": 1,
 				"margin": 0.25,
 				"pointList": [
@@ -1361,7 +1361,7 @@
 			},
 			"rotationSet": "PropY",
 			"color": "df7f00",
-			"hull": { 
+			"hull": {
 				"x": 1, "y": 5, "z": 2,
 				"margin": 0.25,
 				"pointList": [
@@ -1385,8 +1385,8 @@
 						"subMeshList": [
 							{
 								"textureList": [
-									"$GAME_DATA/Objects/Textures/fittings/obj_fittings_pipes_dif.tga", 
-									"$GAME_DATA/Objects/Textures/fittings/obj_fittings_pipes_asg.tga", 
+									"$GAME_DATA/Objects/Textures/fittings/obj_fittings_pipes_dif.tga",
+									"$GAME_DATA/Objects/Textures/fittings/obj_fittings_pipes_asg.tga",
 									"$GAME_DATA/Objects/Textures/fittings/obj_fittings_pipes_nor.tga"
 								],
 								"material": "PoseAnimDifAsgNor"
@@ -1408,7 +1408,7 @@
    		{
 			"uuid": "494f0a47-3f18-4ae1-bc42-3f0fccce4f43",
 			"renderable": {
-				"lodList": [ 
+				"lodList": [
 					 {
 						"subMeshList": [
 							{
@@ -1424,7 +1424,7 @@
 					}
 				]
 			},
-			"scripted" : { "filename": "$MOD_DATA/Scripts/ShipCannon.lua", "classname": "Barrel1" },
+			"scripted" : { "filename": "$MOD_DATA/Scripts/interactable/ShipCannon.lua", "classname": "Barrel1" },
 			"color": "df7f00",
 			"hull": {
 				"x":1,"y":1,"z":1,"margin":0.05,
@@ -1456,7 +1456,7 @@
 		{
 			"uuid": "5ec4ebcd-6f2a-402d-b8b9-315b78b4f654",
 			"renderable": {
-				"lodList": [ 
+				"lodList": [
 					 {
 						"subMeshList": [
 							{
@@ -1472,7 +1472,7 @@
 					}
 				]
 			},
-			"scripted" : { "filename": "$MOD_DATA/Scripts/ShipCannon.lua", "classname": "Barrel1" },
+			"scripted" : { "filename": "$MOD_DATA/Scripts/interactable/ShipCannon.lua", "classname": "Barrel1" },
 			"color": "df7f00",
 			"hull": {
 				"x": 1, "y": 1, "z": 1, "margin": 0.25,
@@ -1514,7 +1514,7 @@
 				"x": 1, "y": 1, "z": 1
 			},
 			"rotationSet": "PropYZ",
-			"sticky": "-Z+Z-Y+Y-X+X",	
+			"sticky": "-Z+Z-Y+Y-X+X",
 			"physicsMaterial": "Plastic",
 			"ratings": {
 				"density": 2,
@@ -1567,7 +1567,7 @@
 			},
 			"rotationSet": "PropZ",
 			"color": "ffff66",
-			"hull": { 
+			"hull": {
 				"x": 1, "y": 1, "z": 1,
 				"margin": 0.25,
 				"pointList": [
@@ -1628,7 +1628,7 @@
 			},
 			"rotationSet": "PropZ",
 			"color": "ffff66",
-			"hull": { 
+			"hull": {
 				"x": 1, "y": 1, "z": 1,
 				"margin": 0.25,
 				"pointList": [
@@ -1687,7 +1687,7 @@
 			},
 			"rotationSet": "PropZ",
 			"color": "ffff66",
-			"hull": { 
+			"hull": {
 				"x": 1, "y": 1, "z": 1,
 				"margin": 0.25,
 				"pointList": [
@@ -1748,7 +1748,7 @@
 			},
 			"rotationSet": "PropZ",
 			"color": "ffff66",
-			"hull": { 
+			"hull": {
 				"x": 1, "y": 1, "z": 1,
 				"margin": 0.25,
 				"pointList": [
@@ -1821,7 +1821,7 @@
 			},
 			"flammable": true,
 			"density": 250.0,
-			"qualityLevel": 3		
+			"qualityLevel": 3
 		},
 		{
 			"uuid": "0f994efc-b697-48e4-8ce0-f53eae15d41b",
@@ -1861,7 +1861,7 @@
 			},
 			"rotationSet": "PropYZX2",
 			"color": "ffff66",
-			"hull": { 
+			"hull": {
 				"x": 1, "y": 1, "z": 1,
 				"margin": 0.25,
 				"pointList": [
