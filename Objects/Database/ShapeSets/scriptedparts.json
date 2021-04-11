@@ -562,15 +562,7 @@
 				"lodList": [
 					{
 						"subMeshList": [
-							{
-								"textureList": [
-									"$MOD_DATA/Objects/Textures/memory_panel_dif.png",
-									"$MOD_DATA/Objects/Textures/memory_panel_asg.png",
-									"$MOD_DATA/Objects/Textures/memory_panel_nor.png"
-								],
-								"material": "PoseAnimDifAsgNor"
-							},
-							{
+							{ // display
 								"textureList": [
 									"$MOD_DATA/Objects/Textures/memory_slots_dif.png",
 									"$MOD_DATA/Objects/Textures/memory_slots_asg.png",
@@ -581,10 +573,34 @@
 								{
 									"uv0": { "u": 0.0625, "v": 0.0625 }
 								}
+							},
+							{ // body
+								"textureList": [
+									"$MOD_DATA/Objects/Textures/memory_panel_dif.png",
+									"$MOD_DATA/Objects/Textures/memory_panel_asg.png",
+									"$MOD_DATA/Objects/Textures/memory_panel_nor.png"
+								],
+								"material": "DifAsgNor"
+							},
+							{ // light_off
+								"textureList": [
+									"$MOD_DATA/Objects/Textures/memory_panel_dif.png",
+									"$MOD_DATA/Objects/Textures/memory_panel_asg.png",
+									"$MOD_DATA/Objects/Textures/memory_panel_nor.png"
+								],
+								"material": "PoseAnimDifAsgNor"
+							},
+							{ // light_on
+								"textureList": [
+									"$MOD_DATA/Objects/Textures/memory_panel_dif.png",
+									"$MOD_DATA/Objects/Textures/memory_panel_asg.png",
+									"$MOD_DATA/Objects/Textures/memory_panel_nor.png"
+								],
+								"material": "PoseAnimDifAsgNor"
 							}
 						],
-						"mesh": "$MOD_DATA/Objects/Mesh/memory_panel_off.obj",
-						"pose0": "$MOD_DATA/Objects/Mesh/memory_panel_on.obj"
+						"mesh": "$MOD_DATA/Objects/Mesh/blueflame_memory_off.fbx",
+						"pose0": "$MOD_DATA/Objects/Mesh/blueflame_memory_on.fbx"
 					}
 				]
 			},
