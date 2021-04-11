@@ -39,6 +39,7 @@ SmartSensor.modes = {
 	{ value = 4, targetPose = 0, 	description = "type mode: (nothing: 0, terrainSurface:1, terrainAsset:2, lift:3, body:4, character:5, joint:6, vision:7)" },
 	{ value = 5, targetPose = 0,	description = "container mode, get the amount of items in a container" }
 }
+SmartSensor.modeCount = #SmartSensor.modes
 SmartSensor.savemodes = {}
 for k,v in pairs(SmartSensor.modes) do
    SmartSensor.savemodes[v.value] = k
@@ -77,7 +78,7 @@ function SmartSensor.server_onFixedUpdate( self, dt )
 		end
 	end
 	
-	newmode = (newmode and newmode%#self.modes or nil)
+	newmode = (newmode and newmode % self.modeCount or nil)
 	
 	self.needssave = self.needssave or newmode and newmode ~= mode
 	
@@ -178,7 +179,7 @@ function SmartSensor.server_onFixedUpdate( self, dt )
 end
 
 function SmartSensor.server_changemode(self, crouch)
-    self.mode = (self.mode + (crouch and -1 or 1) - 1 )%#self.modes + 1
+    self.mode = (self.mode + (crouch and -1 or 1) - 1 ) % self.modeCount + 1
     self.storage:save(self.modes[self.mode].value)
 	self.network:sendToClients("client_newMode", {self.mode, true})
 end
