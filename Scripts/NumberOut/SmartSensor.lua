@@ -36,7 +36,8 @@ SmartSensor.modes = {
 	{ value = 1, targetPose = 0.8, 	description = "wide raycast, distance mode" },
 	{ value = 2, targetPose = 0, 	description = "1 raycast, color mode" },
 	{ value = 3, targetPose = 0.8, 	description = "wide raycast, color mode" },
-	{ value = 4, targetPose = 0, 	description = "type mode: (nothing: 0, terrainSurface:1, terrainAsset:2, lift:3, body:4, character:5, joint:6, vision:7)" }
+	{ value = 4, targetPose = 0, 	description = "type mode: (nothing: 0, terrainSurface:1, terrainAsset:2, lift:3, body:4, character:5, joint:6, vision:7)" },
+	{ value = 5, targetPose = 0,	description = "container mode, get the amount of items in a container" }
 }
 SmartSensor.savemodes = {}
 for k,v in pairs(SmartSensor.modes) do
@@ -76,7 +77,7 @@ function SmartSensor.server_onFixedUpdate( self, dt )
 		end
 	end
 	
-	newmode = (newmode and newmode%5 or nil)
+	newmode = (newmode and newmode%#self.modes or nil)
 	
 	self.needssave = self.needssave or newmode and newmode ~= mode
 	
@@ -95,6 +96,7 @@ function SmartSensor.server_onFixedUpdate( self, dt )
 	local src = self.shape.worldPosition + self.shape.up * offset/4
 	
 	local colormode = (mode == 2) or (mode == 3)
+	local distancemode = (mode == 0) or (mode == 1)
 	local bigSize = (mode == 1) or (mode == 3)
 	
 	local distance = nil
@@ -118,53 +120,65 @@ function SmartSensor.server_onFixedUpdate( self, dt )
 				end
 			end
 			
-		elseif mode ~= 4 then -- not type mode
-			-- distance mode
+		elseif distancemode then
 			local hit, fraction = sm.physics.distanceRaycast(src + getGlobal(self.shape, raypoint), self.shape.up*3000)
 			if hit then
 				local d = fraction * 3000
 				if distance == nil or d*4 - 0.5 < distance then
 					distance = d*4 - 0.5
-					--print(distance)
 				end
 			end
-		else 
-			-- type mode
+		elseif mode == 4 then	-- type mode
 			local startPos = src + getLocal(self.shape, raypoint)
 			local hit, result = sm.physics.raycast(startPos, startPos + self.shape.up*3000)
 			local resulttype = result.type
 			self.interactable.power = (resulttype == "terrainSurface" and 1 or 0) + (resulttype == "terrainAsset" and 2 or 0) + (resulttype == "lift" and 3 or 0) +
 					(resulttype == "body" and 4 or 0) + (resulttype == "character" and 5 or 0) + (resulttype == "joint" and 6 or 0) + (resulttype == "vision" and 7 or 0)
-					
+
+		elseif mode == 5 then	-- container mode
+			self.interactable.power = 0
+			local startPos = src + getLocal(self.shape, raypoint)
+			local hit, result = sm.physics.raycast(startPos, startPos + self.shape.up*3000)
+			if hit and result.type == "body" and result:getShape().interactable then
+				local container = result:getShape().interactable:getContainer()
+				if container then
+					local items = 0
+					for i = 0, container:getSize(), 1 do
+						stackSize = container:getItem(i)["quantity"]
+						if stackSize then
+							items = items + stackSize
+						end
+					end
+					self.interactable.power = items
+				end
+			end
 		end
 	end
 	
 	
-	if mode ~= 4 then
-		if colormode then
-			local bestmatch = nil
-			local color = 0
-			for k, v in pairs(colors) do
-				if bestmatch == nil then 
-					bestmatch = v 
-					color = tonumber(k)
-				end
-				if (v.distance < bestmatch.distance) or (v.distance == bestmatch.distance and v.count > bestmatch.count) then
-					bestmatch = v
-					color = tonumber(k)
-				end
+	if colormode then
+		local bestmatch = nil
+		local color = 0
+		for k, v in pairs(colors) do
+			if bestmatch == nil then 
+				bestmatch = v 
+				color = tonumber(k)
 			end
-			self.interactable.power = color
-		else
-			self.interactable.power = distance or 0
+			if (v.distance < bestmatch.distance) or (v.distance == bestmatch.distance and v.count > bestmatch.count) then
+				bestmatch = v
+				color = tonumber(k)
+			end
 		end
+		self.interactable.power = color
+	elseif distancemode then
+		self.interactable.power = distance or 0
 	end
 	
 	self.interactable.active = self.interactable.power > 0
 end
 
 function SmartSensor.server_changemode(self, crouch)
-    self.mode = (self.mode + (crouch and -1 or 1) - 1 )%5 + 1
+    self.mode = (self.mode + (crouch and -1 or 1) - 1 )%#self.modes + 1
     self.storage:save(self.modes[self.mode].value)
 	self.network:sendToClients("client_newMode", {self.mode, true})
 end
@@ -221,5 +235,3 @@ function SmartSensor.client_onFixedUpdate(self, dt)
 	end
 	self.interactable:setPoseWeight(0, self.pose)
 end
-
-
