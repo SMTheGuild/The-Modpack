@@ -1,3 +1,5 @@
+![The Modpack](dist/preview.jpg)
+
 # The Modpack
 A popular Scrap Mechanic mod that adds number logic, wheels and other parts to the game.
 
