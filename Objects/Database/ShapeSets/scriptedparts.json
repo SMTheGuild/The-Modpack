@@ -106,11 +106,11 @@
 							},
 							{
 								"textureList": [
-									"$MOD_DATA/Objects/Textures/asensor_glass_dif.png",
-									"$MOD_DATA/Objects/Textures/asensor_glass_asg.png",
-									"$GAME_DATA/Textures/nonor_nor.tga"
+									"$MOD_DATA/Objects/Textures/analog_sensor_dif.png",
+									"$MOD_DATA/Objects/Textures/analog_sensor_asg.png",
+									"$MOD_DATA/Objects/Textures/obj_interactive_logicgate_nor.tga"
 								],
-								"material": "Glass"
+								"material": "DifAsgNor"
 							}
 						],
 						"mesh": "$MOD_DATA/Objects/Mesh/analog_sensor_thin.obj",
