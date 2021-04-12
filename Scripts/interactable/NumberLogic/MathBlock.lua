@@ -4,9 +4,6 @@
 ]]--
 dofile "../../libs/load_libs.lua"
 
-mpPrint("loading MathBlock.lua")
-
-
 -- MathBlock.lua --
 MathBlock = class( nil )
 MathBlock.maxParentCount = -1
@@ -20,45 +17,45 @@ MathBlock.poseWeightCount = 1
 MathBlock.mode = 1
 MathBlock.modetable = {--"value" aka "savevalue", gets saved, gets loaded.
 --change order of following array to change cycle order:
-	{value = 00, icon = "+",       name = "+"         ,description = "\nadds all number inputs together and outputs the sum of them"},
-	{value = 01, icon = "-",       name = "-"         ,description = "\nsubtracts white input from black input and outputs the number, \neither of the 2 can be colored white or black to work, \nnot coloring either the appropriate color will cause subtraction of first connected - 2nd connected"},
-	{value = 02, icon = "x",       name = "x"         ,description = "\noutputs the multiplication of all inputs"},
-	{value = 03, icon = "/",       name = "/"         ,description = "\noutputs the division of white input by non-white input, \nwhen more than 2 inputs be sure to color appropriate inputs white!"},
-	{value = 04, icon = "%",       name = "modulus"   ,description = "\noutputs the rest after dividing white input by non-white input, \nwhen more than 2 inputs: adds together whites and gets rest after dividing by non-whites"},
-	{value = 05, icon = "a²",      name = "squared"   ,description = "\noutputs white to the power of non-white\n1 input: input squared\n2+inputs: whites added together to the power of (sum of non-whites)"},
-	{value = 06, icon = "√a",      name = "root"      ,description = "\noutputs white to the root of non-white\n1 input: input square-root\n2+inputs: whites added together to the root of (sum of non-whites)"},
-	{value = 17, icon = "|a|",     name = "absolute"  ,description = "\noutputs the positive value of the input (-5 -> 5, 5-> 5)\nmoreinputs: sums all positive values of the inputs (-3,-2,1->output=6)"},
-	{value = 28, icon = "◿",       name = "hypotenuse",description = "\noutputs the hypotenuse of the 2 inputs\noutput=(a^2+b^2)^(1/2)"},
-	{value = 23, icon = "log",     name = "log"       ,description = "\noutputs the logarithm of the non-white input with base white input\n1 input: base defaults to 'e'"},
-	{value = 24, icon = "exp",     name = "exp"       ,description = "\noutputs value of 'e' to the power of input(s)\nno inputs: output will be e^1 aka 'e'"},
-	{value = 33, icon = "a!",      name = "factorial" ,description = "\ntakes the factorial of the floored sum of the inputs\n('floor' in case there are inputs like 1.5)"},
-	{value = 32, icon = "bit",     name = "bitmem"    ,description = "\ninputs: white / non-white\nwhite input defines the action: 0=flip, 1=set, 2=reset, no white= flip\nwhen all non-white inputs are active(not 0 for numbers), the action will be taken,\nin case of flip it'll flip every tick all inputs are on, set will turn it on, reset will turn it off.\n\nnifty replacedment for selfwired xor/other memorory's"},
-	{value = 18, icon = "floor",   name = "floor"     ,description = "\nfloors the input(0.9999->0)\nmore than one input: floors inputs , then adds together\nwhite input: round by value"},
-	{value = 19, icon = "round",   name = "round"     ,description = "\nrounds the input(0.499->0, 0.5->1)\nmore than one input: rounds inputs, then adds together\nwhite input: round by value"},
-	{value = 20, icon = "ceil",    name = "ceil"      ,description = "\nrounds the inputs up(0.01->1)\nmore than one input: floors inputs up, then adds together\nwhite input: round by value"},
-	{value = 21, icon = "min",     name = "min"       ,description = "\noutputs the lowest input value"},
-	{value = 22, icon = "max",     name = "max"       ,description = "\noutputs the higest input value"},
-	{value = 34, icon = "PID",     name = "PID"       ,description = "proportional integral derivative \nblack: process value \nwhite: set value \norange: P multiplier\nred: I multiplier \npurple: D multiplier \n3rd row orange: limit output(default: 4096) \n3rd row red: i time(between 10-1200 ticks)(default value:400) \n3rd row purple: d time(between 1-20 ticks)"},
-	{value = 12, icon = "sin",     name = "sinus"     ,description = "\noutputs the sinus of the input, input in degrees\nmultiple inputs: sinus(sum of inputs)"},
-	{value = 13, icon = "cos",     name = "cosinus"   ,description = "\noutputs the cosinus of the input, input in degrees\nmultiple inputs: cosinus(sum of inputs)"},
-	{value = 14, icon = "tan",     name = "tan"       ,description = "\noutputs the tangens of the input, input in degrees\nmultiple inputs: tangens(sum of inputs)"},
-	{value = 25, icon = "arcsin",  name = "arcsin"    ,description = "\noutputs the inverse sinus of the input in degrees, input between -1 and 1\nmultiple inputs: arcsinus(sum of inputs)"},
-	{value = 26, icon = "arccos",  name = "arccos"    ,description = "\noutputs the inverse cosinus of the input in degrees, input between -1 and 1\nmultiple inputs: arccosinus(sum of inputs)"},
-	{value = 27, icon = "arctan",  name = "arctan"    ,description = "\noutputs the inverse tangens of the input in degrees\nmultiple inputs: arctangens(sum of inputs)"},
-	{value = 35, icon = "arctan2", name = "arctan2"   ,description = "\noutputs the inverse tangens of the inputs (white & black) in degrees\nmultiple inputs: arctangens2(whites, blacks)\narctan*2* because it works for all 4 quadrants -> 2 inputs!(black&white)"},
-	{value = 15, icon = "π",       name = "pi"        ,description = "\nno inputs, outputs PI \n(3.141592653589793238462643383279502884197169399375\n10582097494459230781640628620899862803482534211706\n79821480865132823066470938446095505822317253594081\n28481117450284102701938521105559644622948954930381\n9644288109756659334461284756482337867831652712019)"},
-	{value = 16, icon = "rand",    name = "random"    ,description = "\ninputs: logic, number\nno inputs: outputs random value between 0 and 1,\nlogic input will let it generate a new random number\nnumber input(s) define the range within to generate an integer value\n(input: 5 -> output 1/2/3/4/5, input: -2, 3 -> output: -2/-1/0/1/2/3)"},
-	{value = 36, icon = "sgn",     name = "sign"      ,description = "\noutputs 1 if the inputs > 0\noutputs -1 if the inputs < 0\noutputs 0 if the inputs are 0"},
-	{value = 10, icon = "≥",       name = ">="        ,description = "\nbecomes active(1) when the white input is bigger or equal than the non-white input\nmore parents: active when sum of whites is bigger or equal sum of non-whites"},
-	{value = 11, icon = "≤",       name = "<="        ,description = "\nbecomes active(1) when the white input is smaller or equal than the non-white input\nmore parents: active when sum of whites is smaller or equal sum of non-whites"},
-	{value = 07, icon = ">",       name = ">"         ,description = "\nbecomes active(1) when the white input is bigger than the non-white input\nmore parents: active when sum of whites is bigger than sum of non-whites"},
-	{value = 08, icon = "<",       name = "<"         ,description = "\nbecomes active(1) when the white input is smaller than the non-white input\nmore parents: active when sum of whites is smaller than sum of non-whites"},
-	{value = 09, icon = "=",       name = "="         ,description = "\nbecomes active(1) when all inputs are equal"},
-	{value = 37, icon = "≠",       name = "!="        ,description = "\nbecomes active(1) when inputs are not equal"},
-	{value = 38, icon = "X{Y}?",   name = "X{Y}?"     ,description = "\nbecomes active(1) when any of the black inputs is equal any of the white inputs"},
-	{value = 29, icon = "seated",  name = "seated"    ,description = "\nbecomes active and outputs the value of input seats occupied"},
-	{value = 30, icon = "A/D",     name = "A/D"       ,description = "\noutputs the A/D value, range: -1 to 1\nmultiple driverseat inputs: average of A/D output of inputs,\nexcellent for teamwork"},
-	{value = 31, icon = "W/S",     name = "W/S"       ,description = "\noutputs the W/S value, range: -1 to 1\nmultiple driverseat inputs: average of W/S output of inputs,\nexcellent for teamwork"},
+	{value = 00, icon = "+",       name = "Sum"                   ,description = "Outputs the sum all number inputs."},
+	{value = 01, icon = "-",       name = "Subtraction"           ,description = "Subtracts the sum of white inputs from the sum of black inputs and outputs the number.\nIf the inputs are not colored correctly, the output will be the subtraction of 1st connected - 2nd connected."},
+	{value = 02, icon = "x",       name = "Multiplication"        ,description = "Outputs the multiplication of all inputs."},
+	{value = 03, icon = "/",       name = "Division"              ,description = "Outputs the division of sum of white inputs by the sum of non-white input."},
+	{value = 04, icon = "%",       name = "Remainder"             ,description = "Outputs the remainder after dividing the sum of white inputs by the sum of non-white inputs."},
+	{value = 05, icon = "a²",      name = "Power"                 ,description = "1 input: Outputs the input squared.\n\nMultiple inputs: Outputs the sum of the white inputs to the power of the sum of the non-white inputs."},
+	{value = 06, icon = "√a",      name = "Root"                  ,description = "1 input: Outputs the square root of the input.\n\nMultiple inputs: Outputs the sum of white inputs to the root of the sum of non-white inputs."},
+	{value = 17, icon = "|a|",     name = "Absolute value"        ,description = "Outputs the sum of the absolute values of the inputs. (E.g.: -5 → 5, 3 and -1 → 4)"},
+	{value = 28, icon = "◿",       name = "Hypotenuse"            ,description = "Outputs the hypotenuse of the 2 inputs."},
+	{value = 23, icon = "log",     name = "Logarithm"             ,description = "1 input: Outputs the natural logarithm (ln) of the input.\nMultiple inputs: Outputs the logarithm of the sum of the non-white input with base sum of the white inputs"},
+	{value = 33, icon = "a!",      name = "Factorial"             ,description = "Takes the factorial of the floored sum of the inputs\n('floor' in case there are inputs like 1.5)"},
+    {value = 24, icon = "exp",     name = "Exponential"           ,description = "No inputs: Outputs 𝑒.\n\n1 or more inputs: Outputs value of 𝑒 to the power of the sum of the inputs."},
+	{value = 32, icon = "bit",     name = "Memory bit"            ,description = "Inputs: white / non-white\nwhite input defines the action: 0=flip, 1=set, 2=reset, no white= flip\nwhen all non-white inputs are active(not 0 for numbers), the action will be taken,\nin case of flip it'll flip every tick all inputs are on, set will turn it on, reset will turn it off.\n\nnifty replacedment for selfwired xor/other memorory's"},
+	{value = 18, icon = "floor",   name = "Floor"                 ,description = "Floors the input(0.9999->0)\nmore than one input: floors inputs , then adds together\nwhite input: round by value"},
+	{value = 19, icon = "round",   name = "Round"                 ,description = "Rounds the input(0.499->0, 0.5->1)\nmore than one input: rounds inputs, then adds together\nwhite input: round by value"},
+	{value = 20, icon = "ceil",    name = "Ceil"                  ,description = "Rounds the inputs up(0.01->1)\nmore than one input: floors inputs up, then adds together\nwhite input: round by value"},
+	{value = 21, icon = "min",     name = "Lower value"           ,description = "Outputs the lowest input value"},
+	{value = 22, icon = "max",     name = "Highest value"         ,description = "Outputs the higest input value"},
+	{value = 34, icon = "PID",     name = "PID"                   ,description = "Proportional Integral Derivative \nblack: process value \nwhite: set value \norange: P multiplier\nred: I multiplier \npurple: D multiplier \n3rd row orange: limit output(default: 4096) \n3rd row red: i time(between 10-1200 ticks)(default value:400) \n3rd row purple: d time(between 1-20 ticks)"},
+	{value = 12, icon = "sin",     name = "Sinus"                 ,description = "Outputs the sinus of the input, input in degrees\nmultiple inputs: sinus(sum of inputs)"},
+	{value = 13, icon = "cos",     name = "Cosinus"               ,description = "Outputs the cosinus of the input, input in degrees\nmultiple inputs: cosinus(sum of inputs)"},
+	{value = 14, icon = "tan",     name = "Tangent"               ,description = "Outputs the tangens of the input, input in degrees\nmultiple inputs: tangens(sum of inputs)"},
+	{value = 25, icon = "arcsin",  name = "Arcsinus"              ,description = "Outputs the inverse sinus of the input in degrees, input between -1 and 1\nmultiple inputs: arcsinus(sum of inputs)"},
+	{value = 26, icon = "arccos",  name = "Arccosinus"            ,description = "Outputs the inverse cosinus of the input in degrees, input between -1 and 1\nmultiple inputs: arccosinus(sum of inputs)"},
+	{value = 27, icon = "arctan",  name = "Arctangent"            ,description = "Outputs the inverse tangens of the input in degrees\nmultiple inputs: arctangens(sum of inputs)"},
+	{value = 35, icon = "arctan2", name = "2-argument arctangent" ,description = "Outputs the inverse tangens of the inputs (white & black) in degrees\nmultiple inputs: arctangens2(whites, blacks)\narctan*2* because it works for all 4 quadrants -> 2 inputs!(black&white)"},
+	{value = 15, icon = "π",       name = "Pi"                    ,description = "Outputs PI \n(3.14159265...)"},
+	{value = 16, icon = "rand",    name = "Random"                ,description = "Inputs: logic, number\nno inputs: outputs random value between 0 and 1,\nlogic input will let it generate a new random number\nnumber input(s) define the range within to generate an integer value\n(input: 5 -> output 1/2/3/4/5, input: -2, 3 -> output: -2/-1/0/1/2/3)"},
+	{value = 36, icon = "sgn",     name = "Sign"                  ,description = "Outputs 1 if the inputs > 0\noutputs -1 if the inputs < 0\noutputs 0 if the inputs are 0"},
+	{value = 10, icon = "≥",       name = "Greater than or equals",description = "Outputs 1 when the sum of the white input is greater or equal than the sum of the non-white input"},
+	{value = 11, icon = "≤",       name = "Less than or euqals"   ,description = "Outputs 1 when the sum of the white input is less or equal than the sum of the non-white input"},
+	{value = 07, icon = ">",       name = "Greater than"          ,description = "Outputs 1 when the sum of the white input is greater than the sum of the non-white input"},
+	{value = 08, icon = "<",       name = "Less than"             ,description = "Outputs 1 when the sum of the white input is less than the sum of the non-white input"},
+	{value = 09, icon = "=",       name = "Equals"                ,description = "Outputs 1 when all inputs are equal"},
+	{value = 37, icon = "≠",       name = "Does not equal"        ,description = "Outputs 1 when inputs are not equal"},
+	{value = 38, icon = "X{Y}?",   name = "X{Y}?"                 ,description = "Outputs 1 when any of the black inputs is equal any of the white inputs"},
+	{value = 29, icon = "seated",  name = "Seated"                ,description = "Becomes active and outputs the value of input seats occupied"},
+	{value = 30, icon = "A/D",     name = "A/D"                   ,description = "Outputs the A/D value, range: -1 to 1\nMultiple driverseat inputs: average of A/D output of inputs,\nExcellent for teamwork!"},
+	{value = 31, icon = "W/S",     name = "W/S"                   ,description = "Outputs the W/S value, range: -1 to 1\nMultiple driverseat inputs: average of W/S output of inputs,\nExcellent for teamwork!"},
 }
 MathBlock.savemodes = {}
 for k,v in pairs(MathBlock.modetable) do
@@ -884,7 +881,6 @@ function MathBlock.server_changemode(self, crouch)
 end
 
 function MathBlock.server_senduvtoclient(self, msg)
-    print('mode = ', self.mode)
 	self.network:sendToClients("client_setMode", {self.mode, msg})
 end
 
@@ -955,10 +951,12 @@ function MathBlock.cl_drawButtons(self)
             self.gui:setVisible('Operation'.. i, false)
         end
     end
+    local selectedOperation = self.modetable[self.mode]
+    self.gui:setText('FunctionNameText', selectedOperation.name)
+    self.gui:setText('FunctionDescriptionText', selectedOperation.description)
 end
 
 function MathBlock.cl_onModeButtonClick(self, button)
-    print(button)
     local startIndex = (self.guiPage - 1) * 18
     for i = 0, 17 do
         local modeIndex = i + startIndex + 1
@@ -985,7 +983,7 @@ function MathBlock.client_onTinker(self, character, lookAt)
 			local _desc = _curMode.description
 			local _name = _curMode.name
 			sm.audio.play("GUI Item released")
-			sm.gui.chatMessage(("[#ffff00Math Block#ffffff] Description of \"#ffff00%s#ffffff\": %s"):format(_name, _desc))
+			sm.gui.chatMessage(("[#ffff00Math Block#ffffff] Description of \"#ffff00%s#ffffff\": \n%s"):format(_name, _desc))
 		end
 	end
 end
@@ -1004,7 +1002,7 @@ function MathBlock.client_canInteract(self)
 	local _useKey = sm.gui.getKeyBinding("Use")
 	local _tinkerKey = sm.gui.getKeyBinding("Tinker")
 	local _crawlKey = sm.gui.getKeyBinding("Crawl")
-	sm.gui.setInteractionText("Press", _useKey, " / ", _crawlKey.." + ".._useKey, "to cycle forwards / backwards")
+	sm.gui.setInteractionText("Press", _useKey, " to select a function")
 	sm.gui.setInteractionText("Press", _tinkerKey, "to print the description of the selected function")
 	return true
 end
