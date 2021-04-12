@@ -4,9 +4,6 @@
 ]]--
 dofile "../../libs/load_libs.lua"
 
-mpPrint("loading SmartSensor.lua")
-
-
 -- SmartSensor.lua --
 SmartSensor = class( nil )
 SmartSensor.maxParentCount = -1 -- infinite
@@ -32,12 +29,12 @@ SmartSensor.raypoints = {
 	sm.vec3.new(0,-0.118,0)
 }
 SmartSensor.modes = {
-	{ value = 0, targetPose = 0, 	description = "1 raycast, distance mode" },
-	{ value = 1, targetPose = 0.8, 	description = "wide raycast, distance mode" },
-	{ value = 2, targetPose = 0, 	description = "1 raycast, color mode" },
-	{ value = 3, targetPose = 0.8, 	description = "wide raycast, color mode" },
-	{ value = 4, targetPose = 0, 	description = "type mode: (nothing: 0, terrainSurface:1, terrainAsset:2, lift:3, body:4, character:5, joint:6, vision:7)" },
-	{ value = 5, targetPose = 0,	description = "container mode, get the amount of items in a container" }
+	{ value = 0, targetPose = 0, 	icon = '1\ndist',     description = "1 raycast, distance mode" },
+    { value = 1, targetPose = 0.8, 	icon = 'wide\ndist',  description = "Wide raycast, distance mode" },
+	{ value = 2, targetPose = 0, 	icon = '1\ncolor',    description = "1 raycast, color mode" },
+	{ value = 3, targetPose = 0.8, 	icon = 'wide\ncolor', description = "Wide raycast, color mode" },
+	{ value = 4, targetPose = 0, 	icon = 'type',        description = "Nothing: 0                        Body: 4\nTerrain surface: 1          Character: 5\nTerrain asset: 2              Joint: 6\nLift: 3                                 Vision: 7" },
+	{ value = 5, targetPose = 0,	icon = 'item\ncount', description = "container mode, get the amount of items in a container" }
 }
 SmartSensor.modeCount = #SmartSensor.modes
 SmartSensor.savemodes = {}
@@ -62,11 +59,11 @@ end
 
 function SmartSensor.server_onFixedUpdate( self, dt )
 	local mode = self.modes[self.mode].value
-	
+
 	local parents = self.interactable:getParents()
 	local newmode = nil
 	local offset = 0
-	
+
 	for k, v in pairs(parents) do
 		if sm.interactable.isNumberType(v) then
 			local color = tostring(v:getShape().color)
@@ -77,32 +74,32 @@ function SmartSensor.server_onFixedUpdate( self, dt )
 			end
 		end
 	end
-	
+
 	newmode = (newmode and newmode % self.modeCount or nil)
-	
+
 	self.needssave = self.needssave or newmode and newmode ~= mode
-	
+
 	if newmode and newmode ~= mode then
 		mode = newmode
 		self.mode = self.savemodes[newmode]
-		self.network:sendToClients("client_newMode", {self.mode, false})
+		self.network:sendToClients("cl_newMode", {self.mode, false})
 	end
-	
+
 	local isTime = os.time()%5 == 0
 	if self.needssave and isTime and self.risingedge then
 		self.storage:save(mode)
 	end
 	self.risingedge = not isTime
-	
+
 	local src = self.shape.worldPosition + self.shape.up * offset/4
-	
+
 	local colormode = (mode == 2) or (mode == 3)
 	local distancemode = (mode == 0) or (mode == 1)
 	local bigSize = (mode == 1) or (mode == 3)
-	
+
 	local distance = nil
 	local colors = {}
-	
+
 	for k, raypoint in pairs( bigSize and self.raypoints or {sm.vec3.new(0,0,0)} ) do
 		if colormode then
 			local startPos = src + getLocal(self.shape, raypoint)
@@ -117,10 +114,10 @@ function SmartSensor.server_onFixedUpdate( self, dt )
 				if colors[cc] and colors[cc].distance == math.round(d) then
 					colors[cc].count = colors[cc].count + 1
 				elseif (not colors[cc] or colors[cc].distance > math.round(d)) then
-					colors[cc] = {distance = math.round(d), count = 1} 
+					colors[cc] = {distance = math.round(d), count = 1}
 				end
 			end
-			
+
 		elseif distancemode then
 			local hit, fraction = sm.physics.distanceRaycast(src + getGlobal(self.shape, raypoint), self.shape.up*3000)
 			if hit then
@@ -155,14 +152,14 @@ function SmartSensor.server_onFixedUpdate( self, dt )
 			end
 		end
 	end
-	
-	
+
+
 	if colormode then
 		local bestmatch = nil
 		local color = 0
 		for k, v in pairs(colors) do
-			if bestmatch == nil then 
-				bestmatch = v 
+			if bestmatch == nil then
+				bestmatch = v
 				color = tonumber(k)
 			end
 			if (v.distance < bestmatch.distance) or (v.distance == bestmatch.distance and v.count > bestmatch.count) then
@@ -174,32 +171,52 @@ function SmartSensor.server_onFixedUpdate( self, dt )
 	elseif distancemode then
 		self.interactable.power = distance or 0
 	end
-	
+
 	self.interactable.active = self.interactable.power > 0
 end
 
-function SmartSensor.server_changemode(self, crouch)
-    self.mode = (self.mode + (crouch and -1 or 1) - 1 ) % self.modeCount + 1
+function SmartSensor.sv_setMode(self, params)
+    self.mode = params.mode
     self.storage:save(self.modes[self.mode].value)
-	self.network:sendToClients("client_newMode", {self.mode, true})
+	self.network:sendToClients("cl_newMode", {self.mode, true})
 end
 
-function SmartSensor.server_requestMode(self)
-	self.network:sendToClients("client_newMode", {self.mode, false})
+function SmartSensor.sv_requestMode(self)
+	self.network:sendToClients("cl_newMode", {self.mode, false})
 end
-
 
 -- Client --
 
 function SmartSensor.client_onCreate(self)
 	-- client joins world, requests mode from server
-	self.network:sendToServer("server_requestMode")
+	self.network:sendToServer("sv_requestMode")
 end
 
 function SmartSensor.client_onInteract(self, character, lookAt)
-	if not lookAt or character:getLockingInteractable() then return end
-	self.network:sendToServer("server_changemode", character:isCrouching())
+    if lookAt == true then
+        self.gui = sm.gui.createGuiFromLayout('$CONTENT_b7443f95-67b7-4f1e-82f4-9bef0c62c4b3/Gui/Layouts/SmartSensor.layout')
+		for i = 0, 5 do
+			self.gui:setButtonCallback( "Operation" .. tostring( i ), "cl_onModeButtonClick" )
+		end
+        self:cl_drawButtons()
+		self.gui:open()
+	end
 end
+
+function SmartSensor.cl_onModeButtonClick(self, buttonName)
+    self.mode_client = tonumber(string.sub(buttonName, 10, -1)) + 1
+    self.network:sendToServer('sv_setMode', { mode = self.mode_client })
+    self:cl_drawButtons()
+end
+
+function SmartSensor.cl_drawButtons(self)
+    for i = 0, 5 do
+        self.gui:setButtonState('Operation'.. i, i + 1 == self.mode_client)
+        self.gui:setText('ButtonText'.. i, SmartSensor.modes[i + 1].icon)
+    end
+    self.gui:setText('FunctionDescriptionText', SmartSensor.modes[self.mode_client].description)
+end
+
 
 function SmartSensor.client_onTinker(self, character, lookAt)
 	if lookAt then
@@ -219,7 +236,7 @@ function SmartSensor.client_canInteract(self, character, lookAt)
 	return true
 end
 
-function SmartSensor.client_newMode(self, data)
+function SmartSensor.cl_newMode(self, data)
 	self.mode_client = data[1]
 	if data[2] then
 		sm.audio.play("ConnectTool - Rotate", self.shape:getWorldPosition())
@@ -231,7 +248,7 @@ function SmartSensor.client_onFixedUpdate(self, dt)
 	if self.pose == targetPose then return end
 	if self.pose > targetPose + 0.01 then
 		self.pose = self.pose - 0.04
-	elseif self.pose < targetPose - 0.01 then 
+	elseif self.pose < targetPose - 0.01 then
 		self.pose = self.pose + 0.04
 	end
 	self.interactable:setPoseWeight(0, self.pose)
