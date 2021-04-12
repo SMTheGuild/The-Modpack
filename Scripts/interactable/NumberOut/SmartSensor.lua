@@ -194,7 +194,7 @@ end
 
 function SmartSensor.client_onInteract(self, character, lookAt)
     if lookAt == true then
-        self.gui = sm.gui.createGuiFromLayout('$CONTENT_b7443f95-67b7-4f1e-82f4-9bef0c62c4b3/Gui/Layouts/SmartSensor.layout')
+        self.gui = sm.gui.createGuiFromLayout('$MOD_DATA/Gui/Layouts/SmartSensor.layout')
 		for i = 0, 5 do
 			self.gui:setButtonCallback( "Operation" .. tostring( i ), "cl_onModeButtonClick" )
 		end
