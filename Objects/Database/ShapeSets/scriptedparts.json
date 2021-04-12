@@ -1350,6 +1350,30 @@
 									"$MOD_DATA/Objects/Textures/SmartTotebot01_nor.png"
 								],
 								"material": "PoseAnimDifAsgNor"
+							},
+							{
+								"textureList": [
+									"$MOD_DATA/Objects/Textures/SmartTotebot01_dif.png",
+									"$MOD_DATA/Objects/Textures/SmartTotebot01_asg.png",
+									"$MOD_DATA/Objects/Textures/SmartTotebot01_nor.png"
+								],
+								"material": "PoseAnimDifAsgNor"
+							},
+							{
+								"textureList": [
+									"$MOD_DATA/Objects/Textures/SmartTotebot01_dif.png",
+									"$MOD_DATA/Objects/Textures/SmartTotebot01_asg.png",
+									"$MOD_DATA/Objects/Textures/SmartTotebot01_nor.png"
+								],
+								"material": "PoseAnimDifAsgNor"
+							},
+							{
+								"textureList": [
+									"$MOD_DATA/Objects/Textures/SmartTotebot01_dif.png",
+									"$MOD_DATA/Objects/Textures/SmartTotebot01_asg.png",
+									"$MOD_DATA/Objects/Textures/SmartTotebot01_nor.png"
+								],
+								"material": "PoseAnimDifAsgNor"
 							}
 						],
 						"mesh": "$MOD_DATA/Objects/Mesh/SmartTotebotModpack_off.obj",
