@@ -1467,6 +1467,22 @@
 									"$GAME_DATA/Textures/nonor_nor.tga"
 								],
 								"material": "DifAsg"
+							},
+							{
+								"textureList": [
+									"$MOD_DATA/Objects/Textures/UniTex2_dif.png",
+									"$MOD_DATA/Objects/Textures/UniTex_asg.png",
+									"$GAME_DATA/Textures/nonor_nor.tga"
+								],
+								"material": "DifAsg"
+							},
+							{
+								"textureList": [
+									"$MOD_DATA/Objects/Textures/UniTex2_dif.png",
+									"$MOD_DATA/Objects/Textures/UniTex_asg.png",
+									"$GAME_DATA/Textures/nonor_nor.tga"
+								],
+								"material": "DifAsg"
 							}
 						],
 						"mesh": "$MOD_DATA/Objects/Mesh/5x5RadarSlots.obj"
