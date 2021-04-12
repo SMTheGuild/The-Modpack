@@ -904,13 +904,8 @@ function MathBlock.client_onInteract(self, character, lookAt)
 
         local currentPage = self:cl_getModePage()
         self:cl_paginate(currentPage)
-
 		self.gui:open()
-		-- self:cl_updateIconButton( self.cl.selectedIconButton )
-		-- self:cl_updateColorButton( self.cl.selectedColorButton )
 	end
-	-- if not lookAt or character:getLockingInteractable() then return end
-	-- self.network:sendToServer("server_changemode", character:isCrouching())
 end
 
 function MathBlock.cl_onPageButtonClick(self, buttonName)
