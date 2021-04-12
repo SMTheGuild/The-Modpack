@@ -879,7 +879,6 @@ end
 
 function MathBlock.client_onCreate(self)
 	self.uv = 0
-	self.description_id = 1
 	self.network:sendToServer("sv_senduvtoclient")
 end
 
@@ -901,7 +900,13 @@ end
 
 function MathBlock.cl_onPageButtonClick(self, buttonName)
     local pageNumber = string.sub(buttonName, 5, -1)
-    self:cl_paginate(tonumber(pageNumber))
+	local pageIdx = tonumber(pageNumber)
+
+	if self.guiPage == pageIdx then return end
+
+	sm.audio.play("Handbook - Turn page")
+
+    self:cl_paginate(pageIdx)
 end
 
 function MathBlock.cl_getModePage(self)
@@ -944,16 +949,14 @@ end
 
 function MathBlock.cl_onModeButtonClick(self, button)
     local startIndex = (self.guiPage - 1) * 18
-    for i = 0, 17 do
-        local modeIndex = i + startIndex + 1
-        local buttonOperation = self.modetable[modeIndex]
-        if button == 'Operation'.. i then
-            self.mode = modeIndex
-            self:cl_drawButtons()
-            self.network:sendToServer('sv_setMode', { mode = modeIndex })
-            return
-        end
-    end
+	local buttonString = string.sub(button, 10)
+	local modeIdx = tonumber(buttonString) + startIndex + 1
+
+	if self.mode == modeIdx then return end
+
+	self.mode = modeIdx
+	self:cl_drawButtons()
+	self.network:sendToServer("sv_setMode", { mode = modeIdx })
 end
 
 function MathBlock.sv_setMode(self, params)
@@ -962,23 +965,10 @@ function MathBlock.sv_setMode(self, params)
 	self:sv_senduvtoclient(true)
 end
 
-function MathBlock.client_onTinker(self, character, lookAt)
-	if lookAt then
-		local _curMode = self.modetable[self.description_id]
-		if _curMode and _curMode.description and _curMode.name then
-			local _desc = _curMode.description
-			local _name = _curMode.name
-			sm.audio.play("GUI Item released")
-			sm.gui.chatMessage(("[#ffff00Math Block#ffffff] Description of \"#ffff00%s#ffffff\": \n%s"):format(_name, _desc))
-		end
-	end
-end
-
 function MathBlock.cl_setMode(self, data)
 	local mode = data[1]
 	self.uv = self.modetable[mode].value
 	self.interactable:setUvFrameIndex(self.uv + (self.interactable.power > 0 and 128 or 0))
-	self.description_id = mode
 	if data[2] then
 		sm.audio.play("GUI Item drag", self.shape:getWorldPosition())
 	end
@@ -986,10 +976,7 @@ end
 
 function MathBlock.client_canInteract(self)
 	local _useKey = sm.gui.getKeyBinding("Use")
-	local _tinkerKey = sm.gui.getKeyBinding("Tinker")
-	local _crawlKey = sm.gui.getKeyBinding("Crawl")
 	sm.gui.setInteractionText("Press", _useKey, " to select a function")
-	sm.gui.setInteractionText("Press", _tinkerKey, "to print the description of the selected function")
 	return true
 end
 

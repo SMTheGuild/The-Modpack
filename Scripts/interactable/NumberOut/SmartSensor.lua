@@ -204,9 +204,13 @@ function SmartSensor.client_onInteract(self, character, lookAt)
 end
 
 function SmartSensor.cl_onModeButtonClick(self, buttonName)
-    self.mode_client = tonumber(string.sub(buttonName, 10, -1)) + 1
-    self.network:sendToServer('sv_setMode', { mode = self.mode_client })
-    self:cl_drawButtons()
+	local newIndex = tonumber(string.sub(buttonName, 10, -1)) + 1
+
+	if self.mode_client == newIndex then return end
+
+	self.mode_client = newIndex
+	self.network:sendToServer('sv_setMode', { mode = self.mode_client })
+	self:cl_drawButtons()
 end
 
 function SmartSensor.cl_drawButtons(self)
@@ -217,22 +221,9 @@ function SmartSensor.cl_drawButtons(self)
     self.gui:setText('FunctionDescriptionText', SmartSensor.modes[self.mode_client].description)
 end
 
-
-function SmartSensor.client_onTinker(self, character, lookAt)
-	if lookAt then
-		local _curMode = self.modes[self.mode_client]
-		if _curMode and _curMode.description then
-			sm.audio.play("GUI Item released")
-			sm.gui.chatMessage("[#ffff00Smart Sensor#ffffff] Description of selected function: ".._curMode.description)
-		end
-	end
-end
-
 function SmartSensor.client_canInteract(self, character, lookAt)
 	local _useKey = sm.gui.getKeyBinding("Use")
-	local _tinkerKey = sm.gui.getKeyBinding("Tinker")
 	sm.gui.setInteractionText("Press", _useKey, "to change mode")
-	sm.gui.setInteractionText("Press", _tinkerKey, "to print the description of the current function")
 	return true
 end
 
