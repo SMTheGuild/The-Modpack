@@ -190,7 +190,7 @@
             <Widget type="EditBox" skin="EditBoxEmpty" name="FunctionDescriptionText" position_real="0.15 0.3 0.70 0.55">
                 <Property key="Static" value="true" />
                 <Property key="Caption" value="Function description" />
-                <Property key="FontName" value="SM_TextLabel" />
+                <Property key="FontName" value="SM_TextSmall" />
                 <Property key="MultiLine" value="true" />
                 <Property key="ReadOnly" value="true" />
                 <Property key="WordWrap" value="true" />

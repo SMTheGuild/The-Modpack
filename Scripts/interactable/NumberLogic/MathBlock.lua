@@ -22,17 +22,17 @@ MathBlock.modetable = {--"value" aka "savevalue", gets saved, gets loaded.
 	{value = 02, icon = "x",       name = "Multiplication"        ,description = "Outputs the multiplication of all inputs."},
 	{value = 03, icon = "/",       name = "Division"              ,description = "Outputs the division of sum of white inputs by the sum of non-white input."},
 	{value = 04, icon = "%",       name = "Remainder"             ,description = "Outputs the remainder after dividing the sum of white inputs by the sum of non-white inputs."},
-	{value = 05, icon = "a²",      name = "Power"                 ,description = "1 input: Outputs the input squared.\n\nMultiple inputs: Outputs the sum of the white inputs to the power of the sum of the non-white inputs."},
+	{value = 05, icon = "aⁿ",      name = "Power"                 ,description = "1 input: Outputs the input squared.\n\nMultiple inputs: Outputs the sum of the white inputs to the power of the sum of the non-white inputs."},
 	{value = 06, icon = "√a",      name = "Root"                  ,description = "1 input: Outputs the square root of the input.\n\nMultiple inputs: Outputs the sum of white inputs to the root of the sum of non-white inputs."},
 	{value = 17, icon = "|a|",     name = "Absolute value"        ,description = "Outputs the sum of the absolute values of the inputs. (E.g.: -5 → 5, 3 and -1 → 4)"},
 	{value = 28, icon = "◿",       name = "Hypotenuse"            ,description = "Outputs the hypotenuse of the 2 inputs."},
 	{value = 23, icon = "log",     name = "Logarithm"             ,description = "1 input: Outputs the natural logarithm (ln) of the input.\nMultiple inputs: Outputs the logarithm of the sum of the non-white input with base sum of the white inputs"},
 	{value = 33, icon = "a!",      name = "Factorial"             ,description = "Takes the factorial of the floored sum of the inputs\n('floor' in case there are inputs like 1.5)"},
-    {value = 24, icon = "exp",     name = "Exponential"           ,description = "No inputs: Outputs 𝑒.\n\n1 or more inputs: Outputs value of 𝑒 to the power of the sum of the inputs."},
-	{value = 32, icon = "bit",     name = "Memory bit"            ,description = "Inputs: white / non-white\nwhite input defines the action: 0=flip, 1=set, 2=reset, no white= flip\nwhen all non-white inputs are active(not 0 for numbers), the action will be taken,\nin case of flip it'll flip every tick all inputs are on, set will turn it on, reset will turn it off.\n\nnifty replacedment for selfwired xor/other memorory's"},
-	{value = 18, icon = "floor",   name = "Floor"                 ,description = "Floors the input(0.9999->0)\nmore than one input: floors inputs , then adds together\nwhite input: round by value"},
-	{value = 19, icon = "round",   name = "Round"                 ,description = "Rounds the input(0.499->0, 0.5->1)\nmore than one input: rounds inputs, then adds together\nwhite input: round by value"},
-	{value = 20, icon = "ceil",    name = "Ceil"                  ,description = "Rounds the inputs up(0.01->1)\nmore than one input: floors inputs up, then adds together\nwhite input: round by value"},
+    {value = 24, icon = "exp",     name = "Exponential"           ,description = "No inputs: Outputs e.\n\n1 or more inputs: Outputs value of e to the power of the sum of the inputs."},
+	{value = 32, icon = "bit",     name = "Memory bit"            ,description = "White input defines action: 0: flip, 1: set, 2: reset, no white: flip\nwhen all non-white inputs are active (not 0 for numbers), the action will be taken. The action will happen every tick the inputs are on."},
+	{value = 18, icon = "floor",   name = "Floor"                 ,description = "Floors the input(0.9999 → 0)\nmore than one input: floors inputs , then adds together\nwhite input: round by value"},
+	{value = 19, icon = "round",   name = "Round"                 ,description = "Rounds the input(0.499 → 0, 0.5 → 1)\nmore than one input: rounds inputs, then adds together\nwhite input: round by value"},
+	{value = 20, icon = "ceil",    name = "Ceil"                  ,description = "Rounds the inputs up(0.01 → 1)\nmore than one input: floors inputs up, then adds together\nwhite input: round by value"},
 	{value = 21, icon = "min",     name = "Lower value"           ,description = "Outputs the lowest input value"},
 	{value = 22, icon = "max",     name = "Highest value"         ,description = "Outputs the higest input value"},
 	{value = 34, icon = "PID",     name = "PID"                   ,description = "Proportional Integral Derivative \nblack: process value \nwhite: set value \norange: P multiplier\nred: I multiplier \npurple: D multiplier \n3rd row orange: limit output(default: 4096) \n3rd row red: i time(between 10-1200 ticks)(default value:400) \n3rd row purple: d time(between 1-20 ticks)"},
@@ -42,9 +42,9 @@ MathBlock.modetable = {--"value" aka "savevalue", gets saved, gets loaded.
 	{value = 25, icon = "arcsin",  name = "Arcsinus"              ,description = "Outputs the inverse sinus of the input in degrees, input between -1 and 1\nmultiple inputs: arcsinus(sum of inputs)"},
 	{value = 26, icon = "arccos",  name = "Arccosinus"            ,description = "Outputs the inverse cosinus of the input in degrees, input between -1 and 1\nmultiple inputs: arccosinus(sum of inputs)"},
 	{value = 27, icon = "arctan",  name = "Arctangent"            ,description = "Outputs the inverse tangens of the input in degrees\nmultiple inputs: arctangens(sum of inputs)"},
-	{value = 35, icon = "arctan2", name = "2-argument arctangent" ,description = "Outputs the inverse tangens of the inputs (white & black) in degrees\nmultiple inputs: arctangens2(whites, blacks)\narctan*2* because it works for all 4 quadrants -> 2 inputs!(black&white)"},
+	{value = 35, icon = "arctan2", name = "2-argument arctangent" ,description = "Outputs the inverse tangens of the inputs (white & black) in degrees\nmultiple inputs: arctangens2(whites, blacks)\narctan*2* because it works for all 4 quadrants → 2 inputs!(black&white)"},
 	{value = 15, icon = "π",       name = "Pi"                    ,description = "Outputs PI \n(3.14159265...)"},
-	{value = 16, icon = "rand",    name = "Random"                ,description = "Inputs: logic, number\nno inputs: outputs random value between 0 and 1,\nlogic input will let it generate a new random number\nnumber input(s) define the range within to generate an integer value\n(input: 5 -> output 1/2/3/4/5, input: -2, 3 -> output: -2/-1/0/1/2/3)"},
+	{value = 16, icon = "rand",    name = "Random"                ,description = "Inputs: logic, number\nno inputs: outputs random value between 0 and 1,\nlogic input will let it generate a new random number\nnumber input(s) define the range within to generate an integer value\n(input: 5 → output 1/2/3/4/5, input: -2, 3 → output: -2/-1/0/1/2/3)"},
 	{value = 36, icon = "sgn",     name = "Sign"                  ,description = "Outputs 1 if the inputs > 0\noutputs -1 if the inputs < 0\noutputs 0 if the inputs are 0"},
 	{value = 10, icon = "≥",       name = "Greater than or equals",description = "Outputs 1 when the sum of the white input is greater or equal than the sum of the non-white input"},
 	{value = 11, icon = "≤",       name = "Less than or euqals"   ,description = "Outputs 1 when the sum of the white input is less or equal than the sum of the non-white input"},
@@ -68,7 +68,7 @@ MathBlock.modeFunctions = {
 			for k,v in pairs(parents) do
 				power = power + (sm.interactable.getValue(v) or v.power)
 			end
-			self:server_setValue(power)
+			self:sv_setValue(power)
 		end,
 
 	[1] = function(self, parents) -- subtr
@@ -101,7 +101,7 @@ MathBlock.modeFunctions = {
 					power = -1*(whiteinput + nonwhiteinput)
 				end
 			end
-			self:server_setValue(power)
+			self:sv_setValue(power)
 		end,
 
 	[2] = function(self, parents)-- mult
@@ -109,7 +109,7 @@ MathBlock.modeFunctions = {
 			for k,v in pairs(parents) do
 				power = power * (sm.interactable.getValue(v) or v.power)
 			end
-			self:server_setValue(power)
+			self:sv_setValue(power)
 		end,
 
 	[3] = function(self, parents)  -- divide
@@ -134,7 +134,7 @@ MathBlock.modeFunctions = {
 				end
 				power = whitevalue/othervalue
 			end
-			self:server_setValue(power)
+			self:sv_setValue(power)
 		end,
 
 	[4] = function(self, parents) -- modulus
@@ -161,7 +161,7 @@ MathBlock.modeFunctions = {
 				end
 				power = whitevalue%othervalue
 			end
-			self:server_setValue(power)
+			self:sv_setValue(power)
 		end,
 
 	[5] = function(self, parents) -- square
@@ -190,7 +190,7 @@ MathBlock.modeFunctions = {
 				end
 				power = whitevalue^othervalue
 			end
-			self:server_setValue(power)
+			self:sv_setValue(power)
 		end,
 
 	[6] = function(self, parents)  -- sqrt
@@ -219,7 +219,7 @@ MathBlock.modeFunctions = {
 				end
 				power = whitevalue ^ (1/othervalue)
 			end
-			self:server_setValue(power)
+			self:sv_setValue(power)
 		end,
 
 	[7] = function(self, parents)  -- gtr
@@ -245,7 +245,7 @@ MathBlock.modeFunctions = {
 				end
 				power = (whitevalue>othervalue and 1 or 0)
 			end
-			self:server_setValue(power)
+			self:sv_setValue(power)
 		end,
 
 	[8] = function(self, parents)  -- smlr
@@ -271,7 +271,7 @@ MathBlock.modeFunctions = {
 				end
 				power = (whitevalue<othervalue and 1 or 0)
 			end
-			self:server_setValue(power)
+			self:sv_setValue(power)
 		end,
 
 	[9] = function(self, parents)  -- eq
@@ -283,7 +283,7 @@ MathBlock.modeFunctions = {
 					break
 				end
 			end
-			self:server_setValue(power)
+			self:sv_setValue(power)
 		end,
 
 	[10] = function(self, parents)  -- bigger than or eq
@@ -309,7 +309,7 @@ MathBlock.modeFunctions = {
 				end
 				power = (whitevalue>=othervalue and 1 or 0)
 			end
-			self:server_setValue(power)
+			self:sv_setValue(power)
 		end,
 
 	[11] = function(self, parents)  -- smaller than or eq
@@ -335,7 +335,7 @@ MathBlock.modeFunctions = {
 				end
 				power = (whitevalue<=othervalue and 1 or 0)
 			end
-			self:server_setValue(power)
+			self:sv_setValue(power)
 		end,
 
 	[12] = function(self, parents)  -- sin
@@ -346,7 +346,7 @@ MathBlock.modeFunctions = {
 				end
 				power = math.sin(math.rad(power))
 			end
-			self:server_setValue(power)
+			self:sv_setValue(power)
 		end,
 
 	[13] = function(self, parents)  -- cos
@@ -357,7 +357,7 @@ MathBlock.modeFunctions = {
 				end
 				power = math.cos(math.rad(power))
 			end
-			self:server_setValue(power)
+			self:sv_setValue(power)
 		end,
 
 	[14] = function(self, parents)  -- tan
@@ -368,7 +368,7 @@ MathBlock.modeFunctions = {
 				end
 				power = math.tan(math.rad(power))
 			end
-			self:server_setValue(power)
+			self:sv_setValue(power)
 		end,
 
 	[15] = function(self, parents)  -- pi
@@ -377,7 +377,7 @@ MathBlock.modeFunctions = {
 				power = power + (sm.interactable.getValue(v) or v.power)
 			end
 			power = power * math.pi
-			self:server_setValue(power)
+			self:sv_setValue(power)
 		end,
 
 	[16] = function(self, parents)  -- random
@@ -444,7 +444,7 @@ MathBlock.modeFunctions = {
 				end
 				self.lastparentvalues = inputvalues
 			end
-			self:server_setValue(power)
+			self:sv_setValue(power)
 		end,
 
 	[17] = function(self, parents)  -- abs
@@ -457,7 +457,7 @@ MathBlock.modeFunctions = {
 					power = power + math.abs((sm.interactable.getValue(v) or v.power))
 				end
 			end
-			self:server_setValue(power)
+			self:sv_setValue(power)
 		end,
 
 	[18] = function(self, parents)  -- floor
@@ -474,7 +474,7 @@ MathBlock.modeFunctions = {
 				if not floorby or floorby == 0 then floorby = 1 end
 				power = math.floor(power/floorby)*floorby
 			end
-			self:server_setValue(power)
+			self:sv_setValue(power)
 		end,
 
 	[19] = function(self, parents)  -- round
@@ -491,7 +491,7 @@ MathBlock.modeFunctions = {
 				if not roundby or roundby == 0 then roundby = 1 end
 				power = math.round(power/roundby)*roundby
 			end
-			self:server_setValue(power)
+			self:sv_setValue(power)
 		end,
 
 	[20] = function(self, parents)  -- ceil
@@ -508,7 +508,7 @@ MathBlock.modeFunctions = {
 				if not roundby or roundby == 0 then roundby = 1 end
 				power = math.floor(power/roundby + (power/roundby%1 > 0 and 1 or 0) )*roundby
 			end
-			self:server_setValue(power)
+			self:sv_setValue(power)
 		end,
 
 	[21] = function(self, parents)  -- min
@@ -518,7 +518,7 @@ MathBlock.modeFunctions = {
 			end
 			if power == math.huge then power = 0 end
 
-			self:server_setValue(power)
+			self:sv_setValue(power)
 		end,
 
 	[22] = function(self, parents)  -- max
@@ -527,7 +527,7 @@ MathBlock.modeFunctions = {
 				if v.power > power then power = (sm.interactable.getValue(v) or v.power) end
 			end
 			if power == 0-math.huge then power = 0 end
-			self:server_setValue(power)
+			self:sv_setValue(power)
 		end,
 
 	[23] = function(self, parents)  -- log
@@ -545,7 +545,7 @@ MathBlock.modeFunctions = {
 				end
 			end
 
-			self:server_setValue(power)
+			self:sv_setValue(power)
 		end,
 
 	[24] = function(self, parents)  -- exp
@@ -556,7 +556,7 @@ MathBlock.modeFunctions = {
 					power = power + math.exp((sm.interactable.getValue(v) or v.power))
 				end
 			end
-			self:server_setValue(power)
+			self:sv_setValue(power)
 		end,
 
 	[25] = function(self, parents)  -- arcsin
@@ -567,7 +567,7 @@ MathBlock.modeFunctions = {
 				end
 				power = math.asin(power)/math.pi*180.0
 			end
-			self:server_setValue(power)
+			self:sv_setValue(power)
 		end,
 
 	[26] = function(self, parents)  -- arccos
@@ -578,7 +578,7 @@ MathBlock.modeFunctions = {
 				end
 				power = math.acos(power)/math.pi*180.0
 			end
-			self:server_setValue(power)
+			self:sv_setValue(power)
 		end,
 
 	[27] = function(self, parents)  -- arctan
@@ -589,7 +589,7 @@ MathBlock.modeFunctions = {
 				end
 				power = math.atan(power)/math.pi*180.0
 			end
-			self:server_setValue(power)
+			self:sv_setValue(power)
 		end,
 
 	[28] = function(self, parents)  -- hypotenuse
@@ -600,7 +600,7 @@ MathBlock.modeFunctions = {
 			if #parents > 0 then
 				power = math.pow(power, 1/2)
 			end
-			self:server_setValue(power)
+			self:sv_setValue(power)
 		end,
 
 	[29] = function(self, parents)  -- seated
@@ -610,12 +610,12 @@ MathBlock.modeFunctions = {
 					power = power + (v:isActive() and 1 or 0)
 				end
 			end
-			self:server_setValue(power)
+			self:sv_setValue(power)
 		end,
 
 	[30] = function(self, parents) -- AD
 
-			self:server_setValue(self.ADValue or 0)
+			self:sv_setValue(self.ADValue or 0)
 		end,
 
 	[31] = function(self, parents)  -- WS
@@ -628,7 +628,7 @@ MathBlock.modeFunctions = {
 			if amountofparents>0 then
 				power = math.min(1,math.max(-1,power/amountofparents))
 			end
-			self:server_setValue(power)
+			self:sv_setValue(power)
 		end,
 
 	[32] = function(self, parents)  -- bitmem
@@ -656,7 +656,7 @@ MathBlock.modeFunctions = {
 					power = 0
 				end
 			end
-			self:server_setValue(power)
+			self:sv_setValue(power)
 		end,
 
 	[33] = function(self, parents)  -- factorial function
@@ -673,7 +673,7 @@ MathBlock.modeFunctions = {
 					value = value - 1
 				end
 			end
-			self:server_setValue(power)
+			self:sv_setValue(power)
 		end,
 
 	[34] = function(self, parents)  -- pid
@@ -743,7 +743,7 @@ MathBlock.modeFunctions = {
 			end
 
 
-			self:server_setValue(power)
+			self:sv_setValue(power)
 		end,
 
 	[35] = function(self, parents)  -- atan2
@@ -779,7 +779,7 @@ MathBlock.modeFunctions = {
 			else
 				power = 0
 			end
-			self:server_setValue(power)
+			self:sv_setValue(power)
 		end,
 
 	[36] = function(self, parents)  -- sign
@@ -789,7 +789,7 @@ MathBlock.modeFunctions = {
 				sum = sum + (sm.interactable.getValue(parent) or parent.power)
 			end
 			local power = (sum > 0 and 1) or (sum < 0 and -1) or 0
-			self:server_setValue(power)
+			self:sv_setValue(power)
 		end,
 
 	[37] = function(self, parents) -- Neq
@@ -801,7 +801,7 @@ MathBlock.modeFunctions = {
 					power = 1
 				end
 			end
-			self:server_setValue(power)
+			self:sv_setValue(power)
 		end,
 
 	[38] = function(self, parents)  -- if x{} has any of y{}
@@ -822,7 +822,7 @@ MathBlock.modeFunctions = {
 					end
 				end
 			end
-			self:server_setValue(power)
+			self:sv_setValue(power)
 		end
 }
 
@@ -859,7 +859,7 @@ function MathBlock.server_onFixedUpdate( self, dt )
 end
 
 
-function MathBlock.server_setValue(self, value)
+function MathBlock.sv_setValue(self, value)
 	self.power = value
 	if value ~= value then value = 0 end
 	if math.abs(value) >= 3.3*10^38 then
@@ -873,23 +873,14 @@ function MathBlock.server_setValue(self, value)
 	end
 end
 
-
-function MathBlock.server_changemode(self, crouch)
-    self.mode = (self.mode + (crouch and -1 or 1) - 1 )%#self.modetable + 1
-	self.storage:save(self.modetable[self.mode].value)
-	self:server_senduvtoclient(true)
+function MathBlock.sv_senduvtoclient(self, msg)
+	self.network:sendToClients("cl_setMode", {self.mode, msg})
 end
-
-function MathBlock.server_senduvtoclient(self, msg)
-	self.network:sendToClients("client_setMode", {self.mode, msg})
-end
-
-
 
 function MathBlock.client_onCreate(self)
 	self.uv = 0
 	self.description_id = 1
-	self.network:sendToServer("server_senduvtoclient")
+	self.network:sendToServer("sv_senduvtoclient")
 end
 
 function MathBlock.client_onInteract(self, character, lookAt)
@@ -968,7 +959,7 @@ end
 function MathBlock.sv_setMode(self, params)
     self.mode = params.mode
     self.storage:save(self.modetable[self.mode].value)
-	self:server_senduvtoclient(true)
+	self:sv_senduvtoclient(true)
 end
 
 function MathBlock.client_onTinker(self, character, lookAt)
@@ -983,7 +974,7 @@ function MathBlock.client_onTinker(self, character, lookAt)
 	end
 end
 
-function MathBlock.client_setMode(self, data)
+function MathBlock.cl_setMode(self, data)
 	local mode = data[1]
 	self.uv = self.modetable[mode].value
 	self.interactable:setUvFrameIndex(self.uv + (self.interactable.power > 0 and 128 or 0))
