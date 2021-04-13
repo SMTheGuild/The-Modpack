@@ -64,7 +64,7 @@ end
 
 
 function SmartThruster.client_onCreate(self)
-	self.shootEffect = sm.effect.createEffect( "Thruster - Level 2", self.interactable )
+	self.shootEffect = sm.effect.createEffect( "Thruster - Level 4", self.interactable )
 	self.i = 0
 end
 
