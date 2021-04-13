@@ -16,17 +16,17 @@ XOMeter.colorHighlight = sm.color.new( 0x8f2268ff )
 XOMeter.poseWeightCount = 2
 
 XOMeter.modetable = {
-    {savevalue = 1,  texturevalue = 0,  icon = "speed",    name = "speed",          description= "speed in any direction (blocks/second)"},
-    {savevalue = 7,  texturevalue = 12, icon = "velocity", name = "velocity",       description= "speed in a direction (the 'normal' through the meter)"},
-    {savevalue = 2,  texturevalue = 2,  icon = "accel-\neration", name="acceleration", description= "acceleration (blocks/second²)"},
-    {savevalue = 3,  texturevalue = 4,  icon = "altitude", name = "altitude",       description= "the current height in blocks"},
-    {savevalue = 4,  texturevalue = 6,  icon = "pos x", name = "pos x",                 description= "current x pos in blocks"},
-    {savevalue = 5,  texturevalue = 8,  icon = "pos y", name = "pos y",                 description= "current y pos in blocks"},
-    {savevalue = 6,  texturevalue = 10, icon = "compass", name = "compass",         description= "rotation relative to north (+Y)"},
-    {savevalue = 11, texturevalue = 1,  icon = "rotation", name = "rotation",       description= "rotation around placed axis"},
-    {savevalue = 8,  texturevalue = 14, icon = "rpm", name = "rpm",                 description= "angular speed in degrees/second (use it as a 'wheel')"},
-    {savevalue = 10, texturevalue = 18, icon = "mass", name = "creation mass",      description= "current mass in the whole creation"},
-    {savevalue = 9,  texturevalue = 16, icon = "display", name = "display",         description= "can display any input number on the display, white number input defines 'max'(default:100)"},
+    {savevalue = 1,  texturevalue = 0,  icon = "speed",    name = "speed",          description= "Speed in any direction (blocks/second)"},
+    {savevalue = 7,  texturevalue = 12, icon = "velocity", name = "velocity",       description= "Speed in a direction (the 'normal' through the meter)"},
+    {savevalue = 2,  texturevalue = 2,  icon = "accel-\neration", name="acceleration", description= "Acceleration (blocks/second²)"},
+    {savevalue = 3,  texturevalue = 4,  icon = "altitude", name = "altitude",       description= "The current height in blocks"},
+    {savevalue = 4,  texturevalue = 6,  icon = "pos x", name = "pos x",                 description= "Current X position in blocks"},
+    {savevalue = 5,  texturevalue = 8,  icon = "pos y", name = "pos y",                 description= "Current Y position in blocks"},
+    {savevalue = 6,  texturevalue = 10, icon = "compass", name = "compass",         description= "Rotation relative to north (+Y)"},
+    {savevalue = 11, texturevalue = 1,  icon = "rotation", name = "rotation",       description= "Rotation around placed axis"},
+    {savevalue = 8,  texturevalue = 14, icon = "rpm", name = "rpm",                 description= "Angular speed in degrees/second (use it as a 'wheel')"},
+    {savevalue = 10, texturevalue = 18, icon = "mass", name = "creation mass",      description= "Current mass in the whole creation"},
+    {savevalue = 9,  texturevalue = 16, icon = "display", name = "display",         description= "Can display any input number on the display, white number input defines 'max' (default: 100)"},
 }
 XOMeter.savemodes = {}
 for k,v in pairs(XOMeter.modetable) do
@@ -306,23 +306,9 @@ end
 
 function XOMeter.client_canInteract(self)
     local _useKey = sm.gui.getKeyBinding("Use")
-    local _tinkerKey = sm.gui.getKeyBinding("Tinker")
     local _crawlKey = sm.gui.getKeyBinding("Crawl")
-    sm.gui.setInteractionText("Press", _useKey, " / ", _crawlKey.." + ".._useKey, "to cycle forwards / backwards")
-    sm.gui.setInteractionText("Press", _tinkerKey, "to print the description of the selected function")
+    sm.gui.setInteractionText("Press", _useKey, " to change the meter mode")
     return true
-end
-
-function XOMeter.client_onTinker(self, character, lookAt)
-    if lookAt then
-        local _curMode = self.modetable[self.mode_client]
-        if _curMode and _curMode.name and _curMode.description then
-            sm.audio.play("GUI Item released")
-            sm.gui.chatMessage(("[#ffff00X-O-Meter#ffffff] Description of \"#ffff00%s#ffffff\": %s"):format(_curMode.name, _curMode.description))
-        else
-            sm.gui.chatMessage("[#ffff00X-O-Meter#ffffff] #ff0000ERROR#ffffff: Couldn't get the name or description of the selected function")
-        end
-    end
 end
 
 function XOMeter.client_newMode(self, data)
