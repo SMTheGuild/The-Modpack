@@ -307,7 +307,7 @@
 					}
 				]
 			},
-			"scripted": { "filename": "$MOD_DATA/Scripts/interactable/Orientation/Speedometer.lua", "classname": "Tacho" },
+			"scripted": { "filename": "$MOD_DATA/Scripts/interactable/Orientation/XOMeter.lua", "classname": "XOMeter" },
 			"color": "df7f00",
 			"hull": {
 				"x":1,"y":1,"z":1,"margin":0.05,
