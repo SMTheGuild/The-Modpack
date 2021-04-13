@@ -940,16 +940,32 @@
 						"subMeshList": [
 							{
 								"textureList": [
-									"$GAME_DATA/Objects/Textures/interactive/obj_interactive_enginejet_dif.tga",
-									"$GAME_DATA/Objects/Textures/interactive/obj_interactive_enginejet_asg.tga",
-									"$GAME_DATA/Objects/Textures/interactive/obj_interactive_enginejet_nor.tga"
+									"$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_thruster_04_dif.tga",
+									"$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_thruster_04_asg.tga",
+									"$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_thruster_04_nor.tga"
+								],
+								"material": "2PoseAnimDifAsgNor"
+							},
+							{
+								"textureList": [
+									"$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_thruster_04_dif.tga",
+									"$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_thruster_04_asg.tga",
+									"$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_thruster_04_nor.tga"
+								],
+								"material": "2PoseAnimDifAsgNor"
+							},
+							{
+								"textureList": [
+									"$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_thruster_04_dif.tga",
+									"$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_thruster_04_asg.tga",
+									"$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_thruster_04_nor.tga"
 								],
 								"material": "2PoseAnimDifAsgNor"
 							}
 						],
-						"mesh": "$MOD_DATA/Objects/Mesh/2way_thruster_off.obj",
-						"pose0": "$MOD_DATA/Objects/Mesh/2way_thruster_w.obj",
-						"pose1": "$MOD_DATA/Objects/Mesh/2way_thruster_s.obj"
+						"mesh": "$MOD_DATA/Objects/Mesh/nick_SmartThruster_off.dae",
+						"pose0": "$MOD_DATA/Objects/Mesh/nick_SmartThruster_w.dae",
+						"pose1": "$MOD_DATA/Objects/Mesh/nick_SmartThruster_s.dae"
 					}
 				]
 			},
