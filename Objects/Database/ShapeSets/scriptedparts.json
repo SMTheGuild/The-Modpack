@@ -1555,6 +1555,33 @@
 			"density": 1250.0,
 			"physicsMaterial": "Metal",
 			"sticky": "-Z-Y-X+X"
+		},
+		{
+			"uuid": "577982b3-859a-4c05-8c9b-20401e070b79", // beacon sensor
+			"renderable": {
+				"lodList": [
+					{
+						"subMeshList": [
+							{
+								"textureList": [
+									"$GAME_DATA/Objects/Textures/interactive/obj_interactive_enginegas_dif.tga",
+									"$GAME_DATA/Objects/Textures/interactive/obj_interactive_enginegas_asg.tga",
+									"$GAME_DATA/Objects/Textures/interactive/obj_interactive_enginegas_nor.tga"
+								],
+								"material": "DifAsgNor"
+							}
+						],
+						"mesh": "$MOD_DATA/Objects/Mesh/EngineController.fbx"
+					}
+				]
+			},
+			"scripted": { "filename": "$MOD_DATA/Scripts/interactable/BeaconSensor.lua", "classname": "BeaconSensor" },
+			"rotationSet": "PropY",
+			"color": "df7f00",
+			"box": { "x": 2, "y": 1, "z": 1 },
+			"density": 1250.0,
+			"physicsMaterial": "Metal",
+			"sticky": "-Y+Y-Z+Z+X-X"
 		}
 	]
 }

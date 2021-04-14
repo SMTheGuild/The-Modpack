@@ -1,0 +1,327 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<MyGUI type="Layout" version="3.2.0">
+    <Widget type="Widget" skin="PanelEmpty" name="BackPanel" position_real="0 0 0.53125 0.636111">
+        <Widget type="Widget" skin="BeaconBG" position_real="0 0 1 0.716157">
+            <Widget type="TextBox" skin="TextBox" position_real="0 0 1 0.243902">
+                <Property key="Caption" value="ChangeMe Beacon Sensor" />
+                <Property key="TextAlign" value="Center" />
+                <Property key="FontName" value="SM_HeaderLarge_Wide" />
+            </Widget>
+            <!-- Icon grid -->
+            <Widget type="Widget" skin="PanelEmpty" position_real="0 0 0.5 1">
+                <Widget type="Widget" skin="PanelEmpty" position_real="0.0411765 0.286585 0.917647 0.634146">
+                    <Widget type="Button" skin="BeaconIconBorder" name="IconButton0" position_real="0 0 0.166667 0.25">
+                        <Widget type="ImageBox" skin="ImageBox" name="IconImage0" position_real="0.0769231 0.0769231 0.846154 0.846154">
+                            <Property key="ImageResource" value="BeaconIconMap" />
+                            <Property key="ImageGroup" value="BeaconIconMap" />
+                            <Property key="ImageName" value="0" />
+                            <Property key="NeedMouse" value="false" />
+                            <Property key="NeedKey" value="false" />
+                        </Widget>
+                    </Widget>
+                    <Widget type="Button" skin="BeaconIconBorder" name="IconButton1" position_real="0.166667 0 0.166667 0.25">
+                        <Widget type="ImageBox" skin="ImageBox" name="IconImage1" position_real="0.0769231 0.0769231 0.846154 0.846154">
+                            <Property key="ImageResource" value="BeaconIconMap" />
+                            <Property key="ImageGroup" value="BeaconIconMap" />
+                            <Property key="ImageName" value="1" />
+                            <Property key="NeedMouse" value="false" />
+                            <Property key="NeedKey" value="false" />
+                        </Widget>
+                    </Widget>
+                    <Widget type="Button" skin="BeaconIconBorder" name="IconButton2" position_real="0.333333 0 0.166667 0.25">
+                        <Widget type="ImageBox" skin="ImageBox" name="IconImage2" position_real="0.0769231 0.0769231 0.846154 0.846154">
+                            <Property key="ImageResource" value="BeaconIconMap" />
+                            <Property key="ImageGroup" value="BeaconIconMap" />
+                            <Property key="ImageName" value="2" />
+                            <Property key="NeedMouse" value="false" />
+                            <Property key="NeedKey" value="false" />
+                        </Widget>
+                    </Widget>
+                    <Widget type="Button" skin="BeaconIconBorder" name="IconButton3" position_real="0.5 0 0.166667 0.25">
+                        <Widget type="ImageBox" skin="ImageBox" name="IconImage3" position_real="0.0769231 0.0769231 0.846154 0.846154">
+                            <Property key="ImageResource" value="BeaconIconMap" />
+                            <Property key="ImageGroup" value="BeaconIconMap" />
+                            <Property key="ImageName" value="3" />
+                            <Property key="NeedMouse" value="false" />
+                            <Property key="NeedKey" value="false" />
+                        </Widget>
+                    </Widget>
+                    <Widget type="Button" skin="BeaconIconBorder" name="IconButton4" position_real="0.666667 0 0.166667 0.25">
+                        <Widget type="ImageBox" skin="ImageBox" name="IconImage4" position_real="0.0769231 0.0769231 0.846154 0.846154">
+                            <Property key="ImageResource" value="BeaconIconMap" />
+                            <Property key="ImageGroup" value="BeaconIconMap" />
+                            <Property key="ImageName" value="4" />
+                            <Property key="NeedMouse" value="false" />
+                            <Property key="NeedKey" value="false" />
+                        </Widget>
+                    </Widget>
+                    <Widget type="Button" skin="BeaconIconBorder" name="IconButton5" position_real="0.833333 0 0.166667 0.25">
+                        <Widget type="ImageBox" skin="ImageBox" name="IconImage5" position_real="0.0769231 0.0769231 0.846154 0.846154">
+                            <Property key="ImageResource" value="BeaconIconMap" />
+                            <Property key="ImageGroup" value="BeaconIconMap" />
+                            <Property key="ImageName" value="5" />
+                            <Property key="NeedMouse" value="false" />
+                            <Property key="NeedKey" value="false" />
+                        </Widget>
+                    </Widget>
+                    <Widget type="Button" skin="BeaconIconBorder" name="IconButton6" position_real="0 0.25 0.166667 0.25">
+                        <Widget type="ImageBox" skin="ImageBox" name="IconImage6" position_real="0.0769231 0.0769231 0.846154 0.846154">
+                            <Property key="ImageResource" value="BeaconIconMap" />
+                            <Property key="ImageGroup" value="BeaconIconMap" />
+                            <Property key="ImageName" value="6" />
+                            <Property key="NeedMouse" value="false" />
+                            <Property key="NeedKey" value="false" />
+                        </Widget>
+                    </Widget>
+                    <Widget type="Button" skin="BeaconIconBorder" name="IconButton7" position_real="0.166667 0.25 0.166667 0.25">
+                        <Widget type="ImageBox" skin="ImageBox" name="IconImage7" position_real="0.0769231 0.0769231 0.846154 0.846154">
+                            <Property key="ImageResource" value="BeaconIconMap" />
+                            <Property key="ImageGroup" value="BeaconIconMap" />
+                            <Property key="ImageName" value="7" />
+                            <Property key="NeedMouse" value="false" />
+                            <Property key="NeedKey" value="false" />
+                        </Widget>
+                    </Widget>
+                    <Widget type="Button" skin="BeaconIconBorder" name="IconButton8" position_real="0.333333 0.25 0.166667 0.25">
+                        <Widget type="ImageBox" skin="ImageBox" name="IconImage8" position_real="0.0769231 0.0769231 0.846154 0.846154">
+                            <Property key="ImageResource" value="BeaconIconMap" />
+                            <Property key="ImageGroup" value="BeaconIconMap" />
+                            <Property key="ImageName" value="8" />
+                            <Property key="NeedMouse" value="false" />
+                            <Property key="NeedKey" value="false" />
+                        </Widget>
+                    </Widget>
+                    <Widget type="Button" skin="BeaconIconBorder" name="IconButton9" position_real="0.5 0.25 0.166667 0.25">
+                        <Widget type="ImageBox" skin="ImageBox" name="IconImage9" position_real="0.0769231 0.0769231 0.846154 0.846154">
+                            <Property key="ImageResource" value="BeaconIconMap" />
+                            <Property key="ImageGroup" value="BeaconIconMap" />
+                            <Property key="ImageName" value="9" />
+                            <Property key="NeedMouse" value="false" />
+                            <Property key="NeedKey" value="false" />
+                        </Widget>
+                    </Widget>
+                    <Widget type="Button" skin="BeaconIconBorder" name="IconButton10" position_real="0.666667 0.25 0.166667 0.25">
+                        <Widget type="ImageBox" skin="ImageBox" name="IconImage10" position_real="0.0769231 0.0769231 0.846154 0.846154">
+                            <Property key="ImageResource" value="BeaconIconMap" />
+                            <Property key="ImageGroup" value="BeaconIconMap" />
+                            <Property key="ImageName" value="10" />
+                            <Property key="NeedMouse" value="false" />
+                            <Property key="NeedKey" value="false" />
+                        </Widget>
+                    </Widget>
+                    <Widget type="Button" skin="BeaconIconBorder" name="IconButton11" position_real="0.833333 0.25 0.166667 0.25">
+                        <Widget type="ImageBox" skin="ImageBox" name="IconImage11" position_real="0.0769231 0.0769231 0.846154 0.846154">
+                            <Property key="ImageResource" value="BeaconIconMap" />
+                            <Property key="ImageGroup" value="BeaconIconMap" />
+                            <Property key="ImageName" value="11" />
+                            <Property key="NeedMouse" value="false" />
+                            <Property key="NeedKey" value="false" />
+                        </Widget>
+                    </Widget>
+                    <Widget type="Button" skin="BeaconIconBorder" name="IconButton12" position_real="0 0.5 0.166667 0.25">
+                        <Widget type="ImageBox" skin="ImageBox" name="IconImage12" position_real="0.0769231 0.0769231 0.846154 0.846154">
+                            <Property key="ImageResource" value="BeaconIconMap" />
+                            <Property key="ImageGroup" value="BeaconIconMap" />
+                            <Property key="ImageName" value="12" />
+                            <Property key="NeedMouse" value="false" />
+                            <Property key="NeedKey" value="false" />
+                        </Widget>
+                    </Widget>
+                    <Widget type="Button" skin="BeaconIconBorder" name="IconButton13" position_real="0.166667 0.5 0.166667 0.25">
+                        <Widget type="ImageBox" skin="ImageBox" name="IconImage13" position_real="0.0769231 0.0769231 0.846154 0.846154">
+                            <Property key="ImageResource" value="BeaconIconMap" />
+                            <Property key="ImageGroup" value="BeaconIconMap" />
+                            <Property key="ImageName" value="13" />
+                            <Property key="NeedMouse" value="false" />
+                            <Property key="NeedKey" value="false" />
+                        </Widget>
+                    </Widget>
+                    <Widget type="Button" skin="BeaconIconBorder" name="IconButton14" position_real="0.333333 0.5 0.166667 0.25">
+                        <Widget type="ImageBox" skin="ImageBox" name="IconImage14" position_real="0.0769231 0.0769231 0.846154 0.846154">
+                            <Property key="ImageResource" value="BeaconIconMap" />
+                            <Property key="ImageGroup" value="BeaconIconMap" />
+                            <Property key="ImageName" value="14" />
+                            <Property key="NeedMouse" value="false" />
+                            <Property key="NeedKey" value="false" />
+                        </Widget>
+                    </Widget>
+                    <Widget type="Button" skin="BeaconIconBorder" name="IconButton15" position_real="0.5 0.5 0.166667 0.25">
+                        <Widget type="ImageBox" skin="ImageBox" name="IconImage15" position_real="0.0769231 0.0769231 0.846154 0.846154">
+                            <Property key="ImageResource" value="BeaconIconMap" />
+                            <Property key="ImageGroup" value="BeaconIconMap" />
+                            <Property key="ImageName" value="15" />
+                            <Property key="NeedMouse" value="false" />
+                            <Property key="NeedKey" value="false" />
+                        </Widget>
+                    </Widget>
+                    <Widget type="Button" skin="BeaconIconBorder" name="IconButton16" position_real="0.666667 0.5 0.166667 0.25">
+                        <Widget type="ImageBox" skin="ImageBox" name="IconImage16" position_real="0.0769231 0.0769231 0.846154 0.846154">
+                            <Property key="ImageResource" value="BeaconIconMap" />
+                            <Property key="ImageGroup" value="BeaconIconMap" />
+                            <Property key="ImageName" value="16" />
+                            <Property key="NeedMouse" value="false" />
+                            <Property key="NeedKey" value="false" />
+                        </Widget>
+                    </Widget>
+                    <Widget type="Button" skin="BeaconIconBorder" name="IconButton17" position_real="0.833333 0.5 0.166667 0.25">
+                        <Widget type="ImageBox" skin="ImageBox" name="IconImage17" position_real="0.0769231 0.0769231 0.846154 0.846154">
+                            <Property key="ImageResource" value="BeaconIconMap" />
+                            <Property key="ImageGroup" value="BeaconIconMap" />
+                            <Property key="ImageName" value="17" />
+                            <Property key="NeedMouse" value="false" />
+                            <Property key="NeedKey" value="false" />
+                        </Widget>
+                    </Widget>
+                    <Widget type="Button" skin="BeaconIconBorder" name="IconButton18" position_real="0 0.75 0.166667 0.25">
+                        <Widget type="ImageBox" skin="ImageBox" name="IconImage18" position_real="0.0769231 0.0769231 0.846154 0.846154">
+                            <Property key="ImageResource" value="BeaconIconMap" />
+                            <Property key="ImageGroup" value="BeaconIconMap" />
+                            <Property key="ImageName" value="18" />
+                            <Property key="NeedMouse" value="false" />
+                            <Property key="NeedKey" value="false" />
+                        </Widget>
+                    </Widget>
+                    <Widget type="Button" skin="BeaconIconBorder" name="IconButton19" position_real="0.166667 0.75 0.166667 0.25">
+                        <Widget type="ImageBox" skin="ImageBox" name="IconImage19" position_real="0.0769231 0.0769231 0.846154 0.846154">
+                            <Property key="ImageResource" value="BeaconIconMap" />
+                            <Property key="ImageGroup" value="BeaconIconMap" />
+                            <Property key="ImageName" value="19" />
+                            <Property key="NeedMouse" value="false" />
+                            <Property key="NeedKey" value="false" />
+                        </Widget>
+                    </Widget>
+                    <Widget type="Button" skin="BeaconIconBorder" name="IconButton20" position_real="0.333333 0.75 0.166667 0.25">
+                        <Widget type="ImageBox" skin="ImageBox" name="IconImage20" position_real="0.0769231 0.0769231 0.846154 0.846154">
+                            <Property key="ImageResource" value="BeaconIconMap" />
+                            <Property key="ImageGroup" value="BeaconIconMap" />
+                            <Property key="ImageName" value="20" />
+                            <Property key="NeedMouse" value="false" />
+                            <Property key="NeedKey" value="false" />
+                        </Widget>
+                    </Widget>
+                    <Widget type="Button" skin="BeaconIconBorder" name="IconButton21" position_real="0.5 0.75 0.166667 0.25">
+                        <Widget type="ImageBox" skin="ImageBox" name="IconImage21" position_real="0.0769231 0.0769231 0.846154 0.846154">
+                            <Property key="ImageResource" value="BeaconIconMap" />
+                            <Property key="ImageGroup" value="BeaconIconMap" />
+                            <Property key="ImageName" value="21" />
+                            <Property key="NeedMouse" value="false" />
+                            <Property key="NeedKey" value="false" />
+                        </Widget>
+                    </Widget>
+                    <Widget type="Button" skin="BeaconIconBorder" name="IconButton22" position_real="0.666667 0.75 0.166667 0.25">
+                        <Widget type="ImageBox" skin="ImageBox" name="IconImage22" position_real="0.0769231 0.0769231 0.846154 0.846154">
+                            <Property key="ImageResource" value="BeaconIconMap" />
+                            <Property key="ImageGroup" value="BeaconIconMap" />
+                            <Property key="ImageName" value="22" />
+                            <Property key="NeedMouse" value="false" />
+                            <Property key="NeedKey" value="false" />
+                        </Widget>
+                    </Widget>
+                    <Widget type="Button" skin="BeaconIconBorder" name="IconButton23" position_real="0.833333 0.75 0.166667 0.25">
+                        <Widget type="ImageBox" skin="ImageBox" name="IconImage23" position_real="0.0769231 0.0769231 0.846154 0.846154">
+                            <Property key="ImageResource" value="BeaconIconMap" />
+                            <Property key="ImageGroup" value="BeaconIconMap" />
+                            <Property key="ImageName" value="23" />
+                            <Property key="NeedMouse" value="false" />
+                            <Property key="NeedKey" value="false" />
+                        </Widget>
+                    </Widget>
+                </Widget>
+            </Widget>
+        </Widget>
+        <!-- And/Or -->
+        <Widget type="Widget" skin="PanelEmpty" position_real="0.5411765 0.214939 0.4176475 0.253658">
+            <Widget type="Button" skin="LogicGateButtons" name="And" position_real="0 0 0.4 1">
+                <Property key="FontName" value="SM_ButtonSmall" />
+                <Property key="Caption" value="AND" />
+                <Property key="TextAlign" value="Center" />
+                <Widget type="ImageBox" skin="ImageBox" name="LogicIcon" position_real="0.25 0.3125 0.479167 0.375">
+                    <Property key="ImageResource" value="LogicGateIcons" />
+                    <Property key="ImageName" value="and" />
+                    <Property key="NeedKey" value="false" />
+                    <Property key="NeedMouse" value="false" />
+                </Widget>
+            </Widget>
+            <Widget type="Button" skin="LogicGateButtons" name="Or" position_real="0.6 0 0.4 1">
+                <Property key="FontName" value="SM_ButtonSmall" />
+                <Property key="Caption" value="OR" />
+                <Property key="TextAlign" value="Center" />
+                <Widget type="ImageBox" skin="ImageBox" name="LogicIcon" position_real="0.25 0.3125 0.479167 0.375">
+                    <Property key="ImageResource" value="LogicGateIcons" />
+                    <Property key="ImageName" value="or" />
+                    <Property key="NeedKey" value="false" />
+                    <Property key="NeedMouse" value="false" />
+                </Widget>
+            </Widget>
+        </Widget>
+        <!-- Colors -->
+        <Widget type="Widget" skin="PanelEmpty" position_real="0.5411765 0.468597 0.4176475 0.215385">
+            <Widget type="Button" skin="BeaconIconColorBorder" name="ColorButton0" position_real="0 0 0.235294 0.45">
+                <Widget type="Widget" skin="BeaconIconColor" position_real="0.142857 0.142857 0.714286 0.714286">
+                    <Property key="Colour" value="#4f6cff" />
+                    <Property key="NeedMouse" value="false" />
+                    <Property key="NeedKey" value="false" />
+                </Widget>
+            </Widget>
+            <Widget type="Button" skin="BeaconIconColorBorder" name="ColorButton1" position_real="0.252101 0 0.235294 0.45">
+                <Widget type="Widget" skin="BeaconIconColor" position_real="0.142857 0.142857 0.714286 0.714286">
+                    <Property key="Colour" value="#af7dff" />
+                    <Property key="NeedMouse" value="false" />
+                    <Property key="NeedKey" value="false" />
+                </Widget>
+            </Widget>
+            <Widget type="Button" skin="BeaconIconColorBorder" name="ColorButton2" position_real="0.504202 0 0.235294 0.45">
+                <Widget type="Widget" skin="BeaconIconColor" position_real="0.142857 0.142857 0.714286 0.714286">
+                    <Property key="Colour" value="#00ffff" />
+                    <Property key="NeedMouse" value="false" />
+                    <Property key="NeedKey" value="false" />
+                </Widget>
+            </Widget>
+            <Widget type="Button" skin="BeaconIconColorBorder" name="ColorButton3" position_real="0.764706 0 0.235294 0.45">
+                <Widget type="Widget" skin="BeaconIconColor" position_real="0.142857 0.142857 0.714286 0.714286">
+                    <Property key="Colour" value="#90ff78" />
+                    <Property key="NeedMouse" value="false" />
+                    <Property key="NeedKey" value="false" />
+                </Widget>
+            </Widget>
+            <Widget type="Button" skin="BeaconIconColorBorder" name="ColorButton4" position_real="0 0.55 0.235294 0.45">
+                <Widget type="Widget" skin="BeaconIconColor" position_real="0.142857 0.142857 0.714286 0.714286">
+                    <Property key="Colour" value="#ffd046" />
+                    <Property key="NeedMouse" value="false" />
+                    <Property key="NeedKey" value="false" />
+                </Widget>
+            </Widget>
+            <Widget type="Button" skin="BeaconIconColorBorder" name="ColorButton5" position_real="0.252101 0.55 0.235294 0.45">
+                <Widget type="Widget" skin="BeaconIconColor" position_real="0.142857 0.142857 0.714286 0.714286">
+                    <Property key="Colour" value="#ffffc0" />
+                    <Property key="NeedMouse" value="false" />
+                    <Property key="NeedKey" value="false" />
+                </Widget>
+            </Widget>
+            <Widget type="Button" skin="BeaconIconColorBorder" name="ColorButton6" position_real="0.504202 0.55 0.235294 0.45">
+                <Widget type="Widget" skin="BeaconIconColor" position_real="0.142857 0.142857 0.714286 0.714286">
+                    <Property key="Colour" value="#ff6619" />
+                    <Property key="NeedMouse" value="false" />
+                    <Property key="NeedKey" value="false" />
+                </Widget>
+            </Widget>
+            <Widget type="Button" skin="BeaconIconColorBorder" name="ColorButton7" position_real="0.764706 0.55 0.235294 0.45">
+                <Widget type="Widget" skin="BeaconIconColor" position_real="0.142857 0.142857 0.714286 0.714286">
+                    <Property key="Colour" value="#ff3737" />
+                    <Property key="NeedMouse" value="false" />
+                    <Property key="NeedKey" value="false" />
+                </Widget>
+            </Widget>
+        </Widget>
+        <Widget type="Widget" skin="BeaconBottomBG" position_real="0 0.716157 1 0.283843">
+            <!-- Range slider -->
+            <Widget type="TextBox" skin="TextBox" position_real="0.0573951 0.369565 0.441501 0.0869565">
+                <Property key="Caption" value="#{CONTROLLER_PISTON_RANGE}" />
+                <Property key="TextAlign" value="Left VCenter" />
+                <Property key="FontName" value="SM_TextLabel" />
+            </Widget>
+            <Widget type="Widget" skin="PanelEmpty" name="RangeSlider" position_real="0.0573951 0.456522 0.883002 0.115217" />
+        </Widget>
+    </Widget>
+    <CodeGeneratorSettings />
+</MyGUI>

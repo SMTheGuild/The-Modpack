@@ -123,6 +123,12 @@
 		"description": "Extends 1-255 blocks\n\nSpeeds:\n1, 2, 3, 4 (dwarf standing)\n6, 8, 10, ... 30, 32, 34\n\nStronger than regular piston!\n\nTip: Scroll wheel for fine adjustment",
 		"keywords": [ "modpack", "spring", "pneumatic" ]
 	},
+    "577982b3-859a-4c05-8c9b-20401e070b79":
+	{
+		"title": "Beacon sensor",
+		"description": "Like a normal sensor, but detects nearby beacons in a radius.",
+		"keywords": [ "modpack", "beacon", "sensor" ]
+	},
 
 // seats
 	"a3da3841-5a76-4d72-a177-cdc4e572efc7":
