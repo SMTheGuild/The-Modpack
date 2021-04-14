@@ -18,7 +18,7 @@
 					}
 				]
 			},
-			"scripted": { "filename": "$MOD_DATA/Scripts/interactable/Decoupler.lua", "classname": "decoupler" },
+			"scripted": { "filename": "$MOD_DATA/Scripts/interactable/Decoupler.lua", "classname": "Decoupler" },
 			"rotationSet": "PropYNegY",
 			"color": "df7f00", "density": 250.0, "physicsMaterial": "Metal", "sticky": "-Y+Y",
 			"cylinder": { "diameter": 1, "depth": 1, "axis": "Y" },
@@ -1394,7 +1394,7 @@
 			"box": { "x": 2, "y": 2, "z": 2 },
 			"density": 250.0,
 			"physicsMaterial": "Metal",
-			"scripted": { "filename": "$MOD_DATA/Scripts/interactable/ToneGenerator.lua", "classname": "totegenerator" },
+			"scripted": { "filename": "$MOD_DATA/Scripts/interactable/ToneGenerator.lua", "classname": "ToneGenerator" },
 			"sticky": "+Y-Y-Z+X-X",
 			"qualityLevel": 4
 
