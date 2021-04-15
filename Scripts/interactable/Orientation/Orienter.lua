@@ -82,57 +82,58 @@ Orienter.colorHighlight = sm.color.new( 0x3333ffff )
 Orienter.poseWeightCount = 2
 
 local usage = "\nWhite logic input press: toggle closest player on exceptionlist"..
-"\nOther logic input: turn on/off"..
-"\nWhite number input: player id / tracker frequency"..
-"\nBlack number input: closest/furthest (2=2nd closest, -2=2nd furthest)"..
-"\nOther columns color input: range (1 input=maxrange, 2inputs=range in between inputs)"
+    "\nOther logic input: turn on/off"..
+    "\nWhite number input: player id / tracker frequency"..
+    "\nBlack number input: closest/furthest (2=2nd closest, -2=2nd furthest)"..
+    "\nOther columns color input: range (1 input=maxrange, 2inputs=range in between inputs)"
 
-local predictiveusage = usage..
-"\nLightGrey input: damping (%)"..
-"\nDarkGrey input: lead (%)"..
-"\n================="
-usage = usage..
-"\n================="
+local predictiveusage = "\nLightGrey input: damping (%)"..
+    "\nDarkGrey input: lead (%)"
 
 Orienter.modetable = {
-	{savevalue = 1, name = "world orient, \nwill point towards the ground, use wasd/gimball or math block for wasd output"..usage},
-	{savevalue = 2, name = "world orient predictive, \nwill point towards the ground, use wasd/gimball or math block for wasd output"..predictiveusage},
-	{savevalue = 3, name = "player orient"..usage},
-	{savevalue = 4, name = "player orient predictive"..predictiveusage},
-	{savevalue = 5, name = "tracker orient"..usage},
-	{savevalue = 6, name = "tracker orient predictive"..predictiveusage},
-	{savevalue = 9, name = "tracker + player orient"..usage},
-	{savevalue = 10, name = "tracker + player orient predictive"..predictiveusage},
-	{savevalue = 7, name = "player camera orient"..usage.."\nAn connected occupied seat will overwrite ANY filter settings"},
-	{savevalue = 11, name = "player camer orient predictive"..predictiveusage.."\nAn connected occupied seat will overwrite ANY filter settings"},
-	{savevalue = 8, name = "orient distance reader,\nRead distance to target from other orient blocks\n================="},
+	{savevalue = 1, target = "world", loc = false, name = "World", description ="will point towards the ground, use wasd/gimball or math block for wasd output", predictive = false },
+	{savevalue = 2, target = "world", loc = false, name = "World (predictive)", description = "will point towards the ground, use wasd/gimball or math block for wasd output", predictive = true },
+	{savevalue = 3, target = "player", loc = false, name = "Player", predictive = false },
+	{savevalue = 4, target = "player", loc = false, name = "Player (predictive)", predictive = true },
+	{savevalue = 5, target = "tracker", loc = false, name = "Tracker", predictive = false },
+	{savevalue = 6, target = "tracker", loc = false, name = "Tracker (predictive)", predictive = true },
+	{savevalue = 9, target = "playertracker", loc = false, name = "Tracker + player", predictive = false },
+	{savevalue = 10, target = "playertracker", loc = false, name = "Tracker + player (predictive)", predictive = true },
+	{savevalue = 7, target = "camera", loc = false, name = "Player camera", predictive = false, description = "An connected occupied seat will overwrite ANY filter settings"},
+	{savevalue = 11, target = "camera", loc = false, name = "Player camera (predictive)", predictive = true, description = "An connected occupied seat will overwrite ANY filter settings"},
+	{savevalue = 8, target = "distance", loc = false, predictive = false, name = "Orienter Distance Reader", description = "Read distance to target from other orient blocks"},
 
-	{savevalue = 12, name = "LOCAL player orient, \nLOCAL is used for missiles!"..usage},
-	{savevalue = 13, name = "LOCAL player orient predictive"..predictiveusage},
-	{savevalue = 14, name = "LOCAL tracker orient"..usage},
-	{savevalue = 15, name = "LOCAL tracker orient predictive"..predictiveusage},
-	{savevalue = 17, name = "LOCAL tracker + player orient"..usage},
-	{savevalue = 18, name = "LOCAL tracker + player orient predictive"..predictiveusage},
-	{savevalue = 16, name = "LOCAL player camera orient"..usage.."\nAn connected occupied seat will overwrite ANY filter settings"},--
-	{savevalue = 19, name = "LOCAL player camera orient predictive"..predictiveusage.."\nAn connected occupied seat will overwrite ANY filter settings"},
+	{savevalue = 12, target = "player", loc = true, name = "Player (local)", description = "Locla mode is used for missiles!", predictive = false },
+	{savevalue = 13, target = "player", loc = true, name = "Player (local, predictive)", predictive = true },
+	{savevalue = 14, target = "tracker", loc = true, name = "Tracker (local)", predictive = false },
+	{savevalue = 15, target = "tracker", loc = true, name = "Tracker (local, predictive)", predictive = true },
+	{savevalue = 17, target = "playertracker", loc = true, name = "Tracker + player (local)", predictive = false },
+	{savevalue = 18, target = "playertracker", loc = true, name = "Tracker + player (local, predictive)", predictive = true },
+	{savevalue = 16, target = "camera", loc = true, name = "Player camera (local)", predictive = false, extra = "A connected occupied seat will overwrite ANY filter settings"},--
+	{savevalue = 19, target = "camera", loc = true, name = "Player camera (local, predictive)", predictive = true, extra = "A connected occupied seat will overwrite ANY filter settings"},
 
-	{savevalue = 25, name = "All units orient"..usage},
-	{savevalue = 20, name = "Hostile units orient"..usage},
-	{savevalue = 21, name = "Hostile farmbot orient"..usage},
-	{savevalue = 22, name = "Hostile tapebot orient"..usage},
-	{savevalue = 23, name = "Hostile haybot orient"..usage},
-	{savevalue = 24, name = "Hostile totebot orient"..usage},
-	{savevalue = 26, name = "Friendly units orient"..usage},
-	{savevalue = 27, name = "Woc orient"..usage},
-	{savevalue = 28, name = "Glow worm orient"..usage}
+	{savevalue = 25, target = "units", unit = "all", loc = false, predictive = false, name = "All units" },
+	{savevalue = 20, target = "units", unit = "hostile", loc = false, predictive = false, name = "Hostile units" },
+	{savevalue = 21, target = "units", unit = "farmbot", loc = false, predictive = false, name = "Hostile farmbot" },
+	{savevalue = 22, target = "units", unit = "tapebot", loc = false, predictive = false, name = "Hostile tapebot" },
+	{savevalue = 23, target = "units", unit = "haybot", loc = false, predictive = false, name = "Hostile haybot" },
+	{savevalue = 24, target = "units", unit = "totebot", loc = false, predictive = false, name = "Hostile totebot" },
+	{savevalue = 26, target = "units", unit = "friendly", loc = false, predictive = false, name = "Friendly units" },
+	{savevalue = 27, target = "units", unit = "woc", loc = false, predictive = false, name = "Woc" },
+	{savevalue = 28, target = "units", unit = "glowworm", loc = false, predictive = false, name = "Glow worm" }
 }
+Orienter.modeIndexBySaveValue = {}
+for k, v in pairs(Orienter.modetable) do
+    Orienter.modeIndexBySaveValue[v.savevalue] = k
+end
+
+Orienter.modeCount = #Orienter.modetable
 
 function Orienter.server_onCreate( self )
 	self:server_init()
 end
 
 function Orienter.server_init( self )
-	self.lastmode = 0
 	self.mode = 1
 	self.power = 0
 	self.pitch = 0
@@ -157,49 +158,221 @@ function Orienter.server_init( self )
 end
 
 function Orienter.client_onCreate(self)
-	self.description_id = 1
-	self.network:sendToServer("server_senduvtoclient")
-	--print("AI orient block: ")
+	self.network:sendToServer("sv_sendModeToClient")
 end
-function Orienter.server_senduvtoclient(self)
-	local _UvIndex = self.modetable[self.mode].savevalue
-	self.network:sendToClients("client_setUvframeIndex", _UvIndex - 1)
+
+function Orienter.sv_sendModeToClient(self)
+	local _UvIndex = self.modetable[self.mode].savevalue - 1
+	self.network:sendToClients("cl_setMode", { uvIndex = _UvIndex, mode = self.mode })
 end
+
 function Orienter.server_onRefresh( self )
 	self:server_init()
 end
+
 function Orienter.client_onInteract(self, character, lookAt)
-	if not lookAt or character:getLockingInteractable() then return end
-	self.network:sendToServer("server_changemode", character:isCrouching())
-end
-function Orienter.client_onTinker(self, character, lookAt)
-	if lookAt then
-		local _curMode = self.modetable[self.description_id]
-		if _curMode and _curMode.name then
-			sm.gui.chatMessage(("[#ffff00Orient Block#ffffff] Description of the selected function: %s"):format(_curMode.name))
-			sm.audio.play("GUI Item released")
-		else
-			sm.gui.chatMessage("[#ffff00Orient Block#ffffff] #ff0000ERROR#ffffff: Couldn't get the description of the selected function")
-		end
+    if lookAt == true then
+        self.gui = sm.gui.createGuiFromLayout('$MOD_DATA/Gui/Layouts/Orienter.layout')
+        for _, buttonName in pairs({ 'TargetWorld', 'TargetPlayer', 'TargetCamera' , 'TargetUnits',  'TargetDistance', 'TargetTracker',  'TargetPlayerTracker'}) do
+            self.gui:setButtonCallback(buttonName, "cl_onTargetButtonClick")
+        end
+
+        for _, buttonName in pairs({ 'UnitsAll', 'UnitsHostile', 'UnitsFriendly', 'UnitsFarmbot', 'UnitsTapebot', 'UnitsHaybot', 'UnitsTotebot', 'UnitsWoc', 'UnitsGlowworm' }) do
+            self.gui:setButtonCallback(buttonName, 'cl_onUnitButtonClick')
+        end
+
+        self.gui:setButtonCallback('OptionPredictive', "cl_onPredictiveToggle")
+        self.gui:setButtonCallback('OptionLocal', "cl_onLocalToggle")
+
+        self:cl_drawButtons()
+		self.gui:open()
 	end
 end
-function Orienter.server_changemode(self, crouch)
-	if not crouch then
-		self.mode = (self.mode)%#self.modetable + 1
-	else
-		self.mode = (self.mode-2)%#self.modetable + 1
-	end
+
+function Orienter.cl_onUnitButtonClick(self, buttonName)
+    local saveValues = {
+        UnitsAll = 25,
+    	UnitsHostile = 20,
+    	UnitsFarmbot = 21,
+    	UnitsTapebot = 22,
+    	UnitsHaybot = 23,
+    	UnitsTotebot = 24,
+    	UnitsFriendly = 26,
+    	UnitsWoc = 27,
+    	UnitsGlowworm = 28
+    }
+    self:cl_handleChageModeFromGui(Orienter.modeIndexBySaveValue[saveValues[buttonName]])
+end
+
+function Orienter.cl_handleChageModeFromGui(self, newMode)
+    self.network:sendToServer('sv_changeMode', { mode = newMode })
+    self.mode_client = newMode
+    self:cl_drawButtons()
+end
+
+function Orienter.cl_onPredictiveToggle(self, button)
+    local currentMode = Orienter.modetable[self.mode_client]
+    local inverse = {
+        [2] = 1,
+        [1] = 2,
+        [3] = 4,
+        [4] = 3,
+        [5] = 6,
+        [6] = 5,
+        [9] = 10,
+        [10] = 9,
+        [7] = 11,
+        [11] = 7,
+        [12] = 13,
+        [13] = 12,
+        [14] = 15,
+        [15] = 14,
+        [17] = 18,
+        [18] = 17,
+        [19] = 16,
+        [16] = 19
+    }
+    self:cl_handleChageModeFromGui(Orienter.modeIndexBySaveValue[inverse[currentMode.savevalue]])
+end
+
+function Orienter.cl_onLocalToggle(self, button)
+    local currentMode = Orienter.modetable[self.mode_client]
+    local inverse = {
+        [3] = 12,
+        [4] = 13,
+        [5] = 14,
+        [6] = 15,
+        [7] = 16,
+        [9] = 17,
+        [10] = 18,
+        [11] = 19,
+        [12] = 3,
+        [13] = 4,
+        [14] = 5,
+        [15] = 6,
+        [16] = 7,
+        [17] = 9,
+        [18] = 10,
+        [19] = 11
+    }
+    self:cl_handleChageModeFromGui(Orienter.modeIndexBySaveValue[inverse[currentMode.savevalue]])
+end
+
+function Orienter.cl_onTargetButtonClick(self, buttonName)
+    local currentMode = Orienter.modetable[self.mode_client]
+
+    local pred = currentMode.predictive
+    local loc = currentMode.loc
+
+    local newModeValue = nil
+    if buttonName == 'TargetWorld' then
+        if currentMode.target ~= 'world' then
+            newModeValue = currentMode.predictive and 2 or 1
+        end
+    elseif buttonName == 'TargetPlayer' then
+        if currentMode.target ~= 'player' then
+            newModeValue = pred and (loc and 13 or 4) or (loc and 12 or 3)
+        end
+    elseif buttonName == 'TargetTracker' then
+        if currentMode.target ~= 'tracker' then
+            newModeValue = pred and (loc and 15 or 6) or (loc and 14 or 5)
+        end
+    elseif buttonName == 'TargetPlayerTracker' then
+        if currentMode.target ~= 'playertracker' then
+            newModeValue = pred and (loc and 18 or 10) or (loc and 17 or 9)
+        end
+    elseif buttonName == 'TargetCamera' then
+        if currentMode.target ~= 'camera' then
+            newModeValue = pred and (loc and 19 or 11) or (loc and 18 or 7)
+        end
+    elseif buttonName == 'TargetDistance' then
+        if currentMode.target ~= 'distance' then
+            newModeValue = 8
+        end
+    elseif buttonName == 'TargetUnits' then
+        if currentMode.target ~= 'units' then
+            newModeValue = 25
+        end
+    end
+
+    print(newModeValue)
+
+    if newModeValue ~= nil then
+        self:cl_handleChageModeFromGui(Orienter.modeIndexBySaveValue[newModeValue])
+    end
+end
+
+function Orienter.cl_drawButtons(self)
+    local mode = Orienter.modetable[self.mode_client]
+
+    self.gui:setButtonState('TargetWorld', mode.target == 'world')
+    self.gui:setButtonState('TargetPlayer', mode.target == 'player')
+    self.gui:setButtonState('TargetPlayerTracker', mode.target == 'playertracker')
+    self.gui:setButtonState('TargetUnits', mode.target == 'units')
+    self.gui:setButtonState('TargetCamera', mode.target == 'camera')
+    self.gui:setButtonState('TargetTracker', mode.target == 'tracker')
+    self.gui:setButtonState('TargetDistance', mode.target == 'distance')
+
+    if mode.target == 'units' then
+        self.gui:setVisible('HeadingOptions', false)
+        self.gui:setVisible('OptionPredictive', false)
+        self.gui:setVisible('OptionPredictiveLabel', false)
+        self.gui:setVisible('OptionLocal', false)
+        self.gui:setVisible('OptionLocalLabel', false)
+        self.gui:setVisible('Units', true)
+
+        for _, buttonName in pairs({ 'UnitsAll', 'UnitsHostile', 'UnitsFriendly', 'UnitsFarmbot', 'UnitsTapebot', 'UnitsHaybot', 'UnitsTotebot', 'UnitsWoc', 'UnitsGlowworm' }) do
+            self.gui:setButtonState(buttonName, buttonName:lower() == 'units' .. mode.unit)
+        end
+    else
+        self.gui:setVisible('Units', false)
+
+        if mode.target == 'camera'
+        or mode.target == 'player'
+        or mode.target == 'tracker'
+        or mode.target == 'playertracker' then
+            self.gui:setVisible('HeadingOptions', true)
+            self.gui:setVisible('OptionPredictive', true)
+            self.gui:setVisible('OptionPredictiveLabel', true)
+            self.gui:setVisible('OptionLocal', true)
+            self.gui:setVisible('OptionLocalLabel', true)
+
+        elseif mode.target == 'world' then
+            self.gui:setVisible('HeadingOptions', true)
+            self.gui:setVisible('OptionPredictive', true)
+            self.gui:setVisible('OptionPredictiveLabel', true)
+            self.gui:setVisible('OptionLocal', false)
+            self.gui:setVisible('OptionLocalLabel', false)
+
+        elseif mode.target == 'distance' then
+            self.gui:setVisible('HeadingOptions', false)
+            self.gui:setVisible('OptionPredictive', false)
+            self.gui:setVisible('OptionPredictiveLabel', false)
+            self.gui:setVisible('OptionLocal', false)
+            self.gui:setVisible('OptionLocalLabel', false)
+        end
+    end
+
+    self.gui:setButtonState('OptionPredictive', mode.predictive)
+    self.gui:setVisible('OptionPredictiveCheck', mode.predictive)
+
+    self.gui:setButtonState('OptionLocal', mode.loc)
+    self.gui:setVisible('OptionLocalCheck', mode.loc)
+
+    self.gui:setText('FunctionNameText', mode.name)
+    self.gui:setText('FunctionDescriptionText', (mode.description or '') .. (mode.extra or ''))
+end
+
+function Orienter.sv_changeMode(self, params)
+    self.mode = params.mode
 	self.storage:save(self.modetable[self.mode].savevalue)
-	--print(self.modetable[self.mode].name)
 	self.network:sendToClients("client_playsound", "GUI Item drag")
+    self.network:sendToClients('cl_setMode', { mode = params.mode, uvIndex = Orienter.modetable[params.mode].savevalue - 1 })
 end
 
 function Orienter.client_canInteract(self)
 	local _useKey = sm.gui.getKeyBinding("Use")
-	local _tinkerKey = sm.gui.getKeyBinding("Tinker")
-	local _crawlKey = sm.gui.getKeyBinding("Crawl")
-	sm.gui.setInteractionText("Press", _useKey, " / ", _crawlKey.." + ".._useKey, "to cycle forwards / backwards")
-	sm.gui.setInteractionText("Press", _tinkerKey, "to print the description of the selected function")
+	sm.gui.setInteractionText("Press", _useKey, " to change the mode")
 	return true
 end
 
@@ -341,6 +514,7 @@ function Orienter.getFarmbot(self, data)
 	end
 	return sortedfarmbots[1].id
 end
+
 function Orienter.gettracker(self, data)  --self:gettracker({minrange = nil, maxrange = nil, offset = 1, frequency = 0, ignorejammers = false})
 	local centerpos = self.shape:getWorldPosition()
 	local color = tostring(sm.shape.getColor(self.shape))
@@ -459,7 +633,6 @@ function Orienter.calcpitchandyawlocal(self, data)
 
 	local pitch = math.atan2(localdir.x,localdir.z)/math.pi * 180
 	local yaw = math.atan2(localdir.y,localdir.z)/math.pi * 180
-	--print("pitch", pitch, "yaw", yaw)
 	if pitch ~= pitch then pitch = 0 end -- nan check
 	if yaw ~= yaw then yaw = 0 end
 
@@ -473,6 +646,7 @@ function Orienter.VecToEuler(self,  direction )
     euler.pitch = math.acos(direction.z)/math.pi *180
     return euler --math.cos( direction.z * 0.5 * math.pi ) * 180 --
 end
+
 function Orienter.calcpitchandyaw(self, data)
 	--targetdirection
 	--local eye = data.direction
@@ -484,12 +658,12 @@ function Orienter.calcpitchandyaw(self, data)
 	local pitch = euler2.pitch - euler1.pitch
 
 	yaw = (yaw>180) and yaw-360 or (yaw<-180 and yaw+360 or yaw)
-	--print("pitch", pitch, "yaw", yaw)
 	if pitch ~= pitch then pitch = 0 end -- nan check
 	if yaw ~= yaw then yaw = 0 end
 	pitch, yaw = self:tiltadjust({pitch = pitch, yaw = yaw})
 	return pitch, yaw
 end
+
 function Orienter.tiltadjust(self, data)
 	local pitch = data.pitch
 	local yaw = data.yaw
@@ -506,7 +680,6 @@ function Orienter.tiltadjust(self, data)
 				roll = 180 - roll
 			end
 		end
-		--print("roll:", roll)
 		if roll == roll then
 			local vec = sm.vec3.rotateX(sm.vec3.new(0, pitch, yaw), math.rad(roll))
 			pitch = vec.y
@@ -524,7 +697,6 @@ function Orienter.tiltadjust(self, data)
 				roll = 180 - roll
 			end
 		end
-		--print("roll:", roll)
 		if roll == roll then
 			local vec = sm.vec3.rotateX(sm.vec3.new(0, pitch, yaw), math.rad(-roll))
 			pitch = vec.y
@@ -565,7 +737,7 @@ function predictmove(self, mypos, direction, targetpos, localcalc)--MINE --FINAL
 	else
 		--targetrelativepos = targetrelativepos + v*(4/40) + a*(4/40)^2 -- - targetrelativepos:normalize()*deltadistance*(0.3109541*distance + 1.35159)
 	end -- distance speed fix
-	--print(distance/4)
+
 	--distance reach fix:
 	local supermagicmultiplier = math.min(100, -6.181747 + (140773.3 - -6.181747)/(1 + (distance/0.005479015)^0.7706603))
 	local futuretarget = targetrelativepos + (v*t + (a-spuddrop)*t^2*sm.vec3.new(1,1,(1 + distance/(supermagicmultiplier*1666*self.lead/1))))
@@ -629,7 +801,6 @@ function Orienter.server_onFixedUpdate( self, dt )
 	local numberinputs = 0
 	local isON = nil
 	local occupied = nil
-	--print(os.clock())
 	for k,v in pairs(parents) do
 		local _pType = v:getType()
 		local _pUuid = tostring(v:getShape():getShapeUuid())
@@ -909,7 +1080,6 @@ function Orienter.server_onFixedUpdate( self, dt )
 			self.yaw = yaw
 			self.pose1 = ((1/(4*distance)) and 1/(4*distance) or 1)
 			self.pitch = pitch
-			--print(yaw, pitch)
 		end
 
 
@@ -1178,18 +1348,12 @@ function Orienter.server_onFixedUpdate( self, dt )
 		self.interactable:setPower(self.pitch/180)
 	end
 
-	mode = self.modetable[self.mode].savevalue
-	if self.mode ~= self.lastmode then
-		self.network:sendToClients("client_setUvframeIndex", (mode-1))
-		self.network:sendToClients("client_setDescriptionId", self.mode)
-	end
 	if self.yaw ~= self.lastpose0 then
 		self.network:sendToClients("client_setPose", {pose = 0, level = 1-(self.yaw/360+0.5)})
 	end
 	if self.pose1 ~= self.lastpose1 then
 		self.network:sendToClients("client_setPose", {pose = 1, level = self.pose1})
 	end
-	self.lastmode = self.mode
 	self.lastpose0 = self.yaw
 	self.lastpose1 = self.pose1
 	self.lastpos_tracked = direction
@@ -1219,10 +1383,6 @@ function Orienter.client_onFixedUpdate(self, dt)
 		end
 
 	end
-end
-
-function Orienter.client_setDescriptionId(self, id)
-	self.description_id = id
 end
 
 function Orienter.client_setServerDirection(self, id)
@@ -1391,9 +1551,10 @@ function predictmove_old(self, mypos, direction, targetpos, lastdirection)
 end
 
 
-function Orienter.client_setUvframeIndex(self, index)
+function Orienter.cl_setMode(self, params)
 	if sm.isServer then return end
-	self.interactable:setUvFrameIndex(index)
+    self.mode_client = params.mode
+	self.interactable:setUvFrameIndex(params.uvIndex)
 end
 
 function Orienter.client_setPose(self, data)
