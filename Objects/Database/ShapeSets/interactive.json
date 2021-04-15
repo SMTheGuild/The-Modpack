@@ -1766,7 +1766,10 @@
 			},
 			"physicsMaterial": "Plastic",
 			"sticky": "-X+X-Y+Y-Z",
-			"spotLight": { "defaultLuminance": 50, "effect": "ModHeadLight" },
+			"spotLight": { 
+				"defaultLuminance": 50, 
+				"effect": "ModHeadLight"
+			},
 			"ratings": {
 				"density": 2,
 				"durability": 3,
