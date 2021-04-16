@@ -170,14 +170,26 @@ function Orienter.server_onRefresh( self )
 	self:server_init()
 end
 
+local targetTable = {
+	'TargetWorld', 'TargetPlayer', 'TargetCamera',
+	'TargetTracker', 'TargetPlayerTracker', 'TargetUnits',
+	'TargetDistance'
+}
+
+local _UnitTable = {
+	'UnitsAll', 'UnitsHostile', 'UnitsFriendly',
+	'UnitsFarmbot', 'UnitsTapebot', 'UnitsHaybot',
+	'UnitsTotebot', 'UnitsWoc', 'UnitsGlowworm'
+}
+
 function Orienter.client_onInteract(self, character, lookAt)
     if lookAt == true then
         self.gui = sm.gui.createGuiFromLayout('$MOD_DATA/Gui/Layouts/Orienter.layout')
-        for _, buttonName in pairs({ 'TargetWorld', 'TargetPlayer', 'TargetCamera' , 'TargetUnits',  'TargetDistance', 'TargetTracker',  'TargetPlayerTracker'}) do
+        for _, buttonName in pairs(targetTable) do
             self.gui:setButtonCallback(buttonName, "cl_onTargetButtonClick")
         end
 
-        for _, buttonName in pairs({ 'UnitsAll', 'UnitsHostile', 'UnitsFriendly', 'UnitsFarmbot', 'UnitsTapebot', 'UnitsHaybot', 'UnitsTotebot', 'UnitsWoc', 'UnitsGlowworm' }) do
+        for _, buttonName in pairs(_UnitTable) do
             self.gui:setButtonCallback(buttonName, 'cl_onUnitButtonClick')
         end
 
@@ -205,6 +217,8 @@ function Orienter.cl_onUnitButtonClick(self, buttonName)
 end
 
 function Orienter.cl_handleChageModeFromGui(self, newMode)
+	if self.mode_client == newMode then return end
+
     self.network:sendToServer('sv_changeMode', { mode = newMode })
     self.mode_client = newMode
     self:cl_drawButtons()
@@ -295,71 +309,53 @@ function Orienter.cl_onTargetButtonClick(self, buttonName)
         end
     end
 
-    print(newModeValue)
+    --print(newModeValue)
 
     if newModeValue ~= nil then
         self:cl_handleChageModeFromGui(Orienter.modeIndexBySaveValue[newModeValue])
     end
 end
 
+local _buttonData = {
+	world = {pred = true, mode = 'TargetWorld'},
+	player = {pred = true, loc = true, mode = 'TargetPlayer'},
+	camera = {pred = true, loc = true, mode = 'TargetCamera'},
+	tracker = {pred = true, loc = true, mode = 'TargetTracker'},
+	playertracker = {pred = true, loc = true, mode = 'TargetPlayerTracker'},
+	units = {unit = true, mode = 'TargetUnits'},
+	distance = {mode = 'TargetDistance'}
+}
+
 function Orienter.cl_drawButtons(self)
     local mode = Orienter.modetable[self.mode_client]
+	local btnData = _buttonData[mode.target]
 
-    self.gui:setButtonState('TargetWorld', mode.target == 'world')
-    self.gui:setButtonState('TargetPlayer', mode.target == 'player')
-    self.gui:setButtonState('TargetPlayerTracker', mode.target == 'playertracker')
-    self.gui:setButtonState('TargetUnits', mode.target == 'units')
-    self.gui:setButtonState('TargetCamera', mode.target == 'camera')
-    self.gui:setButtonState('TargetTracker', mode.target == 'tracker')
-    self.gui:setButtonState('TargetDistance', mode.target == 'distance')
+	local _Pred = (btnData.pred == true)
+	local _Local = (btnData.loc == true)
+	local _Unit = (btnData.unit == true)
+	local _CurTarget = btnData.mode
 
-    if mode.target == 'units' then
-        self.gui:setVisible('HeadingOptions', false)
-        self.gui:setVisible('OptionPredictive', false)
-        self.gui:setVisible('OptionPredictiveLabel', false)
-        self.gui:setVisible('OptionLocal', false)
-        self.gui:setVisible('OptionLocalLabel', false)
-        self.gui:setVisible('Units', true)
+	self.gui:setVisible('HeadingOptions', _Pred or _Local)
+	self.gui:setVisible('OptionPredictive', _Pred)
+	self.gui:setVisible('OptionPredictiveLabel', _Pred)
+	self.gui:setVisible('OptionLocal', _Local)
+	self.gui:setVisible('OptionLocalLabel', _Local)
+	self.gui:setVisible('Units', _Unit)
 
-        for _, buttonName in pairs({ 'UnitsAll', 'UnitsHostile', 'UnitsFriendly', 'UnitsFarmbot', 'UnitsTapebot', 'UnitsHaybot', 'UnitsTotebot', 'UnitsWoc', 'UnitsGlowworm' }) do
-            self.gui:setButtonState(buttonName, buttonName:lower() == 'units' .. mode.unit)
-        end
-    else
-        self.gui:setVisible('Units', false)
+	self.gui:setVisible('OptionPredictiveCheck', mode.predictive)
+	self.gui:setVisible('OptionLocalCheck', mode.loc)
 
-        if mode.target == 'camera'
-        or mode.target == 'player'
-        or mode.target == 'tracker'
-        or mode.target == 'playertracker' then
-            self.gui:setVisible('HeadingOptions', true)
-            self.gui:setVisible('OptionPredictive', true)
-            self.gui:setVisible('OptionPredictiveLabel', true)
-            self.gui:setVisible('OptionLocal', true)
-            self.gui:setVisible('OptionLocalLabel', true)
+	for k, v in pairs(targetTable) do
+		self.gui:setButtonState(v, v == _CurTarget)
+	end
 
-        elseif mode.target == 'world' then
-            self.gui:setVisible('HeadingOptions', true)
-            self.gui:setVisible('OptionPredictive', true)
-            self.gui:setVisible('OptionPredictiveLabel', true)
-            self.gui:setVisible('OptionLocal', false)
-            self.gui:setVisible('OptionLocalLabel', false)
+	if _Unit then
+		for _, btnName in pairs(_UnitTable) do
+			self.gui:setButtonState(btnName, btnName:lower() == 'units' .. mode.unit)
+		end
+	end
 
-        elseif mode.target == 'distance' then
-            self.gui:setVisible('HeadingOptions', false)
-            self.gui:setVisible('OptionPredictive', false)
-            self.gui:setVisible('OptionPredictiveLabel', false)
-            self.gui:setVisible('OptionLocal', false)
-            self.gui:setVisible('OptionLocalLabel', false)
-        end
-    end
-
-    self.gui:setButtonState('OptionPredictive', mode.predictive)
-    self.gui:setVisible('OptionPredictiveCheck', mode.predictive)
-
-    self.gui:setButtonState('OptionLocal', mode.loc)
-    self.gui:setVisible('OptionLocalCheck', mode.loc)
-
-    self.gui:setText('FunctionNameText', mode.name)
+	self.gui:setText('FunctionNameText', mode.name)
     self.gui:setText('FunctionDescriptionText', (mode.description or '') .. (mode.extra or ''))
 end
 
