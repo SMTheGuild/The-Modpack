@@ -1526,10 +1526,26 @@
 				"lodList": [
 					{
 						"subMeshList": [
-							{
+							{ // controller
 								"textureList": [
-									"$MOD_DATA/Objects/Textures/memory_slots_dif.png",
-									"$MOD_DATA/Objects/Textures/memory_slots_asg.png",
+									"$CONTENT_b7443f95-67b7-4f1e-82f4-9bef0c62c4b3/Objects/Textures/partspawner_controller_dif.tga",
+									"$CONTENT_b7443f95-67b7-4f1e-82f4-9bef0c62c4b3/Objects/Textures/partspawner_controller_asg.tga",
+									"$CONTENT_b7443f95-67b7-4f1e-82f4-9bef0c62c4b3/Objects/Textures/partspawner_controller_nor.tga"
+								],
+								"material": "DifAsgNor"
+							},
+							{ // lights
+								"textureList": [
+									"$CONTENT_b7443f95-67b7-4f1e-82f4-9bef0c62c4b3/Objects/Textures/ps_lights_dif.png",
+									"$CONTENT_b7443f95-67b7-4f1e-82f4-9bef0c62c4b3/Objects/Textures/ps_lights_asg.png",
+									"$GAME_DATA/Textures/nonor_nor.tga"
+								],
+								"material": "2PoseAnimDifAsgNor"
+							},
+							{ // screen
+								"textureList": [
+									"$CONTENT_b7443f95-67b7-4f1e-82f4-9bef0c62c4b3/Objects/Textures/memory_slots_dif.png",
+									"$CONTENT_b7443f95-67b7-4f1e-82f4-9bef0c62c4b3/Objects/Textures/memory_slots_asg.png",
 									"$GAME_DATA/Textures/nonor_nor.tga"
 								],
 								"material": "UVAnimDifAsgNor",
@@ -1538,27 +1554,18 @@
 									"uv0": { "u": 0.0625, "v": 0.0625 }
 								}
 							},
-							{
+							{ // spawner
 								"textureList": [
-									"$MOD_DATA/Objects/Textures/ps_lights_dif.png",
-									"$MOD_DATA/Objects/Textures/ps_lights_asg.png",
-									"$GAME_DATA/Textures/nonor_nor.tga"
-								],
-								"material": "3PoseAnimDifAsgNor"
-							},
-							{
-								"textureList": [
-									"$CHALLENGE_DATA/Objects/Textures/interactive/obj_interactive_spawner_dif.tga",
-									"$CHALLENGE_DATA/Objects/Textures/interactive/obj_interactive_spawner_asg.tga",
-									"$MOD_DATA/Objects/Textures/obj_interactive_spawner_nor_test1.png"
+									"$CONTENT_b7443f95-67b7-4f1e-82f4-9bef0c62c4b3/Objects/Textures/partspawner_spawner_dif.tga",
+									"$CONTENT_b7443f95-67b7-4f1e-82f4-9bef0c62c4b3/Objects/Textures/partspawner_spawner_asg.tga",
+									"$CONTENT_b7443f95-67b7-4f1e-82f4-9bef0c62c4b3/Objects/Textures/partspawner_spawner_nor.tga"
 								],
 								"material": "DifAsgNor"
 							}
 						],
-						"mesh": "$MOD_DATA/Objects/Mesh/part_spawner_off.obj",
-						"pose0": "$MOD_DATA/Objects/Mesh/part_spawner_on.obj",
-						"pose1": "$MOD_DATA/Objects/Mesh/part_spawner_r.obj",
-						"pose2": "$MOD_DATA/Objects/Mesh/part_spawner_g.obj"
+						"mesh": "$MOD_DATA/Objects/Mesh/nick_PartSpawner_off.dae",
+						"pose0": "$MOD_DATA/Objects/Mesh/nick_PartSpawner_off.dae",
+						"pose1": "$MOD_DATA/Objects/Mesh/nick_PartSpawner_off.dae"
 					}
 				]
 			},
