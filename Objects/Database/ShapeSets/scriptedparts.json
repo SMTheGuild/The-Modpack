@@ -1564,8 +1564,8 @@
 							}
 						],
 						"mesh": "$MOD_DATA/Objects/Mesh/nick_PartSpawner_off.dae",
-						"pose0": "$MOD_DATA/Objects/Mesh/nick_PartSpawner_off.dae",
-						"pose1": "$MOD_DATA/Objects/Mesh/nick_PartSpawner_off.dae"
+						"pose0": "$MOD_DATA/Objects/Mesh/nick_PartSpawner_red.dae",
+						"pose1": "$MOD_DATA/Objects/Mesh/nick_PartSpawner_green.dae"
 					}
 				]
 			},
