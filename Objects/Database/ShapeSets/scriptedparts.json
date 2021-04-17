@@ -1528,24 +1528,24 @@
 						"subMeshList": [
 							{ // controller
 								"textureList": [
-									"$CONTENT_b7443f95-67b7-4f1e-82f4-9bef0c62c4b3/Objects/Textures/partspawner_controller_dif.tga",
-									"$CONTENT_b7443f95-67b7-4f1e-82f4-9bef0c62c4b3/Objects/Textures/partspawner_controller_asg.tga",
-									"$CONTENT_b7443f95-67b7-4f1e-82f4-9bef0c62c4b3/Objects/Textures/partspawner_controller_nor.tga"
+									"$MOD_DATA/Objects/Textures/partspawner_controller_dif.tga",
+									"$MOD_DATA/Objects/Textures/partspawner_controller_asg.tga",
+									"$MOD_DATA/Objects/Textures/partspawner_controller_nor.tga"
 								],
 								"material": "DifAsgNor"
 							},
 							{ // lights
 								"textureList": [
-									"$CONTENT_b7443f95-67b7-4f1e-82f4-9bef0c62c4b3/Objects/Textures/ps_lights_dif.png",
-									"$CONTENT_b7443f95-67b7-4f1e-82f4-9bef0c62c4b3/Objects/Textures/ps_lights_asg.png",
+									"$MOD_DATA/Objects/Textures/ps_lights_dif.png",
+									"$MOD_DATA/Objects/Textures/ps_lights_asg.png",
 									"$GAME_DATA/Textures/nonor_nor.tga"
 								],
 								"material": "2PoseAnimDifAsgNor"
 							},
 							{ // screen
 								"textureList": [
-									"$CONTENT_b7443f95-67b7-4f1e-82f4-9bef0c62c4b3/Objects/Textures/memory_slots_dif.png",
-									"$CONTENT_b7443f95-67b7-4f1e-82f4-9bef0c62c4b3/Objects/Textures/memory_slots_asg.png",
+									"$MOD_DATA/Objects/Textures/memory_slots_dif.png",
+									"$MOD_DATA/Objects/Textures/memory_slots_asg.png",
 									"$GAME_DATA/Textures/nonor_nor.tga"
 								],
 								"material": "UVAnimDifAsgNor",
@@ -1556,9 +1556,9 @@
 							},
 							{ // spawner
 								"textureList": [
-									"$CONTENT_b7443f95-67b7-4f1e-82f4-9bef0c62c4b3/Objects/Textures/partspawner_spawner_dif.tga",
-									"$CONTENT_b7443f95-67b7-4f1e-82f4-9bef0c62c4b3/Objects/Textures/partspawner_spawner_asg.tga",
-									"$CONTENT_b7443f95-67b7-4f1e-82f4-9bef0c62c4b3/Objects/Textures/partspawner_spawner_nor.tga"
+									"$MOD_DATA/Objects/Textures/partspawner_spawner_dif.tga",
+									"$MOD_DATA/Objects/Textures/partspawner_spawner_asg.tga",
+									"$MOD_DATA/Objects/Textures/partspawner_spawner_nor.tga"
 								],
 								"material": "DifAsgNor"
 							}
