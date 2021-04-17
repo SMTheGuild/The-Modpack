@@ -1526,7 +1526,23 @@
 				"lodList": [
 					{
 						"subMeshList": [
-							{
+							{ // controller
+								"textureList": [
+									"$MOD_DATA/Objects/Textures/partspawner_controller_dif.tga",
+									"$MOD_DATA/Objects/Textures/partspawner_controller_asg.tga",
+									"$MOD_DATA/Objects/Textures/partspawner_controller_nor.tga"
+								],
+								"material": "DifAsgNor"
+							},
+							{ // lights
+								"textureList": [
+									"$MOD_DATA/Objects/Textures/ps_lights_dif.png",
+									"$MOD_DATA/Objects/Textures/ps_lights_asg.png",
+									"$GAME_DATA/Textures/nonor_nor.tga"
+								],
+								"material": "2PoseAnimDifAsgNor"
+							},
+							{ // screen
 								"textureList": [
 									"$MOD_DATA/Objects/Textures/memory_slots_dif.png",
 									"$MOD_DATA/Objects/Textures/memory_slots_asg.png",
@@ -1538,27 +1554,18 @@
 									"uv0": { "u": 0.0625, "v": 0.0625 }
 								}
 							},
-							{
+							{ // spawner
 								"textureList": [
-									"$MOD_DATA/Objects/Textures/ps_lights_dif.png",
-									"$MOD_DATA/Objects/Textures/ps_lights_asg.png",
-									"$GAME_DATA/Textures/nonor_nor.tga"
-								],
-								"material": "3PoseAnimDifAsgNor"
-							},
-							{
-								"textureList": [
-									"$CHALLENGE_DATA/Objects/Textures/interactive/obj_interactive_spawner_dif.tga",
-									"$CHALLENGE_DATA/Objects/Textures/interactive/obj_interactive_spawner_asg.tga",
-									"$MOD_DATA/Objects/Textures/obj_interactive_spawner_nor_test1.png"
+									"$MOD_DATA/Objects/Textures/partspawner_spawner_dif.tga",
+									"$MOD_DATA/Objects/Textures/partspawner_spawner_asg.tga",
+									"$MOD_DATA/Objects/Textures/partspawner_spawner_nor.tga"
 								],
 								"material": "DifAsgNor"
 							}
 						],
-						"mesh": "$MOD_DATA/Objects/Mesh/part_spawner_off.obj",
-						"pose0": "$MOD_DATA/Objects/Mesh/part_spawner_on.obj",
-						"pose1": "$MOD_DATA/Objects/Mesh/part_spawner_r.obj",
-						"pose2": "$MOD_DATA/Objects/Mesh/part_spawner_g.obj"
+						"mesh": "$MOD_DATA/Objects/Mesh/nick_PartSpawner_off.dae",
+						"pose0": "$MOD_DATA/Objects/Mesh/nick_PartSpawner_red.dae",
+						"pose1": "$MOD_DATA/Objects/Mesh/nick_PartSpawner_green.dae"
 					}
 				]
 			},

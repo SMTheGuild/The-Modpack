@@ -13,7 +13,7 @@ BlockSpawner.connectionInput = sm.interactable.connectionType.logic + sm.interac
 BlockSpawner.connectionOutput = sm.interactable.connectionType.logic
 BlockSpawner.colorNormal = sm.color.new( 0x404040ff )
 BlockSpawner.colorHighlight = sm.color.new( 0x606060ff )
-BlockSpawner.poseWeightCount = 3
+BlockSpawner.poseWeightCount = 2
 
 BlockSpawner.measureDistance = 20
 
@@ -281,17 +281,16 @@ function BlockSpawner.client_setDisplay( self, value )
 end
 
 function BlockSpawner.client_setSelfEnabled( self, value )
-    --self.interactable:setPoseWeight(0, value and 1 or 0)
     self:client_setLightRedEnabled(not value)
     self:client_setLightGreenEnabled(value)
 end
 
 function BlockSpawner.client_setLightRedEnabled( self, value )
-    self.interactable:setPoseWeight(1, value and 1 or 0)
+    self.interactable:setPoseWeight(0, value and 1 or 0)
 end
 
 function BlockSpawner.client_setLightGreenEnabled( self, value )
-    self.interactable:setPoseWeight(2, value and 1 or 0)
+    self.interactable:setPoseWeight(1, value and 1 or 0)
 end
 
 
