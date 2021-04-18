@@ -665,7 +665,7 @@
 			"box": { "x": 1, "y": 1, "z": 1 },
 			"density": 250.0,
 			"physicsMaterial": "Metal",
-			 "scripted": { "filename": "$MOD_DATA/Scripts/interactable/NumberLogic/SmartTimer.lua", "classname": "SmartTimer",
+			"scripted": { "filename": "$MOD_DATA/Scripts/interactable/NumberLogic/SmartTimer.lua", "classname": "SmartTimer",
 				"data": {
 					"defaultDelay": 1
 				}
@@ -674,7 +674,19 @@
 		},
 		{
 			"uuid": "d3eda549-778f-432b-bf21-65a32ae53378", // keypad input
-			"renderable": { "lodList": [{ "subMeshList": [{ "textureList": [ "$MOD_DATA/Objects/Textures/keypad.png"], "material": "Dif" }], "mesh": "$MOD_DATA/Objects/Mesh/keypad.obj" }] },
+			"renderable": {
+				"lodList": [
+					{
+						"subMeshList": [
+							{
+								"textureList": ["$MOD_DATA/Objects/Textures/keypad.png"],
+								"material": "Dif"
+							}
+						],
+						"mesh": "$MOD_DATA/Objects/Mesh/keypad.obj"
+					}
+				]
+			},
 			"scripted" : { "filename": "$MOD_DATA/Scripts/interactable/Keypad.lua", "classname": "Keypad" },
 			"rotationSet": "PropZ",
 			"color": "df7f00",
@@ -1008,8 +1020,8 @@
 							}
 						],
 						"animationList" : [
-							{ "name" : "animY", "file": "$MOD_DATA/Objects/Mesh/WASDThruster.fbx" },
-							{ "name" : "animX", "file": "$MOD_DATA/Objects/Mesh/WASDThruster.fbx" }
+							{ "name" : "animY", "file": "$CONTENT_b7443f95-67b7-4f1e-82f4-9bef0c62c4b3/Objects/Mesh/WASDThruster.fbx" },
+							{ "name" : "animX", "file": "$CONTENT_b7443f95-67b7-4f1e-82f4-9bef0c62c4b3/Objects/Mesh/WASDThruster.fbx" }
 						]
 					}
 				]
@@ -1040,8 +1052,8 @@
 						"mesh": "$MOD_DATA/Objects/Mesh/gymbal_thruster.mesh",
 						"includes": [ "POSITION", "UV0", "NORMAL", "TANGENT", "BLEND_INDICES", "BLEND_WEIGHTS" ],
 						"animationList" : [
-							{ "name" : "animZ", "file": "$MOD_DATA/Objects/Mesh/gymbal_thruster.mesh" },
-							{ "name" : "animX", "file": "$MOD_DATA/Objects/Mesh/gymbal_thruster.mesh" }
+							{ "name" : "animZ", "file": "$CONTENT_b7443f95-67b7-4f1e-82f4-9bef0c62c4b3/Objects/Mesh/gymbal_thruster.mesh" },
+							{ "name" : "animX", "file": "$CONTENT_b7443f95-67b7-4f1e-82f4-9bef0c62c4b3/Objects/Mesh/gymbal_thruster.mesh" }
 						]
 					}
 				]
@@ -1189,7 +1201,9 @@
 						],
 						"mesh": "$MOD_DATA/Objects/Mesh/ScrappyWing4x4x1.fbx",
 						"includes": [ "POSITION", "UV0", "NORMAL", "TANGENT", "BLEND_INDICES", "BLEND_WEIGHTS" ],
-						"animationList" : [ { "name" : "Flap", "file": "$MOD_DATA/Objects/Mesh/ScrappyWing4x4x1.fbx" } ]
+						"animationList" : [
+							{ "name" : "Flap", "file": "$CONTENT_b7443f95-67b7-4f1e-82f4-9bef0c62c4b3/Objects/Mesh/ScrappyWing4x4x1.fbx" }
+						]
 					}
 				]
 			},
@@ -1223,7 +1237,6 @@
 					{ "x": 1,	"y": -1, 	"z": -0.8 },
 					{ "x": 1,	"y": -0.5, 	"z": 0 },
 					{ "x": 1,	"y": 0.5, 	"z": 0 },
-
 					{ "x": -1, 	"y": 0, 	"z": 1 },
 					{ "x": -1, 	"y": 0, 	"z": -1 },
 					{ "x": -1,	"y": 1, 	"z": -0.8 },
@@ -1250,7 +1263,9 @@
 						],
 						"mesh": "$MOD_DATA/Objects/Mesh/ScrappyWing1x1x1.fbx",
 						"includes": [ "POSITION", "UV0", "NORMAL", "TANGENT", "BLEND_INDICES", "BLEND_WEIGHTS" ],
-						"animationList" : [ { "name" : "Rotation", "file": "$MOD_DATA/Objects/Mesh/ScrappyWing1x1x1.fbx" } ]
+						"animationList" : [
+							{ "name" : "Rotation", "file": "$CONTENT_b7443f95-67b7-4f1e-82f4-9bef0c62c4b3/Objects/Mesh/ScrappyWing1x1x1.fbx" }
+						]
 					}
 				]
 			},
@@ -1511,7 +1526,23 @@
 				"lodList": [
 					{
 						"subMeshList": [
-							{
+							{ // controller
+								"textureList": [
+									"$MOD_DATA/Objects/Textures/partspawner_controller_dif.tga",
+									"$MOD_DATA/Objects/Textures/partspawner_controller_asg.tga",
+									"$MOD_DATA/Objects/Textures/partspawner_controller_nor.tga"
+								],
+								"material": "DifAsgNor"
+							},
+							{ // lights
+								"textureList": [
+									"$MOD_DATA/Objects/Textures/ps_lights_dif.png",
+									"$MOD_DATA/Objects/Textures/ps_lights_asg.png",
+									"$GAME_DATA/Textures/nonor_nor.tga"
+								],
+								"material": "2PoseAnimDifAsgNor"
+							},
+							{ // screen
 								"textureList": [
 									"$MOD_DATA/Objects/Textures/memory_slots_dif.png",
 									"$MOD_DATA/Objects/Textures/memory_slots_asg.png",
@@ -1523,27 +1554,18 @@
 									"uv0": { "u": 0.0625, "v": 0.0625 }
 								}
 							},
-							{
+							{ // spawner
 								"textureList": [
-									"$MOD_DATA/Objects/Textures/ps_lights_dif.png",
-									"$MOD_DATA/Objects/Textures/ps_lights_asg.png",
-									"$GAME_DATA/Textures/nonor_nor.tga"
-								],
-								"material": "3PoseAnimDifAsgNor"
-							},
-							{
-								"textureList": [
-									"$CHALLENGE_DATA/Objects/Textures/interactive/obj_interactive_spawner_dif.tga",
-									"$CHALLENGE_DATA/Objects/Textures/interactive/obj_interactive_spawner_asg.tga",
-									"$MOD_DATA/Objects/Textures/obj_interactive_spawner_nor_test1.png"
+									"$MOD_DATA/Objects/Textures/partspawner_spawner_dif.tga",
+									"$MOD_DATA/Objects/Textures/partspawner_spawner_asg.tga",
+									"$MOD_DATA/Objects/Textures/partspawner_spawner_nor.tga"
 								],
 								"material": "DifAsgNor"
 							}
 						],
-						"mesh": "$MOD_DATA/Objects/Mesh/part_spawner_off.obj",
-						"pose0": "$MOD_DATA/Objects/Mesh/part_spawner_on.obj",
-						"pose1": "$MOD_DATA/Objects/Mesh/part_spawner_r.obj",
-						"pose2": "$MOD_DATA/Objects/Mesh/part_spawner_g.obj"
+						"mesh": "$MOD_DATA/Objects/Mesh/nick_PartSpawner_off.dae",
+						"pose0": "$MOD_DATA/Objects/Mesh/nick_PartSpawner_red.dae",
+						"pose1": "$MOD_DATA/Objects/Mesh/nick_PartSpawner_green.dae"
 					}
 				]
 			},
