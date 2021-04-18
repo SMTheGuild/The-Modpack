@@ -782,7 +782,7 @@
 					{ "name": "LeftForeArm", "offset": { "x": 1.5, "y": -0.5, "z": 1.5 }, "freeRotation": true },
 					{ "name": "RightForeArm", "offset": { "x": -1.5, "y": -0.5, "z": 1.5 }, "freeRotation": true }
 				],
-				"ragdollFile": "$MOD_DATA/Character/bed_ragdoll.json",
+				"ragdollFile": "$CONTENT_b7443f95-67b7-4f1e-82f4-9bef0c62c4b3/Character/bed_ragdoll.json",
 				"steerAngle": 35.0,
 				"enterAudio": "Seat seated",
 				"exitAudio": "Seat unseated"
@@ -1759,7 +1759,7 @@
 			},
 			"physicsMaterial": "Plastic",
 			"sticky": "-X+X-Y+Y-Z",
-			"spotLight": { 
+			"spotLight": {
 				"defaultLuminance": 50,
 				"effect": "ModHeadLight"
 			},
@@ -1823,9 +1823,9 @@
 			},
 			"physicsMaterial": "Plastic",
 			"sticky": "-X+X-Y+Y-Z",
-			"spotLight": { 
-				"defaultLuminance": 50, 
-				"effect": "ModHeadLight" 
+			"spotLight": {
+				"defaultLuminance": 50,
+				"effect": "ModHeadLight"
 			},
 			"ratings": {
 				"density": 2,
@@ -1887,8 +1887,8 @@
 			},
 			"physicsMaterial": "Plastic",
 			"sticky": "-X+X-Y+Y-Z",
-			"spotLight": { 
-				"defaultLuminance": 50, 
+			"spotLight": {
+				"defaultLuminance": 50,
 				"effect": "ModHeadLight"
 			},
 			"ratings": {
