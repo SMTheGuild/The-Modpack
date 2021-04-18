@@ -4,7 +4,7 @@
 ]]--
 dofile "../../libs/load_libs.lua"
 
-mpPrint("loading Jammer.lua")
+print("loading Jammer.lua")
 
 -- Jammer.lua --
 Jammer = class( nil )

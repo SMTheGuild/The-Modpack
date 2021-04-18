@@ -4,7 +4,7 @@
 ]]--
 dofile "../../libs/load_libs.lua"
 
-mpPrint("loading SmartTimer.lua")
+print("loading SmartTimer.lua")
 
 -- SmartTimer.lua --
 SmartTimer = class( nil )

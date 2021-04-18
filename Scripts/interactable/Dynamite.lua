@@ -4,7 +4,7 @@
 ]]--
 dofile "../libs/load_libs.lua"
 
-mpPrint("loading Dynamite.lua")
+print("loading Dynamite.lua")
 
 Dynamite = class( nil )
 Dynamite.maxChildCount = -1

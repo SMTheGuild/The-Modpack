@@ -2,7 +2,7 @@ dofile "../libs/debugger.lua"
 
 dofile("../util/shape_database.lua")
 
-mpPrint("loading BlockSpawner.lua")
+print("loading BlockSpawner.lua")
 
 
 -- BlockSpawner.lua --

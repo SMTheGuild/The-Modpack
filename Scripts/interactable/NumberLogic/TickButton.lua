@@ -5,7 +5,7 @@
 dofile "../../libs/load_libs.lua"
 
 
-mpPrint("loading TickButton.lua")
+print("loading TickButton.lua")
 
 
 TickButton = class( nil )

@@ -4,7 +4,7 @@
 ]]--
 dofile "../../libs/load_libs.lua"
 
-mpPrint("loading ColorBlock.lua")
+print("loading ColorBlock.lua")
 
 
 ColorBlock = class( nil )

@@ -4,7 +4,7 @@
 ]]--
 dofile "../../libs/load_libs.lua"
 
-mpPrint("loading TimeBlock.lua")
+print("loading TimeBlock.lua")
 
 TimeBlock = class( nil )
 TimeBlock.maxParentCount = 0

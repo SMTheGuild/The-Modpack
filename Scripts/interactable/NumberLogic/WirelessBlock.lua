@@ -4,7 +4,7 @@
 ]]--
 dofile "../../libs/load_libs.lua"
 
-mpPrint("loading WirelessBlock.lua")
+print("loading WirelessBlock.lua")
 
 -- WirelessBlock.lua --
 WirelessBlock = class( nil )

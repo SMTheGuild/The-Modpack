@@ -4,7 +4,7 @@
 ]]--
 dofile "../../libs/load_libs.lua"
 
-mpPrint("loading NumberBlock.lua")
+print("loading NumberBlock.lua")
 
 
 -- decimal module

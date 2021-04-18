@@ -4,7 +4,7 @@
 ]]--
 dofile "../../libs/load_libs.lua"
 
-mpPrint("loading Radar2D.lua")
+print("loading Radar2D.lua")
 
 
 

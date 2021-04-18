@@ -4,7 +4,7 @@
 ]]--
 dofile "../../libs/load_libs.lua"
 
-mpPrint("loading Orienter.lua")
+print("loading Orienter.lua")
 
 local known_mobs = {
 	hostile = {

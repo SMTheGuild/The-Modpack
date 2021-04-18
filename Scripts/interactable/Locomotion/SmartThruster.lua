@@ -4,7 +4,7 @@
 ]]--
 dofile "../../libs/load_libs.lua"
 
-mpPrint("loading SmartThruster.lua")
+print("loading SmartThruster.lua")
 
 
 SmartThruster = class( nil )

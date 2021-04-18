@@ -4,7 +4,7 @@
 ]]--
 dofile "../libs/load_libs.lua"
 
-mpPrint("loading ToneGenerator.lua")
+print("loading ToneGenerator.lua")
 
 
 ToneGenerator = class( nil )
