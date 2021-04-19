@@ -7,7 +7,7 @@
 
 <h3 align="center">
   <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2448492759">
-    <img src="https://img.shields.io/steam/subscriptions/2448492759?style=for-the-badge&logo=steam">
+    <img src="https://img.shields.io/steam/downloads/2448492759?style=for-the-badge&logo=steam">
     <img src="https://img.shields.io/steam/favorites/2448492759?style=for-the-badge&logo=steam">
   </a>
   <a href="https://discord.gg/SVEFyus">
@@ -27,13 +27,13 @@
   Links<br><br>
   <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2448492759">
     <code>Maintained version</code><br>
-    <img src="https://img.shields.io/steam/subscriptions/2448492759?style=flat">
+    <img src="https://img.shields.io/steam/downloads/2448492759?style=flat">
     <img src="https://img.shields.io/steam/favorites/2448492759?style=flat"><br>
   </a>
   <br><br>
   <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=881254777">
     <code>Deprecated version</code><br>
-    <img src="https://img.shields.io/steam/subscriptions/881254777?style=flat">
+    <img src="https://img.shields.io/steam/downloads/881254777?style=flat">
     <img src="https://img.shields.io/steam/favorites/881254777?style=flat"><br>
   </a>
 </h3>
