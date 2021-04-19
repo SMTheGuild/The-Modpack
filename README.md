@@ -26,13 +26,13 @@
 <h3 align="center">
   Links<br><br>
   <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2448492759">
-    <code>Maintained version</code><br>
+    <code>New workshop item</code><br>
     <img src="https://img.shields.io/steam/downloads/2448492759?style=flat">
     <img src="https://img.shields.io/steam/favorites/2448492759?style=flat"><br>
   </a>
   <br><br>
   <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=881254777">
-    <code>Deprecated version</code><br>
+    <code>Original workshop item</code><br>
     <img src="https://img.shields.io/steam/downloads/881254777?style=flat">
     <img src="https://img.shields.io/steam/favorites/881254777?style=flat"><br>
   </a>
