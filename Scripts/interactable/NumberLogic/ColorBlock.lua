@@ -6,7 +6,6 @@ dofile "../../libs/load_libs.lua"
 
 print("loading ColorBlock.lua")
 
-
 ColorBlock = class( nil )
 ColorBlock.maxParentCount = 7
 ColorBlock.maxChildCount = -1
@@ -234,27 +233,6 @@ function ColorBlock.server_onFixedUpdate( self, dt )
             end
         end
 	end
-	
-	
-
-	-- temp fix to remove glow/spec/refl
-	for k, v in pairs(parents) do
-		local _pUuid = tostring(v:getShape():getShapeUuid())
-		if _pUuid == "921a2ace-b543-4ca3-8a9b-6f3dd3132fa9" --[[rgb block]] then break end
-		local _pColor = tostring(v:getShape():getColor())
-		if _pColor == "eeeeeeff" then -- glow
-			v:disconnect(self.interactable)
-			self.network:sendToClients("client_giveError", "glow feature currently not supported untill the devs fix this.")
-		elseif _pColor == "7f7f7fff" then -- reflection
-			v:disconnect(self.interactable)
-			self.network:sendToClients("client_giveError", "reflection feature currently not supported untill the devs fix this.")
-		elseif _pColor == "222222ff" then -- specular
-			v:disconnect(self.interactable)
-			self.network:sendToClients("client_giveError", "specular feature currently not supported untill the devs fix this.")
-		end
-	end
-
-
     
 	self.color = color
 	self.interactable:setPower(self.power)
@@ -262,16 +240,10 @@ function ColorBlock.server_onFixedUpdate( self, dt )
 end
 
 function ColorBlock.client_onCreate(self)
-	--self.interactable:setGlowMultiplier(0)
+	self.interactable:setGlowMultiplier(0)
 	self.glowinput = 0 -- glow of this block , turn connected lamps on/off based on this.
 end
 
-
-function ColorBlock.client_giveError(self, error)
-	sm.gui.displayAlertText(error)
-end
-
---[[
 function ColorBlock.client_onFixedUpdate( self, dt )
 	local uv = 0
 	local parentrgb = nil
@@ -290,8 +262,8 @@ function ColorBlock.client_onFixedUpdate( self, dt )
 		end
 	end
 
-	self.interactable:setGlowMultiplier(self.glowinput * math.random()/100) -- why do i have to throw in a random amount in order to get an updated value? why does glow reset to 1 when the color changes???? 
+	self.interactable:setGlowMultiplier(self.glowinput)
 	if not parentrgb then
 		self.interactable:setUvFrameIndex(uv)
 	end
-end]]
+end
