@@ -36,11 +36,6 @@
     <img src="https://img.shields.io/steam/subscriptions/881254777?style=flat">
     <img src="https://img.shields.io/steam/favorites/881254777?style=flat"><br>
   </a>
-  <br><br>
-  <a href="https://discord.gg/SVEFyus">
-    <code>Discussion chat</code><br>
-    <img src="https://img.shields.io/discord/706444957099098162?color=yellow&label=get%20support%20here&logo=discord&logoColor=FFFFFF">
-  </a>
 </h3>
 
 <hr>
