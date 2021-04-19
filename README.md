@@ -52,7 +52,7 @@
   Contributing<br><br>
 </h3>
 <p>
-  Anyone is welcome to contribute to The Modpack!<img align="right" src="https://img.shields.io/github/contributors-anon/SMTheGuild/The-Modpack"><br>
-  However, we do have a set of guidelines for contributors.<img align="right" src="https://img.shields.io/github/issues-pr-raw/SMTheGuild/The-Modpack"><br>
-  You can view them <a href="https://example.com">here.<img align="right" src="https://img.shields.io/github/issues-pr-closed-raw/SMTheGuild/The-Modpack">
+  Anyone is welcome to contribute to The Modpack!<a href="https://github.com/SMTheGuild/The-Modpack/graphs/contributors"><img align="right" src="https://img.shields.io/github/contributors-anon/SMTheGuild/The-Modpack"></a><br>
+  However, we do have a set of guidelines for contributors.<a href="https://github.com/SMTheGuild/The-Modpack/pulls?q=is%3Aopen+is%3Apr"><img align="right" src="https://img.shields.io/github/issues-pr-raw/SMTheGuild/The-Modpack"></a><br>
+  You can view them <a href="https://example.com">here.</a><a href="https://github.com/SMTheGuild/The-Modpack/pulls?q=is%3Apr+is%3Aclosed"><img align="right" src="https://img.shields.io/github/issues-pr-closed-raw/SMTheGuild/The-Modpack"></a>
 </p>
