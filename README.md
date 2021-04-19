@@ -16,6 +16,7 @@
   <br>
   <a href="https://github.com/SMTheGuild/The-Modpack/releases/latest">
     <img src="https://img.shields.io/github/v/release/SMTheGuild/The-Modpack?include_prereleases&label=latest%20release&logo=github&style=for-the-badge">
+    <img src="https://img.shields.io/badge/game%20version-0.5.1-success?style=for-the-badge">
     <img src="https://img.shields.io/github/release-date-pre/SMTheGuild/The-Modpack?label=from&style=for-the-badge">
   </a>
 </h3>
@@ -28,14 +29,12 @@
     <code>Maintained version</code><br>
     <img src="https://img.shields.io/steam/subscriptions/2448492759?style=flat">
     <img src="https://img.shields.io/steam/favorites/2448492759?style=flat"><br>
-    <img src="https://img.shields.io/badge/game%20version-0.5.1%2B-success?style=flat">
   </a>
   <br><br>
   <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=881254777">
     <code>Deprecated version</code><br>
     <img src="https://img.shields.io/steam/subscriptions/881254777?style=flat">
     <img src="https://img.shields.io/steam/favorites/881254777?style=flat"><br>
-    <img src="https://img.shields.io/badge/game%20version-%3C0.4.6-important?style=flat">
   </a>
   <br><br>
   <a href="https://discord.gg/SVEFyus">
