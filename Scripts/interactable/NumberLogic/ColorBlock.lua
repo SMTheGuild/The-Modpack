@@ -18,7 +18,6 @@ ColorBlock.poseWeightCount = 1
 function ColorBlock.server_onCreate( self ) 
 	self.power = 0
 	self.glowinput = 0 -- glow of this block , turn connected lamps on/off based on this.
-    self.shape.color = sm.color.new(0, 0, 0, 1)
 end
 function ColorBlock.server_onProjectile(self, X, hits, four)
 	local red = math.random(0,255)
@@ -243,14 +242,13 @@ end
 function ColorBlock.client_onCreate(self)
 	self.interactable:setGlowMultiplier(0)
 	self.glowinput = 0 -- glow of this block , turn connected lamps on/off based on this.
-    self.shape.color = sm.color.new(0, 0, 0, 1)
 end
 
 function ColorBlock.client_onFixedUpdate( self, dt )
 	local uv = 0
 	local parentrgb = nil
 	local parents = self.interactable:getParents()
-	for k, v in pairs(parents) do -- dj here, tf is this?
+	for k, v in pairs(parents) do
 		if tostring(v.shape:getShapeUuid()) == "921a2ace-b543-4ca3-8a9b-6f3dd3132fa9"  then --rgb block
 			self.interactable:setUvFrameIndex(v:getUvFrameIndex())
 			self.glowinput = v:getGlowMultiplier()
@@ -263,10 +261,9 @@ function ColorBlock.client_onFixedUpdate( self, dt )
 			uv = uv + math.max(0,math.min(255,v.power))*256
 		end
 	end
-    
-    if not parentrgb then
+
+	self.interactable:setGlowMultiplier(self.glowinput + math.random()/1000000) -- why do i have to throw in a random amount in order to get an updated value? why does glow reset to 1 when the color changes???? 
+	if not parentrgb then
 		self.interactable:setUvFrameIndex(uv)
-        self.glowinput = (self.shape.color.r*0.2126) + (self.shape.color.g*0.7152) + (self.shape.color.b*0.0772)
 	end
-    self.interactable:setGlowMultiplier(self.glowinput)
 end
