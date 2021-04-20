@@ -262,7 +262,7 @@ function ColorBlock.client_onFixedUpdate( self, dt )
 		end
 	end
 
-	self.interactable:setGlowMultiplier(self.glowinput)
+	self.interactable:setGlowMultiplier(self.glowinput + math.random()/1000000) -- why do i have to throw in a random amount in order to get an updated value? why does glow reset to 1 when the color changes???? 
 	if not parentrgb then
 		self.interactable:setUvFrameIndex(uv)
 	end
