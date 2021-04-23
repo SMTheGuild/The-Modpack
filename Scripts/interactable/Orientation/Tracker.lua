@@ -4,7 +4,7 @@
 ]]--
 dofile "../../libs/load_libs.lua"
 
-mpPrint("loading Tracker.lua")
+print("loading Tracker.lua")
 
 -- Tracker.lua --
 Tracker = class( nil )

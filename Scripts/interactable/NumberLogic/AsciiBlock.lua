@@ -4,7 +4,7 @@
 ]]--
 dofile "../../libs/load_libs.lua"
 
-mpPrint("loading AsciiBlock.lua")
+print("loading AsciiBlock.lua")
 
 
 -- AsciiBlock.lua --
@@ -310,7 +310,7 @@ function AsciiBlock.server_onCreate( self )
 	local stored = self.storage:load()
 	if stored then
 		if type(stored) == "number" then
-			mpPrint('loading old version data')
+			print('loading old version data')
 			self.power = AsciiBlock.savemodes[stored] or 0
 			--for k, v in pairs(AsciiBlock001) do
 			--	self[k] = v

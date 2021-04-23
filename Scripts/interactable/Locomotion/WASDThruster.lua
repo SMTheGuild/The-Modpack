@@ -4,7 +4,7 @@
 ]]--
 dofile "../../libs/load_libs.lua"
 
-mpPrint("loading WASDThruster.lua")
+print("loading WASDThruster.lua")
 
 WASDThruster = class( nil )
 WASDThruster.maxParentCount = -1

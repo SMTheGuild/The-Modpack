@@ -4,7 +4,7 @@
 ]]--
 dofile "../../libs/load_libs.lua"
 
-mpPrint("loading SmartControl.lua")
+print("loading SmartControl.lua")
 
 
 SmartControl = class( nil )

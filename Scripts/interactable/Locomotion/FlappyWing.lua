@@ -3,7 +3,7 @@
 ]]--
 dofile "../../libs/load_libs.lua"
 
-mpPrint("loading FlappyWing.lua")
+print("loading FlappyWing.lua")
 
 dofile("airfoil.lua")
 

@@ -5,7 +5,7 @@
 dofile "../../libs/load_libs.lua"
 
 
-mpPrint("loading MemoryPanel.lua")
+print("loading MemoryPanel.lua")
 
 local memorypanels = {}
 

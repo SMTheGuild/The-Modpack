@@ -4,7 +4,7 @@
 ]]--
 dofile "../../libs/load_libs.lua"
 
-mpPrint("loading Radar3D.lua")
+print("loading Radar3D.lua")
 
 
 Radar3D = class( nil )

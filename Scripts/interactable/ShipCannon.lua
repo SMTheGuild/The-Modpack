@@ -4,7 +4,7 @@
 dofile "../libs/load_libs.lua"
 
 
-mpPrint("loading ShipCannon.lua")
+print("loading ShipCannon.lua")
 
 
 -- Barrel1 1x --

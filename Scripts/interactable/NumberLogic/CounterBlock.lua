@@ -4,7 +4,7 @@
 ]]--
 dofile "../../libs/load_libs.lua"
 
-mpPrint("loading CounterBlock.lua")
+print("loading CounterBlock.lua")
 
 
 -- CounterBlock.lua --

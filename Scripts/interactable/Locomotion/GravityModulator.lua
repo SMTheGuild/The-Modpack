@@ -10,7 +10,7 @@
 ]]--
 dofile "../../libs/load_libs.lua"
 
-mpPrint("loading GravityModulator.lua")
+print("loading GravityModulator.lua")
 
 gravcreation = class( nil )
 gravcreation.maxChildCount = 0

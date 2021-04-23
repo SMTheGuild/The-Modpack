@@ -5,7 +5,7 @@
 dofile "../../libs/load_libs.lua"
 
 
-mpPrint("loading Gimball.lua")
+print("loading Gimball.lua")
 
 Gimball = class()
 Gimball.maxParentCount = -1

@@ -4,7 +4,7 @@
 ]]--
 dofile "../../libs/load_libs.lua"
 
-mpPrint("loading LaserSight.lua")
+print("loading LaserSight.lua")
 
 
 LaserSight = class( nil )
