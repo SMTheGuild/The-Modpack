@@ -389,7 +389,7 @@
 	},
 	"ccaa33b6-e5bb-4edc-9329-b40f6efe2c9e": {
 		"title": "Orientation Block",
-		"description": "This block will output orientation information. Use with a motor with bearings, thrusters, anything you need to align this block with your target! Target the world, player, tracker block, and more! Additional distance reading! Connect to WS and AD convertes from the Math Block.",
+		"description": "This block will output orientation information. Use with a motor with bearings, thrusters, anything you need to align this block with your target! Target the world, player, tracker block, and more! Additional distance reading! Connect to WS and AD convertes from the Math Block. Press E to choose sensor mode.",
 		"keywords": [ "modpack", "smart", "logic", "orient", "orientation", "angle", "direction", "camera", "control", "ai", "computer", "auto", "automatic", "npc", "world", "player", "tracker", "track", "detect", "distance", "target", "range", "line", "point", "coordinate", "balance" ]
 	},
 
@@ -411,7 +411,7 @@
 	},
 	"289e08ef-e3d8-4f1b-bc10-a0bcf36fa0ce": {
 		"title": "Math Block\n(Function Block)",
-		"description": "Many functions included! Press E to cycle through the functions! CTRL+E to cycle backwards.\nConnect inputs and perform functions for an output in number format\nSpecify order of operations with white/black colored inputs\nIncludes seat functions and memory bit",
+		"description": "Many functions included! Press E to open a GUI to choose the function!\nConnect inputs and perform functions for an output in number format\nSpecify order of operations with white/black colored inputs\nIncludes seat functions and memory bit",
 		"keywords": [ "modpack", "smart", "logic", "number", "function", "arithmetic", "add", "minus", "invert", "negative", "subtract", "multiply", "product", "division", "divide", "ratio", "compare", "convert", "less", "greater", "<", ">", "equal", "not", "unequal", "value", "wasd", "seat", "control", "ws", "ad", "operation", "hypotenuse", "sine", "sin", "cos", "cosine", "tangent", "tan", "inverse", "arc", "trig", "trigonometry", "line", "point", "coordinate", "round", "up", "down", "steering", "drive", "random", "pi", "euler", "constant", "exponent", "root", "square", "min", "max", "log", "modulus", "mod", "memory", "bit", "factor", "factorial", "flip", "switch", "digital" ]
 	},
 	"b39faec9-1ed0-4475-8bc0-78d125df1b58": {
