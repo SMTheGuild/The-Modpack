@@ -489,7 +489,7 @@ function Orienter.getFarmbot(self, data)
 	end
 
 	if closestvalidid == nil then return 0 end
-	if offset == 1 or #validplayers == 1 then return closestvalidid end
+	if offset == 1 or #validfarmbots == 1 then return closestvalidid end
 
 	local sortedfarmbots = validfarmbots
 	for i = 1, #sortedfarmbots do
