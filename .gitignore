@@ -1,3 +1,4 @@
+# this .gitignore makes it possible to easily switch between dev/master/gh-pages branches without issues.
 /cache/
 description.json
 preview.png
