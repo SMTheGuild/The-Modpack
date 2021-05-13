@@ -9,7 +9,7 @@
   <a href="https://github.com/SMTheGuild/The-Modpack/releases/latest">
     <img src="https://img.shields.io/github/v/release/SMTheGuild/The-Modpack?include_prereleases&label=latest%20release&logo=github&style=for-the-badge"></a>
 
-  <a>
+  <a href="#readme.md">
     <img src="https://img.shields.io/github/release-date-pre/SMTheGuild/The-Modpack?label=from&style=for-the-badge">
     <img src="https://img.shields.io/badge/game%20version-0.5.1-success?style=for-the-badge">
   </a>
@@ -35,15 +35,19 @@
     <code>Steam: The Modpack Continuation</code>
   </a>
   <br>
-  <img src="https://img.shields.io/steam/downloads/2448492759?style=flat">
-  <img src="https://img.shields.io/steam/favorites/2448492759?style=flat">
+  <a href="#readme.md">
+    <img src="https://img.shields.io/steam/downloads/2448492759?style=flat">
+    <img src="https://img.shields.io/steam/favorites/2448492759?style=flat">
+  </a>
   <br><br><br>
   <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=881254777">
     <code>Steam: The Modpack</code>
   </a>
   <br>
-  <img src="https://img.shields.io/steam/downloads/881254777?style=flat">
-  <img src="https://img.shields.io/steam/favorites/881254777?style=flat">
+  <a href="#readme.md">
+    <img src="https://img.shields.io/steam/downloads/881254777?style=flat">
+    <img src="https://img.shields.io/steam/favorites/881254777?style=flat">
+  </a>
 </h3>
 <br>
 
