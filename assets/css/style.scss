@@ -1,0 +1,18 @@
+//@import 'highlighting';
+
+.body {
+  //padding: 20px;
+  color: var(--color-text-primary);
+}
+
+.improve {
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  padding: 15px 0 15px 0;
+
+  .help-text {
+    font-style: italic;
+    margin-top: .5em;
+    font-size: 1.1em;
+  }
+}
