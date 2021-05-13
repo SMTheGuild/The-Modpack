@@ -7,15 +7,15 @@ permalink: /contributing/
 
 ## Index
 
-* [Index](contributing.md#Index)
-* [How do I contribute](contributing.md#How-do-I-contribute)
-  * [Create issues](contributing.md#Create-issues)
-  * [Contribute code](contributing.md#Contribute-code)
-* [Guidelines](contributing.md#Guidelines)
-  * [Naming convensions](contributing.md#Naming-convensions)
-  * [Folder structure](contributing.md#Folder-structure)
-  * [Source control](contributing.md#Source-control)
-  * [Pull Request == feature](contributing.md#Pull-Request--feature)
+* [Index](CONTRIBUTING#Index)
+* [How do I contribute](CONTRIBUTING#How-do-I-contribute)
+  * [Create issues](CONTRIBUTING#Create-issues)
+  * [Contribute code](CONTRIBUTING#Contribute-code)
+* [Guidelines](CONTRIBUTING#Guidelines)
+  * [Naming convensions](CONTRIBUTING#Naming-convensions)
+  * [Folder structure](CONTRIBUTING#Folder-structure)
+  * [Source control](CONTRIBUTING#Source-control)
+  * [Pull Request == feature](CONTRIBUTING#Pull-Request--feature)
 
 
 ## How do I contribute?
