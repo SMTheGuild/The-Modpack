@@ -1,4 +1,4 @@
-# Contribe to The Modpack
+# Contribute to The Modpack
 
 You can find more information about The Modpack [here](https://brentbatch.github.io/The-Modpack/).
 
