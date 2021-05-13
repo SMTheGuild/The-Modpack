@@ -39,7 +39,7 @@ Even contributing to this *contributing guidelines* file is possible!
       <li>
         Fork the <a href="https://github.com/SMTheGuild/The-Modpack">'The Modpack'</a> repository.
         <br>
-        <img src="/The-Modpack/assets/img/fork.png" alt="fork.png" data-zoom-image>
+        <img src="/The-Modpack/assets/img/fork.png" alt="fork.png">
       </li>
       <li>
         Clone your forked repository.
