@@ -109,7 +109,7 @@ If a Lua file defines a class, it should be named ``<ClassName>.lua``.
 
 Before you start working on your own changes make sure to pull the latest **upstream** changes. (Changes on the SMTheGuild 'The Modpack' repository)  
 You can do this by going to your forked repository in browser and clicking the 'Fetch upstream' button.  
-:warning: Only applies to you if your forked repository (dev!) is ***behind*** of ``SMTheGuild:dev``!
+<g-emoji class="g-emoji" alias="warning" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/26a0.png">⚠️</g-emoji> Only applies to you if your forked repository (dev!) is ***behind*** of ``SMTheGuild:dev``!
 
 <details>
   <summary>GitHub screenshot</summary>
