@@ -1,6 +1,6 @@
 # Contribute to The Modpack
 
-You can find more information about The Modpack [here](https://brentbatch.github.io/The-Modpack/).
+You can find more information about The Modpack [here](https://SMTheGuild.github.io/The-Modpack/).
 
 ## Index
 
@@ -8,9 +8,11 @@ You can find more information about The Modpack [here](https://brentbatch.github
 * [How do I contribute](#How-do-I-contribute)
   * [Create issues](#Create-issues)
   * [Contribute code](#Contribute-code)
-* [Coding guidelines](#Coding-guidelines)
+* [Guidelines](#Guidelines)
   * [Naming convensions](#Naming-convensions)
   * [Folder structure](#Folder-structure)
+  * [Source control](#Source-control)
+  * [Pull Request = feature](#Pull-Request-=-feature)
 
 
 ## How do I contribute?
@@ -37,7 +39,7 @@ If you want to add features, fix bugs, or do any other changes. you can do so!
 Even contributing to this *contributing guidelines* file is possible!
 
 <details>
-  <summary><b>Contribution tutorial</b></summary>
+  <summary>Click to show a <b>Contribution tutorial</b></summary>
   
   1. Create or login to [Github](https://github.com/login).
   2. Download [Github Desktop](https://desktop.github.com/).
@@ -58,7 +60,7 @@ Even contributing to this *contributing guidelines* file is possible!
     ![commit.png](img/commit.png)
   8. If you are happy with your changes you can open a pull request.  
     A. Go to your forked repository page (example: https://github.com/brentbatch/The-Modpack/)  
-    B. Open the tab 'pull requests'  
+    B. Open the tab 'Pull Requests'  
     C. Click 'new pull request'  
     D. Select the 'dev' branch for both repositories as shown below  
     E. Click 'Create pull request'  
@@ -67,7 +69,7 @@ Even contributing to this *contributing guidelines* file is possible!
     
 </details>
 
-## Coding guidelines
+## Guidelines
 
 ### Naming convensions
 
@@ -81,3 +83,30 @@ If a Lua file defines a class, it should be named ``<ClassName>.lua``.
 **Tool class** files should be located in ``Scripts/tool/``.  
 **Libraries and utility scripts** should be located in ``Scripts/libs/``.  
 **Json data files** should be located in ``Scripts/data/`` and be named in underscore_case (e.g. shape_database.json).
+
+### Source control
+
+Before you start working on your own changes make sure to pull the latest **upstream** changes. (Changes on the SMTheGuild 'The Modpack' repository)  
+You can do this by going to your forked repository in browser and clicking the 'Fetch upstream' button.  
+:warning: Only applies to you if your forked repository (dev!) is ***behind*** of ``SMTheGuild:dev``!
+<details>
+  <summary>GitHub screenshot</b></summary>
+
+![fetchupstream.png](img/fetchupstream.png)
+</details>
+
+### Pull Request == feature
+
+Every pull request you do should only be about few changes. This could be a pull request adding a new feature to a certain part, or editing a language file, or some other change. But not 'some minor changes' here and there without a descriptive theme generalizing all those changes.
+
+#### Good examples:
+- "**fixing typo's**" : a pull request where **only** part description typo's are fixed.
+- "**rgb block lua performance fix**" : a pull request with changes to fix rgb block performance issues.
+- "**add portal gun**" : a pull request that adds the 'portal gun' part (includes *all* required changes; part.json, lua code, language descriptions, ...)
+
+#### BAD examples:
+- "**minor fixes**" : a pull resquest with random whitespace changes, adding comments, changing variable names, delete unused file, ...
+- "**mathblock vector support**" : a pull request that adds some feature in the **orienter**
+
+#### Exceptions:
+- "**Mod X compatibility support**" : a pull request with changes required to have compatibility with mod X without breaking existing functionality.
