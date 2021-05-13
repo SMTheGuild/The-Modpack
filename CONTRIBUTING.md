@@ -7,9 +7,9 @@ permalink: /contributing/
 
 ## Index
 
-* [Index](#Index)
-* [How do I contribute](#How-do-I-contribute)
-  * [Create issues](#Create-issues)
+* [Index](contributing#Index)
+* [How do I contribute](contributing/#How-do-I-contribute)
+  * [Create issues](contributing.html#Create-issues)
   * [Contribute code](#Contribute-code)
 * [Guidelines](#Guidelines)
   * [Naming convensions](#Naming-convensions)
@@ -97,7 +97,6 @@ Even contributing to this *contributing guidelines* file is possible!
     </ol>
 </details>
 <br>
-
 ## Guidelines
 
 ### Naming convensions
@@ -124,7 +123,6 @@ You can do this by going to your forked repository in browser and clicking the '
   <img src="img/fetchupstream.png" alt="fetchupstream.png">
 </details>
 <br>
-
 ### Pull Request == feature
 
 Every pull request you do should only be about few changes. This could be a pull request adding a new feature to a certain part, or editing a language file, or some other change. But not 'some minor changes' here and there without a descriptive theme generalizing all those changes.
