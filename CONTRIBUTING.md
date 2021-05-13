@@ -1,3 +1,8 @@
+---
+title: Contributing
+permalink: /contributing/
+---
+
 # Contribute to The Modpack
 
 You can find more information about The Modpack [here](https://SMTheGuild.github.io/The-Modpack/).
