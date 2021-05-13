@@ -45,33 +45,58 @@ Even contributing to this *contributing guidelines* file is possible!
 
 <details>
   <summary>Click to show a <b>Contribution tutorial</b></summary>
-  
-  1. Create or login to [Github](https://github.com/login).
-  2. Download [Github Desktop](https://desktop.github.com/).
-  3. Fork the ['The Modpack'](https://github.com/SMTheGuild/The-Modpack) repository.  
-    ![fork.png](img/fork.png)
-  4. Clone your forked repository.  
-    A. Click the 'Code' button & 'Open with github desktop' button.  
-      ![clone.png](img/clone.png)  
-    B. Click 'Open GitHubDesktop.exe'  
-      ![opengithubdesktop.png](img/opengithubdesktop.png)  
-    C. Choose your mods folder and click 'clone'.  
-      ![localclone.png](img/localclone.png)
-  5. In Github Desktop, Select the 'dev' branch.  
-    ![choosedevbranch.png](img/choosedevbranch.png)
-  6. Create your local changes.  
-    :warning: To test out your changes, copy the ``.../Mods/The-Modpack/dist/description.json`` and ``.../Mods/The-Modpack/dist/preview.jpg`` files to your ``.../Mods/The-Modpack/`` folder.
-  7. Commit your changes in github desktop by providing a useful commit message, clicking 'Commit to dev' and then 'Fetch origin'/'Push origin' at the top.  
-    ![commit.png](img/commit.png)
-  8. If you are happy with your changes you can open a pull request.  
-    A. Go to your forked repository page (example: https://github.com/brentbatch/The-Modpack/)  
-    B. Open the tab 'Pull Requests'  
-    C. Click 'new pull request'  
-    D. Select the 'dev' branch for both repositories as shown below  
-    E. Click 'Create pull request'  
-    F. We'll take it from here! :)
-      ![pullrequest.png](img/pullrequest.png)
-    
+    <ol>
+      <li>Create or login to <a href="https://github.com/login">Github</a>.</li>
+      <li>Download <a href="https://desktop.github.com/">Github Desktop</a>.</li>
+      <li>Fork the <a href="https://github.com/SMTheGuild/The-Modpack">'The Modpack'</a> repository.
+      <br>
+      <img src="img/fork.png" alt="fork.png"></li>
+      <li>
+        Clone your forked repository.
+        <br>
+        A. Click the 'Code' button and 'Open with github desktop' button.
+        <br>
+        <img src="img/clone.png" alt="clone.png">
+        <br>
+        B. Click 'Open GitHubDesktop.exe'
+        <br>
+        <img src="img/opengithubdesktop.png" alt="opengithubdesktop.png"></a>
+        <br>
+        C. Choose your mods folder and click 'clone'.
+        <br>
+        <img src="img/localclone.png" alt="localclone.png">
+      </li>
+      <li>
+        In Github Desktop, Select the 'dev' branch.
+        <br>
+        <img src="img/choosedevbranch.png" alt="choosedevbranch.png">
+      </li>
+      <li>
+        Create your local changes.
+        <br>
+        <g-emoji class="g-emoji" alias="warning" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/26a0.png">⚠️</g-emoji> To test out your changes, copy the <code>.../Mods/The-Modpack/dist/description.json</code> and <code>.../Mods/The-Modpack/dist/preview.jpg</code> files to your <code>.../Mods/The-Modpack/</code> folder.
+      </li>
+      <li>
+        Commit your changes in github desktop by providing a useful commit message, clicking 'Commit to dev' and then 'Fetch origin'/'Push origin' at the top.
+        <br>
+        <img src="img/commit.png" alt="commit.png">
+      </li>
+      <li>
+        If you are happy with your changes you can open a pull request.<br>
+        A. Go to your forked repository page (example: <a href="https://github.com/brentbatch/The-Modpack/">https://github.com/brentbatch/The-Modpack/</a>)
+        <br>
+        B. Open the tab 'Pull Requests'
+        <br>
+        C. Click 'new pull request'
+        <br>
+        D. Select the 'dev' branch for both repositories as shown below
+        <br>
+        E. Click 'Create pull request'
+        <br>
+        F. We'll take it from here! :)
+        <img src="img/pullrequest.png" alt="pullrequest.png">
+      </li>
+    </ol>
 </details>
 
 ## Guidelines
@@ -94,11 +119,12 @@ If a Lua file defines a class, it should be named ``<ClassName>.lua``.
 Before you start working on your own changes make sure to pull the latest **upstream** changes. (Changes on the SMTheGuild 'The Modpack' repository)  
 You can do this by going to your forked repository in browser and clicking the 'Fetch upstream' button.  
 :warning: Only applies to you if your forked repository (dev!) is ***behind*** of ``SMTheGuild:dev``!
+
 <details>
   <summary>GitHub screenshot</summary>
-
-![fetchupstream.png](img/fetchupstream.png)
+  <img src="img/fetchupstream.png" alt="fetchupstream.png">
 </details>
+  
 
 ### Pull Request == feature
 
