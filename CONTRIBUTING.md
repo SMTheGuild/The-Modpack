@@ -24,7 +24,7 @@ If you find your issue already exists, make relevant comments and add your react
 Use a reaction in place of a "+1" comment:  
 👍 - upvote  
 👎 - downvote  
-If you cannot find an existing issue that describes your bug or feature, create a new issue.  
+If you cannot find an existing issue that describes your bug or feature, create a new issue.   
 
 ### Contribute code
 
