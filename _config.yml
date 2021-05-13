@@ -6,4 +6,4 @@ show_downloads: True
 google_analytics: False
 steamurl: https://steamcommunity.com/sharedfiles/filedetails/?id=2448492759
 github:
-  zip_url: /The-Modpack/zipball/gh-pages
+  zip_url: /The-Modpack/zipball
