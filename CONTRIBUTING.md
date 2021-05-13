@@ -12,7 +12,7 @@ You can find more information about The Modpack [here](https://SMTheGuild.github
   * [Naming convensions](#Naming-convensions)
   * [Folder structure](#Folder-structure)
   * [Source control](#Source-control)
-  * [Pull Request = feature](#Pull-Request-=-feature)
+  * [Pull Request == feature](#Pull-Request--feature)
 
 
 ## How do I contribute?
