@@ -5,18 +5,8 @@ permalink: /contributing/
 
 # Contribute to The Modpack
 
-## Index
-
-* [Index](CONTRIBUTING#Index)
-* [How do I contribute](CONTRIBUTING#How-do-I-contribute)
-  * [Create issues](CONTRIBUTING#Create-issues)
-  * [Contribute code](CONTRIBUTING#Contribute-code)
-* [Guidelines](CONTRIBUTING#Guidelines)
-  * [Naming convensions](CONTRIBUTING#Naming-convensions)
-  * [Folder structure](CONTRIBUTING#Folder-structure)
-  * [Source control](CONTRIBUTING#Source-control)
-  * [Pull Request == feature](CONTRIBUTING#Pull-Request--feature)
-
+* TOC
+{:toc}
 
 ## How do I contribute?
 

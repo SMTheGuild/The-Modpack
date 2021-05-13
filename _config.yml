@@ -1,4 +1,6 @@
 theme: jekyll-theme-minimal
+markdown: kramdown
+auto_ids: true
 logo: preview.jpg
 show_downloads: True
 google_analytics: False
