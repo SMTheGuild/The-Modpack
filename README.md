@@ -7,18 +7,20 @@
 
 <h3 align="center">
   <a href="https://github.com/SMTheGuild/The-Modpack/releases/latest">
-    <img src="https://img.shields.io/github/v/release/SMTheGuild/The-Modpack?include_prereleases&label=latest%20release&logo=github&style=for-the-badge">
-  </a>
-  <a href="#">
+    <img src="https://img.shields.io/github/v/release/SMTheGuild/The-Modpack?include_prereleases&label=latest%20release&logo=github&style=for-the-badge"></a>
+
+  <a>
     <img src="https://img.shields.io/github/release-date-pre/SMTheGuild/The-Modpack?label=from&style=for-the-badge">
     <img src="https://img.shields.io/badge/game%20version-0.5.1-success?style=for-the-badge">
   </a>
   <br>
+
   <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2448492759">
     <img src="https://img.shields.io/steam/downloads/2448492759?style=for-the-badge&logo=steam">
     <img src="https://img.shields.io/steam/favorites/2448492759?style=for-the-badge&logo=steam">
   </a>
   <br>
+  
   <a href="https://discord.gg/SVEFyus">
     <img src="https://img.shields.io/discord/706444957099098162?color=7289DA&logo=discord&logoColor=FFFFFF&style=for-the-badge">
   </a>
