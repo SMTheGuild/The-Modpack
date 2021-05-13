@@ -1,2 +1,4 @@
 theme: jekyll-theme-minimal
 logo: preview.jpg
+show_downloads: True
+google_analytics: False
