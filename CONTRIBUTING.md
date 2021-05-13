@@ -36,28 +36,30 @@ Even contributing to this *contributing guidelines* file is possible!
     <ol>
       <li>Create or login to <a href="https://github.com/login">Github</a>.</li>
       <li>Download <a href="https://desktop.github.com/">Github Desktop</a>.</li>
-      <li>Fork the <a href="https://github.com/SMTheGuild/The-Modpack">'The Modpack'</a> repository.
-      <br>
-      <img src="/The-Modpack/img/fork.png" alt="fork.png"></li>
+      <li>
+        Fork the <a href="https://github.com/SMTheGuild/The-Modpack">'The Modpack'</a> repository.
+        <br>
+        <img src="/The-Modpack/assets/img/fork.png" alt="fork.png" data-zoom-image>
+      </li>
       <li>
         Clone your forked repository.
         <br>
         A. Click the 'Code' button and 'Open with github desktop' button.
         <br>
-        <img src="/The-Modpack/img/clone.png" alt="clone.png">
+        <img src="/The-Modpack/assets/img/clone.png" alt="clone.png" data-zoom-image>
         <br>
         B. Click 'Open GitHubDesktop.exe'
         <br>
-        <img src="/The-Modpack/img/opengithubdesktop.png" alt="opengithubdesktop.png">
+        <img src="/The-Modpack/assets/img/opengithubdesktop.png" alt="opengithubdesktop.png" data-zoom-image>
         <br>
         C. Choose your mods folder and click 'clone'.
         <br>
-        <img src="/The-Modpack/img/localclone.png" alt="localclone.png">
+        <img src="/The-Modpack/assets/img/localclone.png" alt="localclone.png" data-zoom-image>
       </li>
       <li>
         In Github Desktop, Select the 'dev' branch.
         <br>
-        <img src="/The-Modpack/img/choosedevbranch.png" alt="choosedevbranch.png">
+        <img src="/The-Modpack/assets/img/choosedevbranch.png" alt="choosedevbranch.png" data-zoom-image>
       </li>
       <li>
         Create your local changes.
@@ -67,7 +69,7 @@ Even contributing to this *contributing guidelines* file is possible!
       <li>
         Commit your changes in github desktop by providing a useful commit message, clicking 'Commit to dev' and then 'Fetch origin'/'Push origin' at the top.
         <br>
-        <img src="/The-Modpack/img/commit.png" alt="commit.png">
+        <img src="/The-Modpack/assets/img/commit.png" alt="commit.png" data-zoom-image>
       </li>
       <li>
         If you are happy with your changes you can open a pull request.<br>
@@ -82,7 +84,7 @@ Even contributing to this *contributing guidelines* file is possible!
         E. Click 'Create pull request'
         <br>
         F. We'll take it from here! :)
-        <img src="/The-Modpack/img/pullrequest.png" alt="pullrequest.png">
+        <img src="/The-Modpack/assets/img/pullrequest.png" alt="pullrequest.png" data-zoom-image>
       </li>
     </ol>
 </details>
@@ -111,7 +113,7 @@ You can do this by going to your forked repository in browser and clicking the '
 
 <details>
   <summary>GitHub screenshot</summary>
-  <img src="/The-Modpack/img/fetchupstream.png" alt="fetchupstream.png">
+  <img src="/The-Modpack/assets/img/fetchupstream.png" alt="fetchupstream.png" data-zoom-image>
 </details>
 <br>
 
