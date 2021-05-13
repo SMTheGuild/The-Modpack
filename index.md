@@ -65,5 +65,5 @@
 
   Anyone is welcome to contribute to The Modpack!<a href="https://github.com/SMTheGuild/The-Modpack/graphs/contributors"><img align="right" src="https://img.shields.io/github/contributors-anon/SMTheGuild/The-Modpack"></a><br>
   However, we do have a set of guidelines for contributors.<a href="https://github.com/SMTheGuild/The-Modpack/issues?q=is%3Aopen"><img align="right" src="https://img.shields.io/github/issues-pr-raw/SMTheGuild/The-Modpack?label=open%20requests"></a><br>
-  You can view them [here](./contributing/).<a href="https://github.com/SMTheGuild/The-Modpack/issues?q=is%3Aclosed"><img align="right" src="https://img.shields.io/github/issues-pr-closed-raw/SMTheGuild/The-Modpack?label=closed%20requests"></a>
+  You can [contribute here](./contributing/).<a href="https://github.com/SMTheGuild/The-Modpack/issues?q=is%3Aclosed"><img align="right" src="https://img.shields.io/github/issues-pr-closed-raw/SMTheGuild/The-Modpack?label=closed%20requests"></a>
 

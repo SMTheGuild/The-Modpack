@@ -5,8 +5,6 @@ permalink: /contributing/
 
 # Contribute to The Modpack
 
-You can find more information about The Modpack [here](https://SMTheGuild.github.io/The-Modpack/).
-
 ## Index
 
 * [Index](#Index)
@@ -98,6 +96,7 @@ Even contributing to this *contributing guidelines* file is possible!
       </li>
     </ol>
 </details>
+<br>
 
 ## Guidelines
 
@@ -124,7 +123,7 @@ You can do this by going to your forked repository in browser and clicking the '
   <summary>GitHub screenshot</summary>
   <img src="img/fetchupstream.png" alt="fetchupstream.png">
 </details>
-  
+<br>
 
 ### Pull Request == feature
 
