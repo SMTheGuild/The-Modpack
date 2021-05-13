@@ -95,7 +95,7 @@ Before you start working on your own changes make sure to pull the latest **upst
 You can do this by going to your forked repository in browser and clicking the 'Fetch upstream' button.  
 :warning: Only applies to you if your forked repository (dev!) is ***behind*** of ``SMTheGuild:dev``!
 <details>
-  <summary>GitHub screenshot</b></summary>
+  <summary>GitHub screenshot</summary>
 
 ![fetchupstream.png](img/fetchupstream.png)
 </details>
