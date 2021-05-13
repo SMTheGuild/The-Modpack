@@ -7,15 +7,15 @@ permalink: /contributing/
 
 ## Index
 
-* [Index](contributing#Index)
-* [How do I contribute](contributing/#How-do-I-contribute)
-  * [Create issues](contributing.html#Create-issues)
-  * [Contribute code](#Contribute-code)
-* [Guidelines](#Guidelines)
-  * [Naming convensions](#Naming-convensions)
-  * [Folder structure](#Folder-structure)
-  * [Source control](#Source-control)
-  * [Pull Request == feature](#Pull-Request--feature)
+* [Index](contributing.md#Index)
+* [How do I contribute](contributing.md#How-do-I-contribute)
+  * [Create issues](contributing.md#Create-issues)
+  * [Contribute code](contributing.md#Contribute-code)
+* [Guidelines](contributing.md#Guidelines)
+  * [Naming convensions](contributing.md#Naming-convensions)
+  * [Folder structure](contributing.md#Folder-structure)
+  * [Source control](contributing.md#Source-control)
+  * [Pull Request == feature](contributing.md#Pull-Request--feature)
 
 
 ## How do I contribute?
@@ -81,7 +81,7 @@ Even contributing to this *contributing guidelines* file is possible!
       </li>
       <li>
         If you are happy with your changes you can open a pull request.<br>
-        A. Go to your forked repository page (example: <a href="https://github.com/brentbatch/The-Modpack/">https://github.com/brentbatch/The-Modpack/</a>)
+        A. Go to your forked repository page (example: https://github.com/brentbatch/The-Modpack/)
         <br>
         B. Open the tab 'Pull Requests'
         <br>
@@ -95,8 +95,10 @@ Even contributing to this *contributing guidelines* file is possible!
         <img src="img/pullrequest.png" alt="pullrequest.png">
       </li>
     </ol>
+    <br>
 </details>
-<br>
+
+
 ## Guidelines
 
 ### Naming convensions
@@ -121,8 +123,9 @@ You can do this by going to your forked repository in browser and clicking the '
 <details>
   <summary>GitHub screenshot</summary>
   <img src="img/fetchupstream.png" alt="fetchupstream.png">
+  <br>
 </details>
-<br>
+
 ### Pull Request == feature
 
 Every pull request you do should only be about few changes. This could be a pull request adding a new feature to a certain part, or editing a language file, or some other change. But not 'some minor changes' here and there without a descriptive theme generalizing all those changes.
