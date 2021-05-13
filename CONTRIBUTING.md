@@ -38,26 +38,26 @@ Even contributing to this *contributing guidelines* file is possible!
       <li>Download <a href="https://desktop.github.com/">Github Desktop</a>.</li>
       <li>Fork the <a href="https://github.com/SMTheGuild/The-Modpack">'The Modpack'</a> repository.
       <br>
-      <img src="img/fork.png" alt="fork.png"></li>
+      <img src="/The-Modpack/img/fork.png" alt="fork.png"></li>
       <li>
         Clone your forked repository.
         <br>
         A. Click the 'Code' button and 'Open with github desktop' button.
         <br>
-        <img src="img/clone.png" alt="clone.png">
+        <img src="/The-Modpack/img/clone.png" alt="clone.png">
         <br>
         B. Click 'Open GitHubDesktop.exe'
         <br>
-        <img src="img/opengithubdesktop.png" alt="opengithubdesktop.png"></a>
+        <img src="/The-Modpack/img/opengithubdesktop.png" alt="opengithubdesktop.png">
         <br>
         C. Choose your mods folder and click 'clone'.
         <br>
-        <img src="img/localclone.png" alt="localclone.png">
+        <img src="/The-Modpack/img/localclone.png" alt="localclone.png">
       </li>
       <li>
         In Github Desktop, Select the 'dev' branch.
         <br>
-        <img src="img/choosedevbranch.png" alt="choosedevbranch.png">
+        <img src="/The-Modpack/img/choosedevbranch.png" alt="choosedevbranch.png">
       </li>
       <li>
         Create your local changes.
@@ -67,7 +67,7 @@ Even contributing to this *contributing guidelines* file is possible!
       <li>
         Commit your changes in github desktop by providing a useful commit message, clicking 'Commit to dev' and then 'Fetch origin'/'Push origin' at the top.
         <br>
-        <img src="img/commit.png" alt="commit.png">
+        <img src="/The-Modpack/img/commit.png" alt="commit.png">
       </li>
       <li>
         If you are happy with your changes you can open a pull request.<br>
@@ -82,12 +82,11 @@ Even contributing to this *contributing guidelines* file is possible!
         E. Click 'Create pull request'
         <br>
         F. We'll take it from here! :)
-        <img src="img/pullrequest.png" alt="pullrequest.png">
+        <img src="/The-Modpack/img/pullrequest.png" alt="pullrequest.png">
       </li>
     </ol>
-    <br>
 </details>
-
+<br>
 
 ## Guidelines
 
@@ -112,9 +111,9 @@ You can do this by going to your forked repository in browser and clicking the '
 
 <details>
   <summary>GitHub screenshot</summary>
-  <img src="img/fetchupstream.png" alt="fetchupstream.png">
-  <br>
+  <img src="/The-Modpack/img/fetchupstream.png" alt="fetchupstream.png">
 </details>
+<br>
 
 ### Pull Request == feature
 
