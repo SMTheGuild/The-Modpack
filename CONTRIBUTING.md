@@ -132,3 +132,6 @@ Every pull request you do should only be about few changes. This could be a pull
 
 #### Exceptions:
 - "**Mod X compatibility support**": a pull request with changes required to have compatibility with mod X without breaking existing functionality.
+
+
+    <script src="{{ "/The-Modpack/assets/js/image-zoom.js" | append: relative_url }}"></script>
