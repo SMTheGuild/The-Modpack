@@ -113,7 +113,7 @@ You can do this by going to your forked repository in browser and clicking the '
 
 <details>
   <summary>GitHub screenshot</summary>
-  <img src="/The-Modpack/assets/img/fetchupstream.png" alt="fetchupstream.png" data-zoom-image>
+  <img src="{{ "/assets/img/fetchupstream.png" | relative_url }}" alt="fetchupstream.png" data-zoom-image>
 </details>
 <br>
 
