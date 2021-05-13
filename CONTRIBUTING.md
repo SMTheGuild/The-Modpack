@@ -12,7 +12,7 @@ permalink: /contributing/
 
 ### Create issues
 
-You can create issues [here](https://github.com/SMTheGuild/The-Modpack/issues).  
+You can create issues [here]({{ site.github.repository_url }}/issues).  
 *What can you do there?*
 - Report bugs.
 - Request fixes.
@@ -37,7 +37,7 @@ Even contributing to this *contributing guidelines* file is possible!
       <li>Create or login to <a href="https://github.com/login">Github</a>.</li>
       <li>Download <a href="https://desktop.github.com/">Github Desktop</a>.</li>
       <li>
-        Fork the <a href="https://github.com/SMTheGuild/The-Modpack">'The Modpack'</a> repository.
+        Fork the <a href="{{ site.github.repository_url }}">'The Modpack'</a> repository.
         <br>
         <img src="/The-Modpack/assets/img/fork.png" alt="fork.png">
       </li>
