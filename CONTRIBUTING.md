@@ -100,13 +100,13 @@ You can do this by going to your forked repository in browser and clicking the '
 Every pull request you do should only be about few changes. This could be a pull request adding a new feature to a certain part, or editing a language file, or some other change. But not 'some minor changes' here and there without a descriptive theme generalizing all those changes.
 
 #### Good examples:
-- "**fixing typo's**" : a pull request where **only** part description typo's are fixed.
-- "**rgb block lua performance fix**" : a pull request with changes to fix rgb block performance issues.
-- "**add portal gun**" : a pull request that adds the 'portal gun' part (includes *all* required changes; part.json, lua code, language descriptions, ...)
+- "**Fixing typo's**": a pull request where **only** part description typo's are fixed.
+- "**Rgb block lua performance fix**": a pull request with changes to fix rgb block performance issues.
+- "**Add portal gun**": a pull request that adds the 'portal gun' part (includes *all* required changes; part.json, lua code, language descriptions, ...)
 
 #### BAD examples:
-- "**minor fixes**" : a pull resquest with random whitespace changes, adding comments, changing variable names, delete unused file, ...
-- "**mathblock vector support**" : a pull request that adds some feature in the **orienter**
+- "**Minor fixes**": a pull request with random whitespace changes, adding comments, changing variable names, delete unused file, ...
+- "**Mathblock vector support**": a pull request that adds some feature in the **orienter**
 
 #### Exceptions:
-- "**Mod X compatibility support**" : a pull request with changes required to have compatibility with mod X without breaking existing functionality.
+- "**Mod X compatibility support**": a pull request with changes required to have compatibility with mod X without breaking existing functionality.
