@@ -11,6 +11,9 @@ assignees: ''
 ### Description
 <!-- A clear and concise description of what the bug is. -->
 
+### Severity
+<!-- [Low | Medium | High | Critical] Depends how many users are affected. -->
+
 ### Steps to reproduce the bug
 <!-- Please provide a testable example -->
 
