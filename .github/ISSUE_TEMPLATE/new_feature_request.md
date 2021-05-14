@@ -9,7 +9,7 @@ assignees: ''
 <!-- Thank you for filing this! -->
 
 ### Description
-<!-- A clear and concise description of what the bug is. -->
+<!-- Describe your idea and how it interacts with existing work. -->
 
 ### Advantages
 <!-- Why should this change be considered? -->
