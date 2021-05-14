@@ -9,7 +9,10 @@ assignees: ''
 <!-- Thank you for filing this! -->
 
 ### Description
-<!-- Describe your idea and how it interacts with existing work. -->
+<!-- Describe how the existing feature would change and how it interacts with existing work. -->
+
+### Impact
+<!-- Do existing creations keep working or would they need to be rebuild? -->
 
 ### Advantages
 <!-- Why should this change be considered? -->
