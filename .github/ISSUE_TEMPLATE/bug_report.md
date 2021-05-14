@@ -23,3 +23,8 @@ assignees: ''
 ### Essential information
 - Mod version: 
 - Game version: 
+
+### Issue checklist
+<!-- Mark a list entry as resolved using an "x" in the brackets: "[x]" -->
+- [ ] I have thoroughly searched this repository for similar issues. Duplicates will be closed.
+- [ ] I have set an appropriate title for this issue
