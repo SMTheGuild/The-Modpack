@@ -382,9 +382,10 @@ function XOMeter.client_onFixedUpdate(self, dt)
 
     elseif mode.savevalue == 11 then -- orient
 
-        local value = 50+self.interactable.power/2.7
+        local value = 50-self.interactable.power/2.7
+        
         if self.shape:getZAxis().z < 0 then
-            value = 50-self.interactable.power/2.7
+            value = 50+self.interactable.power/2.7
         end
 
         local one = (math.sin(0-2*math.pi*(value+17)/134)+1)/2
