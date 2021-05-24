@@ -92,10 +92,17 @@ function NumberBlock.client_canInteract(self)
         self.valueGui:setWorldPosition(self.shape:getWorldPosition())
     	self.valueGui:setRequireLineOfSight(false)
     end
-    self.valueGui:setText( "Text", "Value: " .. self.interactable:getPower())
+    self.valueGui:setText( "Text", "#ffff00Value: " .. self.interactable:getPower())
     self.valueGui:open()
     self.hideValueGui = false
     return true
+end
+
+function NumberBlock.client_onDestroy(self)
+    if self.valueGui ~= nil then
+        self.valueGui:destroy()
+        self.valueGui = nil
+    end
 end
 
 function NumberBlock.server_onFixedUpdate( self, dt )   -- 'decimal'
