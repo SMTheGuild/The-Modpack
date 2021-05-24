@@ -1409,7 +1409,7 @@
 			"box": { "x": 2, "y": 2, "z": 2 },
 			"density": 250.0,
 			"physicsMaterial": "Metal",
-			"scripted": { "filename": "$MOD_DATA/Scripts/interactable/ToneGenerator.lua", "classname": "ToneGenerator" },
+			"scripted": { "filename": "$MOD_DATA/Scripts/interactable/ToteGenerator.lua", "classname": "ToteGenerator" },
 			"sticky": "+Y-Y-Z+X-X",
 			"qualityLevel": 4
 
