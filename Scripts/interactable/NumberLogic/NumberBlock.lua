@@ -188,7 +188,7 @@ function NumberBlock.client_onCreate(self)
 end
 
 function NumberBlock.client_onFixedUpdate(self, value)
-    if self.hideValueGui then
+    if self.hideValueGui and self.valueGui ~= nil then
         self.valueGui:close()
     end
     self.hideValueGui = true

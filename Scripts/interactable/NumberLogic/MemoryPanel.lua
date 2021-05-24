@@ -23,7 +23,7 @@ MemoryPanel = class( nil )
 MemoryPanel.maxParentCount = -1
 MemoryPanel.maxChildCount = -1
 MemoryPanel.connectionInput =  sm.interactable.connectionType.power + sm.interactable.connectionType.logic
-MemoryPanel.connectionOutput = sm.interactable.connectionType.power 
+MemoryPanel.connectionOutput = sm.interactable.connectionType.power
 MemoryPanel.colorNormal = sm.color.new( 0x7F567Dff )
 MemoryPanel.colorHighlight = sm.color.new( 0x9f7fa5ff )
 MemoryPanel.poseWeightCount = 1
@@ -50,8 +50,8 @@ function MemoryPanel.server_onCreate( self )
 	end
 	sm.interactable.setValue(self.interactable, value)
 	if value ~= value then value = 0 end
-	if math.abs(value) >= 3.3*10^38 then 
-		if value < 0 then value = -3.3*10^38 else value = 3.3*10^38 end  
+	if math.abs(value) >= 3.3*10^38 then
+		if value < 0 then value = -3.3*10^38 else value = 3.3*10^38 end
 	end
 	self.interactable:setPower(value)
 
@@ -63,6 +63,24 @@ function MemoryPanel.server_setData(self, saveData)
 	self.storage:save(saveData)
 end
 
+function MemoryPanel.client_canInteract(self)
+    if self.valueGui == nil then
+        self.valueGui = sm.gui.createNameTagGui()
+        self.valueGui:setWorldPosition(self.shape:getWorldPosition())
+    	self.valueGui:setRequireLineOfSight(false)
+    end
+    self.valueGui:setText( "Text", "#ffff00Value: " .. self.interactable:getPower())
+    self.valueGui:open()
+    self.hideValueGui = false
+    return true
+end
+
+function MemoryPanel.client_onDestroy(self)
+    if self.valueGui ~= nil then
+        self.valueGui:destroy()
+        self.valueGui = nil
+    end
+end
 
 function MemoryPanel.server_onFixedUpdate( self, dt )
 	local parents = self.interactable:getParents()
@@ -90,7 +108,7 @@ function MemoryPanel.server_onFixedUpdate( self, dt )
 				end
 			else
 				-- logic input
-				if v.active then 
+				if v.active then
 					writevalue = true
 					if tostring(v:getShape().color) == "222222ff" then
 						reset = true
@@ -99,26 +117,26 @@ function MemoryPanel.server_onFixedUpdate( self, dt )
 			end
 		end
 	end
-	
+
 	local saves = false
 	if writevalue and hasvalueparent then
 		self.data[address] = tostring(value)
 		saves = self.data[address] ~= value
 	end
-	local power = tonumber(self.data[address]) or 0 
+	local power = tonumber(self.data[address]) or 0
 	if reset then
 		power = 0
 		self.data = {[0] = 0}
 		saves = true
 	end
-	
+
 	if saves then
 		self.storage:save(self.data)
 	end
-	
+
 	if power ~= power then power = 0 end
-	if math.abs(power) >= 3.3*10^38 then 
-		if power < 0 then power = -3.3*10^38 else power = 3.3*10^38 end  
+	if math.abs(power) >= 3.3*10^38 then
+		if power < 0 then power = -3.3*10^38 else power = 3.3*10^38 end
 	end
 	if power ~= self.interactable.power then
 		self.interactable:setActive(power > 0)
@@ -133,6 +151,11 @@ function MemoryPanel.client_onCreate(self)
 end
 
 function MemoryPanel.client_onFixedUpdate(self, dt)
+    if self.hideValueGui and self.valueGui ~= nil then
+        self.valueGui:close()
+    end
+    self.hideValueGui = true
+
 	local parents = self.interactable:getParents()
 	local address = 0
 	local writevalue = false
@@ -154,7 +177,7 @@ function MemoryPanel.client_onFixedUpdate(self, dt)
 				end
 			else
 				-- logic input
-				if v.active then 
+				if v.active then
 					writevalue = true
 					if tostring(v:getShape().color) == "222222ff" then
 						reset = true
@@ -163,42 +186,42 @@ function MemoryPanel.client_onFixedUpdate(self, dt)
 			end
 		end
 	end
-	
+
 	if writevalue and hasvalueparent then
 		self.time = 20
 		self.mode = 1
 	end
-	
+
 	if reset then
 		self.time = 60
 		self.mode = 1
 	end
-	
+
 	if self.lastPower ~= self.interactable.power and self.mode == 0 then
 		self.time = 20
 		self.mode = 2
 	end
-	
-	
+
+
 	if address ~= self.lastaddress then self:client_setUvValue(address) end
-	
+
 	if self.mode == 1 then
 		self.interactable:setPoseWeight(0,(self.time%4)>2 and 1 or 0)
-	elseif self.mode == 2 then	
+	elseif self.mode == 2 then
 		self.interactable:setPoseWeight(0, self.time>0 and 1 or 0)
 	else
 		self.interactable:setPoseWeight(0, 0)
 	end
 	self.time = self.time > 0 and self.time - 1 or 0
 	self.mode = self.time > 0 and self.mode or 0
-	
+
 	self.lastPower = self.interactable.power
 	self.lastaddress = address
 end
 
-function MemoryPanel.client_setUvValue(self, value) 
-	if value < 0 then 
-		value = 0-value 
+function MemoryPanel.client_setUvValue(self, value)
+	if value < 0 then
+		value = 0-value
 	end
 	if value > 255 then value = 255 end
 	if value == math.huge then value = 0 end

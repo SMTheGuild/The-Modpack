@@ -997,7 +997,7 @@ function MathBlock.client_onDestroy(self)
 end
 
 function MathBlock.client_onFixedUpdate(self, dt)
-    if self.hideValueGui then
+    if self.hideValueGui and self.valueGui ~= nil then
         self.valueGui:close()
     end
     self.hideValueGui = true

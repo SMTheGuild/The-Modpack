@@ -27,7 +27,7 @@ CounterBlock.digs = {
 	["560202ff"] = -10,
 	["472800ff"] = -1,
 	["222222ff"] = -1,
-			
+
 	["a0ea00ff"] = 10000000,
 	["19e753ff"] = 1000000,
 	["2ce6e6ff"] = 100000,
@@ -37,7 +37,7 @@ CounterBlock.digs = {
 	["d02525ff"] = 10,
 	["df7f00ff"] = 1,
 	["df7f01ff"] = 1, -- yay the devs made all vanilla stuff color have an offset compared to old vanilla stuff  >:-(
-	
+
 	["eeaf5cff"] = 0.1,
 	["f06767ff"] = 0.01,
 	["ee7bf0ff"] = 0.001,
@@ -46,7 +46,7 @@ CounterBlock.digs = {
 	["7eededff"] = 0.000001,
 	["68ff88ff"] = 0.0000001,
 	["cbf66fff"] = 0.00000001,
-	
+
 	["673b00ff"] = -0.1,
 	["7c0000ff"] = -0.01,
 	["720a74ff"] = -0.001,
@@ -76,9 +76,28 @@ function CounterBlock.server_onCreate( self )
 	sm.interactable.setValue(self.interactable, self.power)
 end
 
+function CounterBlock.client_canInteract(self)
+    if self.valueGui == nil then
+        self.valueGui = sm.gui.createNameTagGui()
+        self.valueGui:setWorldPosition(self.shape:getWorldPosition())
+    	self.valueGui:setRequireLineOfSight(false)
+    end
+    self.valueGui:setText( "Text", "#ffff00Value: " .. self.interactable:getPower())
+    self.valueGui:open()
+    self.hideValueGui = false
+    return true
+end
+
+function CounterBlock.client_onDestroy(self)
+    if self.valueGui ~= nil then
+        self.valueGui:destroy()
+        self.valueGui = nil
+    end
+end
+
 function CounterBlock.server_onFixedUpdate( self, dt )
 	local parents = self.interactable:getParents()
-	
+
 	local reset = false
 	for k,v in pairs(parents) do
 		local x = self.digs[tostring(v:getShape().color)]
@@ -88,19 +107,19 @@ function CounterBlock.server_onFixedUpdate( self, dt )
 		if tostring(sm.shape.getColor(v:getShape())) == "eeeeeeff" and v:isActive() then reset = true end
 	end
 	if reset then self.power = 0 end
-	
+
 	self.needssave = self.needssave or (self.power ~= sm.interactable.getValue(self.interactable))
-	
+
 	local isTime = os.time()%5 == 0
 	if self.needssave and isTime and self.risingedge then
 		self.needssave = false
 		self.storage:save(tostring(self.power)) -- 64 bit precision (storage.save only goes up to 32 bit numbers)
 	end
 	self.risingedge = not isTime
-	
+
 	if self.power ~= self.power then self.power = 0 end -- NaN check
 	if math.abs(self.power) >= 3.3*10^38 then  -- inf check
-		if self.power < 0 then self.power = -3.3*10^38 else self.power = 3.3*10^38 end  
+		if self.power < 0 then self.power = -3.3*10^38 else self.power = 3.3*10^38 end
 	end
 	if self.power ~= self.interactable.power then -- self.interactable.power changes on the lift!  sm.interactable.getValue(self.interactable) does not!
 		self.interactable:setPower(self.power)
@@ -139,22 +158,27 @@ function CounterBlock.client_canInteract(self)
 end
 
 function CounterBlock.client_onFixedUpdate(self, dt)
+    if self.hideValueGui and self.valueGui ~= nil then
+        self.valueGui:close()
+    end
+    self.hideValueGui = true
+
 	local power = self.interactable.power
 	if self.powerSkip == power then return end -- more performance (only update uv if power changes)
-	
+
 	local on = 0
 	if power ~= self.lastpower then
 		on = 6
 		self.frameindex = (self.frameindex + (power > self.lastpower and 0.25 or -0.25)) % 5
-		
-		if power == 0 then self.frameindex = 0 end	
+
+		if power == 0 then self.frameindex = 0 end
 	end
-	
+
 	local index = math.floor(self.frameindex + on)
-	if index ~= self.lastindex then 
+	if index ~= self.lastindex then
 		self.interactable:setUvFrameIndex(index)
 	end
-	
+
 	self.powerSkip = (power == self.lastpower and power or false)
 	self.lastpower = power
 	self.lastindex = index
