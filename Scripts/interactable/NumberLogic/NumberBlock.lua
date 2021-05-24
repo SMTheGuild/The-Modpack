@@ -26,7 +26,7 @@ NumberBlock.dec = {
 	["520653ff"] = 10000000000,
 	["560202ff"] = 1000000000,
 	["472800ff"] = 100000000,
-			
+
 	["a0ea00ff"] = 10000000,
 	["19e753ff"] = 1000000,
 	["2ce6e6ff"] = 100000,
@@ -36,7 +36,7 @@ NumberBlock.dec = {
 	["d02525ff"] = 10,
 	["df7f00ff"] = 1,
 	["df7f01ff"] = 1, -- orange 2, smh
-			
+
 	["eeaf5cff"] = 0.1,
 	["f06767ff"] = 0.01,
 	["ee7bf0ff"] = 0.001,
@@ -55,7 +55,7 @@ NumberBlock.bin = {
 	["520653ff"] = bit.lshift(1,10),
 	["560202ff"] = bit.lshift(1,9),
 	["472800ff"] = bit.lshift(1,8),
-			
+
 	["a0ea00ff"] = 128,
 	["19e753ff"] = 64,
 	["2ce6e6ff"] = 32,
@@ -65,7 +65,7 @@ NumberBlock.bin = {
 	["d02525ff"] = 2,
 	["df7f00ff"] = 1,
 	["df7f01ff"] = 1,
-	
+
 	["eeaf5cff"] = 1/2,
 	["f06767ff"] = 1/4,
 	["ee7bf0ff"] = 1/8,
@@ -86,14 +86,26 @@ function NumberBlock.server_onCreate( self )
 	self:server_setValue(0)
 end
 
+function NumberBlock.client_canInteract(self)
+    if self.valueGui == nil then
+        self.valueGui = sm.gui.createNameTagGui()
+        self.valueGui:setWorldPosition(self.shape:getWorldPosition())
+    	self.valueGui:setRequireLineOfSight(false)
+    end
+    self.valueGui:setText( "Text", "Value: " .. self.interactable:getPower())
+    self.valueGui:open()
+    self.hideValueGui = false
+    return true
+end
+
 function NumberBlock.server_onFixedUpdate( self, dt )   -- 'decimal'
 	local parents = self.interactable:getParents()
 	local power = 0
-	
+
 	for k, parent in pairs(parents) do
 		local color = tostring(parent:getShape().color)
 		if sm.interactable.isNumberType(parent) and not parent:hasSteering() then
-		
+
 			local dec = self.dec[color]
 			if dec == nil or #parents == 1 then dec = 1 end
 			power = power + dec * (sm.interactable.getValue(parent) or parent.power)
@@ -103,13 +115,13 @@ function NumberBlock.server_onFixedUpdate( self, dt )   -- 'decimal'
 			if bit ~= nil and parent.active then power = power + bit end
 		end
 	end
-	
+
 	if math.abs(power) >= 3.3*10^38 then  -- inf check
-		if power < 0 then power= -3.3*10^38 else power = 3.3*10^38 end  
+		if power < 0 then power= -3.3*10^38 else power = 3.3*10^38 end
 	end
-	
-	local children = self.interactable:getChildren() 
-	
+
+	local children = self.interactable:getChildren()
+
 	if power == 0 then
 		self:server_setValue(0)
 	else
@@ -126,18 +138,18 @@ function NumberBlock.server_onFixedUpdate( self, dt )   -- 'decimal'
 				else
 					-- show digit or full value
 					local s = self.dec[tostring(self.shape.color)] -- gets correct decimal location in parent based on own color   -- decimal number
-					
+
 					local show = power
-					
+
 					if s then
 						show = math.floor(tonumber(tostring(math.abs(power/s)))%10)
-						
+
 					elseif (tostring(sm.shape.getColor(self.shape)) == "f5f071ff") then
 						s = 0.00000001
 						show = (tonumber(tostring((math.abs(show)/s))))%1 -- shifts digits after the decimal point 8 places to the left and %1
 					end
 						-- any other color carry full value
-					
+
 					self:server_setValue(show)
 				end
 			else
@@ -148,13 +160,13 @@ function NumberBlock.server_onFixedUpdate( self, dt )   -- 'decimal'
 			self:server_setValue(power)
 		end
 	end
-	
+
 end
 
 function NumberBlock.server_setValue(self, value)
 	if value ~= value then value = 0 end
-	if math.abs(value) >= 3.3*10^38 then 
-		if value < 0 then value = -3.3*10^38 else value = 3.3*10^38 end  
+	if math.abs(value) >= 3.3*10^38 then
+		if value < 0 then value = -3.3*10^38 else value = 3.3*10^38 end
 	end
 	if value ~= self.interactable.power then
 		self.interactable:setActive(value > 0)
@@ -169,12 +181,17 @@ function NumberBlock.client_onCreate(self)
 end
 
 function NumberBlock.client_onFixedUpdate(self, value)
+    if self.hideValueGui then
+        self.valueGui:close()
+    end
+    self.hideValueGui = true
+
 	local parents = self.interactable:getParents()
 	local power = 0
 	for k, parent in pairs(parents) do
 		local color = tostring(parent:getShape().color)
 		if sm.interactable.isNumberType(parent) and not parent:hasSteering() then
-		
+
 			local dec = self.dec[color]
 			if dec == nil or #parents == 1 then dec = 1 end
 			power = power + dec * parent.power
@@ -184,8 +201,8 @@ function NumberBlock.client_onFixedUpdate(self, value)
 			if bit ~= nil and parent.active then power = power + bit end
 		end
 	end
-	
-	local children = self.interactable:getChildren() 
+
+	local children = self.interactable:getChildren()
 	if power == 0 then
 		self.interactable:setUvFrameIndex(0)
 	else
@@ -202,25 +219,25 @@ function NumberBlock.client_onFixedUpdate(self, value)
 					end
 				else
 					local s = self.dec[tostring(sm.shape.getColor(self.shape))] -- gets correct decimal location in parent based on own color   -- NumberBlock number
-					
+
 					local show = power
-					
+
 					if s then
 						show = self.interactable.power
-						
+
 						-- figure out if first digit , show '-' in front of num if neg
 						if (s*10>0-power) and (power<0) then
 							--print('first digit')
 							if power <= -1  or (show == 0 and (tostring(self.shape.color) == "df7f00ff" or tostring(self.shape.color) == "df7f01ff")) then -- give first digit a '-', if orange shows '0' and it's before first digit, give it a '-'
 								--print('neg')
-								if (show == 0 and (tostring(self.shape.color)=="df7f00ff" or tostring(self.shape.color) == "df7f01ff")) then 
+								if (show == 0 and (tostring(self.shape.color)=="df7f00ff" or tostring(self.shape.color) == "df7f01ff")) then
 									show = show + 12
 								end
 								if power <= -1 and s*show >= power and show ~= 0 then  show = show + 12 end
 							end
 						end
 						self.interactable:setUvFrameIndex(show)
-						
+
 					elseif (tostring(sm.shape.getColor(self.shape)) == "f5f071ff") then
 						s = 0.00000001
 						local show = self.interactable.power
@@ -232,7 +249,7 @@ function NumberBlock.client_onFixedUpdate(self, value)
 					else
 						-- color is not a digit, carries full value in server.
 						self:client_setUVValue(power)
-					end	
+					end
 				end
 			else
 				-- more than one input, they get combined based on color
@@ -245,11 +262,11 @@ function NumberBlock.client_onFixedUpdate(self, value)
 end
 
 
-function NumberBlock.client_setUVValue(self, power) 
+function NumberBlock.client_setUVValue(self, power)
 	local value = power
 	local index = 0
-	if value < 0 then 
-		value = 0-value 
+	if value < 0 then
+		value = 0-value
 		index = index + 12
 	end
 	if value < 10 then index = index + value else index = index + 10 end
