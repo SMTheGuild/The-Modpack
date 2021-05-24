@@ -975,13 +975,34 @@ function MathBlock.cl_setMode(self, data)
 end
 
 function MathBlock.client_canInteract(self)
+    if self.valueGui == nil then
+        self.valueGui = sm.gui.createNameTagGui()
+        self.valueGui:setWorldPosition(self.shape:getWorldPosition())
+    	self.valueGui:setRequireLineOfSight(false)
+    end
+    self.valueGui:setText( "Text", "#ffff00Value: " .. self.interactable:getPower())
+    self.valueGui:open()
+    self.hideValueGui = false
+
 	local _useKey = sm.gui.getKeyBinding("Use")
 	sm.gui.setInteractionText("Press", _useKey, " to select a function")
 	return true
 end
 
+function MathBlock.client_onDestroy(self)
+    if self.valueGui ~= nil then
+        self.valueGui:destroy()
+        self.valueGui = nil
+    end
+end
+
 function MathBlock.client_onFixedUpdate(self, dt)
-	if sm.isHost then
+    if self.hideValueGui then
+        self.valueGui:close()
+    end
+    self.hideValueGui = true
+
+    if sm.isHost then
 		local parents = self.interactable:getParents()
 		-- host only ('self.mode')
 		if self.modetable[self.mode].value == 30 then  -- AD
