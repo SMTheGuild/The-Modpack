@@ -384,8 +384,8 @@
 	},
 	"d88ba569-f7a5-42e3-bb11-d7979b60ddad": {
 		"title": "x-o-meter",
-		"description": "Outputs a number value. Press E to switch modes, CTRL+E to cycle backwards.\n\nModes:\n- Speedometer\n- Accelerometer\n- Altimeter\n- Position X\n- Position Y\n- Compass\n- Velocity\n- RPM (Degrees/Second)\n- Custom Percentage Guage",
-		"keywords": [ "modpack", "smart", "logic", "orient", "orientation", "meter", "measure", "angle", "direction", "compass", "speedometer", "speed", "accel", "velocity", "vector", "tilt", "gauge", "altitude", "position", "location", "degree", "rotation", "rpm", "line", "point", "coordinate", "balance" ]
+		"description": "Outputs a number value.\nModes:\n- Speedometer\n- Velocity\n- Accelerometer\n- Altimeter\n- Position X\n- Position Y\n- Compass\n- Rotation\n- Angular Speed (Degrees/Second)\n- Mass\n- Custom Percentage Guage",
+		"keywords": [ "modpack", "smart", "logic", "orient", "orientation", "meter", "measure", "angle", "direction", "compass", "speedometer", "speed", "accel", "velocity", "vector", "tilt", "gauge", "altitude", "position", "location", "degree", "rotation", "rpm", "line", "point", "coordinate", "balance", "xometer", "mass", "display" ]
 	},
 	"ccaa33b6-e5bb-4edc-9329-b40f6efe2c9e": {
 		"title": "Orientation Block",

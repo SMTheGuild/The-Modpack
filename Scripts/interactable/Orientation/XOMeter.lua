@@ -24,7 +24,7 @@ XOMeter.modetable = {
     {savevalue = 5,  texturevalue = 8,  icon = "pos y", name = "pos y",                 description= "Current Y position in blocks"},
     {savevalue = 6,  texturevalue = 10, icon = "compass", name = "compass",         description= "Rotation relative to north (+Y)"},
     {savevalue = 11, texturevalue = 1,  icon = "rotation", name = "rotation",       description= "Rotation around placed axis"},
-    {savevalue = 8,  texturevalue = 14, icon = "rpm", name = "rpm",                 description= "Angular speed in degrees/second (use it as a 'wheel')"},
+    {savevalue = 8,  texturevalue = 14, icon = "degree/s", name = "degree/s",       description= "Angular speed in degrees per second (use it as a 'wheel')"},
     {savevalue = 10, texturevalue = 18, icon = "mass", name = "creation mass",      description= "Current mass in the whole creation"},
     {savevalue = 9,  texturevalue = 16, icon = "display", name = "display",         description= "Can display any input number on the display, white number input defines 'max' (default: 100)"},
 }
@@ -60,14 +60,18 @@ function XOMeter.server_onFixedUpdate( self, timeStep )
     if mode == 1 then --speedometer
         power = self.shape.velocity:length()*4
 
-        for k, v in pairs(self.interactable:getParents()) do
-            if tostring(v:getShape():getShapeUuid()) == "ccaa33b6-e5bb-4edc-9329-b40f6efe2c9e" --[[orienter]] then
-                if orienters and orienters[v:getShape().id] and orienters[v:getShape().id].position then
-                    local orienter = orienters[v:getShape().id]
-                    power = ( orienter.position - (orienter.oldPos or orienter.position) ):length() /timeStep *4
-                    orienters[v:getShape().id].oldPos = sm.vec3.new(0,0,0) + orienter.position -- (anti reference)
-                else
-                    power = 0
+        if orienters ~= nil then
+            for k, v in pairs(self.interactable:getParents()) do
+                if tostring(v:getShape():getShapeUuid()) == "ccaa33b6-e5bb-4edc-9329-b40f6efe2c9e" --[[orienter]] then
+                    local v_shape_id = v.shape.id
+                    local orienter = orienters[v_shape_id]
+                    if orienter and orienter.position then
+                        power = ( orienter.position - (orienter.oldPos or orienter.position) ):length() / timeStep * 4
+
+                        orienters[v_shape_id].oldPos = sm.vec3.new(0,0,0) + orienter.position -- (anti reference)
+                    else
+                        power = 0
+                    end
                 end
             end
         end
@@ -75,23 +79,28 @@ function XOMeter.server_onFixedUpdate( self, timeStep )
     elseif mode == 2 then  --accelerometer
 
         local hasorients = false
-        for k, v in pairs(self.interactable:getParents()) do
-            if tostring(v:getShape():getShapeUuid()) == "ccaa33b6-e5bb-4edc-9329-b40f6efe2c9e" --[[orienter]] then
-                hasorients = true
-                if orienters and orienters[v:getShape().id] and orienters[v:getShape().id].position then
-                    local orienter = orienters[v:getShape().id]
+        if orienters ~= nil then
+            for k, v in pairs(self.interactable:getParents()) do
+                if tostring(v:getShape():getShapeUuid()) == "ccaa33b6-e5bb-4edc-9329-b40f6efe2c9e" --[[orienter]] then
+                    hasorients = true
 
-                    local speed = orienter.position - (orienter.oldPos or orienter.position)
+                    local v_shape_id = v.shape.id
+                    local orienter = orienters[v_shape_id]
+                    if orienter and orienter.position then
+                        local speed = orienter.position - (orienter.oldPos or orienter.position)
+                        local old_speed = speed - (orienter.oldSpeed or sm.vec3.zero())
 
-                    power = runningAverage( self,  math.abs((speed - orienter.oldSpeed):length() /timeStep)*4 )
+                        power = runningAverage( self,  math.abs(old_speed:length() / timeStep) * 4 )
 
-                    orienters[v:getShape().id].oldPos = sm.vec3.new(0,0,0) + orienter.position -- (anti reference)
-                    orienters[v:getShape().id].oldSpeed = sm.vec3.new(0,0,0) + speed-- (anti reference)
-                else
-                    power = 0
+                        orienters[v_shape_id].oldPos   = sm.vec3.new(0,0,0) + orienter.position -- (anti reference)
+                        orienters[v_shape_id].oldSpeed = sm.vec3.new(0,0,0) + speed -- (anti reference)
+                    else
+                        power = 0
+                    end
                 end
             end
         end
+
         if not hasorients then
             power = runningAverage(self, math.abs((self.shape.velocity - self.oldSpeed):length())/timeStep*4)
         end
@@ -99,37 +108,51 @@ function XOMeter.server_onFixedUpdate( self, timeStep )
     elseif mode == 3 then -- z pos
         power = self.shape.worldPosition.z*4 -- *4, from units to blocks
 
-        for k, v in pairs(self.interactable:getParents()) do
-            if tostring(v:getShape():getShapeUuid()) == "ccaa33b6-e5bb-4edc-9329-b40f6efe2c9e" --[[orienter]] then
-                if orienters and orienters[v:getShape().id] and orienters[v:getShape().id].position then
-                    power = orienters[v:getShape().id].position.z*4
-                else
-                    power = 0
+        if orienters ~= nil then
+            for k, v in pairs(self.interactable:getParents()) do
+                if tostring(v:getShape():getShapeUuid()) == "ccaa33b6-e5bb-4edc-9329-b40f6efe2c9e" --[[orienter]] then
+                    local orienter = orienters[v.shape.id]
+                    if orienter and orienter.position then
+                        power = orienter.position.z * 4
+                    else
+                        power = 0
+                    end
                 end
             end
         end
+
     elseif mode == 4 then -- x pos
         power = self.shape.worldPosition.x*4
-        for k, v in pairs(self.interactable:getParents()) do
-            if tostring(v:getShape():getShapeUuid()) == "ccaa33b6-e5bb-4edc-9329-b40f6efe2c9e" --[[orienter]] then
-                if orienters and orienters[v:getShape().id] and orienters[v:getShape().id].position then
-                    power = orienters[v:getShape().id].position.x*4
-                else
-                    power = 0
+
+        if orienters ~= nil then
+            for k, v in pairs(self.interactable:getParents()) do
+                if tostring(v:getShape():getShapeUuid()) == "ccaa33b6-e5bb-4edc-9329-b40f6efe2c9e" --[[orienter]] then
+                    local orienter = orienters[v.shape.id]
+                    if orienter and orienter.position then
+                        power = orienter.position.x * 4
+                    else
+                        power = 0
+                    end
                 end
             end
         end
+
     elseif mode == 5 then -- y pos
         power = self.shape.worldPosition.y*4
-        for k, v in pairs(self.interactable:getParents()) do
-            if tostring(v:getShape():getShapeUuid()) == "ccaa33b6-e5bb-4edc-9329-b40f6efe2c9e" --[[orienter]] then
-                if orienters and orienters[v:getShape().id] and orienters[v:getShape().id].position then
-                    power = orienters[v:getShape().id].position.y*4
-                else
-                    power = 0
+
+        if orienters ~= nil then
+            for k, v in pairs(self.interactable:getParents()) do
+                if tostring(v:getShape():getShapeUuid()) == "ccaa33b6-e5bb-4edc-9329-b40f6efe2c9e" --[[orienter]] then
+                    local orienter = orienters[v.shape.id]
+                    if orienter and orienter.position then
+                        power = orienter.position.y * 4
+                    else
+                        power = 0
+                    end
                 end
             end
         end
+
     elseif mode == 6 then -- compass
         local localY = sm.shape.getAt(self.shape)
         local localZ = sm.shape.getUp(self.shape)--up
@@ -137,52 +160,61 @@ function XOMeter.server_onFixedUpdate( self, timeStep )
         localY = rot*localY
         power = math.atan2(-localY.x,localY.y)/math.pi * 180
 
-        for k, v in pairs(self.interactable:getParents()) do
-            if tostring(v:getShape():getShapeUuid()) == "ccaa33b6-e5bb-4edc-9329-b40f6efe2c9e" --[[orienter]] then
-                if orienters and orienters[v:getShape().id] and orienters[v:getShape().id].position and orienters[v:getShape().id].direction then
-                    power = math.atan2(-orienters[v:getShape().id].direction.x,orienters[v:getShape().id].direction.y)/math.pi * 180
-                    --value = 50+self.power/2.7
-                    --if self.shape:getZAxis().z < 0 then
-                    --    value = 50-self.power/2.7
-                    --end
-                else
-                    power = 0
+        if orienters ~= nil then
+            for k, v in pairs(self.interactable:getParents()) do
+                if tostring(v:getShape():getShapeUuid()) == "ccaa33b6-e5bb-4edc-9329-b40f6efe2c9e" --[[orienter]] then
+                    local orienter = orienters[v.shape.id]
+                    if orienter and orienter.position and orienter.direction then
+                        power = math.atan2(-orienter.direction.x, orienter.direction.y) / math.pi * 180
+                        --value = 50+self.power/2.7
+                        --if self.shape:getZAxis().z < 0 then
+                        --    value = 50-self.power/2.7
+                        --end
+                    else
+                        power = 0
+                    end
                 end
             end
         end
+
     elseif mode == 7 then -- velocity
         power = sm.shape.getUp(self.shape):dot(self.shape.velocity)*-4
 
-        for k, v in pairs(self.interactable:getParents()) do
-            if tostring(v:getShape():getShapeUuid()) == "ccaa33b6-e5bb-4edc-9329-b40f6efe2c9e" --[[orienter]] then
-                if orienters and orienters[v:getShape().id] and orienters[v:getShape().id].position and orienters[v:getShape().id].direction then
-                    local orienter = orienters[v:getShape().id]
+        if orienters ~= nil then
+            for k, v in pairs(self.interactable:getParents()) do
+                if tostring(v:getShape():getShapeUuid()) == "ccaa33b6-e5bb-4edc-9329-b40f6efe2c9e" --[[orienter]] then
+                    local v_shape_id = v.shape.id
+                    local orienter = orienters[v_shape_id]
+                    if orienter and orienter.position and orienter.direction then
+                        power = orienter.direction:dot(( orienter.position - (orienter.oldPos or orienter.position) ) /timeStep *4)
 
-                    power = orienter.direction:dot(( orienter.position - (orienter.oldPos or orienter.position) ) /timeStep *4)
-
-                    orienters[v:getShape().id].oldPos = sm.vec3.new(0,0,0) + orienter.position -- (anti reference)
-                else
-                    power = 0
+                        orienters[v_shape_id].oldPos = sm.vec3.new(0,0,0) + orienter.position -- (anti reference)
+                    else
+                        power = 0
+                    end
                 end
             end
         end
 
     elseif mode == 8 then -- degrees per sec
-        local dps = getLocal(self.shape,self.shape.body.angularVelocity)
+        local dps = getLocal(self.shape, self.shape.body.angularVelocity)
         power = -math.deg(dps.z)
 
+        if orienters ~= nil then
+            for k, v in pairs(self.interactable:getParents()) do
+                if tostring(v:getShape():getShapeUuid()) == "ccaa33b6-e5bb-4edc-9329-b40f6efe2c9e" --[[orienter]] then
+                    local v_shape_id = v.shape.id
+                    local orienter = orienters[v_shape_id]
+                    if orienter and orienter.position and orienter.direction then
+                        local angle = math.atan2(-orienter.direction.x, orienter.direction.y) / math.pi * -180
+                        
+                        power = angle - (orienter.oldAngle or angle)
 
-        for k, v in pairs(self.interactable:getParents()) do
-            if tostring(v:getShape():getShapeUuid()) == "ccaa33b6-e5bb-4edc-9329-b40f6efe2c9e" --[[orienter]] then
-                if orienters and orienters[v:getShape().id] and orienters[v:getShape().id].position and orienters[v:getShape().id].direction then
-                    local orienter = orienters[v:getShape().id]
-
-                    local angle = math.atan2(-orienter.direction.x, orienter.direction.y)/math.pi * -180
-                    power = angle - (orienter.oldAngle or orienter.angle)
-                    orienters[v:getShape().id].oldAngle = angle
-                    --value = 50 + self.power/2.7
-                else
-                    power = 0
+                        orienters[v_shape_id].oldAngle = angle
+                        --value = 50 + self.power/2.7
+                    else
+                        power = 0
+                    end
                 end
             end
         end
@@ -194,7 +226,7 @@ function XOMeter.server_onFixedUpdate( self, timeStep )
         local number = 0
         local hasmax = false
         for k, v in pairs(parents) do
-            if (tostring(sm.shape.getColor(v:getShape())) == "eeeeeeff") then
+            if tostring(v.shape.color) == "eeeeeeff" then
                 if not hasmax then maxvalue = 0 end
                 hasmax = true
                 maxvalue = maxvalue + v.power
@@ -202,15 +234,19 @@ function XOMeter.server_onFixedUpdate( self, timeStep )
                 number = number + v.power
             end
         end
+
         if maxvalue == 0 then maxvalue = 100 end
         maxvalue = maxvalue/100
         power = number/maxvalue
 
-        for k, v in pairs(self.interactable:getParents()) do
-            if tostring(v:getShape():getShapeUuid()) == "ccaa33b6-e5bb-4edc-9329-b40f6efe2c9e" --[[orienter]] then
-                power = 0
+        if orienters ~= nil then
+            for k, v in pairs(parents) do
+                if tostring(v:getShape():getShapeUuid()) == "ccaa33b6-e5bb-4edc-9329-b40f6efe2c9e" --[[orienter]] then
+                    power = 0
+                end
             end
         end
+
     elseif mode == 10 then -- mass
         local weight = 0
         for k, v in pairs(self.shape.body:getCreationBodies()) do
@@ -218,26 +254,28 @@ function XOMeter.server_onFixedUpdate( self, timeStep )
         end
         power = weight
 
-        for k, v in pairs(self.interactable:getParents()) do
-            if tostring(v:getShape():getShapeUuid()) == "ccaa33b6-e5bb-4edc-9329-b40f6efe2c9e" --[[orienter]] then
-                if orienters and orienters[v:getShape().id] and orienters[v:getShape().id].mass then
-
-                    power = orienters[v:getShape().id].mass or 0
-                    --value = orienters[v:getShape().id].mass/10
-                else
-                    power = 0
+        if orienters ~= nil then
+            for k, v in pairs(self.interactable:getParents()) do
+                if tostring(v:getShape():getShapeUuid()) == "ccaa33b6-e5bb-4edc-9329-b40f6efe2c9e" --[[orienter]] then
+                    local orienter = orienters[v.shape.id]
+                    if orienter then
+                        power = orienter.mass or 0
+                        --value = orienters[v:getShape().id].mass/10
+                    else
+                        power = 0
+                    end
                 end
             end
         end
+
     elseif mode == 11 then -- orient
 
-        local localX = sm.shape.getRight(self.shape) -- right
-        local localY = sm.shape.getAt(self.shape) -- up
-        local localZ = sm.shape.getUp(self.shape) -- displayup
+        local localX = self.shape.right -- right
+        local localY = self.shape.at -- up
+        local localZ = self.shape.up -- displayup
 
         local placedZ = self.shape:getZAxis()
-
-        local pitch = math.acos(localZ.z)/math.pi *180-90
+        local pitch = math.acos(localZ.z) / math.pi * 180 - 90
 
         --print(localX)
         if math.abs(placedZ.z) == 1 then -- placed pointing up
@@ -274,9 +312,11 @@ function XOMeter.server_onFixedUpdate( self, timeStep )
         --    end
         --end
 
-        for k, v in pairs(self.interactable:getParents()) do
-            if tostring(v:getShape():getShapeUuid()) == "ccaa33b6-e5bb-4edc-9329-b40f6efe2c9e" --[[orienter]] then
-                power = 0
+        if orienters ~= nil then
+            for k, v in pairs(self.interactable:getParents()) do
+                if tostring(v:getShape():getShapeUuid()) == "ccaa33b6-e5bb-4edc-9329-b40f6efe2c9e" --[[orienter]] then
+                    power = 0
+                end
             end
         end
     end
@@ -326,24 +366,25 @@ end
 function XOMeter.client_onFixedUpdate(self, dt)
 
     local mode = self.modetable[self.mode_client]
+    local sInteractable = self.interactable
 
-    self.interactable:setUvFrameIndex(mode.texturevalue)
+    sInteractable:setUvFrameIndex(mode.texturevalue)
 
     if mode.savevalue == 3 then --z pos
 
-        local one = (math.sin(0-2*math.pi*(self.interactable.power/3+17)/134)+1)/2
-        local two = (math.cos(2*math.pi*(self.interactable.power/3+17)/134)+1)/2
+        local one = (math.sin(0-2*math.pi*(sInteractable.power/3+17)/134)+1)/2
+        local two = (math.cos(2*math.pi*(sInteractable.power/3+17)/134)+1)/2
         --print(self.posevalue, one, two)
-        self.interactable:setPoseWeight(0 ,one)
-        self.interactable:setPoseWeight(1 ,two)
+        sInteractable:setPoseWeight(0 ,one)
+        sInteractable:setPoseWeight(1 ,two)
 
     elseif mode.savevalue == 4 or mode.savevalue == 5 then -- x pos , y pos
 
-        local one = (math.sin(0-2*math.pi*(self.interactable.power/14+67)/134)+1)/2
-        local two = (math.cos(2*math.pi*(self.interactable.power/14+67)/134)+1)/2
+        local one = (math.sin(0-2*math.pi*(sInteractable.power/14+67)/134)+1)/2
+        local two = (math.cos(2*math.pi*(sInteractable.power/14+67)/134)+1)/2
         --print(self.posevalue, one, two)
-        self.interactable:setPoseWeight(0 ,one)
-        self.interactable:setPoseWeight(1 ,two)
+        sInteractable:setPoseWeight(0 ,one)
+        sInteractable:setPoseWeight(1 ,two)
 
     elseif mode.savevalue == 6 then -- compass thingy
         --local localX = sm.shape.getRight(self.shape)
@@ -352,54 +393,54 @@ function XOMeter.client_onFixedUpdate(self, dt)
         local rot = sm.vec3.getRotation(localZ, sm.vec3.new(0,0,1))
         localY = rot*localY*-1
 
-        self.interactable:setPoseWeight(0 ,(localY.x+1)/2)
-        self.interactable:setPoseWeight(1 ,(localY.y+1)/2)
+        sInteractable:setPoseWeight(0 ,(localY.x+1)/2)
+        sInteractable:setPoseWeight(1 ,(localY.y+1)/2)
 
 
     elseif mode.savevalue == 7 then -- velocity
 
-        local one = (math.sin(0-2*math.pi*(self.interactable.power/4+67)/134)+1)/2
-        local two = (math.cos(2*math.pi*(self.interactable.power/4+67)/134)+1)/2
+        local one = (math.sin(0-2*math.pi*(sInteractable.power/4+67)/134)+1)/2
+        local two = (math.cos(2*math.pi*(sInteractable.power/4+67)/134)+1)/2
         --print(self.posevalue, one, two)
-        self.interactable:setPoseWeight(0 ,one)
-        self.interactable:setPoseWeight(1 ,two)
+        sInteractable:setPoseWeight(0 ,one)
+        sInteractable:setPoseWeight(1 ,two)
 
     elseif mode.savevalue == 8 then --rpm
 
-        local one = (math.sin(0-2*math.pi*(self.interactable.power+67)/134)+1)/2
-        local two = (math.cos(2*math.pi*(self.interactable.power+67)/134)+1)/2
+        local one = (math.sin(0-2*math.pi*(sInteractable.power+67)/134)+1)/2
+        local two = (math.cos(2*math.pi*(sInteractable.power+67)/134)+1)/2
         --print(self.posevalue, one, two)
-        self.interactable:setPoseWeight(0 ,one)
-        self.interactable:setPoseWeight(1 ,two)
+        sInteractable:setPoseWeight(0 ,one)
+        sInteractable:setPoseWeight(1 ,two)
 
     elseif mode.savevalue == 10 then --mass
 
-        local one = (math.sin(0-2*math.pi*(self.interactable.power/10+7)/134)+1)/2
-        local two = (math.cos(2*math.pi*(self.interactable.power/10+7)/134)+1)/2
+        local one = (math.sin(0-2*math.pi*(sInteractable.power/10+7)/134)+1)/2
+        local two = (math.cos(2*math.pi*(sInteractable.power/10+7)/134)+1)/2
         --print(self.posevalue, one, two)
-        self.interactable:setPoseWeight(0 ,one)
-        self.interactable:setPoseWeight(1 ,two)
+        sInteractable:setPoseWeight(0 ,one)
+        sInteractable:setPoseWeight(1 ,two)
 
     elseif mode.savevalue == 11 then -- orient
 
-        local value = 50-self.interactable.power/2.7
+        local value = 50-sInteractable.power/2.7
         
         if self.shape:getZAxis().z < 0 then
-            value = 50+self.interactable.power/2.7
+            value = 50+sInteractable.power/2.7
         end
 
         local one = (math.sin(0-2*math.pi*(value+17)/134)+1)/2
         local two = (math.cos(2*math.pi*(value+17)/134)+1)/2
         --print(self.posevalue, one, two)
-        self.interactable:setPoseWeight(0 ,one)
-        self.interactable:setPoseWeight(1 ,two)
+        sInteractable:setPoseWeight(0 ,one)
+        sInteractable:setPoseWeight(1 ,two)
 
     else
-        local one = (math.sin(0-2*math.pi*(self.interactable.power+17)/134)+1)/2
-        local two = (math.cos(2*math.pi*(self.interactable.power+17)/134)+1)/2
+        local one = (math.sin(0-2*math.pi*(sInteractable.power+17)/134)+1)/2
+        local two = (math.cos(2*math.pi*(sInteractable.power+17)/134)+1)/2
         --print(self.posevalue, one, two)
-        self.interactable:setPoseWeight(0 ,one)
-        self.interactable:setPoseWeight(1 ,two)
+        sInteractable:setPoseWeight(0 ,one)
+        sInteractable:setPoseWeight(1 ,two)
     end
 end
 
