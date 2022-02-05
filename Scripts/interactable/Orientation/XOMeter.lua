@@ -24,7 +24,7 @@ XOMeter.modetable = {
     {savevalue = 5,  texturevalue = 8,  icon = "pos y", name = "pos y",                 description= "Current Y position in blocks"},
     {savevalue = 6,  texturevalue = 10, icon = "compass", name = "compass",         description= "Rotation relative to north (+Y)"},
     {savevalue = 11, texturevalue = 1,  icon = "rotation", name = "rotation",       description= "Rotation around placed axis"},
-    {savevalue = 8,  texturevalue = 14, icon = "deg/s", name = "deg/s",             description= "Angular speed in degrees per second (use it as a 'wheel')"},
+    {savevalue = 8,  texturevalue = 14, icon = "degree/s", name = "degree/s",       description= "Angular speed in degrees per second (use it as a 'wheel')"},
     {savevalue = 10, texturevalue = 18, icon = "mass", name = "creation mass",      description= "Current mass in the whole creation"},
     {savevalue = 9,  texturevalue = 16, icon = "display", name = "display",         description= "Can display any input number on the display, white number input defines 'max' (default: 100)"},
 }
