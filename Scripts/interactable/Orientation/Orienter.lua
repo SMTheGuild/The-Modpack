@@ -1334,14 +1334,13 @@ function Orienter.server_onFixedUpdate( self, dt )
 		if math.abs(self.power) >= 3.3*10^38 then
 			if self.power < 0 then self.power = -3.3*10^38 else self.power = 3.3*10^38 end
 		end
-		self.interactable:setPower(self.power) -- when in distance mode
+		self:server_updatePower(self.power) -- when in distance mode
 	else
-
 		if self.pitch ~= self.pitch then self.pitch = 0 end
 		if math.abs(self.pitch) >= 3.3*10^38 then
 			if self.pitch < 0 then self.pitch = -3.3*10^38 else self.pitch = 3.3*10^38 end
 		end
-		self.interactable:setPower(self.pitch/180)
+		self:server_updatePower(self.pitch / 180)
 	end
 
 	if self.yaw ~= self.lastpose0 then
@@ -1357,6 +1356,14 @@ function Orienter.server_onFixedUpdate( self, dt )
 	orienters[self.id].position = targetposition
 	orienters[self.id].direction = targetdir
 	orienters[self.id].mass = targetmass
+end
+
+function Orienter.server_updatePower(self, power)
+	if self.sv_saved_power ~= power then
+		self.sv_saved_power = power
+
+		self.interactable:setPower(power)
+	end
 end
 
 function playerexists(player)

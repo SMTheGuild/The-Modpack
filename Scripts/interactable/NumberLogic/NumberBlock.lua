@@ -157,9 +157,16 @@ function NumberBlock.server_setValue(self, value)
 		if value < 0 then value = -3.3*10^38 else value = 3.3*10^38 end  
 	end
 	if value ~= self.interactable.power then
-		self.interactable:setActive(value > 0)
-		self.interactable:setPower(value)
-		sm.interactable.setValue(self.interactable, value)
+		local sInteractable = self.interactable
+
+		local bool_state = (value > 0)
+		if bool_state ~= sInteractable.active then
+			sInteractable:setActive(bool_state)
+		end
+
+		sInteractable:setPower(value)
+
+		sm.interactable.setValue(sInteractable, value)
 	end
 end
 

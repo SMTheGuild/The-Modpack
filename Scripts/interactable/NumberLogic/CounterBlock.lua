@@ -115,7 +115,7 @@ function CounterBlock.server_updatePowerData(self)
 		sInteractable:setPower(self.power)
 
 		local bool_state = (self.power > 0)
-		if (bool_state ~= self.interactable.active) or should_reset then
+		if (bool_state ~= sInteractable.active) or should_reset then
 			sInteractable:setActive(bool_state)
 		end
 

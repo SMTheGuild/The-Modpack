@@ -861,15 +861,25 @@ end
 
 function MathBlock.sv_setValue(self, value)
 	self.power = value
+
 	if value ~= value then value = 0 end
 	if math.abs(value) >= 3.3*10^38 then
 		if value < 0 then value = -3.3*10^38 else value = 3.3*10^38 end
 	end
-	if value ~= self.interactable.power then
-		self.interactable:setActive(value ~= 0) --that makes new engines work
-		--self.interactable:setActive(value > 0) --old function
-		self.interactable:setPower(value)
-		sm.interactable.setValue(self.interactable, value)
+
+	local should_reset = (self.interactable.power == 0 and self.power ~= 0)
+	if (self.power ~= self.sv_saved_power) or should_reset then
+		self.sv_saved_power = self.power
+
+		local sInteractable = self.interactable
+		sInteractable:setPower(self.power)
+
+		local bool_state = (self.power ~= 0)
+		if (bool_state ~= sInteractable.active) or should_reset then
+			sInteractable:setActive(bool_state)
+		end
+
+		sm.interactable.setValue(sInteractable, self.power)
 	end
 end
 
