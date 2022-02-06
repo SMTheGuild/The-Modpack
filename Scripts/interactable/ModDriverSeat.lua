@@ -24,8 +24,9 @@ function ModDriverSeat.server_onCreate( self )
 	Seat:server_onCreate( self )
 end
 
-function ModDriverSeat.server_onFixedUpdate( self )
-	Seat.server_onFixedUpdate( self )
+function ModDriverSeat.server_onFixedUpdate( self, dt )
+	Seat.server_onFixedUpdate( self, dt )
+	
 	if self.interactable:isActive() then
 		self.interactable:setPower( self.interactable:getSteeringPower() )
 	else
