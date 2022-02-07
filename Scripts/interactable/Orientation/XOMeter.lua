@@ -323,12 +323,7 @@ function XOMeter.server_onFixedUpdate( self, timeStep )
 
     self.oldSpeed = self.shape.velocity
     
-    local should_reset = (self.interactable.power == 0 and power ~= 0)
-    if power ~= self.sv_saved_power or should_reset then
-        self.sv_saved_power = power
-
-        self.interactable:setPower(power)
-    end
+    mp_setPowerSafe(self, power)
     --self.network:sendToClients("client_PosenUV", { posevalue = value, uv = self.modetable[self.mode].texturevalue } )
 end
 

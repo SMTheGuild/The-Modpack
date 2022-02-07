@@ -121,20 +121,7 @@ function MemoryPanel.server_onFixedUpdate( self, dt )
 		if power < 0 then power = -3.3*10^38 else power = 3.3*10^38 end  
 	end
 
-	local should_reset = (self.interactable.power == 0 and power ~= 0)
-	if (power ~= self.sv_saved_power) or should_reset then
-		self.sv_saved_power = power
-
-		local sInteractable = self.interactable
-		sInteractable:setPower(power)
-
-		local bool_state = (power > 0)
-		if (bool_state ~= sInteractable.active) or should_reset then
-			sInteractable:setActive(bool_state)
-		end
-
-		sm.interactable.setValue(sInteractable, power)
-	end
+	mp_updateOutputData(self, power, power > 0)
 end
 
 function MemoryPanel.client_onCreate(self)

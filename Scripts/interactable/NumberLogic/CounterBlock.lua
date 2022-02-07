@@ -103,24 +103,7 @@ function CounterBlock.server_onFixedUpdate( self, dt )
 		if self.power < 0 then self.power = -3.3*10^38 else self.power = 3.3*10^38 end  
 	end
 	
-	self:server_updatePowerData()
-end
-
-function CounterBlock.server_updatePowerData(self)
-	local should_reset = (self.interactable.power == 0 and self.power ~= 0)
-	if (self.power ~= self.sv_saved_power) or should_reset then -- self.interactable.power changes on the lift!  sm.interactable.getValue(self.interactable) does not!
-		self.sv_saved_power = self.power
-
-		local sInteractable = self.interactable
-		sInteractable:setPower(self.power)
-
-		local bool_state = (self.power > 0)
-		if (bool_state ~= sInteractable.active) or should_reset then
-			sInteractable:setActive(bool_state)
-		end
-
-		sm.interactable.setValue(sInteractable, self.power)
-	end
+	mp_updateOutputData(self, self.power, self.power > 0)
 end
 
 

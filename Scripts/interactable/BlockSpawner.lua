@@ -1,5 +1,6 @@
 dofile "../libs/debugger.lua"
 
+dofile("../libs/load_libs.lua")
 dofile("../util/shape_database.lua")
 
 print("loading BlockSpawner.lua")
@@ -91,7 +92,8 @@ function BlockSpawner.client_onInteract( self, character, lookAt )
 end
 
 function BlockSpawner.server_onFixedUpdate( self, timeStep )
-    self.interactable.active = false
+    local spawner_active = false
+
     local wantSpawn = false --If one of the parents is active
 
     local offsetX = 0
@@ -182,14 +184,15 @@ function BlockSpawner.server_onFixedUpdate( self, timeStep )
 
     --print(sm.game.getCurrentTick(), self.shape.id, uuid)
 
-
     --error()
     --print(self.shape.id, self.lastSpawnedShape, self.lastSpawnedShape ~= nil and tostring(sm.exists(self.lastSpawnedShape)) or "")
-    self.interactable.active =
+    spawner_active =
         self.lastSpawnedShape ~= nil and
         sm.exists(self.lastSpawnedShape) and
         self.lastSpawnedShapeTick ~= nil and
         sm.game.getCurrentTick() == self.lastSpawnedShapeTick + 1
+
+    mp_setActiveSafe(self, spawner_active)
     --if self.interactable.active then
     --    print(self.lastSpawnedShapeTick, sm.game.getCurrentTick(), self.lastSpawnedShapeTick, self.interactable.active, sm.game.getCurrentTick() - (self.lastSpawnedShapeTick ~= nil and self.lastSpawnedShapeTick or 0))
     --end

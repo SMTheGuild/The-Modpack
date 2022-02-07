@@ -130,11 +130,13 @@ function SmartSensor.server_onFixedUpdate( self, dt )
 			local startPos = src + getLocal(self.shape, raypoint)
 			local hit, result = sm.physics.raycast(startPos, startPos + self.shape.up*3000)
 			local resulttype = result.type
-			self.interactable.power = (resulttype == "terrainSurface" and 1 or 0) + (resulttype == "terrainAsset" and 2 or 0) + (resulttype == "lift" and 3 or 0) +
+			local power_value = (resulttype == "terrainSurface" and 1 or 0) + (resulttype == "terrainAsset" and 2 or 0) + (resulttype == "lift" and 3 or 0) +
 					(resulttype == "body" and 4 or 0) + (resulttype == "character" and 5 or 0) + (resulttype == "joint" and 6 or 0) + (resulttype == "vision" and 7 or 0)
 
+			mp_setPowerSafe(self, power_value)
+
 		elseif mode == 5 then	-- container mode
-			self.interactable.power = 0
+			local power_value = 0
 			local startPos = src + getLocal(self.shape, raypoint)
 			local hit, result = sm.physics.raycast(startPos, startPos + self.shape.up*3000)
 			if hit and result.type == "body" and result:getShape().interactable then
@@ -147,9 +149,11 @@ function SmartSensor.server_onFixedUpdate( self, dt )
 							items = items + stackSize
 						end
 					end
-					self.interactable.power = items
+					power_value = items
 				end
 			end
+
+			mp_setPowerSafe(self, power_value)
 		end
 	end
 
@@ -167,12 +171,13 @@ function SmartSensor.server_onFixedUpdate( self, dt )
 				color = tonumber(k)
 			end
 		end
-		self.interactable.power = color
+
+		mp_setPowerSafe(self, color)
 	elseif distancemode then
-		self.interactable.power = distance or 0
+		mp_setPowerSafe(self, distance or 0)
 	end
 
-	self.interactable.active = self.interactable.power > 0
+	mp_setActiveSafe(self, self.interactable.power > 0)
 end
 
 function SmartSensor.sv_setMode(self, params)

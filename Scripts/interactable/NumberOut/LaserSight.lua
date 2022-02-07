@@ -18,24 +18,26 @@ LaserSight.poseWeightCount = 1
 
 
 function LaserSight.server_onFixedUpdate(self, dt)
-
 	local parents = self.interactable:getParents()
 	local active = false
 	for k, v in pairs(parents) do active = active or v.active end
 	
+	local power_value = 0
     if active then
         local hit, fraction = sm.physics.distanceRaycast(self.shape.worldPosition - self.shape.right/50, self.shape.up * 2500)
         if hit then
-			self.interactable.power = fraction * 2500 * 4 + 0.5
+			power_value = fraction * 2500 * 4 + 0.5
 		end
-	else
-		self.interactable.power = 0
     end
-	if not self.lastpower then self.lastpower = self.interactable.power end
-	local deltapower = self.interactable.power - self.lastpower
-	self.interactable.active = self.lastdeltapower and self.lastdeltapower - deltapower < -1.5 or false
+	
+	local deltapower = power_value - (self.lastpower or power_value)
+	local is_active = self.lastdeltapower and self.lastdeltapower - deltapower < -1.5 or false
+
+	mp_setPowerSafe(self, power_value)
+	mp_setActiveSafe(self, is_active)
+	
 	self.lastdeltapower = deltapower
-	self.lastpower = self.interactable.power
+	self.lastpower = power_value
 end
 
 

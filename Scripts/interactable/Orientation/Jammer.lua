@@ -80,7 +80,8 @@ function Jammer.server_onFixedUpdate(self, dt)
 			self.storage:save( parent.active)
 		end
 	end
-	self.interactable.active = (self.isONserver and self.interference == 0)
+
+	mp_setActiveSafe(self, (self.isONserver and self.interference == 0))
 end
 
 function Jammer.server_changemode(self)
