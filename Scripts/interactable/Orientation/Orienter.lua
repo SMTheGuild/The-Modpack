@@ -764,11 +764,6 @@ function predictmove(self, mypos, direction, targetpos, localcalc)--MINE --FINAL
 end
 
 
-function getLocal(shape, vec)
-    return sm.vec3.new(sm.shape.getRight(shape):dot(vec), sm.shape.getAt(shape):dot(vec), sm.shape.getUp(shape):dot(vec))
-end
-
-
 
 
 function Orienter.server_onFixedUpdate( self, dt )

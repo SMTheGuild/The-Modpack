@@ -327,10 +327,6 @@ function XOMeter.server_onFixedUpdate( self, timeStep )
     --self.network:sendToClients("client_PosenUV", { posevalue = value, uv = self.modetable[self.mode].texturevalue } )
 end
 
-function getLocal(shape, vec)
-    return sm.vec3.new(sm.shape.getRight(shape):dot(vec), sm.shape.getAt(shape):dot(vec), sm.shape.getUp(shape):dot(vec))
-end
-
 
 function XOMeter.sv_setMode(self, params)
     self.mode = params.mode
