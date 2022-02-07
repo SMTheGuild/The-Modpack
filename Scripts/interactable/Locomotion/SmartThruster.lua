@@ -52,8 +52,7 @@ function SmartThruster.server_onFixedUpdate( self, dt )
 		if power < 0 then power = -3.3*10^38 else power = 3.3*10^38 end  
 	end
 	
-	self.interactable.power = power * (logicinput or 1)
-	self.interactable.active = logicinput
+	mp_updateOutputData(self, power * (logicinput or 1), logicinput > 0)
 	
 	power = power * logicinput
 		

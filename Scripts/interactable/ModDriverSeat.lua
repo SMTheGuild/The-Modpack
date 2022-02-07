@@ -10,6 +10,8 @@ dofile("$SURVIVAL_DATA/Scripts/game/survival_shapes.lua")
 dofile("$SURVIVAL_DATA/Scripts/game/interactables/Seat.lua")
 dofile("$SURVIVAL_DATA/Scripts/util.lua")
 
+dofile("../libs/load_libs.lua")
+
 ModDriverSeat = class( Seat )
 ModDriverSeat.maxChildCount = 255
 ModDriverSeat.connectionOutput = sm.interactable.connectionType.seated + sm.interactable.connectionType.power + sm.interactable.connectionType.bearing
@@ -24,12 +26,13 @@ function ModDriverSeat.server_onCreate( self )
 	Seat:server_onCreate( self )
 end
 
-function ModDriverSeat.server_onFixedUpdate( self )
-	Seat.server_onFixedUpdate( self )
+function ModDriverSeat.server_onFixedUpdate( self, dt )
+	Seat.server_onFixedUpdate( self, dt )
+	
 	if self.interactable:isActive() then
-		self.interactable:setPower( self.interactable:getSteeringPower() )
+		mp_setPowerSafe(self, self.interactable:getSteeringPower())
 	else
-		self.interactable:setPower( 0 )
+		mp_setPowerSafe(self, 0)
 		self.interactable:setSteeringFlag( 0 )
 	end
 end

@@ -86,10 +86,8 @@ function SmartTimer.server_onFixedUpdate( self, timeStep )
     --printUnsafeTable(self.states)
     
     -- Sets the outputs
-    self.interactable.power = self.states[#self.states]
-    self.interactable.active = self.states[#self.states] ~= 0
-    
-    sm.interactable.setValue(self.interactable, self.states[#self.states])
+    local current_state = self.states[#self.states]
+    mp_updateOutputData(self, current_state, current_state ~= 0)
 end
 
 

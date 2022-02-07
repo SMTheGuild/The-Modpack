@@ -322,14 +322,9 @@ function XOMeter.server_onFixedUpdate( self, timeStep )
     end
 
     self.oldSpeed = self.shape.velocity
-    if power ~= self.interactable.power then
-        self.interactable:setPower(power)
-    end
+    
+    mp_setPowerSafe(self, power)
     --self.network:sendToClients("client_PosenUV", { posevalue = value, uv = self.modetable[self.mode].texturevalue } )
-end
-
-function getLocal(shape, vec)
-    return sm.vec3.new(sm.shape.getRight(shape):dot(vec), sm.shape.getAt(shape):dot(vec), sm.shape.getUp(shape):dot(vec))
 end
 
 

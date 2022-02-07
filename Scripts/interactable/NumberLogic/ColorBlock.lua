@@ -257,8 +257,7 @@ function ColorBlock.server_onFixedUpdate( self, dt )
 
     
 	self.color = color
-	self.interactable:setPower(self.power)
-    self.interactable.active = self.glowinput > 0
+	mp_updateOutputData(self, self.power, self.glowinput > 0)
 end
 
 function ColorBlock.client_onCreate(self)
