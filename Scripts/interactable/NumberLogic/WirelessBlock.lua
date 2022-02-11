@@ -40,9 +40,7 @@ function WirelessBlock.server_onFixedUpdate( self, dt )
 
 	if self.IsSender then 
 		-- client side handles getting values and making them global so that the server receiver can read them.
-		sm.interactable.setValue(self.interactable, 0) -- make sure nothing attached to a sender can get a value
-		self.interactable.power = 0
-		self.interactable.active = false
+		mp_updateOutputData(self, 0, false) -- make sure nothing attached to a sender can get a value
 	else -- receiver
 	
 		-- only really needs to handle receiving part (power, bearings & whatever)
@@ -124,10 +122,7 @@ function WirelessBlock.server_onFixedUpdate( self, dt )
 			if power < 0 then power = -3.3*10^38 else power = 3.3*10^38 end  
 		end
 		
-		sm.interactable.setValue(self.interactable, power) -- make sure nothing attached to a sender can get a value
-		self.interactable.power = power
-		self.interactable.active = power~=0
-		
+		mp_updateOutputData(self, power, power ~= 0)
 	end
 end
 

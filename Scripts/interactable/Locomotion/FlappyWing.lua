@@ -60,12 +60,12 @@ function FlappyWing.server_onFixedUpdate( self, timeStep )
     local parent = self.interactable:getSingleParent()
     
     if parent then
-        self.interactable.power = self.data.angleLoop and parent.power or sm.util.clamp(parent.power, self.data.angleMin, self.data.angleMax) -- == 0 and -90 or 90
-        self.angle = self.interactable.power
+        self.angle = self.data.angleLoop and parent.power or sm.util.clamp(parent.power, self.data.angleMin, self.data.angleMax) -- == 0 and -90 or 90
     else
-        self.interactable.power = 0
         self.angle = 0
     end
+
+    mp_setPowerSafe(self, self.angle)
     
     doAirfoilStuff(self, timeStep)
 end

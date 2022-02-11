@@ -861,16 +861,13 @@ end
 
 function MathBlock.sv_setValue(self, value)
 	self.power = value
+
 	if value ~= value then value = 0 end
 	if math.abs(value) >= 3.3*10^38 then
 		if value < 0 then value = -3.3*10^38 else value = 3.3*10^38 end
 	end
-	if value ~= self.interactable.power then
-		self.interactable:setActive(value ~= 0) --that makes new engines work
-		--self.interactable:setActive(value > 0) --old function
-		self.interactable:setPower(value)
-		sm.interactable.setValue(self.interactable, value)
-	end
+
+	mp_updateOutputData(self, self.power, self.power ~= 0)
 end
 
 function MathBlock.sv_senduvtoclient(self, msg)

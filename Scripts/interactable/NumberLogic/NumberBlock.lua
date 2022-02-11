@@ -156,11 +156,8 @@ function NumberBlock.server_setValue(self, value)
 	if math.abs(value) >= 3.3*10^38 then 
 		if value < 0 then value = -3.3*10^38 else value = 3.3*10^38 end  
 	end
-	if value ~= self.interactable.power then
-		self.interactable:setActive(value > 0)
-		self.interactable:setPower(value)
-		sm.interactable.setValue(self.interactable, value)
-	end
+
+	mp_updateOutputData(self, value, value > 0)
 end
 
 

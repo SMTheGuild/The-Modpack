@@ -29,7 +29,7 @@ function sm.interactable.getValue(interactable, NOW)
 end
 
 function sm.interactable.isNumberType(interactable)
-	return (interactable:getType() == "scripted" and tostring(interactable:getShape().shapeUuid) ~= "6f2dd83e-bc0d-43f3-8ba5-d5209eb03d07"  --[[tickbutton]])
+    return (interactable:getType() == "scripted" and tostring(interactable:getShape().shapeUuid) ~= "6f2dd83e-bc0d-43f3-8ba5-d5209eb03d07"  --[[tickbutton]])
 end
 
 

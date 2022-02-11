@@ -208,7 +208,7 @@ end
 
 function Radar2D.server_onFixedUpdate(self, dt)
 	local parent = self.interactable:getSingleParent()
-	self.interactable.active = (parent and parent.active or false) 
+	mp_setActiveSafe(self, parent and parent.active or false)
 end
 
 function Radar2D.client_onDestroy(self)
