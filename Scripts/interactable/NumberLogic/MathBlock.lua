@@ -867,7 +867,7 @@ function MathBlock.sv_setValue(self, value)
 		if value < 0 then value = -3.3*10^38 else value = 3.3*10^38 end
 	end
 
-	mp_updateOutputData(self, self.power, self.power ~= 0)
+	mp_updateOutputData(self, value, value ~= 0)
 end
 
 function MathBlock.sv_senduvtoclient(self, msg)
