@@ -13,7 +13,8 @@ end
 function mp_setActiveSafe(self, new_active)
     local sInteractable = self.interactable
 
-    if sInteractable.active ~= new_active then
+    if (new_active ~= self.sv_saved_active) then
+        self.sv_saved_active = new_active
         sInteractable:setActive(new_active)
     end
 end
@@ -37,7 +38,8 @@ function mp_updateOutputData(self, power, active)
         self.sv_saved_power = power
         sInteractable:setPower(power)
 
-        if (active ~= sInteractable.active) or should_reset then
+        if (active ~= self.sv_saved_active) or should_reset then
+            self.sv_saved_active = active
             sInteractable:setActive(active)
         end
 
