@@ -4,28 +4,21 @@ __InteractableImprovements_Loaded = true
 -- server: 
 
 local values = {} -- <<not directly accessible for other scripts
-function sm.interactable.setValue(interactable, value)  
-    local currenttick = sm.game.getCurrentTick()
-    values[interactable.id] = {
-        {tick = currenttick, value = {value}}, 
-        values[interactable.id] and (    
-            values[interactable.id][1] ~= nil and 
-            (values[interactable.id][1].tick < currenttick) and 
-            values[interactable.id][1].value or 
-			values[interactable.id][2]
-        ) 
-        or nil
-    }
+function sm.interactable.setValue(interactable, value)
+    values[interactable.id] = values[interactable.id] or {}
+    values[interactable.id].next = value
+    values[interactable.id].changedTick = sm.game.getCurrentTick()
 end
-function sm.interactable.getValue(interactable, NOW)    
-	if sm.exists(interactable) and values[interactable.id] then
-		if values[interactable.id][1] and (values[interactable.id][1].tick < sm.game.getCurrentTick() or NOW) then
-			return values[interactable.id][1].value[1]
-		elseif values[interactable.id][2] then
-			return values[interactable.id][2][1]
-		end
-	end
-	return nil
+function sm.interactable.getValue(interactable, NOW)
+    if not (interactable and sm.exists(interactable) and values[interactable.id]) then
+        return
+    end
+
+    if values[interactable.id].changedTick < sm.game.getCurrentTick() then
+        values[interactable.id].current = values[interactable.id].next
+    end
+    
+    return NOW and values[interactable.id].next or values[interactable.id].current
 end
 
 function sm.interactable.isNumberType(interactable)
