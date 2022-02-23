@@ -225,6 +225,3 @@ function WASDThruster.client_onFixedUpdate(self, dt)
 	self.prevparentHPose = self.parentHPose
 	self.prevparentVPose = self.parentVPose
 end
-function getLocal(shape, vec)
-    return sm.vec3.new(sm.shape.getRight(shape):dot(vec), sm.shape.getAt(shape):dot(vec), sm.shape.getUp(shape):dot(vec))
-end

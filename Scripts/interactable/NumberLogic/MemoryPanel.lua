@@ -120,11 +120,8 @@ function MemoryPanel.server_onFixedUpdate( self, dt )
 	if math.abs(power) >= 3.3*10^38 then 
 		if power < 0 then power = -3.3*10^38 else power = 3.3*10^38 end  
 	end
-	if power ~= self.interactable.power then
-		self.interactable:setActive(power > 0)
-		self.interactable:setPower(power)
-		sm.interactable.setValue(self.interactable, power)
-	end
+
+	mp_updateOutputData(self, power, power > 0)
 end
 
 function MemoryPanel.client_onCreate(self)
