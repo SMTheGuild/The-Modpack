@@ -7,8 +7,8 @@ Decoupler.colorNormal = sm.color.new(0x844040ff)
 Decoupler.colorHighlight = sm.color.new(0xb25959ff)
 
 function Decoupler.server_onFixedUpdate(self, dt)
-	local parent = self.interactable:getSingleParent()
-	if parent and parent:isActive() then
+    local parent = self.interactable:getSingleParent()
+    if parent and parent:isActive() then
         sm.shape.destroyPart(self.shape)
     end
 end
