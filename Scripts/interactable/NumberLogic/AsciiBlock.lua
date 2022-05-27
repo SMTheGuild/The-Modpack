@@ -348,8 +348,7 @@ function AsciiBlock.client_canInteract(self)
 	local use_hyper = default_hypertext:format(use_key)
 	local crawl_and_use_hyper = default_hypertext:format(crawl_key.." + "..use_key)
 
-	sm.gui.setInteractionText("", use_hyper, "to cycle forward")
-	sm.gui.setInteractionText("", crawl_and_use_hyper, "to cycle backwards")
+	sm.gui.setInteractionText("Press", use_hyper, "or", crawl_and_use_hyper, "to change")
 
 	return true
 end

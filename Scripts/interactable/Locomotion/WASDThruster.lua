@@ -59,7 +59,7 @@ function WASDThruster.client_onCreate(self)
 	self.currentVPose = 0.5
 	self.mode = 0
 	self.network:sendToServer("server_requestmode")
-	self.modes = {"wasd", "ws reversed", "only WS", "only AD"}
+	self.modes = {"WASD", "WS Reversed", "Only WS", "Only AD"}
 	
 	self.interactable:setAnimEnabled( "animY", true )
 	self.interactable:setAnimEnabled( "animX", true )
@@ -100,8 +100,10 @@ function WASDThruster.client_canInteract(self)
 	local use_hyper = default_hypertext:format(use_key)
 	local use_and_crawl_hyper = default_hypertext:format(crawl_key.." + "..use_key)
 
-	sm.gui.setInteractionText("Press", use_hyper, " / ", use_and_crawl_hyper, "to change mode")
-	sm.gui.setInteractionText("Current mode: "..self.modes[self.mode+1])
+	sm.gui.setInteractionText("Press", use_hyper, "or", use_and_crawl_hyper, "to change mode")
+
+	local cur_mode_hyper = default_hypertext:format("Mode: "..self.modes[self.mode+1])
+	sm.gui.setInteractionText("", cur_mode_hyper)
 
 	return true
 end

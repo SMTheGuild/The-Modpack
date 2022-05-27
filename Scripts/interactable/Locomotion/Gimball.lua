@@ -85,11 +85,18 @@ function Gimball.client_mode(self, data)
 	self.mode = data.mode
 end
 
+local default_hypertext = "<p textShadow='false' bg='gui_keybinds_bg_orange' color='#66440C' spacing='9'>%s</p>"
 function Gimball.client_canInteract(self)
-	local use_key = sm.gui.getKeyBinding("Use", true)
+	local use_key   = sm.gui.getKeyBinding("Use")
+	local crawl_key = sm.gui.getKeyBinding("Crawl")
 
-	sm.gui.setInteractionText("Press", use_key, "to change mode")
-	sm.gui.setInteractionText("Current mode: "..self.modes[self.mode+1])
+	local use_hyper = default_hypertext:format(use_key)
+	local crawl_and_use_hyper = default_hypertext:format(crawl_key.." + "..use_key)
+
+	sm.gui.setInteractionText("Press", use_hyper, "or", crawl_and_use_hyper, "to change mode")
+
+	local cur_mode_hyper = default_hypertext:format("Mode: "..self.modes[self.mode+1])
+	sm.gui.setInteractionText("", cur_mode_hyper)
 
 	return true
 end
