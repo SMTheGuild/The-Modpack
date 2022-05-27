@@ -197,12 +197,32 @@ function SmartSensor.client_onCreate(self)
 	self.network:sendToServer("sv_requestMode")
 end
 
+function SmartSensor.client_onDestroy(self)
+	self:client_onGuiDestroyCallback()
+end
+
+function SmartSensor.client_onGuiDestroyCallback(self)
+	local s_gui = self.gui
+	if s_gui and sm.exists(s_gui) then
+		if s_gui:isActive() then
+			s_gui:close()
+		end
+
+		s_gui:destroy()
+	end
+
+	self.gui = nil
+end
+
 function SmartSensor.client_onInteract(self, character, lookAt)
     if lookAt == true then
-        self.gui = sm.gui.createGuiFromLayout('$MOD_DATA/Gui/Layouts/SmartSensor.layout')
+        self.gui = sm.gui.createGuiFromLayout("$MOD_DATA/Gui/Layouts/SmartSensor.layout", false, { backgroundAlpha = 0.5 })
+		self.gui:setOnCloseCallback("client_onGuiDestroyCallback")
+
 		for i = 0, 5 do
 			self.gui:setButtonCallback( "Operation" .. tostring( i ), "cl_onModeButtonClick" )
 		end
+		
         self:cl_drawButtons()
 		self.gui:open()
 	end
