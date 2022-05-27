@@ -340,9 +340,9 @@ end
 
 
 function XOMeter.client_canInteract(self)
-    local _useKey = sm.gui.getKeyBinding("Use")
-    local _crawlKey = sm.gui.getKeyBinding("Crawl")
-    sm.gui.setInteractionText("Press", _useKey, " to change the meter mode")
+    local use_key = sm.gui.getKeyBinding("Use", true)
+    sm.gui.setInteractionText("Press", use_key, "to select the meter mode")
+
     return true
 end
 

@@ -340,11 +340,17 @@ function AsciiBlock.client_onInteract(self, character, lookAt)
 	self.network:sendToServer("server_changemode", character:isCrouching())
 end
 
+local default_hypertext = "<p textShadow='false' bg='gui_keybinds_bg_orange' color='#66440C' spacing='9'>%s</p>"
 function AsciiBlock.client_canInteract(self)
-	local _useKey = sm.gui.getKeyBinding("Use")
-	local _crawlKey = sm.gui.getKeyBinding("Crawl")
-	sm.gui.setInteractionText("", _useKey, "to cycle forward")
-	sm.gui.setInteractionText("", _crawlKey.." + ".._useKey, "to cycle backwards")
+	local use_key   = sm.gui.getKeyBinding("Use")
+	local crawl_key = sm.gui.getKeyBinding("Crawl")
+
+	local use_hyper = default_hypertext:format(use_key)
+	local crawl_and_use_hyper = default_hypertext:format(crawl_key.." + "..use_key)
+
+	sm.gui.setInteractionText("", use_hyper, "to cycle forward")
+	sm.gui.setInteractionText("", crawl_and_use_hyper, "to cycle backwards")
+
 	return true
 end
 function AsciiBlock.client_playsound(self, sound)

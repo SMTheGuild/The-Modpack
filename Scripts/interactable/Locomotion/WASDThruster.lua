@@ -74,25 +74,35 @@ function WASDThruster.client_onInteract(self, character, lookAt)
 	if not lookAt or character:getLockingInteractable() then return end
 	self.network:sendToServer("server_changemode", character:isCrouching())
 end
+
 function WASDThruster.server_changemode(self, crouch)
 	self.smode = (self.smode + (crouch and -1 or 1))%4
 	self.storage:save(self.smode+1)
 	self.network:sendToClients("client_mode", {self.smode, true})
 end
+
 function WASDThruster.server_requestmode(self)
 	self.network:sendToClients("client_mode", {self.smode})
 end
+
 function WASDThruster.client_mode(self, mode)
 	if mode[2] then
 		sm.audio.play("ConnectTool - Rotate", self.shape:getWorldPosition())
 	end
 	self.mode = mode[1]
 end
+
+local default_hypertext = "<p textShadow='false' bg='gui_keybinds_bg_orange' color='#66440C' spacing='9'>%s</p>"
 function WASDThruster.client_canInteract(self)
-	local _useKey = sm.gui.getKeyBinding("Use")
-	local _crawlKey = sm.gui.getKeyBinding("Crawl")
-	sm.gui.setInteractionText("Press", _useKey, " / ", _crawlKey.." + ".._useKey, "to change mode")
-	sm.gui.setInteractionText( "current mode: ".. self.modes[self.mode+1])
+	local use_key = sm.gui.getKeyBinding("Use")
+	local crawl_key = sm.gui.getKeyBinding("Crawl")
+
+	local use_hyper = default_hypertext:format(use_key)
+	local use_and_crawl_hyper = default_hypertext:format(crawl_key.." + "..use_key)
+
+	sm.gui.setInteractionText("Press", use_hyper, " / ", use_and_crawl_hyper, "to change mode")
+	sm.gui.setInteractionText("Current mode: "..self.modes[self.mode+1])
+
 	return true
 end
 

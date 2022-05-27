@@ -130,8 +130,9 @@ function CounterBlock.client_onCreate(self, dt)
 end
 
 function CounterBlock.client_canInteract(self)
-	local _useKey = sm.gui.getKeyBinding("Use")
-	sm.gui.setInteractionText("Press", _useKey, "to reset counter")
+	local use_key = sm.gui.getKeyBinding("Use", true)
+	sm.gui.setInteractionText("Press", use_key, "to reset counter")
+
 	return true
 end
 

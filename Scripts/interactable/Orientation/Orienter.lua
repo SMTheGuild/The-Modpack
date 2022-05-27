@@ -367,8 +367,9 @@ function Orienter.sv_changeMode(self, params)
 end
 
 function Orienter.client_canInteract(self)
-	local _useKey = sm.gui.getKeyBinding("Use")
-	sm.gui.setInteractionText("Press", _useKey, " to change the mode")
+	local use_key = sm.gui.getKeyBinding("Use", true)
+	sm.gui.setInteractionText("Press", use_key, "to select an orient mode")
+
 	return true
 end
 

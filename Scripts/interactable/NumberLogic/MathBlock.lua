@@ -972,8 +972,9 @@ function MathBlock.cl_setMode(self, data)
 end
 
 function MathBlock.client_canInteract(self)
-	local _useKey = sm.gui.getKeyBinding("Use")
-	sm.gui.setInteractionText("Press", _useKey, " to select a function")
+	local use_key = sm.gui.getKeyBinding("Use", true)
+	sm.gui.setInteractionText("Press", use_key, "to select a function")
+
 	return true
 end
 

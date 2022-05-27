@@ -42,6 +42,7 @@ function Gimball.server_onFixedUpdate( self )
 		--print(self.direction)
 	end
 end
+
 function Gimball.client_onCreate(self)
 	self.shootEffect = sm.effect.createEffect( "Thruster - Level 2", self.interactable )
 	self.shootEffect:setOffsetPosition(sm.vec3.zero())
@@ -61,27 +62,35 @@ end
 function Gimball.client_onDestroy(self)
 	self.shootEffect:stop()
 end
+
 function Gimball.client_onInteract(self, character, lookAt)
 	if not lookAt or character:getLockingInteractable() then return end
 	self.network:sendToServer("server_changemode", character:isCrouching())
 end
+
 function Gimball.server_changemode(self, crouch)
 	self.smode = (self.smode + (crouch and -1 or 1)) % 4
 	self.storage:save(self.smode+1)
 	self.network:sendToClients("client_mode", {mode = self.smode, sound = true})
 end
+
 function Gimball.server_requestmode(self)
 	self.network:sendToClients("client_mode", {mode = self.smode, sound = false})
 end
+
 function Gimball.client_mode(self, data)
 	if data.sound then
 		sm.audio.play("ConnectTool - Rotate", self.shape:getWorldPosition())
 	end
 	self.mode = data.mode
 end
+
 function Gimball.client_canInteract(self)
-	sm.gui.setInteractionText("Press", sm.gui.getKeyBinding("Use"), "to change mode")
+	local use_key = sm.gui.getKeyBinding("Use", true)
+
+	sm.gui.setInteractionText("Press", use_key, "to change mode")
 	sm.gui.setInteractionText("Current mode: "..self.modes[self.mode+1])
+
 	return true
 end
 

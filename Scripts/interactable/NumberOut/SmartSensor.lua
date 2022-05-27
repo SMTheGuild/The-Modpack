@@ -227,8 +227,9 @@ function SmartSensor.cl_drawButtons(self)
 end
 
 function SmartSensor.client_canInteract(self, character, lookAt)
-	local _useKey = sm.gui.getKeyBinding("Use")
-	sm.gui.setInteractionText("Press", _useKey, "to change mode")
+	local use_key = sm.gui.getKeyBinding("Use", true)
+	sm.gui.setInteractionText("Press", use_key, "to select a sensor mode")
+	
 	return true
 end
 
