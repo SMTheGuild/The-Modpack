@@ -345,27 +345,10 @@
 			},
 			"density": 1250.0,
 			"physicsMaterial": "Metal",
-			"gasEngine": {
-				"gears": [
-					{ "velocity": 0, "power": 0 },
-					{ "velocity": 45, "power": 8 },
-					{ "velocity": 90, "power": 16 },
-					{ "velocity": 180, "power": 32 },
-					{ "velocity": 360, "power": 64 },
-					{ "velocity": 720, "power": 128 },
-					{ "velocity": 1440, "power": 256 },
-					{ "velocity": 2880, "power": 512 },
-					{ "velocity": 5760, "power": 1024 },
-					{ "velocity": 10000, "power": 2048 },
-					{ "velocity": 10000, "power": 4096 },
-					{ "velocity": 10000, "power": 8192 },
-					{ "velocity": 10000, "power": 16384 },
-					{ "velocity": 10000, "power": 32768 },
-					{ "velocity": 10000, "power": 65536 },
-					{ "velocity": 10000, "power": 131072 },
-					{ "velocity": 10000, "power": 262144 }
-				],
-				"effect": "GasEngine - Level 1"
+			"scripted": {
+				"filename": "$MOD_DATA/Scripts/interactable/Locomotion/ModGasEngine.lua",
+				"classname": "GasEngine",
+				"data": {}
 			},
 			"qualityLevel": 4
 		},
@@ -1064,19 +1047,10 @@
 			"box": { "x": 3, "y": 2, "z": 2 },
 			"density": 1250.0,
 			"physicsMaterial": "Metal",
-			"gasEngine": {
-				"gears": [
-					{ "velocity": 0, "power": 0 },
-					{ "velocity": 45, "power": 8 },
-					{ "velocity": 90, "power": 16 },
-					{ "velocity": 180, "power": 32 },
-					{ "velocity": 360, "power": 64 },
-					{ "velocity": 720, "power": 128 },
-					{ "velocity": 1440, "power": 256 },
-					{ "velocity": 2880, "power": 512 },
-					{ "velocity": 5760, "power": 1024 }
-				],
-				"effect": "GasEngine - Level 1"
+			"scripted": {
+				"filename": "$MOD_DATA/Scripts/interactable/Locomotion/ModGasEngine.lua",
+				"classname": "GasEngine",
+				"data": {}
 			},
 			"qualityLevel": 5
 		},
