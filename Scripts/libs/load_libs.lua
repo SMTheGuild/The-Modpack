@@ -18,6 +18,7 @@ dofile "color.lua"
 dofile "math.lua"
 dofile "other.lua"
 dofile "virtual_buttons.lua"
+dofile "fuel_consumption_manager.lua"
 dofile "game_improvements/interactable.lua"
 
 
