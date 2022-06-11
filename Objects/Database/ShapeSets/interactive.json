@@ -310,7 +310,68 @@
 			"stackSize": 5
 		},
 		{
-			"uuid": "93e08947-be6d-436c-a64f-932727428c89",
+			"uuid": "93e08947-be6d-436c-a64f-932727428c89", //OLD Engine Suspension
+			"renderable": {
+				"lodList": [
+					{
+						"subMeshList": [
+							{
+								"textureList": [
+									"$MOD_DATA/Objects/Textures/mod_decor_cone_dif.png",
+									"$MOD_DATA/Objects/Textures/mod_decor_cone_asg.png",
+									"$GAME_DATA/Textures/nonor_nor.tga"
+								],
+								"material": "DifAsg"
+							}
+						],
+						"mesh": "$MOD_DATA/Objects/Mesh/mjm_EngineSuspension.mesh"
+					}
+				]
+			},
+			"rotationSet": "PropY",
+			"color": "df7f00",
+			"hull": {
+				"x": 1, "y": 1, "z": 3,
+				"pointList": [
+					{ "x": 0.0, "y": 1.0, "z": 1.0 },
+					{ "x": 1.0, "y": 0.0, "z": 1.0 },
+					{ "x": 0.0, "y": -1.0, "z": 1.0 },
+					{ "x": -1.0, "y": 0.0, "z": 1.0 },
+					{ "x": -0.1, "y": 1.0, "z": -1.0 },
+					{ "x": 0.1, "y": 1.0, "z": -1.0 },
+					{ "x": 0.1, "y": -1.0, "z": -1.0 },
+					{ "x": -0.1, "y": -1.0, "z": -1.0 }
+				]
+			},
+			"density": 1250.0,
+			"physicsMaterial": "Metal",
+			"gasEngine": {
+				"gears": [
+					{ "velocity": 0, "power": 0 },
+					{ "velocity": 45, "power": 8 },
+					{ "velocity": 90, "power": 16 },
+					{ "velocity": 180, "power": 32 },
+					{ "velocity": 360, "power": 64 },
+					{ "velocity": 720, "power": 128 },
+					{ "velocity": 1440, "power": 256 },
+					{ "velocity": 2880, "power": 512 },
+					{ "velocity": 5760, "power": 1024 },
+					{ "velocity": 10000, "power": 2048 },
+					{ "velocity": 10000, "power": 4096 },
+					{ "velocity": 10000, "power": 8192 },
+					{ "velocity": 10000, "power": 16384 },
+					{ "velocity": 10000, "power": 32768 },
+					{ "velocity": 10000, "power": 65536 },
+					{ "velocity": 10000, "power": 131072 },
+					{ "velocity": 10000, "power": 262144 }
+				],
+				"effect": "GasEngine - Level 1"
+			},
+			"qualityLevel": 4,
+			"showInInventory": false
+		},
+		{
+			"uuid": "b69bf080-2467-4360-9677-72cfd48806c9", //NEW Engine Suspension
 			"renderable": {
 				"lodList": [
 					{
@@ -1024,7 +1085,48 @@
 			"flammable": false
 		},
 		{
-			"uuid": "f55aa240-d4b2-48cc-9c6b-a90fce299bf4",
+			"uuid": "f55aa240-d4b2-48cc-9c6b-a90fce299bf4", //OLD Gas Engine 3-Wide
+			"renderable": {
+				"lodList": [
+					{
+						"subMeshList": [
+							{
+								"textureList": [
+									"$GAME_DATA/Objects/Textures/interactive/obj_interactive_enginegas_dif.tga",
+									"$GAME_DATA/Objects/Textures/interactive/obj_interactive_enginegas_asg.tga",
+									"$GAME_DATA/Objects/Textures/interactive/obj_interactive_enginegas_nor.tga"
+								],
+								"material": "DifAsgNor"
+							}
+						],
+						"mesh": "$MOD_DATA/Objects/Mesh/mjm_EngineGasOdd.mesh"
+					}
+				]
+			},
+			"rotationSet": "PropYf",
+			"color": "df7f00",
+			"box": { "x": 3, "y": 2, "z": 2 },
+			"density": 1250.0,
+			"physicsMaterial": "Metal",
+			"gasEngine": {
+				"gears": [
+					{ "velocity": 0, "power": 0 },
+					{ "velocity": 45, "power": 8 },
+					{ "velocity": 90, "power": 16 },
+					{ "velocity": 180, "power": 32 },
+					{ "velocity": 360, "power": 64 },
+					{ "velocity": 720, "power": 128 },
+					{ "velocity": 1440, "power": 256 },
+					{ "velocity": 2880, "power": 512 },
+					{ "velocity": 5760, "power": 1024 }
+				],
+				"effect": "GasEngine - Level 1"
+			},
+			"qualityLevel": 5,
+			"showInInventory": false
+		},
+		{
+			"uuid": "70cbacf2-ec5a-471f-9896-0ee944c581d1", //NEW Gas Engine 3-Wide
 			"renderable": {
 				"lodList": [
 					{

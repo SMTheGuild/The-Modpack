@@ -13,13 +13,6 @@ GasEngine.colorNormal = sm.color.new( 0xff8000ff )
 GasEngine.colorHighlight = sm.color.new( 0xff9f3aff )
 GasEngine.poseWeightCount = 1
 
-local ScrapGears = {
-	{ power = 0 },
-	{ power = 30 },
-	{ power = 60 },
-	{ power = 90 }
-}
-
 local Gears = {
 	{ power = 0 },
 	{ power = 30 },
@@ -36,18 +29,6 @@ local Gears = {
 	{ power = 6990 }, -- 5
 }
 
---[[ Gas Engine 3-Wide old power settings
-	{ "velocity": 0, "power": 0 },
-	{ "velocity": 45, "power": 8 },
-	{ "velocity": 90, "power": 16 },
-	{ "velocity": 180, "power": 32 },
-	{ "velocity": 360, "power": 64 },
-	{ "velocity": 720, "power": 128 },
-	{ "velocity": 1440, "power": 256 },
-	{ "velocity": 2880, "power": 512 },
-	{ "velocity": 5760, "power": 1024 }
-]]
-
 local GasEngine3WideGears = {
 	{ power = 0    },
 	{ power = 8    },
@@ -59,26 +40,6 @@ local GasEngine3WideGears = {
 	{ power = 512  },
 	{ power = 1024 }
 }
-
---[[ Engine Suspension old power settings
-	{ "velocity": 0, "power": 0 },
-	{ "velocity": 45, "power": 8 },
-	{ "velocity": 90, "power": 16 },
-	{ "velocity": 180, "power": 32 },
-	{ "velocity": 360, "power": 64 },
-	{ "velocity": 720, "power": 128 },
-	{ "velocity": 1440, "power": 256 },
-	{ "velocity": 2880, "power": 512 },
-	{ "velocity": 5760, "power": 1024 },
-	{ "velocity": 10000, "power": 2048 },
-	{ "velocity": 10000, "power": 4096 },
-	{ "velocity": 10000, "power": 8192 },
-	{ "velocity": 10000, "power": 16384 },
-	{ "velocity": 10000, "power": 32768 },
-	{ "velocity": 10000, "power": 65536 },
-	{ "velocity": 10000, "power": 131072 },
-	{ "velocity": 10000, "power": 262144 }
-]]
 
 local EngineSuspensionGears = {
 	{ power = 0      },
@@ -101,7 +62,7 @@ local EngineSuspensionGears = {
 }
 
 local EngineLevels = {
-	["f55aa240-d4b2-48cc-9c6b-a90fce299bf4"] = { --Gas Engine 3-Wide
+	["70cbacf2-ec5a-471f-9896-0ee944c581d1"] = { --Gas Engine 3-Wide
 		gears = GasEngine3WideGears,
 		gearCount = #GasEngine3WideGears,
 		title = "Modpack Continuation",
@@ -109,7 +70,7 @@ local EngineLevels = {
 		pointsPerFuel = 15000,
 		effect = "GasEngine - Level 1"
 	},
-	["93e08947-be6d-436c-a64f-932727428c89"] = { --Engine Suspension
+	["b69bf080-2467-4360-9677-72cfd48806c9"] = { --Engine Suspension
 		gears = EngineSuspensionGears,
 		gearCount = #EngineSuspensionGears,
 		title = "Modpack Continuation",
