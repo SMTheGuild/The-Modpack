@@ -443,7 +443,7 @@ function GasEngine.client_onInteract( self, character, state )
 				self.gui:setData( "UpgradeInfo", nil )
 			end
 
-			self.gui:setText( "SubTitle", level.title )
+			self.gui:setVisible("SubTitle", false)
 			self.gui:setSliderRangeLimit( "Setting", level.gearCount )
 
 			if sm.game.getEnableUpgrade() and level.cost then
