@@ -10,7 +10,7 @@ print("loading Gimball.lua")
 Gimball = class()
 Gimball.maxParentCount = -1
 Gimball.maxChildCount = 0
-Gimball.connectionInput = sm.interactable.connectionType.power + sm.interactable.connectionType.logic
+Gimball.connectionInput = sm.interactable.connectionType.power + sm.interactable.connectionType.logic + sm.interactable.connectionType.gasoline
 Gimball.connectionOutput = sm.interactable.connectionType.none
 Gimball.colorNormal = sm.color.new( 0x009999ff  )--sm.color.new( 0x844040ff )
 Gimball.colorHighlight = sm.color.new( 0x11B2B2ff  )-- = sm.color.new( 0xb25959ff )
@@ -25,22 +25,53 @@ function Gimball.server_init( self )
 	self.power = 0
 	self.smode = 0
 	self.direction = sm.vec3.new(0,0,1)
+	self.sv_fuel_points = 0
 	
 	local stored = self.storage:load()
 	if stored then
-		self.smode = stored - 1
+		local stored_type = type(stored)
+		if stored_type == "number" then
+			self.smode = stored - 1
+		elseif stored_type == "table" then
+			self.smode = stored[1] - 1
+			self.sv_fuel_points = stored[2]
+		end
 	end
+
+	self.sv_saved_fuel_points = self.sv_fuel_points
 end
 
 function Gimball.server_onRefresh( self )
 	self:server_init()
 end
 
-function Gimball.server_onFixedUpdate( self )
+function Gimball.server_onFixedUpdate( self, dt )
 	if self.power ~= 0 and math.abs(self.power) ~= math.huge then
 		sm.physics.applyImpulse(self.shape, self.direction*math.abs(self.power), true)
-		--print(self.direction)
+
+		mp_fuel_consumeFuelPoints(self, self.power, 0.35, dt)
 	end
+
+	mp_fuel_updateFuelConsumption(self, obj_consumable_gas, 10000)
+
+	if self.sv_saved_fuel_points ~= self.sv_fuel_points then
+		self.sv_saved_fuel_points = self.sv_fuel_points
+
+		self.network:setClientData(self.sv_fuel_points > 0)
+		self.storage:save({ self.smode+1, self.sv_saved_fuel_points })
+
+		if self.sv_fuel_points <= 0 then
+			self.network:sendToClients("client_onOutOfFuel")
+		end
+	end
+end
+
+function Gimball:client_onClientDataUpdate(params)
+	self.cl_has_fuel = params
+end
+
+function Gimball:client_onOutOfFuel()
+	mp_fuel_displayOutOfFuelMessage(self)
 end
 
 function Gimball.client_onCreate(self)
@@ -70,7 +101,7 @@ end
 
 function Gimball.server_changemode(self, crouch)
 	self.smode = (self.smode + (crouch and -1 or 1)) % 4
-	self.storage:save(self.smode+1)
+	self.storage:save({ self.smode+1, self.sv_saved_fuel_points })
 	self.network:sendToClients("client_mode", {mode = self.smode, sound = true})
 end
 
@@ -101,8 +132,9 @@ function Gimball.client_canInteract(self)
 	return true
 end
 
+local gb_logic_and_power = bit.bor(sm.interactable.connectionType.logic, sm.interactable.connectionType.power)
 function Gimball.client_onFixedUpdate(self, dt)
-	local parents = self.interactable:getParents()
+	local parents = self.interactable:getParents(gb_logic_and_power)
 	local power = #parents>0 and 100 or 0
 	local hasnumber = false
 	local logicinput = 1
@@ -284,10 +316,10 @@ function Gimball.client_onFixedUpdate(self, dt)
 	]]
 	
 	
-	if false then --visualise x and z
+	--[[if false then --visualise x and z
 		sm.particle.createParticle("construct_welding", self.shape.worldPosition + localX)
 		sm.particle.createParticle("construct_welding", self.shape.worldPosition + localZ)
-	end
+	end]]
 	
 	-- direction to pose translation:
 	local localvec = getLocal(self.shape, self.direction*-1)
@@ -302,6 +334,10 @@ function Gimball.client_onFixedUpdate(self, dt)
 	local worldRot = sm.vec3.getRotation( getLocal(self.shape,sm.shape.getUp(self.shape)),-self.direction)
 	local localRot = self.shape:transformRotation( worldRot )
 	self.shootEffect:setOffsetRotation(localRot)
+
+	if sm.game.getEnableFuelConsumption() and not self.cl_has_fuel then
+		self.power = 0
+	end
 	
 	--self.shootEffect:setOffsetPosition(-sm.vec3.new(0,0,0.5)) old calculations
 	if self.power ~= 0 then
