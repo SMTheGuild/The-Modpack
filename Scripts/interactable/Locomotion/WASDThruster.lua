@@ -9,7 +9,7 @@ print("loading WASDThruster.lua")
 WASDThruster = class( nil )
 WASDThruster.maxParentCount = -1
 WASDThruster.maxChildCount = 0
-WASDThruster.connectionInput = sm.interactable.connectionType.power + sm.interactable.connectionType.logic
+WASDThruster.connectionInput = sm.interactable.connectionType.power + sm.interactable.connectionType.logic + sm.interactable.connectionType.gasoline
 WASDThruster.connectionOutput = sm.interactable.connectionType.none
 WASDThruster.colorNormal = sm.color.new( 0x009999ff  )
 WASDThruster.colorHighlight = sm.color.new( 0x11B2B2ff  )
@@ -26,11 +26,21 @@ function WASDThruster.server_init( self )
 	self.power = 0
 	self.direction = sm.vec3.new(0,0,1)
 	self.smode = 0
+
+	self.sv_fuel_points = 0
 	
 	local stored = self.storage:load()
-	if stored and type(stored)=="number" then
-		self.smode = stored - 1
+	if stored then
+		local stored_type = type(stored)
+		if stored_type == "number" then
+			self.smode = stored - 1
+		elseif stored_type == "table" then
+			self.smode = stored[1] - 1
+			self.sv_fuel_points = stored[2]
+		end
 	end
+
+	self.sv_saved_fuel_points = self.sv_fuel_points
 end
 
 function WASDThruster.server_onRefresh( self )
@@ -44,7 +54,32 @@ function WASDThruster.server_onFixedUpdate( self, dt )
 	if self.power > 0 and math.abs(self.power) ~= math.huge then
 		sm.physics.applyImpulse(self.shape, self.direction*self.power*-1)
 		--print(self.direction)
+
+		mp_fuel_consumeFuelPoints(self, self.power, 0.35, dt)
 	end
+
+	mp_fuel_updateFuelConsumption(self, obj_consumable_gas, 10000)
+
+	if self.sv_saved_fuel_points ~= self.sv_fuel_points then
+		self.sv_saved_fuel_points = self.sv_fuel_points
+
+		self.storage:save({ self.smode+1, self.sv_saved_fuel_points })
+		self.network:setClientData(self.sv_fuel_points > 0)
+
+		if self.sv_fuel_points <= 0 then
+			self.network:sendToClients("client_onOutOfFuel")
+		end
+	end
+end
+
+
+function WASDThruster:client_onClientDataUpdate(params)
+	self.cl_has_fuel = params
+end
+
+
+function WASDThruster:client_onOutOfFuel()
+	mp_fuel_displayOutOfFuelMessage(self)
 end
 
 
@@ -67,7 +102,7 @@ end
 
 
 function WASDThruster.client_onDestroy(self)
-	self.shootEffect:stop()
+	self.shootEffect:stopImmediate()
 end
 
 function WASDThruster.client_onInteract(self, character, lookAt)
@@ -77,7 +112,7 @@ end
 
 function WASDThruster.server_changemode(self, crouch)
 	self.smode = (self.smode + (crouch and -1 or 1))%4
-	self.storage:save(self.smode+1)
+	self.storage:save({ self.smode+1, self.sv_saved_fuel_points })
 	self.network:sendToClients("client_mode", {self.smode, true})
 end
 
@@ -109,8 +144,9 @@ function WASDThruster.client_canInteract(self)
 end
 
 
+local wasdt_logic_and_power = bit.bor(sm.interactable.connectionType.logic, sm.interactable.connectionType.power)
 function WASDThruster.client_onFixedUpdate(self, dt)
-	local parents = self.interactable:getParents()
+	local parents = self.interactable:getParents(wasdt_logic_and_power)
 	local power = #parents>0 and 100 or 0
 	local hasnumber = false
 	local logicinput = 1
@@ -225,12 +261,19 @@ function WASDThruster.client_onFixedUpdate(self, dt)
 	local worldRot = sm.vec3.getRotation( getLocal(self.shape,sm.shape.getUp(self.shape)),self.direction)
 	self.shootEffect:setOffsetRotation(worldRot)
 	--self.shootEffect:setOffsetPosition((-sm.vec3.new(0,0,1.25)+self.direction)*0.36) --old calculations
+
+	if sm.game.getEnableAmmoConsumption() and not self.cl_has_fuel then
+		self.power = 0
+	end
+
 	if self.power > 0 then
 		if not self.shootEffect:isPlaying() then
-		self.shootEffect:start() end
+			self.shootEffect:start()
+		end
 	else
 		if self.shootEffect:isPlaying() then
-		self.shootEffect:stop() end
+			self.shootEffect:stop()
+		end
 	end
 	
 	

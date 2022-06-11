@@ -54,8 +54,7 @@ function SmartThruster.server_onFixedUpdate( self, dt )
 		if power < 0 then power = -3.3*10^38 else power = 3.3*10^38 end  
 	end
 
-	local can_consume_fuel = sm.game.getEnableFuelConsumption()
-	if can_consume_fuel and self.sv_fuel_points <= 0 then
+	if sm.game.getEnableFuelConsumption() and self.sv_fuel_points <= 0 then
 		power = 0
 	end
 	
@@ -65,10 +64,7 @@ function SmartThruster.server_onFixedUpdate( self, dt )
 	if power ~= 0 and math.abs(power) ~= math.huge then
 		sm.physics.applyImpulse(self.shape, sm.vec3.new(0,0, 0 - power))
 
-		if can_consume_fuel then
-			local abs_power = math.abs(power) * 0.35
-			self.sv_fuel_points = self.sv_fuel_points - (abs_power * dt) --calculate fuel consumption
-		end
+		mp_fuel_consumeFuelPoints(self, power, 0.35, dt)
 	end
 
 	mp_fuel_updateFuelConsumption(self, obj_consumable_gas, 10000)
@@ -84,14 +80,7 @@ function SmartThruster.server_onFixedUpdate( self, dt )
 end
 
 function SmartThruster:client_onOutOfFuel()
-	local l_player = sm.localPlayer.getPlayer()
-	local l_character = l_player:getCharacter()
-
-	if l_character then
-		if (self.shape.worldPosition - l_character.worldPosition):length2() < 100 then
-			sm.gui.displayAlertText("#{INFO_OUT_OF_FUEL}")
-		end
-	end
+	mp_fuel_displayOutOfFuelMessage(self)
 end
 
 
