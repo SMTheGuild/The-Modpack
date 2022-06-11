@@ -99,6 +99,12 @@
 		"description": "Cette pi�ce est un moteur! Placez cette pi�ce sur un roulement et connectez ce moteur au roulement! Connectez des tuyaux � une extr�mit� o� iront votre roue (et votre direction) et utilisez l'autre extr�mit� pour limiter la port�e R�gler la puissance de ce moteur pour une suspension de moteur l�che ou ferme. ",
 		"keywords": ["modpack", "moteur", "suspension", "ressort", "angle", "contr�leur"]
 	},
+	"b69bf080-2467-4360-9677-72cfd48806c9":
+	{
+		"title": "Suspension de moteur [#ffff00OBSOLÈTE#ffffff]",
+		"description": "Cette pi�ce est un moteur! Placez cette pi�ce sur un roulement et connectez ce moteur au roulement! Connectez des tuyaux � une extr�mit� o� iront votre roue (et votre direction) et utilisez l'autre extr�mit� pour limiter la port�e R�gler la puissance de ce moteur pour une suspension de moteur l�che ou ferme. ",
+		"keywords": ["modpack", "moteur", "suspension", "ressort", "angle", "contr�leur"]
+	},
 	"a6d186ad-c9ba-4b6d-922c-6c13dfcea230":
 	{
 		"title": "Mod Piston (256)",
@@ -177,17 +183,35 @@
 // moteurs
 	"f55aa240-d4b2-48cc-9c6b-a90fce299bf4":
 	{
+		"title": "Gas Engine 3-Wide [#ffff00OBSOLÈTE#ffffff]",
+		"description": "Il s�agit d�un moteur � essence de la taille d�un moteur �lectrique. Id�al pour les cr�ations � largeur irr�guli�re � essence � essence!",
+		"keywords": ["modpack", "motor", "impair", "impair-width", "width"]
+	},
+	"70cbacf2-ec5a-471f-9896-0ee944c581d1":
+	{
 		"title": "Gas Engine 3-Wide",
 		"description": "Il s�agit d�un moteur � essence de la taille d�un moteur �lectrique. Id�al pour les cr�ations � largeur irr�guli�re � essence � essence!",
 		"keywords": ["modpack", "motor", "impair", "impair-width", "width"]
 	},
 	"c394b6e8-554c-4074-a119-ab2fec55e456":
 	{
+		"title": "Pico thruster - Low power [#ffff00OBSOLÈTE#ffffff]",
+		"description": "Des propulseurs en man�uvre, ou tout simplement un propulseur basse consommation",
+		"keywords": ["modpack", "rocket", "booster", "boost", "force", "�chappement"]
+	},
+	"9235b582-fc25-48a8-a807-68d98755d077":
+	{
 		"title": "Pico thruster - Low power",
 		"description": "Des propulseurs en man�uvre, ou tout simplement un propulseur basse consommation",
 		"keywords": ["modpack", "rocket", "booster", "boost", "force", "�chappement"]
 	},
 	"036fbe44-45df-11e6-beb8-9e71128cae77":
+	{
+		"title": "1x1 Micro Thruster [#ffff00OBSOLÈTE#ffffff]",
+		"description": "Micro Thruster avec plusieurs niveaux de puissance",
+		"keywords": ["modpack", "rocket", "booster", "boost", "force", "�chappement"]
+	},
+	"a07a3673-a446-44a3-b16d-abb732c7a525":
 	{
 		"title": "1x1 Micro Thruster",
 		"description": "Micro Thruster avec plusieurs niveaux de puissance",

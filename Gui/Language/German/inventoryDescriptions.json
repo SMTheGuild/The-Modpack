@@ -171,11 +171,23 @@
 // engines
 	"93e08947-be6d-436c-a64f-932727428c89":
 	{
+		"title": "Motor Feder [#ffff00VERALTET#ffffff]",
+		"description": "Dieses Teil ist ein Motor! Setze diesen Motor auf ein ein Lager und verbinde ihn damit! Platziere Rohre an einem Ende wo das Rad (und dessen Lenkung) sein wird. Nutze die andere Seite um die Bewegungsfreiheit zu begrenzen. Pass die Motorstärke an um die Federkraft einzustellen.",
+		"keywords": ["modpack", "motor", "Federung", "Feder", "Federung", "Winkel", " regler", "Controller", "Steuerung" ]
+	},
+	"b69bf080-2467-4360-9677-72cfd48806c9":
+	{
 		"title": "Motor Feder",
 		"description": "Dieses Teil ist ein Motor! Setze diesen Motor auf ein ein Lager und verbinde ihn damit! Platziere Rohre an einem Ende wo das Rad (und dessen Lenkung) sein wird. Nutze die andere Seite um die Bewegungsfreiheit zu begrenzen. Pass die Motorstärke an um die Federkraft einzustellen.",
 		"keywords": ["modpack", "motor", "Federung", "Feder", "Federung", "Winkel", " regler", "Controller", "Steuerung" ]
 	},
 	"f55aa240-d4b2-48cc-9c6b-a90fce299bf4":
+	{
+		"title": "Verbrennungsmotor (3 Böcke Breit) [#ffff00VERALTET#ffffff]",
+		"description": "Ein Verbrennungsmotor, welcher der Größe eines Elektromotors entspricht. Perfekt geeignet für ausbalancierte, ungerade breite Kreationen!",
+		"keywords": ["modpack", "motor", "ungerade", "ungerade breit", " breit", "lang" ]
+	},
+	"70cbacf2-ec5a-471f-9896-0ee944c581d1":
 	{
 		"title": "Verbrennungsmotor (3 Böcke Breit)",
 		"description": "Ein Verbrennungsmotor, welcher der Größe eines Elektromotors entspricht. Perfekt geeignet für ausbalancierte, ungerade breite Kreationen!",
@@ -183,11 +195,23 @@
 	},
 	"c394b6e8-554c-4074-a119-ab2fec55e456":
 	{
+		"title": "Pico-Schubdüse (geringer Schub) [#ffff00VERALTET#ffffff]",
+		"description": "Als Manövrierschubdüse oder Schubdüse mit geringer Schubkraft nutzbar.",
+		"keywords": [ "modpack", "Rakete", "booster", "boost", "Schub", "Düse", "Triebwerk", "Kraft", "Auspuff", "Leistung" , "Pico", "gering" ]
+	},
+	"9235b582-fc25-48a8-a807-68d98755d077":
+	{
 		"title": "Pico-Schubdüse (geringer Schub)",
 		"description": "Als Manövrierschubdüse oder Schubdüse mit geringer Schubkraft nutzbar.",
 		"keywords": [ "modpack", "Rakete", "booster", "boost", "Schub", "Düse", "Triebwerk", "Kraft", "Auspuff", "Leistung" , "Pico", "gering" ]
 	},
 	"036fbe44-45df-11e6-beb8-9e71128cae77":
+	{
+		"title": "1x1 Micro-Schubdüse [#ffff00VERALTET#ffffff]",
+		"description": "Micro-Schubdüse mit mehreren Leistungsstufen.",
+		"keywords": [ "modpack", "Rakete", "booster", "boost", "Schub", "Düse", "Triebwerk", "Kraft", "Auspuff", "Leistung", "Micro" ]
+	},
+	"a07a3673-a446-44a3-b16d-abb732c7a525":
 	{
 		"title": "1x1 Micro-Schubdüse",
 		"description": "Micro-Schubdüse mit mehreren Leistungsstufen.",

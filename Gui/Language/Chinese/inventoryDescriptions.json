@@ -92,6 +92,10 @@
 		"description": "适用于长行程悬挂"
 	},
 	"93e08947-be6d-436c-a64f-932727428c89": {
+		"title": "悬架发动机 [#ffff00已弃用#ffffff]",
+		"description": "可以放在轴承上作为悬挂的零件，\n并且作为燃气发动机使用."
+	},
+	"b69bf080-2467-4360-9677-72cfd48806c9": {
 		"title": "悬架发动机",
 		"description": "可以放在轴承上作为悬挂的零件，\n并且作为燃气发动机使用."
 	},
@@ -155,15 +159,30 @@
 
 	"f55aa240-d4b2-48cc-9c6b-a90fce299bf4":
 	{
+		"title": "燃气发动机-宽 [#ffff00已弃用#ffffff]",
+		"description": "完美平衡的奇数!"
+	},
+	"70cbacf2-ec5a-471f-9896-0ee944c581d1":
+	{
 		"title": "燃气发动机-宽",
 		"description": "完美平衡的奇数!"
 	},
 	"c394b6e8-554c-4074-a119-ab2fec55e456":
 	{
+		"title": "迷你喷射器-低功率 [#ffff00已弃用#ffffff]",
+		"description": "适用于微调的喷射器"
+	},
+	"9235b582-fc25-48a8-a807-68d98755d077":
+	{
 		"title": "迷你喷射器-低功率",
 		"description": "适用于微调的喷射器"
 	},
 	"036fbe44-45df-11e6-beb8-9e71128cae77":
+	{
+		"title": "1x1 迷你喷射器 [#ffff00已弃用#ffffff]",
+		"description": "推力稍大的迷你喷射器"
+	},
+	"a07a3673-a446-44a3-b16d-abb732c7a525":
 	{
 		"title": "1x1 迷你喷射器",
 		"description": "推力稍大的迷你喷射器"
