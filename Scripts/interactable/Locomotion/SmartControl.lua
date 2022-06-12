@@ -21,6 +21,13 @@ function SmartControl:server_onCreate()
 	self.delta_length = {}
 
 	mp_fuel_initialize(self, obj_consumable_battery, 0.35, sm.interactable.connectionType.electricity)
+
+	local saved_points = self.storage:load()
+	if saved_points ~= nil then
+		self.sv_fuel_points = saved_points
+	end
+
+	self.sv_saved_fuel_points = self.sv_fuel_points
 end
 
 --smart engine/controller (setangle mode(angle, speed, strength), setspeed mode(speed, strength))
@@ -84,9 +91,10 @@ function SmartControl:server_onFixedUpdate(dt)
 	if not can_activate then
 		speed = 0
 	end
-	
-	local fuel_cost = 0
+
 	if logic ~= 0 and can_activate then
+		local fuel_cost = 0
+
 		local angle = (anglelength ~= nil and math.rad(anglelength) or nil)
 		local rotationspeed = (speed ~= nil and math.rad(speed) or math.rad(0))-- speed 0 by default as to not let it rotate bearing when no inputs
 		local rotationstrength = (strength ~= nil and strength or 10000)
@@ -127,6 +135,10 @@ function SmartControl:server_onFixedUpdate(dt)
 
 			sm.joint.setTargetLength( v, length*seat, pistonspeed, maxImpulse )
 		end
+
+		if can_spend_fuel then
+			mp_fuel_consumeFuelPoints(self, l_container, fuel_cost, dt)
+		end
 	else
 		local rotationspeed = (speed ~= nil and math.rad(speed) or math.rad(90)) -- if no input speed setting set , give it a 90°/s speed as to be able to reset bearing to 0°
 		local rotationstrength = (strength ~= nil and strength or 10000)
@@ -156,10 +168,6 @@ function SmartControl:server_onFixedUpdate(dt)
 
 			sm.joint.setTargetLength( v, 0, pistonspeed, maxImpulse )
 		end
-	end
-
-	if can_spend_fuel then
-		mp_fuel_consumeFuelPoints(self, l_container, fuel_cost, dt)
 	end
 
 	if self.sv_saved_fuel_points ~= self.sv_fuel_points then
