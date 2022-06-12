@@ -27,7 +27,7 @@ function WASDThruster.server_init( self )
 	self.direction = sm.vec3.new(0,0,1)
 	self.smode = 0
 
-	self.sv_fuel_points = 0
+	mp_fuel_initialize(self, obj_consumable_gas, 0.35)
 	
 	local stored = self.storage:load()
 	if stored then
@@ -48,23 +48,29 @@ function WASDThruster.server_onRefresh( self )
 end
 
 function WASDThruster.server_onFixedUpdate( self, dt )
+	local l_container = mp_fuel_getValidFuelContainer(self)
+	local can_activate, can_consume = mp_fuel_canConsumeFuel(self, l_container)
+
 	if self.interactable.power ~= self.power then 
 		self.interactable:setPower(self.power)
 	end
-	if self.power > 0 and math.abs(self.power) ~= math.huge then
-		sm.physics.applyImpulse(self.shape, self.direction*self.power*-1)
-		--print(self.direction)
 
-		mp_fuel_consumeFuelPoints(self, self.power, 0.35, dt)
+	if can_activate and self.power > 0 and math.abs(self.power) ~= math.huge then
+		sm.physics.applyImpulse(self.shape, self.direction*self.power*-1)
+
+		if can_consume then
+			mp_fuel_consumeFuelPoints(self, l_container, self.power, dt)
+		end
 	end
 
-	mp_fuel_updateFuelConsumption(self, obj_consumable_gas, 10000)
+	if self.sv_saved_can_activate ~= can_activate then
+		self.sv_saved_can_activate = can_activate
+		self.network:setClientData(can_activate)
+	end
 
-	if self.sv_saved_fuel_points ~= self.sv_fuel_points then
+	if self.sv_saved_fuel_points ~= self.sv_fuel_points then --update fuel status
 		self.sv_saved_fuel_points = self.sv_fuel_points
-
 		self.storage:save({ self.smode+1, self.sv_saved_fuel_points })
-		self.network:setClientData(self.sv_fuel_points > 0)
 
 		if self.sv_fuel_points <= 0 then
 			self.network:sendToClients("client_onOutOfFuel")
@@ -74,7 +80,7 @@ end
 
 
 function WASDThruster:client_onClientDataUpdate(params)
-	self.cl_has_fuel = params
+	self.cl_can_activate = params
 end
 
 
@@ -242,8 +248,17 @@ function WASDThruster.client_onFixedUpdate(self, dt)
 		if ws or ad then self.currentVPose = 0.5 end -- -1 to 1 => 0 to 1
 		if ad then self.currentHPose = (ad+1)/2 end -- -1 to 1 => 0 to 1
 	end
-	self.power = power * logicinput * canfire
-	if math.abs(self.power) == math.huge or self.power ~= self.power then self.power = 0 end
+
+	--check if the thruster is allowed to have any power
+	if self.cl_can_activate then
+		self.power = power * logicinput * canfire
+	else
+		self.power = 0
+	end
+
+	if math.abs(self.power) == math.huge or self.power ~= self.power then
+		self.power = 0
+	end
 	
 	
 	self.interactable:setUvFrameIndex(self.mode)
@@ -261,10 +276,6 @@ function WASDThruster.client_onFixedUpdate(self, dt)
 	local worldRot = sm.vec3.getRotation( getLocal(self.shape,sm.shape.getUp(self.shape)),self.direction)
 	self.shootEffect:setOffsetRotation(worldRot)
 	--self.shootEffect:setOffsetPosition((-sm.vec3.new(0,0,1.25)+self.direction)*0.36) --old calculations
-
-	if sm.game.getEnableAmmoConsumption() and not self.cl_has_fuel then
-		self.power = 0
-	end
 
 	if self.power > 0 then
 		if not self.shootEffect:isPlaying() then

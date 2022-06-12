@@ -19,7 +19,13 @@ SmartThruster.poseWeightCount = 2
 
 
 function SmartThruster.server_onCreate( self ) 
-	self.sv_fuel_points = self.storage:load() or 0
+	mp_fuel_initialize(self, obj_consumable_gas, 0.35)
+
+	local saved_data = self.storage:load()
+	if saved_data ~= nil then
+		self.sv_fuel_points = saved_data
+	end
+
 	self.sv_saved_fuel_points = self.sv_fuel_points
 end
 
@@ -54,20 +60,23 @@ function SmartThruster.server_onFixedUpdate( self, dt )
 		if power < 0 then power = -3.3*10^38 else power = 3.3*10^38 end  
 	end
 
-	if sm.game.getEnableFuelConsumption() and self.sv_fuel_points <= 0 then
+	local l_container = mp_fuel_getValidFuelContainer(self)
+	local can_activate, can_consume = mp_fuel_canConsumeFuel(self, l_container)
+
+	if not can_activate then
 		power = 0
 	end
 	
 	mp_updateOutputData(self, power * (logicinput or 1), logicinput > 0)
 	power = power * logicinput
 	
-	if power ~= 0 and math.abs(power) ~= math.huge then
+	if can_activate and power ~= 0 and math.abs(power) ~= math.huge then
 		sm.physics.applyImpulse(self.shape, sm.vec3.new(0,0, 0 - power))
 
-		mp_fuel_consumeFuelPoints(self, power, 0.35, dt)
+		if can_consume then
+			mp_fuel_consumeFuelPoints(self, l_container, power, dt)
+		end
 	end
-
-	mp_fuel_updateFuelConsumption(self, obj_consumable_gas, 10000)
 
 	if self.sv_saved_fuel_points ~= self.sv_fuel_points then
 		self.sv_saved_fuel_points = self.sv_fuel_points

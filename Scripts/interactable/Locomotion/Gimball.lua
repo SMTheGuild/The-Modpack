@@ -25,7 +25,8 @@ function Gimball.server_init( self )
 	self.power = 0
 	self.smode = 0
 	self.direction = sm.vec3.new(0,0,1)
-	self.sv_fuel_points = 0
+
+	mp_fuel_initialize(self, obj_consumable_gas, 0.35)
 	
 	local stored = self.storage:load()
 	if stored then
@@ -46,18 +47,24 @@ function Gimball.server_onRefresh( self )
 end
 
 function Gimball.server_onFixedUpdate( self, dt )
-	if self.power ~= 0 and math.abs(self.power) ~= math.huge then
+	local l_container = mp_fuel_getValidFuelContainer(self)
+	local can_activate, can_consume = mp_fuel_canConsumeFuel(self, l_container)
+
+	if can_activate and self.power ~= 0 and math.abs(self.power) ~= math.huge then
 		sm.physics.applyImpulse(self.shape, self.direction*math.abs(self.power), true)
 
-		mp_fuel_consumeFuelPoints(self, self.power, 0.35, dt)
+		if can_consume then
+			mp_fuel_consumeFuelPoints(self, l_container, self.power, dt)
+		end
 	end
 
-	mp_fuel_updateFuelConsumption(self, obj_consumable_gas, 10000)
+	if self.sv_saved_can_activate ~= can_activate then
+		self.sv_saved_can_activate = can_activate
+		self.network:setClientData(can_activate)
+	end
 
 	if self.sv_saved_fuel_points ~= self.sv_fuel_points then
 		self.sv_saved_fuel_points = self.sv_fuel_points
-
-		self.network:setClientData(self.sv_fuel_points > 0)
 		self.storage:save({ self.smode+1, self.sv_saved_fuel_points })
 
 		if self.sv_fuel_points <= 0 then
@@ -67,7 +74,7 @@ function Gimball.server_onFixedUpdate( self, dt )
 end
 
 function Gimball:client_onClientDataUpdate(params)
-	self.cl_has_fuel = params
+	self.cl_can_activate = params
 end
 
 function Gimball:client_onOutOfFuel()
@@ -226,9 +233,15 @@ function Gimball.client_onFixedUpdate(self, dt)
 		end
 	end
 	
-	self.power = power * logicinput * canfire
-	if math.abs(self.power) == math.huge or self.power ~= self.power then self.power = 0 end
-	
+	if self.cl_can_activate then
+		self.power = power * logicinput * canfire
+	else
+		self.power = 0
+	end
+
+	if math.abs(self.power) == math.huge or self.power ~= self.power then
+		self.power = 0
+	end
 	
 	if self.mode == 0 then
 		if ws then self.angleX = ws*90 end
@@ -334,10 +347,6 @@ function Gimball.client_onFixedUpdate(self, dt)
 	local worldRot = sm.vec3.getRotation( getLocal(self.shape,sm.shape.getUp(self.shape)),-self.direction)
 	local localRot = self.shape:transformRotation( worldRot )
 	self.shootEffect:setOffsetRotation(localRot)
-
-	if sm.game.getEnableFuelConsumption() and not self.cl_has_fuel then
-		self.power = 0
-	end
 	
 	--self.shootEffect:setOffsetPosition(-sm.vec3.new(0,0,0.5)) old calculations
 	if self.power ~= 0 then
