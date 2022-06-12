@@ -172,10 +172,19 @@ function SmartControl:server_onFixedUpdate(dt)
 
 	if self.sv_saved_fuel_points ~= self.sv_fuel_points then
 		self.sv_saved_fuel_points = self.sv_fuel_points
-		self.storage:save(self.sv_fuel_points)
+		self.sv_fuel_save_timer = 1
 
 		if self.sv_fuel_points < 0 then
 			self.network:sendToClients("client_onOutOfFuel")
+		end
+	end
+
+	if self.sv_fuel_save_timer ~= nil then
+		self.sv_fuel_save_timer = self.sv_fuel_save_timer - dt
+
+		if self.sv_fuel_save_timer < 0 then
+			self.sv_fuel_save_timer = nil
+			self.storage:save(self.sv_fuel_points)
 		end
 	end
 end
