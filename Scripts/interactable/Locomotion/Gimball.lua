@@ -65,10 +65,20 @@ function Gimball.server_onFixedUpdate( self, dt )
 
 	if self.sv_saved_fuel_points ~= self.sv_fuel_points then
 		self.sv_saved_fuel_points = self.sv_fuel_points
-		self.storage:save({ self.smode+1, self.sv_saved_fuel_points })
 
 		if self.sv_fuel_points <= 0 then
+			self.sv_fuel_save_timer = 0.01
 			self.network:sendToClients("client_onOutOfFuel")
+		else
+			self.sv_fuel_save_timer = 2
+		end
+	end
+
+	if self.sv_fuel_save_timer then
+		self.sv_fuel_save_timer = (self.sv_fuel_save_timer > 0 and self.sv_fuel_save_timer - dt or nil)
+
+		if self.sv_fuel_save_timer == nil then
+			self.storage:save({ self.smode+1, self.sv_fuel_points })
 		end
 	end
 end
