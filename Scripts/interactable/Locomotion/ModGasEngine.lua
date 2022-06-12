@@ -142,7 +142,7 @@ function GasEngine.sv_updateFuelStatus( self, fuelContainer )
 
 	if self.saved.fuelPoints ~= self.fuelPoints then
 		self.saved.fuelPoints = self.fuelPoints
-		self.dirtyStorageTable = true
+		self.sv_fuel_save_timer = 1
 	end
 
 	local hasFuel = ( self.fuelPoints > 0 ) or sm.container.canSpend( fuelContainer, obj_consumable_gas, 1 )
@@ -287,6 +287,15 @@ function GasEngine.server_onFixedUpdate( self, timeStep )
 	end
 
 	self:sv_updateFuelStatus( fuelContainer )
+
+	if self.sv_fuel_save_timer ~= nil then
+		self.sv_fuel_save_timer = self.sv_fuel_save_timer - timeStep
+
+		if self.sv_fuel_save_timer < 0 then
+			self.sv_fuel_save_timer = nil
+			self.dirtyStorageTable = true
+		end
+	end
 
 	-- Storage table dirty
 	if self.dirtyStorageTable then

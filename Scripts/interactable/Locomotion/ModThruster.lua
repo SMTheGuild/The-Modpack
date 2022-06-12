@@ -244,7 +244,7 @@ end
 function ModThruster:server_updateFuelStatus()
 	if self.saved.fuelPoints ~= self.sv_fuel_points then
 		self.saved.fuelPoints = self.sv_fuel_points
-		self.sv_storage_dirty = true
+		self.sv_fuel_save_timer = 1
 
 		if self.sv_fuel_points <= 0 then
 			self.network:sendToClients("client_onOutOfGas")
@@ -292,6 +292,15 @@ function ModThruster:server_onFixedUpdate(dt)
 	end
 
 	self:server_updateFuelStatus()
+
+	if self.sv_fuel_save_timer ~= nil then
+		self.sv_fuel_save_timer = self.sv_fuel_save_timer - dt
+
+		if self.sv_fuel_save_timer < 0 then
+			self.sv_fuel_save_timer = nil
+			self.sv_storage_dirty = true
+		end
+	end
 
 	if self.sv_thruster_active ~= is_valid_active then
 		self.sv_thruster_active = is_valid_active
