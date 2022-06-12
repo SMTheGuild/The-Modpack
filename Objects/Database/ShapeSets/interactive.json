@@ -310,7 +310,7 @@
 			"stackSize": 5
 		},
 		{
-			"uuid": "93e08947-be6d-436c-a64f-932727428c89",
+			"uuid": "93e08947-be6d-436c-a64f-932727428c89", //OLD Engine Suspension
 			"renderable": {
 				"lodList": [
 					{
@@ -366,6 +366,50 @@
 					{ "velocity": 10000, "power": 262144 }
 				],
 				"effect": "GasEngine - Level 1"
+			},
+			"qualityLevel": 4,
+			"showInInventory": false
+		},
+		{
+			"uuid": "b69bf080-2467-4360-9677-72cfd48806c9", //NEW Engine Suspension
+			"renderable": {
+				"lodList": [
+					{
+						"subMeshList": [
+							{
+								"textureList": [
+									"$MOD_DATA/Objects/Textures/mod_decor_cone_dif.png",
+									"$MOD_DATA/Objects/Textures/mod_decor_cone_asg.png",
+									"$GAME_DATA/Textures/nonor_nor.tga"
+								],
+								"material": "DifAsg"
+							}
+						],
+						"mesh": "$MOD_DATA/Objects/Mesh/mjm_EngineSuspension.mesh"
+					}
+				]
+			},
+			"rotationSet": "PropY",
+			"color": "df7f00",
+			"hull": {
+				"x": 1, "y": 1, "z": 3,
+				"pointList": [
+					{ "x": 0.0, "y": 1.0, "z": 1.0 },
+					{ "x": 1.0, "y": 0.0, "z": 1.0 },
+					{ "x": 0.0, "y": -1.0, "z": 1.0 },
+					{ "x": -1.0, "y": 0.0, "z": 1.0 },
+					{ "x": -0.1, "y": 1.0, "z": -1.0 },
+					{ "x": 0.1, "y": 1.0, "z": -1.0 },
+					{ "x": 0.1, "y": -1.0, "z": -1.0 },
+					{ "x": -0.1, "y": -1.0, "z": -1.0 }
+				]
+			},
+			"density": 1250.0,
+			"physicsMaterial": "Metal",
+			"scripted": {
+				"filename": "$MOD_DATA/Scripts/interactable/Locomotion/ModGasEngine.lua",
+				"classname": "GasEngine",
+				"data": {}
 			},
 			"qualityLevel": 4
 		},
@@ -1041,7 +1085,7 @@
 			"flammable": false
 		},
 		{
-			"uuid": "f55aa240-d4b2-48cc-9c6b-a90fce299bf4",
+			"uuid": "f55aa240-d4b2-48cc-9c6b-a90fce299bf4", //OLD Gas Engine 3-Wide
 			"renderable": {
 				"lodList": [
 					{
@@ -1078,10 +1122,42 @@
 				],
 				"effect": "GasEngine - Level 1"
 			},
+			"qualityLevel": 5,
+			"showInInventory": false
+		},
+		{
+			"uuid": "70cbacf2-ec5a-471f-9896-0ee944c581d1", //NEW Gas Engine 3-Wide
+			"renderable": {
+				"lodList": [
+					{
+						"subMeshList": [
+							{
+								"textureList": [
+									"$GAME_DATA/Objects/Textures/interactive/obj_interactive_enginegas_dif.tga",
+									"$GAME_DATA/Objects/Textures/interactive/obj_interactive_enginegas_asg.tga",
+									"$GAME_DATA/Objects/Textures/interactive/obj_interactive_enginegas_nor.tga"
+								],
+								"material": "DifAsgNor"
+							}
+						],
+						"mesh": "$MOD_DATA/Objects/Mesh/mjm_EngineGasOdd.mesh"
+					}
+				]
+			},
+			"rotationSet": "PropYf",
+			"color": "df7f00",
+			"box": { "x": 3, "y": 2, "z": 2 },
+			"density": 1250.0,
+			"physicsMaterial": "Metal",
+			"scripted": {
+				"filename": "$MOD_DATA/Scripts/interactable/Locomotion/ModGasEngine.lua",
+				"classname": "GasEngine",
+				"data": {}
+			},
 			"qualityLevel": 5
 		},
 		{
-			"uuid": "c394b6e8-554c-4074-a119-ab2fec55e456",
+			"uuid": "c394b6e8-554c-4074-a119-ab2fec55e456", //OLD pico thruster
 			"renderable": {
 				"lodList": [
 					{
@@ -1136,11 +1212,56 @@
 			"sticky": "-Z",
 			"physicsMaterial": "Mechanical",
 			"density": 250.0,
+			"qualityLevel": 4,
+			"showInInventory": false
+		},
+		{
+			"uuid": "9235b582-fc25-48a8-a807-68d98755d077", //NEW pico thruster
+			"renderable": {
+				"lodList": [
+					{
+						"subMeshList": [
+							{
+								"textureList": [
+									"$MOD_DATA/Objects/Textures/mod_decor_cone_dif.png",
+									"$MOD_DATA/Objects/Textures/mod_decor_cone_asg.png",
+									"$MOD_DATA/Objects/Textures/mod_decor_cone_nor.png"
+								],
+								"material": "DifAsgNor"
+							}
+						],
+						"mesh": "$MOD_DATA/Objects/Mesh/mjm_PicoThruster.mesh"
+					}
+				]
+			},
+			"color": "df7f00",
+			"hull": {
+				"x": 1, "y": 1, "z": 1,
+				"margin": 0.0,
+				"pointList": [
+					{ "x": 1.0, "y": 0.0, "z": -1.0 },
+					{ "x": 0.0, "y": 1.0, "z": -1.0 },
+					{ "x": -1.0, "y": 0.0, "z": -1.0 },
+					{ "x": 0.0, "y": -1.0, "z": -1.0 },
+					{ "x": 1.0, "y": 0.0, "z": -0.8 },
+					{ "x": 0.0, "y": 1.0, "z": -0.8 },
+					{ "x": -1.0, "y": 0.0, "z": -0.8 },
+					{ "x": 0.0, "y": -1.0, "z": -0.8 }
+				]
+			},
+			"scripted": {
+				"filename": "$MOD_DATA/Scripts/interactable/Locomotion/ModThruster.lua",
+				"classname": "ModThruster"
+			},
+			"rotationSet": "PropZ",
+			"sticky": "-Z",
+			"physicsMaterial": "Mechanical",
+			"density": 250.0,
 			"qualityLevel": 4
 		},
 		{
 			"legacyId": 3222,
-			"uuid": "036fbe44-45df-11e6-beb8-9e71128cae77",
+			"uuid": "036fbe44-45df-11e6-beb8-9e71128cae77", //OLD 1x1 Micro thruster
 			"renderable": {
 				"lodList": [
 					{
@@ -1180,6 +1301,41 @@
 					{ "averageForce": 288325.96, "forceVariation": 0 }
 				],
 				"effect": "Thruster - Level 1"
+			},
+			"rotationSet": "PropZ",
+			"sticky": "-Z",
+			"physicsMaterial": "Mechanical",
+			"density": 250.0,
+			"qualityLevel": 4,
+			"showInInventory": false
+		},
+		{
+			"uuid": "a07a3673-a446-44a3-b16d-abb732c7a525", //NEW 1x1 Micro thruster
+			"renderable": {
+				"lodList": [
+					{
+						"subMeshList": [
+							{
+								"textureList": [
+									"$GAME_DATA/Objects/Textures/interactive/obj_interactive_enginejet_dif.tga",
+									"$GAME_DATA/Objects/Textures/interactive/obj_interactive_enginejet_asg.tga",
+									"$GAME_DATA/Objects/Textures/interactive/obj_interactive_enginejet_nor.tga"
+								],
+								"material": "3PoseAnimDifAsgNor"
+							}
+						],
+						"mesh": "$MOD_DATA/Objects/Mesh/obj_interactive_thruster_off.obj",
+						"pose0": "$MOD_DATA/Objects/Mesh/obj_interactive_thruster_off01.obj",
+						"pose1": "$MOD_DATA/Objects/Mesh/obj_interactive_thruster_on.obj",
+						"pose2": "$MOD_DATA/Objects/Mesh/obj_interactive_thruster_on01.obj"
+					}
+				]
+			},
+			"color": "007fdf",
+			"box": { "x": 1, "y": 1, "z": 1 },
+			"scripted": {
+				"filename": "$MOD_DATA/Scripts/interactable/Locomotion/ModThruster.lua",
+				"classname": "ModThruster"
 			},
 			"rotationSet": "PropZ",
 			"sticky": "-Z",

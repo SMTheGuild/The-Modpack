@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<MyGUI type="Layout" version="3.2.0">
+	<Widget type="Widget" skin="BackgroundInteractableWide" position_real="0 0 0.26041666666666669 0.25462962962962965" name="BackPanel">
+		<Widget type="TextBox" skin="TextBox" position_real="0.20799999999999999 0.054545454545454543 0.58399999999999996 0.18181818181818182" align="HCenter Top" name="Title">
+			<Property key="Caption" value="#ffff00C O U N T E R#ffffff"/>
+			<Property key="FontName" value="SM_Button"/>
+			<Property key="TextAlign" value="Center"/>
+			<Property key="TextShadow" value="true"/>
+		</Widget>
+		<Widget type="Widget" skin="NonBlurryBackgroundDarkRoundedLowerLeft" position_real="0 0.29090909090909089 1 0.70909090909090911" align="HCenter Bottom">
+			<Widget type="Widget" skin="SearchBarBackground" position_real="0.050000000000000003 0.33333333333333331 0.67000000000000004 0.20512820512820512" align="Left Top">
+				<Widget type="EditBox" skin="EditBoxEmpty" position_real="0.0089552238805970154 0.074999999999999997 0.98208955223880601 0.84999999999999998" align="HStretch VStretch" name="ValueInput">
+					<Property key="FontName" value="SM_Button"/>
+					<Property key="TextShadow" value="true"/>
+					<Property key="TextAlign" value="Center"/>
+					<Property key="MaxTextLength" value="50"/>
+				</Widget>
+			</Widget>
+			<Widget type="TextBox" skin="TextBox" position_real="0.050000000000000003 0.076923076923076927 0.90000000000000002 0.17948717948717949" align="HCenter Top" name="SavedValue">
+				<Property key="Caption" value="SAVED_VALUE"/>
+				<Property key="TextAlign" value="Center"/>
+				<Property key="TextShadow" value="true"/>
+				<Property key="FontName" value="SM_Button"/>
+			</Widget>
+			<Widget type="Button" skin="PrimaryButton" position_real="0.76000000000000001 0.33333333333333331 0.20000000000000001 0.20512820512820512" align="Right Top" name="SaveWrittenVal">
+				<Property key="FontName" value="SM_Button"/>
+				<Property key="TextAlign" value="Center"/>
+				<Property key="Caption" value="Write"/>
+			</Widget>
+			<Widget type="Button" skin="PrimaryButton" position_real="0.52000000000000002 0.64102564102564108 0.44 0.25641025641025639" align="Right Top" name="DecrementWith">
+				<Property key="Caption" value="Subtract"/>
+				<Property key="TextAlign" value="Center"/>
+				<Property key="FontName" value="SM_Button"/>
+			</Widget>
+			<Widget type="Button" skin="PrimaryButton" position_real="0.040000000000000001 0.64102564102564108 0.44 0.25641025641025639" align="Left Top" name="IncrementWith">
+				<Property key="Caption" value="Add"/>
+				<Property key="TextAlign" value="Center"/>
+				<Property key="FontName" value="SM_Button"/>
+			</Widget>
+			<Widget type="TextBox" skin="TextBox" position_real="0.14999999999999999 0.64102564102564108 0.69999999999999996 0.25641025641025639" align="HCenter Top" name="ValueError">
+				<Property key="Caption" value="#ff0000Invalid Input Value#ffffff"/>
+				<Property key="FontName" value="SM_Button"/>
+				<Property key="TextAlign" value="Center"/>
+				<Property key="TextShadow" value="true"/>
+				<Property key="Visible" value="false"/>
+			</Widget>
+		</Widget>
+	</Widget>
+	<CodeGeneratorSettings>
+		<Property key="IncludeDirectory" value=""/>
+		<Property key="PanelName" value=""/>
+		<Property key="PanelNamespace" value=""/>
+		<Property key="SourceDirectory" value=""/>
+	</CodeGeneratorSettings>
+</MyGUI>

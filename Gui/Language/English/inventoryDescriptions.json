@@ -113,6 +113,12 @@
 	},
 	"93e08947-be6d-436c-a64f-932727428c89":
 	{
+		"title": "Engine Suspension [#ffff00DEPRECATED#ffffff]",
+		"description": "This part is an engine! Put this part on a bearing and connect this engine to the bearing! Connect some pipes to one end where your wheel (and steering) will go, and use the other end to limit the range of movement. Set the power of this engine for a loose or firm engine-suspension.",
+		"keywords": [ "modpack", "motor", "suspension", "spring", "angle", "controller" ]
+	},
+	"b69bf080-2467-4360-9677-72cfd48806c9":
+	{
 		"title": "Engine Suspension",
 		"description": "This part is an engine! Put this part on a bearing and connect this engine to the bearing! Connect some pipes to one end where your wheel (and steering) will go, and use the other end to limit the range of movement. Set the power of this engine for a loose or firm engine-suspension.",
 		"keywords": [ "modpack", "motor", "suspension", "spring", "angle", "controller" ]
@@ -195,17 +201,35 @@
 // engines
 	"f55aa240-d4b2-48cc-9c6b-a90fce299bf4":
 	{
+		"title": "Gas Engine 3-Wide [#ffff00DEPRECATED#ffffff]",
+		"description": "It's a gas engine that conforms to the size of an electric engine. Perfect for balance gas-powered odd-width creations!",
+		"keywords": [ "modpack", "motor", "odd", "odd-width", "width" ]
+	},
+	"70cbacf2-ec5a-471f-9896-0ee944c581d1":
+	{
 		"title": "Gas Engine 3-Wide",
 		"description": "It's a gas engine that conforms to the size of an electric engine. Perfect for balance gas-powered odd-width creations!",
 		"keywords": [ "modpack", "motor", "odd", "odd-width", "width" ]
 	},
 	"c394b6e8-554c-4074-a119-ab2fec55e456":
 	{
+		"title": "Pico thruster - Low power [#ffff00DEPRECATED#ffffff]",
+		"description": "Maneuvering thrusters, or just a low power thruster",
+		"keywords": [ "modpack", "rocket", "booster", "boost", "force", "exhaust" ]
+	},
+	"9235b582-fc25-48a8-a807-68d98755d077":
+	{
 		"title": "Pico thruster - Low power",
 		"description": "Maneuvering thrusters, or just a low power thruster",
 		"keywords": [ "modpack", "rocket", "booster", "boost", "force", "exhaust" ]
 	},
 	"036fbe44-45df-11e6-beb8-9e71128cae77":
+	{
+		"title": "1x1 Micro Thruster [#ffff00DEPRECATED#ffffff]",
+		"description": "Micro Thruster with more power levels",
+		"keywords": [ "modpack", "rocket", "booster", "boost", "force", "exhaust" ]
+	},
+	"a07a3673-a446-44a3-b16d-abb732c7a525":
 	{
 		"title": "1x1 Micro Thruster",
 		"description": "Micro Thruster with more power levels",

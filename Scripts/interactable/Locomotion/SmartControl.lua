@@ -10,20 +10,31 @@ print("loading SmartControl.lua")
 SmartControl = class( nil )
 SmartControl.maxChildCount = -1
 SmartControl.maxParentCount = -1
-SmartControl.connectionInput = sm.interactable.connectionType.power + sm.interactable.connectionType.logic
+SmartControl.connectionInput = sm.interactable.connectionType.power + sm.interactable.connectionType.logic + sm.interactable.connectionType.electricity
 SmartControl.connectionOutput = sm.interactable.connectionType.piston + sm.interactable.connectionType.bearing
 SmartControl.colorNormal = sm.color.new(0xe54500ff)
 SmartControl.colorHighlight = sm.color.new(0xff7033ff)
 SmartControl.poseWeightCount = 1
 
-function SmartControl.server_onCreate(self)
+function SmartControl:server_onCreate()
 	self.last_length = {}
+	self.delta_length = {}
 
+	mp_fuel_initialize(self, obj_consumable_battery, 0.35, sm.interactable.connectionType.electricity)
+
+	local saved_points = self.storage:load()
+	if saved_points ~= nil then
+		self.sv_fuel_points = saved_points
+	end
+
+	self.sv_saved_fuel_points = self.sv_fuel_points
 end
+
 --smart engine/controller (setangle mode(angle, speed, strength), setspeed mode(speed, strength))
 --smart piston/suspension (length, speed , strength
-function SmartControl.server_onFixedUpdate(self, dt)	
-	local parents = self.interactable:getParents()
+local sc_logic_and_power = bit.bor(sm.interactable.connectionType.logic, sm.interactable.connectionType.power)
+function SmartControl:server_onFixedUpdate(dt)
+	local parents = self.interactable:getParents(sc_logic_and_power)
 
 	local anglelength = nil
 	local speed = nil
@@ -73,9 +84,17 @@ function SmartControl.server_onFixedUpdate(self, dt)
 	if strength then strength = sm.util.clamp(strength, -3.402e+38, 3.402e+38) end
 	if anglelength then anglelength = sm.util.clamp(anglelength, -3.402e+38, 3.402e+38) end
 	if stiffness then stiffness = sm.util.clamp(stiffness, -3.402e+38, 3.402e+38) end
-	
 
-	if logic ~= 0 then
+	local l_container = mp_fuel_getValidFuelContainer(self)
+	local can_activate, can_spend_fuel = mp_fuel_canConsumeFuel(self, l_container)
+
+	if not can_activate then
+		speed = 0
+	end
+
+	if logic ~= 0 and can_activate then
+		local fuel_cost = 0
+
 		local angle = (anglelength ~= nil and math.rad(anglelength) or nil)
 		local rotationspeed = (speed ~= nil and math.rad(speed) or math.rad(0))-- speed 0 by default as to not let it rotate bearing when no inputs
 		local rotationstrength = (strength ~= nil and strength or 10000)
@@ -88,23 +107,37 @@ function SmartControl.server_onFixedUpdate(self, dt)
 				local angle1 = math.deg(angle)%360 - (math.deg(angle)%360 > 180 and 360 or 0)
 				local angle2 = (math.deg(v.angle)%360 - (math.deg(v.angle)%360 > 180 and 360 or 0))*(v.reversed  and 1 or -1)
 				local extraforce = math.abs(((angle1 - angle2)+180)%360-180)/1000*stiffness
+
 				sm.joint.setTargetAngle( v, angle*seat, rotationspeed, rotationstrength*(1+ extraforce) - v.angularVelocity*10) -- change 10 to 1-200 depending on how well dampening oscillations works
-				
-			end		
+			end
+
+			local rotation_val = math.abs(v.angularVelocity) * rotationstrength
+			fuel_cost = fuel_cost + (rotation_val * 0.04)
 		end
 		
 		local length = (anglelength ~= nil and anglelength or 0)
 		local pistonspeed = (speed ~= nil and speed or 15)--default to 15
 		local pistonstrength = (strength ~= nil and strength or 6666)
 		for k, v in pairs(sm.interactable.getPistons(self.interactable )) do
-			-- delta length for suspension-ish
-			if not self.last_length[v.id] then self.last_length[v.id] = v.length end
-			local extraforce = math.abs(length - (v.length-1))*stiffness/100
+			local v_id = v.id
+			local old_length = self.delta_length[v_id] or 0
 
-			local maxImpulse = pistonstrength*(1+ extraforce )  - (v.length-self.last_length[v.id])*10 -- change 10 to 1-200 depending on how well dampening oscillations works
+			-- delta length for suspension-ish
+			if not self.last_length[v_id] then self.last_length[v_id] = v.length end
+			if self.delta_length[v_id] ~= v.length then self.delta_length[v_id] = v.length end
+
+			local extraforce = math.abs(length - (v.length-1))*stiffness/100
+			local maxImpulse = pistonstrength*(1+ extraforce )  - (v.length-self.last_length[v_id])*10 -- change 10 to 1-200 depending on how well dampening oscillations works
 			maxImpulse = sm.util.clamp(maxImpulse, -3.402e+38, 3.402e+38)
 
+			local p_speed = math.abs(old_length - v.length) * 0.1
+			fuel_cost = fuel_cost + (pistonspeed * pistonstrength) * p_speed
+
 			sm.joint.setTargetLength( v, length*seat, pistonspeed, maxImpulse )
+		end
+
+		if can_spend_fuel then
+			mp_fuel_consumeFuelPoints(self, l_container, fuel_cost, dt)
 		end
 	else
 		local rotationspeed = (speed ~= nil and math.rad(speed) or math.rad(90)) -- if no input speed setting set , give it a 90°/s speed as to be able to reset bearing to 0°
@@ -136,4 +169,26 @@ function SmartControl.server_onFixedUpdate(self, dt)
 			sm.joint.setTargetLength( v, 0, pistonspeed, maxImpulse )
 		end
 	end
+
+	if self.sv_saved_fuel_points ~= self.sv_fuel_points then
+		self.sv_saved_fuel_points = self.sv_fuel_points
+		self.sv_fuel_save_timer = 1
+
+		if self.sv_fuel_points < 0 then
+			self.network:sendToClients("client_onOutOfFuel")
+		end
+	end
+
+	if self.sv_fuel_save_timer ~= nil then
+		self.sv_fuel_save_timer = self.sv_fuel_save_timer - dt
+
+		if self.sv_fuel_save_timer < 0 then
+			self.sv_fuel_save_timer = nil
+			self.storage:save(self.sv_fuel_points)
+		end
+	end
+end
+
+function SmartControl:client_onOutOfFuel()
+	mp_fuel_displayOutOfFuelMessage(self, "#{INFO_OUT_OF_ENERGY}")
 end

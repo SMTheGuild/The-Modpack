@@ -9,7 +9,7 @@ print("loading WASDThruster.lua")
 WASDThruster = class( nil )
 WASDThruster.maxParentCount = -1
 WASDThruster.maxChildCount = 0
-WASDThruster.connectionInput = sm.interactable.connectionType.power + sm.interactable.connectionType.logic
+WASDThruster.connectionInput = sm.interactable.connectionType.power + sm.interactable.connectionType.logic + sm.interactable.connectionType.gasoline
 WASDThruster.connectionOutput = sm.interactable.connectionType.none
 WASDThruster.colorNormal = sm.color.new( 0x009999ff  )
 WASDThruster.colorHighlight = sm.color.new( 0x11B2B2ff  )
@@ -26,11 +26,21 @@ function WASDThruster.server_init( self )
 	self.power = 0
 	self.direction = sm.vec3.new(0,0,1)
 	self.smode = 0
+
+	mp_fuel_initialize(self, obj_consumable_gas, 0.35)
 	
 	local stored = self.storage:load()
-	if stored and type(stored)=="number" then
-		self.smode = stored - 1
+	if stored then
+		local stored_type = type(stored)
+		if stored_type == "number" then
+			self.smode = stored - 1
+		elseif stored_type == "table" then
+			self.smode = stored[1] - 1
+			self.sv_fuel_points = stored[2]
+		end
 	end
+
+	self.sv_saved_fuel_points = self.sv_fuel_points
 end
 
 function WASDThruster.server_onRefresh( self )
@@ -38,13 +48,53 @@ function WASDThruster.server_onRefresh( self )
 end
 
 function WASDThruster.server_onFixedUpdate( self, dt )
+	local l_container = mp_fuel_getValidFuelContainer(self)
+	local can_activate, can_consume = mp_fuel_canConsumeFuel(self, l_container)
+
 	if self.interactable.power ~= self.power then 
 		self.interactable:setPower(self.power)
 	end
-	if self.power > 0 and math.abs(self.power) ~= math.huge then
+
+	if can_activate and self.power > 0 and math.abs(self.power) ~= math.huge then
 		sm.physics.applyImpulse(self.shape, self.direction*self.power*-1)
-		--print(self.direction)
+
+		if can_consume then
+			mp_fuel_consumeFuelPoints(self, l_container, self.power, dt)
+		end
 	end
+
+	if self.sv_saved_can_activate ~= can_activate then
+		self.sv_saved_can_activate = can_activate
+		self.network:setClientData(can_activate)
+	end
+
+	if self.sv_saved_fuel_points ~= self.sv_fuel_points then --update fuel status
+		self.sv_saved_fuel_points = self.sv_fuel_points
+		self.sv_fuel_save_timer = 1
+
+		if self.sv_fuel_points <= 0 then
+			self.network:sendToClients("client_onOutOfFuel")
+		end
+	end
+
+	if self.sv_fuel_save_timer ~= nil then
+		self.sv_fuel_save_timer = self.sv_fuel_save_timer - dt
+
+		if self.sv_fuel_save_timer < 0 then
+			self.sv_fuel_save_timer = nil
+			self.storage:save({ self.smode+1, self.sv_fuel_points })
+		end
+	end
+end
+
+
+function WASDThruster:client_onClientDataUpdate(params)
+	self.cl_can_activate = params
+end
+
+
+function WASDThruster:client_onOutOfFuel()
+	mp_fuel_displayOutOfFuelMessage(self)
 end
 
 
@@ -59,7 +109,7 @@ function WASDThruster.client_onCreate(self)
 	self.currentVPose = 0.5
 	self.mode = 0
 	self.network:sendToServer("server_requestmode")
-	self.modes = {"wasd", "ws reversed", "only WS", "only AD"}
+	self.modes = {"WASD", "WS Reversed", "Only WS", "Only AD"}
 	
 	self.interactable:setAnimEnabled( "animY", true )
 	self.interactable:setAnimEnabled( "animX", true )
@@ -67,38 +117,51 @@ end
 
 
 function WASDThruster.client_onDestroy(self)
-	self.shootEffect:stop()
+	self.shootEffect:stopImmediate()
 end
 
 function WASDThruster.client_onInteract(self, character, lookAt)
 	if not lookAt or character:getLockingInteractable() then return end
 	self.network:sendToServer("server_changemode", character:isCrouching())
 end
+
 function WASDThruster.server_changemode(self, crouch)
 	self.smode = (self.smode + (crouch and -1 or 1))%4
-	self.storage:save(self.smode+1)
+	self.storage:save({ self.smode+1, self.sv_saved_fuel_points })
 	self.network:sendToClients("client_mode", {self.smode, true})
 end
+
 function WASDThruster.server_requestmode(self)
 	self.network:sendToClients("client_mode", {self.smode})
 end
+
 function WASDThruster.client_mode(self, mode)
 	if mode[2] then
 		sm.audio.play("ConnectTool - Rotate", self.shape:getWorldPosition())
 	end
 	self.mode = mode[1]
 end
+
+local default_hypertext = "<p textShadow='false' bg='gui_keybinds_bg_orange' color='#66440C' spacing='9'>%s</p>"
 function WASDThruster.client_canInteract(self)
-	local _useKey = sm.gui.getKeyBinding("Use")
-	local _crawlKey = sm.gui.getKeyBinding("Crawl")
-	sm.gui.setInteractionText("Press", _useKey, " / ", _crawlKey.." + ".._useKey, "to change mode")
-	sm.gui.setInteractionText( "current mode: ".. self.modes[self.mode+1])
+	local use_key = sm.gui.getKeyBinding("Use")
+	local crawl_key = sm.gui.getKeyBinding("Crawl")
+
+	local use_hyper = default_hypertext:format(use_key)
+	local use_and_crawl_hyper = default_hypertext:format(crawl_key.." + "..use_key)
+
+	sm.gui.setInteractionText("Press", use_hyper, "or", use_and_crawl_hyper, "to change mode")
+
+	local cur_mode_hyper = default_hypertext:format("Mode: "..self.modes[self.mode+1])
+	sm.gui.setInteractionText("", cur_mode_hyper)
+
 	return true
 end
 
 
+local wasdt_logic_and_power = bit.bor(sm.interactable.connectionType.logic, sm.interactable.connectionType.power)
 function WASDThruster.client_onFixedUpdate(self, dt)
-	local parents = self.interactable:getParents()
+	local parents = self.interactable:getParents(wasdt_logic_and_power)
 	local power = #parents>0 and 100 or 0
 	local hasnumber = false
 	local logicinput = 1
@@ -194,8 +257,17 @@ function WASDThruster.client_onFixedUpdate(self, dt)
 		if ws or ad then self.currentVPose = 0.5 end -- -1 to 1 => 0 to 1
 		if ad then self.currentHPose = (ad+1)/2 end -- -1 to 1 => 0 to 1
 	end
-	self.power = power * logicinput * canfire
-	if math.abs(self.power) == math.huge or self.power ~= self.power then self.power = 0 end
+
+	--check if the thruster is allowed to have any power
+	if self.cl_can_activate then
+		self.power = power * logicinput * canfire
+	else
+		self.power = 0
+	end
+
+	if math.abs(self.power) == math.huge or self.power ~= self.power then
+		self.power = 0
+	end
 	
 	
 	self.interactable:setUvFrameIndex(self.mode)
@@ -213,12 +285,15 @@ function WASDThruster.client_onFixedUpdate(self, dt)
 	local worldRot = sm.vec3.getRotation( getLocal(self.shape,sm.shape.getUp(self.shape)),self.direction)
 	self.shootEffect:setOffsetRotation(worldRot)
 	--self.shootEffect:setOffsetPosition((-sm.vec3.new(0,0,1.25)+self.direction)*0.36) --old calculations
+
 	if self.power > 0 then
 		if not self.shootEffect:isPlaying() then
-		self.shootEffect:start() end
+			self.shootEffect:start()
+		end
 	else
 		if self.shootEffect:isPlaying() then
-		self.shootEffect:stop() end
+			self.shootEffect:stop()
+		end
 	end
 	
 	

@@ -2,6 +2,7 @@
 	Copyright (c) 2020 Modpack Team
 	Brent Batch#9261
 ]]--
+
 dofile "../../libs/load_libs.lua"
 
 print("loading SmartThruster.lua")
@@ -10,7 +11,7 @@ print("loading SmartThruster.lua")
 SmartThruster = class( nil )
 SmartThruster.maxParentCount = -1
 SmartThruster.maxChildCount = 0
-SmartThruster.connectionInput = sm.interactable.connectionType.power + sm.interactable.connectionType.logic
+SmartThruster.connectionInput = sm.interactable.connectionType.power + sm.interactable.connectionType.logic + sm.interactable.connectionType.gasoline
 SmartThruster.connectionOutput = sm.interactable.connectionType.none
 SmartThruster.colorNormal = sm.color.new( 0x009999ff  )
 SmartThruster.colorHighlight = sm.color.new( 0x11B2B2ff  )
@@ -18,7 +19,14 @@ SmartThruster.poseWeightCount = 2
 
 
 function SmartThruster.server_onCreate( self ) 
+	mp_fuel_initialize(self, obj_consumable_gas, 0.35)
 
+	local saved_data = self.storage:load()
+	if saved_data ~= nil then
+		self.sv_fuel_points = saved_data
+	end
+
+	self.sv_saved_fuel_points = self.sv_fuel_points
 end
 
 function SmartThruster.server_onRefresh( self )
@@ -26,16 +34,16 @@ function SmartThruster.server_onRefresh( self )
 end
 
   
-
+local st_logic_and_power = bit.bor(sm.interactable.connectionType.power, sm.interactable.connectionType.logic)
 function SmartThruster.server_onFixedUpdate( self, dt )
 
-	local parents = self.interactable:getParents()
+	local parents = self.interactable:getParents(st_logic_and_power)
 	local power = #parents>0 and 100 or 0
 	local hasnumber = false
 	local logicinput = 1
 	for k,v in pairs(parents) do
 		local typeparent = v:getType()
-		if  v:getType() == "scripted" and tostring(v:getShape():getShapeUuid()) ~= "6f2dd83e-bc0d-43f3-8ba5-d5209eb03d07" then
+		if typeparent == "scripted" and tostring(v:getShape():getShapeUuid()) ~= "6f2dd83e-bc0d-43f3-8ba5-d5209eb03d07" then
 			-- number
 			if not hasnumber then power = 1 end
 			power = power * v.power
@@ -51,14 +59,46 @@ function SmartThruster.server_onFixedUpdate( self, dt )
 	if math.abs(power) >= 3.3*10^38 then -- inf check
 		if power < 0 then power = -3.3*10^38 else power = 3.3*10^38 end  
 	end
+
+	local l_container = mp_fuel_getValidFuelContainer(self)
+	local can_activate, can_consume = mp_fuel_canConsumeFuel(self, l_container)
+
+	if not can_activate then
+		power = 0
+	end
 	
 	mp_updateOutputData(self, power * (logicinput or 1), logicinput > 0)
-	
 	power = power * logicinput
-		
-	if power ~= 0 and math.abs(power) ~= math.huge then
+	
+	if can_activate and power ~= 0 and math.abs(power) ~= math.huge then
 		sm.physics.applyImpulse(self.shape, sm.vec3.new(0,0, 0 - power))
+
+		if can_consume then
+			mp_fuel_consumeFuelPoints(self, l_container, power, dt)
+		end
 	end
+
+	if self.sv_saved_fuel_points ~= self.sv_fuel_points then
+		self.sv_saved_fuel_points = self.sv_fuel_points
+		self.sv_fuel_save_timer = 1
+
+		if self.sv_fuel_points <= 0 then
+			self.network:sendToClients("client_onOutOfFuel")
+		end
+	end
+
+	if self.sv_fuel_save_timer ~= nil then
+		self.sv_fuel_save_timer = self.sv_fuel_save_timer - dt
+
+		if self.sv_fuel_save_timer < 0 then
+			self.sv_fuel_save_timer = nil
+			self.storage:save(self.sv_fuel_points)
+		end
+	end
+end
+
+function SmartThruster:client_onOutOfFuel()
+	mp_fuel_displayOutOfFuelMessage(self)
 end
 
 
@@ -97,7 +137,8 @@ function SmartThruster.client_onUpdate(self, dt) -- 1 tick delayed vs server but
 		
 	else
 		if self.shootEffect:isPlaying() then
-		self.shootEffect:stop() end
+			self.shootEffect:stop()
+		end
 	end
 	
 	self.interactable:setPoseWeight(0, poseVal0)

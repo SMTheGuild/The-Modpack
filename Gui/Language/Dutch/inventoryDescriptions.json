@@ -149,10 +149,20 @@
 	},
 	"93e08947-be6d-436c-a64f-932727428c89":
 	{
+		"title": "Motor Vering [#ffff00VEROUDERD#ffffff]",
+		"description": "Dit deel is een motor! Zet dit deel op een lager en connecteer deze motor met de lager! Zet de kracht van de motor voor de kracht van de vering"
+	},
+	"b69bf080-2467-4360-9677-72cfd48806c9":
+	{
 		"title": "Motor Vering",
 		"description": "Dit deel is een motor! Zet dit deel op een lager en connecteer deze motor met de lager! Zet de kracht van de motor voor de kracht van de vering"
 	},
 	"f55aa240-d4b2-48cc-9c6b-a90fce299bf4":
+	{
+		"title": "3 wijde motor [#ffff00VEROUDERD#ffffff]",
+		"description": "Het is een benzine motor die 3 wijd is. Perfect voor gelijke wagens te maken"
+	},
+	"70cbacf2-ec5a-471f-9896-0ee944c581d1":
 	{
 		"title": "3 wijde motor",
 		"description": "Het is een benzine motor die 3 wijd is. Perfect voor gelijke wagens te maken"
@@ -160,6 +170,11 @@
 
 
 	"c394b6e8-554c-4074-a119-ab2fec55e456":
+	{
+		"title": "Pico Stuwer - Lage kracht [#ffff00VEROUDERD#ffffff]",
+		"description": "Bestuurs Stuwer, of gewoon een lage kracht stuwer"
+	},
+	"9235b582-fc25-48a8-a807-68d98755d077":
 	{
 		"title": "Pico Stuwer - Lage kracht",
 		"description": "Bestuurs Stuwer, of gewoon een lage kracht stuwer"
@@ -555,6 +570,11 @@
 		"description": "A controller with a different appearance"
 	},
 	"036fbe44-45df-11e6-beb8-9e71128cae77":
+	{
+		"title": "1x1 Mini stuwer [#ffff00VEROUDERD#ffffff]",
+		"description": "Mini stuwer met meerdere kracht-levels"
+	},
+	"a07a3673-a446-44a3-b16d-abb732c7a525":
 	{
 		"title": "1x1 Mini stuwer",
 		"description": "Mini stuwer met meerdere kracht-levels"

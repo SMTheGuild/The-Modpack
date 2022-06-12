@@ -171,11 +171,23 @@
 // engines
 	"93e08947-be6d-436c-a64f-932727428c89":
 	{
+		"title": "Motore per Sospensione [#ffff00DEPRECATA#ffffff]",
+		"description": "Questo blocco è un motore! Metti questo blocco su un cuscinetto e connetti questo motore al cuscinetto! Metti dei tubi alla fine di dove la ruota (e lo sterzo) sarà posizionata, e usa l'altro capo per limitare la gamma. Imposta la potenza di questo motore per avere una sospensione lenta o solida.",
+		"keywords": [ "modpack", "motore", "sospensione", "molla", "angolo", "controllore" ]
+	},
+	"b69bf080-2467-4360-9677-72cfd48806c9":
+	{
 		"title": "Motore per Sospensione",
 		"description": "Questo blocco è un motore! Metti questo blocco su un cuscinetto e connetti questo motore al cuscinetto! Metti dei tubi alla fine di dove la ruota (e lo sterzo) sarà posizionata, e usa l'altro capo per limitare la gamma. Imposta la potenza di questo motore per avere una sospensione lenta o solida.",
 		"keywords": [ "modpack", "motore", "sospensione", "molla", "angolo", "controllore" ]
 	},
 	"f55aa240-d4b2-48cc-9c6b-a90fce299bf4":
+	{
+		"title": "Motore a Gas - Largo 3 [#ffff00DEPRECATA#ffffff]",
+		"description": "È un motore a gas largo come un motore elettrico. Perfetto per creazioni di larghezza dispari!",
+		"keywords": [ "modpack", "motore", "dispari", "largo" ]
+	},
+	"70cbacf2-ec5a-471f-9896-0ee944c581d1":
 	{
 		"title": "Motore a Gas - Largo 3",
 		"description": "È un motore a gas largo come un motore elettrico. Perfetto per creazioni di larghezza dispari!",
@@ -183,11 +195,23 @@
 	},
 	"c394b6e8-554c-4074-a119-ab2fec55e456":
 	{
+		"title": "Pico Propulsore - Bassa Potenza [#ffff00DEPRECATA#ffffff]",
+		"description": "Propulsori di manovra, oppure soltanto dei propulsori a bassa potenza",
+		"keywords": [ "modpack", "razzo", "propulsore", "forza", "marmitta" ]
+	},
+	"9235b582-fc25-48a8-a807-68d98755d077":
+	{
 		"title": "Pico Propulsore - Bassa Potenza",
 		"description": "Propulsori di manovra, oppure soltanto dei propulsori a bassa potenza",
 		"keywords": [ "modpack", "razzo", "propulsore", "forza", "marmitta" ]
 	},
 	"036fbe44-45df-11e6-beb8-9e71128cae77":
+	{
+		"title": "Mini Propulsore - 1x4 [#ffff00DEPRECATA#ffffff]",
+		"description": "Un propulsore più piccolo. Ottimo per missili!",
+		"keywords": [ "modpack", "razzo", "propulsore", "forza", "marmitta" ]
+	},
+	"a07a3673-a446-44a3-b16d-abb732c7a525":
 	{
 		"title": "Mini Propulsore - 1x4",
 		"description": "Un propulsore più piccolo. Ottimo per missili!",

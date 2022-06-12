@@ -340,9 +340,9 @@ end
 
 
 function XOMeter.client_canInteract(self)
-    local _useKey = sm.gui.getKeyBinding("Use")
-    local _crawlKey = sm.gui.getKeyBinding("Crawl")
-    sm.gui.setInteractionText("Press", _useKey, " to change the meter mode")
+    local use_key = sm.gui.getKeyBinding("Use", true)
+    sm.gui.setInteractionText("Press", use_key, "to select the meter mode")
+
     return true
 end
 
@@ -356,6 +356,10 @@ end
 function XOMeter.client_onCreate(self)
     self.mode_client = 1
     self.network:sendToServer("server_sendModeToClient")
+end
+
+function XOMeter.client_onDestroy(self)
+    self:client_onGuiDestroyCallback()
 end
 
 function XOMeter.client_onFixedUpdate(self, dt)
@@ -439,12 +443,28 @@ function XOMeter.client_onFixedUpdate(self, dt)
     end
 end
 
+function XOMeter.client_onGuiDestroyCallback(self)
+    local s_gui = self.gui
+    if s_gui and sm.exists(s_gui) then
+        if s_gui:isActive() then
+            s_gui:close()
+        end
+
+        s_gui:destroy()
+    end
+
+    self.gui = nil
+end
+
 function XOMeter.client_onInteract(self, character, lookAt)
     if lookAt == true then
-        self.gui = sm.gui.createGuiFromLayout('$MOD_DATA/Gui/Layouts/XOMeter.layout')
+        self.gui = sm.gui.createGuiFromLayout("$MOD_DATA/Gui/Layouts/XOMeter.layout", false, { backgroundAlpha = 0.5 })
+        self.gui:setOnCloseCallback("client_onGuiDestroyCallback")
+
 		for i = 0, 10 do
 			self.gui:setButtonCallback( "Operation" .. tostring( i ), "cl_onModeButtonClick" )
 		end
+
         self:cl_drawButtons()
 		self.gui:open()
 	end

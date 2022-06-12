@@ -1,0 +1,2494 @@
+[
+	{
+		// "Diamond Plate Block",
+		"craftTime": 15,
+		"ingredientList": [
+			{
+				"itemId": "1f7ac0bb-ad45-4246-9817-59bdf7f7ab39",
+				"quantity": 20
+			}
+		],
+		"itemId": "c97c17c3-81bb-48b5-9e9c-8a5117ee431a",
+		"quantity": 10
+	},
+	{
+		// "Paintable Glass Flat Block",
+		"craftTime": 15,
+		"ingredientList": [
+			{
+				"itemId": "b5ee5539-75a2-4fef-873b-ef7c9398b3f5",
+				"quantity": 20
+			}
+		],
+		"itemId": "036ffd32-45df-11e6-beb8-9e71128cae77",
+		"quantity": 10
+	},
+	{
+		// "Glowing Block",
+		"craftTime": 15,
+		"ingredientList": [
+			{
+				"itemId": "1f7ac0bb-ad45-4246-9817-59bdf7f7ab39",
+				"quantity": 5
+			},
+			{
+				"itemId": "b5ee5539-75a2-4fef-873b-ef7c9398b3f5",
+				"quantity": 5
+			}
+		],
+		"itemId": "e50485da-4545-4def-a585-0a5f158c6104",
+		"quantity": 10
+	},
+	{
+		// "Invisible Block",
+		"craftTime": 15,
+		"ingredientList": [
+			{
+				"itemId": "b5ee5539-75a2-4fef-873b-ef7c9398b3f5",
+				"quantity": 30
+			}
+		],
+		"itemId": "7a73cc98-b2d4-4b28-9095-f8b9077548e4",
+		"quantity": 10
+	},
+	{
+		// "Mirror Block",
+		"craftTime": 15,
+		"ingredientList": [
+			{
+				"itemId": "b5ee5539-75a2-4fef-873b-ef7c9398b3f5",
+				"quantity": 10
+			}
+		],
+		"itemId": "906c76ee-189a-4983-ae82-b31722e56b23",
+		"quantity": 10
+	},
+	{
+		// "Bling Block",
+		"craftTime": 15,
+		"ingredientList": [
+			{
+				"itemId": "1f7ac0bb-ad45-4246-9817-59bdf7f7ab39",
+				"quantity": 100
+			}
+		],
+		"itemId": "bc3efcdf-ae18-4037-b0aa-c5af14e03547",
+		"quantity": 10
+	},
+	{
+		// "Game Grid Block",
+		"craftTime": 15,
+		"ingredientList": [
+			{
+				"itemId": "1f7ac0bb-ad45-4246-9817-59bdf7f7ab39",
+				"quantity": 30
+			}
+		],
+		"itemId": "b51ad015-66e9-41b9-916c-277f9c93232d",
+		"quantity": 10
+	},
+	{
+		// "Luxury Block",
+		"craftTime": 15,
+		"ingredientList": [
+			{
+				"itemId": "1f7ac0bb-ad45-4246-9817-59bdf7f7ab39",
+				"quantity": 100
+			}
+		],
+		"itemId": "e7f7b758-6492-4c6a-8760-8fb95da530be",
+		"quantity": 1
+	},
+	{
+		// "Smooth Ice",
+		"craftTime": 15,
+		"ingredientList": [
+			{
+				"itemId": "30a2288b-e88e-4a92-a916-1edbfc2b2dac",
+				"quantity": 4
+			},
+			{
+				"itemId": "869d4736-289a-4952-96cd-8a40117a2d28",
+				"quantity": 5
+			}
+		],
+		"itemId": "116325e1-1020-40ec-8f31-0678f8bb98bc",
+		"quantity": 10
+	},
+	{
+		// "Icy Rocks",
+		"craftTime": 15,
+		"ingredientList": [
+			{
+				"itemId": "30a2288b-e88e-4a92-a916-1edbfc2b2dac",
+				"quantity": 4
+			},
+			{
+				"itemId": "869d4736-289a-4952-96cd-8a40117a2d28",
+				"quantity": 5
+			}
+		],
+		"itemId": "b742cff1-98a7-469f-b514-a7402f705924",
+		"quantity": 10
+	},
+	{
+		// "Rubber Block",
+		"craftTime": 15,
+		"ingredientList": [
+			{
+				"itemId": "30a2288b-e88e-4a92-a916-1edbfc2b2dac",
+				"quantity": 4
+			},
+			{
+				"itemId": "1147e59d-6940-42b4-840b-07f05054f5e0",
+				"quantity": 5
+			}
+		],
+		"itemId": "123425e2-2020-40ec-8f31-0678f8bc99bd",
+		"quantity": 10
+	},
+	{
+		// "Reduced Collision Block",
+		"craftTime": 0,
+		"ingredientList": [
+			{
+				"itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+				"quantity": 1
+			}
+		],
+		"itemId": "bf8f8e24-806b-4223-9345-2bac7c1e265d",
+		"quantity": 1
+	},
+	{
+		// "Vent Block",
+		"craftTime": 0,
+		"ingredientList": [
+			{
+				"itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+				"quantity": 5
+			}
+		],
+		"itemId": "9c40e3ab-8d03-40bc-a88b-eaebc61257d6",
+		"quantity": 1
+	},
+	{
+		// "Invisible Bearing",
+		"craftTime": 30,
+		"ingredientList": [
+			{
+				"itemId": "1f7ac0bb-ad45-4246-9817-59bdf7f7ab39",
+				"quantity": 20
+			}
+		],
+		"itemId": "ebafd24a-7bbc-4e75-87f5-a67cdcf31e29",
+		"quantity": 1
+	},
+	{
+		// "Steering Pipe",
+		"craftTime": 30,
+		"ingredientList": [
+			{
+				"itemId": "f152e4df-bc40-44fb-8d20-3b3ff70cdfe3",
+				"quantity": 20
+			}
+		],
+		"itemId": "8f762ab9-5c78-4d9c-a22e-3119bf447169",
+		"quantity": 1
+	},
+	{
+		// "Mini Suspension - Short",
+		"craftTime": 27,
+		"ingredientList": [
+			{
+				"itemId": "1016cafc-9f6b-40c9-8713-9019d399783f",
+				"quantity": 4
+			},
+			{
+				"itemId": "5530e6a0-4748-4926-b134-50ca9ecb9dcf",
+				"quantity": 5
+			},
+			{
+				"itemId": "1147e59d-6940-42b4-840b-07f05054f5e0",
+				"quantity": 2
+			}
+		],
+		"itemId": "c0d086eb-de4a-4ba9-922a-1c66f129d2ae",
+		"quantity": 1
+	},
+	{
+		// "Mini Suspension - Long",
+		"craftTime": 27,
+		"ingredientList": [
+			{
+				"itemId": "1016cafc-9f6b-40c9-8713-9019d399783f",
+				"quantity": 5
+			},
+			{
+				"itemId": "5530e6a0-4748-4926-b134-50ca9ecb9dcf",
+				"quantity": 5
+			},
+			{
+				"itemId": "1147e59d-6940-42b4-840b-07f05054f5e0",
+				"quantity": 5
+			}
+		],
+		"itemId": "8d6e5264-9f90-400a-a471-6c0cae101f4d",
+		"quantity": 1
+	},
+	{
+		// "Suspension - 4x",
+		"craftTime": 27,
+		"ingredientList": [
+			{
+				"itemId": "1016cafc-9f6b-40c9-8713-9019d399783f",
+				"quantity": 7
+			},
+			{
+				"itemId": "5530e6a0-4748-4926-b134-50ca9ecb9dcf",
+				"quantity": 7
+			},
+			{
+				"itemId": "1147e59d-6940-42b4-840b-07f05054f5e0",
+				"quantity": 5
+			}
+		],
+		"itemId": "9f016a8d-8cbe-4471-b210-f36f5f280758",
+		"quantity": 1
+	},
+	{
+		// "Suspension - 5x",
+		"craftTime": 27,
+		"ingredientList": [
+			{
+				"itemId": "1016cafc-9f6b-40c9-8713-9019d399783f",
+				"quantity": 10
+			},
+			{
+				"itemId": "5530e6a0-4748-4926-b134-50ca9ecb9dcf",
+				"quantity": 10
+			},
+			{
+				"itemId": "1147e59d-6940-42b4-840b-07f05054f5e0",
+				"quantity": 5
+			}
+		],
+		"itemId": "dd676b18-fd06-4aed-baa0-55d4599fdfa3",
+		"quantity": 1
+	},
+	{
+		// "Engine Suspension",
+		"craftTime": 0,
+		"ingredientList": [
+			{
+				"itemId": "1016cafc-9f6b-40c9-8713-9019d399783f",
+				"quantity": 15
+			},
+			{
+				"itemId": "1147e59d-6940-42b4-840b-07f05054f5e0",
+				"quantity": 5
+			},
+			{
+				"itemId": "5530e6a0-4748-4926-b134-50ca9ecb9dcf",
+				"quantity": 15
+			}
+		],
+		"itemId": "b69bf080-2467-4360-9677-72cfd48806c9",
+		"quantity": 1
+	},
+	{
+		// "Mod Piston (256)",
+		"craftTime": 0,
+		"ingredientList": [
+			{
+				"itemId": "1016cafc-9f6b-40c9-8713-9019d399783f",
+				"quantity": 10
+			},
+			{
+				"itemId": "1147e59d-6940-42b4-840b-07f05054f5e0",
+				"quantity": 2
+			},
+			{
+				"itemId": "f152e4df-bc40-44fb-8d20-3b3ff70cdfe3",
+				"quantity": 15
+			},
+			{
+				"itemId": "5530e6a0-4748-4926-b134-50ca9ecb9dcf",
+				"quantity": 15
+			}
+		],
+		"itemId": "a6d186ad-c9ba-4b6d-922c-6c13dfcea230",
+		"quantity": 1
+	},
+	{
+		// "Motorcycle Seat",
+		"craftTime": 57,
+		"ingredientList": [
+			{
+				"itemId": "3440440b-d362-4473-aa03-b7c41e1fe7ad",
+				"quantity": 5
+			},
+			{
+				"itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+				"quantity": 4
+			},
+			{
+				"itemId": "f152e4df-bc40-44fb-8d20-3b3ff70cdfe3",
+				"quantity": 5
+			},
+			{
+				"itemId": "5530e6a0-4748-4926-b134-50ca9ecb9dcf",
+				"quantity": 7
+			}
+		],
+		"itemId": "0513fc6d-fb29-46b6-9409-3ec1a4b79c6f",
+		"quantity": 1
+	},
+	{
+		// "Racing Driver Seat",
+		"craftTime": 57,
+		"ingredientList": [
+			{
+				"itemId": "3440440b-d362-4473-aa03-b7c41e1fe7ad",
+				"quantity": 5
+			},
+			{
+				"itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+				"quantity": 5
+			},
+			{
+				"itemId": "f152e4df-bc40-44fb-8d20-3b3ff70cdfe3",
+				"quantity": 4
+			},
+			{
+				"itemId": "5530e6a0-4748-4926-b134-50ca9ecb9dcf",
+				"quantity": 7
+			}
+		],
+		"itemId": "ffddc616-2799-4883-8c62-193ba30b6fa8",
+		"quantity": 1
+	},
+	{
+		// "Racing Passenger Seat",
+		"craftTime": 57,
+		"ingredientList": [
+			{
+				"itemId": "3440440b-d362-4473-aa03-b7c41e1fe7ad",
+				"quantity": 5
+			},
+			{
+				"itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+				"quantity": 5
+			},
+			{
+				"itemId": "f152e4df-bc40-44fb-8d20-3b3ff70cdfe3",
+				"quantity": 5
+			},
+			{
+				"itemId": "5530e6a0-4748-4926-b134-50ca9ecb9dcf",
+				"quantity": 7
+			}
+		],
+		"itemId": "8c355d48-88cd-467b-863f-12c12b72304d",
+		"quantity": 1
+	},
+	{
+		// "Ship's Wheel Seat",
+		"craftTime": 57,
+		"ingredientList": [
+			{
+				"itemId": "3440440b-d362-4473-aa03-b7c41e1fe7ad",
+				"quantity": 10
+			},
+			{
+				"itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+				"quantity": 5
+			},
+			{
+				"itemId": "f152e4df-bc40-44fb-8d20-3b3ff70cdfe3",
+				"quantity": 5
+			},
+			{
+				"itemId": "5530e6a0-4748-4926-b134-50ca9ecb9dcf",
+				"quantity": 7
+			}
+		],
+		"itemId": "88e045aa-d3ab-435e-b248-60b34c206e6f",
+		"quantity": 1
+	},
+	{
+		// "Jetpack Seat - Or Mech, Gunner, etc",
+		"craftTime": 57,
+		"ingredientList": [
+			{
+				"itemId": "3440440b-d362-4473-aa03-b7c41e1fe7ad",
+				"quantity": 5
+			},
+			{
+				"itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+				"quantity": 10
+			},
+			{
+				"itemId": "f152e4df-bc40-44fb-8d20-3b3ff70cdfe3",
+				"quantity": 10
+			},
+			{
+				"itemId": "5530e6a0-4748-4926-b134-50ca9ecb9dcf",
+				"quantity": 7
+			}
+		],
+		"itemId": "ad671132-c345-4edc-96c7-ec835ab3a2c9",
+		"quantity": 1
+	},
+	{
+		// "Standing Driver Seat",
+		"craftTime": 57,
+		"ingredientList": [
+			{
+				"itemId": "3440440b-d362-4473-aa03-b7c41e1fe7ad",
+				"quantity": 5
+			},
+			{
+				"itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+				"quantity": 10
+			},
+			{
+				"itemId": "f152e4df-bc40-44fb-8d20-3b3ff70cdfe3",
+				"quantity": 5
+			},
+			{
+				"itemId": "5530e6a0-4748-4926-b134-50ca9ecb9dcf",
+				"quantity": 7
+			}
+		],
+		"itemId": "3b41f562-70c4-4747-9045-3d26ff0e0243",
+		"quantity": 1
+	},
+	{
+		// "Sleeping Bed - Driver",
+		"craftTime": 57,
+		"ingredientList": [
+			{
+				"itemId": "3440440b-d362-4473-aa03-b7c41e1fe7ad",
+				"quantity": 20
+			},
+			{
+				"itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+				"quantity": 5
+			},
+			{
+				"itemId": "f152e4df-bc40-44fb-8d20-3b3ff70cdfe3",
+				"quantity": 5
+			},
+			{
+				"itemId": "5530e6a0-4748-4926-b134-50ca9ecb9dcf",
+				"quantity": 5
+			}
+		],
+		"itemId": "a3da3841-5a76-4d72-a177-cdc4e572efc7",
+		"quantity": 1
+	},
+	{
+		// "Driver's Pillow",
+		"craftTime": 57,
+		"ingredientList": [
+			{
+				"itemId": "3440440b-d362-4473-aa03-b7c41e1fe7ad",
+				"quantity": 15
+			},
+			{
+				"itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+				"quantity": 5
+			},
+			{
+				"itemId": "f152e4df-bc40-44fb-8d20-3b3ff70cdfe3",
+				"quantity": 5
+			},
+			{
+				"itemId": "5530e6a0-4748-4926-b134-50ca9ecb9dcf",
+				"quantity": 5
+			}
+		],
+		"itemId": "784bf71e-2331-4d56-a70f-b00a3994231b",
+		"quantity": 1
+	},
+	{
+		// "Modular Seat 1 - Standard",
+		"craftTime": 57,
+		"ingredientList": [
+			{
+				"itemId": "3440440b-d362-4473-aa03-b7c41e1fe7ad",
+				"quantity": 7
+			},
+			{
+				"itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+				"quantity": 5
+			},
+			{
+				"itemId": "f152e4df-bc40-44fb-8d20-3b3ff70cdfe3",
+				"quantity": 5
+			},
+			{
+				"itemId": "5530e6a0-4748-4926-b134-50ca9ecb9dcf",
+				"quantity": 7
+			}
+		],
+		"itemId": "b15f557c-872f-4bf5-9c0b-2891a34f430e",
+		"quantity": 1
+	},
+	{
+		// "Modular Seat 2 - Saddle",
+		"craftTime": 57,
+		"ingredientList": [
+			{
+				"itemId": "3440440b-d362-4473-aa03-b7c41e1fe7ad",
+				"quantity": 5
+			},
+			{
+				"itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+				"quantity": 5
+			},
+			{
+				"itemId": "f152e4df-bc40-44fb-8d20-3b3ff70cdfe3",
+				"quantity": 7
+			},
+			{
+				"itemId": "5530e6a0-4748-4926-b134-50ca9ecb9dcf",
+				"quantity": 7
+			}
+		],
+		"itemId": "86d5ca1b-f1fa-42a9-9645-0d276e711b27",
+		"quantity": 1
+	},
+	{
+		// "Modular Seat 3 - Race",
+		"craftTime": 57,
+		"ingredientList": [
+			{
+				"itemId": "3440440b-d362-4473-aa03-b7c41e1fe7ad",
+				"quantity": 5
+			},
+			{
+				"itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+				"quantity": 5
+			},
+			{
+				"itemId": "f152e4df-bc40-44fb-8d20-3b3ff70cdfe3",
+				"quantity": 5
+			},
+			{
+				"itemId": "5530e6a0-4748-4926-b134-50ca9ecb9dcf",
+				"quantity": 10
+			}
+		],
+		"itemId": "d9f49f49-0ef9-41d6-a9a5-ec454be87082",
+		"quantity": 1
+	},
+	{
+		// "Arrow Button",
+		"craftTime": 20,
+		"ingredientList": [
+			{
+				"itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+				"quantity": 10
+			},
+			{
+				"itemId": "f152e4df-bc40-44fb-8d20-3b3ff70cdfe3",
+				"quantity": 5
+			}
+		],
+		"itemId": "685ccdd5-8ee9-480d-a64a-2696c31e1db0",
+		"quantity": 1
+	},
+	{
+		// "Hidden Button Block",
+		"craftTime": 20,
+		"ingredientList": [
+			{
+				"itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+				"quantity": 10
+			},
+			{
+				"itemId": "f152e4df-bc40-44fb-8d20-3b3ff70cdfe3",
+				"quantity": 5
+			}
+		],
+		"itemId": "e426ee20-2cf7-40c9-ad5e-145f43752fab",
+		"quantity": 1
+	},
+	{
+		// "Pull-start Button",
+		"craftTime": 20,
+		"ingredientList": [
+			{
+				"itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+				"quantity": 10
+			},
+			{
+				"itemId": "f152e4df-bc40-44fb-8d20-3b3ff70cdfe3",
+				"quantity": 10
+			}
+		],
+		"itemId": "f694b406-4f59-46cb-bf33-05e11851eaac",
+		"quantity": 1
+	},
+	{
+		// "Dial Switch",
+		"craftTime": 20,
+		"ingredientList": [
+			{
+				"itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+				"quantity": 10
+			},
+			{
+				"itemId": "f152e4df-bc40-44fb-8d20-3b3ff70cdfe3",
+				"quantity": 5
+			}
+		],
+		"itemId": "deeb37a4-b9ba-4ba7-ad4b-6f5fd5e1d6f2",
+		"quantity": 1
+	},
+	{
+		// "Paddle Latch Switch",
+		"craftTime": 20,
+		"ingredientList": [
+			{
+				"itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+				"quantity": 10
+			},
+			{
+				"itemId": "f152e4df-bc40-44fb-8d20-3b3ff70cdfe3",
+				"quantity": 5
+			}
+		],
+		"itemId": "70e5729d-0706-4c28-80a2-2ab9d7e7532c",
+		"quantity": 1
+	},
+	{
+		// "Door Handle Switch",
+		"craftTime": 20,
+		"ingredientList": [
+			{
+				"itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+				"quantity": 10
+			},
+			{
+				"itemId": "f152e4df-bc40-44fb-8d20-3b3ff70cdfe3",
+				"quantity": 5
+			}
+		],
+		"itemId": "f6619b4a-a627-40c0-939c-a44432ebc66a",
+		"quantity": 1
+	},
+	{
+		// "Throttle Lever - Switch",
+		"craftTime": 20,
+		"ingredientList": [
+			{
+				"itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+				"quantity": 10
+			},
+			{
+				"itemId": "f152e4df-bc40-44fb-8d20-3b3ff70cdfe3",
+				"quantity": 10
+			}
+		],
+		"itemId": "7022c522-7b33-4638-8dfb-0dfa7c6eb36f",
+		"quantity": 1
+	},
+	{
+		// "Medium Lever - Switch",
+		"craftTime": 20,
+		"ingredientList": [
+			{
+				"itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+				"quantity": 10
+			},
+			{
+				"itemId": "f152e4df-bc40-44fb-8d20-3b3ff70cdfe3",
+				"quantity": 10
+			}
+		],
+		"itemId": "e9ab70ae-2c6c-4f68-86c3-2f652c180fc5",
+		"quantity": 1
+	},
+	{
+		// "Large Lever - Switch",
+		"craftTime": 20,
+		"ingredientList": [
+			{
+				"itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+				"quantity": 10
+			},
+			{
+				"itemId": "f152e4df-bc40-44fb-8d20-3b3ff70cdfe3",
+				"quantity": 10
+			}
+		],
+		"itemId": "ee92187e-8363-4ff6-a7ae-c96e60450537",
+		"quantity": 1
+	},
+	{
+		// "Pipe Valve Switch",
+		"craftTime": 20,
+		"ingredientList": [
+			{
+				"itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+				"quantity": 10
+			},
+			{
+				"itemId": "f152e4df-bc40-44fb-8d20-3b3ff70cdfe3",
+				"quantity": 5
+			}
+		],
+		"itemId": "73f35954-e7d2-4a32-bc7c-b88a341ab792",
+		"quantity": 1
+	},
+	{
+		// "Pixel Light Block - Black-Off, Light-On",
+		"craftTime": 2,
+		"ingredientList": [
+			{
+				"itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+				"quantity": 1
+			},
+			{
+				"itemId": "5f41af56-df4c-4837-9b3c-10781335757f",
+				"quantity": 1
+			},
+			{
+				"itemId": "f152e4df-bc40-44fb-8d20-3b3ff70cdfe3",
+				"quantity": 2
+			},
+			{
+				"itemId": "36335664-6e61-4d44-9876-54f9660a8565",
+				"quantity": 1
+			}
+		],
+		"itemId": "7947150d-a21c-4195-a4a8-76aab023ba3c",
+		"quantity": 1
+	},
+	{
+		// "Off/On Light - Round",
+		"craftTime": 2,
+		"ingredientList": [
+			{
+				"itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+				"quantity": 1
+			},
+			{
+				"itemId": "5f41af56-df4c-4837-9b3c-10781335757f",
+				"quantity": 1
+			},
+			{
+				"itemId": "f152e4df-bc40-44fb-8d20-3b3ff70cdfe3",
+				"quantity": 2
+			},
+			{
+				"itemId": "36335664-6e61-4d44-9876-54f9660a8565",
+				"quantity": 1
+			}
+		],
+		"itemId": "bfbd310d-7c07-4f08-a8cc-9a69e70a9ff0",
+		"quantity": 1
+	},
+	{
+		// "Off/On Light - Rectangle",
+		"craftTime": 2,
+		"ingredientList": [
+			{
+				"itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+				"quantity": 1
+			},
+			{
+				"itemId": "5f41af56-df4c-4837-9b3c-10781335757f",
+				"quantity": 1
+			},
+			{
+				"itemId": "f152e4df-bc40-44fb-8d20-3b3ff70cdfe3",
+				"quantity": 2
+			},
+			{
+				"itemId": "36335664-6e61-4d44-9876-54f9660a8565",
+				"quantity": 1
+			}
+		],
+		"itemId": "d7de689e-5082-4323-b6c4-eb1ce8f29719",
+		"quantity": 1
+	},
+	{
+		// "Off/On Light - Round Mini",
+		"craftTime": 2,
+		"ingredientList": [
+			{
+				"itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+				"quantity": 1
+			},
+			{
+				"itemId": "5f41af56-df4c-4837-9b3c-10781335757f",
+				"quantity": 1
+			},
+			{
+				"itemId": "f152e4df-bc40-44fb-8d20-3b3ff70cdfe3",
+				"quantity": 2
+			},
+			{
+				"itemId": "36335664-6e61-4d44-9876-54f9660a8565",
+				"quantity": 1
+			}
+		],
+		"itemId": "5a3ea22a-99b1-48eb-b169-3243ad49b27c",
+		"quantity": 1
+	},
+	{
+		// "Off/On Light - Square",
+		"craftTime": 2,
+		"ingredientList": [
+			{
+				"itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+				"quantity": 1
+			},
+			{
+				"itemId": "5f41af56-df4c-4837-9b3c-10781335757f",
+				"quantity": 1
+			},
+			{
+				"itemId": "f152e4df-bc40-44fb-8d20-3b3ff70cdfe3",
+				"quantity": 2
+			},
+			{
+				"itemId": "36335664-6e61-4d44-9876-54f9660a8565",
+				"quantity": 1
+			}
+		],
+		"itemId": "7b51eae8-c55c-4102-b9eb-6c23ca547e83",
+		"quantity": 1
+	},
+	{
+		// "Off/On Light - Cube",
+		"craftTime": 2,
+		"ingredientList": [
+			{
+				"itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+				"quantity": 1
+			},
+			{
+				"itemId": "5f41af56-df4c-4837-9b3c-10781335757f",
+				"quantity": 1
+			},
+			{
+				"itemId": "f152e4df-bc40-44fb-8d20-3b3ff70cdfe3",
+				"quantity": 2
+			},
+			{
+				"itemId": "36335664-6e61-4d44-9876-54f9660a8565",
+				"quantity": 1
+			}
+		],
+		"itemId": "e83e6fd9-e963-485f-8be0-43895af58ee3",
+		"quantity": 1
+	},
+	{
+		// "Slim Light",
+		"craftTime": 2,
+		"ingredientList": [
+			{
+				"itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+				"quantity": 1
+			},
+			{
+				"itemId": "5f41af56-df4c-4837-9b3c-10781335757f",
+				"quantity": 1
+			},
+			{
+				"itemId": "f152e4df-bc40-44fb-8d20-3b3ff70cdfe3",
+				"quantity": 2
+			},
+			{
+				"itemId": "36335664-6e61-4d44-9876-54f9660a8565",
+				"quantity": 1
+			}
+		],
+		"itemId": "0f994efc-b697-48e4-8ce0-f53eae15d41b",
+		"quantity": 1
+	},
+	{
+		// "Surface Controller",
+		"craftTime": 87,
+		"ingredientList": [
+			{
+				"itemId": "36335664-6e61-4d44-9876-54f9660a8565",
+				"quantity": 3
+			},
+			{
+				"itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+				"quantity": 5
+			},
+			{
+				"itemId": "f152e4df-bc40-44fb-8d20-3b3ff70cdfe3",
+				"quantity": 15
+			},
+			{
+				"itemId": "5530e6a0-4748-4926-b134-50ca9ecb9dcf",
+				"quantity": 10
+			}
+		],
+		"itemId": "9687439e-70a7-4c52-8dd1-d6fa6ec93df8",
+		"quantity": 1
+	},
+	{
+		// "Surface Logic",
+		"craftTime": 87,
+		"ingredientList": [
+			{
+				"itemId": "36335664-6e61-4d44-9876-54f9660a8565",
+				"quantity": 3
+			},
+			{
+				"itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+				"quantity": 5
+			},
+			{
+				"itemId": "f152e4df-bc40-44fb-8d20-3b3ff70cdfe3",
+				"quantity": 15
+			},
+			{
+				"itemId": "5530e6a0-4748-4926-b134-50ca9ecb9dcf",
+				"quantity": 10
+			}
+		],
+		"itemId": "60375a3b-0d70-43a2-a97a-4a4234b500dd",
+		"quantity": 1
+	},
+	{
+		// "Surface Timer",
+		"craftTime": 87,
+		"ingredientList": [
+			{
+				"itemId": "36335664-6e61-4d44-9876-54f9660a8565",
+				"quantity": 3
+			},
+			{
+				"itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+				"quantity": 5
+			},
+			{
+				"itemId": "f152e4df-bc40-44fb-8d20-3b3ff70cdfe3",
+				"quantity": 15
+			},
+			{
+				"itemId": "5530e6a0-4748-4926-b134-50ca9ecb9dcf",
+				"quantity": 10
+			}
+		],
+		"itemId": "f6b70b49-ea25-47cc-9dac-e2dc90e67d07",
+		"quantity": 1
+	},
+	{
+		// "Decoupler",
+		"craftTime": 87,
+		"ingredientList": [
+			{
+				"itemId": "36335664-6e61-4d44-9876-54f9660a8565",
+				"quantity": 3
+			},
+			{
+				"itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+				"quantity": 5
+			},
+			{
+				"itemId": "f152e4df-bc40-44fb-8d20-3b3ff70cdfe3",
+				"quantity": 2
+			}
+		],
+		"itemId": "f907144d-ae63-4e5e-bff9-f9ca413e2090",
+		"quantity": 1
+	},
+	{
+		// "Time Block ",
+		"craftTime": 87,
+		"ingredientList": [
+			{
+				"itemId": "36335664-6e61-4d44-9876-54f9660a8565",
+				"quantity": 3
+			},
+			{
+				"itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+				"quantity": 5
+			},
+			{
+				"itemId": "f152e4df-bc40-44fb-8d20-3b3ff70cdfe3",
+				"quantity": 15
+			},
+			{
+				"itemId": "5530e6a0-4748-4926-b134-50ca9ecb9dcf",
+				"quantity": 10
+			}
+		],
+		"itemId": "6613bebe-be9f-435c-b415-42a0b45cc8e3",
+		"quantity": 1
+	},
+	{
+		// "Smart Sensor",
+		"craftTime": 87,
+		"ingredientList": [
+			{
+				"itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+				"quantity": 20
+			},
+			{
+				"itemId": "5f41af56-df4c-4837-9b3c-10781335757f",
+				"quantity": 4
+			},
+			{
+				"itemId": "f152e4df-bc40-44fb-8d20-3b3ff70cdfe3",
+				"quantity": 10
+			},
+			{
+				"itemId": "36335664-6e61-4d44-9876-54f9660a8565",
+				"quantity": 6
+			}
+		],
+		"itemId": "4081ca6f-6b80-4c39-9e79-e1f747039bec",
+		"quantity": 1
+	},
+	{
+		// "Laser Sight",
+		"craftTime": 87,
+		"ingredientList": [
+			{
+				"itemId": "36335664-6e61-4d44-9876-54f9660a8565",
+				"quantity": 3
+			},
+			{
+				"itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+				"quantity": 5
+			},
+			{
+				"itemId": "f152e4df-bc40-44fb-8d20-3b3ff70cdfe3",
+				"quantity": 15
+			},
+			{
+				"itemId": "5530e6a0-4748-4926-b134-50ca9ecb9dcf",
+				"quantity": 10
+			}
+		],
+		"itemId": "c7a99aa6-c5a4-43ad-84c9-c85f7d842a93",
+		"quantity": 1
+	},
+	{
+		// "Tracker",
+		"craftTime": 87,
+		"ingredientList": [
+			{
+				"itemId": "36335664-6e61-4d44-9876-54f9660a8565",
+				"quantity": 10
+			},
+			{
+				"itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+				"quantity": 15
+			},
+			{
+				"itemId": "f152e4df-bc40-44fb-8d20-3b3ff70cdfe3",
+				"quantity": 25
+			},
+			{
+				"itemId": "5530e6a0-4748-4926-b134-50ca9ecb9dcf",
+				"quantity": 30
+			}
+		],
+		"itemId": "6594dff0-c652-4b44-8bb6-c725aaadea05",
+		"quantity": 1
+	},
+	{
+		// "Radar Jammer",
+		"craftTime": 87,
+		"ingredientList": [
+			{
+				"itemId": "36335664-6e61-4d44-9876-54f9660a8565",
+				"quantity": 30
+			},
+			{
+				"itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+				"quantity": 25
+			},
+			{
+				"itemId": "f152e4df-bc40-44fb-8d20-3b3ff70cdfe3",
+				"quantity": 15
+			},
+			{
+				"itemId": "5530e6a0-4748-4926-b134-50ca9ecb9dcf",
+				"quantity": 20
+			}
+		],
+		"itemId": "55bb3871-8455-40dc-a968-3dc635a32b7e",
+		"quantity": 1
+	},
+	{
+		// "Wireless Router",
+		"craftTime": 87,
+		"ingredientList": [
+			{
+				"itemId": "36335664-6e61-4d44-9876-54f9660a8565",
+				"quantity": 13
+			},
+			{
+				"itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+				"quantity": 15
+			},
+			{
+				"itemId": "f152e4df-bc40-44fb-8d20-3b3ff70cdfe3",
+				"quantity": 20
+			},
+			{
+				"itemId": "5530e6a0-4748-4926-b134-50ca9ecb9dcf",
+				"quantity": 20
+			}
+		],
+		"itemId": "e627986c-b7dd-4365-8fd8-a0f8707af63d",
+		"quantity": 1
+	},
+	{
+		// "Orientation Block",
+		"craftTime": 87,
+		"ingredientList": [
+			{
+				"itemId": "36335664-6e61-4d44-9876-54f9660a8565",
+				"quantity": 3
+			},
+			{
+				"itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+				"quantity": 5
+			},
+			{
+				"itemId": "f152e4df-bc40-44fb-8d20-3b3ff70cdfe3",
+				"quantity": 15
+			},
+			{
+				"itemId": "5530e6a0-4748-4926-b134-50ca9ecb9dcf",
+				"quantity": 10
+			}
+		],
+		"itemId": "ccaa33b6-e5bb-4edc-9329-b40f6efe2c9e",
+		"quantity": 1
+	},
+	{
+		// "Number Block",
+		"craftTime": 87,
+		"ingredientList": [
+			{
+				"itemId": "36335664-6e61-4d44-9876-54f9660a8565",
+				"quantity": 3
+			},
+			{
+				"itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+				"quantity": 5
+			},
+			{
+				"itemId": "f152e4df-bc40-44fb-8d20-3b3ff70cdfe3",
+				"quantity": 5
+			},
+			{
+				"itemId": "5530e6a0-4748-4926-b134-50ca9ecb9dcf",
+				"quantity": 2
+			}
+		],
+		"itemId": "efbd14a8-f896-4268-a273-b2b382db520c",
+		"quantity": 1
+	},
+	{
+		// "Math Block\n(Function Block)",
+		"craftTime": 87,
+		"ingredientList": [
+			{
+				"itemId": "36335664-6e61-4d44-9876-54f9660a8565",
+				"quantity": 3
+			},
+			{
+				"itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+				"quantity": 5
+			},
+			{
+				"itemId": "f152e4df-bc40-44fb-8d20-3b3ff70cdfe3",
+				"quantity": 5
+			},
+			{
+				"itemId": "5530e6a0-4748-4926-b134-50ca9ecb9dcf",
+				"quantity": 2
+			}
+		],
+		"itemId": "289e08ef-e3d8-4f1b-bc10-a0bcf36fa0ce",
+		"quantity": 1
+	},
+	{
+		// "Counter",
+		"craftTime": 87,
+		"ingredientList": [
+			{
+				"itemId": "36335664-6e61-4d44-9876-54f9660a8565",
+				"quantity": 3
+			},
+			{
+				"itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+				"quantity": 5
+			},
+			{
+				"itemId": "f152e4df-bc40-44fb-8d20-3b3ff70cdfe3",
+				"quantity": 5
+			},
+			{
+				"itemId": "5530e6a0-4748-4926-b134-50ca9ecb9dcf",
+				"quantity": 2
+			}
+		],
+		"itemId": "d8296109-2ffb-4efb-819a-54bd8cadf549",
+		"quantity": 1
+	},
+	{
+		// "Memory Panel",
+		"craftTime": 87,
+		"ingredientList": [
+			{
+				"itemId": "36335664-6e61-4d44-9876-54f9660a8565",
+				"quantity": 3
+			},
+			{
+				"itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+				"quantity": 5
+			},
+			{
+				"itemId": "f152e4df-bc40-44fb-8d20-3b3ff70cdfe3",
+				"quantity": 5
+			},
+			{
+				"itemId": "5530e6a0-4748-4926-b134-50ca9ecb9dcf",
+				"quantity": 2
+			}
+		],
+		"itemId": "b39faec9-1ed0-4475-8bc0-78d125df1b58",
+		"quantity": 1
+	},
+	{
+		// "x-o-meter",
+		"craftTime": 87,
+		"ingredientList": [
+			{
+				"itemId": "36335664-6e61-4d44-9876-54f9660a8565",
+				"quantity": 3
+			},
+			{
+				"itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+				"quantity": 5
+			},
+			{
+				"itemId": "f152e4df-bc40-44fb-8d20-3b3ff70cdfe3",
+				"quantity": 15
+			},
+			{
+				"itemId": "5530e6a0-4748-4926-b134-50ca9ecb9dcf",
+				"quantity": 10
+			}
+		],
+		"itemId": "d88ba569-f7a5-42e3-bb11-d7979b60ddad",
+		"quantity": 1
+	},
+	{
+		// "Tick Button",
+		"craftTime": 87,
+		"ingredientList": [
+			{
+				"itemId": "36335664-6e61-4d44-9876-54f9660a8565",
+				"quantity": 3
+			},
+			{
+				"itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+				"quantity": 5
+			},
+			{
+				"itemId": "f152e4df-bc40-44fb-8d20-3b3ff70cdfe3",
+				"quantity": 2
+			},
+			{
+				"itemId": "5530e6a0-4748-4926-b134-50ca9ecb9dcf",
+				"quantity": 2
+			}
+		],
+		"itemId": "6f2dd83e-bc0d-43f3-8ba5-d5209eb03d07",
+		"quantity": 1
+	},
+	{
+		// "Smart Timer",
+		"craftTime": 87,
+		"ingredientList": [
+			{
+				"itemId": "36335664-6e61-4d44-9876-54f9660a8565",
+				"quantity": 3
+			},
+			{
+				"itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+				"quantity": 5
+			},
+			{
+				"itemId": "f152e4df-bc40-44fb-8d20-3b3ff70cdfe3",
+				"quantity": 15
+			},
+			{
+				"itemId": "5530e6a0-4748-4926-b134-50ca9ecb9dcf",
+				"quantity": 10
+			}
+		],
+		"itemId": "a1d0b1a0-4ec7-4614-8b7a-9a7c521cc03e",
+		"quantity": 1
+	},
+	{
+		// "Keypad Input",
+		"craftTime": 87,
+		"ingredientList": [
+			{
+				"itemId": "36335664-6e61-4d44-9876-54f9660a8565",
+				"quantity": 3
+			},
+			{
+				"itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+				"quantity": 5
+			},
+			{
+				"itemId": "f152e4df-bc40-44fb-8d20-3b3ff70cdfe3",
+				"quantity": 15
+			},
+			{
+				"itemId": "5530e6a0-4748-4926-b134-50ca9ecb9dcf",
+				"quantity": 10
+			}
+		],
+		"itemId": "d3eda549-778f-432b-bf21-65a32ae53378",
+		"quantity": 1
+	},
+	{
+		// "Color Block",
+		"craftTime": 87,
+		"ingredientList": [
+			{
+				"itemId": "36335664-6e61-4d44-9876-54f9660a8565",
+				"quantity": 3
+			},
+			{
+				"itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+				"quantity": 5
+			},
+			{
+				"itemId": "f152e4df-bc40-44fb-8d20-3b3ff70cdfe3",
+				"quantity": 15
+			},
+			{
+				"itemId": "5530e6a0-4748-4926-b134-50ca9ecb9dcf",
+				"quantity": 10
+			}
+		],
+		"itemId": "921a2ace-b543-4ca3-8a9b-6f3dd3132fa9",
+		"quantity": 1
+	},
+	{
+		// "Ascii Block",
+		"craftTime": 87,
+		"ingredientList": [
+			{
+				"itemId": "36335664-6e61-4d44-9876-54f9660a8565",
+				"quantity": 3
+			},
+			{
+				"itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+				"quantity": 5
+			},
+			{
+				"itemId": "f152e4df-bc40-44fb-8d20-3b3ff70cdfe3",
+				"quantity": 15
+			},
+			{
+				"itemId": "5530e6a0-4748-4926-b134-50ca9ecb9dcf",
+				"quantity": 10
+			}
+		],
+		"itemId": "9c47ec58-bdfc-43a4-b066-852156ad812a",
+		"quantity": 1
+	},
+	{
+		// "Ascii Block Inverted",
+		"craftTime": 87,
+		"ingredientList": [
+			{
+				"itemId": "36335664-6e61-4d44-9876-54f9660a8565",
+				"quantity": 3
+			},
+			{
+				"itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+				"quantity": 5
+			},
+			{
+				"itemId": "f152e4df-bc40-44fb-8d20-3b3ff70cdfe3",
+				"quantity": 15
+			},
+			{
+				"itemId": "5530e6a0-4748-4926-b134-50ca9ecb9dcf",
+				"quantity": 10
+			}
+		],
+		"itemId": "8d27520e-2ebc-4f14-bd2c-b99ee8976799",
+		"quantity": 1
+	},
+	{
+		// "Ascii Block Colored",
+		"craftTime": 87,
+		"ingredientList": [
+			{
+				"itemId": "36335664-6e61-4d44-9876-54f9660a8565",
+				"quantity": 3
+			},
+			{
+				"itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+				"quantity": 5
+			},
+			{
+				"itemId": "f152e4df-bc40-44fb-8d20-3b3ff70cdfe3",
+				"quantity": 15
+			},
+			{
+				"itemId": "5530e6a0-4748-4926-b134-50ca9ecb9dcf",
+				"quantity": 10
+			}
+		],
+		"itemId": "a459eb96-7f0a-42e6-a841-44f9c0561a55",
+		"quantity": 1
+	},
+	{
+		// "Smart Engine Controller",
+		"craftTime": 60,
+		"ingredientList": [
+			{
+				"itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+				"quantity": 40
+			},
+			{
+				"itemId": "f152e4df-bc40-44fb-8d20-3b3ff70cdfe3",
+				"quantity": 5
+			},
+			{
+				"itemId": "5530e6a0-4748-4926-b134-50ca9ecb9dcf",
+				"quantity": 20
+			},
+			{
+				"itemId": "36335664-6e61-4d44-9876-54f9660a8565",
+				"quantity": 20
+			}
+		],
+		"itemId": "fe8978ec-5798-4b24-bdb2-8375387f171b",
+		"quantity": 1
+	},
+	{
+		// "Gas Engine 3-Wide",
+		"craftTime": 60,
+		"ingredientList": [
+			{
+				"itemId": "c0dfdea5-a39d-433a-b94a-299345a5df46",
+				"quantity": 20
+			},
+			{
+				"itemId": "f152e4df-bc40-44fb-8d20-3b3ff70cdfe3",
+				"quantity": 5
+			},
+			{
+				"itemId": "5530e6a0-4748-4926-b134-50ca9ecb9dcf",
+				"quantity": 5
+			}
+		],
+		"itemId": "70cbacf2-ec5a-471f-9896-0ee944c581d1",
+		"quantity": 1
+	},
+	{
+		// "Pico thruster - Low power",
+		"craftTime": 60,
+		"ingredientList": [
+			{
+				"itemId": "c0dfdea5-a39d-433a-b94a-299345a5df46",
+				"quantity": 20
+			},
+			{
+				"itemId": "f152e4df-bc40-44fb-8d20-3b3ff70cdfe3",
+				"quantity": 5
+			},
+			{
+				"itemId": "5530e6a0-4748-4926-b134-50ca9ecb9dcf",
+				"quantity": 5
+			}
+		],
+		"itemId": "9235b582-fc25-48a8-a807-68d98755d077",
+		"quantity": 1
+	},
+	{
+		// "1x1 Micro Thruster",
+		"craftTime": 60,
+		"ingredientList": [
+			{
+				"itemId": "c0dfdea5-a39d-433a-b94a-299345a5df46",
+				"quantity": 20
+			},
+			{
+				"itemId": "f152e4df-bc40-44fb-8d20-3b3ff70cdfe3",
+				"quantity": 5
+			},
+			{
+				"itemId": "5530e6a0-4748-4926-b134-50ca9ecb9dcf",
+				"quantity": 5
+			}
+		],
+		"itemId": "a07a3673-a446-44a3-b16d-abb732c7a525",
+		"quantity": 1
+	},
+	{
+		// "Smart Thruster",
+		"craftTime": 60,
+		"ingredientList": [
+			{
+				"itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+				"quantity": 35
+			},
+			{
+				"itemId": "1147e59d-6940-42b4-840b-07f05054f5e0",
+				"quantity": 15
+			},
+			{
+				"itemId": "f152e4df-bc40-44fb-8d20-3b3ff70cdfe3",
+				"quantity": 17
+			},
+			{
+				"itemId": "5530e6a0-4748-4926-b134-50ca9ecb9dcf",
+				"quantity": 30
+			}
+		],
+		"itemId": "a4342028-9a61-4961-99a4-2ae372ee2481",
+		"quantity": 1
+	},
+	{
+		// "WASD Thruster",
+		"craftTime": 60,
+		"ingredientList": [
+			{
+				"itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+				"quantity": 35
+			},
+			{
+				"itemId": "1147e59d-6940-42b4-840b-07f05054f5e0",
+				"quantity": 15
+			},
+			{
+				"itemId": "f152e4df-bc40-44fb-8d20-3b3ff70cdfe3",
+				"quantity": 25
+			},
+			{
+				"itemId": "5530e6a0-4748-4926-b134-50ca9ecb9dcf",
+				"quantity": 25
+			}
+		],
+		"itemId": "cec7c353-34ab-43a4-ade5-411df02eaa2a",
+		"quantity": 1
+	},
+	{
+		// "Gimbal Thruster",
+		"craftTime": 60,
+		"ingredientList": [
+			{
+				"itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+				"quantity": 50
+			},
+			{
+				"itemId": "1147e59d-6940-42b4-840b-07f05054f5e0",
+				"quantity": 25
+			},
+			{
+				"itemId": "f152e4df-bc40-44fb-8d20-3b3ff70cdfe3",
+				"quantity": 15
+			},
+			{
+				"itemId": "5530e6a0-4748-4926-b134-50ca9ecb9dcf",
+				"quantity": 25
+			}
+		],
+		"itemId": "41d596a6-882c-4f97-b0e0-3e11bff194e2",
+		"quantity": 1
+	},
+	{
+		// "Gravity Module",
+		"craftTime": 37,
+		"ingredientList": [
+			{
+				"itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+				"quantity": 50
+			},
+			{
+				"itemId": "f152e4df-bc40-44fb-8d20-3b3ff70cdfe3",
+				"quantity": 45
+			},
+			{
+				"itemId": "5530e6a0-4748-4926-b134-50ca9ecb9dcf",
+				"quantity": 30
+			},
+			{
+				"itemId": "36335664-6e61-4d44-9876-54f9660a8565",
+				"quantity": 55
+			}
+		],
+		"itemId": "c9e34f58-b30d-4ab5-92c5-76f707090c45",
+		"quantity": 1
+	},
+	{
+		// "Gravity Modulator",
+		"craftTime": 37,
+		"ingredientList": [
+			{
+				"itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+				"quantity": 50
+			},
+			{
+				"itemId": "f152e4df-bc40-44fb-8d20-3b3ff70cdfe3",
+				"quantity": 50
+			},
+			{
+				"itemId": "5530e6a0-4748-4926-b134-50ca9ecb9dcf",
+				"quantity": 40
+			},
+			{
+				"itemId": "36335664-6e61-4d44-9876-54f9660a8565",
+				"quantity": 60
+			}
+		],
+		"itemId": "e93ca226-4166-49e3-97cd-bb8df20242d7",
+		"quantity": 1
+	},
+	{
+		// "Large Wing",
+		"craftTime": 20,
+		"ingredientList": [
+			{
+				"itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+				"quantity": 5
+			},
+			{
+				"itemId": "f152e4df-bc40-44fb-8d20-3b3ff70cdfe3",
+				"quantity": 1
+			},
+			{
+				"itemId": "36335664-6e61-4d44-9876-54f9660a8565",
+				"quantity": 1
+			}
+		],
+		"itemId": "e2cc7014-85f3-4bb8-a7ca-b70b6502d91e",
+		"quantity": 1
+	},
+	{
+		// "Small Wing / Propeller",
+		"craftTime": 20,
+		"ingredientList": [
+			{
+				"itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+				"quantity": 5
+			},
+			{
+				"itemId": "1bfccc0a-828f-475c-882c-87d5a96054c9",
+				"quantity": 1
+			},
+			{
+				"itemId": "36335664-6e61-4d44-9876-54f9660a8565",
+				"quantity": 1
+			}
+		],
+		"itemId": "b5222776-1702-4c22-a8c5-ca26cc0290e7",
+		"quantity": 1
+	},
+	{
+		// "Timed Explosive - Dynamite",
+		"craftTime": 37,
+		"ingredientList": [
+			{
+				"itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+				"quantity": 25
+			},
+			{
+				"itemId": "f152e4df-bc40-44fb-8d20-3b3ff70cdfe3",
+				"quantity": 10
+			}
+		],
+		"itemId": "c071509a-9854-4359-8857-296f16edf15d",
+		"quantity": 1
+	},
+	{
+		// "Tone Generator",
+		"craftTime": 37,
+		"ingredientList": [
+			{
+				"itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+				"quantity": 5
+			},
+			{
+				"itemId": "f152e4df-bc40-44fb-8d20-3b3ff70cdfe3",
+				"quantity": 5
+			},
+			{
+				"itemId": "5530e6a0-4748-4926-b134-50ca9ecb9dcf",
+				"quantity": 1
+			},
+			{
+				"itemId": "36335664-6e61-4d44-9876-54f9660a8565",
+				"quantity": 3
+			}
+		],
+		"itemId": "f73fd8c7-61eb-416f-8374-9a4c26e6db8f",
+		"quantity": 1
+	},
+	{
+		// "Smart Totebot",
+		"craftTime": 37,
+		"ingredientList": [
+			{
+				"itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+				"quantity": 5
+			},
+			{
+				"itemId": "f152e4df-bc40-44fb-8d20-3b3ff70cdfe3",
+				"quantity": 5
+			},
+			{
+				"itemId": "5530e6a0-4748-4926-b134-50ca9ecb9dcf",
+				"quantity": 1
+			},
+			{
+				"itemId": "36335664-6e61-4d44-9876-54f9660a8565",
+				"quantity": 4
+			}
+		],
+		"itemId": "1d5d997e-efa9-478c-98ee-e452f5ff0dd2",
+		"quantity": 1
+	},
+	{
+		// "Radar",
+		"craftTime": 37,
+		"ingredientList": [
+			{
+				"itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+				"quantity": 10
+			},
+			{
+				"itemId": "f152e4df-bc40-44fb-8d20-3b3ff70cdfe3",
+				"quantity": 5
+			},
+			{
+				"itemId": "5530e6a0-4748-4926-b134-50ca9ecb9dcf",
+				"quantity": 3
+			},
+			{
+				"itemId": "36335664-6e61-4d44-9876-54f9660a8565",
+				"quantity": 10
+			}
+		],
+		"itemId": "a053e38d-608b-4b9a-8d04-c3da2b6fdff7",
+		"quantity": 1
+	},
+	{
+		// "Roller Wheel - 1x1",
+		"craftTime": 27,
+		"ingredientList": [
+			{
+				"itemId": "df953d9c-234f-4ac2-af5e-f0490b223e71",
+				"quantity": 15
+			},
+			{
+				"itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+				"quantity": 20
+			},
+			{
+				"itemId": "fcf0958c-084d-4854-9b1b-b06594b4262a",
+				"quantity": 3
+			}
+		],
+		"itemId": "b57c8185-2f95-4ba8-818d-eed258e01d00",
+		"quantity": 1
+	},
+	{
+		// "Roller Wheel - 2x1",
+		"craftTime": 27,
+		"ingredientList": [
+			{
+				"itemId": "df953d9c-234f-4ac2-af5e-f0490b223e71",
+				"quantity": 15
+			},
+			{
+				"itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+				"quantity": 20
+			},
+			{
+				"itemId": "fcf0958c-084d-4854-9b1b-b06594b4262a",
+				"quantity": 6
+			}
+		],
+		"itemId": "4e1452d0-a9c2-42d4-91cf-1aea84c533ed",
+		"quantity": 1
+	},
+	{
+		// "Rounded Wheel - 3x1",
+		"craftTime": 27,
+		"ingredientList": [
+			{
+				"itemId": "df953d9c-234f-4ac2-af5e-f0490b223e71",
+				"quantity": 15
+			},
+			{
+				"itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+				"quantity": 20
+			},
+			{
+				"itemId": "fcf0958c-084d-4854-9b1b-b06594b4262a",
+				"quantity": 15
+			}
+		],
+		"itemId": "c460f40f-c7b7-4695-a627-9f01749724b6",
+		"quantity": 1
+	},
+	{
+		// "Hubless Wheel",
+		"craftTime": 27,
+		"ingredientList": [
+			{
+				"itemId": "df953d9c-234f-4ac2-af5e-f0490b223e71",
+				"quantity": 15
+			},
+			{
+				"itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+				"quantity": 20
+			},
+			{
+				"itemId": "fcf0958c-084d-4854-9b1b-b06594b4262a",
+				"quantity": 15
+			}
+		],
+		"itemId": "c9cf3b88-86f3-4146-af16-a7b16c917ecc",
+		"quantity": 1
+	},
+	{
+		// "Invisible Wheel",
+		"craftTime": 27,
+		"ingredientList": [
+			{
+				"itemId": "df953d9c-234f-4ac2-af5e-f0490b223e71",
+				"quantity": 15
+			},
+			{
+				"itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+				"quantity": 20
+			},
+			{
+				"itemId": "fcf0958c-084d-4854-9b1b-b06594b4262a",
+				"quantity": 30
+			}
+		],
+		"itemId": "4358b01f-3303-42a2-91d2-cc950e23b59b",
+		"quantity": 1
+	},
+	{
+		// "Dirt Wheel - 3x1/2",
+		"craftTime": 27,
+		"ingredientList": [
+			{
+				"itemId": "df953d9c-234f-4ac2-af5e-f0490b223e71",
+				"quantity": 15
+			},
+			{
+				"itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+				"quantity": 20
+			},
+			{
+				"itemId": "fcf0958c-084d-4854-9b1b-b06594b4262a",
+				"quantity": 13
+			}
+		],
+		"itemId": "27b6541d-2be0-420f-abb8-d59f566e85bd",
+		"quantity": 1
+	},
+	{
+		// "Dirt Wheel - 3x1",
+		"craftTime": 27,
+		"ingredientList": [
+			{
+				"itemId": "df953d9c-234f-4ac2-af5e-f0490b223e71",
+				"quantity": 15
+			},
+			{
+				"itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+				"quantity": 20
+			},
+			{
+				"itemId": "fcf0958c-084d-4854-9b1b-b06594b4262a",
+				"quantity": 15
+			}
+		],
+		"itemId": "68a7fe0a-4d48-4552-a29d-044d3c7b9e02",
+		"quantity": 1
+	},
+	{
+		// "Dirt Wheel - 4x1",
+		"craftTime": 27,
+		"ingredientList": [
+			{
+				"itemId": "df953d9c-234f-4ac2-af5e-f0490b223e71",
+				"quantity": 15
+			},
+			{
+				"itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+				"quantity": 20
+			},
+			{
+				"itemId": "fcf0958c-084d-4854-9b1b-b06594b4262a",
+				"quantity": 16
+			}
+		],
+		"itemId": "92d3c375-0e45-4df4-8691-90e49e8ce24d",
+		"quantity": 1
+	},
+	{
+		// "Dirt Wheel - 5x1",
+		"craftTime": 27,
+		"ingredientList": [
+			{
+				"itemId": "df953d9c-234f-4ac2-af5e-f0490b223e71",
+				"quantity": 15
+			},
+			{
+				"itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+				"quantity": 20
+			},
+			{
+				"itemId": "fcf0958c-084d-4854-9b1b-b06594b4262a",
+				"quantity": 18
+			}
+		],
+		"itemId": "041ae0ae-07d5-4ac5-9767-be396ba2445d",
+		"quantity": 1
+	},
+	{
+		// "Dirt Wheel - 5x2",
+		"craftTime": 27,
+		"ingredientList": [
+			{
+				"itemId": "df953d9c-234f-4ac2-af5e-f0490b223e71",
+				"quantity": 15
+			},
+			{
+				"itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+				"quantity": 20
+			},
+			{
+				"itemId": "fcf0958c-084d-4854-9b1b-b06594b4262a",
+				"quantity": 20
+			}
+		],
+		"itemId": "c47ff0cd-e1f2-4727-ba40-c85d0512d6d0",
+		"quantity": 1
+	},
+	{
+		// "Dirt Wheel - 5x3",
+		"craftTime": 27,
+		"ingredientList": [
+			{
+				"itemId": "df953d9c-234f-4ac2-af5e-f0490b223e71",
+				"quantity": 15
+			},
+			{
+				"itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+				"quantity": 20
+			},
+			{
+				"itemId": "fcf0958c-084d-4854-9b1b-b06594b4262a",
+				"quantity": 21
+			}
+		],
+		"itemId": "784bf162-b2d1-4a6d-9cf4-091827871a40",
+		"quantity": 1
+	},
+	{
+		// "Street Wheel - 3x1",
+		"craftTime": 27,
+		"ingredientList": [
+			{
+				"itemId": "df953d9c-234f-4ac2-af5e-f0490b223e71",
+				"quantity": 15
+			},
+			{
+				"itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+				"quantity": 25
+			},
+			{
+				"itemId": "fcf0958c-084d-4854-9b1b-b06594b4262a",
+				"quantity": 15
+			}
+		],
+		"itemId": "5a9ff028-a6cb-4010-bcd4-c88eb230bcdb",
+		"quantity": 1
+	},
+	{
+		// "Street Wheel - 4x1",
+		"craftTime": 27,
+		"ingredientList": [
+			{
+				"itemId": "df953d9c-234f-4ac2-af5e-f0490b223e71",
+				"quantity": 15
+			},
+			{
+				"itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+				"quantity": 25
+			},
+			{
+				"itemId": "fcf0958c-084d-4854-9b1b-b06594b4262a",
+				"quantity": 17
+			}
+		],
+		"itemId": "58e7fdd0-9f15-466c-aaba-60805044fe67",
+		"quantity": 1
+	},
+	{
+		// "Street Wheel - 4x2",
+		"craftTime": 27,
+		"ingredientList": [
+			{
+				"itemId": "df953d9c-234f-4ac2-af5e-f0490b223e71",
+				"quantity": 15
+			},
+			{
+				"itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+				"quantity": 25
+			},
+			{
+				"itemId": "fcf0958c-084d-4854-9b1b-b06594b4262a",
+				"quantity": 18
+			}
+		],
+		"itemId": "3147a872-cb90-487c-b6ce-438c6403b09c",
+		"quantity": 1
+	},
+	{
+		// "Street Wheel - 5x2",
+		"craftTime": 27,
+		"ingredientList": [
+			{
+				"itemId": "df953d9c-234f-4ac2-af5e-f0490b223e71",
+				"quantity": 15
+			},
+			{
+				"itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+				"quantity": 25
+			},
+			{
+				"itemId": "fcf0958c-084d-4854-9b1b-b06594b4262a",
+				"quantity": 20
+			}
+		],
+		"itemId": "a02f96b2-26c3-4b3e-a00c-32254af91a5d",
+		"quantity": 1
+	},
+	{
+		// "Street Wheel - 6x2",
+		"craftTime": 27,
+		"ingredientList": [
+			{
+				"itemId": "df953d9c-234f-4ac2-af5e-f0490b223e71",
+				"quantity": 15
+			},
+			{
+				"itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+				"quantity": 25
+			},
+			{
+				"itemId": "fcf0958c-084d-4854-9b1b-b06594b4262a",
+				"quantity": 22
+			}
+		],
+		"itemId": "d3954d83-78ee-4fbf-9a60-70e4872e1d39",
+		"quantity": 1
+	},
+	{
+		// "Combat Wheel - 3x1",
+		"craftTime": 27,
+		"ingredientList": [
+			{
+				"itemId": "df953d9c-234f-4ac2-af5e-f0490b223e71",
+				"quantity": 15
+			},
+			{
+				"itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+				"quantity": 25
+			},
+			{
+				"itemId": "fcf0958c-084d-4854-9b1b-b06594b4262a",
+				"quantity": 15
+			}
+		],
+		"itemId": "d59bd448-6401-4476-849a-e6fc86d28b7b",
+		"quantity": 1
+	},
+	{
+		// "Combat Wheel - 5x2",
+		"craftTime": 27,
+		"ingredientList": [
+			{
+				"itemId": "df953d9c-234f-4ac2-af5e-f0490b223e71",
+				"quantity": 15
+			},
+			{
+				"itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+				"quantity": 30
+			},
+			{
+				"itemId": "fcf0958c-084d-4854-9b1b-b06594b4262a",
+				"quantity": 20
+			}
+		],
+		"itemId": "96fc86b1-57e7-4795-9d39-90e74f52ba87",
+		"quantity": 1
+	},
+	{
+		// "Combat Wheel - 7x2",
+		"craftTime": 27,
+		"ingredientList": [
+			{
+				"itemId": "df953d9c-234f-4ac2-af5e-f0490b223e71",
+				"quantity": 15
+			},
+			{
+				"itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+				"quantity": 30
+			},
+			{
+				"itemId": "fcf0958c-084d-4854-9b1b-b06594b4262a",
+				"quantity": 28
+			}
+		],
+		"itemId": "fafdc38f-e374-49fd-8fea-4062a4b5c93a",
+		"quantity": 1
+	},
+	{
+		// "Combat Wheel - 9x3",
+		"craftTime": 27,
+		"ingredientList": [
+			{
+				"itemId": "df953d9c-234f-4ac2-af5e-f0490b223e71",
+				"quantity": 15
+			},
+			{
+				"itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+				"quantity": 30
+			},
+			{
+				"itemId": "fcf0958c-084d-4854-9b1b-b06594b4262a",
+				"quantity": 30
+			}
+		],
+		"itemId": "4dee7b84-ee4c-42ce-9a42-4c6ced837ff5",
+		"quantity": 1
+	},
+	{
+		// "Combat Wheel - 11x4",
+		"craftTime": 27,
+		"ingredientList": [
+			{
+				"itemId": "df953d9c-234f-4ac2-af5e-f0490b223e71",
+				"quantity": 15
+			},
+			{
+				"itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+				"quantity": 30
+			},
+			{
+				"itemId": "fcf0958c-084d-4854-9b1b-b06594b4262a",
+				"quantity": 32
+			}
+		],
+		"itemId": "583f20c9-a7da-477b-b852-aac404467e3a",
+		"quantity": 1
+	},
+	{
+		// "Combat Wheel - 13x5",
+		"craftTime": 27,
+		"ingredientList": [
+			{
+				"itemId": "df953d9c-234f-4ac2-af5e-f0490b223e71",
+				"quantity": 15
+			},
+			{
+				"itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+				"quantity": 30
+			},
+			{
+				"itemId": "fcf0958c-084d-4854-9b1b-b06594b4262a",
+				"quantity": 35
+			}
+		],
+		"itemId": "90bc9601-b874-45e2-8970-09d5e5ff3ca9",
+		"quantity": 1
+	},
+	{
+		// "Sand Wheel - 3x2",
+		"craftTime": 27,
+		"ingredientList": [
+			{
+				"itemId": "df953d9c-234f-4ac2-af5e-f0490b223e71",
+				"quantity": 15
+			},
+			{
+				"itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+				"quantity": 15
+			},
+			{
+				"itemId": "fcf0958c-084d-4854-9b1b-b06594b4262a",
+				"quantity": 20
+			}
+		],
+		"itemId": "abe5a33f-a3cc-41a8-b32a-731ec2b184c1",
+		"quantity": 1
+	},
+	{
+		// "Sand Wheel - 5x3",
+		"craftTime": 27,
+		"ingredientList": [
+			{
+				"itemId": "df953d9c-234f-4ac2-af5e-f0490b223e71",
+				"quantity": 15
+			},
+			{
+				"itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+				"quantity": 15
+			},
+			{
+				"itemId": "fcf0958c-084d-4854-9b1b-b06594b4262a",
+				"quantity": 25
+			}
+		],
+		"itemId": "0761c82c-7a3f-4c22-8ec1-46223f10a2de",
+		"quantity": 1
+	},
+	{
+		// "Sand Wheel - 7x4",
+		"craftTime": 27,
+		"ingredientList": [
+			{
+				"itemId": "df953d9c-234f-4ac2-af5e-f0490b223e71",
+				"quantity": 15
+			},
+			{
+				"itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+				"quantity": 15
+			},
+			{
+				"itemId": "fcf0958c-084d-4854-9b1b-b06594b4262a",
+				"quantity": 30
+			}
+		],
+		"itemId": "ee8869cb-9cce-43c3-a04a-e8b37b9de0ed",
+		"quantity": 1
+	},
+	{
+		// "Sand Wheel - 9x5",
+		"craftTime": 27,
+		"ingredientList": [
+			{
+				"itemId": "df953d9c-234f-4ac2-af5e-f0490b223e71",
+				"quantity": 15
+			},
+			{
+				"itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+				"quantity": 15
+			},
+			{
+				"itemId": "fcf0958c-084d-4854-9b1b-b06594b4262a",
+				"quantity": 35
+			}
+		],
+		"itemId": "2210586c-3a93-43ff-b861-542e2d2d12d6",
+		"quantity": 1
+	},
+	{
+		// "Sand Wheel - 11x6",
+		"craftTime": 27,
+		"ingredientList": [
+			{
+				"itemId": "df953d9c-234f-4ac2-af5e-f0490b223e71",
+				"quantity": 15
+			},
+			{
+				"itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+				"quantity": 15
+			},
+			{
+				"itemId": "fcf0958c-084d-4854-9b1b-b06594b4262a",
+				"quantity": 40
+			}
+		],
+		"itemId": "6afcb463-925a-4a2e-b9bf-3397ef094df9",
+		"quantity": 1
+	},
+	{
+		// "Sand Wheel - 13x6",
+		"craftTime": 27,
+		"ingredientList": [
+			{
+				"itemId": "df953d9c-234f-4ac2-af5e-f0490b223e71",
+				"quantity": 15
+			},
+			{
+				"itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+				"quantity": 15
+			},
+			{
+				"itemId": "fcf0958c-084d-4854-9b1b-b06594b4262a",
+				"quantity": 45
+			}
+		],
+		"itemId": "b0f71aed-04f0-4bba-b969-cba57f3fc667",
+		"quantity": 1
+	},
+	{
+		// "Sand Wheel - 15x7",
+		"craftTime": 27,
+		"ingredientList": [
+			{
+				"itemId": "df953d9c-234f-4ac2-af5e-f0490b223e71",
+				"quantity": 15
+			},
+			{
+				"itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+				"quantity": 15
+			},
+			{
+				"itemId": "fcf0958c-084d-4854-9b1b-b06594b4262a",
+				"quantity": 50
+			}
+		],
+		"itemId": "87f8f460-eba5-43c1-a1ad-facfb3d3f376",
+		"quantity": 1
+	},
+	{
+		// "Sand Wheel - 17x8",
+		"craftTime": 27,
+		"ingredientList": [
+			{
+				"itemId": "df953d9c-234f-4ac2-af5e-f0490b223e71",
+				"quantity": 15
+			},
+			{
+				"itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+				"quantity": 15
+			},
+			{
+				"itemId": "fcf0958c-084d-4854-9b1b-b06594b4262a",
+				"quantity": 55
+			}
+		],
+		"itemId": "2bcc8c8f-1e94-4f9d-97b9-6e7423ca40b0",
+		"quantity": 1
+	},
+	{
+		// "Sand Wheel - 19x9",
+		"craftTime": 27,
+		"ingredientList": [
+			{
+				"itemId": "df953d9c-234f-4ac2-af5e-f0490b223e71",
+				"quantity": 15
+			},
+			{
+				"itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+				"quantity": 15
+			},
+			{
+				"itemId": "fcf0958c-084d-4854-9b1b-b06594b4262a",
+				"quantity": 60
+			}
+		],
+		"itemId": "61a70b37-ea24-4022-b1e6-45a5a3ae179d",
+		"quantity": 1
+	},
+	{
+		// "Big Wheel - 7x3",
+		"craftTime": 27,
+		"ingredientList": [
+			{
+				"itemId": "df953d9c-234f-4ac2-af5e-f0490b223e71",
+				"quantity": 15
+			},
+			{
+				"itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+				"quantity": 40
+			},
+			{
+				"itemId": "fcf0958c-084d-4854-9b1b-b06594b4262a",
+				"quantity": 30
+			}
+		],
+		"itemId": "036fc6d2-45df-11e6-beb8-9e71128cae77",
+		"quantity": 1
+	},
+	{
+		// "Big Wheel - 9x4",
+		"craftTime": 27,
+		"ingredientList": [
+			{
+				"itemId": "df953d9c-234f-4ac2-af5e-f0490b223e71",
+				"quantity": 15
+			},
+			{
+				"itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+				"quantity": 40
+			},
+			{
+				"itemId": "fcf0958c-084d-4854-9b1b-b06594b4262a",
+				"quantity": 35
+			}
+		],
+		"itemId": "036fc79a-45df-11e6-beb8-9e71128cae77",
+		"quantity": 1
+	},
+	{
+		// "Chained Wheel",
+		"craftTime": 27,
+		"ingredientList": [
+			{
+				"itemId": "df953d9c-234f-4ac2-af5e-f0490b223e71",
+				"quantity": 15
+			},
+			{
+				"itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+				"quantity": 50
+			},
+			{
+				"itemId": "fcf0958c-084d-4854-9b1b-b06594b4262a",
+				"quantity": 50
+			}
+		],
+		"itemId": "d739fdf9-2c61-47ea-88ab-beac6a6c35c0",
+		"quantity": 1
+	},
+	{
+		// "Spiked Wheel",
+		"craftTime": 27,
+		"ingredientList": [
+			{
+				"itemId": "df953d9c-234f-4ac2-af5e-f0490b223e71",
+				"quantity": 15
+			},
+			{
+				"itemId": "8aedf6c2-94e1-4506-89d4-a0227c552f1e",
+				"quantity": 60
+			},
+			{
+				"itemId": "fcf0958c-084d-4854-9b1b-b06594b4262a",
+				"quantity": 60
+			}
+		],
+		"itemId": "d739fdf9-2c61-47ea-88ab-beac6a6c35c1",
+		"quantity": 1
+	}
+]

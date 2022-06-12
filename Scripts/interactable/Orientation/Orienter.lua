@@ -161,6 +161,10 @@ function Orienter.client_onCreate(self)
 	self.network:sendToServer("sv_sendModeToClient")
 end
 
+function Orienter.client_onDestroy(self)
+	self:client_onGuiDestroyCallback()
+end
+
 function Orienter.sv_sendModeToClient(self)
 	local _UvIndex = self.modetable[self.mode].savevalue - 1
 	self.network:sendToClients("cl_setMode", { uvIndex = _UvIndex, mode = self.mode })
@@ -182,9 +186,24 @@ local _UnitTable = {
 	'UnitsTotebot', 'UnitsWoc', 'UnitsGlowworm'
 }
 
+function Orienter.client_onGuiDestroyCallback(self)
+	local s_gui = self.gui
+	if s_gui and sm.exists(s_gui) then
+		if s_gui:isActive() then
+			s_gui:close()
+		end
+
+		s_gui:destroy()
+	end
+
+	self.gui = nil
+end
+
 function Orienter.client_onInteract(self, character, lookAt)
     if lookAt == true then
-        self.gui = sm.gui.createGuiFromLayout('$MOD_DATA/Gui/Layouts/Orienter.layout')
+        self.gui = sm.gui.createGuiFromLayout("$MOD_DATA/Gui/Layouts/Orienter.layout", false, { backgroundAlpha = 0.5 })
+		self.gui:setOnCloseCallback("client_onGuiDestroyCallback")
+
         for _, buttonName in pairs(targetTable) do
             self.gui:setButtonCallback(buttonName, "cl_onTargetButtonClick")
         end
@@ -367,8 +386,9 @@ function Orienter.sv_changeMode(self, params)
 end
 
 function Orienter.client_canInteract(self)
-	local _useKey = sm.gui.getKeyBinding("Use")
-	sm.gui.setInteractionText("Press", _useKey, " to change the mode")
+	local use_key = sm.gui.getKeyBinding("Use", true)
+	sm.gui.setInteractionText("Press", use_key, "to select an orient mode")
+
 	return true
 end
 

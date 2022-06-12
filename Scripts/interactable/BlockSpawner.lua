@@ -79,7 +79,7 @@ function BlockSpawner.printDescription()
 end
 
 function BlockSpawner.client_canInteract(self)
-    local _useKey = sm.gui.getKeyBinding("Use")
+    local _useKey = sm.gui.getKeyBinding("Use", true)
     sm.gui.setInteractionText("Press", _useKey, "to print color input/output in chat")
     return true
 end

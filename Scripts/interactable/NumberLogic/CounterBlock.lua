@@ -106,36 +106,142 @@ function CounterBlock.server_onFixedUpdate( self, dt )
 	mp_updateOutputData(self, self.power, self.power > 0)
 end
 
+function CounterBlock.server_setNewValue(self, value, caller)
+	self.power = value
+
+	self.network:sendToClient(caller, "client_playSound", 2)
+end
+
+function CounterBlock.server_receiveValue(self, value, caller)
+	self.power = self.power + value
+
+	self.network:sendToClient(caller, "client_playSound", 2)
+end
 
 function CounterBlock.server_reset(self)
 	if self.power > 0 then
-		self.network:sendToClients("client_resetSound")
+		self.network:sendToClients("client_playSound", 1)
 	end
 	self.power = 0
 end
 
-function CounterBlock.client_resetSound(self)
-	sm.audio.play("GUI Item drag", self.shape:getWorldPosition())
+local sound_id_table = 
+{
+	[1] = "GUI Item drag",
+	[2] = "GUI Item released"
+}
+
+function CounterBlock.client_playSound(self, sound_id)
+	local sound_id_table = sound_id_table[sound_id]
+
+	sm.audio.play(sound_id_table, self.shape:getWorldPosition())
 end
 
 function CounterBlock.client_onInteract(self, character, lookAt)
 	if not lookAt or character:getLockingInteractable() then return end
+	
 	self.network:sendToServer("server_reset")
 end
 
+function CounterBlock.client_onTextChangedCallback(self, widget, text)
+	local converted_text = tonumber(text) --will be nill if the input is invalid
+	local is_valid = (converted_text ~= nil)
+
+	self.counter_gui_input = text
+
+	local count_gui = self.counter_gui
+	count_gui:setVisible("ValueError", not is_valid)
+
+	count_gui:setVisible("IncrementWith", is_valid)
+	count_gui:setVisible("DecrementWith", is_valid)
+	count_gui:setVisible("SaveWrittenVal", is_valid)
+end
+
+function CounterBlock.client_onGuiCloseCallback(self)
+	local count_gui = self.counter_gui
+	if count_gui and sm.exists(count_gui) then
+		if count_gui:isActive() then
+			count_gui:close()
+		end
+
+		count_gui:destroy()
+	end
+
+	self.counter_gui_input = nil
+	self.counter_gui = nil
+end
+
+function CounterBlock.client_gui_updateSavedValueText(self)
+	self.counter_gui:setText("SavedValue", "Saved Value: #ffff00"..tostring(self.interactable.power).."#ffffff")
+end
+
+function CounterBlock.client_gui_changeSavedValue(self, widget)
+	local is_decrement = (widget:sub(0, 1) == "D")
+
+	local cur_changer = tonumber(self.counter_gui_input)
+	if cur_changer ~= nil then
+		if is_decrement then
+			cur_changer = -cur_changer
+		end
+
+		self.network:sendToServer("server_receiveValue", cur_changer)
+	end
+end
+
+function CounterBlock.client_gui_saveWrittenValue(self)
+	local cur_value = tonumber(self.counter_gui_input)
+	if cur_value ~= nil then
+		self.network:sendToServer("server_setNewValue", cur_value)
+	end
+end
+
+function CounterBlock.client_onTinker(self, character, lookAt)
+	if not lookAt or character:getLockingInteractable() then return end
+
+	local count_gui = sm.gui.createGuiFromLayout("$CONTENT_DATA/Gui/Layouts/CounterBlockGui.layout", false, { backgroundAlpha = 0.5 })
+
+	self.counter_gui_input = tostring(self.interactable.power)
+
+	count_gui:setText("SavedValue", "Saved Value: #ffff00"..tostring(self.interactable.power).."#ffffff")
+	count_gui:setText("ValueInput", self.counter_gui_input)
+
+	count_gui:setButtonCallback("IncrementWith", "client_gui_changeSavedValue")
+	count_gui:setButtonCallback("DecrementWith", "client_gui_changeSavedValue")
+	count_gui:setButtonCallback("SaveWrittenVal", "client_gui_saveWrittenValue")
+
+	count_gui:setTextChangedCallback("ValueInput", "client_onTextChangedCallback")
+	count_gui:setOnCloseCallback("client_onGuiCloseCallback")
+
+	count_gui:open()
+
+	self.counter_gui = count_gui
+end
 
 function CounterBlock.client_onCreate(self, dt)
 	self.frameindex = 0
 	self.lastpower = 0
 end
 
+function CounterBlock.client_onDestroy(self)
+	self:client_onGuiCloseCallback()
+end
+
 function CounterBlock.client_canInteract(self)
-	local _useKey = sm.gui.getKeyBinding("Use")
-	sm.gui.setInteractionText("Press", _useKey, "to reset counter")
+	local use_key    = sm.gui.getKeyBinding("Use", true)
+	local tinker_key = sm.gui.getKeyBinding("Tinker", true)
+
+	sm.gui.setInteractionText("Press", use_key, "to reset counter")
+	sm.gui.setInteractionText("Press", tinker_key, "to open gui")
+
 	return true
 end
 
 function CounterBlock.client_onFixedUpdate(self, dt)
+	local count_gui = self.counter_gui
+	if count_gui then
+		self:client_gui_updateSavedValueText()
+	end
+
 	local power = self.interactable.power
 	if self.powerSkip == power then return end -- more performance (only update uv if power changes)
 	
