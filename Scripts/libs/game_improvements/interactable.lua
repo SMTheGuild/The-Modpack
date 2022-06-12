@@ -5,20 +5,29 @@ __InteractableImprovements_Loaded = true
 
 local values = {} -- <<not directly accessible for other scripts
 function sm.interactable.setValue(interactable, value)
-    values[interactable.id] = values[interactable.id] or {}
-    values[interactable.id].next = value
-    values[interactable.id].changedTick = sm.game.getCurrentTick()
+    local inter_id = interactable.id
+    local stored = values[inter_id] or {}
+
+    stored.next = value
+    stored.changedTick = sm.game.getCurrentTick()
+    
+    values[inter_id] = stored
 end
 function sm.interactable.getValue(interactable, NOW)
-    if not (interactable and sm.exists(interactable) and values[interactable.id]) then
+    if not (interactable and sm.exists(interactable)) then
         return
     end
 
-    if values[interactable.id].changedTick < sm.game.getCurrentTick() then
-        values[interactable.id].current = values[interactable.id].next
+    local value_data = values[interactable.id]
+    if value_data == nil then
+        return
+    end
+
+    if value_data.changedTick < sm.game.getCurrentTick() then
+        value_data.current = value_data.next
     end
     
-    return NOW and values[interactable.id].next or values[interactable.id].current
+    return NOW and value_data.next or value_data.current
 end
 
 function sm.interactable.isNumberType(interactable)
