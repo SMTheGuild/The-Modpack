@@ -200,8 +200,10 @@ function CounterBlock.client_onTinker(self, character, lookAt)
 
 	local count_gui = sm.gui.createGuiFromLayout("$CONTENT_DATA/Gui/Layouts/CounterBlockGui.layout", false, { backgroundAlpha = 0.5 })
 
+	self.counter_gui_input = tostring(self.interactable.power)
+
 	count_gui:setText("SavedValue", "Saved Value: #ffff00"..tostring(self.interactable.power).."#ffffff")
-	count_gui:setText("ValueInput", "0")
+	count_gui:setText("ValueInput", self.counter_gui_input)
 
 	count_gui:setButtonCallback("IncrementWith", "client_gui_changeSavedValue")
 	count_gui:setButtonCallback("DecrementWith", "client_gui_changeSavedValue")
@@ -212,7 +214,6 @@ function CounterBlock.client_onTinker(self, character, lookAt)
 
 	count_gui:open()
 
-	self.counter_gui_input = "0"
 	self.counter_gui = count_gui
 end
 
