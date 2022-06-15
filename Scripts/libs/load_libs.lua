@@ -13,6 +13,28 @@ sm.__SE = sm.__SE or {} -- scrapessentials cross mod env
 
 sm.__SE_Version = sm.__SE_Version or {} -- TODO: get rid of this
 
+local cur_version = sm.version
+if tonumber(sm.version:sub(3, 3)) < 6 then
+	print("Old game version found")
+	mp_deprecated_game_version = true
+
+	mp_gui_getKeyBinding = function(text)
+		return sm.gui.getKeyBinding(text)
+	end
+
+	mp_gui_createGuiFromLayout = function(path)
+		return sm.gui.createGuiFromLayout(path)
+	end
+else
+	mp_gui_getKeyBinding = function(text, is_hypertext)
+		return sm.gui.getKeyBinding(text, is_hypertext)
+	end
+
+	mp_gui_createGuiFromLayout = function(path, destroy_on_close, params)
+		return sm.gui.createGuiFromLayout(path, destroy_on_close, params)
+	end
+end
+
 dofile "debugger.lua"
 dofile "color.lua"
 dofile "math.lua"

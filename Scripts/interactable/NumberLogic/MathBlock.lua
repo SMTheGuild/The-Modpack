@@ -898,7 +898,7 @@ end
 
 function MathBlock.client_onInteract(self, character, lookAt)
     if lookAt == true then
-		self.gui = sm.gui.createGuiFromLayout("$MOD_DATA/Gui/Layouts/MathBlock.layout", false, { backgroundAlpha = 0.5 })
+		self.gui = mp_gui_createGuiFromLayout("$MOD_DATA/Gui/Layouts/MathBlock.layout", false, { backgroundAlpha = 0.5 })
 		self.gui:setOnCloseCallback("client_onGuiDestroyCallback")
 
 		for i = 0, 23 do
@@ -992,7 +992,7 @@ function MathBlock.cl_setMode(self, data)
 end
 
 function MathBlock.client_canInteract(self)
-	local use_key = sm.gui.getKeyBinding("Use", true)
+	local use_key = mp_gui_getKeyBinding("Use", true)
 	sm.gui.setInteractionText("Press", use_key, "to select a function")
 
 	return true
