@@ -201,7 +201,7 @@ end
 
 function Orienter.client_onInteract(self, character, lookAt)
     if lookAt == true then
-        self.gui = sm.gui.createGuiFromLayout("$MOD_DATA/Gui/Layouts/Orienter.layout", false, { backgroundAlpha = 0.5 })
+        self.gui = mp_gui_createGuiFromLayout("$MOD_DATA/Gui/Layouts/Orienter.layout", false, { backgroundAlpha = 0.5 })
 		self.gui:setOnCloseCallback("client_onGuiDestroyCallback")
 
         for _, buttonName in pairs(targetTable) do
@@ -386,7 +386,7 @@ function Orienter.sv_changeMode(self, params)
 end
 
 function Orienter.client_canInteract(self)
-	local use_key = sm.gui.getKeyBinding("Use", true)
+	local use_key = mp_gui_getKeyBinding("Use", true)
 	sm.gui.setInteractionText("Press", use_key, "to select an orient mode")
 
 	return true

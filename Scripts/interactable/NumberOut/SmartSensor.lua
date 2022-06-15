@@ -216,7 +216,7 @@ end
 
 function SmartSensor.client_onInteract(self, character, lookAt)
     if lookAt == true then
-        self.gui = sm.gui.createGuiFromLayout("$MOD_DATA/Gui/Layouts/SmartSensor.layout", false, { backgroundAlpha = 0.5 })
+        self.gui = mp_gui_createGuiFromLayout("$MOD_DATA/Gui/Layouts/SmartSensor.layout", false, { backgroundAlpha = 0.5 })
 		self.gui:setOnCloseCallback("client_onGuiDestroyCallback")
 
 		for i = 0, 5 do
@@ -247,7 +247,7 @@ function SmartSensor.cl_drawButtons(self)
 end
 
 function SmartSensor.client_canInteract(self, character, lookAt)
-	local use_key = sm.gui.getKeyBinding("Use", true)
+	local use_key = mp_gui_getKeyBinding("Use", true)
 	sm.gui.setInteractionText("Press", use_key, "to select a sensor mode")
 	
 	return true

@@ -196,7 +196,7 @@ function CounterBlock.client_gui_saveWrittenValue(self)
 end
 
 function CounterBlock.client_onTinker(self, character, lookAt)
-	if not lookAt or character:getLockingInteractable() then return end
+	if mp_deprecated_game_version or not lookAt or character:getLockingInteractable() then return end
 
 	local count_gui = sm.gui.createGuiFromLayout("$CONTENT_DATA/Gui/Layouts/CounterBlockGui.layout", false, { backgroundAlpha = 0.5 })
 
@@ -227,11 +227,15 @@ function CounterBlock.client_onDestroy(self)
 end
 
 function CounterBlock.client_canInteract(self)
-	local use_key    = sm.gui.getKeyBinding("Use", true)
-	local tinker_key = sm.gui.getKeyBinding("Tinker", true)
-
+	local use_key = mp_gui_getKeyBinding("Use", true)
 	sm.gui.setInteractionText("Press", use_key, "to reset counter")
-	sm.gui.setInteractionText("Press", tinker_key, "to open gui")
+
+	if mp_deprecated_game_version then
+		sm.gui.setInteractionText("")
+	else
+		local tinker_key = mp_gui_getKeyBinding("Tinker", true)
+		sm.gui.setInteractionText("Press", tinker_key, "to open gui")
+	end
 
 	return true
 end

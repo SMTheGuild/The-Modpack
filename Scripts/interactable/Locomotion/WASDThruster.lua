@@ -147,13 +147,18 @@ function WASDThruster.client_canInteract(self)
 	local use_key = sm.gui.getKeyBinding("Use")
 	local crawl_key = sm.gui.getKeyBinding("Crawl")
 
-	local use_hyper = default_hypertext:format(use_key)
-	local use_and_crawl_hyper = default_hypertext:format(crawl_key.." + "..use_key)
+	if mp_deprecated_game_version then
+		sm.gui.setInteractionText("Press", use_key, "or", crawl_key.." + "..use_key, "to change mode")
+		sm.gui.setInteractionText("", "Mode: "..self.modes[self.mode+1])
+	else
+		local use_hyper = default_hypertext:format(use_key)
+		local use_and_crawl_hyper = default_hypertext:format(crawl_key.." + "..use_key)
 
-	sm.gui.setInteractionText("Press", use_hyper, "or", use_and_crawl_hyper, "to change mode")
+		sm.gui.setInteractionText("Press", use_hyper, "or", use_and_crawl_hyper, "to change mode")
 
-	local cur_mode_hyper = default_hypertext:format("Mode: "..self.modes[self.mode+1])
-	sm.gui.setInteractionText("", cur_mode_hyper)
+		local cur_mode_hyper = default_hypertext:format("Mode: "..self.modes[self.mode+1])
+		sm.gui.setInteractionText("", cur_mode_hyper)
+	end
 
 	return true
 end

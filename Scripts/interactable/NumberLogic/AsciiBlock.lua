@@ -345,10 +345,14 @@ function AsciiBlock.client_canInteract(self)
 	local use_key   = sm.gui.getKeyBinding("Use")
 	local crawl_key = sm.gui.getKeyBinding("Crawl")
 
-	local use_hyper = default_hypertext:format(use_key)
-	local crawl_and_use_hyper = default_hypertext:format(crawl_key.." + "..use_key)
+	if mp_deprecated_game_version then
+		sm.gui.setInteractionText("Press", use_key, "or", crawl_key.." + "..use_key, "to change")
+	else
+		local use_hyper = default_hypertext:format(use_key)
+		local crawl_and_use_hyper = default_hypertext:format(crawl_key.." + "..use_key)
 
-	sm.gui.setInteractionText("Press", use_hyper, "or", crawl_and_use_hyper, "to change")
+		sm.gui.setInteractionText("Press", use_hyper, "or", crawl_and_use_hyper, "to change")
+	end
 
 	return true
 end
