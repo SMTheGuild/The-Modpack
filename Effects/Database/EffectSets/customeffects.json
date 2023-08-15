@@ -625,26 +625,6 @@
 	},
 
 
-	"LaserSight":
-	{
-		"parameterList":
-		{
-			"Scale": 10
-		},
-		"effectList":
-		[
-			{
-				"type": "particle",
-				"name": "lasersight",
-				"offset": { "x": 0.0, "y": 0.0, "z": 0.0 },
-				"parameters":
-				[
-					"Scale"
-				],
-				"delay": 0.0
-			}
-		]
-	},
 	"ModHeadLight":
 	{
 		"parameterList":
