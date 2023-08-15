@@ -1317,17 +1317,17 @@
 						"subMeshList": [
 							{
 								"textureList": [
-									"$GAME_DATA/Objects/Textures/interactive/obj_interactive_enginejet_dif.tga",
-									"$GAME_DATA/Objects/Textures/interactive/obj_interactive_enginejet_asg.tga",
-									"$GAME_DATA/Objects/Textures/interactive/obj_interactive_enginejet_nor.tga"
+									"$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_thruster_04_dif.tga",
+									"$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_thruster_04_asg.tga",
+									"$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_thruster_04_nor.tga"
 								],
 								"material": "3PoseAnimDifAsgNor"
 							}
 						],
-						"mesh": "$MOD_DATA/Objects/Mesh/obj_interactive_thruster_off.obj",
-						"pose0": "$MOD_DATA/Objects/Mesh/obj_interactive_thruster_off01.obj",
-						"pose1": "$MOD_DATA/Objects/Mesh/obj_interactive_thruster_on.obj",
-						"pose2": "$MOD_DATA/Objects/Mesh/obj_interactive_thruster_on01.obj"
+						"mesh": "$MOD_DATA/Objects/Mesh/nick_MicroThruster_off.dae",
+						"pose0": "$MOD_DATA/Objects/Mesh/nick_MicroThruster_off.dae",
+						"pose1": "$MOD_DATA/Objects/Mesh/nick_MicroThruster_pose0.dae",
+						"pose2": "$MOD_DATA/Objects/Mesh/nick_MicroThruster_pose0.dae"
 					}
 				]
 			},
