@@ -793,35 +793,7 @@
 		},
 		{
 			"uuid": "9c47ec58-bdfc-43a4-b066-852156ad812a", // ascii block (white letters paintable block)
-			"renderable": {
-				"lodList": [
-					{
-						"subMeshList": [
-							{
-								"textureList": [
-									"$MOD_DATA/Objects/Textures/letterblock_whiteletters_dif.png",
-									"$MOD_DATA/Objects/Textures/default_asg.png",
-									"$GAME_DATA/Textures/nonor_nor.tga"
-								],
-								"material": "UVAnimDifAsgNor",
-								"custom":
-								{
-									"uv0": { "u": 0.0625, "v": 0.0625 }
-								}
-							},
-							{
-								"textureList": [
-									"$MOD_DATA/Objects/Textures/letterblock_whiteletters_dif.png",
-									"$MOD_DATA/Objects/Textures/default_asg.png",
-									"$GAME_DATA/Textures/nonor_nor.tga"
-								],
-								"material": "DifAsgNor"
-							}
-						],
-						"mesh": "$MOD_DATA/Objects/Mesh/letterblock.obj"
-					}
-				]
-			},
+			"renderable" : "$CONTENT_DATA/Objects/Renderables/obj_interactive_textblock_01.rend",
 			"scripted": { "filename": "$MOD_DATA/Scripts/interactable/NumberLogic/AsciiBlock.lua", "classname": "AsciiBlock" },
 			"color": "df7f00",
 			"box": {
@@ -830,40 +802,12 @@
 			"density": 250.0,
 			"physicsMaterial": "Plastic",
 			//"sticky": "+Z-Z-Y-X+X",
-			"rotationSet": "AsciiBlock",
+			"rotationSet": "PropYZX",
 			"qualityLevel": 2
 		},
 		{
 			"uuid": "8d27520e-2ebc-4f14-bd2c-b99ee8976799", // ascii block inverted (black letters paintable block)
-			"renderable": {
-				"lodList": [
-					{
-						"subMeshList": [
-							{
-								"textureList": [
-									"$MOD_DATA/Objects/Textures/letterblock_blackletters_dif.png",
-									"$MOD_DATA/Objects/Textures/default_asg.png",
-									"$GAME_DATA/Textures/nonor_nor.tga"
-								],
-								"material": "UVAnimDifAsgNor",
-								"custom":
-								{
-									"uv0": { "u": 0.0625, "v": 0.0625 }
-								}
-							},
-							{
-								"textureList": [
-									"$MOD_DATA/Objects/Textures/letterblock_blackletters_dif.png",
-									"$MOD_DATA/Objects/Textures/default_asg.png",
-									"$GAME_DATA/Textures/nonor_nor.tga"
-								],
-								"material": "DifAsgNor"
-							}
-						],
-						"mesh": "$MOD_DATA/Objects/Mesh/letterblock.obj"
-					}
-				]
-			},
+			"renderable" : "$CONTENT_DATA/Objects/Renderables/obj_interactive_textblock_02.rend",
 			"scripted": { "filename": "$MOD_DATA/Scripts/interactable/NumberLogic/AsciiBlock.lua", "classname": "AsciiBlock" },
 			"color": "df7f00",
 			"box": {
@@ -872,40 +816,12 @@
 			"density": 250.0,
 			"physicsMaterial": "Plastic",
 			//"sticky": "+Z-Z-Y-X+X",
-			"rotationSet": "AsciiBlock",
+			"rotationSet": "PropYZX",
 			"qualityLevel": 2
 		},
 		{
 			"uuid": "a459eb96-7f0a-42e6-a841-44f9c0561a55",  // ascii block colored (paintable letters blackpaint block)
-			"renderable": {
-				"lodList": [
-					{
-						"subMeshList": [
-							{
-								"textureList": [
-									"$MOD_DATA/Objects/Textures/letterblock_paintletters_dif.png",
-									"$MOD_DATA/Objects/Textures/default_asg.png",
-									"$GAME_DATA/Textures/nonor_nor.tga"
-								],
-								"material": "UVAnimDifAsgNor",
-								"custom":
-								{
-									"uv0": { "u": 0.0625, "v": 0.0625 }
-								}
-							},
-							{
-								"textureList": [
-									"$MOD_DATA/Objects/Textures/letterblock_paintletters_dif.png",
-									"$MOD_DATA/Objects/Textures/default_asg.png",
-									"$GAME_DATA/Textures/nonor_nor.tga"
-								],
-								"material": "DifAsgNor"
-							}
-						],
-						"mesh": "$MOD_DATA/Objects/Mesh/letterblock.obj"
-					}
-				]
-			},
+			"renderable" : "$CONTENT_DATA/Objects/Renderables/obj_interactive_textblock_03.rend",
 			"scripted": { "filename": "$MOD_DATA/Scripts/interactable/NumberLogic/AsciiBlock.lua", "classname": "AsciiBlock" },
 			"color": "df7f00",
 			"box": {
@@ -914,7 +830,7 @@
 			"density": 250.0,
 			"physicsMaterial": "Plastic",
 			//"sticky": "-Z-Y+Z-X+X",
-			"rotationSet": "AsciiBlock",
+			"rotationSet": "PropYZX",
 			"qualityLevel": 2
 		},
 		{
