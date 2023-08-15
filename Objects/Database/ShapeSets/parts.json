@@ -1156,7 +1156,7 @@
 								"material": "DifAsgNor"
 							}
 						],
-						"mesh": "$MOD_DATA/Objects/Mesh/RimLarge1.obj"
+						"mesh": "$MOD_DATA/Objects/Mesh/Als_RimLarge1.obj"
 					}
 				]
 			},
@@ -1204,7 +1204,7 @@
 								"material": "DifAsgNor"
 							}
 						],
-						"mesh": "$MOD_DATA/Objects/Mesh/RimSmall1.obj"
+						"mesh": "$MOD_DATA/Objects/Mesh/Als_RimSmall1.obj"
 					}
 				]
 			},
@@ -1252,7 +1252,7 @@
 								"material": "DifAsgNor"
 							}
 						],
-						"mesh": "$MOD_DATA/Objects/Mesh/RimLarge2.obj"
+						"mesh": "$MOD_DATA/Objects/Mesh/Als_RimLarge2.obj"
 					}
 				]
 			},
@@ -1300,7 +1300,7 @@
 								"material": "DifAsgNor"
 							}
 						],
-						"mesh": "$MOD_DATA/Objects/Mesh/RimSmall2.obj"
+						"mesh": "$MOD_DATA/Objects/Mesh/Als_RimSmall2.obj"
 					}
 				]
 			},
@@ -1348,7 +1348,7 @@
 								"material": "DifAsgNor"
 							}
 						],
-						"mesh": "$MOD_DATA/Objects/Mesh/RimLarge3.obj"
+						"mesh": "$MOD_DATA/Objects/Mesh/Als_RimLarge3.obj"
 					}
 				]
 			},
@@ -1396,7 +1396,7 @@
 								"material": "DifAsgNor"
 							}
 						],
-						"mesh": "$MOD_DATA/Objects/Mesh/RimSmall3.obj"
+						"mesh": "$MOD_DATA/Objects/Mesh/Als_RimSmall3.obj"
 					}
 				]
 			},

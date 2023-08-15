@@ -233,11 +233,7 @@
 									"$MOD_DATA/Objects/Textures/jammer_asg.png",
 									"$MOD_DATA/Objects/Textures/jammer_nor.png"
 								],
-								"material":"UVAnimDifAsgNor",
-								"custom":
-								{
-									"uv0": { "u": 0.02, "v":0.125 }
-								}
+								"material": "PoseAnimDifAsgNor"
 							},
 							{
 								"textureList": [
@@ -245,11 +241,15 @@
 									"$MOD_DATA/Objects/Textures/jammer_asg.png",
 									"$MOD_DATA/Objects/Textures/jammer_nor.png"
 								],
-								"material": "PoseAnimDifAsgNor"
+								"material":"UVAnimDifAsgNor",
+								"custom":
+								{
+									"uv0": { "u": 0.02, "v":0.125 }
+								}
 							}
 						],
-						"mesh": "$MOD_DATA/Objects/Mesh/mp_jammer_off.obj",
-						"pose0": "$MOD_DATA/Objects/Mesh/mp_jammer_on.obj"
+						"mesh": "$MOD_DATA/Objects/Mesh/nm_jammer_off.obj",
+						"pose0": "$MOD_DATA/Objects/Mesh/nm_jammer_on.obj"
 					}
 				]
 			},
@@ -683,13 +683,13 @@
 								"material": "Dif"
 							}
 						],
-						"mesh": "$MOD_DATA/Objects/Mesh/keypad.obj"
+						"mesh": "$MOD_DATA/Objects/Mesh/nm_keypad.obj"
 					}
 				]
 			},
 			"scripted" : { "filename": "$MOD_DATA/Scripts/interactable/Keypad.lua", "classname": "Keypad" },
 			"rotationSet": "PropZ",
-			"color": "df7f00",
+			"color": "575757",
 			"density": 250.0,
 			"physicsMaterial": "Plastic",
 			"hull": { "x": 2, "y": 2, "z": 1, "margin": 0,
