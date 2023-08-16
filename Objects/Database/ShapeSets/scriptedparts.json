@@ -489,29 +489,31 @@
 			"renderable": {
 				"lodList": [
 					{
-						"subMeshList": [
-							{
+						"subMeshMap": {
+							"logicgate": {
 								"textureList": [
-									"$MOD_DATA/Objects/Textures/obj_interactive_logicgate_dif.tga",
-									"$MOD_DATA/Objects/Textures/obj_interactive_logicgate_asg.tga",
-									"$MOD_DATA/Objects/Textures/obj_interactive_logicgate_nor.tga"
+									"$GAME_DATA/Objects/Textures/interactive/obj_interactive_logicgate_dif.tga",
+									"$GAME_DATA/Objects/Textures/interactive/obj_interactive_logicgate_asg.tga",
+									"$GAME_DATA/Objects/Textures/interactive/obj_interactive_logicgate_nor.tga",
+									"$GAME_DATA/Objects/Textures/interactive/obj_interactive_logicgate_ao.tga"
 								],
-								"material": "DifAsgNor"
+								"material": "2PoseAnimDifAsgNorAo"
 							},
-							{
+							"screen": {
 								"textureList": [
 									"$MOD_DATA/Objects/Textures/maths.png",
 									"$MOD_DATA/Objects/Textures/maths_asg.png",
-									"$GAME_DATA/Textures/nonor_nor.tga"
+									"$MOD_DATA/Objects/Textures/obj_interactive_mathblock_nor.png"
 								],
 								"material": "UVAnimDifAsgNor",
-								"custom":
-								{
+								"custom": {
 									"uv0": { "u": 0.0625, "v": 0.0625 }
 								}
 							}
-						],
-						"mesh": "$MOD_DATA/Objects/Mesh/asciigate_modpack.obj"
+						},
+						"mesh": "$MOD_DATA/Objects/Mesh/nick_MathBlock_off.dae",
+						"pose0": "$MOD_DATA/Objects/Mesh/nick_MathBlock_off.dae", // used by A/D mode
+						"pose1": "$MOD_DATA/Objects/Mesh/nick_MathBlock_on.dae" 
 					}
 				]
 			},
