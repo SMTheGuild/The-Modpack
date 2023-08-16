@@ -415,24 +415,7 @@
 		},
 		{
 			"uuid": "a6d186ad-c9ba-4b6d-922c-6c13dfcea230",
-			"renderable": {
-				"lodList": [
-					{
-						"subMeshList": [
-							{
-								"textureList": [
-									"$GAME_DATA/Objects/Textures/interactive/obj_interactive_piston_dif.tga",
-									"$GAME_DATA/Objects/Textures/interactive/obj_interactive_piston_asg.tga",
-									"$GAME_DATA/Objects/Textures/interactive/obj_interactive_piston_nor.tga"
-								],
-								"material": "PoseAnimDifAsgNor"
-							}
-						],
-						"mesh": "$MOD_DATA/Objects/Mesh/piston_0.obj",
-						"pose0": "$MOD_DATA/Objects/Mesh/piston_256.obj"
-					}
-				]
-			},
+			"renderable": "$CONTENT_DATA/Objects/Renderables/obj_interactive_256piston.rend",
 			"previewRotation": [ 1, 0, 0, 0, 1, 0, 0, 0, 1 ],
 			"color": "007fdf",
 			"box": { "x": 1, "y": 1, "z": 1 },
