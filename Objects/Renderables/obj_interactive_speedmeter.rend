@@ -1,32 +1,33 @@
 {
-   "lodList" : [
-      {
-         "mesh" : "$CONTENT_DATA/Objects/Mesh/MeshNew/obj_interactive_speedmeter.fbx",
-         "pose0" : "$CONTENT_DATA/Objects/Mesh/MeshNew/obj_interactive_speedmeter_bshape1.fbx",
-         "pose1" : "$CONTENT_DATA/Objects/Mesh/MeshNew/obj_interactive_speedmeter_bshape2.fbx",
-         "subMeshList" : [
-            {
-               "material" : "2PoseAnimDifAsgNor",
-               "textureList" : [
-                  "$CONTENT_DATA/Objects/Textures/TexturesNew/obj_interactive_speedmeter_dif.tga",
-                  "$CONTENT_DATA/Objects/Textures/TexturesNew/obj_interactive_speedmeter_asg.tga",
-                  "$CONTENT_DATA/Objects/Textures/TexturesNew/obj_interactive_speedmeter_nor.tga"
-               ]
-            },
-            {
-               "custom" : {
-                  "uv0" : {
-                     "u" : 0.50,
-                     "v" : 0.1000000014901161
-                  }
-               },
-               "material" : "UVAnimDifAsg",
-               "textureList" : [
-                  "$CONTENT_DATA/Objects/Textures/xometer_screen_dif.png",
-                  "$CONTENT_DATA/Objects/Textures/xometer_screen_asg.png"
-               ]
-            }
-         ]
-      }
-   ]
+	"lodList" : [
+		{
+			"mesh" : "$CONTENT_DATA/Objects/Mesh/MeshNew/obj_interactive_speedmeter.fbx",
+			"animationList": [
+				{ "name": "arrow_anim", "file": "$CONTENT_DATA/Objects/Mesh/MeshNew/obj_interactive_speedmeter.fbx" }
+			],
+			"subMeshList" : [
+				{
+					"material" : "SkelAnimDifAsgNor",
+					"textureList" : [
+						"$CONTENT_DATA/Objects/Textures/TexturesNew/obj_interactive_speedmeter_dif.tga",
+						"$CONTENT_DATA/Objects/Textures/TexturesNew/obj_interactive_speedmeter_asg.tga",
+						"$CONTENT_DATA/Objects/Textures/TexturesNew/obj_interactive_speedmeter_nor.tga"
+					]
+				},
+				{
+					"custom" : {
+						"uv0" : {
+							"u" : 0.50,
+							"v" : 0.1000000014901161
+						}
+					},
+					"material" : "UVAnimDifAsg",
+					"textureList" : [
+						"$CONTENT_DATA/Objects/Textures/xometer_screen_dif.png",
+						"$CONTENT_DATA/Objects/Textures/xometer_screen_asg.png"
+					]
+				}
+			]
+		}
+	]
 }
