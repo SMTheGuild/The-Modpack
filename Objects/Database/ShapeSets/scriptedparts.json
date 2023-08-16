@@ -711,6 +711,15 @@
 				"lodList": [
 					{
 						"subMeshList": [
+							
+							{
+								"textureList": [
+									"$MOD_DATA/Objects/Textures/modpack-routertexture.png",
+									"$MOD_DATA/Objects/Textures/modpack-routertexture-ASG.png",
+									"$MOD_DATA/Objects/Textures/modpack-routertexture-NOR.png"
+								],
+								"material": "2PoseAnimDifAsgNor"
+							},
 							{
 								"textureList": [
 									"$MOD_DATA/Objects/Textures/memory_slots_dif.png",
@@ -722,19 +731,11 @@
 								{
 									"uv0": { "u": 0.0625, "v": 0.0625 }
 								}
-							},
-							{
-								"textureList": [
-									"$MOD_DATA/Objects/Textures/wireless_block_dif.png",
-									"$MOD_DATA/Objects/Textures/wireless_block_asg.png",
-									"$MOD_DATA/Objects/Textures/wireless_block_nor.png"
-								],
-								"material": "2PoseAnimDifAsgNor"
 							}
 						],
-						"mesh": "$MOD_DATA/Objects/Mesh/wireless_0.obj",
-						"pose0": "$MOD_DATA/Objects/Mesh/wireless_1.obj",
-						"pose1": "$MOD_DATA/Objects/Mesh/wireless_2.obj"
+						"mesh": "$MOD_DATA/Objects/Mesh/router-modpack-receive.obj",
+						"pose0": "$MOD_DATA/Objects/Mesh/router-modpack-receive.obj",
+						"pose1": "$MOD_DATA/Objects/Mesh/router-modpack-receive.obj"
 					}
 				]
 			},
