@@ -1028,7 +1028,7 @@
 								"material": "DifAsgNor"
 							}
 						],
-						"mesh": "$MOD_DATA/Objects/Mesh/bigwheel_7x3.obj"
+						"mesh": "$MOD_DATA/Objects/Mesh/nick_bigwheel_7x3.fbx"
 					}
 				]
 			},
@@ -1056,7 +1056,7 @@
 								"material": "DifAsgNor"
 							}
 						],
-						"mesh": "$MOD_DATA/Objects/Mesh/bigwheel_9x4.obj"
+						"mesh": "$MOD_DATA/Objects/Mesh/nick_bigwheel_9x4.fbx"
 					}
 				]
 			},
