@@ -314,6 +314,22 @@
 						"subMeshList": [
 							{
 								"textureList": [
+									"$GAME_DATA/Objects/Textures/interactive/obj_interactive_logicgate_dif.tga",
+									"$GAME_DATA/Objects/Textures/interactive/obj_interactive_logicgate_asg.tga",
+									"$GAME_DATA/Objects/Textures/interactive/obj_interactive_logicgate_nor.tga"
+								],
+								"material": "DifAsgNor"
+							},
+							{
+								"textureList": [
+									"$GAME_DATA/Objects/Textures/interactive/obj_interactive_sensor_dif.tga",
+									"$GAME_DATA/Objects/Textures/interactive/obj_interactive_sensor_asg.tga",
+									"$GAME_DATA/Objects/Textures/interactive/obj_interactive_sensor_nor.tga"
+								],
+								"material": "DifAsgNor"
+							},
+							{
+								"textureList": [
 									"$MOD_DATA/Objects/Textures/orientor_work.png",
 									"$MOD_DATA/Objects/Textures/memory_slots_asg.png",
 									"$GAME_DATA/Textures/nonor_nor.tga"
@@ -326,14 +342,14 @@
 							},
 							{
 								"textureList": [
-									"$GAME_DATA/Objects/Textures/interactive/obj_interactive_sensor_dif.tga",
-									"$GAME_DATA/Objects/Textures/interactive/obj_interactive_sensor_asg.tga",
-									"$GAME_DATA/Objects/Textures/interactive/obj_interactive_sensor_nor.tga"
+									"$GAME_DATA/Objects/Textures/interactive/obj_interactive_logicgate_dif.tga",
+									"$GAME_DATA/Objects/Textures/interactive/obj_interactive_logicgate_asg.tga",
+									"$GAME_DATA/Objects/Textures/interactive/obj_interactive_logicgate_nor.tga"
 								],
 								"material": "DifAsgNor"
 							}
 						],
-						"mesh": "$MOD_DATA/Objects/Mesh/orientation_block.obj"
+						"mesh": "$MOD_DATA/Objects/Mesh/nm_orientation_block.obj"
 					}
 				]
 			},
@@ -609,15 +625,15 @@
 						"subMeshList": [
 							{
 								"textureList": [
-									"$MOD_DATA/Objects/Textures/obj_interactive_logicgate_dif.tga",
-									"$MOD_DATA/Objects/Textures/obj_interactive_logicgate_asg.tga",
-									"$MOD_DATA/Objects/Textures/obj_interactive_logicgate_nor.tga"
+									"$GAME_DATA/Objects/Textures/interactive/obj_interactive_logicgate_dif.tga",
+									"$GAME_DATA/Objects/Textures/interactive/obj_interactive_logicgate_asg.tga",
+									"$GAME_DATA/Objects/Textures/interactive/obj_interactive_logicgate_nor.tga"
 								],
 								"material": "DifAsgNor"
 							},
 							{
 								"textureList": [
-									"$GAME_DATA/Objects/Textures/interactive/obj_interactive_timer_dif.tga",
+									"$MOD_DATA/Objects/Textures/paintable_timer_dif.png",
 									"$GAME_DATA/Objects/Textures/interactive/obj_interactive_timer_asg.tga",
 									"$GAME_DATA/Objects/Textures/interactive/obj_interactive_timer_nor.tga"
 								],
@@ -628,7 +644,7 @@
 								}
 							}
 						],
-						"mesh": "$MOD_DATA/Objects/Mesh/mp_numberTickDelay_a.obj"
+						"mesh": "$MOD_DATA/Objects/Mesh/nm_smartTimer.obj"
 					}
 				]
 			},
