@@ -12,7 +12,7 @@ MathBlock.connectionInput =  sm.interactable.connectionType.power + sm.interacta
 MathBlock.connectionOutput = sm.interactable.connectionType.power + sm.interactable.connectionType.logic
 MathBlock.colorNormal = sm.color.new( 0x0E388Cff )
 MathBlock.colorHighlight = sm.color.new( 0x214DA5ff )
-MathBlock.poseWeightCount = 1
+MathBlock.poseWeightCount = 2
 
 MathBlock.mode = 1
 MathBlock.modetable = {--"value" aka "savevalue", gets saved, gets loaded.
@@ -1027,6 +1027,7 @@ function MathBlock.client_onFixedUpdate(self, dt)
 	end
 	if (self.interactable.power > 0 and not self.waspos) or (self.interactable.power <= 0 and self.waspos) then
 		self.interactable:setUvFrameIndex(self.uv + (self.interactable.power > 0 and 128 or 0))
+		self.interactable:setPoseWeight(1, self.interactable.power > 0 and 1 or 0)
 		self.waspos = self.interactable.power>0
 	end
 end
