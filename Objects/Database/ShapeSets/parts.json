@@ -1151,9 +1151,17 @@
 								"textureList": [
 									"$MOD_DATA/Objects/Textures/monitor_dif.png",
 									"$MOD_DATA/Objects/Textures/rims_asg.png",
-									"$GAME_DATA/Textures/nonor_nor.tga"
+									""
 								],
-								"material": "DifAsgNor"
+								"material": "DifAsg"
+							},
+							{
+								"textureList": [
+									"$MOD_DATA/Objects/Textures/black_dif.png",
+									"",
+									""
+								],
+								"material": "Dif"
 							}
 						],
 						"mesh": "$MOD_DATA/Objects/Mesh/Als_RimLarge1.obj"
@@ -1199,9 +1207,17 @@
 								"textureList": [
 									"$MOD_DATA/Objects/Textures/monitor_dif.png",
 									"$MOD_DATA/Objects/Textures/rims_asg.png",
-									"$GAME_DATA/Textures/nonor_nor.tga"
+									""
 								],
-								"material": "DifAsgNor"
+								"material": "DifAsg"
+							},
+							{
+								"textureList": [
+									"$MOD_DATA/Objects/Textures/black_dif.png",
+									"",
+									""
+								],
+								"material": "Dif"
 							}
 						],
 						"mesh": "$MOD_DATA/Objects/Mesh/Als_RimSmall1.obj"
@@ -1247,9 +1263,17 @@
 								"textureList": [
 									"$MOD_DATA/Objects/Textures/monitor_dif.png",
 									"$MOD_DATA/Objects/Textures/rims_asg.png",
-									"$GAME_DATA/Textures/nonor_nor.tga"
+									""
 								],
-								"material": "DifAsgNor"
+								"material": "DifAsg"
+							},
+							{
+								"textureList": [
+									"$MOD_DATA/Objects/Textures/black_dif.png",
+									"",
+									""
+								],
+								"material": "Dif"
 							}
 						],
 						"mesh": "$MOD_DATA/Objects/Mesh/Als_RimLarge2.obj"
@@ -1295,9 +1319,17 @@
 								"textureList": [
 									"$MOD_DATA/Objects/Textures/monitor_dif.png",
 									"$MOD_DATA/Objects/Textures/rims_asg.png",
-									"$GAME_DATA/Textures/nonor_nor.tga"
+									""
 								],
-								"material": "DifAsgNor"
+								"material": "DifAsg"
+							},
+							{
+								"textureList": [
+									"$MOD_DATA/Objects/Textures/black_dif.png",
+									"",
+									""
+								],
+								"material": "Dif"
 							}
 						],
 						"mesh": "$MOD_DATA/Objects/Mesh/Als_RimSmall2.obj"
@@ -1343,9 +1375,17 @@
 								"textureList": [
 									"$MOD_DATA/Objects/Textures/monitor_dif.png",
 									"$MOD_DATA/Objects/Textures/rims_asg.png",
-									"$GAME_DATA/Textures/nonor_nor.tga"
+									""
 								],
-								"material": "DifAsgNor"
+								"material": "DifAsg"
+							},
+							{
+								"textureList": [
+									"$MOD_DATA/Objects/Textures/black_dif.png",
+									"",
+									""
+								],
+								"material": "Dif"
 							}
 						],
 						"mesh": "$MOD_DATA/Objects/Mesh/Als_RimLarge3.obj"
@@ -1391,9 +1431,17 @@
 								"textureList": [
 									"$MOD_DATA/Objects/Textures/monitor_dif.png",
 									"$MOD_DATA/Objects/Textures/rims_asg.png",
-									"$GAME_DATA/Textures/nonor_nor.tga"
+									""
 								],
-								"material": "DifAsgNor"
+								"material": "DifAsg"
+							},
+							{
+								"textureList": [
+									"$MOD_DATA/Objects/Textures/black_dif.png",
+									"",
+									""
+								],
+								"material": "Dif"
 							}
 						],
 						"mesh": "$MOD_DATA/Objects/Mesh/Als_RimSmall3.obj"
