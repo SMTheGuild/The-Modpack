@@ -276,37 +276,7 @@
 		},
 		{
 			"uuid": "d88ba569-f7a5-42e3-bb11-d7979b60ddad",// xo meter
-			"renderable": {
-				"lodList": [
-					 {
-						"subMeshList": [
-							{
-								"textureList": [
-									"$MOD_DATA/Objects/Textures/xometer_screen_dif.png",
-									"$MOD_DATA/Objects/Textures/xometer_screen_asg.png",
-									"$GAME_DATA/Textures/nonor_nor.tga"
-								],
-								"material": "UVAnimDifAsgNor",
-								"custom":
-								{
-									"uv0": { "u": 0.5, "v": 0.1 } /*0.3984375*/
-								}
-							},
-							{
-								"textureList": [
-									"$MOD_DATA/Objects/Textures/xometer_body_dif.png",
-									"$MOD_DATA/Objects/Textures/xometer_body_asg.png",
-									"$GAME_DATA/Textures/nonor_nor.tga"
-								],
-								"material": "2PoseAnimDifAsgNor"
-							}
-						],
-						"mesh": "$MOD_DATA/Objects/Mesh/speedometer_1.obj",
-						"pose0": "$MOD_DATA/Objects/Mesh/speedometer_2.obj",
-						"pose1": "$MOD_DATA/Objects/Mesh/speedometer_0.obj"
-					}
-				]
-			},
+			"renderable": "$CONTENT_DATA/Objects/Renderables/obj_interactive_speedmeter.rend",
 			"scripted": { "filename": "$MOD_DATA/Scripts/interactable/Orientation/XOMeter.lua", "classname": "XOMeter" },
 			"color": "df7f00",
 			"hull": {
