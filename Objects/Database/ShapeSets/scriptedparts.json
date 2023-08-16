@@ -741,14 +741,15 @@
 									"$GAME_DATA/Textures/transparent.tga",
 									"$GAME_DATA/Textures/nonor_nor.tga"
 								],
-								"material": "UVAnimDifAsgNor",
+								// "material": "UVAnimDifAsgNor", // UV animations are not used at the moment
+								"material": "DifAsg",
 								"custom":
 								{
 									"uv0": { "u": 0.00390625, "v": 0.00390625 }
 								}
 							}
 						],
-						"mesh": "$MOD_DATA/Objects/Mesh/color_block_16.obj"
+						"mesh": "$MOD_DATA/Objects/Mesh/nick_ColorBlock.obj"
 					}
 				]
 			},
