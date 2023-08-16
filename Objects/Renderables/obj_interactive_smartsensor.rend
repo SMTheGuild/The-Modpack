@@ -1,0 +1,19 @@
+{
+   "lodList" : [
+      {
+         "mesh" : "$CONTENT_DATA/Objects/Mesh/Als_AnalogSensorClosed.obj",
+         "pose0" : "$CONTENT_DATA/Objects/Mesh/Als_AnalogSensorOpen.obj",
+         "subMeshList" : [
+            {
+               "material" : "PoseAnimDifAsgNorAo",
+               "textureList" : [
+                  "$CONTENT_DATA/Objects/Textures/AnalogSensor_dif.png",
+                  "$CONTENT_DATA/Objects/Textures/AnalogSensor_asg.png",
+                  "$CONTENT_DATA/Objects/Textures/AnalogSensor_nor.png",
+                  "$CONTENT_DATA/Objects/Textures/AnalogSensor_ao.png"
+               ]
+            }
+         ]
+      }
+   ]
+}

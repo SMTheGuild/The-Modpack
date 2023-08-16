@@ -92,32 +92,7 @@
 		},
 		{
 			"uuid": "4081ca6f-6b80-4c39-9e79-e1f747039bec", // smart sensor analog
-			"renderable": {
-				"lodList": [
-					{
-						"subMeshList": [
-							{
-								"textureList": [
-									"$MOD_DATA/Objects/Textures/analog_sensor_dif.png",
-									"$MOD_DATA/Objects/Textures/analog_sensor_asg.png",
-									"$MOD_DATA/Objects/Textures/obj_interactive_logicgate_nor.tga"
-								],
-								"material": "PoseAnimDifAsgNor"
-							},
-							{
-								"textureList": [
-									"$MOD_DATA/Objects/Textures/analog_sensor_dif.png",
-									"$MOD_DATA/Objects/Textures/analog_sensor_asg.png",
-									"$MOD_DATA/Objects/Textures/obj_interactive_logicgate_nor.tga"
-								],
-								"material": "DifAsgNor"
-							}
-						],
-						"mesh": "$MOD_DATA/Objects/Mesh/analog_sensor_thin.obj",
-						"pose0": "$MOD_DATA/Objects/Mesh/analog_sensor_wide.obj"
-					}
-				]
-			},
+			"renderable": "$CONTENT_DATA/Objects/Renderables/obj_interactive_smartsensor.rend",
 			"rotationSet": "PropZY",
 			"color": "df7f00",
 			"box": { "x": 1, "y": 1, "z": 1 },
