@@ -1300,7 +1300,7 @@
 					{ "averageForce": 192216.97, "forceVariation": 0 },
 					{ "averageForce": 288325.96, "forceVariation": 0 }
 				],
-				"effect": "Thruster - Level 1"
+				"effect": "Thruster - Level 4"
 			},
 			"rotationSet": "PropZ",
 			"sticky": "-Z",
