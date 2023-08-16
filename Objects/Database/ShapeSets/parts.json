@@ -15,7 +15,7 @@
 								"material": "DifAsg"
 							}
 						],
-						 "mesh": "$MOD_DATA/Objects/Mesh/basic1x1cube_nouv.obj"
+						 "mesh": "$MOD_DATA/Objects/Mesh/cube_1x1x1.obj"
 					}
 				]
 			},
