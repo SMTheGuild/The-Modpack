@@ -670,37 +670,7 @@
 		},
 		{
 			"uuid": "e627986c-b7dd-4365-8fd8-a0f8707af63d", // wireless router
-			"renderable": {
-				"lodList": [
-					{
-						"subMeshList": [
-							{
-								"textureList": [
-									"$MOD_DATA/Objects/Textures/memory_slots_dif.png",
-									"$MOD_DATA/Objects/Textures/memory_slots_asg.png",
-									"$GAME_DATA/Textures/nonor_nor.tga"
-								],
-								"material": "UVAnimDifAsgNor",
-								"custom":
-								{
-									"uv0": { "u": 0.0625, "v": 0.0625 }
-								}
-							},
-							{
-								"textureList": [
-									"$MOD_DATA/Objects/Textures/wireless_block_dif.png",
-									"$MOD_DATA/Objects/Textures/wireless_block_asg.png",
-									"$MOD_DATA/Objects/Textures/wireless_block_nor.png"
-								],
-								"material": "2PoseAnimDifAsgNor"
-							}
-						],
-						"mesh": "$MOD_DATA/Objects/Mesh/wireless_0.obj",
-						"pose0": "$MOD_DATA/Objects/Mesh/wireless_1.obj",
-						"pose1": "$MOD_DATA/Objects/Mesh/wireless_2.obj"
-					}
-				]
-			},
+			"renderable": "$CONTENT_DATA/Objects/Renderables/obj_interactive_router.rend",
 			"rotationSet": "PropY",
 			"color": "df7f00",
 			"hull": {
