@@ -1,0 +1,18 @@
+{
+   "lodList" : [
+      {
+         "mesh" : "$CONTENT_DATA/Objects/Mesh/MeshNew/obj_interactive_smartbothead.fbx",
+         "pose0" : "$CONTENT_DATA/Objects/Mesh/MeshNew/obj_interactive_smartbothead_bshape.fbx",
+         "subMeshList" : [
+            {
+               "material" : "PoseAnimDifAsgNor",
+               "textureList" : [
+                  "$CONTENT_DATA/Objects/Textures/TexturesNew/obj_interactive_smartbothead_dif.tga",
+                  "$CONTENT_DATA/Objects/Textures/TexturesNew/obj_interactive_smartbothead_asg.tga",
+                  "$CONTENT_DATA/Objects/Textures/TexturesNew/obj_interactive_smartbothead_nor.tga"
+               ]
+            }
+         ]
+      }
+   ]
+}

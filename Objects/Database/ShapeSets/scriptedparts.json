@@ -670,37 +670,7 @@
 		},
 		{
 			"uuid": "e627986c-b7dd-4365-8fd8-a0f8707af63d", // wireless router
-			"renderable": {
-				"lodList": [
-					{
-						"subMeshList": [
-							{
-								"textureList": [
-									"$MOD_DATA/Objects/Textures/memory_slots_dif.png",
-									"$MOD_DATA/Objects/Textures/memory_slots_asg.png",
-									"$GAME_DATA/Textures/nonor_nor.tga"
-								],
-								"material": "UVAnimDifAsgNor",
-								"custom":
-								{
-									"uv0": { "u": 0.0625, "v": 0.0625 }
-								}
-							},
-							{
-								"textureList": [
-									"$MOD_DATA/Objects/Textures/wireless_block_dif.png",
-									"$MOD_DATA/Objects/Textures/wireless_block_asg.png",
-									"$MOD_DATA/Objects/Textures/wireless_block_nor.png"
-								],
-								"material": "2PoseAnimDifAsgNor"
-							}
-						],
-						"mesh": "$MOD_DATA/Objects/Mesh/wireless_0.obj",
-						"pose0": "$MOD_DATA/Objects/Mesh/wireless_1.obj",
-						"pose1": "$MOD_DATA/Objects/Mesh/wireless_2.obj"
-					}
-				]
-			},
+			"renderable": "$CONTENT_DATA/Objects/Renderables/obj_interactive_router.rend",
 			"rotationSet": "PropY",
 			"color": "df7f00",
 			"hull": {
@@ -1242,50 +1212,9 @@
 // */
 		{
 			"uuid": "1d5d997e-efa9-478c-98ee-e452f5ff0dd2", // smart totebot head
-			"renderable": {
-				"lodList": [
-					{
-						"subMeshList": [
-							{
-								"textureList": [
-									"$MOD_DATA/Objects/Textures/SmartTotebot01_dif.png",
-									"$MOD_DATA/Objects/Textures/SmartTotebot01_asg.png",
-									"$MOD_DATA/Objects/Textures/SmartTotebot01_nor.png"
-								],
-								"material": "PoseAnimDifAsgNor"
-							},
-							{
-								"textureList": [
-									"$MOD_DATA/Objects/Textures/SmartTotebot01_dif.png",
-									"$MOD_DATA/Objects/Textures/SmartTotebot01_asg.png",
-									"$MOD_DATA/Objects/Textures/SmartTotebot01_nor.png"
-								],
-								"material": "PoseAnimDifAsgNor"
-							},
-							{
-								"textureList": [
-									"$MOD_DATA/Objects/Textures/SmartTotebot01_dif.png",
-									"$MOD_DATA/Objects/Textures/SmartTotebot01_asg.png",
-									"$MOD_DATA/Objects/Textures/SmartTotebot01_nor.png"
-								],
-								"material": "PoseAnimDifAsgNor"
-							},
-							{
-								"textureList": [
-									"$MOD_DATA/Objects/Textures/SmartTotebot01_dif.png",
-									"$MOD_DATA/Objects/Textures/SmartTotebot01_asg.png",
-									"$MOD_DATA/Objects/Textures/SmartTotebot01_nor.png"
-								],
-								"material": "PoseAnimDifAsgNor"
-							}
-						],
-						"mesh": "$MOD_DATA/Objects/Mesh/SmartTotebotModpack_off.obj",
-						"pose0": "$MOD_DATA/Objects/Mesh/SmartTotebotModpack_on.obj"
-					}
-				]
-			},
+			"renderable": "$CONTENT_DATA/Objects/Renderables/obj_interactive_smartbothead.rend",
 			"rotationSet": "PropYZ",
-			"color": "4a4a4a",
+			"color": "5a879e",
 			"box": { "x": 2, "y": 2, "z": 2 },
 			"density": 250.0,
 			"physicsMaterial": "Metal",
