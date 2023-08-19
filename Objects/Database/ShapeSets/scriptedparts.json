@@ -363,8 +363,8 @@
 								}
 							}
 						],
-						"mesh": "$MOD_DATA/Objects/Mesh/TickButton_off.obj",
-						"pose0": "$MOD_DATA/Objects/Mesh/TickButton_on.obj"
+						"mesh": "$MOD_DATA/Objects/Mesh/Als_TickButtonUnpressed.obj",
+						"pose0": "$MOD_DATA/Objects/Mesh/Als_TickButtonPressed.obj"
 					}
 				]
 			},
