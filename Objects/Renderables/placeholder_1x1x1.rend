@@ -1,0 +1,17 @@
+{
+   "lodList" : [
+      {
+         "mesh" : "$CONTENT_DATA/Objects/Mesh/cube_1x1x1.obj",
+         "subMeshList" : [
+            {
+               "material" : "Dif",
+               "textureList" : [
+                  "$CONTENT_DATA/Objects/Textures/placeholder.png",
+                  "",
+                  ""
+               ]
+            }
+         ]
+      }
+   ]
+}

@@ -26,41 +26,7 @@
 		},
 		{
 			"uuid": "6613bebe-be9f-435c-b415-42a0b45cc8e3", // date time clock block
-			"renderable": {
-				"lodList": [
-					{
-						"subMeshList": [
-							{
-								"textureList": [
-									"$MOD_DATA/Objects/Textures/timeclock_dif.png",
-									"$MOD_DATA/Objects/Textures/timeclock_asg.png",
-									"$GAME_DATA/Textures/nonor_nor.tga"
-								],
-								"material": "2PoseAnimDifAsgNor"
-							},
-							{
-								"textureList": [
-									"$GAME_DATA/Textures/white.png",
-									"$MOD_DATA/Objects/Textures/tc_asg.png",
-									"$GAME_DATA/Textures/nonor_nor.tga"
-								],
-								"material": "Glass"
-							},
-							{
-								"textureList": [
-									"$MOD_DATA/Objects/Textures/timeclock_dif.png",
-									"$MOD_DATA/Objects/Textures/timeclock_asg.png",
-									"$MOD_DATA/Objects/Textures/timeclock_nor.png"
-								],
-								"material": "DifAsgNor"
-							}
-						],
-						"mesh": "$MOD_DATA/Objects/Mesh/mp_timeclock_m.obj",
-						"pose0": "$MOD_DATA/Objects/Mesh/mp_timeclock_0.obj",
-						"pose1": "$MOD_DATA/Objects/Mesh/mp_timeclock_1.obj"
-					}
-				]
-			},
+			"renderable": "$CONTENT_DATA/Objects/Renderables/placeholder_1x1x1.rend",
 			"scripted": { "filename": "$MOD_DATA/Scripts/interactable/NumberOut/TimeBlock.lua", "classname": "TimeBlock" },
 			"color": "df7f00",
 			"hull": {
@@ -158,23 +124,7 @@
 		},
 		{
 			"uuid": "6594dff0-c652-4b44-8bb6-c725aaadea05", // tracker
-			"renderable": {
-				"lodList": [
-					{
-						"subMeshList": [
-							{
-								"textureList": [
-									"$MOD_DATA/Objects/Textures/tracker_dif.png",
-									"$MOD_DATA/Objects/Textures/tracker_asg.png",
-									"$MOD_DATA/Objects/Textures/tracker_nor.png"
-								],
-								"material": "DifAsgNor"
-							}
-						],
-						"mesh": "$MOD_DATA/Objects/Mesh/mp_tracker.obj"
-					}
-				]
-			},
+			"renderable": "$CONTENT_DATA/Objects/Renderables/placeholder_1x1x1.rend",
 			"scripted": { "filename": "$MOD_DATA/Scripts/interactable/Orientation/Tracker.lua", "classname": "Tracker" },
 			"color": "df7f00",
 			"hull": {
@@ -363,8 +313,8 @@
 								}
 							}
 						],
-						"mesh": "$MOD_DATA/Objects/Mesh/TickButton_off.obj",
-						"pose0": "$MOD_DATA/Objects/Mesh/TickButton_on.obj"
+						"mesh": "$MOD_DATA/Objects/Mesh/Als_TickButtonUnpressed.obj",
+						"pose0": "$MOD_DATA/Objects/Mesh/Als_TickButtonPressed.obj"
 					}
 				]
 			},
@@ -1036,27 +986,7 @@
 		},
 		{
 			"uuid": "e2cc7014-85f3-4bb8-a7ca-b70b6502d91e", // large wing
-			"renderable": {
-				"lodList": [
-					{
-						"subMeshList": [
-							{
-								"textureList": [
-									"$MOD_DATA/Objects/Textures/UniTex2_dif.png",
-									"$MOD_DATA/Objects/Textures/UniTex_asg.png",
-									"$GAME_DATA/Textures/nonor_nor.tga"
-								],
-								"material" : "SkelAnimDifAsgNor"
-							}
-						],
-						"mesh": "$MOD_DATA/Objects/Mesh/ScrappyWing4x4x1.fbx",
-						"includes": [ "POSITION", "UV0", "NORMAL", "TANGENT", "BLEND_INDICES", "BLEND_WEIGHTS" ],
-						"animationList" : [
-							{ "name" : "Flap", "file": "$CONTENT_b7443f95-67b7-4f1e-82f4-9bef0c62c4b3/Objects/Mesh/ScrappyWing4x4x1.fbx" }
-						]
-					}
-				]
-			},
+			"renderable": "$CONTENT_DATA/Objects/Renderables/placeholder_4x1x4.rend",
 			 "scripted": { "filename": "$MOD_DATA/Scripts/interactable/Locomotion/FlappyWing.lua", "classname": "FlappyWing",
 				"data": {
 					"animationName": "Flap", "animationLoop": false,
@@ -1098,27 +1028,7 @@
 		},
 		{
 			"uuid": "b5222776-1702-4c22-a8c5-ca26cc0290e7", // small wing propeller
-			"renderable": {
-				"lodList": [
-					{
-						"subMeshList": [
-							{
-								"textureList": [
-									"$MOD_DATA/Objects/Textures/UniTex2_dif.png",
-									"$MOD_DATA/Objects/Textures/UniTex_asg.png",
-									"$GAME_DATA/Textures/nonor_nor.tga"
-								],
-								"material" : "SkelAnimDifAsgNor"
-							}
-						],
-						"mesh": "$MOD_DATA/Objects/Mesh/ScrappyWing1x1x1.fbx",
-						"includes": [ "POSITION", "UV0", "NORMAL", "TANGENT", "BLEND_INDICES", "BLEND_WEIGHTS" ],
-						"animationList" : [
-							{ "name" : "Rotation", "file": "$CONTENT_b7443f95-67b7-4f1e-82f4-9bef0c62c4b3/Objects/Mesh/ScrappyWing1x1x1.fbx" }
-						]
-					}
-				]
-			},
+			"renderable": "$CONTENT_DATA/Objects/Renderables/placeholder_1x1x1.rend",
 			 "scripted": { "filename": "$MOD_DATA/Scripts/interactable/Locomotion/FlappyWing.lua", "classname": "FlappyWing",
 				"data": {
 					"animationName": "Rotation", "animationLoop": true,
