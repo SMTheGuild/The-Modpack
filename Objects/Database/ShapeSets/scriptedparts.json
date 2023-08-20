@@ -294,9 +294,9 @@
 						"subMeshList": [
 							{
 								"textureList": [
-									"$MOD_DATA/Objects/Textures/tick_button_dif.png",
-									"$MOD_DATA/Objects/Textures/tick_button_asg.png",
-									"$GAME_DATA/Textures/nonor_nor.tga"
+									"$MOD_DATA/Objects/Textures/TickButton_dif.png",
+									"$MOD_DATA/Objects/Textures/TickButton_asg.png",
+									"$MOD_DATA/Objects/Textures/TickButton_nor.png"
 								],
 								"material": "PoseAnimDifAsgNor"
 							},
