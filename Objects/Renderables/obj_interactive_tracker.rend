@@ -1,0 +1,17 @@
+{
+   "lodList" : [
+      {
+         "mesh" : "$CONTENT_DATA/Objects/Mesh/MeshNew/obj_interactive_tracker.fbx",
+         "subMeshList" : [
+            {
+               "material" : "DifAsgNor",
+               "textureList" : [
+                  "$CONTENT_DATA/Objects/Textures/TexturesNew/obj_interactive_tracker_dif.tga",
+                  "$CONTENT_DATA/Objects/Textures/TexturesNew/obj_interactive_tracker_asg.tga",
+                  "$CONTENT_DATA/Objects/Textures/TexturesNew/obj_interactive_tracker_nor.tga"
+               ]
+            }
+         ]
+      }
+   ]
+}

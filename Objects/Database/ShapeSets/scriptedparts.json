@@ -124,7 +124,7 @@
 		},
 		{
 			"uuid": "6594dff0-c652-4b44-8bb6-c725aaadea05", // tracker
-			"renderable": "$CONTENT_DATA/Objects/Renderables/placeholder_1x1x1.rend",
+			"renderable": "$CONTENT_DATA/Objects/Renderables/obj_interactive_tracker.rend",
 			"scripted": { "filename": "$MOD_DATA/Scripts/interactable/Orientation/Tracker.lua", "classname": "Tracker" },
 			"color": "df7f00",
 			"hull": {
