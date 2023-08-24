@@ -1081,7 +1081,7 @@
 		},
 		{
 			"uuid": "d739fdf9-2c61-47ea-88ab-beac6a6c35c1", // spiked wheel
-			"renderable": "$GAME_DATA/Objects/Renderable/vehicle/obj_vehicle_bigwheel.rend", // placeholder
+			"renderable": "$CONTENT_DATA/Objects/Renderables/obj_vehicle_spikewheel.rend",
 			"rotationSet": "PropZ",
 			"color": "df7f00",
 			"cylinder": { "diameter": 5, "depth": 2, "margin": 0.5, "axis": "Z" },
