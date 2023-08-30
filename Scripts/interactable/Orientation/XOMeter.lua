@@ -400,22 +400,21 @@ function XOMeter.client_onFixedUpdate(self, dt)
 
 
 	elseif mode.savevalue == 7 then -- velocity
-	   	one = ((sInteractable.power / 4 + 152) / 310) % 1.0
+	   	one = ((sInteractable.power / 4 + 67) / 134) % 1.0
 	elseif mode.savevalue == 8 then --rpm
-		one = ((sInteractable.power + 152) / 310) % 1.0
+		one = ((sInteractable.power + 67) / 134) % 1.0
 	elseif mode.savevalue == 10 then --mass
-		one = ((sInteractable.power / 10 + 102) / 310) % 1.0
+		one = ((sInteractable.power / 10 + 7) / 134) % 1.0
 	elseif mode.savevalue == 11 then -- orient
+		local value = 0.5 - sInteractable.power / 360
 
-		local value = 0.5+sInteractable.power/360
-		
 		if self.shape:getZAxis().z < 0 then
-			value = 0.5+sInteractable.power/360
+			value = 0.5 + sInteractable.power / 360
 		end
 
 		one = value % 1.0
 	else
-		one = ((sInteractable.power + 102) / 310) % 1.0 -- garbage
+		one = ((sInteractable.power + 17) / 134) % 1.0 -- garbage
 	end
 
 	self.interactable:setAnimProgress("arrow_anim", one)
