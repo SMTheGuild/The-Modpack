@@ -1,0 +1,18 @@
+{
+   "lodList" : [
+      {
+         "mesh" : "$CONTENT_DATA/Objects/Mesh/MeshNew/obj_interactive_wings_01.fbx",
+         "subMeshList" : [
+            {
+               "material" : "SkelAnimDifAsgNorAo",
+               "textureList" : [
+                  "$CONTENT_DATA/Objects/Textures/TexturesNew/obj_interactive_atlaswings_dif.tga",
+                  "$CONTENT_DATA/Objects/Textures/TexturesNew/obj_interactive_atlaswings_asg.tga",
+                  "$CONTENT_DATA/Objects/Textures/TexturesNew/obj_interactive_atlaswings_nor.tga",
+                  "$CONTENT_DATA/Objects/Textures/TexturesNew/obj_interactive_wings_01_ao.tga"
+               ]
+            }
+         ]
+      }
+   ]
+}
