@@ -28,7 +28,7 @@
 			"uuid": "6613bebe-be9f-435c-b415-42a0b45cc8e3", // date time clock block
 			"renderable": "$CONTENT_DATA/Objects/Renderables/obj_interactive_analogclock.rend",
 			"scripted": { "filename": "$MOD_DATA/Scripts/interactable/NumberOut/TimeBlock.lua", "classname": "TimeBlock" },
-			"color": "df7f00",
+			"color": "3e9ffe",
 			"hull": {
 				"x":1,"y":1,"z":1,"margin":0.05,
 				"pointList":[
