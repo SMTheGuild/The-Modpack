@@ -1,23 +1,23 @@
 {
-   "lodList" : [
-      {
-         "animationList" : [
-            {
-               "file" : "$CONTENT_DATA/Objects/Mesh/MeshNew/obj_interactive_analogclock.fbx",
-               "name" : "spin"
-            }
-         ],
-         "mesh" : "$CONTENT_DATA/Objects/Mesh/MeshNew/obj_interactive_analogclock.fbx",
-         "subMeshList" : [
-            {
-               "material" : "SkelAnimDifAsgNor",
-               "textureList" : [
-                  "$CONTENT_DATA/Objects/Textures/TexturesNew/obj_interactive_analogclock_dif.tga",
-                  "$CONTENT_DATA/Objects/Textures/TexturesNew/obj_interactive_analogclock_asg.tga",
-                  "$CONTENT_DATA/Objects/Textures/TexturesNew/obj_interactive_analogclock_nor.tga"
-               ]
-            }
-         ]
-      }
-   ]
+	"lodList": [
+		{
+			"animationList": [
+				{
+					"file": "$CONTENT_DATA/Objects/Mesh/MeshNew/obj_interactive_analogclock.fbx",
+					"name": "clock_anim"
+				}
+			],
+			"mesh": "$CONTENT_DATA/Objects/Mesh/MeshNew/obj_interactive_analogclock.fbx",
+			"subMeshList": [
+				{
+					"material": "SkelAnimDifAsgNor",
+					"textureList": [
+						"$CONTENT_DATA/Objects/Textures/TexturesNew/obj_interactive_analogclock_dif.tga",
+						"$CONTENT_DATA/Objects/Textures/TexturesNew/obj_interactive_analogclock_asg.tga",
+						"$CONTENT_DATA/Objects/Textures/TexturesNew/obj_interactive_analogclock_nor.tga"
+					]
+				}
+			]
+		}
+	]
 }
