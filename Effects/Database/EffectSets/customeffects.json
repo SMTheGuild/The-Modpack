@@ -975,7 +975,7 @@
 	{
 		"parameterList":
 		{
-			"velocity": 0.0,
+			"velocity_max_50": 0.0,
 			"Intensity": 30.0
 		},
 		"effectList":
@@ -983,7 +983,7 @@
 			{
 				"type": "audio",
 				"name": "event:/props/challengeball_rolling",
-				"parameters": [ "velocity" ]
+				"parameters": [ "velocity_max_50" ]
 			}
 		]
 	}	

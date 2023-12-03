@@ -82,7 +82,7 @@ function ToteGenerator.client_onFixedUpdate(self, dt)
 	if note ~= self.note and note > 0 and note < 26 then
 		self.note = note
 		if tote == 10 then
-			self.effect:setParameter( "velocity", note*2 ) -- 1-25  (0->1)
+			self.effect:setParameter( "velocity_max_50", note*2 ) -- 1-25  (0->1)
 		else
 			self.effect:setParameter( "pitch", (note-1)/24 ) -- 1-25  (0->1)
 		end
