@@ -415,6 +415,11 @@
 		"description": "Utilis� pour afficher et transf�rer les valeurs num�riques. Compatible avec les chiffres pond�r�s par couleur.\n\nExemple:\nUtilisez Compteur comme entr�e pour plusieurs blocs de nombres et peignez le nombre de blocs de la deuxi�me ligne de couleurs de peinture de droite � gauche pour des chiffres individuels.\nPeut �galement stocker une valeur num�rique dans un seul bloc ",
 		"keywords": ["modpack", "smart", "logic", "number", "count", "display", "digit", "value", "screen", "bit", "binary", " bcd "," num�rique "]
 	},
+    "79294566-8031-496f-91cb-3bba9a69a891": {
+		"title": "Bloc de Numérotation de Surface",
+		"description": "Utilis� pour afficher et transf�rer les valeurs num�riques. Compatible avec les chiffres pond�r�s par couleur.\n\nExemple:\nUtilisez Compteur comme entr�e pour plusieurs blocs de nombres et peignez le nombre de blocs de la deuxi�me ligne de couleurs de peinture de droite � gauche pour des chiffres individuels.\nPeut �galement stocker une valeur num�rique dans un seul bloc ",
+		"keywords": [ "modpack", "intelligent", "logique", "nombre", "compter", "affichage", "chiffre", "valeur", "écran", "bit", "binaire", "bcd", "numérique", "panneau", "flush", "petit", "minuscule" ] 
+	},
 	"289e08ef-e3d8-4f1b-bc10-a0bcf36fa0ce": {
 		"title": "Math Block\n(Bloc fonctionnel) ",
 		"description": "Nombreuses fonctions incluses! Appuyez sur E pour faire d�filer les fonctions! CTRL + E pour faire d�filer en arri�re.\nConnectez les entr�es et effectuez les fonctions pour une sortie au format num�rique\nSp�cifier l'ordre des op�rations avec les entr�es de couleur blanche / noire\nComprend les fonctions de si�ge et le bit de m�moire ",

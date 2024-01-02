@@ -433,6 +433,11 @@
 		"description": "Used to display and transfer number values. Compatible with color weighted digits.\n\nExample:\nUse Counter as input to many Number blocks, and paint the number blocks the second row of paint colors from right to left for individual digits.\nCan also store a number value in a single block",
 		"keywords": [ "modpack", "smart", "logic", "number", "count", "display", "digit", "value", "screen", "bit", "binary", "bcd", "numeric" ]
 	},
+	"79294566-8031-496f-91cb-3bba9a69a891": {
+		"title": "Surface Number Block",
+		"description": "Used to display and transfer number values. Compatible with color weighted digits.\n\nExample:\nUse Counter as input to many Number blocks, and paint the number blocks the second row of paint colors from right to left for individual digits.\nCan also store a number value in a single block",
+		"keywords": [ "modpack", "smart", "logic", "number", "count", "display", "digit", "value", "screen", "bit", "binary", "bcd", "numeric", "panel", "flush", "small", "tiny" ] 
+	},
 	"289e08ef-e3d8-4f1b-bc10-a0bcf36fa0ce": {
 		"title": "Math Block\n(Function Block)",
 		"description": "Many functions included! Press E to open a GUI to choose the function!\nConnect inputs and perform functions for an output in number format\nSpecify order of operations with white/black colored inputs\nIncludes seat functions and memory bit",
