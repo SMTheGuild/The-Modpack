@@ -431,6 +431,11 @@
         "description": "Wird verwendet um Zahlenwerte anzuzeigen oder zu übertragen. Kompatibel mit farbgewichteten Zahlen.\n\nBeispiel:\nVerwende den Zähler als Eingabe für Zahlenblöcke und färbe die Zahlenblöcke - für entsprechenden Stellenwert - mit den Farben aus der zweiten Reihe von rechts nach links ein.\nSpeichert einen Zahlenwert in einem einzigen Block.",
 		"keywords": [ "modpack", "smart", "intelligent", "Logik", "Zahl", "Nummer", "Anzeige", "display", "Ziffer", "Zahl", "Wert", "bit", "binär", "bcd", "Nummer" ]
     },
+    "79294566-8031-496f-91cb-3bba9a69a891": {
+		"title": "Oberflächennummerblock",
+		"description": "Wird verwendet um Zahlenwerte anzuzeigen oder zu übertragen. Kompatibel mit farbgewichteten Zahlen.\n\nBeispiel:\nVerwende den Zähler als Eingabe für Zahlenblöcke und färbe die Zahlenblöcke - für entsprechenden Stellenwert - mit den Farben aus der zweiten Reihe von rechts nach links ein.\nSpeichert einen Zahlenwert in einem einzigen Block.",
+		"keywords": [ "modpack", "smart", "intelligent", "Logik", "Zahl", "Nummer", "Anzeige", "display", "Ziffer", "Zahl", "Wert", "bit", "binär", "bcd", "Panel", "bündig", "klein", "winzig" ] 
+	},
     "289e08ef-e3d8-4f1b-bc10-a0bcf36fa0ce": {
         "title": "Rechen-Block\n(Funktionsblock)",
         "description": "Enthält viele Funktionen! Drücke E oder STRG + E um durch die Funktionen vor oder zurück zu wechseln.\nVerbinde Eingabeblöcke und führe Berechnungen durch. Der Block gibt einen Zahlenwert zurück.\nBestimme die Reihenfolge der Operationen mit gefärbten Blöcken an.\nBeinhaltet Sitzfunktionen und Bit-Speicher",

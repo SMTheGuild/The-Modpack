@@ -415,6 +415,11 @@
 		"description": "Se utiliza para mostrar y transferir valores numéricos. Compatible con dígitos ponderados por color.\n\nEjemplo:\nUse Counter como entrada para muchos bloques de números y pinte los bloques de números en la segunda fila de colores de pintura de derecha a izquierda para dígitos individuales.\nTambién puede almacenar un valor numérico en un solo bloque",
 		"keywords": [ "modpack", "inteligente", "lógica", "número", "conteo", "pantalla", "dígito", "valor", "pantalla", "bit", "binario", "bcd", "numérico" ]
 	},
+    "79294566-8031-496f-91cb-3bba9a69a891": {
+		"title": "Bloque de numérico de superficie",
+		"description": "Se utiliza para mostrar y transferir valores numéricos. Compatible con dígitos ponderados por color.\n\nEjemplo:\nUse Counter como entrada para muchos bloques de números y pinte los bloques de números en la segunda fila de colores de pintura de derecha a izquierda para dígitos individuales.\nTambién puede almacenar un valor numérico en un solo bloque",
+		"keywords": [ "modpack", "inteligente", "lógica", "número", "conteo", "pantalla", "dígito", "valor", "pantalla", "bit", "binario", "bcd", "numérico", "panel", "descarga", "pequeño" ] 
+	},
 	"289e08ef-e3d8-4f1b-bc10-a0bcf36fa0ce": {
 		"title": "Bloque matemático\n(Bloque de funciones)",
 		"description": "¡Muchas funciones incluidas! ¡Presione E para recorrer las funciones! CTRL + E para retroceder.\nConecte entradas y realice funciones para una salida en formato numérico\nEspecifique el orden de las operaciones con entradas de color blanco / negro\nIncluye funciones de asiento y bit de memoria",

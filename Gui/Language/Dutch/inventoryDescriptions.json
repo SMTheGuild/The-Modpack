@@ -777,6 +777,11 @@
         "description": "Gebruikt om getalwaarden weer te geven en over te dragen. Compatibel met kleurengewogen cijfers. Voorbeeld: Gebruik Teller als invoer voor veel cijferblokken en beschilder de nummerblokken de tweede rij verfkleuren van rechts naar links voor afzonderlijke cijfers. Kan ook een getalwaarde opslaan in een enkel blok"
     },
 
+	"79294566-8031-496f-91cb-3bba9a69a891": {
+		"title": "Oppervlak Nummer Blok",
+		"description": "Gebruikt om getalwaarden weer te geven en over te dragen. Compatibel met kleurengewogen cijfers. Voorbeeld: Gebruik Teller als invoer voor veel cijferblokken en beschilder de nummerblokken de tweede rij verfkleuren van rechts naar links voor afzonderlijke cijfers. Kan ook een getalwaarde opslaan in een enkel blok"
+	},
+
     "b39faec9-1ed0-4475-8bc0-78d125df1b58": {
         "title": "Onthoud paneel",
         "description": "Slaat een getalwaarde op een geheugenadres op. Gebruik een nummerinvoer voor de waarde en een schakelaar / knop / logica om die waarde op te slaan. Gebruik een tweede, wit geschilderde nummeringang om het geheugenadres op te geven."

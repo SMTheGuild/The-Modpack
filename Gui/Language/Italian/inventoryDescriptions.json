@@ -431,6 +431,11 @@
         "description": "Usato per mostrare e trasferire valori numerali. Compatibile con cifre colorate come input.\n\nEsempio:\nUsa il Contatorer come input a tanti blocchi numero, e colora i Blocchi Numero la seconda riga di colori da destra a sinistra per colori individuali.\nPuò anche salvare una cifra in un singolo blocco",
 		"keywords": [ "modpack", "intelligente", "logica", "numero", "conto", "contare", "display", "valore", "schermo", "bit", "binario", "bcd", "numerico" ]
     },
+    "79294566-8031-496f-91cb-3bba9a69a891": {
+		"title": "Blocco Numeri Superficiale",
+		"description": "Used to display and transfer number values. Compatible with color weighted digits.\n\nExample:\nUse Counter as input to many Number blocks, and paint the number blocks the second row of paint colors from right to left for individual digits.\nCan also store a number value in a single block",
+		"keywords": [ "modpack", "intelligente", "logica", "numero", "conto", "contare", "display", "valore", "schermo", "bit", "binario", "bcd", "numerico", "pannello", "raso", "piccolo", "minuscolo" ] 
+	},
     "289e08ef-e3d8-4f1b-bc10-a0bcf36fa0ce": {
         "title": "Blocco Matematico\n(Blocco Funzione)",
         "description": "Molte funzioni incluse! Premi E per scorrere tra le opzioni! CTRL+E per scorrere indietro.\nConnetti input ed eseguirà funzioni per un output in numero\nSpecifica l'ordine delle operazioni con input colorati di bianco/nero\nInclude funzioni del sedile e bit di memoria (memory bit)",

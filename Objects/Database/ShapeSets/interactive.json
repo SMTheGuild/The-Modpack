@@ -2287,6 +2287,66 @@
 			"density": 250.0,
 			"qualityLevel": 3,
 			"stackSize": 5
-		}
+		},
+        {
+            "color" : "df7f00",
+            "flammable" : false,
+            "hull": {
+				"x": 1, "y": 1, "z": 1,
+				"margin": 0.05,
+				"pointList": [
+					{ "x": -1, "y": -1, "z": -1 },
+                    { "x": -1, "y": -1, "z": 1 },
+                    { "x": 1, "y": -1, "z": 1 },
+                    { "x": 1, "y": -1, "z": -1 },
+                    { "x": -1, "y": -0.90, "z": -1 },
+                    { "x": -1, "y": -0.90, "z": 1 },
+                    { "x": 1, "y": -0.90, "z": 1 },
+                    { "x": 1, "y": -0.90, "z": -1 }
+				]
+			},
+            "physicsMaterial" : "Mechanical",
+            "density": 250.0,
+			"qualityLevel": 3,
+            "ratings" : {
+               "buoyancy" : 4,
+               "density" : 2,
+               "durability" : 3,
+               "friction" : 5
+            },
+            "renderable" : {
+                "lodList" : [
+                    {
+						"subMeshList": [
+                            {
+                                "textureList": [
+                                    "$MOD_DATA/Objects/Textures/surface_number_block_dif.tga",
+                                    "$MOD_DATA/Objects/Textures/surface_number_block_asg.tga",
+                                    "$MOD_DATA/Objects/Textures/surface_number_block_nor.tga"
+                                ],
+                                "material": "DifAsgNor"
+                            },
+							{
+								"textureList": [
+                                    "$MOD_DATA/Objects/Textures/BCD.png",
+                                    "$MOD_DATA/Objects/Textures/numberblock_asg.png",
+                                    "$MOD_DATA/Objects/Textures/surface_number_block_nor.tga"
+								],
+								"material": "UVAnimDifAsgNor",
+								"custom": {"uv0": { "u": 0.16666667, "v": 0.1645 }}
+							}
+						],
+						"mesh": "$MOD_DATA/Objects/Mesh/surface_number_block.fbx"
+					}
+                ]
+            },
+            "rotationSet" : "PropYZ",
+            "scripted" : {
+               "classname" : "NumberBlock",
+               "filename" : "$MOD_DATA/Scripts/interactable/NumberLogic/NumberBlock.lua"
+            },
+            "stackSize" : 10,
+            "uuid" : "79294566-8031-496f-91cb-3bba9a69a891"
+        }
 	]
 }
