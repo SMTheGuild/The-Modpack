@@ -2,6 +2,12 @@
    "lodList" : [
       {
          "mesh" : "$CONTENT_DATA/Objects/Mesh/MeshNew/obj_interactive_wings_02.fbx",
+         "animationList" : [
+				{
+					"file" : "$CONTENT_DATA/Objects/Mesh/MeshNew/obj_interactive_wings_02.fbx",
+					"name" : "Rotation"
+				}
+			],
          "subMeshList" : [
             {
                "material" : "SkelAnimDifAsgNorAo",
