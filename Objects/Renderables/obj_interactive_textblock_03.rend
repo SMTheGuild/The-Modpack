@@ -6,9 +6,9 @@
             {
                "material" : "DifAsgNor",
                "textureList" : [
-                  "$CONTENT_DATA/Objects/Textures/TexturesNew/obj_interactive_textblock_01_dif.tga",
-                  "$CONTENT_DATA/Objects/Textures/TexturesNew/obj_interactive_textblock_01_asg.tga",
-                  "$CONTENT_DATA/Objects/Textures/TexturesNew/obj_interactive_textblock_01_nor.tga"
+                  "$CONTENT_DATA/Objects/Textures/letterblock_paintletters_dif.png",
+                  "$CONTENT_DATA/Objects/Textures/TexturesNew/obj_interactive_textblock_01_screen_asg.tga",
+                  "$CONTENT_DATA/Objects/Textures/TexturesNew/obj_interactive_textblock_01_screen_nor.tga"
                ]
             },
             {
@@ -23,6 +23,14 @@
                   "$CONTENT_DATA/Objects/Textures/letterblock_paintletters_dif.png",
                   "$CONTENT_DATA/Objects/Textures/TexturesNew/obj_interactive_textblock_01_screen_asg.tga",
                   "$CONTENT_DATA/Objects/Textures/TexturesNew/obj_interactive_textblock_01_screen_nor.tga"
+               ]
+            },
+            {
+               "material" : "DifAsgNor",
+               "textureList" : [
+                  "$CONTENT_DATA/Objects/Textures/TexturesNew/obj_interactive_textblock_01_dif.tga",
+                  "$CONTENT_DATA/Objects/Textures/TexturesNew/obj_interactive_textblock_01_asg.tga",
+                  "$CONTENT_DATA/Objects/Textures/TexturesNew/obj_interactive_textblock_01_nor.tga"
                ]
             }
          ]

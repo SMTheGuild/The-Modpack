@@ -26,9 +26,9 @@
 		},
 		{
 			"uuid": "6613bebe-be9f-435c-b415-42a0b45cc8e3", // date time clock block
-			"renderable": "$CONTENT_DATA/Objects/Renderables/placeholder_1x1x1.rend",
+			"renderable": "$CONTENT_DATA/Objects/Renderables/obj_interactive_analogclock.rend",
 			"scripted": { "filename": "$MOD_DATA/Scripts/interactable/NumberOut/TimeBlock.lua", "classname": "TimeBlock" },
-			"color": "df7f00",
+			"color": "3e9ffe",
 			"hull": {
 				"x":1,"y":1,"z":1,"margin":0.05,
 				"pointList":[
@@ -986,7 +986,7 @@
 		},
 		{
 			"uuid": "e2cc7014-85f3-4bb8-a7ca-b70b6502d91e", // large wing
-			"renderable": "$CONTENT_DATA/Objects/Renderables/placeholder_4x1x4.rend",
+			"renderable": "$CONTENT_DATA/Objects/Renderables/obj_interactive_wings_01.rend",
 			 "scripted": { "filename": "$MOD_DATA/Scripts/interactable/Locomotion/FlappyWing.lua", "classname": "FlappyWing",
 				"data": {
 					"animationName": "Flap", "animationLoop": false,
@@ -1028,7 +1028,7 @@
 		},
 		{
 			"uuid": "b5222776-1702-4c22-a8c5-ca26cc0290e7", // small wing propeller
-			"renderable": "$CONTENT_DATA/Objects/Renderables/placeholder_1x1x1.rend",
+			"renderable": "$CONTENT_DATA/Objects/Renderables/obj_interactive_wings_02.rend",
 			 "scripted": { "filename": "$MOD_DATA/Scripts/interactable/Locomotion/FlappyWing.lua", "classname": "FlappyWing",
 				"data": {
 					"animationName": "Rotation", "animationLoop": true,
