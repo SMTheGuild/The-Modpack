@@ -1,0 +1,31 @@
+{
+   "lodList" : [
+      {
+         "mesh" : "$CONTENT_DATA/Objects/Mesh/MeshNew/obj_interactive_textblock_01.fbx",
+         "subMeshList" : [
+            {
+               "material" : "DifAsgNor",
+               "textureList" : [
+                  "$CONTENT_DATA/Objects/Textures/TexturesNew/obj_interactive_textblock_01_dif.tga",
+                  "$CONTENT_DATA/Objects/Textures/TexturesNew/obj_interactive_textblock_01_asg.tga",
+                  "$CONTENT_DATA/Objects/Textures/TexturesNew/obj_interactive_textblock_01_nor.tga"
+               ]
+            },
+            {
+               "custom" : {
+                  "uv0" : {
+                     "u" : 0.06250,
+                     "v" : 0.06250
+                  }
+               },
+               "material" : "UVAnimDifAsgNor",
+               "textureList" : [
+                  "$CONTENT_DATA/Objects/Textures/letterblock_paintletters_dif.png",
+                  "$CONTENT_DATA/Objects/Textures/TexturesNew/obj_interactive_textblock_01_screen_asg.tga",
+                  "$CONTENT_DATA/Objects/Textures/TexturesNew/obj_interactive_textblock_01_screen_nor.tga"
+               ]
+            }
+         ]
+      }
+   ]
+}

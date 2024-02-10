@@ -1,0 +1,17 @@
+{
+   "lodList" : [
+      {
+         "mesh" : "$CONTENT_DATA/Objects/Mesh/MeshNew/obj_vehicle_spikewheel.fbx",
+         "subMeshList" : [
+            {
+               "material" : "DifAsgNor",
+               "textureList" : [
+                  "$CONTENT_DATA/Objects/Textures/TexturesNew/obj_vehicle_spikewheel_dif.tga",
+                  "$CONTENT_DATA/Objects/Textures/TexturesNew/obj_vehicle_spikewheel_asg.tga",
+                  "$CONTENT_DATA/Objects/Textures/TexturesNew/obj_vehicle_spikewheel_nor.tga"
+               ]
+            }
+         ]
+      }
+   ]
+}

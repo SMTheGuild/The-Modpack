@@ -1,0 +1,33 @@
+{
+   "lodList" : [
+      {
+         "mesh" : "$CONTENT_DATA/Objects/Mesh/MeshNew/obj_interactive_router.fbx",
+         "pose0" : "$CONTENT_DATA/Objects/Mesh/MeshNew/obj_interactive_router.fbx",
+         "pose1" : "$CONTENT_DATA/Objects/Mesh/MeshNew/obj_interactive_router_bshape.fbx",
+         "subMeshList" : [
+            {
+               "material" : "2PoseAnimDifAsgNor",
+               "textureList" : [
+                  "$CONTENT_DATA/Objects/Textures/TexturesNew/obj_interactive_router_dif.tga",
+                  "$CONTENT_DATA/Objects/Textures/TexturesNew/obj_interactive_router_asg.tga",
+                  "$CONTENT_DATA/Objects/Textures/TexturesNew/obj_interactive_router_nor.tga"
+               ]
+            },
+            {
+               "custom" : {
+                  "uv0" : {
+                     "u" : 0.06250,
+                     "v" : 0.06250
+                  }
+               },
+               "material" : "UVAnimDifAsgNor",
+               "textureList" : [
+                  "$CONTENT_DATA/Objects/Textures/memory_slots_dif.png",
+                  "$CONTENT_DATA/Objects/Textures/memory_slots_asg.png",
+                  "$CONTENT_DATA/Objects/Textures/TexturesNew/obj_interactive_memory_slots_nor.tga"
+               ]
+            }
+         ]
+      }
+   ]
+}

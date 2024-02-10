@@ -1,0 +1,33 @@
+	{
+	"lodList": [
+		{
+			"minViewSize": 300,
+			"mesh": "$SURVIVAL_DATA/Objects/Mesh/interactive/obj_interactive_piston_04_off.fbx",
+			"pose0": "$CONTENT_DATA/Objects/Mesh/nick_256piston_on.fbx",
+			"subMeshMap": {
+				"submesh3": {
+					"material": "PoseAnimDifAsgNor",
+					"textureList": [
+						"$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_piston_04_dif.tga",
+						"$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_piston_04_asg.tga",
+						"$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_piston_04_nor.tga"
+					]
+				}
+			}
+		},
+		{
+			"mesh": "$SURVIVAL_DATA/Objects/Mesh/interactive/obj_interactive_piston_04_off_lod1.fbx",
+			"pose0": "$CONTENT_DATA/Objects/Mesh/nick_256piston_on_lod1.fbx",
+			"subMeshMap": {
+				"submesh3": {
+					"material": "PoseAnimDifAsgNor",
+					"textureList": [
+						"$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_piston_04_dif.tga",
+						"$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_piston_04_asg.tga",
+						"$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_piston_04_nor.tga"
+					]
+				}
+			}
+		}
+	]
+}

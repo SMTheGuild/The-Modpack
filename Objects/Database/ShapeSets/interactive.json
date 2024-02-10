@@ -415,24 +415,7 @@
 		},
 		{
 			"uuid": "a6d186ad-c9ba-4b6d-922c-6c13dfcea230",
-			"renderable": {
-				"lodList": [
-					{
-						"subMeshList": [
-							{
-								"textureList": [
-									"$GAME_DATA/Objects/Textures/interactive/obj_interactive_piston_dif.tga",
-									"$GAME_DATA/Objects/Textures/interactive/obj_interactive_piston_asg.tga",
-									"$GAME_DATA/Objects/Textures/interactive/obj_interactive_piston_nor.tga"
-								],
-								"material": "PoseAnimDifAsgNor"
-							}
-						],
-						"mesh": "$MOD_DATA/Objects/Mesh/piston_0.obj",
-						"pose0": "$MOD_DATA/Objects/Mesh/piston_256.obj"
-					}
-				]
-			},
+			"renderable": "$CONTENT_DATA/Objects/Renderables/obj_interactive_256piston.rend",
 			"previewRotation": [ 1, 0, 0, 0, 1, 0, 0, 0, 1 ],
 			"color": "007fdf",
 			"box": { "x": 1, "y": 1, "z": 1 },
@@ -1268,17 +1251,17 @@
 						"subMeshList": [
 							{
 								"textureList": [
-									"$GAME_DATA/Objects/Textures/interactive/obj_interactive_enginejet_dif.tga",
-									"$GAME_DATA/Objects/Textures/interactive/obj_interactive_enginejet_asg.tga",
-									"$GAME_DATA/Objects/Textures/interactive/obj_interactive_enginejet_nor.tga"
+									"$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_thruster_04_dif.tga",
+									"$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_thruster_04_asg.tga",
+									"$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_thruster_04_nor.tga"
 								],
 								"material": "3PoseAnimDifAsgNor"
 							}
 						],
-						"mesh": "$MOD_DATA/Objects/Mesh/obj_interactive_thruster_off.obj",
-						"pose0": "$MOD_DATA/Objects/Mesh/obj_interactive_thruster_off01.obj",
-						"pose1": "$MOD_DATA/Objects/Mesh/obj_interactive_thruster_on.obj",
-						"pose2": "$MOD_DATA/Objects/Mesh/obj_interactive_thruster_on01.obj"
+						"mesh": "$MOD_DATA/Objects/Mesh/nick_MicroThruster_off.dae",
+						"pose0": "$MOD_DATA/Objects/Mesh/nick_MicroThruster_off.dae",
+						"pose1": "$MOD_DATA/Objects/Mesh/nick_MicroThruster_pose0.dae",
+						"pose2": "$MOD_DATA/Objects/Mesh/nick_MicroThruster_pose0.dae"
 					}
 				]
 			},
@@ -1300,14 +1283,14 @@
 					{ "averageForce": 192216.97, "forceVariation": 0 },
 					{ "averageForce": 288325.96, "forceVariation": 0 }
 				],
-				"effect": "Thruster - Level 1"
+				"effect": "Thruster - Level 4"
 			},
 			"rotationSet": "PropZ",
 			"sticky": "-Z",
 			"physicsMaterial": "Mechanical",
 			"density": 250.0,
 			"qualityLevel": 4,
-			"showInInventory": false
+			"showInInventory": true
 		},
 		{
 			"uuid": "a07a3673-a446-44a3-b16d-abb732c7a525", //NEW 1x1 Micro thruster
@@ -1317,17 +1300,17 @@
 						"subMeshList": [
 							{
 								"textureList": [
-									"$GAME_DATA/Objects/Textures/interactive/obj_interactive_enginejet_dif.tga",
-									"$GAME_DATA/Objects/Textures/interactive/obj_interactive_enginejet_asg.tga",
-									"$GAME_DATA/Objects/Textures/interactive/obj_interactive_enginejet_nor.tga"
+									"$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_thruster_04_dif.tga",
+									"$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_thruster_04_asg.tga",
+									"$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_thruster_04_nor.tga"
 								],
 								"material": "3PoseAnimDifAsgNor"
 							}
 						],
-						"mesh": "$MOD_DATA/Objects/Mesh/obj_interactive_thruster_off.obj",
-						"pose0": "$MOD_DATA/Objects/Mesh/obj_interactive_thruster_off01.obj",
-						"pose1": "$MOD_DATA/Objects/Mesh/obj_interactive_thruster_on.obj",
-						"pose2": "$MOD_DATA/Objects/Mesh/obj_interactive_thruster_on01.obj"
+						"mesh": "$MOD_DATA/Objects/Mesh/nick_MicroThruster_off.dae",
+						"pose0": "$MOD_DATA/Objects/Mesh/nick_MicroThruster_off.dae",
+						"pose1": "$MOD_DATA/Objects/Mesh/nick_MicroThruster_pose0.dae",
+						"pose2": "$MOD_DATA/Objects/Mesh/nick_MicroThruster_pose0.dae"
 					}
 				]
 			},

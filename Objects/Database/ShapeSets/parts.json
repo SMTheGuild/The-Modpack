@@ -15,7 +15,7 @@
 								"material": "DifAsg"
 							}
 						],
-						 "mesh": "$MOD_DATA/Objects/Mesh/basic1x1cube_nouv.obj"
+						 "mesh": "$MOD_DATA/Objects/Mesh/cube_1x1x1.obj"
 					}
 				]
 			},
@@ -1028,7 +1028,7 @@
 								"material": "DifAsgNor"
 							}
 						],
-						"mesh": "$MOD_DATA/Objects/Mesh/bigwheel_7x3.obj"
+						"mesh": "$MOD_DATA/Objects/Mesh/nick_bigwheel_7x3.fbx"
 					}
 				]
 			},
@@ -1056,7 +1056,7 @@
 								"material": "DifAsgNor"
 							}
 						],
-						"mesh": "$MOD_DATA/Objects/Mesh/bigwheel_9x4.obj"
+						"mesh": "$MOD_DATA/Objects/Mesh/nick_bigwheel_9x4.fbx"
 					}
 				]
 			},
@@ -1069,32 +1069,8 @@
 			"qualityLevel": 3
 		},
 		{
-			"uuid": "d739fdf9-2c61-47ea-88ab-beac6a6c35c0",
-			"renderable": {
-				"lodList": [
-					{
-						"subMeshList": [
-							{
-								"textureList": [
-									"$GAME_DATA/Textures/transparent.tga",
-									"$MOD_DATA/Objects/Textures/chain_asg.png",
-									"$MOD_DATA/Objects/Textures/chain_nor.png"
-								],
-								"material": "DifAsgNorAlphaFlip"
-							},
-							{
-								"textureList": [
-									"$GAME_DATA/Objects/Textures/vehicle/obj_vehicle_bigwheel_dif.tga",
-									"$GAME_DATA/Objects/Textures/vehicle/obj_vehicle_bigwheel_asg.tga",
-									"$GAME_DATA/Objects/Textures/vehicle/obj_vehicle_bigwheel_nor.tga"
-								],
-								"material": "DifAsgNor"
-							}
-						],
-						"mesh": "$MOD_DATA/Objects/Mesh/chained_wheel.obj"
-					}
-				]
-			},
+			"uuid": "d739fdf9-2c61-47ea-88ab-beac6a6c35c0", // chained wheel
+			"renderable": "$GAME_DATA/Objects/Renderable/vehicle/obj_vehicle_bigwheel.rend", // placeholder
 			"rotationSet": "PropZ",
 			"color": "df7f00",
 			"cylinder": { "diameter": 5, "depth": 2, "margin": 0.5, "axis": "Z" },
@@ -1104,32 +1080,8 @@
 			"friction": 100 //10 (10 = 1:1 with rock ice)
 		},
 		{
-			"uuid": "d739fdf9-2c61-47ea-88ab-beac6a6c35c1",
-			"renderable": {
-				"lodList": [
-					{
-						"subMeshList": [
-							{
-								"textureList": [
-									"$GAME_DATA/Objects/Textures/vehicle/obj_vehicle_bigwheel_dif.tga",
-									"$GAME_DATA/Objects/Textures/vehicle/obj_vehicle_bigwheel_asg.tga",
-									"$GAME_DATA/Objects/Textures/vehicle/obj_vehicle_bigwheel_nor.tga"
-								],
-								"material": "DifAsgNor"
-							},
-							{
-								"textureList": [
-									"$GAME_DATA/Objects/Textures/vehicle/obj_vehicle_bigwheel_dif.tga",
-									"$GAME_DATA/Objects/Textures/vehicle/obj_vehicle_bigwheel_asg.tga",
-									"$GAME_DATA/Objects/Textures/vehicle/obj_vehicle_bigwheel_nor.tga"
-								],
-								"material": "DifAsgNor"
-							}
-						],
-						"mesh": "$MOD_DATA/Objects/Mesh/spiked_wheel.obj"
-					}
-				]
-			},
+			"uuid": "d739fdf9-2c61-47ea-88ab-beac6a6c35c1", // spiked wheel
+			"renderable": "$CONTENT_DATA/Objects/Renderables/obj_vehicle_spikewheel.rend",
 			"rotationSet": "PropZ",
 			"color": "df7f00",
 			"cylinder": { "diameter": 5, "depth": 2, "margin": 0.5, "axis": "Z" },
@@ -1151,12 +1103,20 @@
 								"textureList": [
 									"$MOD_DATA/Objects/Textures/monitor_dif.png",
 									"$MOD_DATA/Objects/Textures/rims_asg.png",
-									"$GAME_DATA/Textures/nonor_nor.tga"
+									""
 								],
-								"material": "DifAsgNor"
+								"material": "DifAsg"
+							},
+							{
+								"textureList": [
+									"$MOD_DATA/Objects/Textures/black_dif.png",
+									"",
+									""
+								],
+								"material": "Dif"
 							}
 						],
-						"mesh": "$MOD_DATA/Objects/Mesh/RimLarge1.obj"
+						"mesh": "$MOD_DATA/Objects/Mesh/Als_RimLarge1.obj"
 					}
 				]
 			},
@@ -1199,12 +1159,20 @@
 								"textureList": [
 									"$MOD_DATA/Objects/Textures/monitor_dif.png",
 									"$MOD_DATA/Objects/Textures/rims_asg.png",
-									"$GAME_DATA/Textures/nonor_nor.tga"
+									""
 								],
-								"material": "DifAsgNor"
+								"material": "DifAsg"
+							},
+							{
+								"textureList": [
+									"$MOD_DATA/Objects/Textures/black_dif.png",
+									"",
+									""
+								],
+								"material": "Dif"
 							}
 						],
-						"mesh": "$MOD_DATA/Objects/Mesh/RimSmall1.obj"
+						"mesh": "$MOD_DATA/Objects/Mesh/Als_RimSmall1.obj"
 					}
 				]
 			},
@@ -1247,12 +1215,20 @@
 								"textureList": [
 									"$MOD_DATA/Objects/Textures/monitor_dif.png",
 									"$MOD_DATA/Objects/Textures/rims_asg.png",
-									"$GAME_DATA/Textures/nonor_nor.tga"
+									""
 								],
-								"material": "DifAsgNor"
+								"material": "DifAsg"
+							},
+							{
+								"textureList": [
+									"$MOD_DATA/Objects/Textures/black_dif.png",
+									"",
+									""
+								],
+								"material": "Dif"
 							}
 						],
-						"mesh": "$MOD_DATA/Objects/Mesh/RimLarge2.obj"
+						"mesh": "$MOD_DATA/Objects/Mesh/Als_RimLarge2.obj"
 					}
 				]
 			},
@@ -1295,12 +1271,20 @@
 								"textureList": [
 									"$MOD_DATA/Objects/Textures/monitor_dif.png",
 									"$MOD_DATA/Objects/Textures/rims_asg.png",
-									"$GAME_DATA/Textures/nonor_nor.tga"
+									""
 								],
-								"material": "DifAsgNor"
+								"material": "DifAsg"
+							},
+							{
+								"textureList": [
+									"$MOD_DATA/Objects/Textures/black_dif.png",
+									"",
+									""
+								],
+								"material": "Dif"
 							}
 						],
-						"mesh": "$MOD_DATA/Objects/Mesh/RimSmall2.obj"
+						"mesh": "$MOD_DATA/Objects/Mesh/Als_RimSmall2.obj"
 					}
 				]
 			},
@@ -1343,12 +1327,20 @@
 								"textureList": [
 									"$MOD_DATA/Objects/Textures/monitor_dif.png",
 									"$MOD_DATA/Objects/Textures/rims_asg.png",
-									"$GAME_DATA/Textures/nonor_nor.tga"
+									""
 								],
-								"material": "DifAsgNor"
+								"material": "DifAsg"
+							},
+							{
+								"textureList": [
+									"$MOD_DATA/Objects/Textures/black_dif.png",
+									"",
+									""
+								],
+								"material": "Dif"
 							}
 						],
-						"mesh": "$MOD_DATA/Objects/Mesh/RimLarge3.obj"
+						"mesh": "$MOD_DATA/Objects/Mesh/Als_RimLarge3.obj"
 					}
 				]
 			},
@@ -1391,12 +1383,20 @@
 								"textureList": [
 									"$MOD_DATA/Objects/Textures/monitor_dif.png",
 									"$MOD_DATA/Objects/Textures/rims_asg.png",
-									"$GAME_DATA/Textures/nonor_nor.tga"
+									""
 								],
-								"material": "DifAsgNor"
+								"material": "DifAsg"
+							},
+							{
+								"textureList": [
+									"$MOD_DATA/Objects/Textures/black_dif.png",
+									"",
+									""
+								],
+								"material": "Dif"
 							}
 						],
-						"mesh": "$MOD_DATA/Objects/Mesh/RimSmall3.obj"
+						"mesh": "$MOD_DATA/Objects/Mesh/Als_RimSmall3.obj"
 					}
 				]
 			},

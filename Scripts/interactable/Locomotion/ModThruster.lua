@@ -60,7 +60,7 @@ function ModThruster:client_onCreate()
 	self.gears = cur_data.gears
 	self.gear_count = cur_data.gear_count
 
-	self.thrust_effect = sm.effect.createEffect("Thruster - Level 1", self.interactable)
+	self.thrust_effect = sm.effect.createEffect("Thruster - Level 4", self.interactable)
 	self.thrust_effect:setOffsetPosition(cur_data.effect_offset)
 	
 	self.cl_thruster_active = false

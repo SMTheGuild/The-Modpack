@@ -29,12 +29,12 @@ SmartSensor.raypoints = {
 	sm.vec3.new(0,-0.118,0)
 }
 SmartSensor.modes = {
-	{ value = 0, targetPose = 0, 	icon = '1\ndist',     description = "1 raycast, distance mode" },
-    { value = 1, targetPose = 0.8, 	icon = 'wide\ndist',  description = "Wide raycast, distance mode" },
-	{ value = 2, targetPose = 0, 	icon = '1\ncolor',    description = "1 raycast, color mode" },
-	{ value = 3, targetPose = 0.8, 	icon = 'wide\ncolor', description = "Wide raycast, color mode" },
-	{ value = 4, targetPose = 0, 	icon = 'type',        description = "Nothing: 0                        Body: 4\nTerrain surface: 1          Character: 5\nTerrain asset: 2              Joint: 6\nLift: 3                                 Vision: 7" },
-	{ value = 5, targetPose = 0,	icon = 'item\ncount', description = "container mode, get the amount of items in a container" }
+	{ value = 0, targetPose = 0.2, 	icon = '1\ndist',     description = "1 raycast, distance mode" },
+    { value = 1, targetPose = 1.0, 	icon = 'wide\ndist',  description = "Wide raycast, distance mode" },
+	{ value = 2, targetPose = 0.2, 	icon = '1\ncolor',    description = "1 raycast, color mode" },
+	{ value = 3, targetPose = 1.0, 	icon = 'wide\ncolor', description = "Wide raycast, color mode" },
+	{ value = 4, targetPose = 0.2, 	icon = 'type',        description = "Nothing: 0                        Body: 4\nTerrain surface: 1          Character: 5\nTerrain asset: 2              Joint: 6\nLift: 3                                 Vision: 7" },
+	{ value = 5, targetPose = 0.2,	icon = 'item\ncount', description = "container mode, get the amount of items in a container" }
 }
 SmartSensor.modeCount = #SmartSensor.modes
 SmartSensor.savemodes = {}
