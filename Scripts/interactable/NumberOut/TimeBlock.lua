@@ -1,20 +1,21 @@
 --[[
 	Copyright (c) 2020 Modpack Team
 	Brent Batch#9261
-]]--
+]]
+   --
 dofile "../../libs/load_libs.lua"
 
-print("loading TimeBlock.lua")
+print("Loading TimeBlock.lua")
 
 ---@class TimeBlock : ShapeClass
 ---@field lastClockvalue integer
-TimeBlock = class( nil )
+TimeBlock = class(nil)
 TimeBlock.maxParentCount = 0
 TimeBlock.maxChildCount = -1
 TimeBlock.connectionInput = sm.interactable.connectionType.none
 TimeBlock.connectionOutput = sm.interactable.connectionType.power
-TimeBlock.colorNormal = sm.color.new( 0xccccccff  )
-TimeBlock.colorHighlight = sm.color.new( 0xF2F2F2ff  )
+TimeBlock.colorNormal = sm.color.new(0xccccccff)
+TimeBlock.colorHighlight = sm.color.new(0xF2F2F2ff)
 TimeBlock.poseWeightCount = 0
 
 function TimeBlock:server_onRefresh()
@@ -22,7 +23,7 @@ function TimeBlock:server_onRefresh()
 	self:server_onCreate()
 end
 
-function TimeBlock:server_onCreate() 
+function TimeBlock:server_onCreate()
 	sm.interactable.setValue(self.interactable, os.time())
 end
 

@@ -1,16 +1,18 @@
 --[[
 	Copyright (c) 2020 Modpack Team
 	Brent Batch#9261
-]]--
+]]
+   --
 dofile "../../libs/load_libs.lua"
 
-print("loading SmartControl.lua")
+print("Loading SmartControl.lua")
 
 
-SmartControl = class( nil )
+SmartControl = class(nil)
 SmartControl.maxChildCount = -1
 SmartControl.maxParentCount = -1
-SmartControl.connectionInput = sm.interactable.connectionType.power + sm.interactable.connectionType.logic + sm.interactable.connectionType.electricity
+SmartControl.connectionInput = sm.interactable.connectionType.power + sm.interactable.connectionType.logic +
+sm.interactable.connectionType.electricity
 SmartControl.connectionOutput = sm.interactable.connectionType.piston + sm.interactable.connectionType.bearing
 SmartControl.colorNormal = sm.color.new(0xe54500ff)
 SmartControl.colorHighlight = sm.color.new(0xff7033ff)
@@ -75,10 +77,10 @@ function SmartControl:server_onFixedUpdate(dt)
 			haslogic = true
 		end
 	end
-	if seats>0 then seat = seat/seats else seat = 1 end -- take average of all seat WS, no seat -> just enable this thing
-	if not haslogic then logic = 1 end -- default on if no logic input
-	if not stiffness then stiffness = 100 end -- default suspension-ish behaviour
-	
+	if seats > 0 then seat = seat / seats else seat = 1 end -- take average of all seat WS, no seat -> just enable this thing
+	if not haslogic then logic = 1 end               -- default on if no logic input
+	if not stiffness then stiffness = 100 end        -- default suspension-ish behaviour
+
 	-- game limits: (functions will throw errors when not limited between -3.402e+38 and 3.402e+38)
 	if speed then speed = sm.util.clamp(speed, -3.402e+38, 3.402e+38) end
 	if strength then strength = sm.util.clamp(strength, -3.402e+38, 3.402e+38) end
@@ -96,29 +98,31 @@ function SmartControl:server_onFixedUpdate(dt)
 		local fuel_cost = 0
 
 		local angle = (anglelength ~= nil and math.rad(anglelength) or nil)
-		local rotationspeed = (speed ~= nil and math.rad(speed) or math.rad(0))-- speed 0 by default as to not let it rotate bearing when no inputs
+		local rotationspeed = (speed ~= nil and math.rad(speed) or math.rad(0)) -- speed 0 by default as to not let it rotate bearing when no inputs
 		local rotationstrength = (strength ~= nil and strength or 10000)
-		for k, v in pairs(sm.interactable.getBearings(self.interactable )) do
+		for k, v in pairs(sm.interactable.getBearings(self.interactable)) do
 			if anglelength == nil then
 				-- engine
-				sm.joint.setMotorVelocity(v, rotationspeed*seat, rotationstrength ) 
+				sm.joint.setMotorVelocity(v, rotationspeed * seat, rotationstrength)
 			else
 				-- controller
-				local angle1 = math.deg(angle)%360 - (math.deg(angle)%360 > 180 and 360 or 0)
-				local angle2 = (math.deg(v.angle)%360 - (math.deg(v.angle)%360 > 180 and 360 or 0))*(v.reversed  and 1 or -1)
-				local extraforce = math.abs(((angle1 - angle2)+180)%360-180)/1000*stiffness
+				local angle1 = math.deg(angle) % 360 - (math.deg(angle) % 360 > 180 and 360 or 0)
+				local angle2 = (math.deg(v.angle) % 360 - (math.deg(v.angle) % 360 > 180 and 360 or 0)) *
+				(v.reversed and 1 or -1)
+				local extraforce = math.abs(((angle1 - angle2) + 180) % 360 - 180) / 1000 * stiffness
 
-				sm.joint.setTargetAngle( v, angle*seat, rotationspeed, rotationstrength*(1+ extraforce) - v.angularVelocity*10) -- change 10 to 1-200 depending on how well dampening oscillations works
+				sm.joint.setTargetAngle(v, angle * seat, rotationspeed,
+					rotationstrength * (1 + extraforce) - v.angularVelocity * 10)                                   -- change 10 to 1-200 depending on how well dampening oscillations works
 			end
 
 			local rotation_val = math.abs(v.angularVelocity) * rotationstrength
 			fuel_cost = fuel_cost + (rotation_val * 0.04)
 		end
-		
+
 		local length = (anglelength ~= nil and anglelength or 0)
-		local pistonspeed = (speed ~= nil and speed or 15)--default to 15
+		local pistonspeed = (speed ~= nil and speed or 15) --default to 15
 		local pistonstrength = (strength ~= nil and strength or 6666)
-		for k, v in pairs(sm.interactable.getPistons(self.interactable )) do
+		for k, v in pairs(sm.interactable.getPistons(self.interactable)) do
 			local v_id = v.id
 			local old_length = self.delta_length[v_id] or 0
 
@@ -126,14 +130,16 @@ function SmartControl:server_onFixedUpdate(dt)
 			if not self.last_length[v_id] then self.last_length[v_id] = v.length end
 			if self.delta_length[v_id] ~= v.length then self.delta_length[v_id] = v.length end
 
-			local extraforce = math.abs(length - (v.length-1))*stiffness/100
-			local maxImpulse = pistonstrength*(1+ extraforce )  - (v.length-self.last_length[v_id])*10 -- change 10 to 1-200 depending on how well dampening oscillations works
+			local extraforce = math.abs(length - (v.length - 1)) * stiffness / 100
+			local maxImpulse = pistonstrength * (1 + extraforce) -
+			(v.length - self.last_length[v_id]) *
+			10                                                                                -- change 10 to 1-200 depending on how well dampening oscillations works
 			maxImpulse = sm.util.clamp(maxImpulse, -3.402e+38, 3.402e+38)
 
 			local p_speed = math.abs(old_length - v.length) * 0.1
 			fuel_cost = fuel_cost + (pistonspeed * pistonstrength) * p_speed
 
-			sm.joint.setTargetLength( v, length*seat, pistonspeed, maxImpulse )
+			sm.joint.setTargetLength(v, length * seat, pistonspeed, maxImpulse)
 		end
 
 		if can_spend_fuel then
@@ -142,31 +148,35 @@ function SmartControl:server_onFixedUpdate(dt)
 	else
 		local rotationspeed = (speed ~= nil and math.rad(speed) or math.rad(90)) -- if no input speed setting set , give it a 90°/s speed as to be able to reset bearing to 0°
 		local rotationstrength = (strength ~= nil and strength or 10000)
-		for k, v in pairs(sm.interactable.getBearings(self.interactable )) do
+		for k, v in pairs(sm.interactable.getBearings(self.interactable)) do
 			if anglelength == nil then
-				sm.joint.setMotorVelocity(v, 0, rotationstrength )
-			else -- check if v.reversed works suspension-ish when powering off the smart engine  ('v.reversed and 1 or -1)--> test with reversed bearings
-				local extraforce = math.abs(v.angle)*(v.reversed  and 1 or -1)/1000*stiffness -- acts more like suspension when strength collapses for current force
+				sm.joint.setMotorVelocity(v, 0, rotationstrength)
+			else                                                                  -- check if v.reversed works suspension-ish when powering off the smart engine  ('v.reversed and 1 or -1)--> test with reversed bearings
+				local extraforce = math.abs(v.angle) * (v.reversed and 1 or -1) / 1000 *
+				stiffness                                                         -- acts more like suspension when strength collapses for current force
 
-				local maxImpulse = rotationstrength*(1+ extraforce) - v.angularVelocity*10 -- change 10 to 1-200 depending on how well dampening oscillations works
+				local maxImpulse = rotationstrength * (1 + extraforce) -
+				v.angularVelocity * 10                                            -- change 10 to 1-200 depending on how well dampening oscillations works
 				maxImpulse = sm.util.clamp(maxImpulse, -3.402e+38, 3.402e+38)
 
-				sm.joint.setTargetAngle( v, 0, rotationspeed, maxImpulse)
+				sm.joint.setTargetAngle(v, 0, rotationspeed, maxImpulse)
 			end
 		end
-		
+
 		local length = (anglelength ~= nil and anglelength or 0)
-		local pistonspeed = (speed ~= nil and speed or 15)--default to 15
+		local pistonspeed = (speed ~= nil and speed or 15) --default to 15
 		local pistonstrength = (strength ~= nil and strength or 6666)
-		for k, v in pairs(sm.interactable.getPistons(self.interactable )) do
+		for k, v in pairs(sm.interactable.getPistons(self.interactable)) do
 			-- delta length for suspension-ish
 			if not self.last_length[v.id] then self.last_length[v.id] = v.length end
-			local extraforce = math.abs(length - (v.length-1))*stiffness/100
+			local extraforce = math.abs(length - (v.length - 1)) * stiffness / 100
 
-			local maxImpulse = pistonstrength*(1+ extraforce) - (v.length-self.last_length[v.id])*10 -- change 10 to 1-200 depending on how well dampening oscillations works
+			local maxImpulse = pistonstrength * (1 + extraforce) -
+			(v.length - self.last_length[v.id]) *
+			10                                                                              -- change 10 to 1-200 depending on how well dampening oscillations works
 			maxImpulse = sm.util.clamp(maxImpulse, -3.402e+38, 3.402e+38)
 
-			sm.joint.setTargetLength( v, 0, pistonspeed, maxImpulse )
+			sm.joint.setTargetLength(v, 0, pistonspeed, maxImpulse)
 		end
 	end
 

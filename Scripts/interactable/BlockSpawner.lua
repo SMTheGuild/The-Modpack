@@ -3,17 +3,17 @@ dofile "../libs/debugger.lua"
 dofile("../libs/load_libs.lua")
 dofile("../util/shape_database.lua")
 
-print("loading BlockSpawner.lua")
+print("Loading BlockSpawner.lua")
 
 
 -- BlockSpawner.lua --
-BlockSpawner = class( nil )
+BlockSpawner = class(nil)
 BlockSpawner.maxChildCount = -1
 BlockSpawner.maxParentCount = -1
 BlockSpawner.connectionInput = sm.interactable.connectionType.logic + sm.interactable.connectionType.power
 BlockSpawner.connectionOutput = sm.interactable.connectionType.logic
-BlockSpawner.colorNormal = sm.color.new( 0x404040ff )
-BlockSpawner.colorHighlight = sm.color.new( 0x606060ff )
+BlockSpawner.colorNormal = sm.color.new(0x404040ff)
+BlockSpawner.colorHighlight = sm.color.new(0x606060ff)
 BlockSpawner.poseWeightCount = 2
 
 BlockSpawner.measureDistance = 20
@@ -40,11 +40,11 @@ BlockSpawner.measureDistance = 20
     1 tick signal with a delay of 2 ticks if the block is spawned.
     Can cause a false positive when there is lag present.
 ]]
-function BlockSpawner.server_onRefresh( self )
+function BlockSpawner.server_onRefresh(self)
     self:server_onCreate()
 end
 
-function BlockSpawner.server_onCreate( self )
+function BlockSpawner.server_onCreate(self)
     self.hasSpawned = false
     self.lastSpawnedShape = nil
     self.lastSpawnedShapeTick = nil
@@ -52,29 +52,29 @@ function BlockSpawner.server_onCreate( self )
     --self.BlockSpawner = nil
 end
 
-function BlockSpawner.client_onCreate( self )
+function BlockSpawner.client_onCreate(self)
     self:client_setSelfEnabled(false)
 end
 
 function BlockSpawner.printDescription()
     -- Chat doesn't have a monospace font
-    local message = "\nPart spawner usage: \n"..
-    "---------------------Logic signal----------------------\n"..
-    "Any logic                    = Spawn block/part\n"..
-    "2nd grey                #7f7f7f█#ffffff = dynamic\n"..
-    "3rd grey                 #4a4a4a█#ffffff = forceSpawn\n"..
-    "--------------------Number signals--------------------\n"..
-    "2nd brown             #df7f00█#ffffff = offsetZ\n"..
-    "2nd red                  #d02525█#ffffff = offsetY\n"..
-    "2nd magenta         #cf11d2█#ffffff = offsetX\n"..
-    "white/Color Block █ = color\n"..
-    "black/Sensor         #222222█#ffffff = shapeID\n"..
-    "4th brown              #472800█#ffffff = sizeZ\n"..
-    "4th red                   #560202█#ffffff = sizeY\n"..
-    "4th magenta          #520653█#ffffff = sizeX\n"..
-    "------------------------Output-------------------------\n"..
-    "1 tick signal with a delay of 2 ticks if the block is spawned. "..
-    "Can cause a false positive when there is lag present."
+    local message = "\nPart spawner usage: \n" ..
+        "---------------------Logic signal----------------------\n" ..
+        "Any logic                    = Spawn block/part\n" ..
+        "2nd grey                #7f7f7f█#ffffff = dynamic\n" ..
+        "3rd grey                 #4a4a4a█#ffffff = forceSpawn\n" ..
+        "--------------------Number signals--------------------\n" ..
+        "2nd brown             #df7f00█#ffffff = offsetZ\n" ..
+        "2nd red                  #d02525█#ffffff = offsetY\n" ..
+        "2nd magenta         #cf11d2█#ffffff = offsetX\n" ..
+        "white/Color Block █ = color\n" ..
+        "black/Sensor         #222222█#ffffff = shapeID\n" ..
+        "4th brown              #472800█#ffffff = sizeZ\n" ..
+        "4th red                   #560202█#ffffff = sizeY\n" ..
+        "4th magenta          #520653█#ffffff = sizeX\n" ..
+        "------------------------Output-------------------------\n" ..
+        "1 tick signal with a delay of 2 ticks if the block is spawned. " ..
+        "Can cause a false positive when there is lag present."
     sm.gui.chatMessage(message)
 end
 
@@ -85,14 +85,14 @@ function BlockSpawner.client_canInteract(self)
     return true
 end
 
-function BlockSpawner.client_onInteract( self, character, lookAt )
+function BlockSpawner.client_onInteract(self, character, lookAt)
     if not lookAt then return end
 
     sm.audio.play("GUI Item released")
     self:printDescription()
 end
 
-function BlockSpawner.server_onFixedUpdate( self, timeStep )
+function BlockSpawner.server_onFixedUpdate(self, timeStep)
     local spawner_active = false
 
     local wantSpawn = false --If one of the parents is active
@@ -119,28 +119,28 @@ function BlockSpawner.server_onFixedUpdate( self, timeStep )
 
     local parents = self.interactable:getParents()
     if #parents > 0 then
-        for k,v in pairs(parents) do
+        for k, v in pairs(parents) do
             local _pType = v:getType()
             local _pUuid = tostring(v:getShape():getShapeUuid())
             local _pSteering = v:hasSteering()
             if not _pSteering then
                 if _pType == "scripted" and _pUuid ~= "6f2dd83e-bc0d-43f3-8ba5-d5209eb03d07" then -- Number stuff and not tick button
-                    if _pUuid == "921a2ace-b543-4ca3-8a9b-6f3dd3132fa9" then --colorblock
-                        color = sm.color.new(v.power * 2^8 + 255)
-                    elseif _pUuid == "4081ca6f-6b80-4c39-9e79-e1f747039bec" then --smart sensor
+                    if _pUuid == "921a2ace-b543-4ca3-8a9b-6f3dd3132fa9" then                      --colorblock
+                        color = sm.color.new(v.power * 2 ^ 8 + 255)
+                    elseif _pUuid == "4081ca6f-6b80-4c39-9e79-e1f747039bec" then                  --smart sensor
                         if v.active then
                             sensorShape = v.shape
                         end
                     else
                         local _pColor = tostring(v:getShape():getColor())
-                        if _pColor == "df7f00ff" then -- 2nd brown
+                        if _pColor == "df7f00ff" then     -- 2nd brown
                             offsetZ = v.power
                         elseif _pColor == "d02525ff" then -- 2nd red
                             offsetY = v.power
                         elseif _pColor == "cf11d2ff" then -- 2nd magenta
                             offsetX = v.power
                         elseif _pColor == "eeeeeeff" then -- white
-                            color = sm.color.new(v.power * 2^8 + 255)
+                            color = sm.color.new(v.power * 2 ^ 8 + 255)
                         elseif _pColor == "472800ff" then -- 4th brown
                             sizeZ = v.power
                         elseif _pColor == "560202ff" then -- 4th red
@@ -155,9 +155,9 @@ function BlockSpawner.server_onFixedUpdate( self, timeStep )
                     if v.active then
                         sensorShape = v.shape
                     end
-                else -- Logic
+                else                                  -- Logic
                     local _pColor = tostring(v:getShape():getColor())
-                    if _pColor == "7f7f7fff" then -- 2nd grey
+                    if _pColor == "7f7f7fff" then     -- 2nd grey
                         dynamic = v.active
                     elseif _pColor == "4a4a4aff" then -- 3nd grey
                         forceSpawn = v.active
@@ -205,7 +205,8 @@ function BlockSpawner.server_onFixedUpdate( self, timeStep )
         if numericId == nil then
             --print(sm.game.getCurrentTick(), numericId)
             --print("*pokes*", sensorShape, "go do raycast")
-            local hit,raycastResult = sm.physics.raycast(sensorShape.worldPosition, sensorShape.worldPosition + -sensorShape.up * self.measureDistance * -0.25)
+            local hit, raycastResult = sm.physics.raycast(sensorShape.worldPosition,
+                sensorShape.worldPosition + -sensorShape.up * self.measureDistance * -0.25)
             if hit and raycastResult.type == "body" then
                 local rcShape = raycastResult:getShape()
                 --local rcJoint = raycastResult:getJoint() --Raycast does not hit joints. Bug?
@@ -230,13 +231,14 @@ function BlockSpawner.server_onFixedUpdate( self, timeStep )
         -- Try spawn
         if uuid ~= sm.uuid.getNil() then
             -- Calculate rotation
-            rotation = self.shape.worldRotation * sm.quat.new(0, 0.70710678118, 0.70710678118, 0)   --sm.quat.lookRotation(-self.shape.up, self.shape.at)
+            rotation = self.shape.worldRotation *
+                sm.quat.new(0, 0.70710678118, 0.70710678118, 0) --sm.quat.lookRotation(-self.shape.up, self.shape.at)
 
             -- Spawn block
             local succes, spawnedShape = pcall(sm.shape.createBlock,
                 uuid,
                 sm.vec3.new(sizeX, sizeY, sizeZ),
-                self.shape:getWorldPosition() + rotation * sm.vec3.new(offsetX-0.5, offsetY-1, offsetZ-0.5) * 0.25,
+                self.shape:getWorldPosition() + rotation * sm.vec3.new(offsetX - 0.5, offsetY - 1, offsetZ - 0.5) * 0.25,
                 rotation,
                 dynamic,
                 forceSpawn
@@ -246,7 +248,8 @@ function BlockSpawner.server_onFixedUpdate( self, timeStep )
             if not succes then
                 succes, spawnedShape = pcall(sm.shape.createPart,
                     uuid,
-                    self.shape:getWorldPosition() + rotation * sm.vec3.new(offsetX-0, offsetY-0.5, offsetZ-0.5) * 0.25,
+                    self.shape:getWorldPosition() + rotation * sm.vec3.new(offsetX - 0, offsetY - 0.5, offsetZ - 0.5) *
+                    0.25,
                     rotation,
                     dynamic,
                     forceSpawn
@@ -280,28 +283,26 @@ function BlockSpawner.server_onFixedUpdate( self, timeStep )
     end
 end
 
-function BlockSpawner.client_setDisplay( self, value )
+function BlockSpawner.client_setDisplay(self, value)
     self.interactable:setUvFrameIndex(value)
 end
 
-function BlockSpawner.client_setSelfEnabled( self, value )
+function BlockSpawner.client_setSelfEnabled(self, value)
     self:client_setLightRedEnabled(not value)
     self:client_setLightGreenEnabled(value)
 end
 
-function BlockSpawner.client_setLightRedEnabled( self, value )
+function BlockSpawner.client_setLightRedEnabled(self, value)
     self.interactable:setPoseWeight(0, value and 1 or 0)
 end
 
-function BlockSpawner.client_setLightGreenEnabled( self, value )
+function BlockSpawner.client_setLightGreenEnabled(self, value)
     self.interactable:setPoseWeight(1, value and 1 or 0)
 end
 
-
-
 function round(x)
-  if x%2 ~= 0.5 then
-    return math.floor(x+0.5)
-  end
-  return x-0.5
+    if x % 2 ~= 0.5 then
+        return math.floor(x + 0.5)
+    end
+    return x - 0.5
 end

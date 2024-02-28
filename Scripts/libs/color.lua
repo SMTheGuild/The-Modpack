@@ -37,21 +37,23 @@ function sm.color.toHSV( in_rgb )
 end
 --]]
 
---HSV to RGB converter
-function sm.color.toRGB( hsv )
-	hsv.h = sm.util.clamp( hsv.h, -360000000, 360000000 )
+--- HSV to RGB converter
+---@param hsv table The HSV color value to convert.
+---@return Color color The resulting RGBA color.
+function sm.color.toRGB(hsv)
+	hsv.h = sm.util.clamp(hsv.h, -360000000, 360000000)
 	local C = hsv.v * hsv.s
-	local X = C * ( 1 - math.abs( ((hsv.h / 60) % 2) - 1 ) )
+	local X = C * (1 - math.abs(((hsv.h / 60) % 2) - 1))
 	local M = hsv.v - C
-	local H = math.floor( hsv.h % 360 / 60 )
+	local H = math.floor(hsv.h % 360 / 60)
 	local out_rgb
 	local rgb = {}
-	rgb[0] = function( C, X ) return { r = C, g = X, b = 0 } end
-	rgb[1] = function( C, X ) return { r = X, g = C, b = 0 } end
-	rgb[2] = function( C, X ) return { r = 0, g = C, b = X } end
-	rgb[3] = function( C, X ) return { r = 0, g = X, b = C } end
-	rgb[4] = function( C, X ) return { r = X, g = 0, b = C } end
-	rgb[5] = function( C, X ) return { r = C, g = 0, b = X } end
-	out_rgb = rgb[H]( C, X )
-	return sm.color.new( out_rgb.r + M, out_rgb.g + M, out_rgb.b + M)
+	rgb[0] = function(C, X) return { r = C, g = X, b = 0 } end
+	rgb[1] = function(C, X) return { r = X, g = C, b = 0 } end
+	rgb[2] = function(C, X) return { r = 0, g = C, b = X } end
+	rgb[3] = function(C, X) return { r = 0, g = X, b = C } end
+	rgb[4] = function(C, X) return { r = X, g = 0, b = C } end
+	rgb[5] = function(C, X) return { r = C, g = 0, b = X } end
+	out_rgb = rgb[H](C, X)
+	return sm.color.new(out_rgb.r + M, out_rgb.g + M, out_rgb.b + M)
 end
