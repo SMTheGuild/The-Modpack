@@ -57,23 +57,52 @@ CounterBlock.digs = {
 	["577d07ff"] = -0.00000001
 }
 
+local counters = {}
+
+sm.modpackAPI = sm.modpackAPI or {}
+sm.modpackAPI.counter = {}
+
+function sm.modpackAPI.counter.setValue(interactableid, value)
+    local counter = counters[interactableid]
+    if counter then
+        counter.power = value
+        counter.interactable:setPower(value)
+        counter.needssave = true
+        return true
+    end
+	return false
+end
+
+function sm.modpackAPI.counter.getValue(interactableid)
+    local counter = counters[interactableid]
+    if counter then
+        return counter.power
+    end
+    return nil
+end
 
 function CounterBlock.server_onRefresh( self )
-	sm.isDev = true
-	self:server_onCreate()
+    sm.isDev = true
+    self:server_onCreate()
 end
 
 function CounterBlock.server_onCreate( self )
-	local stored = self.storage:load()
-	if stored then
-		if type(stored) == "table" then -- compatible with old versions (they used a jank workaround for a bug back then)
-			self.power = tonumber(stored[1])
-		else
-			self.power = tonumber(stored)
-		end
-		self.interactable:setPower(self.power)
-	end
-	sm.interactable.setValue(self.interactable, self.power)
+    local stored = self.storage:load()
+    if stored then
+        if type(stored) == "table" then -- compatible with old versions (they used a jank workaround for a bug back then)
+            self.power = tonumber(stored[1])
+        else
+            self.power = tonumber(stored)
+        end
+        self.interactable:setPower(self.power)
+    end
+    sm.interactable.setValue(self.interactable, self.power)
+
+    counters[self.interactable.id] = self
+end
+
+function CounterBlock.server_onDestroy(self)
+	counters[self.interactable.id] = nil
 end
 
 function CounterBlock.server_onFixedUpdate( self, dt )

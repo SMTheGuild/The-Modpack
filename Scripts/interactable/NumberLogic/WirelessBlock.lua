@@ -17,27 +17,78 @@ WirelessBlock.colorHighlight = sm.color.new( 0xaaaaaaff )
 WirelessBlock.poseWeightCount = 3
 
 if not wirelessdata then wirelessdata = {} end
+local wirelessrouters = {}
 
+sm.modpackAPI = sm.modpackAPI or {}
+sm.modpackAPI.wirelessblock = {}
+function sm.modpackAPI.wirelessblock.setIsSender(interactableid, isSender)
+    local block = wirelessrouters[interactableid]
+    if block then
+        block.IsSender = isSender
+        block.storage:save(isSender)
+		block.needUpdateMode = true
+        return true
+    end
+    return false
+end
+
+function sm.modpackAPI.wirelessblock.getIsSender(interactableid)
+    local block = wirelessrouters[interactableid]
+    if block then
+        return block.IsSender
+    end
+    return nil
+end
+
+function sm.modpackAPI.wirelessblock.getWirelessData()
+    return wirelessdata
+end
+
+function sm.modpackAPI.wirelessblock.getWirelessDataValues(frequency, color)
+    local data = wirelessdata[frequency]
+    if data then
+		-- data[color] is a table of interactables
+        local valuesTable = {}
+		for _, interactable in pairs(data[color]) do
+			local value = sm.interactable.getValue_shadow(interactable)[1]
+			if value then
+				table.insert(valuesTable, {interactable.id, value})
+			end
+		end
+		return valuesTable
+    end
+    return nil
+end
 
 function WirelessBlock.server_onRefresh( self )
 	sm.isDev = true
 	self:server_onCreate()
 end
 function WirelessBlock.server_onCreate( self )
-	self.IsSender = true
-	local stored = self.storage:load()
-	if stored ~= nil then
-		if type(stored) == "number" then
-			self.IsSender = (stored == 1) -- backwards compatibility with workaround artifacts
-		else -- boolean
-			self.IsSender = stored 
-		end
-	end
-	self.storage:save(self.IsSender)
+    self.IsSender = true
+	self.needUpdateMode = false
+    local stored = self.storage:load()
+    if stored ~= nil then
+        if type(stored) == "number" then
+            self.IsSender = (stored == 1) -- backwards compatibility with workaround artifacts
+        else -- boolean
+            self.IsSender = stored
+        end
+    end
+    self.storage:save(self.IsSender)
+
+    wirelessrouters[self.interactable.id] = self
+end
+
+function WirelessBlock.server_onDestroy(self)
+	wirelessrouters[self.interactable.id] = nil
 end
 
 function WirelessBlock.server_onFixedUpdate( self, dt )
-
+	if self.needUpdateMode then
+		self.needUpdateMode = false
+		self:server_sendModeToClient(false)
+	end
 	if self.IsSender then 
 		-- client side handles getting values and making them global so that the server receiver can read them.
 		mp_updateOutputData(self, 0, false) -- make sure nothing attached to a sender can get a value
@@ -66,8 +117,8 @@ function WirelessBlock.server_onFixedUpdate( self, dt )
 		local power_values = {}
 		
 		
-		if wirelessdata[frequency] and wirelessdata[frequency][color] then
-			for k, v in pairs(wirelessdata[frequency][color]) do
+        if wirelessdata[frequency] and wirelessdata[frequency][color] then
+            for k, v in pairs(wirelessdata[frequency][color]) do
 				if sm.exists(v) and sm.interactable.getValue_shadow(v) then
 					table.insert(power_values, sm.interactable.getValue_shadow(v)[1])
 					table.insert(pose_values, sm.interactable.getValue_shadow(v)[2]) -- shadow val should always exist.

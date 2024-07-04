@@ -9,14 +9,47 @@ print("loading MemoryPanel.lua")
 
 local memorypanels = {}
 
+sm.modpackAPI = sm.modpackAPI or {}
+sm.modpackAPI.memorypanel = {}
+
+function sm.modpackAPI.memorypanel.write(interactableid, saveValue)
+    local panel = memorypanels[interactableid]
+    if panel then
+        panel:server_setData(saveValue)
+        return true
+    end
+	return false
+end
+
 sm.modpack = {
-	memorypanelWrite = function(interactableid, saveValue)
-		local panel = memorypanels[interactableid]
-		if panel then
-			panel:server_setData(saveValue)
-		end
-	end
+	memorypanelWrite = sm.modpackAPI.memorypanel.write -- backwards compatibility with mods that use this function
 }
+
+function sm.modpackAPI.memorypanel.read(interactableid)
+    local panel = memorypanels[interactableid]
+    if panel then
+        return panel.data
+    end
+    return nil
+end
+
+function sm.modpackAPI.memorypanel.writeValue(interactableid, address, value)
+    local panel = memorypanels[interactableid]
+    if panel then
+        panel.data[address] = tonumber(value) or 0
+        panel.storage:save(panel.data)
+        return true
+    end
+    return false
+end
+
+function sm.modpackAPI.memorypanel.readValue(interactableid, address)
+	local panel = memorypanels[interactableid]
+	if panel then
+		return panel.data[address]
+	end
+	return nil
+end
 
 -- MemoryPanel.lua --
 MemoryPanel = class( nil )
@@ -56,6 +89,10 @@ function MemoryPanel.server_onCreate( self )
 	self.interactable:setPower(value)
 
 	memorypanels[self.interactable.id] = self
+end
+
+function MemoryPanel.server_onDestroy( self )
+	memorypanels[self.interactable.id] = nil
 end
 
 function MemoryPanel.server_setData(self, saveData)
