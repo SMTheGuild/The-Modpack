@@ -42,6 +42,27 @@ for k,v in pairs(SmartSensor.modes) do
    SmartSensor.savemodes[v.value] = k
 end
 
+local smartsensors = {}
+
+sm.modpackAPI = sm.modpackAPI or {}
+sm.modpackAPI.smartsensor = {}
+
+function sm.modpackAPI.smartsensor.setMode(interactableid, mode)
+    local sensor = smartsensors[interactableid]
+    if sensor then
+        sensor:sv_setMode({ mode = mode })
+        return true
+    end
+    return false
+end
+
+function sm.modpackAPI.smartsensor.getMode(interactableid)
+    local sensor = smartsensors[interactableid]
+    if sensor then
+        return sensor.mode
+    end
+    return nil
+end
 
 function SmartSensor.server_onRefresh( self )
 	sm.isDev = true
@@ -49,12 +70,18 @@ function SmartSensor.server_onRefresh( self )
 end
 
 function SmartSensor.server_onCreate( self )
-	local stored = self.storage:load()
-	if stored then
-		self.mode = self.savemodes[stored]
-	else
-		self.storage:save(self.modes[self.mode].value)
-	end
+    local stored = self.storage:load()
+    if stored then
+        self.mode = self.savemodes[stored]
+    else
+        self.storage:save(self.modes[self.mode].value)
+    end
+
+    smartsensors[self.interactable.id] = self
+end
+
+function SmartSensor.server_onDestroy(self)
+	smartsensors[self.interactable.id] = nil
 end
 
 function SmartSensor.server_onFixedUpdate( self, dt )

@@ -59,7 +59,7 @@ MathBlock.modetable = {--"value" aka "savevalue", gets saved, gets loaded.
 }
 MathBlock.savemodes = {}
 for k,v in pairs(MathBlock.modetable) do
-   MathBlock.savemodes[v.value]=k
+    MathBlock.savemodes[v.value]=k
 end
 
 MathBlock.modeFunctions = {
@@ -826,7 +826,26 @@ MathBlock.modeFunctions = {
 		end
 }
 
+local mathblocks = {}
+sm.modpackAPI = sm.modpackAPI or {}
+sm.modpackAPI.mathblock = {}
 
+function sm.modpackAPI.mathblock.getMode(interactableid)
+	local mathblock = mathblocks[interactableid]
+	if mathblock then
+		return mathblock.mode
+	end
+	return nil
+end
+
+function sm.modpackAPI.mathblock.setMode(interactableid, mode)
+	local mathblock = mathblocks[interactableid]
+	if mathblock then
+		mathblock.mode = mode
+        mathblock.storage:save(mathblock.modetable[mode].value)
+		mathblock.needUpdateUV = true
+	end
+end
 
 function MathBlock.server_onRefresh( self )
 	sm.isDev = true
@@ -834,26 +853,35 @@ function MathBlock.server_onRefresh( self )
 end
 
 function MathBlock.server_onCreate( self )
-	local stored = self.storage:load()
-	if stored then
-		if type(stored) == "number" then
-			self.mode = self.savemodes[stored]
-		elseif type(stored) == "table" then
-			self.mode = self.savemodes[stored.mode] -- backwards compatibility
-		end
-	else
-		self.storage:save(self.modetable[self.mode].value)
-	end
-	sm.interactable.setValue(self.interactable, 0)
+    local stored = self.storage:load()
+	self.needUpdateUV = false
+    if stored then
+        if type(stored) == "number" then
+            self.mode = self.savemodes[stored]
+        elseif type(stored) == "table" then
+            self.mode = self.savemodes[stored.mode] -- backwards compatibility
+        end
+    else
+        self.storage:save(self.modetable[self.mode].value)
+    end
+    sm.interactable.setValue(self.interactable, 0)
+
+    mathblocks[self.interactable.id] = self
 end
 
-
+function MathBlock.server_onDestroy(self)
+	mathblocks[self.interactable.id] = nil
+end
 
 function MathBlock.server_onFixedUpdate( self, dt )
 	local parents = self.interactable:getParents()
 
 	local mode = self.modetable[self.mode].value
-	self.modeFunctions[mode](self, parents)
+    self.modeFunctions[mode](self, parents)
+	if self.needUpdateUV then
+		self.network:sendToClients("cl_setMode", {self.mode, false})
+		self.needUpdateUV = false
+	end
 
 	self.lastmode = self.mode
 end

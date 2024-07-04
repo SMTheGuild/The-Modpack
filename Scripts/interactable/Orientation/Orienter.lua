@@ -129,6 +129,28 @@ end
 
 Orienter.modeCount = #Orienter.modetable
 
+local orientBlocks = {}
+
+sm.modpackAPI = sm.modpackAPI or {}
+sm.modpackAPI.orienter = {}
+
+function sm.modpackAPI.orienter.setMode(interactableid, mode)
+    local orienter = orientBlocks[interactableid]
+    if orienter then
+        orienter:sv_changeMode({ mode = mode })
+        return true
+    end
+    return false
+end
+
+function sm.modpackAPI.orienter.getMode(interactableid)
+	local orienter = orientBlocks[interactableid]
+	if orienter then
+		return orienter.mode
+	end
+	return nil
+end
+
 function Orienter.server_onCreate( self )
 	self:server_init()
 end
@@ -154,7 +176,8 @@ function Orienter.server_init( self )
 	self.storage:save(self.modetable[self.mode].savevalue)
 
 	if not orienters then orienters = {} end
-	self.id = self.shape.id
+    self.id = self.shape.id
+	orientBlocks[self.interactable.id] = self
 end
 
 function Orienter.client_onCreate(self)
@@ -398,6 +421,7 @@ end
 
 function Orienter.server_onDestroy(self)
 	orienters[self.id] = nil
+	orientBlocks[self.interactable.id] = nil
 end
 
 function Orienter.getplayer(self, data)  --self:getplayer({useexceptionlist = false, minrange = nil, maxrange = nil, offset = 1, tryid = nil, ignorejammers = false})
