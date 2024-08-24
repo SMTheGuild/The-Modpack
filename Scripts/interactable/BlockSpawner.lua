@@ -7,6 +7,11 @@ print("loading BlockSpawner.lua")
 
 
 -- BlockSpawner.lua --
+---@class BlockSpawner : ShapeClass
+---@field hasSpawned boolean
+---@field selfEnabled boolean
+---@field lastSpawnedShape Shape|nil
+---@field lastSpawnedShapeTick integer|nil
 BlockSpawner = class( nil )
 BlockSpawner.maxChildCount = -1
 BlockSpawner.maxParentCount = -1
@@ -23,6 +28,7 @@ BlockSpawner.measureDistance = 20
     Any logic         = Spawn block/part
     2nd grey          = dynamic
     3rd grey          = forceSpawn
+    2nd yellow        = transferMomentum
 
     -----------Number signals-----------
     2nd brown         = offsetZ
@@ -63,14 +69,15 @@ function BlockSpawner.printDescription()
     "Any logic                    = Spawn block/part\n"..
     "2nd grey                #7f7f7f█#ffffff = dynamic\n"..
     "3rd grey                 #4a4a4a█#ffffff = forceSpawn\n"..
+    "2nd yellow            #e2db13█#ffffff = transferMomentum\n"..
     "--------------------Number signals--------------------\n"..
-    "2nd brown             #df7f00█#ffffff = offsetZ\n"..
-    "2nd red                  #d02525█#ffffff = offsetY\n"..
+    "2nd brown              #df7f00█#ffffff = offsetZ\n"..
+    "2nd red                    #d02525█#ffffff = offsetY\n"..
     "2nd magenta         #cf11d2█#ffffff = offsetX\n"..
     "white/Color Block █ = color\n"..
     "black/Sensor         #222222█#ffffff = shapeID\n"..
     "4th brown              #472800█#ffffff = sizeZ\n"..
-    "4th red                   #560202█#ffffff = sizeY\n"..
+    "4th red                    #560202█#ffffff = sizeY\n"..
     "4th magenta          #520653█#ffffff = sizeX\n"..
     "------------------------Output-------------------------\n"..
     "1 tick signal with a delay of 2 ticks if the block is spawned. "..
@@ -96,6 +103,7 @@ function BlockSpawner.server_onFixedUpdate( self, timeStep )
     local spawner_active = false
 
     local wantSpawn = false --If one of the parents is active
+    local transferMomentum = false
 
     local offsetX = 0
     local offsetY = 0
@@ -111,11 +119,8 @@ function BlockSpawner.server_onFixedUpdate( self, timeStep )
     local sizeZ = 1
     local dynamic = true
     local forceSpawn = false
+    ---@type Shape|nil
     local sensorShape = nil
-
-
-
-
 
     local parents = self.interactable:getParents()
     if #parents > 0 then
@@ -161,6 +166,8 @@ function BlockSpawner.server_onFixedUpdate( self, timeStep )
                         dynamic = v.active
                     elseif _pColor == "4a4a4aff" then -- 3nd grey
                         forceSpawn = v.active
+                    elseif _pColor == "e2db13ff" then -- 2nd yellow
+                        transferMomentum = v.active
                     else
                         if not wantSpawn and v.active then
                             wantSpawn = true
@@ -203,6 +210,7 @@ function BlockSpawner.server_onFixedUpdate( self, timeStep )
 
     if not self.hasSpawned and wantSpawn then
         if numericId == nil then
+            ---@cast sensorShape Shape
             --print(sm.game.getCurrentTick(), numericId)
             --print("*pokes*", sensorShape, "go do raycast")
             local hit,raycastResult = sm.physics.raycast(sensorShape.worldPosition, sensorShape.worldPosition + -sensorShape.up * self.measureDistance * -0.25)
@@ -232,19 +240,19 @@ function BlockSpawner.server_onFixedUpdate( self, timeStep )
             -- Calculate rotation
             rotation = self.shape.worldRotation * sm.quat.new(0, 0.70710678118, 0.70710678118, 0)   --sm.quat.lookRotation(-self.shape.up, self.shape.at)
 
+            local success, spawnedShape
             -- Spawn block
-            local succes, spawnedShape = pcall(sm.shape.createBlock,
-                uuid,
-                sm.vec3.new(sizeX, sizeY, sizeZ),
-                self.shape:getWorldPosition() + rotation * sm.vec3.new(offsetX-0.5, offsetY-1, offsetZ-0.5) * 0.25,
-                rotation,
-                dynamic,
-                forceSpawn
-            )
-
-            -- If the UUID is not a block, it must be a part.
-            if not succes then
-                succes, spawnedShape = pcall(sm.shape.createPart,
+            if sm.item.isBlock(uuid) then
+                success, spawnedShape = pcall(sm.shape.createBlock,
+                    uuid,
+                    sm.vec3.new(sizeX, sizeY, sizeZ),
+                    self.shape:getWorldPosition() + rotation * sm.vec3.new(offsetX-0.5, offsetY-1, offsetZ-0.5) * 0.25,
+                    rotation,
+                    dynamic,
+                    forceSpawn
+                )
+            else
+                success, spawnedShape = pcall(sm.shape.createPart,
                     uuid,
                     self.shape:getWorldPosition() + rotation * sm.vec3.new(offsetX-0, offsetY-0.5, offsetZ-0.5) * 0.25,
                     rotation,
@@ -253,13 +261,19 @@ function BlockSpawner.server_onFixedUpdate( self, timeStep )
                 )
             end
 
-            if succes and color then -- Set the color of the spawned shape
-                spawnedShape.color = color
+            if success then -- Set the color of the spawned shape
+                if color then
+                    spawnedShape.color = color
+                end
+
+                if transferMomentum then
+                    sm.physics.applyImpulse(spawnedShape, self.shape:getVelocity() * spawnedShape.mass, true)
+                end
                 --print(self.shape:getBoundingBox(), self.shape:getWorldPosition(), spawnedShape:getWorldPosition(), self.shape:getWorldPosition()-spawnedShape:getWorldPosition())
             end
 
-            self.lastSpawnedShape = succes and spawnedShape or nil
-            self.lastSpawnedShapeTick = succes and sm.game.getCurrentTick() or nil
+            self.lastSpawnedShape = success and spawnedShape or nil
+            self.lastSpawnedShapeTick = success and sm.game.getCurrentTick() or nil
 
             self.hasSpawned = true
         else
@@ -300,8 +314,8 @@ end
 
 
 function round(x)
-  if x%2 ~= 0.5 then
-    return math.floor(x+0.5)
-  end
-  return x-0.5
+    if x%2 ~= 0.5 then
+        return math.floor(x+0.5)
+    end
+    return x-0.5
 end
