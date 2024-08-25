@@ -23,6 +23,22 @@ BlockSpawner.poseWeightCount = 2
 
 BlockSpawner.measureDistance = 20
 
+---Get the moment of inertia of a shape
+---@param shape Shape
+---@return Vec3 The moment of inertia
+local function getMomentOfInertia(shape)
+    local size = shape:getBoundingBox()
+    local mass = shape.mass
+    local x = size.x
+    local y = size.y
+    local z = size.z
+    return sm.vec3.new(
+        1/12 * mass * (y^2 + z^2),
+        1/12 * mass * (x^2 + z^2),
+        1/12 * mass * (x^2 + y^2)
+    )
+end
+
 --[[
     -----------Logic signal-------------
     Any logic         = Spawn block/part
@@ -268,6 +284,7 @@ function BlockSpawner.server_onFixedUpdate( self, timeStep )
 
                 if transferMomentum then
                     sm.physics.applyImpulse(spawnedShape, self.shape:getVelocity() * spawnedShape.mass, true)
+                    sm.physics.applyTorque(spawnedShape.body, self.shape.body:getAngularVelocity() * getMomentOfInertia(spawnedShape), true)
                 end
                 --print(self.shape:getBoundingBox(), self.shape:getWorldPosition(), spawnedShape:getWorldPosition(), self.shape:getWorldPosition()-spawnedShape:getWorldPosition())
             end
