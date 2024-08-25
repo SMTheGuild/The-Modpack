@@ -23,7 +23,9 @@ BlockSpawner.poseWeightCount = 2
 
 BlockSpawner.measureDistance = 20
 
----Get the moment of inertia of a shape
+local ROTATION_OFFSET = sm.quat.new(0, 0.70710678118, 0.70710678118, 0)
+
+---Get the moment of inertia of a shape, assuming it is a box.
 ---@param shape Shape
 ---@return Vec3 The moment of inertia
 local function getMomentOfInertia(shape)
@@ -254,7 +256,15 @@ function BlockSpawner.server_onFixedUpdate( self, timeStep )
         -- Try spawn
         if uuid ~= sm.uuid.getNil() then
             -- Calculate rotation
-            rotation = self.shape.worldRotation * sm.quat.new(0, 0.70710678118, 0.70710678118, 0)   --sm.quat.lookRotation(-self.shape.up, self.shape.at)
+            rotation = self.shape.worldRotation * ROTATION_OFFSET   --sm.quat.lookRotation(-self.shape.up, self.shape.at)
+
+            local velocityOffset
+            if transferMomentum then
+                local offset = sm.vec3.new(offsetX, offsetY, offsetZ)
+                velocityOffset = self.shape.velocity + self.shape.worldRotation * (offset:cross(ROTATION_OFFSET * self.shape.body.angularVelocity) * -1)
+            else
+                velocityOffset = sm.vec3.zero()
+            end
 
             local success, spawnedShape
             -- Spawn block
@@ -262,7 +272,7 @@ function BlockSpawner.server_onFixedUpdate( self, timeStep )
                 success, spawnedShape = pcall(sm.shape.createBlock,
                     uuid,
                     sm.vec3.new(sizeX, sizeY, sizeZ),
-                    self.shape:getWorldPosition() + rotation * sm.vec3.new(offsetX-0.5, offsetY-1, offsetZ-0.5) * 0.25,
+                    self.shape:getWorldPosition() + rotation * sm.vec3.new(offsetX-0.5, offsetY-1, offsetZ-0.5) * 0.25 + velocityOffset * 0.025,
                     rotation,
                     dynamic,
                     forceSpawn
@@ -270,7 +280,7 @@ function BlockSpawner.server_onFixedUpdate( self, timeStep )
             else
                 success, spawnedShape = pcall(sm.shape.createPart,
                     uuid,
-                    self.shape:getWorldPosition() + rotation * sm.vec3.new(offsetX-0, offsetY-0.5, offsetZ-0.5) * 0.25,
+                    self.shape:getWorldPosition() + rotation * sm.vec3.new(offsetX-0, offsetY-0.5, offsetZ-0.5) * 0.25 + velocityOffset * 0.025,
                     rotation,
                     dynamic,
                     forceSpawn
@@ -283,7 +293,7 @@ function BlockSpawner.server_onFixedUpdate( self, timeStep )
                 end
 
                 if transferMomentum then
-                    sm.physics.applyImpulse(spawnedShape, self.shape:getVelocity() * spawnedShape.mass, true)
+                    sm.physics.applyImpulse(spawnedShape, velocityOffset * spawnedShape.mass, true)
                     sm.physics.applyTorque(spawnedShape.body, self.shape.body:getAngularVelocity() * getMomentOfInertia(spawnedShape), true)
                 end
                 --print(self.shape:getBoundingBox(), self.shape:getWorldPosition(), spawnedShape:getWorldPosition(), self.shape:getWorldPosition()-spawnedShape:getWorldPosition())
