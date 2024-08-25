@@ -172,7 +172,7 @@ function BlockSpawner.server_onFixedUpdate( self, timeStep )
                             numericId = round(v.power)
                         end
                     end
-                elseif _pType == "sensor" then
+                elseif _pType == "sensor" or _pType == "survivalSensor" then
                     if v.active then
                         sensorShape = v.shape
                     end
