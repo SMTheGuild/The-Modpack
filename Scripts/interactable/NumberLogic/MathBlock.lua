@@ -56,9 +56,9 @@ MathBlock.modetable = {--"value" aka "savevalue", gets saved, gets loaded.
 	{value = 29, icon = "seated",  name = "Seated"                ,description = "Becomes active and outputs the value of input seats occupied"},
 	{value = 30, icon = "A/D",     name = "A/D"                   ,description = "Outputs the A/D value, range: -1 to 1\nMultiple driverseat inputs: average of A/D output of inputs,\nExcellent for teamwork!"},
 	{value = 31, icon = "W/S",     name = "W/S"                   ,description = "Outputs the W/S value, range: -1 to 1\nMultiple driverseat inputs: average of W/S output of inputs,\nExcellent for teamwork!"},
-	{value = 39, icon = "bOR",     name = "Bitwise OR"            ,description = "Outputs a number where each bit is 1 if the corresponding bit of ANY input is 1\n\nNegative inputs are treated as 0, non-integer inputs are rounded"},
-	{value = 40, icon = "bAND",    name = "Bitwise AND"           ,description = "Outputs a number where each bit is 1 if the corresponding bit of ALL inputs is 1\n\nNegative inputs are treated as 0, non-integer inputs are rounded"},
-	{value = 41, icon = "bXOR",    name = "Bitwise XOR"           ,description = "Outputs a number where each bit is 1 if the corresponding bit of AN ODD NUMBER of inputs is 1\n\nNegative inputs are treated as 0, non-integer inputs are rounded"},
+	{value = 39, icon = "OR",      name = "Bitwise OR"            ,description = "Outputs a number where each bit is 1 if the corresponding bit of ANY input is 1\n\nNegative inputs are treated as 0, non-integer inputs are rounded"},
+	{value = 40, icon = "AND",     name = "Bitwise AND"           ,description = "Outputs a number where each bit is 1 if the corresponding bit of ALL inputs is 1\n\nNegative inputs are treated as 0, non-integer inputs are rounded"},
+	{value = 41, icon = "XOR",     name = "Bitwise XOR"           ,description = "Outputs a number where each bit is 1 if the corresponding bit of AN ODD NUMBER of inputs is 1\n\nNegative inputs are treated as 0, non-integer inputs are rounded"},
 }
 MathBlock.savemodes = {}
 for k,v in pairs(MathBlock.modetable) do
