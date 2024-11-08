@@ -829,64 +829,40 @@ MathBlock.modeFunctions = {
 		end,
 
 	[39] = function(self, parents)  -- bitiwise or
-			local bits = {}
+			local result = 0
 
 			for k, parent in pairs(parents) do
 				local value = math.round(sm.interactable.getValue(parent) or parent.power)
-				for bit in math.bitsiter(value) do
-					bits[bit] = true
-				end
-			end
-
-			local result = 0
-			for bit, value in pairs(bits) do
-				if value == true then
-					result = result + 2 ^ bit
-				end
+				result = bit.bor(result, value)
 			end
 
 			self:sv_setValue(result)
 		end,
 
 	[40] = function(self, parents)  -- bitiwise and
-		local bitcounts = {}
+			local result = 0
 
-		for k, parent in pairs(parents) do
-			local value = math.round(sm.interactable.getValue(parent) or parent.power)
-			for bit in math.bitsiter(value) do
-				bitcounts[bit] = (bitcounts[bit] or 0) + 1
+			if #parents >1 then
+				result = bit.bnot(0)
+				for k, parent in pairs(parents) do
+					local value = math.round(sm.interactable.getValue(parent) or parent.power)
+					result = bit.band(result, value)
+				end
 			end
-		end
 
-		local result = 0
-		for bit, value in pairs(bitcounts) do
-			if value == #parents then
-				result = result + 2 ^ bit
-			end
-		end
-
-		self:sv_setValue(result)
-	end,
+			self:sv_setValue(result)
+		end,
 
 	[41] = function(self, parents)  -- bitiwise xor
-		local bits = {}
+			local result = 0
 
-		for k, parent in pairs(parents) do
-			local value = math.round(sm.interactable.getValue(parent) or parent.power)
-			for bit in math.bitsiter(value) do
-				bits[bit] = not bits[bit]
+			for k, parent in pairs(parents) do
+				local value = math.round(sm.interactable.getValue(parent) or parent.power)
+				result = bit.bxor(result, value)
 			end
-		end
 
-		local result = 0
-		for bit, value in pairs(bits) do
-			if value == true then
-				result = result + 2 ^ bit
-			end
-		end
-
-		self:sv_setValue(result)
-	end,
+			self:sv_setValue(result)
+		end,
 }
 
 
