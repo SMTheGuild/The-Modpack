@@ -10,7 +10,7 @@ print("loading ColorBlock.lua")
 ---@field power number
 ---@field color Color
 ---@field prev number
----@field prevcolor table
+---@field prevcolor table<number, string>
 ColorBlock = class( nil )
 ColorBlock.maxParentCount = 7
 ColorBlock.maxChildCount = -1
@@ -38,12 +38,13 @@ function ColorBlock.server_onFixedUpdate( self, dt )
 	local blue = 0
 	local HSVmode = false
 	local active = nil -- turn connected lamps on/off based on this.
+	local parentIndicesToRemove = {}
 	for k, parent in pairs(parents) do
 		if not sm.interactable.isNumberType(parent) and 
 				parent:getType() ~= "steering" and 
 				tostring(parent:getShape():getShapeUuid()) ~= "ccaa33b6-e5bb-4edc-9329-b40f6efe2c9e" --[[orienter]] then
 			-- logic: switch, logic gate, ...
-			table.remove(parents, k)
+			table.insert(parentIndicesToRemove, k) -- We cannot directly remove the parent from the table, as it would mess up the iteration
 			local parentcolor = parent:getShape().color
 			if not (parentcolor.r == parentcolor.g) or not (parentcolor.r == parentcolor.b) then
 				HSVmode = parent.active
@@ -55,6 +56,9 @@ function ColorBlock.server_onFixedUpdate( self, dt )
 				end
 			end
 		end
+	end
+	for i = #parentIndicesToRemove, 1, -1 do
+		table.remove(parents, parentIndicesToRemove[i])
 	end
 	
 	if #parents == 1 then
