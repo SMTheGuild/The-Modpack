@@ -460,7 +460,7 @@
 	},
 	"921a2ace-b543-4ca3-8a9b-6f3dd3132fa9": {
 		"title": "Color Block",
-		"description": "A block that can change colors.\n\nUse 1 number input to display a color from black to white (-1 is a quick way to get to white).\nUse 3 number inputs (painted red, green, blue) to use this block in RGB mode. Set each color component from 0 to 255\n\nPainting the block also works.\nCan connect color blocks together as well.\nWhite, grey, and black for glow, shine, and reflection. Colored logic input to change from RGB to HSV mode.",
+		"description": "A block that can change colors. Use 1 number input to display a color from black to white (-1 is a quick way to get to white). Use 3 number inputs (painted red, green, blue) to use this block in RGB mode. Set each color component from 0 to 255\n\nPainting the block also works. Can connect color blocks together as well. White for turning connected lights on/off. Colored logic input to change from RGB to HSV mode.",
 		"keywords": [ "modpack", "smart", "logic", "number", "rgb", "colour", "screen", "display", "pixel", "dot", "glow", "shine", "reflect", "red", "green", "blue", "glow", "custom", "paint" ]
 	},
 	"9c47ec58-bdfc-43a4-b066-852156ad812a": {
