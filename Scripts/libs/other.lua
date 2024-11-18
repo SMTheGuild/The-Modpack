@@ -38,11 +38,11 @@ function mp_updateOutputData(self, power, active)
         self.sv_saved_power = power
         sInteractable:setPower(power)
 
-        if (active ~= self.sv_saved_active) or should_reset then
-            self.sv_saved_active = active
-            sInteractable:setActive(active)
-        end
-
         sm.interactable.setValue(sInteractable, power)
+    end
+
+    if (active ~= self.sv_saved_active) or should_reset then
+        self.sv_saved_active = active
+        sInteractable:setActive(active)
     end
 end
