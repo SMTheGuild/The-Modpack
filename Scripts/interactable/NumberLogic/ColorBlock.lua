@@ -6,7 +6,11 @@ dofile "../../libs/load_libs.lua"
 
 print("loading ColorBlock.lua")
 
-
+---@class ColorBlock : ShapeClass
+---@field power number
+---@field color Color
+---@field prev number
+---@field prevcolor table<number, string>
 ColorBlock = class( nil )
 ColorBlock.maxParentCount = 7
 ColorBlock.maxChildCount = -1
@@ -18,7 +22,7 @@ ColorBlock.poseWeightCount = 1
 
 function ColorBlock.server_onCreate( self ) 
 	self.power = 0
-	self.glowinput = 0 -- glow of this block , turn connected lamps on/off based on this.
+	-- self.glowinput = 0 -- glow of this block
 end
 function ColorBlock.server_onProjectile(self, X, hits, four)
 	local red = math.random(0,255)
@@ -33,17 +37,28 @@ function ColorBlock.server_onFixedUpdate( self, dt )
 	local green = 0
 	local blue = 0
 	local HSVmode = false
+	local active = nil -- turn connected lamps on/off based on this.
+	local parentIndicesToRemove = {}
 	for k, parent in pairs(parents) do
 		if not sm.interactable.isNumberType(parent) and 
 				parent:getType() ~= "steering" and 
 				tostring(parent:getShape():getShapeUuid()) ~= "ccaa33b6-e5bb-4edc-9329-b40f6efe2c9e" --[[orienter]] then
 			-- logic: switch, logic gate, ...
-			table.remove(parents, k)
+			table.insert(parentIndicesToRemove, k) -- We cannot directly remove the parent from the table, as it would mess up the iteration
 			local parentcolor = parent:getShape().color
 			if not (parentcolor.r == parentcolor.g) or not (parentcolor.r == parentcolor.b) then
 				HSVmode = parent.active
+			elseif tostring(parentcolor) == "eeeeeeff" then
+				if active == nil then
+					active = parent.active
+				else
+					active = active or parent.active
+				end
 			end
 		end
+	end
+	for i = #parentIndicesToRemove, 1, -1 do
+		table.remove(parents, parentIndicesToRemove[i])
 	end
 	
 	if #parents == 1 then
@@ -52,6 +67,11 @@ function ColorBlock.server_onFixedUpdate( self, dt )
 		local green = (self.power % (256^2)/256)%256
 		local blue = self.power % 256
 		self.shape.color = sm.color.new(red/255, green/255, blue/255, 1)
+		if active == nil then
+			active = parents[1].active
+		else
+			-- White logic overrides the active state, so do not change it
+		end
 		
 	elseif #parents >= 3 then
 		if self.prev and self.prev < 3 then -- 2 -> 3 parents event trigger , colors parents rgb
@@ -257,13 +277,13 @@ function ColorBlock.server_onFixedUpdate( self, dt )
 
     
 	self.color = color
-	mp_updateOutputData(self, self.power, self.glowinput > 0)
+	mp_updateOutputData(self, self.power, active)
 end
 
-function ColorBlock.client_onCreate(self)
-	--self.interactable:setGlowMultiplier(0)
-	self.glowinput = 0 -- glow of this block , turn connected lamps on/off based on this.
-end
+-- function ColorBlock.client_onCreate(self)
+-- 	--self.interactable:setGlowMultiplier(0)
+-- 	self.glowinput = 0 -- glow of this block , turn connected lamps on/off based on this.
+-- end
 
 
 function ColorBlock.client_giveError(self, error)
