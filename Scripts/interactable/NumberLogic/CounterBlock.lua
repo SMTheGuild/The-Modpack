@@ -144,7 +144,7 @@ function CounterBlock.client_onInteract(self, character, lookAt)
 end
 
 function CounterBlock.client_onTextChangedCallback(self, widget, text)
-	local converted_text = tonumber(text) --will be nill if the input is invalid
+	local converted_text = mp_parseNumber(text) --will be nill if the input is invalid
 	local is_valid = (converted_text ~= nil)
 
 	self.counter_gui_input = text
@@ -178,7 +178,7 @@ end
 function CounterBlock.client_gui_changeSavedValue(self, widget)
 	local is_decrement = (widget:sub(0, 1) == "D")
 
-	local cur_changer = tonumber(self.counter_gui_input)
+	local cur_changer = mp_parseNumber(self.counter_gui_input)
 	if cur_changer ~= nil then
 		if is_decrement then
 			cur_changer = -cur_changer
@@ -189,7 +189,7 @@ function CounterBlock.client_gui_changeSavedValue(self, widget)
 end
 
 function CounterBlock.client_gui_saveWrittenValue(self)
-	local cur_value = tonumber(self.counter_gui_input)
+	local cur_value = mp_parseNumber(self.counter_gui_input)
 	if cur_value ~= nil then
 		self.network:sendToServer("server_setNewValue", cur_value)
 	end

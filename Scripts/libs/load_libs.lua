@@ -37,6 +37,7 @@ end
 
 dofile "debugger.lua"
 dofile "color.lua"
+dofile "input.lua"
 dofile "math.lua"
 dofile "other.lua"
 dofile "virtual_buttons.lua"
