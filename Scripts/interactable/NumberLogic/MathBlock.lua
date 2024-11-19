@@ -859,7 +859,7 @@ MathBlock.modeFunctions = {
 			for k, parent in pairs(parents) do
 				local value = math.round(sm.interactable.getValue(parent) or parent.power)
 				result = bit.bxor(result, value)
-			end
+		end
 
 			self:sv_setValue(result)
 		end,
@@ -943,7 +943,7 @@ function MathBlock.client_onInteract(self, character, lookAt)
 		for i = 0, 23 do
 			self.gui:setButtonCallback( "Operation" .. tostring( i ), "cl_onModeButtonClick" )
 		end
-
+		
 		for i = 1, 3 do
 			self.gui:setButtonCallback( "Page" .. tostring( i ), "cl_onPageButtonClick" )
 		end
