@@ -28,6 +28,15 @@ MemoryPanel.colorNormal = sm.color.new( 0x7F567Dff )
 MemoryPanel.colorHighlight = sm.color.new( 0x9f7fa5ff )
 MemoryPanel.poseWeightCount = 1
 
+function formatInput(text)
+	-- sanitize allowed characters: digits, colon, comma, period, minus
+	text = text:gsub("[^%d:,%.-]", "")
+	-- insert spaces after each colon not at the end
+	text = text:gsub(":([^$])", ": %1")
+	-- insert newlines after each comma not at the end
+	text = text:gsub(",([^$])", ",\n%1")
+	return text
+end
 
 function MemoryPanel.server_onRefresh( self )
 	sm.isDev = true
@@ -58,11 +67,10 @@ function MemoryPanel.server_onCreate( self )
 	memorypanels[self.interactable.id] = self
 end
 
-function MemoryPanel.server_setData(self, saveData)
+function MemoryPanel.server_setData(self, saveData, caller)
 	self.data = saveData
 	self.storage:save(saveData)
 end
-
 
 function MemoryPanel.server_onFixedUpdate( self, dt )
 	local parents = self.interactable:getParents()
@@ -127,6 +135,16 @@ end
 function MemoryPanel.client_onCreate(self)
 	self.mode = 0
 	self.time = 0
+end
+
+function MemoryPanel.client_onDestroy(self)
+	self:client_onGuiCloseCallback()
+end
+
+function MemoryPanel.client_canInteract(self)
+	local use_key = sm.gui.getKeyBinding("Use", true)
+	sm.gui.setInteractionText("Press", use_key, "to edit contents")
+	return true
 end
 
 function MemoryPanel.client_onFixedUpdate(self, dt)
@@ -200,4 +218,108 @@ function MemoryPanel.client_setUvValue(self, value)
 	if value > 255 then value = 255 end
 	if value == math.huge then value = 0 end
 	self.interactable:setUvFrameIndex(value)
+end
+
+function MemoryPanel.client_displayData(self, data)
+	local parts = {}
+
+	local keys = {}
+	for k, v in pairs(data) do
+		if v ~= 0 or k == 0 then table.insert(keys, k) end
+	end
+
+	table.sort(keys)
+
+	for _, k in ipairs(keys) do
+		table.insert(parts, k .. ": " .. data[k])
+	end
+
+	self.mem_gui_input = table.concat(parts, ",\n")
+
+	self.mem_gui:setText("ValueInput", self.mem_gui_input)
+end
+
+function MemoryPanel.client_onInteract(self, character, lookAt)
+	if mp_deprecated_game_version or not lookAt or character:getLockingInteractable() then return end
+	local mem_gui = sm.gui.createGuiFromLayout("$CONTENT_DATA/Gui/Layouts/MemoryPanelGui.layout", false, { backgroundAlpha = 0.5 })
+	mem_gui:setButtonCallback("SaveWrittenVal", "client_gui_saveWrittenValue")
+	mem_gui:setTextChangedCallback("ValueInput", "client_onTextChangedCallback")
+	mem_gui:setOnCloseCallback("client_onGuiCloseCallback")
+	self.mem_gui = mem_gui
+	if sm.isHost then
+		self:client_displayData(self.data)
+	else
+		self.network:sendToServer("server_getAndDisplayData")
+	end
+	mem_gui:open()
+end
+
+function MemoryPanel.server_getAndDisplayData(self, _, caller)
+	self.network:sendToClient(caller, "client_displayData", self.data)
+end
+
+function MemoryPanel.client_onTextChangedCallback(self, widget, text)
+	self.mem_gui_input = formatInput(text)
+	if text~=self.mem_gui_input then
+		self.mem_gui:setText("ValueInput", self.mem_gui_input)
+	end
+end
+
+function MemoryPanel.client_onGuiCloseCallback(self)
+	local mem_gui = self.mem_gui
+	if mem_gui and sm.exists(mem_gui) then
+		if mem_gui:isActive() then
+			mem_gui:close()
+		end
+
+		mem_gui:destroy()
+	end
+
+	self.mem_gui_input = nil
+	self.mem_gui = nil
+end
+
+
+function MemoryPanel.parseData(input)
+	local data = {}
+
+	for entry in input:gmatch("([^,]+)") do
+		-- trim surrounding whitespace
+		entry = entry:match("^%s*(.-)%s*$") or ""
+		if entry ~= "" then
+			-- require exactly one ':' and non-empty lhs and rhs
+			local addrStr, valStr = entry:match("^([^:]+):([^:]+)$")
+			if addrStr and valStr then
+				addrStr = addrStr:match("^%s*(.-)%s*$") or ""
+				valStr = valStr:match("^%s*(.-)%s*$") or ""
+				if addrStr ~= "" and valStr ~= "" then
+					-- parse address to integer, make positive
+					local addr = tonumber(addrStr)
+					if addr then
+						addr = math.floor(math.abs(addr))
+
+						-- parse value
+						local numVal = tonumber(valStr)
+						if numVal then
+							data[addr] = tostring(numVal)
+						end
+					end
+				end
+			end
+		end
+	end
+
+	-- ensure there's at least a default entry (address 0) if nothing parsed
+	if not next(data) then
+		data[0] = "0"
+	end
+
+	return data
+end
+
+function MemoryPanel.client_gui_saveWrittenValue(self)
+	local data = self.parseData(self.mem_gui_input)
+	self:client_displayData(data)
+	self.network:sendToServer("server_setData", data)
+	sm.audio.play("GUI Item released", self.shape:getWorldPosition())
 end
