@@ -1,0 +1,26 @@
+<MyGUI type="Layout" version="3.2.0">
+	<Widget type="Widget" skin="BackgroundInteractableWide" name="BackPanel" position_real="0 0 0.2604166666666667 0.6018518518518519">
+		<Widget type="TextBox" align="HCenter Top" skin="TextBox" name="Title" position_real="0.208 0.023076923076923078 0.584 0.07692307692307693">
+			<Property key="Caption" value="#ffff00M E M O R Y#ffffff" />
+			<Property key="FontName" value="SM_Button" />
+			<Property key="TextAlign" value="Center" />
+			<Property key="TextShadow" value="true" />
+		</Widget>
+		<Widget type="Widget" align="HCenter Bottom" skin="NonBlurryBackgroundDarkRoundedLowerLeft" position_real="0 0.12307692307692308 1 0.8769230769230769">
+			<Widget type="Widget" align="Left Top" skin="SearchBarBackground" position_real="0.05 0.02631578947368421 0.9 0.8333333333333334">
+				<Widget type="EditBox" align="HStretch VStretch" skin="PhotoDescription" name="ValueInput" position_real="0.011111111111111112 0.021052631578947368 0.9777777777777777 0.9578947368421052">
+					<Property key="FontName" value="SM_Button" />
+					<Property key="TextShadow" value="false" />
+					<Property key="TextAlign" value="Left Top" />
+					<Property key="MultiLine" value="true" />
+					<Property key="VisibleVScroll" value="true" />
+				</Widget>
+			</Widget>
+			<Widget type="Button" align="Left Top" skin="PrimaryButton" name="SaveWrittenVal" position_real="0.04 0.8771929824561403 0.92 0.09649122807017543">
+				<Property key="FontName" value="SM_Button" />
+				<Property key="TextAlign" value="Center" />
+				<Property key="Caption" value="Write" />
+			</Widget>
+		</Widget>
+	</Widget>
+</MyGUI>
