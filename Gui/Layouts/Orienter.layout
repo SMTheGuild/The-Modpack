@@ -1,197 +1,209 @@
-<?xml version="1.0" encoding="UTF-8" ?>
 <MyGUI type="Layout" version="3.2.0">
-	<Widget type="Widget" skin="PanelEmpty" name="BackPanel" position_real="0 0 0.265625 0.636111">
-		<Widget type="Widget" skin="BeaconBG" position_real="0 0 1 0.716157">
-			<Widget type="TextBox" skin="TextBox" position_real="0 0 1 0.243902">
+	<Widget type="Widget" skin="PanelEmpty" name="BackPanel" position_real="0 0 0.265625 0.8">
+		<Widget type="Widget" skin="BeaconBG" position_real="0 0 0.9901960784313726 0.9895833333333334">
+			<Widget type="TextBox" skin="TextBox" position_real="0 0 1.00990099009901 0.16374269005847952">
 				<Property key="Caption" value="Choose a mode" />
 				<Property key="TextAlign" value="Center" />
 				<Property key="FontName" value="SM_HeaderLarge_Wide" />
 			</Widget>
-			<Widget type="Widget" skin="PanelEmpty" position_real="0.0411765 0.286585 0.917647 0.634146">
-				<Widget type="TextBox" skin="TextBox" position_real="0 0 0.5 0.1">
+			<Widget type="Widget" skin="PanelEmpty" position_real="0.039603960396039604 0.15204678362573099 0.9306930693069307 0.5730994152046783">
+				<Widget type="TextBox" skin="TextBox" position_real="0 0 0.4978723404255319 0.08571428571428572">
 					<Property key="Caption" value="Target" />
 					<Property key="TextAlign" value="Left VCenter" />
 					<Property key="FontName" value="SM_ButtonSmallBold" />
 				</Widget>
-				<Widget type="Button" skin="BeaconIconBorder" name="TargetDistance" position_real="0.5 0 0.5 0.1">
-					<Widget type="TextBox" skin="TextBox" name="ButtonTextDistance" position_real="0.0769231 0.0769231 0.846154 0.846154">
+				<Widget type="Button" skin="BeaconIconBorder" name="TargetDistance" position_real="0.4978723404255319 0 0.4978723404255319 0.08571428571428572">
+					<Widget type="TextBox" skin="TextBox" name="ButtonTextDistance" position_real="0.08547008547008547 0.11904761904761904 0.8333333333333334 0.5952380952380952">
 						<Property key="Caption" value="Orienter Distance Reader" />
 						<Property key="TextAlign" value="Center" />
 						<Property key="NeedMouse" value="false" />
 						<Property key="NeedKey" value="false" />
 					</Widget>
 				</Widget>
-				<Widget type="Button" skin="BeaconIconBorder" name="TargetWorld" position_real="0 0.15 0.166667 0.25">
-					<Widget type="TextBox" skin="TextBox" name="ButtonTextWorld" position_real="0.0769231 0.0769231 0.846154 0.846154">
+				<Widget type="Button" skin="BeaconIconBorder" name="TargetWorld" position_real="0 0.11224489795918367 0.1702127659574468 0.16326530612244897">
+					<Widget type="TextBox" skin="TextBox" name="ButtonTextWorld" position_real="0.0625 0.125 0.875 0.75">
 						<Property key="Caption" value="World" />
 						<Property key="TextAlign" value="Center" />
 						<Property key="NeedMouse" value="false" />
 						<Property key="NeedKey" value="false" />
 					</Widget>
 				</Widget>
-				<Widget type="Button" skin="BeaconIconBorder" name="TargetPlayer" position_real="0.166667 0.15 0.166667 0.25">
-					<Widget type="TextBox" skin="TextBox" name="ButtonTextPlayer" position_real="0.0769231 0.0769231 0.846154 0.846154">
+				<Widget type="Button" skin="BeaconIconBorder" name="TargetPlayer" position_real="0.1702127659574468 0.11224489795918367 0.1702127659574468 0.16326530612244897">
+					<Widget type="TextBox" skin="TextBox" name="ButtonTextPlayer" position_real="0.0625 0.125 0.875 0.75">
 						<Property key="Caption" value="Player" />
 						<Property key="TextAlign" value="Center" />
 						<Property key="NeedMouse" value="false" />
 						<Property key="NeedKey" value="false" />
 					</Widget>
 				</Widget>
-				<Widget type="Button" skin="BeaconIconBorder" name="TargetCamera" position_real="0.333333 0.15 0.166667 0.25">
-					<Widget type="TextBox" skin="TextBox" name="ButtonTextCamera" position_real="0.0769231 0.0769231 0.846154 0.846154">
+				<Widget type="Button" skin="BeaconIconBorder" name="TargetCamera" position_real="0.32978723404255317 0.11224489795918367 0.1702127659574468 0.16326530612244897">
+					<Widget type="TextBox" skin="TextBox" name="ButtonTextCamera" position_real="0.0625 0.125 0.875 0.75">
 						<Property key="Caption" value="Player\nCamera" />
 						<Property key="TextAlign" value="Center" />
 						<Property key="NeedMouse" value="false" />
 						<Property key="NeedKey" value="false" />
 					</Widget>
 				</Widget>
-				<Widget type="Button" skin="BeaconIconBorder" name="TargetTracker" position_real="0.5 0.15 0.166667 0.25">
-					<Widget type="TextBox" skin="TextBox" name="ButtonTextTracker" position_real="0.0769231 0.0769231 0.846154 0.846154">
+				<Widget type="Button" skin="BeaconIconBorder" name="TargetTracker" position_real="0.5 0.11224489795918367 0.1702127659574468 0.16326530612244897">
+					<Widget type="TextBox" skin="TextBox" name="ButtonTextTracker" position_real="0.0625 0.125 0.875 0.75">
 						<Property key="Caption" value="Tracker" />
 						<Property key="TextAlign" value="Center" />
 						<Property key="NeedMouse" value="false" />
 						<Property key="NeedKey" value="false" />
 					</Widget>
 				</Widget>
-				<Widget type="Button" skin="BeaconIconBorder" name="TargetPlayerTracker" position_real="0.666667 0.15 0.166667 0.25">
-					<Widget type="TextBox" skin="TextBox" name="ButtonTextPlayerTracker" position_real="0.0769231 0.0769231 0.846154 0.846154">
+				<Widget type="Button" skin="BeaconIconBorder" name="TargetPlayerTracker" position_real="0.6595744680851063 0.11224489795918367 0.1702127659574468 0.16326530612244897">
+					<Widget type="TextBox" skin="TextBox" name="ButtonTextPlayerTracker" position_real="0.0625 0.125 0.875 0.75">
 						<Property key="Caption" value="Player &amp;\nTracker" />
 						<Property key="TextAlign" value="Center" />
 						<Property key="NeedMouse" value="false" />
 						<Property key="NeedKey" value="false" />
 					</Widget>
 				</Widget>
-				<Widget type="Button" skin="BeaconIconBorder" name="TargetUnits" position_real="0.833333 0.15 0.166667 0.25">
-					<Widget type="TextBox" skin="TextBox" name="ButtonTextUnits" position_real="0.0769231 0.0769231 0.846154 0.846154">
+				<Widget type="Button" skin="BeaconIconBorder" name="TargetUnits" position_real="0.8297872340425532 0.11224489795918367 0.1702127659574468 0.16326530612244897">
+					<Widget type="TextBox" skin="TextBox" name="ButtonTextUnits" position_real="0.0625 0.125 0.875 0.75">
 						<Property key="Caption" value="Units" />
 						<Property key="TextAlign" value="Center" />
 						<Property key="NeedMouse" value="false" />
 						<Property key="NeedKey" value="false" />
 					</Widget>
 				</Widget>
-
-				<!-- Options -->
-				<Widget type="TextBox" skin="TextBox" name="HeadingOptions" position_real="0 0.45 1 0.1">
+				<Widget type="TextBox" skin="TextBox" name="HeadingOptions" position_real="0 0.3510204081632653 0.9957446808510638 0.0673469387755102">
 					<Property key="Caption" value="Options" />
 					<Property key="TextAlign" value="Left VCenter" />
 					<Property key="FontName" value="SM_ButtonSmallBold" />
 				</Widget>
-
-				<!-- Option: Predictive -->
-				<Widget type="Button" skin="BeaconIconBorder" name="OptionPredictive" position_real="0 0.6 0.066666 0.1">
-					<Widget type="TextBox" skin="TextBox" name="OptionPredictiveCheck" position_real="0 0 1 1">
+				<Widget type="Button" skin="BeaconIconBorder" name="OptionPredictive" position_real="0 0.43673469387755104 0.06595744680851064 0.0673469387755102">
+					<Widget type="TextBox" skin="TextBox" name="OptionPredictiveCheck" position_real="0 0 0.967741935483871 0.7575757575757576">
 						<Property key="Caption" value="x" />
 						<Property key="TextAlign" value="Center" />
 						<Property key="NeedKey" value="false" />
 						<Property key="NeedMouse" value="false" />
 					</Widget>
 				</Widget>
-				<Widget type="TextBox" skin="TextBox" name="OptionPredictiveLabel" position_real="0.1 0.6 0.4 0.1">
+				<Widget type="TextBox" skin="TextBox" name="OptionPredictiveLabel" position_real="0.1 0.43673469387755104 0.39787234042553193 0.0673469387755102">
 					<Property key="Caption" value="Predictive" />
 					<Property key="TextAlign" value="Left VCenter" />
 				</Widget>
-
-				<Widget type="Widget" skin="PanelEmpty" name="Units" position_real="0 0.45 1 0.6">
-					<Widget type="Button" skin="BeaconIconBorder" name="UnitsAll" position_real="0 0 0.166667 0.25">
-						<Widget type="TextBox" skin="TextBox" position_real="0.0769231 0.0769231 0.846154 0.846154">
+				<Widget type="Button" skin="BeaconIconBorder" name="OptionLocal" position_real="0 0.5224489795918368 0.06595744680851064 0.0673469387755102">
+					<Widget type="TextBox" skin="TextBox" name="OptionLocalCheck" position_real="0 0 0.967741935483871 0.7575757575757576">
+						<Property key="Caption" value="x" />
+						<Property key="TextAlign" value="Center" />
+						<Property key="NeedKey" value="false" />
+						<Property key="NeedMouse" value="false" />
+					</Widget>
+				</Widget>
+				<Widget type="TextBox" skin="TextBox" name="OptionLocalLabel" position_real="0.1 0.5224489795918368 0.39787234042553193 0.0673469387755102">
+					<Property key="Caption" value="Local" />
+					<Property key="TextAlign" value="Left VCenter" />
+				</Widget>
+				<Widget type="Widget" skin="PanelEmpty" name="Units" position_real="0 0.6122448979591837 1 0.3673469387755102">
+					<Widget type="Button" skin="BeaconIconBorder" name="UnitsAll" position_real="0 0 0.16595744680851063 0.2111111111111111">
+						<Widget type="TextBox" skin="TextBox" position_real="0.07692307692307693 0.07894736842105263 0.8461538461538461 0.8421052631578947">
 							<Property key="Caption" value="All" />
 							<Property key="TextAlign" value="Center" />
 							<Property key="NeedMouse" value="false" />
 							<Property key="NeedKey" value="false" />
 						</Widget>
 					</Widget>
-					<Widget type="Button" skin="BeaconIconBorder" name="UnitsHostile" position_real="0.166667 0 0.166667 0.25">
-						<Widget type="TextBox" skin="TextBox" position_real="0.0769231 0.0769231 0.846154 0.846154">
+					<Widget type="Button" skin="BeaconIconBorder" name="UnitsHostile" position_real="0.16595744680851063 0 0.16595744680851063 0.2111111111111111">
+						<Widget type="TextBox" skin="TextBox" position_real="0.07692307692307693 0.07894736842105263 0.8461538461538461 0.8421052631578947">
 							<Property key="Caption" value="Hostile" />
 							<Property key="TextAlign" value="Center" />
 							<Property key="NeedMouse" value="false" />
 							<Property key="NeedKey" value="false" />
 						</Widget>
 					</Widget>
-					<Widget type="Button" skin="BeaconIconBorder" name="UnitsFriendly" position_real="0.333333 0 0.166667 0.25">
-						<Widget type="TextBox" skin="TextBox" position_real="0.0769231 0.0769231 0.846154 0.846154">
+					<Widget type="Button" skin="BeaconIconBorder" name="UnitsFriendly" position_real="0.33191489361702126 0 0.16595744680851063 0.2111111111111111">
+						<Widget type="TextBox" skin="TextBox" position_real="0.07692307692307693 0.07894736842105263 0.8461538461538461 0.8421052631578947">
 							<Property key="Caption" value="Friendly" />
 							<Property key="TextAlign" value="Center" />
 							<Property key="NeedMouse" value="false" />
 							<Property key="NeedKey" value="false" />
 						</Widget>
 					</Widget>
-
-					<!-- Row 2 -->
-					<Widget type="Button" skin="BeaconIconBorder" name="UnitsFarmbot" position_real="0 0.333333 0.166667 0.25">
-						<Widget type="TextBox" skin="TextBox" position_real="0.0769231 0.0769231 0.846154 0.846154">
+					<Widget type="Button" skin="BeaconIconBorder" name="UnitsFarmbot" position_real="0 0.2222222222222222 0.16595744680851063 0.2">
+						<Widget type="TextBox" skin="TextBox" position_real="0.07692307692307693 0.08333333333333333 0.8461538461538461 0.8333333333333334">
 							<Property key="Caption" value="Farmbot" />
 							<Property key="TextAlign" value="Center" />
 							<Property key="NeedMouse" value="false" />
 							<Property key="NeedKey" value="false" />
 						</Widget>
 					</Widget>
-					<Widget type="Button" skin="BeaconIconBorder" name="UnitsTapebot" position_real="0.166667 0.333333 0.166667 0.25">
-						<Widget type="TextBox" skin="TextBox" position_real="0.0769231 0.0769231 0.846154 0.846154">
+					<Widget type="Button" skin="BeaconIconBorder" name="UnitsTapebot" position_real="0.16595744680851063 0.2222222222222222 0.16595744680851063 0.2">
+						<Widget type="TextBox" skin="TextBox" position_real="0.07692307692307693 0.08333333333333333 0.8461538461538461 0.8333333333333334">
 							<Property key="Caption" value="Tapebot" />
 							<Property key="TextAlign" value="Center" />
 							<Property key="NeedMouse" value="false" />
 							<Property key="NeedKey" value="false" />
 						</Widget>
 					</Widget>
-					<Widget type="Button" skin="BeaconIconBorder" name="UnitsHaybot" position_real="0.333333 0.333333 0.166667 0.25">
-						<Widget type="TextBox" skin="TextBox" position_real="0.0769231 0.0769231 0.846154 0.846154">
+					<Widget type="Button" skin="BeaconIconBorder" name="UnitsHaybot" position_real="0.33191489361702126 0.2222222222222222 0.16595744680851063 0.2">
+						<Widget type="TextBox" skin="TextBox" position_real="0.07692307692307693 0.08333333333333333 0.8461538461538461 0.8333333333333334">
 							<Property key="Caption" value="Haybot" />
 							<Property key="TextAlign" value="Center" />
 							<Property key="NeedMouse" value="false" />
 							<Property key="NeedKey" value="false" />
 						</Widget>
 					</Widget>
-					<Widget type="Button" skin="BeaconIconBorder" name="UnitsTotebot" position_real="0.5 0.333333 0.166667 0.25">
-						<Widget type="TextBox" skin="TextBox" position_real="0.0769231 0.0769231 0.846154 0.846154">
+					<Widget type="Button" skin="BeaconIconBorder" name="UnitsTotebot" position_real="0.4978723404255319 0.2222222222222222 0.16595744680851063 0.2">
+						<Widget type="TextBox" skin="TextBox" position_real="0.07692307692307693 0.08333333333333333 0.8461538461538461 0.8333333333333334">
 							<Property key="Caption" value="Totebots" />
 							<Property key="TextAlign" value="Center" />
 							<Property key="NeedMouse" value="false" />
 							<Property key="NeedKey" value="false" />
 						</Widget>
 					</Widget>
-
-					<!-- Row 3 -->
-					<Widget type="Button" skin="BeaconIconBorder" name="UnitsWoc" position_real="0 0.65 0.166667 0.25">
-						<Widget type="TextBox" skin="TextBox" position_real="0.0769231 0.0769231 0.846154 0.846154">
+					<Widget type="Button" skin="BeaconIconBorder" name="UnitsTotebotYellow" position_real="0 0.4444444444444444 0.1702127659574468 0.25">
+						<Widget type="TextBox" skin="TextBox" position_real="0.0625 0.1111111111111111 0.875 0.7777777777777778">
+							<Property key="Caption" value="Totebot\nYellow" />
+							<Property key="TextAlign" value="Center" />
+							<Property key="NeedMouse" value="false" />
+							<Property key="NeedKey" value="false" />
+						</Widget>
+					</Widget>
+					<Widget type="Button" skin="BeaconIconBorder" name="UnitsTotebotRed" position_real="0.1702127659574468 0.4444444444444444 0.1595744680851064 0.25">
+						<Widget type="TextBox" skin="TextBox" position_real="0.06666666666666667 0.1111111111111111 0.8666666666666667 0.7777777777777778">
+							<Property key="Caption" value="Totebot\nRed" />
+							<Property key="TextAlign" value="Center" />
+							<Property key="NeedMouse" value="false" />
+							<Property key="NeedKey" value="false" />
+						</Widget>
+					</Widget>
+					<Widget type="Button" skin="BeaconIconBorder" name="UnitsTotebotBlue" position_real="0.32978723404255317 0.4444444444444444 0.1702127659574468 0.25">
+						<Widget type="TextBox" skin="TextBox" position_real="0.0625 0.1111111111111111 0.875 0.7777777777777778">
+							<Property key="Caption" value="Totebot\nBlue" />
+							<Property key="TextAlign" value="Center" />
+							<Property key="NeedMouse" value="false" />
+							<Property key="NeedKey" value="false" />
+						</Widget>
+					</Widget>
+					<Widget type="Button" skin="BeaconIconBorder" name="UnitsWoc" position_real="0.1702127659574468 0.6944444444444444 0.1595744680851064 0.2777777777777778">
+						<Widget type="TextBox" skin="TextBox" position_real="0.06666666666666667 0.1 0.8666666666666667 0.7">
 							<Property key="Caption" value="Wocs" />
 							<Property key="TextAlign" value="Center" />
 							<Property key="NeedMouse" value="false" />
 							<Property key="NeedKey" value="false" />
 						</Widget>
 					</Widget>
-					<Widget type="Button" skin="BeaconIconBorder" name="UnitsGlowworm" position_real="0.166667 0.65 0.166667 0.25">
-						<Widget type="TextBox" skin="TextBox" position_real="0.0769231 0.0769231 0.846154 0.846154">
+					<Widget type="Button" skin="BeaconIconBorder" name="UnitsGlowworm" position_real="0 0.6944444444444444 0.1702127659574468 0.2777777777777778">
+						<Widget type="TextBox" skin="TextBox" position_real="0.0625 0.1 0.875 0.9">
 							<Property key="Caption" value="Glow\nworms" />
-							<Property key="TextAlign" value="Center" />
+							<Property key="TextAlign" value="HCenter Top" />
 							<Property key="NeedMouse" value="false" />
 							<Property key="NeedKey" value="false" />
 						</Widget>
 					</Widget>
 				</Widget>
-
-				<!-- Option: Local -->
-				<Widget type="Button" skin="BeaconIconBorder" name="OptionLocal" position_real="0 0.7 0.066666 0.1">
-					<Widget type="TextBox" skin="TextBox" name="OptionLocalCheck" position_real="0 0 1 1">
-						<Property key="Caption" value="x" />
-						<Property key="TextAlign" value="Center" />
-						<Property key="NeedKey" value="false" />
-						<Property key="NeedMouse" value="false" />
-					</Widget>
-				</Widget>
-				<Widget type="TextBox" skin="TextBox" name="OptionLocalLabel" position_real="0.1 0.7 0.4 0.1">
-					<Property key="Caption" value="Local" />
-					<Property key="TextAlign" value="Left VCenter" />
-				</Widget>
 			</Widget>
 		</Widget>
-		<Widget type="Widget" skin="BeaconBottomBG" position_real="0 0.716157 1 0.283843">
-			<Widget type="TextBox" skin="TextBox" name="FunctionNameText" position_real="0.15 0.123077 0.70 0.2">
+		<Widget type="Widget" skin="BeaconBottomBG" position_real="0 0.7638888888888888 1 0.23148148148148148">
+			<Widget type="TextBox" skin="TextBox" name="FunctionNameText" position_real="0.14901960784313725 0.065 0.7 0.195">
 				<Property key="Caption" value="Function" />
 				<Property key="FontName" value="SM_ButtonSmallBold" />
 				<Property key="TextAlign" value="Center" />
 			</Widget>
-			<Widget type="EditBox" skin="EditBoxEmpty" name="FunctionDescriptionText" position_real="0.15 0.3 0.70 0.55">
+			<Widget type="EditBox" skin="EditBoxEmpty" name="FunctionDescriptionText" position_real="0.14901960784313725 0.29 0.7 0.325">
 				<Property key="Static" value="true" />
 				<Property key="Caption" value="Function description" />
 				<Property key="FontName" value="SM_TextLabel" />
@@ -202,5 +214,4 @@
 			</Widget>
 		</Widget>
 	</Widget>
-	<CodeGeneratorSettings />
 </MyGUI>
