@@ -178,7 +178,15 @@
 							<Property key="NeedKey" value="false" />
 						</Widget>
 					</Widget>
-					<Widget type="Button" skin="BeaconIconBorder" name="UnitsWoc" position_real="0.1702127659574468 0.6944444444444444 0.1595744680851064 0.2777777777777778">
+					<Widget type="Button" skin="BeaconIconBorder" name="UnitsCablebot" position_real="0.4893617021276596 0.4444444444444444 0.1702127659574468 0.25">
+					<Widget type="TextBox" skin="TextBox" position_real="0.0625 0.1111111111111111 0.875 0.7777777777777778">
+						<Property key="Caption" value="Cablebot" />
+						<Property key="TextAlign" value="Center" />
+						<Property key="NeedMouse" value="false" />
+						<Property key="NeedKey" value="false" />
+					</Widget>
+				</Widget>
+				<Widget type="Button" skin="BeaconIconBorder" name="UnitsWoc" position_real="0.1702127659574468 0.6944444444444444 0.1595744680851064 0.2777777777777778">
 						<Widget type="TextBox" skin="TextBox" position_real="0.06666666666666667 0.1 0.8666666666666667 0.7">
 							<Property key="Caption" value="Wocs" />
 							<Property key="TextAlign" value="Center" />

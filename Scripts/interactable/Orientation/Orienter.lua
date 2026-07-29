@@ -24,7 +24,8 @@ local known_mobs = {
 		totebot_red = {["9360d346-3ff2-4925-a068-660cf5dd5267"] = true},
 		haybot = {["c8bfb8f3-7efc-49ac-875a-eb85ac0614db"] = true},
 		farmbot = {["9f4fde94-312f-4417-b13b-84029c5d6b52"] = true},
-		minerbot = {["92da8324-3cfe-4529-ac1c-c71facda50a3"] = true}
+		minerbot = {["92da8324-3cfe-4529-ac1c-c71facda50a3"] = true},
+		cablebot = {["b837888a-0480-4a34-bc34-d72261a14385"] = true}
 	},
 	friendly = {
 		glorp = {["48c03f69-3ec8-454c-8d1a-fa09083363b1"] = true},
@@ -44,7 +45,8 @@ local FarmbotDetectorModes = {
 	[28] = {specific = "glorp"},
 	[29] = {hostile = true, specific = "totebot_yellow"},
 	[30] = {hostile = true, specific = "totebot_red"},
-	[31] = {hostile = true, specific = "totebot_blue"}
+	[31] = {hostile = true, specific = "totebot_blue"},
+	[44] = {hostile = true, specific = "cablebot"}
 }
 
 --[[
@@ -145,7 +147,9 @@ Orienter.modetable = {
 	{savevalue = 40, target = "units", unit = "glowworm", loc = false, predictive = true, name = "Glow worm (predictive)", uvIndex = 27 },
 	{savevalue = 41, target = "units", unit = "totebot_yellow", loc = false, predictive = true, name = "Hostile totebot yellow (predictive)", uvIndex = 23 },
 	{savevalue = 42, target = "units", unit = "totebot_red", loc = false, predictive = true, name = "Hostile totebot red (predictive)", uvIndex = 23 },
-	{savevalue = 43, target = "units", unit = "totebot_blue", loc = false, predictive = true, name = "Hostile totebot blue (predictive)", uvIndex = 23 }
+	{savevalue = 43, target = "units", unit = "totebot_blue", loc = false, predictive = true, name = "Hostile totebot blue (predictive)", uvIndex = 23 },
+	{savevalue = 44, target = "units", unit = "cablebot", loc = false, predictive = false, name = "Hostile cablebot", uvIndex = 19 },
+	{savevalue = 56, target = "units", unit = "cablebot", loc = false, predictive = true, name = "Hostile cablebot (predictive)", uvIndex = 19 }
 }
 Orienter.modeIndexBySaveValue = {}
 for k, v in pairs(Orienter.modetable) do
@@ -209,7 +213,7 @@ local targetTable = {
 local _UnitTable = {
 	'UnitsAll', 'UnitsHostile', 'UnitsFriendly',
 	'UnitsFarmbot', 'UnitsTapebot', 'UnitsHaybot',
-	'UnitsTotebot', 'UnitsTotebotYellow', 'UnitsTotebotRed', 'UnitsTotebotBlue', 'UnitsWoc', 'UnitsGlowworm'
+	'UnitsTotebot', 'UnitsTotebotYellow', 'UnitsTotebotRed', 'UnitsTotebotBlue', 'UnitsCablebot', 'UnitsWoc', 'UnitsGlowworm'
 }
 
 function Orienter.client_onGuiDestroyCallback(self)
@@ -257,6 +261,7 @@ function Orienter.cl_onUnitButtonClick(self, buttonName)
     	UnitsTotebotYellow = 29,
     	UnitsTotebotRed = 30,
     	UnitsTotebotBlue = 31,
+    	UnitsCablebot = 44,
     	UnitsFriendly = 26,
     	UnitsWoc = 27,
     	UnitsGlowworm = 28
@@ -304,7 +309,8 @@ function Orienter.cl_onPredictiveToggle(self, button)
         [28] = 40, [40] = 28,
         [29] = 41, [41] = 29,
         [30] = 42, [42] = 30,
-        [31] = 43, [43] = 31
+        [31] = 43, [43] = 31,
+        [44] = 56, [56] = 44
     }
     self:cl_handleChageModeFromGui(Orienter.modeIndexBySaveValue[inverse[currentMode.savevalue]])
 end
@@ -942,7 +948,7 @@ function Orienter.server_onFixedUpdate( self, dt )
 		-- mode '12' -> 11-7 = 3--> player orient local
 	end
 
-	if (mode >= 20 and mode <= 43) then
+	if (mode >= 20 and mode <= 56) then
 		local farmbotMode = mode > 31 and (mode - 12) or mode
 		local isPredictive = mode > 31
 		local id = self:getFarmbot({useexceptionlist = true, minrange = minrange, maxrange = maxrange, offset = blackinput, tryid = whiteinput, fbot_data = FarmbotDetectorModes[farmbotMode]})
