@@ -9,15 +9,28 @@ print("loading Orienter.lua")
 local known_mobs = {
 	hostile = {
 		tapebot = {
-			["04761b4a-a83e-4736-b565-120bc776edb2"] = true,
-			["9dbbd2fb-7726-4e8f-8eb4-0dab228a561d"] = true,
-			["fcb2e8ce-ca94-45e4-a54b-b5acc156170b"] = true,
-			["68d3b2f3-ed4b-4967-9d22-8ee6f555df63"] = true,
-			["c3d31c47-0c9b-4b07-9bd4-8f022dc4333e"] = true
+			["04761b4a-a83e-4736-b565-120bc776edb2"] = true, -- Tapebot 1
+			["9dbbd2fb-7726-4e8f-8eb4-0dab228a561d"] = true, -- Tapebot 2
+			["fcb2e8ce-ca94-45e4-a54b-b5acc156170b"] = true, -- Tapebot 3
+			["68d3b2f3-ed4b-4967-9d22-8ee6f555df63"] = true, -- Tapebot 4
+			["c3d31c47-0c9b-4b07-9bd4-8f022dc4333e"] = true, -- Tapebot Red
+
+			-- 1.0 Bots
+			["c68914f8-d769-4638-9071-f7dbd1d97351"] = true, -- Tapebot Green 1
+			["f3ded3f4-ddf9-441d-83f1-28b8cf2c7581"] = true, -- Tapebot Green 2
+			["54a06cf0-c035-41a5-b19e-158496d35586"] = true, -- Tapebot Green 3
+			["97efd943-d176-479a-a6f4-46373327ddcd"] = true  -- Tapebot Yellow
 		},
-		totebot = {["8984bdbf-521e-4eed-b3c4-2b5e287eb879"] = true},
+		totebot = {
+			["8984bdbf-521e-4eed-b3c4-2b5e287eb879"] = true, -- Totebot Green
+			["55fd93fa-09ed-4a26-bfa1-4601694d5127"] = true, -- Totebot Leaf
+			["9360d346-3ff2-4925-a068-660cf5dd5267"] = true, -- Totebot Red
+			["2dea48a4-6a79-11ed-a1eb-0242ac120002"] = true, -- Totebot Yellow
+			["58992f50-ca36-44e1-8c47-4996d89d6a9a"] = true  -- Totebot Blue
+		},
 		haybot = {["c8bfb8f3-7efc-49ac-875a-eb85ac0614db"] = true},
-		farmbot = {["9f4fde94-312f-4417-b13b-84029c5d6b52"] = true}
+		farmbot = {["9f4fde94-312f-4417-b13b-84029c5d6b52"] = true},
+		cablebot = {["b837888a-0480-4a34-bc34-d72261a14385"] = true}
 	},
 	friendly = {
 		glorp = {["48c03f69-3ec8-454c-8d1a-fa09083363b1"] = true},
@@ -34,7 +47,8 @@ local FarmbotDetectorModes = {
 	[25] = {hostile = true, friendly = true},
 	[26] = {friendly = true},
 	[27] = {specific = "woc"},
-	[28] = {specific = "glorp"}
+	[28] = {specific = "glorp"},
+	[29] = {hostile = true, specific = "cablebot"}
 }
 
 --[[
@@ -120,7 +134,8 @@ Orienter.modetable = {
 	{savevalue = 24, target = "units", unit = "totebot", loc = false, predictive = false, name = "Hostile totebot" },
 	{savevalue = 26, target = "units", unit = "friendly", loc = false, predictive = false, name = "Friendly units" },
 	{savevalue = 27, target = "units", unit = "woc", loc = false, predictive = false, name = "Woc" },
-	{savevalue = 28, target = "units", unit = "glowworm", loc = false, predictive = false, name = "Glow worm" }
+	{savevalue = 28, target = "units", unit = "glowworm", loc = false, predictive = false, name = "Glow worm" },
+	{savevalue = 29, target = "units", unit = "cablebot", loc = false, predictive = false, name = "Cablebot" }
 }
 Orienter.modeIndexBySaveValue = {}
 for k, v in pairs(Orienter.modetable) do
@@ -183,7 +198,8 @@ local targetTable = {
 local _UnitTable = {
 	'UnitsAll', 'UnitsHostile', 'UnitsFriendly',
 	'UnitsFarmbot', 'UnitsTapebot', 'UnitsHaybot',
-	'UnitsTotebot', 'UnitsWoc', 'UnitsGlowworm'
+	'UnitsTotebot', 'UnitsWoc', 'UnitsGlowworm',
+	'UnitsCablebot'
 }
 
 function Orienter.client_onGuiDestroyCallback(self)
@@ -201,7 +217,7 @@ end
 
 function Orienter.client_onInteract(self, character, lookAt)
     if lookAt == true then
-        self.gui = mp_gui_createGuiFromLayout("$MOD_DATA/Gui/Layouts/Orienter.layout", false, { backgroundAlpha = 0.5 })
+        self.gui = mp_gui_createGuiFromLayout("$CONTENT_DATA/Gui/Layouts/Orienter.layout", false, { backgroundAlpha = 0.5 })
 		self.gui:setOnCloseCallback("client_onGuiDestroyCallback")
 
         for _, buttonName in pairs(targetTable) do
@@ -222,15 +238,16 @@ end
 
 function Orienter.cl_onUnitButtonClick(self, buttonName)
     local saveValues = {
-        UnitsAll = 25,
-    	UnitsHostile = 20,
-    	UnitsFarmbot = 21,
-    	UnitsTapebot = 22,
-    	UnitsHaybot = 23,
-    	UnitsTotebot = 24,
+        UnitsAll      = 25,
+    	UnitsHostile  = 20,
+    	UnitsFarmbot  = 21,
+    	UnitsTapebot  = 22,
+    	UnitsHaybot   = 23,
+    	UnitsTotebot  = 24,
     	UnitsFriendly = 26,
-    	UnitsWoc = 27,
-    	UnitsGlowworm = 28
+    	UnitsWoc      = 27,
+    	UnitsGlowworm = 28,
+		UnitsCablebot = 29
     }
     self:cl_handleChageModeFromGui(Orienter.modeIndexBySaveValue[saveValues[buttonName]])
 end
@@ -900,7 +917,7 @@ function Orienter.server_onFixedUpdate( self, dt )
 		-- mode '12' -> 11-7 = 3--> player orient local
 	end
 
-	if (mode >= 20 and mode <= 28) then
+	if (mode >= 20 and mode <= 29) then
 		local id = self:getFarmbot({useexceptionlist = true, minrange = minrange, maxrange = maxrange, offset = blackinput, tryid = whiteinput, fbot_data = FarmbotDetectorModes[mode]})
 		if id ~= 0 and isON then
 			for k, v in pairs(parents) do
