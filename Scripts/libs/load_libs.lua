@@ -13,8 +13,7 @@ sm.__SE = sm.__SE or {} -- scrapessentials cross mod env
 
 sm.__SE_Version = sm.__SE_Version or {} -- TODO: get rid of this
 
-local cur_version = sm.version
-if tonumber(sm.version:sub(3, 3)) < 6 then
+if tonumber(sm.version:sub(1,1)) < 1 and tonumber(sm.version:sub(3, 3)) < 6 then
 	print("Old game version found")
 	mp_deprecated_game_version = true
 
