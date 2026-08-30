@@ -22,10 +22,6 @@ ModDriverSeat.maxConnections = 255 --game max is 255
 
 local SpeedPerStep = 1 / math.rad( 27 ) / 3
 
-function ModDriverSeat.server_onCreate( self )
-	Seat:server_onCreate( self )
-end
-
 function ModDriverSeat.server_onFixedUpdate( self, dt )
 	Seat.server_onFixedUpdate( self, dt )
 	
@@ -36,6 +32,13 @@ function ModDriverSeat.server_onFixedUpdate( self, dt )
 		self.interactable:setSteeringFlag( 0 )
 	end
 end
+
+function ModDriverSeat:client_canTinker()
+	return false
+end
+
+-- Override the game
+function ModDriverSeat:client_onTinker() end
 
 function ModDriverSeat.client_onInteract( self, character, state )
 	if state then
