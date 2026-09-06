@@ -1,0 +1,203 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<MyGUI type="Layout" version="3.2.0">
+	<Widget type="Widget" skin="PanelEmpty" position="0 0 510 700" name="BackPanel">
+		<Widget type="Widget" skin="BeaconBG" position="0 0 510 510">
+			<Widget type="TextBox" skin="TextBox" position="0 0 510 80">
+				<Property key="Caption" value="Choose a mode"/>
+				<Property key="TextAlign" value="Center"/>
+				<Property key="FontName" value="SM_HeaderLarge_Wide"/>
+			</Widget>
+			<Widget type="Widget" skin="PanelEmpty" position="15 95 480 400">
+				<Widget type="TextBox" skin="TextBox" position="0 0 240 40">
+					<Property key="Caption" value="Target"/>
+					<Property key="TextAlign" value="Left VCenter"/>
+					<Property key="FontName" value="SM_ButtonSmallBold"/>
+				</Widget>
+				<Widget type="Button" skin="BeaconIconBorder" position="240 0 240 40" name="TargetDistance">
+					<Widget type="TextBox" skin="TextBox" position="10 0 220 40" name="ButtonTextDistance">
+						<Property key="Caption" value="Orienter Distance Reader"/>
+						<Property key="TextAlign" value="Center"/>
+						<Property key="NeedMouse" value="false"/>
+						<Property key="NeedKey" value="false"/>
+					</Widget>
+				</Widget>
+				<Widget type="Button" skin="BeaconIconBorder" position="0 50 80 80" name="TargetWorld">
+					<Widget type="TextBox" skin="TextBox" position="0 0 80 80" name="ButtonTextWorld">
+						<Property key="Caption" value="World"/>
+						<Property key="TextAlign" value="Center"/>
+						<Property key="NeedMouse" value="false"/>
+						<Property key="NeedKey" value="false"/>
+					</Widget>
+				</Widget>
+				<Widget type="Button" skin="BeaconIconBorder" position="80 50 80 80" name="TargetPlayer">
+					<Widget type="TextBox" skin="TextBox" position="0 0 80 80" name="ButtonTextPlayer">
+						<Property key="Caption" value="Player"/>
+						<Property key="TextAlign" value="Center"/>
+						<Property key="NeedMouse" value="false"/>
+						<Property key="NeedKey" value="false"/>
+					</Widget>
+				</Widget>
+				<Widget type="Button" skin="BeaconIconBorder" position="160 50 80 80" name="TargetCamera">
+					<Widget type="TextBox" skin="TextBox" position="0 0 80 80" name="ButtonTextCamera">
+						<Property key="Caption" value="Player\nCamera"/>
+						<Property key="TextAlign" value="Center"/>
+						<Property key="NeedMouse" value="false"/>
+						<Property key="NeedKey" value="false"/>
+					</Widget>
+				</Widget>
+				<Widget type="Button" skin="BeaconIconBorder" position="240 50 80 80" name="TargetTracker">
+					<Widget type="TextBox" skin="TextBox" position="0 0 80 80" name="ButtonTextTracker">
+						<Property key="Caption" value="Tracker"/>
+						<Property key="TextAlign" value="Center"/>
+						<Property key="NeedMouse" value="false"/>
+						<Property key="NeedKey" value="false"/>
+					</Widget>
+				</Widget>
+				<Widget type="Button" skin="BeaconIconBorder" position="320 50 80 80" name="TargetPlayerTracker">
+					<Widget type="TextBox" skin="TextBox" position="0 0 80 80" name="ButtonTextPlayerTracker">
+						<Property key="Caption" value="Player &amp;\nTracker"/>
+						<Property key="TextAlign" value="Center"/>
+						<Property key="NeedMouse" value="false"/>
+						<Property key="NeedKey" value="false"/>
+					</Widget>
+				</Widget>
+				<Widget type="Button" skin="BeaconIconBorder" position="400 50 80 80" name="TargetUnits">
+					<Widget type="TextBox" skin="TextBox" position="0 0 80 80" name="ButtonTextUnits">
+						<Property key="Caption" value="Units"/>
+						<Property key="TextAlign" value="Center"/>
+						<Property key="NeedMouse" value="false"/>
+						<Property key="NeedKey" value="false"/>
+					</Widget>
+				</Widget>
+				<Widget type="TextBox" skin="TextBox" position="0 140 480 40" name="HeadingOptions">
+					<Property key="Caption" value="Options"/>
+					<Property key="TextAlign" value="Left VCenter"/>
+					<Property key="FontName" value="SM_ButtonSmallBold"/>
+				</Widget>
+				<Widget type="Button" skin="BeaconIconBorder" position="0 190 30 30" name="OptionPredictive">
+					<Widget type="TextBox" skin="TextBox" position="0 0 30 30" name="OptionPredictiveCheck">
+						<Property key="Caption" value="x"/>
+						<Property key="TextAlign" value="Center"/>
+						<Property key="NeedKey" value="false"/>
+						<Property key="NeedMouse" value="false"/>
+					</Widget>
+				</Widget>
+				<Widget type="TextBox" skin="TextBox" position="35 190 100 30" name="OptionPredictiveLabel">
+					<Property key="Caption" value="Predictive"/>
+					<Property key="TextAlign" value="Left VCenter"/>
+				</Widget>
+				<Widget type="Button" skin="BeaconIconBorder" position="0 230 30 30" name="OptionLocal">
+					<Widget type="TextBox" skin="TextBox" position="0 0 30 30" name="OptionLocalCheck">
+						<Property key="Caption" value="x"/>
+						<Property key="TextAlign" value="Center"/>
+						<Property key="NeedKey" value="false"/>
+						<Property key="NeedMouse" value="false"/>
+					</Widget>
+				</Widget>
+				<Widget type="TextBox" skin="TextBox" position="35 230 100 30" name="OptionLocalLabel">
+					<Property key="Caption" value="Local"/>
+					<Property key="TextAlign" value="Left VCenter"/>
+				</Widget>
+				<Widget type="Widget" skin="PanelEmpty" position="0 190 480 210" name="Units">
+					<Widget type="Button" skin="BeaconIconBorder" position="0 0 80 70" name="UnitsAll">
+						<Widget type="TextBox" skin="TextBox" position="0 0 80 70">
+							<Property key="Caption" value="All"/>
+							<Property key="TextAlign" value="Center"/>
+							<Property key="NeedMouse" value="false"/>
+							<Property key="NeedKey" value="false"/>
+						</Widget>
+					</Widget>
+					<Widget type="Button" skin="BeaconIconBorder" position="80 0 80 70" name="UnitsHostile">
+						<Widget type="TextBox" skin="TextBox" position="0 0 80 70">
+							<Property key="Caption" value="Hostile"/>
+							<Property key="TextAlign" value="Center"/>
+							<Property key="NeedMouse" value="false"/>
+							<Property key="NeedKey" value="false"/>
+						</Widget>
+					</Widget>
+					<Widget type="Button" skin="BeaconIconBorder" position="160 0 80 70" name="UnitsFriendly">
+						<Widget type="TextBox" skin="TextBox" position="0 0 80 70">
+							<Property key="Caption" value="Friendly"/>
+							<Property key="TextAlign" value="Center"/>
+							<Property key="NeedMouse" value="false"/>
+							<Property key="NeedKey" value="false"/>
+						</Widget>
+					</Widget>
+					<Widget type="Button" skin="BeaconIconBorder" position="0 70 80 70" name="UnitsFarmbot">
+						<Widget type="TextBox" skin="TextBox" position="0 0 80 70">
+							<Property key="Caption" value="Farmbot"/>
+							<Property key="TextAlign" value="Center"/>
+							<Property key="NeedMouse" value="false"/>
+							<Property key="NeedKey" value="false"/>
+						</Widget>
+					</Widget>
+					<Widget type="Button" skin="BeaconIconBorder" position="80 70 80 70" name="UnitsTapebot">
+						<Widget type="TextBox" skin="TextBox" position="0 0 80 70">
+							<Property key="Caption" value="Tapebot"/>
+							<Property key="TextAlign" value="Center"/>
+							<Property key="NeedMouse" value="false"/>
+							<Property key="NeedKey" value="false"/>
+						</Widget>
+					</Widget>
+					<Widget type="Button" skin="BeaconIconBorder" position="160 70 80 70" name="UnitsHaybot">
+						<Widget type="TextBox" skin="TextBox" position="0 0 80 70">
+							<Property key="Caption" value="Haybot"/>
+							<Property key="TextAlign" value="Center"/>
+							<Property key="NeedMouse" value="false"/>
+							<Property key="NeedKey" value="false"/>
+						</Widget>
+					</Widget>
+					<Widget type="Button" skin="BeaconIconBorder" position="240 70 80 70" name="UnitsTotebot">
+						<Widget type="TextBox" skin="TextBox" position="0 0 80 70">
+							<Property key="Caption" value="Totebot"/>
+							<Property key="TextAlign" value="Center"/>
+							<Property key="NeedMouse" value="false"/>
+							<Property key="NeedKey" value="false"/>
+						</Widget>
+					</Widget>
+					<Widget type="Button" skin="BeaconIconBorder" position="320 70 80 70" name="UnitsCablebot">
+						<Widget type="TextBox" skin="TextBox" position="0 0 80 70">
+							<Property key="Caption" value="Cablebot"/>
+							<Property key="TextAlign" value="Center"/>
+							<Property key="NeedMouse" value="false"/>
+							<Property key="NeedKey" value="false"/>
+						</Widget>
+					</Widget>
+					<Widget type="Button" skin="BeaconIconBorder" position="80 140 80 70" name="UnitsWoc">
+						<Widget type="TextBox" skin="TextBox" position="0 0 80 70">
+							<Property key="Caption" value="Woc"/>
+							<Property key="TextAlign" value="Center"/>
+							<Property key="NeedMouse" value="false"/>
+							<Property key="NeedKey" value="false"/>
+						</Widget>
+					</Widget>
+					<Widget type="Button" skin="BeaconIconBorder" position="0 140 80 70" name="UnitsGlowworm">
+						<Widget type="TextBox" skin="TextBox" position="0 0 80 70">
+							<Property key="Caption" value="Glow\nworm"/>
+							<Property key="TextAlign" value="Center"/>
+							<Property key="NeedMouse" value="false"/>
+							<Property key="NeedKey" value="false"/>
+						</Widget>
+					</Widget>
+				</Widget>
+			</Widget>
+		</Widget>
+		<Widget type="Widget" skin="BeaconBottomBG" position="0 510 510 190">
+			<Widget type="TextBox" skin="TextBox" position="15 15 480 36" name="FunctionNameText">
+				<Property key="Caption" value="Function"/>
+				<Property key="FontName" value="SM_ButtonSmallBold"/>
+				<Property key="TextAlign" value="Center"/>
+			</Widget>
+			<Widget type="EditBox" skin="EditBoxEmpty" position="15 50 480 125" name="FunctionDescriptionText">
+				<Property key="Static" value="true"/>
+				<Property key="Caption" value="Function description"/>
+				<Property key="FontName" value="SM_TextLabel"/>
+				<Property key="MultiLine" value="true"/>
+				<Property key="ReadOnly" value="true"/>
+				<Property key="WordWrap" value="true"/>
+				<Property key="TextAlign" value="Left Top"/>
+			</Widget>
+		</Widget>
+	</Widget>
+	<CodeGeneratorSettings/>
+</MyGUI>
