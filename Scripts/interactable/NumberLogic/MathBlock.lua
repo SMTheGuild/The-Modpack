@@ -56,6 +56,9 @@ MathBlock.modetable = {--"value" aka "savevalue", gets saved, gets loaded.
 	{value = 29, icon = "seated",  name = "Seated"                ,description = "Becomes active and outputs the value of input seats occupied"},
 	{value = 30, icon = "A/D",     name = "A/D"                   ,description = "Outputs the A/D value, range: -1 to 1\nMultiple driverseat inputs: average of A/D output of inputs,\nExcellent for teamwork!"},
 	{value = 31, icon = "W/S",     name = "W/S"                   ,description = "Outputs the W/S value, range: -1 to 1\nMultiple driverseat inputs: average of W/S output of inputs,\nExcellent for teamwork!"},
+	{value = 39, icon = "OR",      name = "Bitwise OR"            ,description = "Outputs a number where each bit is 1 if the corresponding bit of ANY input is 1\n\nNegative inputs are treated as 0, non-integer inputs are rounded"},
+	{value = 40, icon = "AND",     name = "Bitwise AND"           ,description = "Outputs a number where each bit is 1 if the corresponding bit of ALL inputs is 1\n\nNegative inputs are treated as 0, non-integer inputs are rounded"},
+	{value = 41, icon = "XOR",     name = "Bitwise XOR"           ,description = "Outputs a number where each bit is 1 if the corresponding bit of AN ODD NUMBER of inputs is 1\n\nNegative inputs are treated as 0, non-integer inputs are rounded"},
 }
 MathBlock.savemodes = {}
 for k,v in pairs(MathBlock.modetable) do
@@ -823,7 +826,43 @@ MathBlock.modeFunctions = {
 				end
 			end
 			self:sv_setValue(power)
+		end,
+
+	[39] = function(self, parents)  -- bitiwise or
+			local result = 0
+
+			for k, parent in pairs(parents) do
+				local value = math.round(sm.interactable.getValue(parent) or parent.power)
+				result = bit.bor(result, value)
+			end
+
+			self:sv_setValue(result)
+		end,
+
+	[40] = function(self, parents)  -- bitiwise and
+			local result = 0
+
+			if #parents >1 then
+				result = bit.bnot(0)
+				for k, parent in pairs(parents) do
+					local value = math.round(sm.interactable.getValue(parent) or parent.power)
+					result = bit.band(result, value)
+				end
+			end
+
+			self:sv_setValue(result)
+		end,
+
+	[41] = function(self, parents)  -- bitiwise xor
+			local result = 0
+
+			for k, parent in pairs(parents) do
+				local value = math.round(sm.interactable.getValue(parent) or parent.power)
+				result = bit.bxor(result, value)
 		end
+
+			self:sv_setValue(result)
+		end,
 }
 
 
